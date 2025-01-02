@@ -24,10 +24,10 @@ pipeline {
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
                 success {
-                    sh "rsync -u nginx_webcasino_provider_route_config.conf ubuntu@11.0.10.178:/var/www/html/deployment/nginx_conf/ "
-                    sh "rsync -avh dist/casino/ ubuntu@11.0.10.178:/var/www/html/deployment/webcasino/ --delete"
+                    
+                    sh "rsync -avh dist/casino/ ubuntu@11.0.10.178:/var/www/html/deployment/webcasino-v2/ --delete"
 
-                    sh "ssh ubuntu@11.0.10.178 -T /home/ubuntu/deployment.sh webcasino"
+                    
 
 
                 }
