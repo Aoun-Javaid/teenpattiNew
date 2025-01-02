@@ -18,13 +18,13 @@
         </div>
     </div>
     @if (viewType==='Game') {
-    <div class="bg-[#1A2C38] mt-[24px] border-0 rounded-[10px] h-fit mb-[70px]  ">
+    <div class="bg-[#1A2C38] mt-[24px] border-0 rounded-[10px] h-fit mb-[70px] pb-5 ">
         <div
             class="h-[59px] w-full text-[18px] leading-[21.48px] tracking-wide font-bold flex justify-start items-center pl-5 text-white border-b border-[#55758A] border-solid">
             Game
         </div>
         <li (click)="toggleUniverseOriginalMenu()"
-            class="flex flex-row justify-between items-center gap-4 px-5 mt-5 cursor-pointer">
+            class="flex flex-row justify-between items-center gap-4 px-5 mt-5 cursor-pointer ">
             <div class="flex flex-row justify-start items-center gap-4">
                 <div>
                     <img class="w-[13px] h-[17px]" src="/images/fire.svg" alt="originals">
@@ -41,10 +41,10 @@
             </button>
         </li>
 
-        <ul class="overflow-hidden transition-all duration-1000 ease-in-out"
+        <ul class="overflow-hidden transition-all duration-1000 ease-in-out "
             [@toggleHeight]="universeOriginalState ? 'expanded' : 'collapsed'">
             @for (item of gameList; track $index) {
-            <li class="flex flex-row justify-start items-center gap-4 pl-5 mt-5 cursor-pointer">
+            <li class="flex flex-row justify-start items-center gap-4 pl-5 mt-5 cursor-pointer my-5">
                 <div [ngClass]="[item?.img==='' ? 'opacity-0':'']">
                     <img class="w-[13px] h-[17px]" [src]="item?.img" alt="fire">
                 </div>
@@ -54,7 +54,7 @@
 
         </ul>
 
-        <ul class="pb-[5px] ">
+        <!-- <ul class="pb-[5px] ">
             <li (click)="toggleOptionMenu()"
                 class="flex flex-row justify-between items-center gap-4 px-5 my-5 cursor-pointer">
                 <div class="flex flex-row justify-start items-center gap-4">
@@ -64,7 +64,7 @@
                     <div
                         class="text-[14px] font-bold leading-[16.71px] text-white flex flex-row justify-center items-center gap-1.5">
                         <div>
-                            Option:
+                            Optionss:
                         </div>
                         <div>
                             {{selectedOption}}
@@ -102,7 +102,7 @@
 
             </ul>
 
-        </ul>
+        </ul> -->
 
 
 
