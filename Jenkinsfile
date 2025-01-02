@@ -25,7 +25,7 @@ pipeline {
                 // failed, record the test results and archive the jar file.
                 success {
                     
-                    sh "rsync -avh dist/casino/ ubuntu@11.0.10.178:/var/www/html/deployment/webcasino-v2/ --delete"
+                    sh "rsync -avh dist/casino/browser/ ubuntu@11.0.10.178:/var/www/html/deployment/webcasino-v2/ --delete"
 
                     
 
