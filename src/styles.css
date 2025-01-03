@@ -99,9 +99,9 @@ body {
   z-index: 10000;
 }
 
-.loaderMain img {
+/* .loaderMain img {
   width: 350px;
-}
+} */
 
 #progressbar {
   background-color: black;
@@ -112,11 +112,13 @@ body {
 
 #progressbar > div {
   background-color: orange;
-  width: 40%;
+  width: 0%;
   /* Adjust with JavaScript */
   height: 10px;
   border-radius: 10px;
+  transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
+
 .header-wallet {
   font-family: "SF-PRO", Arial, sans-serif;
 }

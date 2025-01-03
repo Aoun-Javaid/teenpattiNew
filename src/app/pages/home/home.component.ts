@@ -24,6 +24,8 @@ import 'swiper/css/pagination';
 import { CONFIG } from '../../../../config';
 import { MainService } from '../../services/main.service';
 
+declare var $:any;
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -148,76 +150,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
       },
     });
 
-    // this.stakeOrigin = new Swiper('.stake-swiper', {
-    //   loop: false,
-    //   slidesPerView: 7.5,
-    //   slidesPerGroup: 6,
-    //   freeMode: true,
+    $('#progressbar > div').css({
+      'background-color': 'rgb(79 78 176)',
+      width: '90%',
+    });
+    $(document).ready(() => {
+      $('.loaderMain').css('display', 'none')
+    });
 
-    //   spaceBetween: 10,
-    //   navigation: {
-    //     nextEl: '.myCarouselRight',
-    //     prevEl: '.myCarouselLeft',
-    //   },
-    //   breakpoints: {
-    //     300: {
-    //       slidesPerView: 3,
-    //       slidesPerGroup: 3,
-    //       spaceBetween: 6,
-
-    //     },
-    //     768: {
-    //       slidesPerView: 4,
-    //       slidesPerGroup: 3,
-    //       spaceBetween: 6,
-
-    //     },
-    //     1024: {
-    //       slidesPerView: 7.5,
-    //       slidesPerGroup: 6,
-    //       spaceBetween: 10,
-    //     },
-    //   },
-    //   on: {
-    //     slideChange: () => this.updateNavigationButtons(),
-    //     reachBeginning: () => (this.owlPrevBtn = true),
-    //     reachEnd: () => (this.owlNextBtn = true),
-    //   },
-    // });
-
-    // this.providerSwiper = new Swiper('.provider-swiper', {
-    //   loop: false,
-    //   slidesPerView: 7.5,
-    //   slidesPerGroup: 3,
-    //   freeMode: true,
-    //   spaceBetween: 10,
-    //   navigation: {
-    //     nextEl: '.myCarouselRight',
-    //     prevEl: '.myCarouselLeft',
-    //   },
-    //   breakpoints: {
-    //     300: {
-    //       slidesPerView: 3,
-    //       slidesPerGroup: 3,
-    //       spaceBetween: 6,
-    //     },
-    //     768: {
-    //       slidesPerView: 4,
-    //       slidesPerGroup: 3,
-    //       spaceBetween: 6,
-    //     },
-    //     1024: {
-    //       slidesPerView: 7.5,
-    //       slidesPerGroup: 6,
-    //       spaceBetween: 10,
-    //     },
-    //   },
-    //   on: {
-    //     slideChange: () => this.updateProviderNavigationButtons(),
-    //     reachBeginning: () => (this.ProviderPrevBtn = true),
-    //     reachEnd: () => (this.ProviderNextBtn = true),
-    //   },
-    // });
   }
 
   checkCarousel() {

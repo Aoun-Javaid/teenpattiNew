@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { CONFIG } from '../../config';
 import { MainService } from './services/main.service';
 
+declare var $:any;
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -18,6 +20,11 @@ export class AppComponent implements OnInit{
 
   }
   ngOnInit(): void {
+    $('#progressbar > div').css({
+      'background-color': '#d2098b',
+      width: '70%',
+    });
+
     this.getBanners();
     this.getNavigationList();
   }

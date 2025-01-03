@@ -1,7 +1,10 @@
 
 
 // const BASE_URL = 'http://101.0.20.58:5011';
+// const BASE_URL = 'https://v2.universestudio.online';
+
 const BASE_URL = '';
+
 
 
 export const CONFIG = {

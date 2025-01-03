@@ -8,8 +8,8 @@
         @for (slide of heroSlides; track $index) {
         <div class="hero-card swiper-slide max-w-[380px]">
           <div class="sliderImgC carousel_img_wrapper">
-            <a [href]="slide?.link" target="_blank">
-              <img [src]="slide?.image" alt="slider" class="border-0 rounded-[20px] w-full">
+            <a [href]="slide?.link" target="_blank" class="heroLink">
+              <img [src]="slide?.image" alt="slider" class="border-0 rounded-[20px] w-full h-full">
             </a>
           </div>
         </div>
