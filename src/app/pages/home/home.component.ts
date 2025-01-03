@@ -154,9 +154,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
       'background-color': 'rgb(79 78 176)',
       width: '90%',
     });
-    $(document).ready(() => {
-      $('.loaderMain').css('display', 'none')
-    });
+    setTimeout(() => {
+      $(document).ready(() => {
+        $('.loaderMain').css('display', 'none')
+      });
+    }, 400);
 
   }
 
