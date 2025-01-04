@@ -14,10 +14,10 @@
 
   </div>
   <div class="card-body grid grid-cols-2 gap-4">
-    <button class="editBtn" (click)="editable=true">
+    <button class="editBtn" (click)="editable=true;">
       Edit
     </button>
-    <button class="saveBtn" (click)="updateBetSetting()">
+    <button class="saveBtn" (click)="updateBetSetting();editable=false;">
       Save
     </button>
   </div>
