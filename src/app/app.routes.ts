@@ -4,6 +4,7 @@ import { LobbyComponent } from './pages/lobby/lobby.component';
 import { UniverseOriginalsComponent } from './pages/universe-originals/universe-originals.component';
 import { ProvidersComponent } from './pages/providers/providers.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { AuthComponent } from './auth/auth.component';
 
 export const routes: Routes = [
   {
@@ -32,7 +33,10 @@ export const routes: Routes = [
           },
         ],
       },
-
+      {
+        path: 'authentication/:token',
+        component: AuthComponent
+      },
       {
         path: '**',
         redirectTo: '',
