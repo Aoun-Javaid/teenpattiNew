@@ -5,6 +5,7 @@ import { UniverseOriginalsComponent } from './pages/universe-originals/universe-
 import { ProvidersComponent } from './pages/providers/providers.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AuthComponent } from './auth/auth.component';
+import { BetStakesComponent } from './pages/bet-stakes/bet-stakes.component';
 
 export const routes: Routes = [
   {
@@ -33,6 +34,10 @@ export const routes: Routes = [
           },
         ],
       },
+      {
+        path: 'stakes',
+        component:BetStakesComponent
+   },
       {
         path: 'authentication/:token',
         component: AuthComponent

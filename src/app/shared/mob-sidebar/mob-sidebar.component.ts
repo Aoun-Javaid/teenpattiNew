@@ -9,6 +9,7 @@ import {
   transition,
   animate,
 } from '@angular/animations';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-mob-sidebar',
   standalone: true,
@@ -48,7 +49,7 @@ export class MobSidebarComponent implements OnInit {
   languageSelectionState: boolean = false;
   optionSelectionState: boolean = false;
   universeOriginalState: boolean = false;
-  constructor(private toggle: ToggleService) {}
+  constructor(private toggle: ToggleService,private router:Router) {}
 
   ngOnInit(): void {
     this.hideSideBar = true;
@@ -195,4 +196,10 @@ export class MobSidebarComponent implements OnInit {
     { label: 'Español', value: 'Espanol' },
     { label: 'Hindi', value: 'Hindi' },
   ];
+  navigateTo(item:any){
+    if(item.name=='Stake Edit'){
+      this.router.navigateByUrl('/stakes');
+      this.toggle.setMobSideBarState(false);
+    }
+  }
 }

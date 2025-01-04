@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit{
   }
   userBalance:any={};
   ngOnInit(): void {
-    this.getBalance();
+    // this.getBalance();
   }
   getBalance(){
     this.networkService.getAllRecordsByPost(CONFIG.userBalance, {})

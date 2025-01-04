@@ -117,7 +117,7 @@
         </div>
         <ul class="pb-[60px] border-b border-[#304553]">
             @for (item of profileList; track $index) {
-            <li class="flex flex-row justify-start items-center gap-4 pl-5 mt-5 cursor-pointer">
+            <li class="flex flex-row justify-start items-center gap-4 pl-5 mt-5 cursor-pointer" (click)="navigateTo(item)">
                 <div [ngClass]="[item?.img==='' ? 'opacity-0':'']">
                     <img class="w-[13px] h-[17px]" [src]="item?.img" [alt]="item.name">
                 </div>

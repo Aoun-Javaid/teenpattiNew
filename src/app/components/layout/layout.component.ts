@@ -8,7 +8,7 @@ import { filter } from 'rxjs';
 import { ToggleService } from '../../services/toggle.service';
 import { MobNavigationComponent } from '../../shared/mob-navigation/mob-navigation.component';
 import { MobSidebarComponent } from '../../shared/mob-sidebar/mob-sidebar.component';
-
+declare var $:any;
 @Component({
   selector: 'app-layout',
   standalone: true,
@@ -37,6 +37,16 @@ export class LayoutComponent implements OnInit {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.currentRoute = event.urlAfterRedirects;
+        $('#progressbar > div').css({
+          'background-color': 'rgb(79 78 176)',
+          width: '90%',
+        });
+        setTimeout(() => {
+          $(document).ready(() => {
+            $('.loaderMain').css('display', 'none')
+          });
+        }, 400);
+
       });
   }
   ngOnInit(): void {}

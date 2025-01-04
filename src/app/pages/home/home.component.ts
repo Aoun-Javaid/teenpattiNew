@@ -150,15 +150,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
       },
     });
 
-    $('#progressbar > div').css({
-      'background-color': 'rgb(79 78 176)',
-      width: '90%',
-    });
-    setTimeout(() => {
-      $(document).ready(() => {
-        $('.loaderMain').css('display', 'none')
-      });
-    }, 400);
+    // $('#progressbar > div').css({
+    //   'background-color': 'rgb(79 78 176)',
+    //   width: '90%',
+    // });
+    // setTimeout(() => {
+    //   $(document).ready(() => {
+    //     $('.loaderMain').css('display', 'none')
+    //   });
+    // }, 400);
 
   }
 

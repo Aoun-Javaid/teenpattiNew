@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ToggleService } from '../../services/toggle.service';
 
 @Component({
   selector: 'app-mob-navigation',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './mob-navigation.component.html',
   styleUrl: './mob-navigation.component.css',
 })
