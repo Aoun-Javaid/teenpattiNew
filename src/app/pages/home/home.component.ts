@@ -155,9 +155,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
       width: '90%',
     });
     setTimeout(() => {
-      // $(document).ready(() => {
-      //   $('.loaderMain').css('display', 'none')
-      // });
+      $(document).ready(() => {
+        $('.loaderMain').css('display', 'none')
+      });
     }, 400);
 
   }
