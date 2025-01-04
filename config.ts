@@ -16,6 +16,7 @@ export const CONFIG = {
   NavigationListTime:120,
   tablesList: BASE_URL + "/v2/operator/navigation/tablesList",
   tablesListTime:120,
+  userBalance: BASE_URL + "/v2/operator/user/userBalance",
 };
 
 

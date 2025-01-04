@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
-
+import { first, map } from 'rxjs';
+import { CONFIG } from '../../../config';
+declare var $:any;
 @Injectable({
   providedIn: 'root'
 })
@@ -16,4 +17,20 @@ export class NetworkService {
       }));
   }
 
+  getBalance() {
+    this.getAllRecordsByPost(CONFIG.userBalance, {})
+      .pipe(first())
+      .subscribe(
+        data => {
+
+          if (data.meta.status == true) {
+            let availBalance = (data.data.balance - data.data.exposure).toFixed(2)
+            $('.userTotalBalance').text(availBalance);
+            $('.userTotalExposure').text(data.data.exposure);
+          }
+        },
+        error => {
+          let responseData = error;
+        });
+  }
 }

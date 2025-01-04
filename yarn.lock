@@ -1742,7 +1742,7 @@
   resolved "https://registry.npmjs.org/@types/jasmine/-/jasmine-5.1.5.tgz"
   integrity sha512-SaCZ3kM5NjOiJqMRYwHpLbTfUC2Dyk1KS3QanNFsUYPGTk70CWVK/J9ueun6zNhw/UkgV7xl8V4ZLQZNRbfnNw==
 
-"@types/jquery@^3.5.9":
+"@types/jquery@^3.5.32":
   version "3.5.32"
   resolved "https://registry.npmjs.org/@types/jquery/-/jquery-3.5.32.tgz"
   integrity sha512-b9Xbf4CkMqS02YH8zACqN1xzdxc3cO735Qe5AbSUFmyOiaWAbcpqh9Wna+Uk0vgACvoQHpWDg2rGdHkYPLmCiQ==

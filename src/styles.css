@@ -99,9 +99,9 @@ body {
   z-index: 10000;
 }
 
-/* .loaderMain img {
-  width: 350px;
-} */
+.loaderMain img {
+  margin-top: -20px;
+}
 
 #progressbar {
   background-color: black;
