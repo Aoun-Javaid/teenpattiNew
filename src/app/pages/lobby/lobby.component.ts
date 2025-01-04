@@ -8,14 +8,14 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import Swiper from 'swiper';
 import { ToggleService } from '../../services/toggle.service';
 
 @Component({
   selector: 'app-lobby',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './lobby.component.html',
   styleUrl: './lobby.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
