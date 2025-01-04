@@ -1,1 +1,24 @@
-<p>bet-stakes works!</p>
+<div class="mainCard">
+  <div class="card-header">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+      class="FavouriteIndicatorstyled__FavouriteIndicatorOutlined-sc-667cje-0 cBRhMA">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M8.0001 0.666687C8.25385 0.666687 8.48559 0.810735 8.59791 1.03827L10.5029 4.89766L14.7632 5.52036C15.0142 5.55706 15.2227 5.73306 15.3009 5.9744C15.3792 6.21574 15.3137 6.48057 15.1319 6.65759L12.0498 9.6596L12.7772 13.9007C12.8201 14.1508 12.7172 14.4036 12.5119 14.5527C12.3066 14.7019 12.0344 14.7215 11.8098 14.6034L8.0001 12.5999L4.1904 14.6034C3.96579 14.7215 3.6936 14.7019 3.48828 14.5527C3.28296 14.4036 3.18013 14.1508 3.22303 13.9007L3.95042 9.6596L0.868279 6.65759C0.686533 6.48057 0.621018 6.21574 0.69927 5.9744C0.777522 5.73306 0.985975 5.55706 1.23702 5.52036L5.49726 4.89766L7.4023 1.03827C7.51461 0.810735 7.74636 0.666687 8.0001 0.666687ZM8.0001 2.83952L6.53791 5.80177C6.44088 5.99833 6.25342 6.13464 6.03652 6.16634L2.76571 6.64442L5.13192 8.94912C5.28917 9.10228 5.36095 9.32303 5.32384 9.53938L4.76555 12.7945L7.6898 11.2566C7.88406 11.1545 8.11615 11.1545 8.3104 11.2566L11.2346 12.7945L10.6764 9.53938C10.6393 9.32303 10.711 9.10228 10.8683 8.94912L13.2345 6.64442L9.96368 6.16634C9.74678 6.13464 9.55932 5.99833 9.4623 5.80177L8.0001 2.83952Z">
+      </path>
+    </svg>
+    <div class="header-title">Stakes</div>
+  </div>
+  <div class="card-body grid grid-cols-4 gap-4">
+    <input [disabled]="!editable" [ngClass]="editable?'border-active':''"  *ngFor="let item of stackButtonArry" class="inputbox" type="text" min="1" max="99999999" maxlength="9" [(ngModel)]="item.stakeAmount"
+    (keypress)="numberOnly($event)">
+
+  </div>
+  <div class="card-body grid grid-cols-2 gap-4">
+    <button class="editBtn" (click)="editable=true">
+      Edit
+    </button>
+    <button class="saveBtn" (click)="updateBetSetting()">
+      Save
+    </button>
+  </div>
+</div>

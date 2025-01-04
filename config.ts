@@ -18,6 +18,7 @@ export const CONFIG = {
   tablesListTime:120,
   userBalance: BASE_URL + "/v2/operator/user/userBalance",
   userGetStackURL: BASE_URL + "/v2/operator/user/userStake",
+  updateUserBetStake: BASE_URL + "/v2/operator/user/updateUserStake",
 };
 
 

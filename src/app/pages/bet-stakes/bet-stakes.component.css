@@ -1,0 +1,77 @@
+.mainCard{
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: rgba(13, 13, 13, 0) 0px 0px 0px 0px;
+  background: rgb(46, 69, 84);
+  border-width: 0px;
+  border-color: rgba(255, 255, 255, 0);
+  border-style: solid;
+  border-radius: 4px;
+  margin: 0px 13px;
+  margin-top: 12px;
+}
+
+.card-header{
+
+    display: grid;
+    gap: 8px;
+    grid-auto-flow: column;
+    grid-template-columns: max-content 1fr;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    background: rgb(46, 69, 84);
+    color: rgb(255, 255, 255);
+    padding: 12px;
+    /* font-family: Roboto, sans-serif; */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+}
+
+.header-title{
+
+}
+.card-body{
+  display: grid;
+  padding: 12px;
+  gap: 8px;
+}
+.inputbox{
+  height: 40px;
+  text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    overflow: hidden;
+    position: relative;
+    padding: 0px;
+    box-shadow: rgba(13, 13, 13, 0) 0px 0px 0px 0px, rgba(13, 13, 13, 0) 0px 0px 0px 0px inset;
+    background: rgb(33, 51, 64);
+    color: rgb(255, 255, 255);
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0);
+    border-style: solid;
+    border-radius: 4px;
+    outline-color: transparent;
+}
+.saveBtn{
+  height: 40px;
+  background: #4db04f;
+  color: white;
+  width: 100%;
+  border-radius: 4px;
+}
+.editBtn{
+  height: 40px;
+  width: 100%;
+  background: #827c30;
+  color: white;
+  border-radius: 4px;
+}
+.border-active{
+  border-color: #827c30;
+}

@@ -38,11 +38,11 @@ export class AuthComponent {
     if (this.accessToken) {
       localStorage.setItem('token', this.accessToken);
       localStorage.setItem('localset', 'true');
+      setTimeout(() => {
+        this.getStakes();
+      }, 1000)
 
-
-        this.router.navigate([`/home`]);
-      
-
+      this.router.navigate([`/home`]);
     }
 
   }
