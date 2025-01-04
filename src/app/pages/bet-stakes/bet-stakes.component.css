@@ -41,6 +41,9 @@
   padding: 12px;
   gap: 8px;
 }
+input.inputbox:disabled{
+  background: rgb(33, 51, 64) !important;
+}
 .inputbox{
   height: 40px;
   text-align: center;
