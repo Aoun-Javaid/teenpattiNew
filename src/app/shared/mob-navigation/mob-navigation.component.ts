@@ -53,4 +53,7 @@ export class MobNavigationComponent implements OnInit {
   closeMobSideBar() {
     this.toggle.setMobSideBarState(false);
   }
+  openChatMobSidebar(){
+
+  }
 }
