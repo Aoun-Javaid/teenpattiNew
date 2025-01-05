@@ -11,11 +11,12 @@ import {
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import Swiper from 'swiper';
 import { ToggleService } from '../../services/toggle.service';
+import { BetsComponent } from '../bets/bets.component';
 
 @Component({
   selector: 'app-lobby',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,RouterLink,BetsComponent],
   templateUrl: './lobby.component.html',
   styleUrl: './lobby.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

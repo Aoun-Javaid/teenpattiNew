@@ -146,7 +146,7 @@ body {
 @layer utilities {
   /* Table */
   .table-container {
-    @apply !w-full  rounded-lg p-5 shadow-lg;
+    @apply !w-full  rounded-lg shadow-lg;
   }
   table {
     @apply w-full;
@@ -590,7 +590,7 @@ body {
 
   /* Table */
   .table-container {
-    @apply !w-full  rounded-lg p-5 mb-[140px] shadow-lg;
+    @apply !w-full  rounded-lg mb-[140px] shadow-lg;
   }
   table {
     @apply w-full;
@@ -600,7 +600,7 @@ body {
     @apply w-1/5 p-4  align-middle text-[#b1bad3] text-sm whitespace-nowrap rounded-tl rounded-bl;
   }
   th {
-    @apply font-normal !bg-[#1A2C38];
+    @apply font-semibold !bg-[#1A2C38];
   }
   tr:nth-child(odd) {
     @apply bg-[#213743];
