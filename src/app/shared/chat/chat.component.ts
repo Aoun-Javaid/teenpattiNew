@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToggleService } from '../../services/toggle.service';
 
 @Component({
   selector: 'app-chat',
@@ -9,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class ChatComponent {
 
+  constructor(private toggle:ToggleService){
+
+  }
+  closeMobSideBar(){
+    this.toggle.setMobSideBarState(false);
+  }
 }

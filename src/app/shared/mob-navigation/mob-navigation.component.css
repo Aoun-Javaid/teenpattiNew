@@ -19,4 +19,25 @@
   .btn_text {
     @apply text-[15px] leading-[17.9px] font-semibold text-white;
   }
+  .navigation-wrapper {
+    @apply grid justify-center w-full leading-[1] p-[0_1rem] bg-[#0f212e] shadow-[0_5px_5px_#0a1c2766]
+    overflow-hidden h-[52px] fixed bottom-0 z-[1600] md:hidden
+  }
+
+  .button-wrap {
+    @apply flex justify-center relative w-full
+  }
+
+  .button-inner-wrap {
+    @apply inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-white focus-visible:outline-none text-xs leading-none;
+
+  }
+
+  .content {
+    @apply flex flex-col justify-center items-center h-full gap-1 text-[0.75rem]
+  }
+
+  .mobile-icon-style svg {
+    @apply w-[1rem] h-[1rem]
+  }
 }

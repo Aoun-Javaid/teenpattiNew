@@ -1,7 +1,8 @@
 <section
-    class="bg-[#0d212e] px-5  py-2.5 min-h-[calc(100svh-52px)] max-h-[calc(100svh-52px)] overflow-auto tracking-wider duration-700  absolute z-[1500] top-[0px] transition-transform  ease-in-out w-full "
-    [ngClass]="{' !duration-1000  translate-y-[120%]': !mobSidebarState, 'translate-y-[60px]   ease-in-out': mobSidebarState ,'hidden': hideSideBar}">
-    <div>
+    class="bg-[#0d212e]  min-h-[calc(100svh-52px)] max-h-[calc(100svh-52px)] overflow-auto tracking-wider duration-700  absolute z-[1500] top-[0px] transition-transform  ease-in-out w-full "
+    [ngClass]="{' !duration-1000  translate-y-[120%]': !mobSidebarState, 'translate-y-[60px]   ease-in-out': mobSidebarState ,'hidden': hideSideBar ,'px-5  py-2.5':viewType!='chat'}">
+    @if (viewType!='chat') {
+    <div >
         <div class="input-wrap mobile">
             <button
                 class="text-[15px] font-semibold leading-[17.9px] tracking-wide w-[99.26px] h-[36px] border-r-2 border-[#2f4553] ">Casino</button>
@@ -17,6 +18,7 @@
             </div> <input placeholder="Search your game" class="input" id="search_game">
         </div>
     </div>
+  }
     @if (viewType==='Game') {
     <div class="bg-[#1A2C38] mt-[24px] border-0 rounded-[10px] h-fit mb-[70px] pb-5 ">
         <div
@@ -197,6 +199,8 @@
 
 
     </div>
-    }
+    }@else if(viewType==='chat') {
+      <app-chat></app-chat>
+      }
 
 </section>

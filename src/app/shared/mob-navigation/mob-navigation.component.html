@@ -1,4 +1,4 @@
-<section class="content_wrapper">
+<!-- <section class="content_wrapper">
     <div class="content_container">
         <button (click)="openBrowseMobSidebar()" class="browse_wrapper ">
             <img class="w-[20px] h-[20px]" src="/images/browse.svg" alt="browse">
@@ -20,4 +20,25 @@
         </button>
 
     </div>
-</section>
+</section> -->
+<div class="navigation-wrapper" id="mobile-footer" [ngClass]="buttons.length ? 'grid-cols-' + buttons.length : ''">
+  <ng-container *ngFor="let button of buttons">
+    <div class="button-wrap">
+      <button class="button-inner-wrap" type="button" (click)="button.clickFunction()">
+        <div class="content">
+          <div class="mobile-icon-style">
+            <svg class="svg-icon" fill="currentColor" [attr.viewBox]="button.view" *ngIf="button.text!='Profile'">
+              <title></title>
+              <path [attr.d]="button.svgPath" clip-rule="evenodd" fill-rule="evenodd"></path>
+            </svg>
+            <svg *ngIf="button.text=='Profile'" width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.99682 13.1746C3.68382 13.1746 -0.000183105 13.8546 -0.000183105 16.5746C-0.000183105 19.2956 3.66082 19.9996 7.99682 19.9996C12.3098 19.9996 15.9938 19.3206 15.9938 16.5996C15.9938 13.8786 12.3338 13.1746 7.99682 13.1746Z" fill="white"/>
+              <path d="M7.99683 10.5837C10.9348 10.5837 13.2888 8.22869 13.2888 5.29169C13.2888 2.35469 10.9348 -0.000305176 7.99683 -0.000305176C5.05983 -0.000305176 2.70483 2.35469 2.70483 5.29169C2.70483 8.22869 5.05983 10.5837 7.99683 10.5837Z" fill="white"/>
+              </svg>
+          </div>
+          <span>{{ button.text }}</span>
+        </div>
+      </button>
+    </div>
+  </ng-container>
+</div>

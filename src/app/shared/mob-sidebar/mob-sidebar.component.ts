@@ -10,10 +10,11 @@ import {
   animate,
 } from '@angular/animations';
 import { Router } from '@angular/router';
+import { ChatComponent } from "../chat/chat.component";
 @Component({
   selector: 'app-mob-sidebar',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ChatComponent],
   templateUrl: './mob-sidebar.component.html',
   styleUrl: './mob-sidebar.component.css',
   animations: [
