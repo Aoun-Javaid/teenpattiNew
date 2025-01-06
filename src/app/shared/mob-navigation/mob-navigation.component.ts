@@ -77,6 +77,7 @@ export class MobNavigationComponent implements OnInit {
       if (!this.mobSideBarState) {
         this.toggle.setMobSideBarState(true);
       }
+      document.body.classList.add('overflow-hidden');
       this.toggle.setMobSideBarContent(type);
     }
   }
@@ -84,16 +85,20 @@ export class MobNavigationComponent implements OnInit {
   // Wrapper functions for specific sidebar types
   openBrowseMobSidebar() {
     this.openMobSidebar('Game');
+
   }
 
   openProfileMobSidebar() {
     this.openMobSidebar('Profile');
+
   }
 
   openChatMobSidebar() {
     this.openMobSidebar('chat');
+
   }
   closeMobSideBar() {
+    document.body.classList.remove('overflow-hidden');
     this.toggle.setMobSideBarState(false);
   }
 
