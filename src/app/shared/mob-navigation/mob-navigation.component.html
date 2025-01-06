@@ -21,7 +21,7 @@
 
     </div>
 </section> -->
-<div class="navigation-wrapper" id="mobile-footer" [ngClass]="buttons.length ? 'grid-cols-' + buttons.length : ''">
+<div class="navigation-wrapper grid grid-cols-5" id="mobile-footer" >
   <ng-container *ngFor="let button of buttons">
     <div class="button-wrap">
       <button class="button-inner-wrap" type="button" (click)="button.clickFunction()">
