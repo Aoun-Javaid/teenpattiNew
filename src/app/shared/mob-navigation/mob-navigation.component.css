@@ -20,7 +20,7 @@
     @apply text-[15px] leading-[17.9px] font-semibold text-white;
   }
   .navigation-wrapper {
-    @apply grid justify-center w-full leading-[1] p-[0_1rem] bg-[#0f212e] shadow-[0_5px_5px_#0a1c2766] overflow-hidden h-[52px] fixed bottom-0 z-[1600] md:hidden
+    @apply grid justify-center w-full leading-[1] p-[0_1rem] bg-[#0f212e] shadow-[0_5px_5px_#0a1c2766] overflow-hidden h-[52px] fixed bottom-0 z-[1600] md:hidden grid-cols-5;
   }
 
   .button-wrap {
