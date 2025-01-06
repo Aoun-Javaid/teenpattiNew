@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { first } from 'rxjs';
 import { CONFIG } from '../../../../config';
 import { NetworkService } from '../../services/network.service';
@@ -7,7 +8,7 @@ import { NetworkService } from '../../services/network.service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })

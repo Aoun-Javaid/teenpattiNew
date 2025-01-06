@@ -1,6 +1,6 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ToggleService } from '../../services/toggle.service';
 
 @Component({
@@ -13,6 +13,7 @@ import { ToggleService } from '../../services/toggle.service';
 export class MobNavigationComponent implements OnInit {
   mobSideBarState: boolean = false;
   viewType = 'Profile';
+
 
   buttons = [
     {
@@ -34,12 +35,6 @@ export class MobNavigationComponent implements OnInit {
     //   svgPath: 'M.001 3.549v7.12h7.12v49.786h6.214c.778-3.122 3.556-5.398 6.866-5.398a7.07 7.07 0 0 1 6.856 5.348l.01.048h9.974c.778-3.122 3.556-5.398 6.866-5.398a7.07 7.07 0 0 1 6.856 5.348l.01.048h6.16V10.665h7.066v-7.12L.001 3.549Zm35.546 37.334h-17.76v-5.334h17.76v5.334Zm10.668-14.214H17.789v-5.334h28.426v5.334Z',
     // },
     {
-      text: 'Home',
-      view: '0 0 20 21',
-      clickFunction: this.closeMobSideBar.bind(this),
-      svgPath: 'M7.14373 19.2339V16.1003C7.14372 15.3063 7.77567 14.6612 8.55844 14.6562H11.4326C12.2189 14.6562 12.8563 15.3028 12.8563 16.1003V19.2248C12.8562 19.9135 13.404 20.4732 14.0829 20.4782H16.0438C16.9596 20.4806 17.8388 20.1133 18.4872 19.4572C19.1356 18.8012 19.5 17.9104 19.5 16.9814V8.0803C19.5 7.32988 19.1721 6.61806 18.6046 6.1366L11.943 0.732383C10.7785 -0.212874 9.11537 -0.182339 7.98539 0.805045L1.46701 6.1366C0.872741 6.60386 0.517552 7.31779 0.5 8.0803V16.9723C0.5 18.9086 2.04738 20.4782 3.95617 20.4782H5.87229C6.19917 20.4806 6.51349 20.3506 6.74547 20.117C6.97746 19.8834 7.10793 19.5655 7.10792 19.2339H7.14373Z',
-    },
-    {
       text: 'Profile',
       view: '0 0 96 96',
       clickFunction: this.openProfileMobSidebar.bind(this),
@@ -47,14 +42,26 @@ export class MobNavigationComponent implements OnInit {
       svgpath2:'M7.99683 10.5837C10.9348 10.5837 13.2888 8.22869 13.2888 5.29169C13.2888 2.35469 10.9348 -0.000305176 7.99683 -0.000305176C5.05983 -0.000305176 2.70483 2.35469 2.70483 5.29169C2.70483 8.22869 5.05983 10.5837 7.99683 10.5837Z'
     },
     {
+      text: 'Home',
+      view: '0 0 20 21',
+      clickFunction: this.gotoHome.bind(this),
+      svgPath: 'M7.14373 19.2339V16.1003C7.14372 15.3063 7.77567 14.6612 8.55844 14.6562H11.4326C12.2189 14.6562 12.8563 15.3028 12.8563 16.1003V19.2248C12.8562 19.9135 13.404 20.4732 14.0829 20.4782H16.0438C16.9596 20.4806 17.8388 20.1133 18.4872 19.4572C19.1356 18.8012 19.5 17.9104 19.5 16.9814V8.0803C19.5 7.32988 19.1721 6.61806 18.6046 6.1366L11.943 0.732383C10.7785 -0.212874 9.11537 -0.182339 7.98539 0.805045L1.46701 6.1366C0.872741 6.60386 0.517552 7.31779 0.5 8.0803V16.9723C0.5 18.9086 2.04738 20.4782 3.95617 20.4782H5.87229C6.19917 20.4806 6.51349 20.3506 6.74547 20.117C6.97746 19.8834 7.10793 19.5655 7.10792 19.2339H7.14373Z',
+    },
+    {
       text: 'Chat',
       view: '0 0 64 64',
       clickFunction: this.openChatMobSidebar.bind(this),
       svgPath: 'M32 1.916c-.288-.01-.628-.016-.97-.016C14.254 1.9.586 15.206.002 31.84L0 31.894A28.655 28.655 0 0 0 7.476 51.15l-.02-.024c-.688 4.028-1.89 7.636-3.552 10.974l.102-.228c4.634-.396 8.878-1.73 12.654-3.81l-.164.082c4.474 2.35 9.774 3.728 15.398 3.728h.112H32c.3.01.654.016 1.008.016 16.768 0 30.428-13.31 30.99-29.942l.002-.052C63.414 15.206 49.746 1.902 32.97 1.902c-.342 0-.68.006-1.018.016l.05-.002H32ZM16.138 37.604a5.948 5.948 0 1 1 0-11.896 5.948 5.948 0 0 1 0 11.896Zm15.862 0a5.948 5.948 0 1 1 0-11.896 5.948 5.948 0 0 1 0 11.896Zm15.862 0a5.948 5.948 0 1 1 0-11.896 5.948 5.948 0 0 1 0 11.896Z',
     },
+    {
+      text: 'Exit',
+      view: '0 0 64 64',
+      clickFunction: this.gotoOrignalSite.bind(this),
+      svgPath: 'M32 1.916c-.288-.01-.628-.016-.97-.016C14.254 1.9.586 15.206.002 31.84L0 31.894A28.655 28.655 0 0 0 7.476 51.15l-.02-.024c-.688 4.028-1.89 7.636-3.552 10.974l.102-.228c4.634-.396 8.878-1.73 12.654-3.81l-.164.082c4.474 2.35 9.774 3.728 15.398 3.728h.112H32c.3.01.654.016 1.008.016 16.768 0 30.428-13.31 30.99-29.942l.002-.052C63.414 15.206 49.746 1.902 32.97 1.902c-.342 0-.68.006-1.018.016l.05-.002H32ZM16.138 37.604a5.948 5.948 0 1 1 0-11.896 5.948 5.948 0 0 1 0 11.896Zm15.862 0a5.948 5.948 0 1 1 0-11.896 5.948 5.948 0 0 1 0 11.896Zm15.862 0a5.948 5.948 0 1 1 0-11.896 5.948 5.948 0 0 1 0 11.896Z',
+    },
   ];
 
-  constructor(private toggle: ToggleService) {}
+  constructor(private toggle: ToggleService,private router:Router) {}
   ngOnInit(): void {
     this.getMobSideBarState();
     this.getViewType();
@@ -70,6 +77,10 @@ export class MobNavigationComponent implements OnInit {
       this.mobSideBarState = val;
     });
   }
+  gotoHome(){
+    this.closeMobSideBar();
+    this.router.navigateByUrl('/home/lobby')
+  }
   openMobSidebar(type: string) {
     if (this.mobSideBarState && this.viewType === type) {
       this.closeMobSideBar();
@@ -80,6 +91,9 @@ export class MobNavigationComponent implements OnInit {
       document.body.classList.add('overflow-hidden');
       this.toggle.setMobSideBarContent(type);
     }
+  }
+  gotoOrignalSite(){
+    this.closeMobSideBar();
   }
 
   // Wrapper functions for specific sidebar types
