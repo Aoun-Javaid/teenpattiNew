@@ -1,0 +1,39 @@
+.bets-container{
+  width: 100%;
+    padding: 0 3vw;
+}
+.table-container{
+  margin-top: 1.5rem;
+}
+.tab-container{
+  margin-top: 1.5rem;
+  height: 54px;
+  display: flex;
+  border-radius: 3rem;
+  padding: 5px;
+  flex-shrink: 0;
+  background: #0f212e;
+  width: fit-content;
+}
+.tab-container .tab{
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 9999px;
+  white-space: nowrap;
+  gap: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.tab.active{
+  background :rgba(47,69,83,1)!important
+}
+.pagetitle{
+  margin-top: 1.5rem;
+}
+.svg-icon{
+  color: #b1bad3;
+  margin-right: .5rem;
+}

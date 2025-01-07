@@ -202,5 +202,9 @@ export class MobSidebarComponent implements OnInit {
       this.router.navigateByUrl('/stakes');
       this.toggle.setMobSideBarState(false);
     }
+    if(item.name=='My Bets'){
+      this.router.navigateByUrl('/mybets');
+      this.toggle.setMobSideBarState(false);
+    }
   }
 }

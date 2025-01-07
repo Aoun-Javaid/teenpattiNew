@@ -6,6 +6,8 @@ import { ProvidersComponent } from './pages/providers/providers.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AuthComponent } from './auth/auth.component';
 import { BetStakesComponent } from './pages/bet-stakes/bet-stakes.component';
+import { BetsComponent } from './pages/bets/bets.component';
+import { MybetsComponent } from './pages/mybets/mybets.component';
 
 export const routes: Routes = [
   {
@@ -37,7 +39,11 @@ export const routes: Routes = [
       {
         path: 'stakes',
         component:BetStakesComponent
-   },
+      },
+      {
+        path: 'mybets',
+        component:MybetsComponent
+      },
       {
         path: 'authentication/:token',
         component: AuthComponent
