@@ -8,6 +8,7 @@ import { AuthComponent } from './auth/auth.component';
 import { BetStakesComponent } from './pages/bet-stakes/bet-stakes.component';
 import { BetsComponent } from './pages/bets/bets.component';
 import { MybetsComponent } from './pages/mybets/mybets.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
 
 export const routes: Routes = [
   {
@@ -43,6 +44,10 @@ export const routes: Routes = [
       {
         path: 'mybets',
         component:MybetsComponent
+      },
+      {
+        path: 'notifications',
+        component:NotificationsComponent
       },
       {
         path: 'authentication/:token',

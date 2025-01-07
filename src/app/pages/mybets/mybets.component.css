@@ -1,9 +1,12 @@
 .bets-container{
   width: 100%;
     padding: 0 3vw;
+    margin-bottom: 140px;
 }
 .table-container{
   margin-top: 1.5rem;
+  overflow: scroll;
+  margin-bottom: 1.5rem;
 }
 .tab-container{
   margin-top: 1.5rem;
@@ -26,6 +29,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  user-select: none;
 }
 .tab.active{
   background :rgba(47,69,83,1)!important
@@ -36,4 +40,19 @@
 .svg-icon{
   color: #b1bad3;
   margin-right: .5rem;
+}
+.pagination-div{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid #b1bad3a3;
+  padding-top: 24px;
+}
+.pgntab{
+  color: #b1bad3;
+  cursor: pointer;
+}
+.pgntab.active{
+  color: #fff;
 }
