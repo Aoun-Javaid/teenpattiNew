@@ -10,9 +10,16 @@
   .balance_section {
     @apply flex flex-row justify-center items-center gap-1  *:leading-[17.9px] *:text-[15px];
   }
+
 }
 
 .boxShadowHeader {
   box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.5) !important;
   margin-bottom: 7px;
+}
+.notificationBtn{
+      padding: .7rem;
+      font-size: .875rem;
+      font-weight: 600;
+      height: 38px;
 }

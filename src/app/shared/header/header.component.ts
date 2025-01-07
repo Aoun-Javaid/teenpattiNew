@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { first } from 'rxjs';
 import { CONFIG } from '../../../../config';
 import { NetworkService } from '../../services/network.service';
+import { ToggleService } from '../../services/toggle.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ import { NetworkService } from '../../services/network.service';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent implements OnInit{
-  constructor(private networkService:NetworkService){
+  constructor(private networkService:NetworkService,private toggle:ToggleService){
 
   }
   userBalance:any={};
@@ -38,5 +39,13 @@ export class HeaderComponent implements OnInit{
   getAllRecordsByPost(userBalance: any, arg1: {}) {
     throw new Error('Method not implemented.');
   }
-
+  removeOverflow(){
+    document.body.classList.add('overflow-hidden');
+  }
+  addOverflow(){
+    document.body.classList.remove('overflow-hidden');
+  }
+  closemobSidebar(){
+    this.toggle.setMobSideBarState(false);
+  }
 }

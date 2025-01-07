@@ -1,7 +1,10 @@
 <header class="header_wrapper">
-    <a routerLink="/home/lobby"  >
+    <a routerLink="/home/lobby"  (click)="addOverflow()">
         <img class="logo_img" src="/images/universeLogo.svg" alt="logo">
     </a>
+    <button class="notificationBtn" (click)="removeOverflow();closemobSidebar()" routerLink="/notifications">
+      <svg fill="currentColor" viewBox="0 0 64 64" class="svg-icon " > <title></title> <path d="M56 39.64V32c0-10.44-6.68-19.32-16-22.6V8c0-4.4-3.6-8-8-8s-8 3.6-8 8v1.4C14.68 12.68 8 21.56 8 32v7.56H0V48h64v-8.44l-8 .08Zm-40 19.6c0 2.64 2.12 4.76 4.76 4.76H43.2c2.64 0 4.76-2.12 4.76-4.76V54H16v5.24Z"></path></svg>
+    </button>
     <div class="header-wallet">
         <div class="balance_section   text-white">
             <h4 class="">Balance &nbsp;:</h4>
