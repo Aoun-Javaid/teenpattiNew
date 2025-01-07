@@ -1,0 +1,43 @@
+<div class="group-banner-wrap">
+  <div class="group-banner-bg"></div>
+  <div class="banner-wrap">
+    <div class="banner mobile">
+      <div class="left">
+        <h1 class="headingText">
+          <span>Universe Originals</span>
+        </h1>
+        <img src="https://mediumrare.imgix.net/group-banner-stake-originals.png" alt="Stake Originals">
+      </div>
+      <div class="right"></div>
+    </div>
+  </div>
+</div>
+
+<div class="main-section">
+  <div class="filterContainer">
+    <button class="providerbtn">
+      View All Providers
+    </button>
+    <div #dropdownContainer>
+
+
+    <button class="providerbtn" [ngClass]="filterModal?'up':'down'" (click)="filterModal=!filterModal" >
+      Popular
+      <svg fill="currentColor" viewBox="0 0 64 64" class="svg-icon" >
+        <title></title>
+        <path d="M32.271 49.763 9.201 26.692l6.928-6.93 16.145 16.145 16.144-16.144 6.93 6.929-23.072 23.07h-.005Z">
+        </path>
+      </svg>
+
+      <div class="toggleFilter" *ngIf="filterModal">
+        <div class="relative flex justify-center">
+          <div class="arrow"></div>
+        </div>
+        <div class="tab">dsad</div>
+        <div class="tab">dsad</div>
+      </div>
+    </button>
+  </div>
+  </div>
+  <app-universe-originals></app-universe-originals>
+</div>
