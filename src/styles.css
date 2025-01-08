@@ -1008,3 +1008,6 @@ body {
   grid-area: footer;
 }
 
+.pagination-div{
+  user-select: none;
+}
