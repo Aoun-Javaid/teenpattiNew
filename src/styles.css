@@ -11,6 +11,7 @@ body {
   color: #fff;
   font-family: "SF-PRO", Arial, sans-serif !important;
   cursor: default;
+  user-select: none
   /* overflow: hidden; */
 }
 /* @font-face {
