@@ -175,6 +175,10 @@ export class MobSidebarComponent implements OnInit {
       name: 'Stake Edit',
     },
     {
+      img: '/images/transactions.svg',
+      name: 'Transactions',
+    },
+    {
       img: '/images/gameRates.svg',
       name: 'Game Rates',
     },
@@ -204,6 +208,10 @@ export class MobSidebarComponent implements OnInit {
     }
     if(item.name=='My Bets'){
       this.router.navigateByUrl('/mybets');
+      this.toggle.setMobSideBarState(false);
+    }
+    if(item.name=='Transactions'){
+      this.router.navigateByUrl('/transactions');
       this.toggle.setMobSideBarState(false);
     }
   }

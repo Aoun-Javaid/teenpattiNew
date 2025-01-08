@@ -10,6 +10,7 @@ import { BetsComponent } from './pages/bets/bets.component';
 import { MybetsComponent } from './pages/mybets/mybets.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { CasinoOriginalsComponent } from './pages/casino-originals/casino-originals.component';
+import { TransactionsComponent } from './pages/transactions/transactions.component';
 
 export const routes: Routes = [
   {
@@ -53,6 +54,10 @@ export const routes: Routes = [
       {
         path: 'originals',
         component:CasinoOriginalsComponent
+      },
+      {
+        path: 'transactions',
+        component:TransactionsComponent
       },
       {
         path: 'authentication/:token',

@@ -107,10 +107,10 @@
   position: absolute;
   width: 8px;
   height: 8px;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
+  border-left: 12px solid transparent;
+  border-right: 13px solid transparent;
   border-bottom: 15px solid #fff;
-  top: -12px;
+  top: -11px;
   color: white;
   z-index: -1;
 }
