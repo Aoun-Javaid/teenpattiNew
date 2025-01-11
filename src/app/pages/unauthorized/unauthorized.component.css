@@ -1,0 +1,49 @@
+.notFound{
+  /* background-color: var(--login-main-box-background-color); */
+  background-color: #0d212e;
+  height: 100vh;
+  padding: 40px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+.logo_img{
+margin-bottom: 70px;
+height: 50px;
+}
+ol{
+  padding: .5rem;
+  margin-bottom: 1rem;
+}
+.notFound h1{
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.notFound p{
+  font-size: 18px;
+
+}
+.notFound a{
+  font-size: 20px;
+
+}
+.btn-login{
+  margin-top: 20px;
+  font-size: 18px !important;
+  width: 33vw;
+border-radius: 4px;
+height: 40px;
+--tw-bg-opacity: 1;
+background-color: rgb(47 69 83 / var(--tw-bg-opacity, 1));
+--tw-text-opacity: 1;
+color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    border-radius: 50px;
+}
+

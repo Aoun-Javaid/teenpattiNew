@@ -11,8 +11,23 @@ import { MybetsComponent } from './pages/mybets/mybets.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { CasinoOriginalsComponent } from './pages/casino-originals/casino-originals.component';
 import { TransactionsComponent } from './pages/transactions/transactions.component';
+import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
+import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 
 export const routes: Routes = [
+  {
+    path: 'maintenance',
+    component:MaintenanceComponent
+  },
+  {
+    path: 'unauthorized',
+    component:UnauthorizedComponent
+  },
+  {
+    path: 'authentication/:token',
+    component: AuthComponent
+  },
+  
   {
     path: '',
     component: LayoutComponent,
@@ -60,13 +75,10 @@ export const routes: Routes = [
         component:TransactionsComponent
       },
       {
-        path: 'authentication/:token',
-        component: AuthComponent
-      },
-      {
         path: '**',
         redirectTo: '',
       },
     ],
   },
+
 ];
