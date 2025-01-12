@@ -13,6 +13,8 @@ import { CasinoOriginalsComponent } from './pages/casino-originals/casino-origin
 import { TransactionsComponent } from './pages/transactions/transactions.component';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
+import { NotFoundError } from 'rxjs';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
   {
@@ -24,10 +26,14 @@ export const routes: Routes = [
     component:UnauthorizedComponent
   },
   {
+    path: 'not-found',
+    component:PageNotFoundComponent
+  },
+  {
     path: 'authentication/:token',
     component: AuthComponent
   },
-  
+
   {
     path: '',
     component: LayoutComponent,
@@ -76,7 +82,7 @@ export const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: '',
+        component:PageNotFoundComponent
       },
     ],
   },
