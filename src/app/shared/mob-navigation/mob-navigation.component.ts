@@ -138,8 +138,7 @@ export class MobNavigationComponent implements OnInit {
     this.toggle.setProfileMobSidebarState(false);
 
     this.toggle.setChatMobSidebarState(!this.ChatNav);
-    // document.body.classList.remove('overflow-hidden');
-    // document.body.classList.add('overflow-hidden');
+    document.body.classList.add('overflow-hidden');
 
   }
   closeMobSideBar() {
