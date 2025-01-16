@@ -43,10 +43,10 @@
   </div>
 
   <div class="messages-container">
-    <div class="messages scrollY">
+    <div class="messages scrollY ">
       <div class="msg_box_date"><span>Sunday</span> <span>12:34 PM</span></div>
-
-      <div class="msg_box mt-[.5rem]">
+      @for (item of casinoChat; track $index) {
+      <div class="msg_box mt-[.5rem]" >
         <div class="content">
           <div
             class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
@@ -70,13 +70,16 @@
                       </svg></span> </div>
                 </span>
                 <button type="button" tabindex="0"
-                  class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">Jjdjjdjms</button>
+                  class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">
+                  demo
+                </button>
               </div>
-            </div>: But they already got saddam
+            </div>: {{item.content}}
           </div>
         </div>
       </div>
-      <div class="msg_box mt-[.5rem]">
+    }
+      <!-- <div class="msg_box mt-[.5rem]">
         <div class="content">
           <div
             class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
@@ -435,8 +438,10 @@
             </div>: honestly thats good, real life comes first, gambling is a hobby :) everything good with the family?
           </div>
         </div>
-      </div>
+      </div> -->
+      <div class="msg_box mt-[.5rem]" *ngIf="casinoChat.length>12" id="lastchildMsg">
 
+      </div>
     </div>
   </div>
 
@@ -446,7 +451,7 @@
       <label class="stacked full-width svelte-1wzq4lo">
         <div class="text-area-wrap svelte-9e21kq">
           <pre aria-hidden="true" class="svelte-9e21kq" style="min-height: 2.8em; max-height: 6.4em;">
-  </pre> <textarea [(ngModel)]="text" class="scrollY with-button svelte-9e21kq" placeholder="Type your message"></textarea>
+  </pre> <textarea [(ngModel)]="text" class="scrollY with-button svelte-9e21kq" (keyup.enter)="sendMessage()" placeholder="Type your message"></textarea>
 
         </div>
       </label>
@@ -459,7 +464,7 @@
         class="weight-semibold line-height-default is-inline align-left size-sm text-size-sm variant-subtle with-icon-space svelte-17v69ua"><span>Online:
         </span>
         <span
-          class="weight-semibold line-height-default align-left size-sm text-size-sm variant-subtle numeric with-icon-space svelte-17v69ua">46,503</span></span>
+          class="weight-semibold line-height-default align-left size-sm text-size-sm variant-subtle numeric with-icon-space svelte-17v69ua">{{connectedUsers?connectedUsers:0}}</span></span>
     </span>
     <div class="actions svelte-49slp7">
       <span
