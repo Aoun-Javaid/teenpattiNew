@@ -41,9 +41,9 @@ export class ChatComponent implements OnInit {
   }
   sendMessage() {
     if (this.text != '') {
-      this.casinoChat.push({
-        content:this.text
-      });
+      // this.casinoChat.push({
+      //   content:this.text
+      // });
       this.socketService.sendMessage('newMessage', { content: this.text });
       this.text = '';
     }
