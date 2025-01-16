@@ -23,6 +23,8 @@ export class ChatComponent implements OnInit {
   selectedOption: string = 'xyz';
   viewType = 'Profile';
   timeoutId: any;
+  resultMessage: string = '';
+
   constructor(private toggle: ToggleService, private socketService: WebSocketService) {
 
   }
@@ -71,7 +73,10 @@ export class ChatComponent implements OnInit {
     this.toggle.setChatMobSidebarState(false);
   }
   sendMessage() {
-    if (this.text != '') {
+    const result = this.checkBlockedWords(this.text);
+    this.resultMessage = result.message;
+
+    if (this.text != '' && result.isValid) {
       this.socketService.sendMessage('newMessage', { content: this.text });
       this.text = '';
     }
@@ -90,4 +95,56 @@ export class ChatComponent implements OnInit {
       }
     }, 200);
   }
+
+  checkBlockedWords(input: string): { isValid: boolean; message: string } {
+    const blockedWords: string[] = [
+      ".COM", ".CO", "EXCH", "EXCHANGE", "DIAMOND",
+      "KING", "LION", "BOOK", "MAHADEV","GMAIL","YAHOO","HOTMAIL",
+      "SULTAN", "KHELLO", "BONUS", "KHAI LAGAI",
+      "LAY BET", "SITE", "Turbo", "Cbtf"
+    ];
+
+    const normalizedInput = input.trim().replace(/\s+/g, "");
+
+    console.log('normalizedInput',normalizedInput)
+
+
+    const phoneRegex = /\b(?:\+?\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?[\d\s.-]{7,10}\b/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const urlRegex = /https?:\/\/[^\s/$.?#].[^\s]*|www\.[^\s]+/;
+
+    const foundWord = blockedWords.find(word =>
+      normalizedInput.toLowerCase().includes(word.toLowerCase())
+    );
+
+    if (foundWord) {
+      return {
+        isValid: false,
+        message: `Message not sent due to the use of blocked word: "${foundWord}".`
+      };
+    } else if (phoneRegex.test(normalizedInput)) {
+      return {
+        isValid: false,
+        message: 'Message contains a phone number, which is not allowed.'
+      };
+    } else if (emailRegex.test(normalizedInput)) {
+      return {
+        isValid: false,
+        message: 'Message contains an email address, which is not allowed.'
+      };
+    } else if (urlRegex.test(normalizedInput)) {
+      return {
+        isValid: false,
+        message: 'Message contains a website URL, which is not allowed.'
+      };
+    } else {
+      return {
+        isValid: true,
+        message: ""
+      };
+    }
+  }
+
+
+
 }

@@ -1,3 +1,5 @@
+
+
 @tailwind utilities;
 
 @layer utilities {
@@ -42,6 +44,7 @@
 
 
 .mainChat-Container {
+  font-family: 'Proxima Nova', sans-serif;
   word-wrap: break-word;
   will-change: margin-right;
   background: #0f212e;
@@ -72,6 +75,7 @@
   touch-action: none;
   padding-right: 6px;
   padding-left: 1rem;
+  font-family: 'Proxima Nova', sans-serif;
 }
 
 .dropdown {
@@ -107,6 +111,7 @@
   overflow-anchor: none;
   overscroll-behavior: contain;
   max-height: calc(100svh - 300px);
+  font-family: 'Proxima Nova', sans-serif;
 
 }
 
@@ -129,6 +134,7 @@
   border-radius: .25rem;
   width: 100%;
   background: #213743;
+  font-family: 'Proxima Nova', sans-serif;
 }
 
 .msg_box > .content {
@@ -143,10 +149,12 @@
   align-items: center;
   overflow: hidden;
   line-height: 1.5;
+  font-family: 'Proxima Nova', sans-serif;
 
 }
 .userNameContainer .user-tags{
 display: flex;
+font-family: 'Proxima Nova', sans-serif;
 }
 .hoverable.svelte-bbyuql {
   cursor: help;
@@ -180,6 +188,7 @@ display: flex;
   grid-template-columns: auto 1fr;
   grid-template-areas: "input input" "online actions";
   touch-action: none;
+  font-family: 'Proxima Nova', sans-serif;
 }
 .chat-input.svelte-15zhun5 {
   grid-area: input;
@@ -224,6 +233,7 @@ pre.svelte-9e21kq, textarea.svelte-9e21kq {
   appearance: none;
   font-size:.875rem;
   padding: .5rem;
+  font-family: 'Proxima Nova', sans-serif;
   transition: none;
 }
 textarea.svelte-9e21kq {
@@ -258,6 +268,7 @@ div.scale-up.svelte-tgp09d {
   font-weight: 600;
   display: inline-flex;
     align-items: center;
+    font-family: 'Proxima Nova', sans-serif;
 }
 .actions.svelte-49slp7 {
   display: flex;
@@ -265,6 +276,7 @@ div.scale-up.svelte-tgp09d {
   justify-content: flex-end;
   align-items: center;
   gap: .75rem;
+  font-family: 'Proxima Nova', sans-serif;
 }
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
