@@ -6,6 +6,7 @@ import { WebSocketService } from '../../services/web-socket.service';
 import { v4 as uuidv4 } from 'uuid';
 import { ChatRulesModalComponent } from "../../Modals/chat-rules-modal/chat-rules-modal.component";
 import { ModalService } from '../../services/modal.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-chat',
@@ -29,7 +30,8 @@ export class ChatComponent implements OnInit {
 
   constructor(private toggle: ToggleService,
      private socketService: WebSocketService,
-     private modalsService:ModalService
+     private modalsService:ModalService,
+     private toaster:ToastrService
      ) {
 
   }
@@ -80,7 +82,9 @@ export class ChatComponent implements OnInit {
   sendMessage() {
     const result = this.checkBlockedWords(this.text);
     this.resultMessage = result.message;
-
+    if(this.resultMessage!=''){
+      this.toaster.error(this.resultMessage)
+    }
     if (this.text != '' && result.isValid) {
       this.socketService.sendMessage('newMessage', { content: this.text });
       this.text = '';
