@@ -85,20 +85,21 @@ export class MobNavigationComponent implements OnInit {
   checkCurrentStates(){
     this.toggle.getBrowseMobSidebarState().subscribe((res:any)=>{
       this.browseNav=res;
+      console.log('res',res)
       if(res==false){
-        document.body.classList.add('overflow-hidden');
+        document.body.classList.remove('overflow-hidden');
       }
     })
     this.toggle.getProfileMobSidebarState().subscribe((res:any)=>{
       this.ProfileNav=res;
       if(res==false){
-        document.body.classList.add('overflow-hidden');
+        document.body.classList.remove('overflow-hidden');
       }
     })
     this.toggle.getChatMobSidebarState().subscribe((res:any)=>{
       this.ChatNav=res;
       if(res==false){
-        document.body.classList.add('overflow-hidden');
+        document.body.classList.remove('overflow-hidden');
       }
     })
   }
@@ -122,7 +123,9 @@ export class MobNavigationComponent implements OnInit {
     this.toggle.setChatMobSidebarState(false);
 
     this.toggle.setBrowseMobSidebarState(!this.browseNav);
-    document.body.classList.add('overflow-hidden');
+    if(this.browseNav){
+      document.body.classList.add('overflow-hidden');
+    }
   }
 
   openProfileMobSidebar() {
@@ -130,7 +133,9 @@ export class MobNavigationComponent implements OnInit {
     this.toggle.setChatMobSidebarState(false);
 
     this.toggle.setProfileMobSidebarState(!this.ProfileNav);
-    document.body.classList.add('overflow-hidden');
+    if(this.ProfileNav){
+      document.body.classList.add('overflow-hidden');
+    }
   }
 
   openChatMobSidebar() {
@@ -138,7 +143,10 @@ export class MobNavigationComponent implements OnInit {
     this.toggle.setProfileMobSidebarState(false);
 
     this.toggle.setChatMobSidebarState(!this.ChatNav);
-    document.body.classList.add('overflow-hidden');
+    if(this.ChatNav){
+      document.body.classList.add('overflow-hidden');
+    }
+
 
   }
   closeMobSideBar() {

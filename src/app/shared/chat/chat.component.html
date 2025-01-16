@@ -472,7 +472,7 @@
         <div class="actions svelte-49slp7">
           <span
             class="weight-semibold line-height-default align-left size-sm text-size-sm variant-subtle with-icon-space svelte-17v69ua">160</span>
-          <button type="button" tabindex="0"
+          <button type="button" tabindex="0" (click)="openChatRulesModal()"
             class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-grey-400 text-white betterhover:hover:bg-grey-300 betterhover:hover:text-white focus-visible:outline-white text-sm leading-none shadow-md py-[0.8125rem] px-[1rem]"
             data-button-root="">
             <svg fill="currentColor" viewBox="0 0 64 64" class="svg-icon ">
@@ -493,3 +493,6 @@
 
 
 </section>
+
+
+<app-chat-rules-modal></app-chat-rules-modal>

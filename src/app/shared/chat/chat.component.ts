@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { ToggleService } from '../../services/toggle.service';
 import { WebSocketService } from '../../services/web-socket.service';
 import { v4 as uuidv4 } from 'uuid';
+import { ChatRulesModalComponent } from "../../Modals/chat-rules-modal/chat-rules-modal.component";
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ChatRulesModalComponent],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
@@ -25,7 +27,10 @@ export class ChatComponent implements OnInit {
   timeoutId: any;
   resultMessage: string = '';
 
-  constructor(private toggle: ToggleService, private socketService: WebSocketService) {
+  constructor(private toggle: ToggleService,
+     private socketService: WebSocketService,
+     private modalsService:ModalService
+     ) {
 
   }
   ngOnInit(): void {
@@ -143,6 +148,12 @@ export class ChatComponent implements OnInit {
         message: ""
       };
     }
+  }
+  openChatRulesModal(){
+    let obj={
+      show:true,
+    }
+    this.modalsService.setChatRulesModal(obj);
   }
 
 
