@@ -24,6 +24,12 @@ export class ChatComponent implements OnInit {
     this.socketService.onEvent('message', (data) => {
       console.log('Received message event:', data);
     });
+    this.socketService.listenForMessages().subscribe((data: any) => {
+      if (data) {
+        console.log('Received messages:', data);
+        // this.updateIncomingMessage(data);
+      }
+    });
   }
   closeMobSideBar() {
     this.toggle.setMobSideBarState(false);

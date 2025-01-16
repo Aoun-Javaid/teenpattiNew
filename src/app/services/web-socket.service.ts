@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
+import { BASE_URL_WS } from '../../../config';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class WebSocketService {
 
   constructor() {
     // Initialize the socket connection
-    this.socket = io('https://v2.universestudio.online', {
+    this.socket = io(BASE_URL_WS, {
       path: '/csp-chat/',
     });
 
@@ -27,21 +29,28 @@ export class WebSocketService {
     });
   }
 
-  // Method to send messages to the server
   sendMessage(eventName: string, message: any) {
     this.socket.emit(eventName, message);
   }
 
-  // Method to listen to a specific event
   onEvent(eventName: string, callback: (data: any) => void) {
     this.socket.on(eventName, callback);
   }
+
   listen(event: string, callback: (data: any) => void): void {
     if (this.socket) {
         this.socket.on(event, callback);
     }
 }
-
+listenForMessages(): Observable<any> {
+  return new Observable(observer => {
+      if (this.socket) {
+          this.socket.onAny((eventName: string, data: any) => {
+              observer.next({ event: eventName, ...data });
+          });
+      }
+  });
+}
 disconnect(): void {
     if (this.socket) {
         this.socket.disconnect();
