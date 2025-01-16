@@ -1,19 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ToggleService } from '../../services/toggle.service';
+import { WebSocketService } from '../../services/web-socket.service';
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
-export class ChatComponent {
-
-  constructor(private toggle:ToggleService){
+export class ChatComponent implements OnInit {
+  text:any;
+  constructor(private toggle: ToggleService, private socketService: WebSocketService) {
 
   }
-  closeMobSideBar(){
+  ngOnInit(): void {
+
+    this.socketService.onEvent('userTest', (data) => {
+      console.log('Received userTest event:', data);
+    });
+
+    this.socketService.onEvent('message', (data) => {
+      console.log('Received message event:', data);
+    });
+  }
+  closeMobSideBar() {
     this.toggle.setMobSideBarState(false);
+  }
+  sendMessage() {
+    this.socketService.sendMessage('message', { content: this.text });
+    this.text='';
   }
 }

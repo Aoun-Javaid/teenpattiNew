@@ -446,7 +446,7 @@
       <label class="stacked full-width svelte-1wzq4lo">
         <div class="text-area-wrap svelte-9e21kq">
           <pre aria-hidden="true" class="svelte-9e21kq" style="min-height: 2.8em; max-height: 6.4em;">
-  </pre> <textarea class="scrollY with-button svelte-9e21kq" placeholder="Type your message"></textarea>
+  </pre> <textarea [(ngModel)]="text" class="scrollY with-button svelte-9e21kq" placeholder="Type your message"></textarea>
 
         </div>
       </label>
@@ -474,7 +474,7 @@
           </path>
         </svg>
       </button>
-      <button type="button" tabindex="0"
+      <button type="button" tabindex="0" (click)="sendMessage()"
         class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-green-500 text-neutral-black betterhover:hover:bg-green-400 betterhover:hover:text-neutral-black focus-visible:outline-white text-sm leading-none shadow-md py-[0.8125rem] px-[1rem]"
         data-button-root="">
         <div data-loader-content="" class="contents">Send</div>
