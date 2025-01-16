@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ToggleService } from '../../services/toggle.service';
 import { WebSocketService } from '../../services/web-socket.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-chat',
@@ -15,10 +16,16 @@ export class ChatComponent implements OnInit {
   text: any;
   casinoChat: any = [];
   connectedUsers: any;
+  token:any;
   constructor(private toggle: ToggleService, private socketService: WebSocketService) {
 
   }
   ngOnInit(): void {
+    this.token = localStorage.getItem('token');
+    if(!this.token){
+      this.token= uuidv4();
+    }
+    this.socketService.connect(this.token);
 
     this.socketService.onEvent('loadConnectedClients', (data) => {
       console.log('Received loadConnectedClients:', data);
@@ -29,21 +36,13 @@ export class ChatComponent implements OnInit {
       this.updateIncomingMessage(data);
       console.log('Received message event:', data);
     });
-    // this.socketService.listenForMessages().subscribe((data: any) => {
-    //   if (data) {
-    //     console.log('Received messages:', data);
-    //     // this.updateIncomingMessage(data);
-    //   }
-    // });
+
   }
   closeMobSideBar() {
     this.toggle.setMobSideBarState(false);
   }
   sendMessage() {
     if (this.text != '') {
-      // this.casinoChat.push({
-      //   content:this.text
-      // });
       this.socketService.sendMessage('newMessage', { content: this.text });
       this.text = '';
     }

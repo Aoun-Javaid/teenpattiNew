@@ -3,38 +3,42 @@ import { Observable } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 import { BASE_URL_WS } from '../../../config';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class WebSocketService {
 
-  private socket: Socket;
+  private socket: Socket | undefined;
 
   constructor() {
-    // Initialize the socket connection
+
+  }
+  connect(token: string): void {
     this.socket = io(BASE_URL_WS, {
-      path: '/csp-chat/',
+        transports: ['websocket'],
+        path: '/csp-chat/',  // Specify the correct path for WebSocket namespace
+        query: { token },  // Pass token and project ID
     });
 
     this.socket.on('connect', () => {
-      console.log('Connected to the server');
+        console.log('Connected to WebSocket server');
     });
 
-    this.socket.on('userTest', (data) => {
-      console.log('UserTest event data:', data);
+    this.socket.on('disconnect', () => {
+        console.log('Disconnected from WebSocket server');
     });
-
-    this.socket.on('message', (data) => {
-      console.log('Message received:', data);
-    });
-  }
-
+}
   sendMessage(eventName: string, message: any) {
+    if (this.socket) {
     this.socket.emit(eventName, message);
+  }
   }
 
   onEvent(eventName: string, callback: (data: any) => void) {
+    if (this.socket) {
     this.socket.on(eventName, callback);
+  }
   }
 
   listen(event: string, callback: (data: any) => void): void {
