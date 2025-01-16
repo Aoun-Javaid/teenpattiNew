@@ -17,10 +17,18 @@ export class ChatComponent implements OnInit {
   casinoChat: any = [];
   connectedUsers: any;
   token:any;
+  mobSidebarState: boolean = false;
+  hideSideBar: boolean = false;
+  selectedLanguage: string = 'English';
+  selectedOption: string = 'xyz';
+  viewType = 'Profile';
+  timeoutId: any;
   constructor(private toggle: ToggleService, private socketService: WebSocketService) {
 
   }
   ngOnInit(): void {
+    this.hideSideBar = true;
+    this.getMobSidebarState();
     this.token = localStorage.getItem('token');
     if(!this.token){
       this.token= uuidv4();
@@ -38,8 +46,29 @@ export class ChatComponent implements OnInit {
     });
 
   }
+  getMobSidebarState() {
+    this.toggle.getChatMobSidebarState().subscribe((val: boolean) => {
+      if (this.timeoutId) {
+        clearTimeout(this.timeoutId);
+      }
+      if (val) {
+        setTimeout(() => {
+          this.mobSidebarState = val;
+        }, 10);
+      }
+      if (!val) {
+        this.mobSidebarState = val;
+
+        this.timeoutId = setTimeout(() => {
+          this.hideSideBar = true;
+        }, 700);
+      } else {
+        this.hideSideBar = false;
+      }
+    });
+  }
   closeMobSideBar() {
-    this.toggle.setMobSideBarState(false);
+    this.toggle.setChatMobSidebarState(false);
   }
   sendMessage() {
     if (this.text != '') {

@@ -8,6 +8,9 @@ import { filter } from 'rxjs';
 import { ToggleService } from '../../services/toggle.service';
 import { MobNavigationComponent } from '../../shared/mob-navigation/mob-navigation.component';
 import { MobSidebarComponent } from '../../shared/mob-sidebar/mob-sidebar.component';
+import { BrowseComponent } from "../../shared/mob-navigation/browse/browse.component";
+import { ChatComponent } from "../../shared/chat/chat.component";
+import { ProfileComponent } from "../../shared/mob-navigation/profile/profile.component";
 declare var $:any;
 @Component({
   selector: 'app-layout',
@@ -18,7 +21,10 @@ declare var $:any;
     HeaderComponent,
     MobNavigationComponent,
     MobSidebarComponent,
-  ],
+    BrowseComponent,
+    ChatComponent,
+    ProfileComponent
+],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],
 })

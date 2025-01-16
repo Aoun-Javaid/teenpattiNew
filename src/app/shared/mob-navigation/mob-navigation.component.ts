@@ -14,7 +14,9 @@ export class MobNavigationComponent implements OnInit {
   mobSideBarState: boolean = false;
   viewType = 'Profile';
 
-
+  browseNav:boolean=false;
+  ProfileNav:boolean=false;
+  ChatNav:boolean=false;
   buttons = [
     {
       text: 'Exit',
@@ -67,6 +69,7 @@ export class MobNavigationComponent implements OnInit {
   ngOnInit(): void {
     this.getMobSideBarState();
     this.getViewType();
+    this.checkCurrentStates();
   }
 
   getViewType() {
@@ -79,19 +82,34 @@ export class MobNavigationComponent implements OnInit {
       this.mobSideBarState = val;
     });
   }
+  checkCurrentStates(){
+    this.toggle.getBrowseMobSidebarState().subscribe((res:any)=>{
+      this.browseNav=res;
+      if(res==false){
+        document.body.classList.add('overflow-hidden');
+      }
+    })
+    this.toggle.getProfileMobSidebarState().subscribe((res:any)=>{
+      this.ProfileNav=res;
+      if(res==false){
+        document.body.classList.add('overflow-hidden');
+      }
+    })
+    this.toggle.getChatMobSidebarState().subscribe((res:any)=>{
+      this.ChatNav=res;
+      if(res==false){
+        document.body.classList.add('overflow-hidden');
+      }
+    })
+  }
   gotoHome(){
     this.closeMobSideBar();
     this.router.navigateByUrl('/home/lobby')
   }
   openMobSidebar(type: string) {
+
     if (this.mobSideBarState && this.viewType === type) {
       this.closeMobSideBar();
-    } else {
-      if (!this.mobSideBarState) {
-        this.toggle.setMobSideBarState(true);
-      }
-      document.body.classList.add('overflow-hidden');
-      this.toggle.setMobSideBarContent(type);
     }
   }
   gotoOrignalSite(){
@@ -100,22 +118,34 @@ export class MobNavigationComponent implements OnInit {
 
   // Wrapper functions for specific sidebar types
   openBrowseMobSidebar() {
-    this.openMobSidebar('Game');
+    this.toggle.setProfileMobSidebarState(false);
+    this.toggle.setChatMobSidebarState(false);
 
+    this.toggle.setBrowseMobSidebarState(!this.browseNav);
+    document.body.classList.add('overflow-hidden');
   }
 
   openProfileMobSidebar() {
-    this.openMobSidebar('Profile');
+    this.toggle.setBrowseMobSidebarState(false);
+    this.toggle.setChatMobSidebarState(false);
 
+    this.toggle.setProfileMobSidebarState(!this.ProfileNav);
+    document.body.classList.add('overflow-hidden');
   }
 
   openChatMobSidebar() {
-    this.openMobSidebar('chat');
+    this.toggle.setBrowseMobSidebarState(false);
+    this.toggle.setProfileMobSidebarState(false);
+
+    this.toggle.setChatMobSidebarState(!this.ChatNav);
+    document.body.classList.add('overflow-hidden');
 
   }
   closeMobSideBar() {
     document.body.classList.remove('overflow-hidden');
-    this.toggle.setMobSideBarState(false);
+    this.toggle.setBrowseMobSidebarState(false);
+    this.toggle.setProfileMobSidebarState(false);
+    this.toggle.setChatMobSidebarState(false);
   }
 
 }
