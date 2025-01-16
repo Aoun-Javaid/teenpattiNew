@@ -50,6 +50,9 @@ export class ChatComponent implements OnInit {
   }
   updateIncomingMessage(data: any) {
     this.casinoChat.push(data);
+    this.scrollChat();
+  }
+  scrollChat(){
     setTimeout(() => {
       const parent = document.querySelector('.messages');
       const lastChild = parent?.lastElementChild;
