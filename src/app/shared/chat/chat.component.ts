@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { ChatRulesModalComponent } from "../../Modals/chat-rules-modal/chat-rules-modal.component";
 import { ModalService } from '../../services/modal.service';
 import { ToastrService } from 'ngx-toastr';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-chat',
@@ -27,15 +28,18 @@ export class ChatComponent implements OnInit {
   viewType = 'Profile';
   timeoutId: any;
   resultMessage: string = '';
+  isMobileInfo:any;
 
   constructor(private toggle: ToggleService,
      private socketService: WebSocketService,
      private modalsService:ModalService,
-     private toaster:ToastrService
+     private toaster:ToastrService,
+     private deviceService: DeviceDetectorService
      ) {
 
   }
   ngOnInit(): void {
+    this.isMobileInfo = this.deviceService.os;
     this.hideSideBar = true;
     this.getMobSidebarState();
     this.token = localStorage.getItem('token');
@@ -105,6 +109,14 @@ export class ChatComponent implements OnInit {
     }, 200);
   }
 
+  ChatFocusScroll(){
+    if (this.isMobileInfo == 'iOS') {
+
+    }
+    else{
+      this.scrollChat();
+    }
+  }
   checkBlockedWords(input: string): { isValid: boolean; message: string } {
     const blockedWords: string[] = [
       ".COM", ".CO", "EXCH", "EXCHANGE", "DIAMOND",
