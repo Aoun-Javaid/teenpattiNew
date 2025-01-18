@@ -110,7 +110,7 @@
   flex-direction: column;
   overflow-anchor: none;
   overscroll-behavior: contain;
-  max-height: calc(100svh - 300px);
+  max-height: calc(100svh - 233px);
   font-family: 'Proxima Nova', sans-serif;
 
 }
