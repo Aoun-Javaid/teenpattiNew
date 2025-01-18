@@ -85,7 +85,7 @@ export class MobNavigationComponent implements OnInit {
   checkCurrentStates(){
     this.toggle.getBrowseMobSidebarState().subscribe((res:any)=>{
       this.browseNav=res;
-      console.log('res',res)
+      // console.log('res',res)
       if(res==false){
         document.body.classList.remove('overflow-hidden');
       }
