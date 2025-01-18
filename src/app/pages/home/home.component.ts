@@ -117,7 +117,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     // this.checkCarousel();
 
     this.heroSlider = new Swiper('.hero-swiper', {
-      loop: true,
+      loop: this.heroSlides.length > 3,
       slidesPerView: 1,
       slidesPerGroup: 1,
       freeMode: true,

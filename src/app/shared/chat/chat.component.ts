@@ -49,13 +49,13 @@ export class ChatComponent implements OnInit {
     this.socketService.connect(this.token);
 
     this.socketService.onEvent('loadConnectedClients', (data) => {
-      console.log('Received loadConnectedClients:', data);
+      // console.log('Received loadConnectedClients:', data);
       this.connectedUsers = data;
     });
 
     this.socketService.onEvent('loadNewMessage', (data) => {
       this.updateIncomingMessage(data);
-      console.log('Received message event:', data);
+      // console.log('Received message event:', data);
     });
 
   }
@@ -127,7 +127,7 @@ export class ChatComponent implements OnInit {
 
     const normalizedInput = input.trim().replace(/\s+/g, "");
 
-    console.log('normalizedInput',normalizedInput)
+    // console.log('normalizedInput',normalizedInput)
 
 
     const phoneRegex = /\b(?:\+?\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?[\d\s.-]{7,10}\b/;
