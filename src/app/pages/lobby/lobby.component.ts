@@ -17,7 +17,7 @@ import { MainService } from '../../services/main.service';
 @Component({
   selector: 'app-lobby',
   standalone: true,
-  imports: [CommonModule,RouterLink,BetsComponent],
+  imports: [CommonModule, RouterLink, BetsComponent],
   templateUrl: './lobby.component.html',
   styleUrl: './lobby.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -154,10 +154,11 @@ export class LobbyComponent implements OnInit, AfterViewInit {
   isCarouselActive = true;
   screenWidth = window.innerWidth;
   navProviderList: any;
+  universeProviderGames: any;
 
   // swiperInstance: Swiper;
-  constructor(private router: Router,private mainService:MainService) {
-    this.getprovidersNavigations(); 
+  constructor(private router: Router, private mainService: MainService) {
+    this.getprovidersNavigations();
   }
 
   ngOnInit() {
@@ -222,9 +223,9 @@ export class LobbyComponent implements OnInit, AfterViewInit {
     //     reachEnd: () => (this.owlNextBtn = true),
     //   },
     // });
-    this.setDefaultView();
     setTimeout(() => {
-    this.setDefaultViewProvider();
+      this.setDefaultView();
+      this.setDefaultViewProvider();
     }, 500);
     // this.providerSwiper = new Swiper('.provider-swiper', {
     //   loop: false,
@@ -264,6 +265,7 @@ export class LobbyComponent implements OnInit, AfterViewInit {
     this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
       if (res) {
         this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
+        this.universeProviderGames = this.navProviderList.filter((game: any) => game.providerId === '33333');
       }
     });
   }
@@ -369,7 +371,7 @@ export class LobbyComponent implements OnInit, AfterViewInit {
     };
   }
   private getGridSwiperConfig(): any {
-    const totalSlides = this.stakes.length;
+    const totalSlides = this.universeProviderGames.length;
     const slidesPerView = 3; // Number of slides per row
     const rows = Math.ceil(totalSlides / slidesPerView);
 

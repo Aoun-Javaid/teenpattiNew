@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swiper from 'swiper';
+import { MainService } from '../../services/main.service';
 
 @Component({
   selector: 'app-universe-originals',
@@ -71,9 +72,13 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit {
 
   isCarouselActive = true;
   screenWidth = window.innerWidth;
+  navProviderList: any;
+  universeProviderGames: any;
 
   // swiperInstance: Swiper;
-  constructor(private router: Router) {}
+  constructor(private router: Router,private mainService:MainService) {
+    this.getprovidersNavigations();
+  }
 
   ngOnInit() {
     const inner = window.innerWidth;
@@ -138,7 +143,9 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit {
     //   },
     // });
     // this.setDefaultView();
+    setTimeout(() => {
     this.setGridView();
+    }, 500);
 
     //   loop: false,
     //   slidesPerView: 7.5,
@@ -173,6 +180,16 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit {
     //   },
     // });
   }
+
+  getprovidersNavigations() {
+    this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
+      if (res) {
+        this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
+        this.universeProviderGames = this.navProviderList.filter((game: any) => game.providerId === '33333');
+      }
+    });
+  }
+
   updateNavigationButtons() {
     if (this.stakeOrigin) {
       this.owlPrevBtn = this.stakeOrigin.isBeginning;
@@ -245,7 +262,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit {
     };
   }
   private getGridSwiperConfig(): any {
-    const totalSlides = this.stakes.length;
+    const totalSlides = this.universeProviderGames.length;
     const slidesPerView = 3; // Number of slides per row
     const rows = Math.ceil(totalSlides / slidesPerView);
 

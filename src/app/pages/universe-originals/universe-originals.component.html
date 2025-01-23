@@ -74,10 +74,10 @@
     </div>
     <div class="stake-swiper" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''">
         <div class="swiper-wrapper">
-            <div *ngFor="let stake of stakes" class="swiper-slide">
+            <div *ngFor="let stake of universeProviderGames" class="swiper-slide">
                 <div class="relative">
-                    <img [src]="stake.img" alt="" class="border-0 rounded-[10px]">
-                    @if (stake.status==='Maintenance') {
+                    <img [src]="stake.gameImage" alt="" class="border-0 rounded-[10px]">
+                    @if (stake.isMaintenance) {
                     <div class="maintenance_wrapper">
                         <div class="lock_img_wrapper">
                             <img class="!w-[34px] h-10" src="/images/Lock.svg" alt="">
