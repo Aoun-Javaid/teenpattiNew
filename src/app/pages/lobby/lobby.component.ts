@@ -12,6 +12,7 @@ import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import Swiper from 'swiper';
 import { ToggleService } from '../../services/toggle.service';
 import { BetsComponent } from '../bets/bets.component';
+import { MainService } from '../../services/main.service';
 
 @Component({
   selector: 'app-lobby',
@@ -152,9 +153,12 @@ export class LobbyComponent implements OnInit, AfterViewInit {
 
   isCarouselActive = true;
   screenWidth = window.innerWidth;
+  navProviderList: any;
 
   // swiperInstance: Swiper;
-  constructor(private router: Router) {}
+  constructor(private router: Router,private mainService:MainService) {
+    this.getprovidersNavigations(); 
+  }
 
   ngOnInit() {
     const inner = window.innerWidth;
@@ -219,7 +223,9 @@ export class LobbyComponent implements OnInit, AfterViewInit {
     //   },
     // });
     this.setDefaultView();
+    setTimeout(() => {
     this.setDefaultViewProvider();
+    }, 500);
     // this.providerSwiper = new Swiper('.provider-swiper', {
     //   loop: false,
     //   slidesPerView: 7.5,
@@ -253,6 +259,13 @@ export class LobbyComponent implements OnInit, AfterViewInit {
     //     reachEnd: () => (this.ProviderNextBtn = true),
     //   },
     // });
+  }
+  getprovidersNavigations() {
+    this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
+      if (res) {
+        this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
+      }
+    });
   }
   updateNavigationButtons() {
     if (this.stakeOrigin) {
@@ -462,7 +475,7 @@ export class LobbyComponent implements OnInit, AfterViewInit {
     };
   }
   private getGridProviderSwiperConfig(): any {
-    const totalSlides = this.providers.length;
+    const totalSlides = this.navProviderList.length;
     const slidesPerView = 3; // Number of slides per row
     const rows = Math.ceil(totalSlides / slidesPerView);
 

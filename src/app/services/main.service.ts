@@ -10,6 +10,7 @@ export class MainService {
 
   private bannersList: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
   private navigationList: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
+  private providersNavigationsList: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
 
   constructor( private networkService: NetworkService,
     private indexedDBService: IndexedDbService) { }
@@ -119,5 +120,11 @@ export class MainService {
   }
   setNavigationList(value: any | null): void {
     this.navigationList.next(value);
+  }
+  getProvidersNavigationsList(): BehaviorSubject<any | null> {
+    return this.providersNavigationsList;
+  }
+  setProvidersNavigationsList(value: any | null): void {
+    this.providersNavigationsList.next(value);
   }
 }

@@ -27,6 +27,7 @@ export class AppComponent implements OnInit{
 
     this.getBanners();
     this.getNavigationList();
+    this.getprovidersNavigations();
   }
 
   getBanners() {
@@ -37,6 +38,11 @@ export class AppComponent implements OnInit{
   getNavigationList() {
     this.mainService.getDataFromServices(CONFIG.NavigationList, CONFIG.NavigationListTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
       this.mainService.setNavigationList(data.data);
+    });
+  }
+  getprovidersNavigations() {
+    this.mainService.getDataFromServices(CONFIG.providersNavigations, CONFIG.providersNavigationsTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
+      this.mainService.setProvidersNavigationsList(data.data);
     });
   }
 }

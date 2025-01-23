@@ -11,6 +11,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import Swiper from 'swiper';
 import { ToggleService } from '../../services/toggle.service';
 import { CommonModule } from '@angular/common';
+import { MainService } from '../../services/main.service';
+import { CONFIG } from '../../../../config';
 
 @Component({
   selector: 'app-providers',
@@ -92,9 +94,10 @@ export class ProvidersComponent implements OnInit, AfterViewInit {
 
   isCarouselActive = true;
   screenWidth = window.innerWidth;
+  navProviderList: any;
 
   // swiperInstance: Swiper;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private mainService: MainService) { }
 
   ngOnInit() {
     const inner = window.innerWidth;
@@ -103,6 +106,14 @@ export class ProvidersComponent implements OnInit, AfterViewInit {
     } else if (inner <= 400) {
       this.swiperBreakPoint.slide = 3;
     }
+    this.getprovidersNavigations();
+  }
+  getprovidersNavigations() {
+    this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
+      if (res) {
+        this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
+      }
+    });
   }
 
   isUserLoggedIn(): boolean {
