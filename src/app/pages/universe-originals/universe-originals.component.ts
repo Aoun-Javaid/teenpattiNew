@@ -145,7 +145,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit {
     // this.setDefaultView();
     setTimeout(() => {
     this.setGridView();
-    }, 500);
+    }, 100);
 
     //   loop: false,
     //   slidesPerView: 7.5,

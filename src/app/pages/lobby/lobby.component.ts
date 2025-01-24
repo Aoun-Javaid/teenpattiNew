@@ -226,7 +226,7 @@ export class LobbyComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.setDefaultView();
       this.setDefaultViewProvider();
-    }, 500);
+    }, 100);
     // this.providerSwiper = new Swiper('.provider-swiper', {
     //   loop: false,
     //   slidesPerView: 7.5,
@@ -264,8 +264,29 @@ export class LobbyComponent implements OnInit, AfterViewInit {
   getprovidersNavigations() {
     this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
       if (res) {
-        this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
-        this.universeProviderGames = this.navProviderList.filter((game: any) => game.providerId === '33333');
+        // ProviderList without games
+        let allProviderListNullGame = res.filter((game: any) => (game?.gameId == null || game?.gamId == ''))
+        this.navProviderList = allProviderListNullGame.sort((a: any, b: any) => a.providerSequence - b.providerSequence);
+
+        // ProviderList with games
+        let allProviderListWithGame = res.filter((game: any) => (game?.gameId !== null && game?.gamId !== ''))
+
+        const groupedData = allProviderListWithGame.reduce((acc: any, item: any) => {
+          // Check if the providerTitle already exists in the accumulator
+          if (!acc[item.providerTitle]) {
+            acc[item.providerTitle] = [];
+          }
+          // Add the item to the respective group
+          acc[item.providerTitle].push(item);
+          return acc;
+        }, {});
+        // Convert the grouped object back into an array format if needed
+        const result = Object.keys(groupedData).map(providerTitle => ({
+          providerTitle,
+          games: groupedData[providerTitle].filter((game:any) => game.isFavorite).sort((a: any, b: any) => a.gameSequence - b.gameSequence)
+        }));
+        this.universeProviderGames = result.sort((a: any, b: any) => a.providerSequence - b.providerSequence);
+        console.log(this.universeProviderGames)
       }
     });
   }
@@ -371,7 +392,7 @@ export class LobbyComponent implements OnInit, AfterViewInit {
     };
   }
   private getGridSwiperConfig(): any {
-    const totalSlides = this.universeProviderGames.length;
+    const totalSlides = this.universeProviderGames[0].games?.length;
     const slidesPerView = 3; // Number of slides per row
     const rows = Math.ceil(totalSlides / slidesPerView);
 

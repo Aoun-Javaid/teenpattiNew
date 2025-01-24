@@ -1,4 +1,5 @@
 <!--------------------------------- Stake Originals ---------------------->
+@for (item of universeProviderGames; track item) {
 <div class="page-content">
     <!-- Stake Sports Slider -->
     <div class="top-sports-header mb-2.5">
@@ -13,7 +14,7 @@
                     </path>
                 </svg>
             </span>
-            <span class="sports-heading">Universe Originals</span>
+            <span class="sports-heading">{{item?.providerTitle}}</span>
           </a>
 
         <!-- Right -->
@@ -70,9 +71,9 @@
     </div>
     <div class="stake-swiper-lobby" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''">
         <div class="swiper-wrapper">
-            <div *ngFor="let stake of universeProviderGames" class="swiper-slide">
+            <div *ngFor="let stake of item.games" class="swiper-slide">
                 <div class="relative">
-                    <img [src]="stake.gameImage" alt="" class="border-0 rounded-[10px]">
+                    <img [src]="stake?.gameImage" alt="" class="border-0 rounded-[10px]">
                     @if (stake.isMaintenance) {
                     <div class="maintenance_wrapper">
                         <div class="lock_img_wrapper">
@@ -88,9 +89,9 @@
                 </div>
 
                 <div class="stake-player-row flex justify-center gap-2 pt-1">
-                    <span [ngClass]="[stake.status==='Playing' ? 'stake-dot-green' :'stake-dot-red']"></span>
-                    <span *ngIf="stake.status==='Playing'" class="count-text"> {{stake.count}}</span>
-                    <span class="text-[#b1bad3] text-xs font-semibold">{{stake.status}}</span>
+                    <span [ngClass]="[(stake?.gameStatus == 'ACTIVE' &&  !stake.isMaintenance)  ? 'stake-dot-green' :'stake-dot-red']"></span>
+                    <span *ngIf="stake?.gameStatus==='ACTIVE'" class="count-text"> {{stake?.count}}</span>
+                    <span class="text-[#b1bad3] text-xs font-semibold">{{(stake?.gameStatus == 'ACTIVE' &&  !stake.isMaintenance) ?  'Playing' : (stake?.gameStatus == 'ACTIVE' &&  stake.isMaintenance) ?   'Maintenance' : ''}}</span>
 
                 </div>
             </div>
@@ -99,7 +100,7 @@
 
 
 </div>
-
+}
 <!--------------------------------- Providers slider ---------------------->
 <div class="page-content">
     <!-- Providers Slider -->
