@@ -73,7 +73,7 @@ export const routes: Routes = [
         component:NotificationsComponent
       },
       {
-        path: 'originals',
+        path: 'originals/:name',
         component:CasinoOriginalsComponent
       },
       {

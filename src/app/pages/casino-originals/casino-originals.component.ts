@@ -1,6 +1,7 @@
 import { NgClass, NgIf } from '@angular/common';
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { UniverseOriginalsComponent } from "../universe-originals/universe-originals.component";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-casino-originals',
@@ -9,11 +10,18 @@ import { UniverseOriginalsComponent } from "../universe-originals/universe-origi
   templateUrl: './casino-originals.component.html',
   styleUrl: './casino-originals.component.css'
 })
-export class CasinoOriginalsComponent {
+export class CasinoOriginalsComponent implements OnInit {
 filterModal:boolean=false;
 @ViewChild('dropdownContainer', { static: true }) dropdownContainer!: ElementRef;
+  providerName: any;
 
-constructor() {}
+constructor(private route:ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.providerName = this.route.snapshot.params['name'];
+  }
+
+
 
 
 @HostListener('document:click', ['$event'])

@@ -5,6 +5,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   ElementRef,
   HostListener,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -20,12 +21,13 @@ import { MainService } from '../../services/main.service';
   styleUrl: './universe-originals.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class UniverseOriginalsComponent implements OnInit, AfterViewInit {
+export class UniverseOriginalsComponent implements OnInit, AfterViewInit ,OnDestroy {
   owlPrevBtn: boolean = true;
   owlNextBtn: boolean = false;
   stakeOrigin!: Swiper;
   TableTab: number = 1;
   casinoViewAllState: boolean = false;
+
 
   stakeCurrentSlideIndex = 0;
   stakeSlideCount = 0;
@@ -73,14 +75,21 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit {
   isCarouselActive = true;
   screenWidth = window.innerWidth;
   navProviderList: any;
-  universeProviderGames: any;
+  universeProviderGames: any =[];
+  providerName: any;
 
   // swiperInstance: Swiper;
-  constructor(private router: Router,private mainService:MainService) {
-    this.getprovidersNavigations();
+  constructor(private router: Router,private mainService:MainService,private route:ActivatedRoute) {
+ 
+  }
+  ngOnDestroy(): void {
+    this.universeProviderGames=[]
   }
 
   ngOnInit() {
+    this.providerName = this.route.snapshot.params['name'];
+
+    this.getprovidersNavigations();
     const inner = window.innerWidth;
     if (inner <= 992 && inner >= 400) {
       this.swiperBreakPoint.slide = 4;
@@ -185,7 +194,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit {
     this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
       if (res) {
         this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
-        this.universeProviderGames = this.navProviderList.filter((game: any) => game.providerId === '33333');
+        this.universeProviderGames = this.navProviderList.filter((game: any) =>( game.providerTitle.includes(this.providerName)  && game.gameId !== null));
       }
     });
   }
