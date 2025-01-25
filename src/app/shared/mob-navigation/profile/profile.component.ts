@@ -122,14 +122,17 @@ export class ProfileComponent {
     if(item.name=='Stake Edit'){
       this.router.navigateByUrl('/stakes');
       this.toggle.setMobSideBarState(false);
+      this.toggle.setProfileMobSidebarState(false);
     }
     if(item.name=='My Bets'){
       this.router.navigateByUrl('/mybets');
       this.toggle.setMobSideBarState(false);
+      this.toggle.setProfileMobSidebarState(false);
     }
     if(item.name=='Transactions'){
       this.router.navigateByUrl('/transactions');
       this.toggle.setMobSideBarState(false);
+      this.toggle.setProfileMobSidebarState(false);
     }
   }
 }

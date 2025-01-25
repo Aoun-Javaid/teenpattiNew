@@ -9,7 +9,7 @@
     <div class="header-title">Stakes</div>
   </div>
   <div class="card-body grid grid-cols-4 gap-4">
-    <input [disabled]="!editable" [ngClass]="editable?'border-active':''"  *ngFor="let item of stackButtonArry" class="inputbox" type="text" min="1" max="99999999" maxlength="9" [(ngModel)]="item.stakeAmount"
+    <input [disabled]="!editable" [ngClass]="editable?'border-active':''"  *ngFor="let item of stackButtonArry;let i=index" [id]="'stake'+i" class="inputbox" type="text" min="1" max="99999999" maxlength="9" [(ngModel)]="item.stakeAmount"
     (keypress)="numberOnly($event)">
 
   </div>

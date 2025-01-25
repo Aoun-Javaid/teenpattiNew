@@ -11,6 +11,7 @@ export class MainService {
   private bannersList: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
   private navigationList: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
   private providersNavigationsList: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
+  private liveBetRoom: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
 
   constructor( private networkService: NetworkService,
     private indexedDBService: IndexedDbService) { }
@@ -126,5 +127,12 @@ export class MainService {
   }
   setProvidersNavigationsList(value: any | null): void {
     this.providersNavigationsList.next(value);
+  }
+
+  getLiveBetRoom(): BehaviorSubject<any | null> {
+    return this.liveBetRoom;
+  }
+  setLiveBetRoom(value: any | null): void {
+    this.liveBetRoom.next(value);
   }
 }

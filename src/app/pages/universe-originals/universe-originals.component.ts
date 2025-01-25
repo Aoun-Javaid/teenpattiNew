@@ -21,7 +21,7 @@ import { MainService } from '../../services/main.service';
   styleUrl: './universe-originals.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class UniverseOriginalsComponent implements OnInit, AfterViewInit ,OnDestroy {
+export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDestroy {
   owlPrevBtn: boolean = true;
   owlNextBtn: boolean = false;
   stakeOrigin!: Swiper;
@@ -75,15 +75,15 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit ,OnDest
   isCarouselActive = true;
   screenWidth = window.innerWidth;
   navProviderList: any;
-  universeProviderGames: any =[];
+  universeProviderGames: any = [];
   providerName: any;
 
   // swiperInstance: Swiper;
-  constructor(private router: Router,private mainService:MainService,private route:ActivatedRoute) {
- 
+  constructor(private router: Router, private mainService: MainService, private route: ActivatedRoute) {
+
   }
   ngOnDestroy(): void {
-    this.universeProviderGames=[]
+    this.universeProviderGames = []
   }
 
   ngOnInit() {
@@ -152,9 +152,21 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit ,OnDest
     //   },
     // });
     // this.setDefaultView();
-    setTimeout(() => {
-    this.setGridView();
-    }, 100);
+    // setTimeout(() => {
+    // this.setGridView();
+    // }, 100);
+
+    const isInitialLoad = localStorage.getItem('isInitialLoad');
+    if (isInitialLoad == 'true') {
+      // On initial load, use setTimeout
+      setTimeout(() => {
+        this.setGridView();
+        localStorage.setItem('isInitialLoad', 'false'); // Mark subsequent loads
+      }, 100);
+    }
+    if (isInitialLoad == 'false') {
+      this.setGridView();
+    }
 
     //   loop: false,
     //   slidesPerView: 7.5,
@@ -194,7 +206,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit ,OnDest
     this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
       if (res) {
         this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
-        this.universeProviderGames = this.navProviderList.filter((game: any) =>( game.providerTitle.includes(this.providerName)  && game.gameId !== null));
+        this.universeProviderGames = this.navProviderList.filter((game: any) => (game.providerTitle.includes(this.providerName) && game.gameId !== null));
       }
     });
   }

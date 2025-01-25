@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { BetdetailsModalComponent } from "../../Modals/betdetails-modal/betdetails-modal.component";
 import { ModalService } from '../../services/modal.service';
 import { WebSocketLiveBetService } from '../../services/web-socket-live-bet.service';
 import { v4 as uuidv4 } from 'uuid';
 import { DatePipe, DecimalPipe } from '@angular/common';
+import { MainService } from '../../services/main.service';
+import { NetworkService } from '../../services/network.service';
+import { CONFIG } from '../../../../config';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-bets',
@@ -12,41 +16,66 @@ import { DatePipe, DecimalPipe } from '@angular/common';
   templateUrl: './bets.component.html',
   styleUrl: './bets.component.css'
 })
-export class BetsComponent implements OnInit {
+export class BetsComponent implements OnInit, OnDestroy {
   token: any;
   liveBetsData: any = [];
   latestBetsData: any = [];
-
+  private unsubscribe$ = new Subject<void>();
   constructor(private modalsService: ModalService,
-    private socketService: WebSocketLiveBetService
+    private socketService: WebSocketLiveBetService,
+    private mainService: MainService,
+    private networkService: NetworkService
   ) {
+  }
 
+  ngOnDestroy(): void {
+    this.socketService.disconnect();
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     if (!this.token) {
       this.token = uuidv4();
     }
-    this.socketService.connect(this.token);
 
-    this.socketService.onEvent('loadConnectedClients', (data) => {
-      // console.log('Received loadConnectedClients:', data);
-      // this.connectedUsers = data;
-      console.log(data)
+    this.mainService.getLiveBetRoom().pipe(takeUntil(this.unsubscribe$)).subscribe((room: any) => {
+      this.latestBetsData = [];
+      this.socketService.connect(this.token, room);
+
+      if (room == 'myBets') {
+        this.networkService.getAllRecordsByPost(CONFIG.myBets, {})
+          .subscribe((data: any) => {
+            debugger
+            if (data.meta && data.meta.status === true) {
+              this.updateIncomingMessage(data);
+            }
+          });
+        this.socketService.onEvent('myBets', (data) => {
+          this.updateIncomingMessage(data);
+        });
+      }
+
+      if (room == 'allBets') {
+        this.socketService.onEvent('allBets', (data) => {
+          this.updateIncomingMessage(data);
+        });
+      }
+
+      if (room == 'highRollers') {
+        this.socketService.onEvent('highRollers', (data) => {
+          this.updateIncomingMessage(data);
+        });
+      }
+
     });
 
-    this.socketService.onEvent('loadBets', (data) => {
 
-      console.log(data)
 
-      this.updateIncomingMessage(data);
-      // console.log('Received message event:', data);
-    });
   }
 
   updateIncomingMessage(data: any) {
     let betsData = JSON.parse(data);
-    console.log(typeof (this.liveBetsData))
     this.liveBetsData.push(betsData);
 
     // Maintain a separate array with only the latest 15 objects

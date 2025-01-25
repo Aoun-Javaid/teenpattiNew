@@ -12,11 +12,15 @@ export class WebSocketLiveBetService {
   constructor() {
 
   }
-  connect(token: string): void {
+  connect(token: string, room: string): void {
+    if (this.socket && this.socket.connected) {
+      this.socket.disconnect();
+      console.log('Existing socket connection closed.');
+    }
     this.socket = io(BASE_URL_WS, {
       transports: ['websocket'],
       path: '/csp-top-bets/',  // Specify the correct path for WebSocket namespace
-      query: { token },  // Pass token and project ID
+      query: { token, room },  // Pass token and project ID
     });
 
     this.socket.on('connect', () => {

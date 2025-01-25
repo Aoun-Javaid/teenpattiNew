@@ -176,17 +176,17 @@
     <div class="tab-slider  min-w-full ">
         <div class="flex">
             <!-- Tab item 1 -->
-            <a (click)="setActiveTableTab(1)" [class.active]="TableTab === 1" class="tab-item tab-item1">
+            <a (click)="setActiveTableTab('myBets')" [class.active]="TableTab === 'myBets'" class="tab-item tab-item1">
                 <span>My Bets</span>
             </a>
 
             <!-- Tab item 2 -->
-            <a (click)="setActiveTableTab(2)" [class.active]="TableTab === 2" class="tab-item">
+            <a (click)="setActiveTableTab('allBets')" [class.active]="TableTab === 'allBets'" class="tab-item">
                 <span>All Bets</span>
             </a>
 
             <!-- Tab item 3 -->
-            <a (click)="setActiveTableTab(3)" [class.active]="TableTab === 3" class="tab-item">
+            <a (click)="setActiveTableTab('highRollers')" [class.active]="TableTab === 'highRollers'" class="tab-item">
                 <span>High Rollers</span>
                 <!-- <div class="bubble-wrap">
             <div class="scale-up"></div>

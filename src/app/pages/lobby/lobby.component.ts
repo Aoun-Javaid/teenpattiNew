@@ -8,7 +8,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { Router, ActivatedRoute, RouterLink, NavigationEnd } from '@angular/router';
 import Swiper from 'swiper';
 import { ToggleService } from '../../services/toggle.service';
 import { BetsComponent } from '../bets/bets.component';
@@ -31,7 +31,7 @@ export class LobbyComponent implements OnInit, AfterViewInit {
   activeTab: number = 1;
   LiveTab = 'basketball';
   stakeOrigin!: Swiper;
-  TableTab: number = 1;
+  TableTab: string = 'myBets';
   casinoViewAllState: boolean = false;
   ProviderViewAllState: boolean = false;
   WinnerDropdown = false;
@@ -155,19 +155,23 @@ export class LobbyComponent implements OnInit, AfterViewInit {
   screenWidth = window.innerWidth;
   navProviderList: any;
   universeProviderGames: any;
-
+  private isInitialLoad = true;
   // swiperInstance: Swiper;
   constructor(private router: Router, private mainService: MainService) {
-    this.getprovidersNavigations();
+
   }
 
   ngOnInit() {
+    this.setActiveTableTab(this.TableTab);
+    this.getprovidersNavigations();
     const inner = window.innerWidth;
     if (inner <= 992 && inner >= 400) {
       this.swiperBreakPoint.slide = 4;
     } else if (inner <= 400) {
       this.swiperBreakPoint.slide = 3;
     }
+
+
   }
 
   isUserLoggedIn(): boolean {
@@ -223,10 +227,37 @@ export class LobbyComponent implements OnInit, AfterViewInit {
     //     reachEnd: () => (this.owlNextBtn = true),
     //   },
     // });
-    setTimeout(() => {
+    const isInitialLoad = localStorage.getItem('isInitialLoad');
+    if (isInitialLoad   == 'true') {
+      // On initial load, use setTimeout
+      setTimeout(() => {
+        this.setDefaultView();
+        this.setDefaultViewProvider();
+        localStorage.setItem('isInitialLoad', 'false'); // Mark subsequent loads
+      }, 100);
+    }
+    if (isInitialLoad   == 'false') {
       this.setDefaultView();
       this.setDefaultViewProvider();
-    }, 100);
+    }
+    // if (this.isInitialLoad == false) {
+    //   setTimeout(() => {
+    //     this.setDefaultView();
+    //     this.setDefaultViewProvider();
+    //     console.log('false call');
+    //   }, 50);
+    // }
+    // if (this.isInitialLoad == true) {
+    //   setTimeout(() => {
+    //     this.setDefaultView();
+    //     this.setDefaultViewProvider();
+    //     this.isInitialLoad = false; 
+    //     console.log('true call');
+
+    //   }, 50);
+    // }
+
+
     // this.providerSwiper = new Swiper('.provider-swiper', {
     //   loop: false,
     //   slidesPerView: 7.5,
@@ -283,10 +314,9 @@ export class LobbyComponent implements OnInit, AfterViewInit {
         // Convert the grouped object back into an array format if needed
         const result = Object.keys(groupedData).map(providerTitle => ({
           providerTitle,
-          games: groupedData[providerTitle].filter((game:any) => game.isFavorite).sort((a: any, b: any) => a.gameSequence - b.gameSequence)
+          games: groupedData[providerTitle].filter((game: any) => game.isFavorite).sort((a: any, b: any) => a.gameSequence - b.gameSequence)
         }));
         this.universeProviderGames = result.sort((a: any, b: any) => a.providerSequence - b.providerSequence);
-        console.log(this.universeProviderGames)
       }
     });
   }
@@ -333,8 +363,9 @@ export class LobbyComponent implements OnInit, AfterViewInit {
   }
 
   // Tabs
-  setActiveTableTab(tabIndex: number): void {
+  setActiveTableTab(tabIndex: string): void {
     this.TableTab = tabIndex;
+    this.mainService.setLiveBetRoom(this.TableTab);
   }
 
   // Table Tabs

@@ -192,7 +192,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // }
   NaviagteTo(item:any){
     if(item.title=='Universe Originals'){
-      this.router.navigateByUrl('/home/universe-originals')
+      this.router.navigateByUrl('/home/universe-originals/UNIVERSE')
     }
     else if(item.title=='Lobby'){
         this.router.navigateByUrl('/home/lobby')

@@ -20,6 +20,9 @@ export const CONFIG = {
   userBalance: BASE_URL + "/v2/operator/user/userBalance",
   userGetStackURL: BASE_URL + "/v2/operator/user/userStake",
   updateUserBetStake: BASE_URL + "/v2/operator/user/updateUserStake",
+  myBets: BASE_URL + "/v2/casino/myBets",
+  allBets: BASE_URL + "/v2/casino/allBets",
+  highRollers: BASE_URL + "/v2/casino/highRollers",
   providersNavigations: BASE_URL + "/api/exchange/provider/providersNavigations",
   providersNavigationsTime:120,
 };

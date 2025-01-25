@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { CONFIG } from '../../config';
 import { MainService } from './services/main.service';
 
-declare var $:any;
+declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -13,10 +13,11 @@ declare var $:any;
   styleUrl: './app.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'Universe Casino';
+  private readonly storageKey = 'isInitialLoad';
 
-  constructor(private mainService:MainService){
+  constructor(private mainService: MainService) {
 
   }
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit{
       width: '70%',
     });
 
+    localStorage.setItem(this.storageKey, 'true');
     this.getBanners();
     this.getNavigationList();
     this.getprovidersNavigations();

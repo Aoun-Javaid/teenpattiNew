@@ -51,7 +51,7 @@ export const routes: Routes = [
             component: LobbyComponent,
           },
           {
-            path: 'universe-originals',
+            path: 'universe-originals/:name',
             component: UniverseOriginalsComponent,
           },
           {
