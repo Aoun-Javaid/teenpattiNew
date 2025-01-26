@@ -40,15 +40,15 @@ export class BetsComponent implements OnInit, OnDestroy {
     }
 
     this.mainService.getLiveBetRoom().pipe(takeUntil(this.unsubscribe$)).subscribe((room: any) => {
-      this.latestBetsData = [];
+     
       this.socketService.connect(this.token, room);
 
       if (room == 'myBets') {
         this.networkService.getAllRecordsByPost(CONFIG.myBets, {})
           .subscribe((data: any) => {
-            debugger
             if (data.meta && data.meta.status === true) {
-              this.updateIncomingMessage(data);
+              this.latestBetsData = [];
+              this.latestBetsData = data.data;
             }
           });
         this.socketService.onEvent('myBets', (data) => {
@@ -57,12 +57,26 @@ export class BetsComponent implements OnInit, OnDestroy {
       }
 
       if (room == 'allBets') {
+        this.networkService.getAllRecordsByPost(CONFIG.allBets, {})
+        .subscribe((data: any) => {
+          if (data.meta && data.meta.status === true) {
+            this.latestBetsData = [];
+            this.latestBetsData = data.data;
+          }
+        });
         this.socketService.onEvent('allBets', (data) => {
           this.updateIncomingMessage(data);
         });
       }
 
       if (room == 'highRollers') {
+        this.networkService.getAllRecordsByPost(CONFIG.highRollers, {})
+        .subscribe((data: any) => {
+          if (data.meta && data.meta.status === true) {
+            this.latestBetsData = [];
+            this.latestBetsData = data.data;
+          }
+        });
         this.socketService.onEvent('highRollers', (data) => {
           this.updateIncomingMessage(data);
         });
