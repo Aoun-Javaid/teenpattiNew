@@ -1,0 +1,64 @@
+
+header{
+    height: 70px;
+    background: #1A2C38;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    padding: 0px 20px;
+}
+
+.right{
+    gap: 30px;
+}
+
+.text-danger{
+    color: #FF1E22 !important;
+}
+
+.wallet{
+    width: 120px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.wallet-div{
+    gap: 10px;
+}
+
+.balance{
+    line-height: 18px !important;
+}
+
+.search-img{
+    height: 24px;
+}
+
+@media only screen and (min-width:960px){
+    .right{
+        gap: 70px;
+    }
+    .wallet-div{
+        gap: 40px;
+    }
+}
+
+@media only screen and (min-width:810px) and (max-width:960px){
+    .right{
+        gap: 40px;
+    }
+    .wallet-div{
+        gap: 20px;
+    }
+  }
+
+  @media only screen and (min-width:768px) and (max-width:810px){
+    .right{
+        gap: 30px;
+    }
+  }
+
+  @media only screen and (max-width:767px){
+   .right{
+    justify-content: space-between;
+    width: 100%;
+   }
+}

@@ -1,0 +1,195 @@
+.bg-overlay{
+    background-color: #071E2A;
+    width: 100vw;
+    height: 100vh;
+}
+.bg-logo{
+    // background-image: url('./../../../assets/Universe-logo/Universe-icon.webp');
+    // background-position: top;
+    // background-repeat: no-repeat;
+    // background-size: contain;
+    // width: 570px !important;
+    background-image: url('./../../../assets/Universe-logo-ic.svg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 550px;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+}
+.bg-logo-btm{
+    width: 800px;
+}
+.bg-logo-btm img{
+    width: 100%;
+}
+.login-container{
+    background-color: #1A2C38;
+    border-radius: 20px;
+    width: 540px;
+    height: 520px;
+    padding: 42px 16px;
+    z-index: 2;
+    margin-top: 120px;
+}
+.form-input{
+    width: 100%;
+    background-color: #0E212E;
+    height: 60px;
+    border-radius: 20px;
+    color: #B1BAD3;
+    font-size: 18px;
+    padding: 8px 12px;
+    outline: none;
+    border: 2px solid #60798a;
+}
+.submit-btn{
+    background-color: #1375E1;
+    padding: 4px 52px;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    border: none;
+    height: 50px;
+    font-size: 18px;
+}
+.error{
+    color: white;
+}
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+@media only screen and (max-width:1200px){
+    .bg-logo-btm{
+        width: 700px;
+    }
+}
+  @media only screen and (max-width:900px){
+    .login-container{
+        height: 460px;
+        margin-top: 115px;
+    }
+    .container{
+        width: 100%;
+    }
+  }
+  @media only screen and (max-width:768px){
+    .bg-logo-btm{
+        width: 600px;
+    }
+    .login-container{
+        margin-top: 98px;
+
+    }
+  }
+  @media only screen and (max-width:600px){
+    .login-container{
+        width: 90%;
+    }
+    .bg-logo{
+        width: 470px !important;
+        top: 27px;
+    }
+    .login-container img{
+        width: 100%;
+    }
+    .bg-logo-btm{
+        width: 100%;
+    }
+  }
+//   @media only screen and (max-width:580px){
+//     .login-container{
+//         margin-top: 103px;
+    
+//     }
+//   }
+  @media only screen and (max-width:500px){
+    .bg-logo{
+        width: 480px !important;
+        top: 25px;
+    }
+  }
+
+  @media only screen and (max-width:500px){
+    .bg-logo{
+        width: 425px !important;
+        top: 40px;
+    }
+  }
+  @media only screen and (max-width:470px){
+    .bg-logo{
+        width: 400px !important;
+        top: 50px;
+    }
+  }
+
+
+
+  @media only screen and (max-width:430px){
+    .login-container{
+        width: 100%;
+        margin-top: 102px;
+    }
+    form{
+        width: 100% !important;
+    }
+    .bg-logo{
+        width: 400px !important;
+        top: 13px;
+    }
+    .container{
+        justify-content: start !important;
+    }
+  }
+  @media only screen and (max-width:400px){
+    .bg-logo{
+        width: 374px !important;
+        top: 20px;
+    }
+  }
+  @media only screen and (max-width:375px){
+    .bg-logo{
+        width: 345px !important;
+        top: 22px;
+    }
+    .login-container{
+        margin-top: 98px;
+    
+    }
+  }
+  @media only screen and (max-width: 350px) {
+    .bg-logo{
+        width: 318px !important;
+        top: 28px;
+    }
+}
+  @media only screen and (max-width:330px){
+    .bg-logo{
+        width: 300px !important;
+        top: 29px;
+    }
+    .login-container{
+        margin-top: 95px;
+    
+    }
+  }
+  @media only screen and (max-width:319px){
+    .bg-logo{
+        width: 280px !important;
+        top: 33px;
+    }
+}
+@media only screen and (max-width:300px){
+    .bg-logo{
+        width: 270px !important;
+
+    }
+}
+  .container{
+    flex-direction: column;
+  }
+  
+

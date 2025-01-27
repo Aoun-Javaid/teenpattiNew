@@ -1,0 +1,188 @@
+.input-group .form-control {
+    background: #071E2A; 
+    color: #41697E; 
+    border: none;
+    border-top-right-radius: 33px ;
+    border-bottom-right-radius: 30px;
+  }
+
+  .search-bar{
+    background: #071E2A; 
+    border: 2px solid #41697E; 
+    border-radius: 30px;
+  }
+
+  .form-control::placeholder{
+    color: #41697E;
+  }
+
+  .input-group .form-control:focus {
+    box-shadow: none; 
+  }
+
+  .input-group-text {
+    background-color: #071E2A; 
+    border: none; 
+    color: #d3d6db;
+    border-top-left-radius: 30px ;
+    border-bottom-left-radius: 30px;
+  }
+
+  .form-select {
+    background-color: #071E2A; 
+    color: #ffffff; 
+    border: 2px solid #41697E; 
+    border-radius: 5px;
+    width: 68px;
+    padding-right: 30px;
+    position: relative;
+    appearance: none; 
+  }
+
+  .form-select:focus {
+    box-shadow: none;
+  }
+  
+  .form-select {
+    background-image: none; 
+  }
+  
+  .dropdown{
+    position: relative;
+  }
+
+  .dropdown::after{
+    content: '';
+  background-image: url('../../../assets/angle-down.svg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; 
+  }
+
+  @media only screen and (min-width:1023px){
+    .input-group{
+        width: 298px;
+      }
+ }
+// Table
+ .table-container {
+   margin: 20px;
+   width: 95%;
+ }
+
+ table {
+   width: 100%;
+   border-collapse: collapse;
+   overflow: hidden;
+ }
+
+ thead th {
+   text-align: left;
+   font-size: 14px;
+   padding: 12px 8px;
+   color: #9ca3af; 
+ }
+
+ tbody tr {
+   transition: background-color 0.3s ease;
+ }
+
+ tbody td {
+   font-size: 14px;
+   padding: 12px 8px;
+   text-align: left;
+ }
+
+ .text-red {
+   color: #C90003;
+ }
+
+ .actions button {
+   background: none;
+   border: none;
+   color: #9ca3af;
+   cursor: pointer;
+   transition: color 0.3s ease;
+ }
+
+ .actions button:hover {
+   color: #fff;
+ }
+
+ .actions button svg {
+   width: 16px;
+   height: 16px;
+ }
+
+ tbody tr:nth-child(even) {
+  background-color: #213743; 
+  border-radius: 10px !important;
+}
+
+tbody tr:nth-child(even) td:first-child {
+  border-top-left-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+}
+
+tbody tr:nth-child(even) td:last-child {
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+
+@media only screen and (min-width:900px){
+  tbody th , td{
+    padding: 12px 16px;
+  }
+}
+.pl-button {
+    width: 200px;
+    height: 43px;
+    background-color: #1375E1;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+.visible-date-sec{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+
+.visible-date-sec {
+    display: flex;                    
+    justify-content: space-between;
+    align-items: center;         
+  }
+  
+  .visible-date-sec h6 {
+    display: flex;   
+    align-items: center; 
+    margin: 0;      
+  }
+  
+  .visible-date-sec .date-piker-section {
+    display: flex;      
+    gap: 16px;       
+    align-items: center;  
+  }
+  .showDatepicker{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+.showDatepicker .search-sec{
+    justify-content: end !important;
+}

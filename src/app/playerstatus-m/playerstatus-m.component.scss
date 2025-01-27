@@ -1,0 +1,70 @@
+.status-box {
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  
+  .modal-header button.close {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .modal-header h5 {
+    font-size: 1.25rem;
+  }
+  .modal-header{
+    background-color: #41697E;
+    color: white;
+    border: 0;
+    justify-content: space-between;
+  }
+  .active-btn{
+    background: #008728;
+    color: #fff;
+    padding: 3px 15px;
+    font-size: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  .col-3{
+    width: 33%;
+  }
+  .form-control{
+    background-color: transparent;
+    color: #41697E;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+  .form-control::placeholder{
+    color: #41697E;
+  }
+  .form-control:active{
+    box-shadow: unset;
+  }
+  .btn-change{
+    background-color:#41697E;
+    color: #fff;
+    font-weight: bold;
+  }
+  .text-active{
+    color: #008728;
+  }
+  .text-lock{
+    color: #B1BAD3;
+  }
+  .text-suspend{
+    color: #C90003;
+  }
+  .modal-content{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+  .modal-header{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }

@@ -1,0 +1,28 @@
+<div class="date-picker-container">
+    <!-- Start Date -->
+    <div class="date-field" (click)="startDp.toggle()">
+      <input
+        type="text"
+        [placeholder]="startDate ? startDate : 'Date Picker'"
+        class="custom-date-picker"
+        [(ngModel)]="startDate"
+        ngbDatepicker
+        #startDp="ngbDatepicker"
+        readonly
+      />
+    </div>
+  
+    <!-- End Date -->
+    <div class="date-field" (click)="endDp.toggle()">
+      <input
+        type="text"
+        [placeholder]="endDate ? endDate : 'Date Picker'"
+        class="custom-date-picker"
+        [(ngModel)]="endDate"
+        ngbDatepicker
+        #endDp="ngbDatepicker"
+        readonly
+      />
+    </div>
+  </div>
+  

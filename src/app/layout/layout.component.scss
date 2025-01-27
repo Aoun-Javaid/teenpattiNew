@@ -1,0 +1,43 @@
+.main-container{
+    display: flex;
+    background-color: #071E2A;
+    height: calc(100vh - 42px);
+    border: none !important;
+}
+.main-content{
+    overflow-y: auto;
+    height:calc(100vh - 132px);
+   background: #1A2C38;
+   border-radius: 10px;
+}
+
+.dashboard{
+   width: 100%;
+}
+
+@media only screen and (min-width:1024px){
+    .left-sidebar{
+        width: 304px;
+    }
+}
+@media only screen and (min-width:900px) and (max-width:1023px){
+    .left-sidebar{
+        width: 250px;
+    }
+}
+@media only screen and (min-width:768px) and (max-width:899px){
+    .left-sidebar{
+        width: 230px;
+    }
+}
+@media only screen and (max-width:767px){
+    .left-sidebar{
+        display: none;
+    }
+}
+.me-30{
+    margin-right: 30px !important;
+}
+.mt-18{
+    margin-top: 18px !important;
+}

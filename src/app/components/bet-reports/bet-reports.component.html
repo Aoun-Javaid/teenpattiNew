@@ -1,0 +1,116 @@
+<section>
+    <!-- Main row -- search,dropdown -->
+    <div class="text-white dashboard">
+        <div [ngClass]="{'showDatepicker': isSectionVisible}">
+            <div class="d-flex justify-content-between p-3 ps-4 pe-4 align-items-center text-white rounded search-sec" >
+                <h6 class="mb-0 d-flex" *ngIf="!isSectionVisible">
+                  <img src="/assets/left-sidebar/Profile.svg" alt="player">
+                  <span class="ms-2">Player List </span>
+                </h6>
+                <div class="d-flex align-items-center gap-4 gap-lg-5">
+                  <!-- Search Input -->
+                  <div class="input-group search-bar">
+                    <span class="input-group-text">
+                      <img src="/assets/Search.svg" alt="search">
+                    </span>
+                    <input type="text" name="search" id="search" class="form-control mb-1" placeholder="Search your Player">
+                  </div>
+                  <!-- Dropdown -->
+                  <div class="position-relative dropdown">
+                    <label class="d-none" for="select" ></label>
+                    <select class="form-select" name="select" id="select">
+                      <option value="10" selected>10</option>
+                      <option value="20">20</option>
+                      <option value="50">50</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="visible-date-sec p-3 ps-4 pe-4 align-items-center text-white"  *ngIf="isSectionVisible">
+                <h6 class="mb-0">
+                    <img src="/assets/left-sidebar/Profile.svg" alt="player">
+                    <span class="ms-2">Player List </span>
+                  </h6>
+                  <div class="date-piker-section">
+                    <app-date-picker></app-date-picker>
+                    <button class="pl-button">Get P&L</button>
+                </div>
+              </div>
+        </div>
+    </div>
+
+    
+    <!-- Table -->
+    <div class="table-container text-white">
+      <table>
+        <!-- Table Heading -->
+        <thead>
+          <tr>
+            <th>Player Name</th>
+            <th class="text-center">Balance</th>
+            <th class="text-center">Exposure</th>
+            <th class="text-center">Lifetime Bets</th>
+            <th class="text-center">Lifetime P&L</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <!-- Table Content -->
+        <tbody>
+          <!-- 1 -->
+          <tr>
+            <td>Abcsaww</td>
+            <td class="text-center">10,000</td>
+            <td class="text-red text-center">239,343</td>
+            <td class="text-center">1,000</td>
+            <td class="text-center">10,000</td>
+            <td class="text-center">
+              <div class="actions d-flex justify-content-around gap-2 align-items-center">
+                <img src="/assets/Swap.svg" alt="p-l">
+                <img src="/assets/left-sidebar/bet-profit.svg" alt="bet-history">
+                <img src="/assets/left-sidebar/setting.svg" alt="settings">
+                <img src="/assets/left-sidebar/Profile.svg" alt="player">
+              </div>
+            </td>
+          </tr>
+          <!-- 2 -->
+          <tr>
+            <td>Abcsaww</td>
+            <td class="text-center">10,000</td>
+            <td class="text-red text-center">239,343</td>
+            <td class="text-center">1,000</td>
+            <td class="text-center">10,000</td>
+            <td class="text-center">
+              <div class="actions">
+              </div>
+            </td>
+          </tr>
+          <!-- 3 -->
+          <tr>
+            <td>Abcsaww</td>
+            <td class="text-center">10,000</td>
+            <td class="text-red text-center">239,343</td>
+            <td class="text-center">1,000</td>
+            <td class="text-center">10,000</td>
+            <td class="text-center">
+              <div class="actions">
+              </div>
+            </td>
+          </tr>
+          <!-- 4 -->
+          <tr>
+            <td>Abcsaww</td>
+            <td class="text-center">10,000</td>
+            <td class="text-red text-center">239,343</td>
+            <td class="text-center">1,000</td>
+            <td class="text-center">10,000</td>
+            <td class="text-center">
+              <div class="actions">
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    </section>
+
