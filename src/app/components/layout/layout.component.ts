@@ -51,7 +51,7 @@ export class LayoutComponent implements OnInit {
           $(document).ready(() => {
             $('.loaderMain').css('display', 'none')
           });
-        }, 500);
+        }, 1000);
 
       });
   }
