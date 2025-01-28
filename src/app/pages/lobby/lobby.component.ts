@@ -234,7 +234,7 @@ export class LobbyComponent implements OnInit, AfterViewInit {
         this.setDefaultView();
         this.setDefaultViewProvider();
         localStorage.setItem('isInitialLoad', 'false'); // Mark subsequent loads
-      }, 700);
+      }, 800);
     }
     if (isInitialLoad   == 'false') {
       this.setDefaultView();
