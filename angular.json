@@ -3,39 +3,41 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "api-backend": {
+    "stake": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/api-backend",
+            "outputPath": "dist/casino",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "src/styles.css",
+              "node_modules/datatables.net-dt/css/dataTables.dataTables.min.css",
+
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/swiper/swiper-bundle.min.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/datatables.net/js/dataTables.min.js",
+              "node_modules/jquery/dist/jquery.min.js"
+
             ]
           },
           "configurations": {
@@ -43,13 +45,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "10MB",
-                  "maximumError": "10MB"
+                  "maximumWarning": "3mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "10MB",
-                  "maximumError": "10MB"
+                  "maximumWarning": "3mb",
+                  "maximumError": "3mb"
                 }
               ],
               "outputHashing": "all"
@@ -66,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "api-backend:build:production"
+              "buildTarget": "stake:build:production"
             },
             "development": {
-              "buildTarget": "api-backend:build:development"
+              "buildTarget": "stake:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +87,6 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
@@ -93,11 +94,14 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/datatables.net-dt/css/dataTables.dataTables.min.css",
+              "src/styles.css"
+
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/datatables.net/js/dataTables.min.js"
+
             ]
           }
         }

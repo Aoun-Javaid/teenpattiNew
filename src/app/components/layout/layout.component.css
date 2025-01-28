@@ -1,0 +1,20 @@
+.header-wrapper {
+  @apply h-[60px] bg-[#1A2C38];
+}
+
+.sidebar {
+  @apply pb-[65px] pt-[60px] md:pt-0 md:pb-[0px] h-[calc(100vw-125px)] md:h-screen overflow-visible;
+}
+
+.main-container {
+  @apply flex h-full;
+}
+
+.content-container {
+  @apply md:min-w-[calc(100%-610px)] w-full;
+}
+
+.page-wrapper {
+  /* h-[calc(100vh-67px)] */
+  @apply h-[calc(100vh-119px)]   bg-[rgb(26,44,56)] overflow-y-auto;
+}

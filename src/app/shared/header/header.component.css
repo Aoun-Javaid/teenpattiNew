@@ -1,0 +1,25 @@
+@tailwind utilities;
+
+@layer utilities {
+  .header_wrapper {
+    @apply bg-[#1A2C38] border-0 boxShadowHeader h-[60px] flex flex-row justify-between items-center px-1 xm:px-[16.5px];
+  }
+  .logo_img {
+    @apply w-[150px] h-[39.58px];
+  }
+  .balance_section {
+    @apply flex flex-row justify-center items-center gap-1  *:leading-[17.9px] *:text-[15px];
+  }
+
+}
+
+.boxShadowHeader {
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.5) !important;
+  margin-bottom: 7px;
+}
+.notificationBtn{
+      padding: .7rem;
+      font-size: .875rem;
+      font-weight: 600;
+      height: 38px;
+}

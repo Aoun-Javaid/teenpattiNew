@@ -1,0 +1,118 @@
+.main-section {
+  @apply max-w-[1200px] m-[0_auto] relative max-[1680px]:p-[0px_3vw];
+}
+.banner.mobile {
+  height: 80px;
+}
+.group-banner-wrap {
+  background: #213743;
+}
+.banner-wrap {
+  padding: 0 3vw;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  line-height: 1;
+}
+.banner{
+  width: 100%;
+  height: 115px;
+  display: flex;
+  overflow: hidden;
+}
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+.headingText{
+  font-size: 1.25rem;
+  color: #b1bad3;
+  text-align: left;
+  justify-content: flex-start;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+.left img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.filterContainer{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  width: 100%;
+
+}
+.providerbtn{
+  font-weight: 600;
+  border-radius: calc(.5rem - 4px);
+  background: #0f212e;
+  color: white;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .15s;
+  padding: .655rem;
+  position: relative;
+}
+.providerbtn svg{
+  color: #b1bad3;
+}
+.providerbtn.up svg{
+  transform: rotate(0deg)
+}
+.providerbtn.down svg{
+  transform: rotate(180deg)
+}
+.toggleFilter{
+  position: absolute;
+  background: white;
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  flex-direction: column;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .2), 0 4px 6px -2px rgba(0, 0, 0, .1);
+  border-radius: .25rem;
+  z-index: 1600;
+  padding: .25rem 0;
+  min-width: 100px;
+  right: 0px;
+  top: 51px;
+}
+.toggleFilter .tab{
+  color: #2f4553;
+  padding: .75rem;
+  display: flex;
+  justify-content: start;
+}
+.toggleFilter .tab:hover {
+  background-color: #b1bad3;
+  color: black;
+}
+.toggleFilter .tab.highlight{
+  color: #1475e1;
+}
+.arrow {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-left: 12px solid transparent;
+  border-right: 13px solid transparent;
+  border-bottom: 15px solid #fff;
+  top: -11px;
+  color: white;
+  z-index: -1;
+}
+
+

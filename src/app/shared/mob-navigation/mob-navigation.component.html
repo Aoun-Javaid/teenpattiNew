@@ -1,0 +1,54 @@
+<!-- <section class="content_wrapper">
+    <div class="content_container">
+        <button (click)="openBrowseMobSidebar()" class="browse_wrapper ">
+            <img class="w-[20px] h-[20px]" src="/images/browse.svg" alt="browse">
+            <div class="btn_text">
+                Browse
+            </div>
+        </button>
+        <button routerLink="/home/lobby"  (click)="closeMobSideBar()" class="home_wrapper   ">
+            <img class="w-[19px] h-[20.43px]" src="/images/Home.svg" alt="home">
+            <div class="btn_text">
+                Home
+            </div>
+        </button>
+        <button (click)="openProfileMobSidebar()" class="profile_wrapper">
+            <img class="w-[15.99px] h-[20px]" src="/images/Profile.svg" alt="profile">
+            <div class="btn_text">
+                Profile
+            </div>
+        </button>
+
+    </div>
+</section> -->
+<div class="navigation-wrapper " id="mobile-footer" >
+  <ng-container *ngFor="let button of buttons">
+    <div class="button-wrap">
+      <button class="button-inner-wrap" type="button" (click)="button.clickFunction()">
+        <div class="content">
+          <div class="mobile-icon-style">
+            <svg class="svg-icon" fill="currentColor" [attr.viewBox]="button.view" *ngIf="button.text!='Profile' && button.text!='Exit'">
+              <title></title>
+              <path [attr.d]="button.svgPath" clip-rule="evenodd" fill-rule="evenodd"></path>
+            </svg>
+            <svg *ngIf="button.text=='Profile'" width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.99682 13.1746C3.68382 13.1746 -0.000183105 13.8546 -0.000183105 16.5746C-0.000183105 19.2956 3.66082 19.9996 7.99682 19.9996C12.3098 19.9996 15.9938 19.3206 15.9938 16.5996C15.9938 13.8786 12.3338 13.1746 7.99682 13.1746Z" fill="white"/>
+              <path d="M7.99683 10.5837C10.9348 10.5837 13.2888 8.22869 13.2888 5.29169C13.2888 2.35469 10.9348 -0.000305176 7.99683 -0.000305176C5.05983 -0.000305176 2.70483 2.35469 2.70483 5.29169C2.70483 8.22869 5.05983 10.5837 7.99683 10.5837Z" fill="white"/>
+            </svg>
+            <svg  *ngIf="button.text=='Exit'" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_11_223)">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.15559 13.005H10.1862V11.2768H12.3112V15.13H6.15559V17L0 15.13V1.87L6.15559 0V1.87H12.3112V5.72316H10.1862V3.995H6.15559V13.005ZM12.8844 6.12664L17 8.5L12.8844 10.8731V9.5625H8.59191V7.4375H12.8844V6.12664Z" fill="currentColor"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_11_223">
+              <rect width="17" height="17" fill="white"/>
+              </clipPath>
+              </defs>
+              </svg>
+          </div>
+          <span>{{ button.text }}</span>
+        </div>
+      </button>
+    </div>
+  </ng-container>
+</div>

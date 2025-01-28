@@ -1,0 +1,203 @@
+<!--------------------------------- Stake Originals ---------------------->
+@for (item of universeProviderGames; track item) {
+<div class="page-content">
+    <!-- Stake Sports Slider -->
+    <div class="top-sports-header mb-2.5">
+        <!-- left -->
+        <a [routerLink]="['/originals', item.providerTitle]">
+            <span>
+                <svg class="svg-icon mr-2" fill="currentColor" viewBox="0 0 64 64">
+                    <title></title>
+                    <path
+                        d="M7.36 42.39c1-12.78 14.728-25.29 17.926-29.976 2.778-4.206 1.719-9.203.83-11.4a.78.78 0 0 1 .893-1h-.004c13.889 2.918 14.588 13.48 14.168 18.206-.42 4.726.42 7.913 3.478 7.224 3.057-.69 2.028-8.443 2.028-8.443s14.039 16.676 8.893 33.073c-2.588 8.574-9.033 12.19-14.449 13.89-.28.14-.56-.14-.56-.55.7-2.638 2.509-4.726 3.058-7.644 1.12-4.796-3.327-9.213-6.624-11.71-2.063-1.538-3.386-3.97-3.386-6.712 0-.127.002-.255.008-.381v.018c0-.28-.42-.42-.55-.28a90.106 90.106 0 0 1-6.652 7.202l-.022.022c-5.136 5.696-7.784 12.09-3.197 19.175.14.28-.14.69-.41.56C11.387 60.596 6.67 51.973 7.36 42.39Z"
+                        fill="#b1bad3">
+                    </path>
+                </svg>
+            </span>
+            <span class="sports-heading">{{item?.providerTitle}}</span>
+          </a>
+
+        <!-- Right -->
+        <!-- <div class="flex cursor-pointer">
+        <button (click)="stakeOrigin.slidePrev()" class="left-arrow arrows-btn">
+          <div class="arrow-inner">
+            <svg class="svg-icon " fill="currentColor" viewBox="0 0 64 64">
+              <title></title>
+              <path
+                d="M56 37.486H25.091L35.335 47.73l-6.313 6.314L8 33.022 29.022 12l6.313 6.314-10.244 10.244H56v8.933-.005Z"
+                fill="#b1bad3">
+              </path>
+            </svg>
+          </div>
+        </button>
+
+        <button (click)="stakeOrigin.slideNext()" class="right-arrow arrows-btn">
+          <div class="arrow-inner">
+            <svg class="svg-icon " fill="currentColor" viewBox="0 0 64 64">
+              <title></title>
+              <path
+                d="M8 37.486h30.909L28.665 47.73l6.313 6.314L56 33.022 34.978 12l-6.313 6.314 10.244 10.244H8v8.933-.005Z"
+                fill="#b1bad3">
+              </path>
+            </svg>
+          </div>
+        </button>
+
+      </div> -->
+        <div class="view_type">
+            @if (!casinoViewAllState) {
+            <button (click)="setCasinoViewType()" class="sports-heading view_text">
+                View All
+            </button>
+            }@else {
+            <button (click)="setCasinoViewType()" class="sports-heading view_text">
+                Hide All
+            </button>
+            }
+
+            <div class="flex_row cursor-pointer btnContainer">
+                <button (click)="this.stakeOrigin.slidePrev()" [disabled]="owlPrevBtn"
+                    [ngClass]="!owlPrevBtn? '!border-[#55758A] ':'border-[#304553] '" class="btn_left !border-r-0  ">
+                    <img [ngClass]="[!owlPrevBtn ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
+                        class="w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
+                </button>
+                <button (click)="this.stakeOrigin.slideNext()" [disabled]="owlNextBtn"
+                    [ngClass]="!owlNextBtn? 'border-[#55758A] ':'border-[#304553] '" class="btn_right border-l  ">
+                    <img [ngClass]="[!owlNextBtn ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
+                        class="rotate-180 w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="stake-swiper-lobby" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''">
+        <div class="swiper-wrapper">
+            <div *ngFor="let stake of item.games" class="swiper-slide">
+                <div class="relative">
+                    <img [src]="stake?.gameImage" alt="" class="border-0 rounded-[10px]">
+                    @if (stake.isMaintenance) {
+                    <div class="maintenance_wrapper">
+                        <div class="lock_img_wrapper">
+                            <img class="!w-[34px] h-10" src="/images/Lock.svg" alt="">
+                            <div class="suspend_text">
+                                This Game Under
+                                Maintenance
+                            </div>
+                        </div>
+
+                    </div>
+                    }
+                </div>
+
+                <div class="stake-player-row flex justify-center gap-2 pt-1">
+                    <span [ngClass]="[(stake?.gameStatus == 'ACTIVE' &&  !stake.isMaintenance)  ? 'stake-dot-green' :'stake-dot-red']"></span>
+                    <span *ngIf="stake?.gameStatus==='ACTIVE'" class="count-text"> {{stake?.count}}</span>
+                    <span class="text-[#b1bad3] text-xs font-semibold">{{(stake?.gameStatus == 'ACTIVE' &&  !stake.isMaintenance) ?  'Playing' : (stake?.gameStatus == 'ACTIVE' &&  stake.isMaintenance) ?   'Maintenance' : ''}}</span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+}
+<!--------------------------------- Providers slider ---------------------->
+<div class="page-content">
+    <!-- Providers Slider -->
+    <div class="top-sports-header mb-2.5">
+        <!-- left -->
+        <span>
+            <span>
+                <svg class="svg-icon mr-2" fill="currentColor" viewBox="0 0 96 96">
+                    <title></title>
+                    <path clip-rule="evenodd"
+                        d="M48.117 24.078c6.648 0 12.04-5.391 12.04-12.039S54.764 0 48.116 0C41.47 0 36.078 5.391 36.078 12.039s5.391 12.039 12.04 12.039ZM3.594 50.246l40.003 18.4a10.33 10.33 0 0 0 4.32.933 10.41 10.41 0 0 0 4.387-.96l-.066.027 40.003-18.4a2.608 2.608 0 0 0 1.509-2.362 2.597 2.597 0 0 0-1.494-2.352l-.015-.006-39.445-18.16v16.36a4.8 4.8 0 0 1-4.8 4.8 4.8 4.8 0 0 1-4.801-4.8v-16.36L3.59 45.526a2.608 2.608 0 0 0-1.509 2.361c0 1.041.612 1.939 1.494 2.353l.015.006h.003Zm40.403 28.922L2.074 60.206V72.82c0 1.932 1.134 3.6 2.772 4.377l.03.012L44 95.13c1.173.55 2.55.87 4 .87 1.449 0 2.826-.32 4.059-.893l-.06.024 39.124-17.92c1.668-.79 2.799-2.458 2.799-4.39V60.206L51.999 79.168a9.305 9.305 0 0 1-4 .888 9.365 9.365 0 0 1-4-.889l.001-.002-.057-.024.055.026v.001Z"
+                        fill="#b1bad3" fill-rule="evenodd">
+                    </path>
+                </svg>
+            </span>
+
+            <span class="sports-heading">Providers</span>
+        </span>
+
+        <!-- Right -->
+        <div class="view_type">
+            @if (!ProviderViewAllState) {
+            <button (click)="setProviderViewType()" class="sports-heading view_text">
+                View All
+            </button>
+            }@else {
+            <button (click)="setProviderViewType()" class="sports-heading view_text">
+                Hide All
+            </button>
+            }
+            <div class="flex_row cursor-pointer btnContainer">
+                <button (click)="this.providerSwiper.slidePrev()" [disabled]="ProviderPrevBtn"
+                    [ngClass]="!ProviderPrevBtn? '!border-[#55758A] ':'border-[#304553] '"
+                    class="btn_left !border-r-0  ">
+                    <img [ngClass]="[!ProviderPrevBtn ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
+                        class="w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
+                </button>
+                <button (click)="this.providerSwiper.slideNext()" [disabled]="ProviderNextBtn"
+                    [ngClass]="!ProviderNextBtn? 'border-[#55758A] ':'border-[#304553] '" class="btn_right border-l  ">
+                    <img [ngClass]="[!ProviderNextBtn ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
+                        class="rotate-180 w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Providers Slider Content -->
+
+    <!-- <div class="slick-carousel">
+          <ngx-slick-carousel #providerSlider="slick-carousel" [config]="slideConfig" class="carousel">
+            <div *ngFor="let stake of providers" class="image-card" ngxSlickItem>
+              <img [src]="stake.img" alt="Image" class="card-image"/>
+            </div>
+
+          </ngx-slick-carousel>
+
+        </div> -->
+
+    <div class="provider-swiper-lobby">
+        <div class="swiper-wrapper">
+            <div *ngFor="let stake of navProviderList" class="swiper-slide">
+                <img [src]="stake.providerImage" alt="" class="rounded-lg">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- --------------------------Table Topbar ------------------>
+<div class="top-sports-header overflow-x-auto events-header">
+    <!-- left tab slider -->
+    <div class="tab-slider  min-w-full ">
+        <div class="flex">
+            <!-- Tab item 1 -->
+            <a (click)="setActiveTableTab('myBets')" [class.active]="TableTab === 'myBets'" class="tab-item tab-item1">
+                <span>My Bets</span>
+            </a>
+
+            <!-- Tab item 2 -->
+            <a (click)="setActiveTableTab('allBets')" [class.active]="TableTab === 'allBets'" class="tab-item">
+                <span>All Bets</span>
+            </a>
+
+            <!-- Tab item 3 -->
+            <a (click)="setActiveTableTab('highRollers')" [class.active]="TableTab === 'highRollers'" class="tab-item">
+                <span>High Rollers</span>
+                <!-- <div class="bubble-wrap">
+            <div class="scale-up"></div>
+          </div> -->
+            </a>
+
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Table -->
+<app-bets></app-bets>

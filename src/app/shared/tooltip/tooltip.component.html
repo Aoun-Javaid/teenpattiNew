@@ -1,0 +1,11 @@
+<div class="relative group " (mouseenter)="showTooltip = true; positionTooltip($event)"
+    (mouseleave)="showTooltip = false" >
+    <ng-content></ng-content>
+    <div *ngIf="showTooltip && !sidebarState" [ngStyle]="{'top.px': topPosition, 'left.px': leftPosition}"
+        class="fixed w-max max-md:hidden px-[18px] py-2.5 bg-white text-black text-sm p-2 rounded shadow-lg" style="z-index: 9999;">
+        {{ text }}
+        <div
+            class="absolute top-full left-[30%] transform -translate-x-1/2 w-0 h-0 border-t-[6px] border-white border-x-[5px] border-x-transparent">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<section
+  class="bg-[#0d212e]  px-5  py-2.5  min-h-[calc(100svh-52px)] max-h-[calc(100svh-52px)] overflow-auto tracking-wider duration-700  absolute z-[1500] top-[0px] transition-transform  ease-in-out w-full "
+  [ngClass]="{' !duration-1000  translate-y-[120%]': !mobSidebarState, ' translate-y-[60px] ease-in-out': mobSidebarState ,'hidden': hideSideBar ,}">
+
+  <div>
+    <div class="input-wrap mobile">
+      <button
+        class="text-[15px] font-semibold leading-[17.9px] tracking-wide w-[99.26px] h-[36px] border-r-2 border-[#2f4553] ">Casino</button>
+      <div class="search-icon  pl-3">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M7.64363 2.50944C4.89014 2.50944 2.658 4.74158 2.658 7.49507C2.658 10.2486 4.89014 12.4807 7.64363 12.4807C10.3971 12.4807 12.6293 10.2486 12.6293 7.49507C12.6293 4.74158 10.3971 2.50944 7.64363 2.50944ZM1.24133 7.49507C1.24133 3.95918 4.10774 1.09277 7.64363 1.09277C11.1795 1.09277 14.0459 3.95918 14.0459 7.49507C14.0459 11.031 11.1795 13.8974 7.64363 13.8974C4.10774 13.8974 1.24133 11.031 1.24133 7.49507Z"
+            fill="#566771" />
+          <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd"
+            d="M11.5303 10.6868L15.7588 14.9042L14.7583 15.9072L10.5299 11.6898L11.5303 10.6868Z" fill="#566771" />
+        </svg>
+      </div> <input placeholder="Search your game" class="input" id="search_game_browser">
+    </div>
+  </div>
+
+
+  <div class="bg-[#1A2C38] mt-[24px] border-0 rounded-[10px] h-fit mb-[70px] pb-5 ">
+    <div
+      class="h-[59px] w-full text-[18px] leading-[21.48px] tracking-wide font-bold flex justify-start items-center pl-5 text-white border-b border-[#55758A] border-solid">
+      Game
+    </div>
+    <li (click)="toggleUniverseOriginalMenu()"
+      class="flex flex-row justify-between items-center gap-4 px-5 mt-5 cursor-pointer ">
+      <div class="flex flex-row justify-start items-center gap-4">
+        <div>
+          <img class="w-[13px] h-[17px]" src="/images/fire.svg" alt="originals">
+        </div>
+        <div
+          class="text-[14px] font-bold leading-[16.71px] text-white flex flex-row justify-center items-center gap-1.5">
+          Universe Originals
+        </div>
+      </div>
+      <button class="bg-[#0f5eb4] w-4 h-4 border-0 rounded-full flex justify-center items-center">
+        <img class="w-[7.61px] h-[4.69px] duration-300 "
+          [ngClass]="[universeOriginalState ? ' rotate-0 ' :'rotate-180']" src="/images/arrow-down.svg"
+          alt="Game_selector">
+      </button>
+    </li>
+
+    <ul class="overflow-hidden transition-all duration-1000 ease-in-out "
+      [@toggleHeight]="universeOriginalState ? 'expanded' : 'collapsed'">
+      @for (item of gameList; track $index) {
+      <li class="flex flex-row justify-start items-center gap-4 pl-5 mt-5 cursor-pointer my-5">
+        <div [ngClass]="[item?.img==='' ? 'opacity-0':'']">
+          <img class="w-[13px] h-[17px]" [src]="item?.img" alt="fire">
+        </div>
+        <div class="text-[14px] font-bold leading-[16.71px] text-white">{{item?.name}}</div>
+      </li>
+      }
+
+    </ul>
+
+  </div>
+
+
+</section>
