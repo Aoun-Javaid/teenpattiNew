@@ -377,15 +377,24 @@ export class LobbyComponent implements OnInit, AfterViewInit {
     if (this.casinoViewAllState) {
       this.setGridView();
     } else {
-      this.setDefaultView();
+      this.removeSwiperGridClass()
+      setTimeout(() => {
+        this.setDefaultView();
+      }, 100);
     }
   }
   private initializeSwiper(config: any): void {
-    if (this.stakeOrigin) {
+    if (this.stakeOrigin && typeof this.stakeOrigin.destroy === 'function') {
       this.stakeOrigin.destroy(true, true); // Destroy existing Swiper instance
     }
     this.stakeOrigin = new Swiper('.stake-swiper-lobby', config); // Initialize Swiper with new config
   }
+  removeSwiperGridClass() {
+    const swiperElement = document.querySelector('.swiper-grid');
+    if (swiperElement) {
+        swiperElement.classList.remove('swiper-grid');
+    }
+}
   private getDefaultSwiperConfig(): any {
     return {
       loop: false,
@@ -394,6 +403,7 @@ export class LobbyComponent implements OnInit, AfterViewInit {
       freeMode: true,
       spaceBetween: 10,
       speed: 700,
+      grid: { rows: 1, fill: 'row' },
       navigation: {
         nextEl: '.myCarouselRight',
         prevEl: '.myCarouselLeft',
