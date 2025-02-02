@@ -123,7 +123,7 @@
 
           <div *ngIf="playerACards">
             <h3 class="text-white">PLAYER A</h3>
-            <div>
+            <div class="flex">
 
               <img [src]="['assets/cards/'+playerACards?.card_1+'.png']">
 
@@ -135,7 +135,7 @@
           </div>
           <div *ngIf="playerBCards">
             <h3 class="text-white" style="margin-top: 0.15rem!important;">PLAYER B</h3>
-            <div>
+            <div class="flex">
               <img [src]="['assets/cards/'+playerBCards?.card_1+'.png']">
 
               <img [src]="['assets/cards/'+playerBCards?.card_2+'.png']">
@@ -227,7 +227,7 @@
           <div>
             <div>
               <h3 class="text-white" style="font-size: 9px !important;">Cards</h3>
-              <div class="d-flex align-items-center ">
+              <div class="flex align-items-center ">
                 <img [src]="['assets/cards/'+Card_1+'.png']" class="card-img">
                 <img [src]="['assets/cards/'+Card_2+'.png']" class="card-img">
                 <img [src]="['assets/cards/'+Card_3+'.png']" class="card-img">
@@ -310,7 +310,7 @@
 
         <!-- KBC -->
         <div class="video-overlay" *ngIf="(Q1 || Q2 || Q3 || Q4 || Q5) ">
-          <div class="d-flex flex-wrap justify-content-between"
+          <div class="flex flex-wrap justify-content-between"
             [ngStyle]="isDesktop ? {'width': '170px'} : {'width': '133px'}">
             <div>
               <h3 class="text-white" style="margin-top: 3px;">Q1:</h3>
@@ -610,7 +610,7 @@
                 <div *ngIf="game?.cardsArr['SPREAD']?.length!=0">
                   <h3 class="text-warning hi-low-tx">SPREAD:
                   </h3>
-                  <div class="d-flex align-items-center ">
+                  <div class="flex align-items-center ">
                     <span *ngFor="let pl8 of game?.cardsArr['SPREAD']">
                       <img [src]="['assets/cards/'+pl8+'.png']" class="card-img">
                     </span>
@@ -699,7 +699,7 @@
 
 
 <!--rules Modal-->
-<div class="modal fade" id="rulesModal" tabindex="-1" aria-labelledby="exampleModalLabelaexampleModalLabela"
+<!-- <div class="modal fade" id="rulesModal" tabindex="-1" aria-labelledby="exampleModalLabelaexampleModalLabela"
   aria-hidden="true">
   <div class="modal-dialog rules-wrap">
     <div role="document" id="rulesList___BV_modal_content_" tabindex="-1" class="modal-content rules-content ">
@@ -724,4 +724,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

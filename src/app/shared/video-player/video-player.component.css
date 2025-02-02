@@ -1,3 +1,5 @@
+@import url(../../casino/unitycasinoStyles.css);
+
 .videoPlayer {
   position: relative;
   display: flex;
@@ -347,7 +349,7 @@ padding: 0px 5px 0px 13px
   width: 150px;
   margin: 0 auto;
   display: block;
-  background: url(../../../../assets/t20/bg-ok.gif) repeat-x #eee;
+  background: url(../../../../public/assets/t20/bg-ok.gif) repeat-x #eee;
   border: 1px solid #bbb;
   border-radius: 4px;
   color: #1e1e1e;

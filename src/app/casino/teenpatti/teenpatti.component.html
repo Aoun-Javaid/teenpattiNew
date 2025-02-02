@@ -133,7 +133,7 @@
                                       {{markets.runnersName[runner.selectionId]}} ♠
                                   </span>
 
-                                  <div class="d-flex align-items-center p-0">
+                                  <div class="flex align-items-center p-0">
                                       <span class="title" *ngIf="runner.selectionId == '5825901' ">
                                           <img style=" width: 30px;"
                                               [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
@@ -226,7 +226,7 @@
                                           <span *ngIf="casinoPl[markets?.marketId][runner.selectionId] > 0"
                                               style=" font-weight: bold !important;"> P :</span>
 
-                                          <span class="d-flex"
+                                          <span class="flex"
                                               [ngClass]="[casinoPl[markets?.marketId][runner.selectionId] > 0  ? 'plus-book' : 'minus-book']"
                                               *ngIf=" casinoPl[markets?.marketId]">
                                               {{casinoPl[markets?.marketId][runner?.selectionId]
@@ -266,14 +266,14 @@
                                       </span>
                                       <span style="display: flex;padding: 0;"
                                           *ngIf="isValueBetsSlip && !casinoPl[markets?.marketId]">
-                                          <span class="plus-book  d-flex" style="margin-right:5px ;"
+                                          <span class="plus-book  flex" style="margin-right:5px ;"
                                               *ngIf="isBetsSlipOpened == runner?.selectionId && marketId == markets?.marketId">
                                               <span style="color:black;margin-right:2px; font-weight: bold;">P
                                                   :</span>
                                               <span class="plus-book"> {{ ((runner.price.back[0].price -1) *
                                                   isValueBetsSlip) | number : '1.0-2' }}</span>
                                           </span>
-                                          <span class="minus-book d-flex"
+                                          <span class="minus-book flex"
                                               *ngIf="isBetsSlipOpened != runner?.selectionId && marketId == markets?.marketId">
                                               <span style="color:black;margin-right:2px; font-weight: bold;">L
                                                   :</span>
@@ -294,9 +294,9 @@
                                       *ngIf="runner.status=='SUSPEND' && game.status !='SUSPEND'">
                                       <span class="stats-text">Suspended</span>
                                   </div>
-                                  <a class="d-flex flex-column p-0" style="text-decoration: none;">
+                                  <a class="flex flex-column p-0" style="text-decoration: none;">
                                       {{runner.price.back[0].price | number : '1.0-2'}}
-                                      <span class="d-flex justify-content-center">{{runner.price.back[0].size
+                                      <span class="flex justify-content-center">{{runner.price.back[0].size
                                           }}</span>
                                   </a>
                               </td>

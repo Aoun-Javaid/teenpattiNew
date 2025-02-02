@@ -1,0 +1,173 @@
+@import url(../unitycasinoStyles.css);
+
+.videoFix {
+  /* position: fixed; */
+  /* width: 100%; */
+  /* z-index: 10; */
+}
+
+.marketList {
+  /* margin-top: var(--heightTop); */
+  /* margin-top: 197px; */
+  /* transform: translateY(15%); */
+
+  position: relative;
+  height: 63vh;
+  overflow-y: scroll;
+  top: 197px;
+  margin-bottom: 197px;
+}
+
+.spnd-casinouniqueLay {
+  top: 0;
+  z-index: 0;
+  width: 100%;
+
+  background: #fff;
+  opacity: 1.0;
+}
+
+.fancy-info {
+  padding: 7px 6px 0;
+  margin: 0;
+  background-color: #bed5d8;
+  font-size: 10px;
+  line-height: 7px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+}
+
+/* .show-xs{
+  display: none;
+} */
+
+.tbl-bets th {
+  padding: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-top: none;
+  text-align: center;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #c8ced3;
+}
+
+
+
+input {
+
+  margin-left: 0px !important;
+}
+
+.red {
+  color: red;
+  margin-left: 2px;
+}
+
+.palyer-a-card {
+  border: 3px solid;
+  border-color: #4d9bad;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.palyer-b-card {
+  margin-top: 5px;
+  border: 3px solid;
+  border-color: #bd7660;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.palyer-a-card .table td,
+.table th {
+  /* border-top-right-radius: 7px !important; */
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.palyer-b-card .table td,
+.table th {
+  /* border-bottom-right-radius: 7px !important; */
+  border-top: 0;
+  border-bottom: 0;
+}
+
+
+.palyer-a-card .odd-row {
+  border-bottom: 0px !important;
+}
+
+.palyer-b-card .odd-row {
+  border-bottom: 0px !important;
+}
+
+.collapsed .palyer-b-card {
+  display: none !important;
+}
+
+.collapsed .palyer-a-card {
+  display: none !important;
+}
+
+.palyer-a-card .tbl-bets td {
+  padding: 0px !important;
+}
+
+.palyer-b-card .tbl-bets td {
+  padding: 0px !important;
+}
+
+.hidden {
+
+  visibility: hidden;
+  height: 3px;
+}
+
+.tbl-bets .odd-row {
+  border-bottom: unset;
+}
+
+.card .inner-sportbook {
+  border: unset;
+}
+
+.card {
+  margin-bottom: 3px;
+}
+
+.tbl-bets td {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) {
+  .tbl-bets .sportbook-minwidth {
+      min-width: 105px !important;
+  }
+
+
+  .dTigerCustom-padding-top {
+      padding-top: 10.5px;
+  }
+
+  .dTigerCustom-remove-padding-top{
+      padding-top: 3px;
+  }
+}
+
+.odd-row .team-name .title {
+
+  display: flex;
+
+  padding: 0px;
+}
+
+@media only screen and (max-width: 992px) {
+  .minmax {
+      display: flex;
+      width: 100%;
+  }
+}
