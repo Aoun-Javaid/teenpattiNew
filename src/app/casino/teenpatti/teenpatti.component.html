@@ -6,9 +6,13 @@
   <!-- marketList  [ngClass]="{'scrollMarket': !isDesktop}"-->
   <div class="" id="marketScroll" style="overflow-y: auto;"
       [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
-      <div class="card" *ngFor="let markets of marketArray; let i=index ; trackBy: trackByFn">
+
+
+      <div class="card" id="accordion-collapse"  *ngFor="let markets of marketArray; let i=index ; trackBy: trackByFn">
+
           <span class="btn btn-primary  card-header inner-sportbook">
-              <span class="minmax" data-bs-toggle="collapse"
+              <span class="minmax"
+
                   [attr.data-bs-target]="'#multiCollapseExample'+markets.marketId" role="button" aria-expanded="true"
                   aria-controls="multiCollapseExample1">
                   <strong>{{markets.marketName}}</strong>
@@ -27,7 +31,7 @@
                       [attr.data-bs-target]="'#collapse12'+1" class="fa fa-info-circle  ml-2"
                       data-bs-toggle="dropdown" aria-expanded="false" [attr.id]="'#collapse12'+markets.marketId">
                   </i>
-                  <ul class="dropdown-menu icon-range min-max-info text-end  tooltip-betlimit"
+                  <ul class="dropdown-menu icon-range min-max-info text-end  hidden tooltip-betlimit"
                       [attr.aria-labelledby]="'collapse12'+markets.marketId">
                       <span>Min/Max: {{markets.min}} - {{markets.max}} </span>
                   </ul>
@@ -39,7 +43,7 @@
 
 
           <div class="col">
-              <div class="collapse multi-collapse show" [attr.id]="'multiCollapseExample'+ markets.marketId ">
+              <div class=" multi-collapse show" [attr.id]="'multiCollapseExample'+ markets.marketId ">
 
                   <table class="table table-hover tbl-bets p-rltv sportbook-market-tbl">
                       <!-- <colgroup>
@@ -133,7 +137,7 @@
                                       {{markets.runnersName[runner.selectionId]}} ♠
                                   </span>
 
-                                  <div class="flex align-items-center p-0">
+                                  <div class="flex items-center p-0">
                                       <span class="title" *ngIf="runner.selectionId == '5825901' ">
                                           <img style=" width: 30px;"
                                               [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
@@ -294,9 +298,9 @@
                                       *ngIf="runner.status=='SUSPEND' && game.status !='SUSPEND'">
                                       <span class="stats-text">Suspended</span>
                                   </div>
-                                  <a class="flex flex-column p-0" style="text-decoration: none;">
+                                  <a class="flex flex-col p-0" style="text-decoration: none;">
                                       {{runner.price.back[0].price | number : '1.0-2'}}
-                                      <span class="flex justify-content-center">{{runner.price.back[0].size
+                                      <span class="flex  justify-center">{{runner.price.back[0].size
                                           }}</span>
                                   </a>
                               </td>

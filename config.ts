@@ -14,8 +14,8 @@ export const CONFIG = {
   socketurl: BASE_URL + '',
 
   // casino Socekt Urls
-  CasinoSocketUrl: '',
-  // CasinoSocketUrl: 'wss://casino.betever365.com/',
+  // CasinoSocketUrl: '',
+  CasinoSocketUrl: 'wss://casino.betever365.com/',
   casninoTableURL: 'universe_casino_77',
   virtualTableURL: 'universe_casino_88',
 
@@ -35,14 +35,14 @@ export const CONFIG = {
   providersNavigationsTime:120,
 
   // casino urls
-  getCasinoResultURL: BASE_URL + '/casinoapp/users/casino/casinoEventResults',
-  videoStreamURL: BASE_URL + '/casinoapp/exchange/users/streaming/casinoEventStreaming',
-  getRulesOfMarketURL: BASE_URL + '/casinoapp/exchange/users/rules/casinoEventRules',
+  getCasinoResultURL: BASE_URL + '/v2/operator/user/latestResults',
+  videoStreamURL: BASE_URL + '/v2/operator/user/eventStreaming',
+  getRulesOfMarketURL: BASE_URL + '/v2/operator/user/eventRules',
 
-  asianCasinoPlacebetURL: BASE_URL + "/casinoapp/exchange/users/casino/placebet",
+  asianCasinoPlacebetURL: BASE_URL + "/v2/operator/user/casinoPlaceBet",
   virtualCasinoPlacebetURL: BASE_URL + "/casinoapp/exchange/users/casino/placebet",
-  getUserBalanceURL: BASE_URL + "/casinoapp/exchange/users/balance/getUserBalance",
-  getAllMarketplURL: BASE_URL + '/casinoapp/exchange/users/pl/getCasinoPl',
+  getUserBalanceURL: BASE_URL + "/v2/operator/user/userBalance",
+  getAllMarketplURL: BASE_URL + '/v2/operator/user/userBetProfitLoss',
 };
 
 
