@@ -418,6 +418,7 @@ button.close {
   background-color: #72bbef !important;
   ;
   border-left-color: #fff;
+  border-radius: 0px;
 }
 
 
