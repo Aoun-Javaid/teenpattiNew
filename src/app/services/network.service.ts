@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, map } from 'rxjs';
+import { first, map, Observable, Subject } from 'rxjs';
 import { CONFIG } from '../../../config';
 declare var $:any;
 @Injectable({
   providedIn: 'root'
 })
 export class NetworkService {
+  private eventData = new Subject<string>();
+  private resultObj = new Subject<any>();
+  private resultData = new Subject<string>();
 
   constructor(private http: HttpClient) { }
 
@@ -32,5 +35,34 @@ export class NetworkService {
         error => {
           let responseData = error;
         });
+  }
+  public updateRoundId(message: any): void {
+    this.eventData.next(message);
+  }
+  public getRoundId(): Observable<any> {
+    return this.eventData.asObservable();
+  }
+  setResultData(betObj: any) {
+    this.resultObj.next(betObj);
+  }
+  getResultData() {
+    return this.resultObj
+  }
+
+  getvideoStreamURL(eventId: any): Observable<any> {
+    return this.http.post(CONFIG.videoStreamURL, { eventId })
+  }
+  getRulesOfMarketURL(eventId: any): Observable<any> {
+    return this.http.post(CONFIG.getRulesOfMarketURL, { eventId })
+  }
+  public getResultstream(): Observable<any> {
+    return this.resultData.asObservable();
+  }
+
+  public updateResultstream(message: any): void {
+    this.resultData.next(message);
+  }
+  getCasinoPLURL(eventId: any): Observable<any> {
+    return this.http.post(CONFIG.getAllMarketplURL, { eventId })
   }
 }

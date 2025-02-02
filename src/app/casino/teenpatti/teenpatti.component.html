@@ -1,0 +1,337 @@
+<div style="overflow-y: hidden;">
+
+  <div #target>
+      <app-video-player [resultDeclared]="RoundWinner"></app-video-player>
+  </div>
+  <!-- marketList  [ngClass]="{'scrollMarket': !isDesktop}"-->
+  <div class="" id="marketScroll" style="overflow-y: auto;"
+      [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
+      <div class="card" *ngFor="let markets of marketArray; let i=index ; trackBy: trackByFn">
+          <span class="btn btn-primary  card-header inner-sportbook">
+              <span class="minmax" data-bs-toggle="collapse"
+                  [attr.data-bs-target]="'#multiCollapseExample'+markets.marketId" role="button" aria-expanded="true"
+                  aria-controls="multiCollapseExample1">
+                  <strong>{{markets.marketName}}</strong>
+              </span>
+
+              <!-- <i class="fa fa-info-circle ml-2 tooltip-betlimit"
+              [tooltip]="tolTemplate" placement="auto"></i>
+            <ng-template #tolTemplate>Min/Max:
+              {{markets.min}}/{{markets.max}}</ng-template> -->
+              <div class="minMaxDesktop">
+                  <span>Min/Max: {{markets.min}} - {{markets.max}} </span>
+              </div>
+              <span class="minMaxMobile">
+                  <i data-bs-toggle="collapse" data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#multiCollapseExample'+markets.marketId"
+                      [attr.data-bs-target]="'#collapse12'+1" class="fa fa-info-circle  ml-2"
+                      data-bs-toggle="dropdown" aria-expanded="false" [attr.id]="'#collapse12'+markets.marketId">
+                  </i>
+                  <ul class="dropdown-menu icon-range min-max-info text-end  tooltip-betlimit"
+                      [attr.aria-labelledby]="'collapse12'+markets.marketId">
+                      <span>Min/Max: {{markets.min}} - {{markets.max}} </span>
+                  </ul>
+
+              </span>
+
+          </span>
+
+
+
+          <div class="col">
+              <div class="collapse multi-collapse show" [attr.id]="'multiCollapseExample'+ markets.marketId ">
+
+                  <table class="table table-hover tbl-bets p-rltv sportbook-market-tbl">
+                      <!-- <colgroup>
+                          <col span="1" width="70%">
+                          <col class="back-left count" span="1" width="10%">
+                          <col class="back-1 count" span="1" width="10%">
+                          <col class="back-right count" span="1" width="10%">
+                      </colgroup> -->
+
+                      <!-- <tr>
+                          <th class="min-max-mobile" colspan="">
+                              <dl class="fancy-info" id="minMaxBox">
+                                  <dt>Min/Max &nbsp;</dt>
+                                  <dd id="minMaxInfo"> {{markets.min}} - {{markets.max}} </dd>
+                              </dl>
+                          </th>
+                          <th></th>
+                          <th class="back-1"
+                              style="align-items: center; justify-content: center; padding-top: 0px; padding-bottom: 0px;">
+                              Back</th>
+                              <th></th>
+
+                      </tr> -->
+                      <div class="suspended-casino" *ngIf="game.status=='SUSPEND'">
+                          <span class="stats-text">Suspended</span>
+                      </div>
+                      <ng-container *ngFor="let runner of markets.runners; let i=index; trackBy: trackByFn">
+
+                          <tr class="odd-row">
+                              <td style="width: 70%;" class="team-name sportbook-name " colspan=""
+                                  [ngClass]="{
+                                      'dTigerCustom-padding-top': this.eventid.includes('0018'),
+                                      'dTigerCustom-remove-padding-top': markets.marketName === 'DRAGON CARD' || markets.marketName === 'TIGER CARD'}">
+
+                                  <span class="title" *ngIf="
+                                         markets.runnersName[runner.selectionId] != 'A'
+                                     && markets.runnersName[runner.selectionId] != '2'
+                                     && markets.runnersName[runner.selectionId] != '3'
+                                     && markets.runnersName[runner.selectionId] != '4'
+                                     && markets.runnersName[runner.selectionId] != '5'
+                                     && markets.runnersName[runner.selectionId] != '6'
+                                     && markets.runnersName[runner.selectionId] != '7'
+                                     && markets.runnersName[runner.selectionId] != '8'
+                                     && markets.runnersName[runner.selectionId] != '9'
+                                     && markets.runnersName[runner.selectionId] != '10'
+                                     && markets.runnersName[runner.selectionId] != 'K'
+                                     && markets.runnersName[runner.selectionId] != 'Q'
+                                     && markets.runnersName[runner.selectionId] != 'J'
+                                     && markets.runnersName[runner.selectionId] != 'RED'
+                                     && markets.runnersName[runner.selectionId] != 'BLACK'
+
+                                     && markets.runnersName[runner.selectionId] != 'HEARTS'
+                                     && markets.runnersName[runner.selectionId] != 'DIAMONDS'
+                                     && markets.runnersName[runner.selectionId] != 'CLUBS'
+                                     && markets.runnersName[runner.selectionId] != 'SPADES'
+
+                                     && markets.runnersName[runner.selectionId] != 'HEART KING'
+                                     && markets.runnersName[runner.selectionId] != 'DIAMOND KING'
+                                     && markets.runnersName[runner.selectionId] != 'CLUB KING'
+                                     && markets.runnersName[runner.selectionId] != 'SPADE KING'
+
+
+                                     && markets.runnersName[runner.selectionId] != 'ANY SUIT'
+
+                                     ">
+                                      {{markets.runnersName[runner.selectionId]}}
+                                  </span>
+
+                                  <span class="title" *ngIf="markets.runnersName[runner.selectionId] == 'RED' ">
+                                      {{markets.runnersName[runner.selectionId]}} <span class="red"> ♥ ♦ </span>
+                                  </span>
+
+                                  <span class="title" *ngIf="markets.runnersName[runner.selectionId] == 'BLACK' ">
+                                      {{markets.runnersName[runner.selectionId]}} ♠ ♣
+                                  </span>
+
+
+                                  <span class="title" *ngIf="markets.runnersName[runner.selectionId] == 'HEARTS' ">
+                                      {{markets.runnersName[runner.selectionId]}} <span class="red"> ♥ </span>
+                                  </span>
+
+                                  <span class="title" *ngIf="markets.runnersName[runner.selectionId] == 'DIAMONDS' ">
+                                      {{markets.runnersName[runner.selectionId]}} <span class="red"> ♦ </span>
+                                  </span>
+
+                                  <span class="title" *ngIf="markets.runnersName[runner.selectionId] == 'CLUBS' ">
+                                      {{markets.runnersName[runner.selectionId]}} ♣
+                                  </span>
+
+                                  <span class="title" *ngIf="markets.runnersName[runner.selectionId] == 'SPADES' ">
+                                      {{markets.runnersName[runner.selectionId]}} ♠
+                                  </span>
+
+                                  <div class="d-flex align-items-center p-0">
+                                      <span class="title" *ngIf="runner.selectionId == '5825901' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+
+                                      <span class="title" *ngIf="runner.selectionId == '5825902' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '5825903' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '5825904' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '5825905' ">
+                                          <img style=" width: 30px;" style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId== '5825906' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '5825907' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '5825908' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '5825909' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '58259010' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '58259011' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '58259012' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '58259013' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/t10cards/'+markets.runnersName[runner.selectionId]+'.jpeg']">
+                                      </span>
+
+                                      <span class="title" *ngIf="runner.selectionId == '722345' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/cardRace/'+markets.runnersName[runner.selectionId]+'.png']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '722375' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/cardRace/'+markets.runnersName[runner.selectionId]+'.png']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '722335' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/cardRace/'+markets.runnersName[runner.selectionId]+'.png']">
+                                      </span>
+                                      <span class="title" *ngIf="runner.selectionId == '722325' ">
+                                          <img style=" width: 30px;"
+                                              [src]="['assets/cardRace/'+markets.runnersName[runner.selectionId]+'.png']">
+                                      </span>
+
+
+                                      <span class="title" *ngIf="runner.selectionId == '7223026907848' ">
+                                          {{markets.runnersName[runner.selectionId]}} <span class="red"> ♥ </span> ♠
+                                          <span class="red"> ♦ </span>♣
+                                      </span>
+
+
+
+
+
+
+
+
+                                      <span class="p-0" style="display:flex; font-size:15px;font-weight:400"
+                                          *ngIf="casinoPl[markets?.marketId]">
+
+                                          <span *ngIf="casinoPl[markets?.marketId][runner.selectionId] < 0"
+                                              style=" font-weight: bold !important;"> L : </span>
+                                          <span *ngIf="casinoPl[markets?.marketId][runner.selectionId] > 0"
+                                              style=" font-weight: bold !important;"> P :</span>
+
+                                          <span class="d-flex"
+                                              [ngClass]="[casinoPl[markets?.marketId][runner.selectionId] > 0  ? 'plus-book' : 'minus-book']"
+                                              *ngIf=" casinoPl[markets?.marketId]">
+                                              {{casinoPl[markets?.marketId][runner?.selectionId]
+                                              ? (casinoPl[markets?.marketId][runner?.selectionId] | number : '1.0-2' )
+                                              : '0.00'
+                                              }}
+
+                                              <span
+                                                  [ngClass]="(((runner.price.back[0].price -1) * isValueBetsSlip) +
+                                             (casinoPl[markets?.marketId][runner?.selectionId] ? casinoPl[markets?.marketId][runner?.selectionId] : 0 )) > 0  ? 'plus-book' : 'minus-book'"
+                                                  *ngIf="isBetsSlipOpened == runner?.selectionId
+                                              && marketId == markets?.marketId
+                                              && isValueBetsSlip != 0 ">
+
+                                                  ( {{ (((runner.price.back[0].price -1) * isValueBetsSlip) +
+                                                  (casinoPl[markets?.marketId][runner?.selectionId] ?
+                                                  casinoPl[markets?.marketId][runner?.selectionId] : 0)) | number :
+                                                  '1.0-2'}} )
+                                              </span>
+
+
+                                              <span
+                                                  [ngClass]="((casinoPl[markets?.marketId][runner?.selectionId] ) - isValueBetsSlip ) > 0  ? 'plus-book' : 'minus-book'"
+                                                  *ngIf="  runner.price.back[0]
+                                          && isValueBetsSlip
+                                          && isValueBetsSlip != 0
+                                          && isBetsSlipOpened != runner?.selectionId
+                                          && marketId == markets?.marketId">
+
+                                                  ( {{ ((casinoPl[markets?.marketId][runner?.selectionId] ?
+                                                  casinoPl[markets?.marketId][runner?.selectionId] : 0 ) -
+                                                  isValueBetsSlip ) | number : '1.0-2'}})
+                                              </span>
+
+                                          </span>
+
+                                      </span>
+                                      <span style="display: flex;padding: 0;"
+                                          *ngIf="isValueBetsSlip && !casinoPl[markets?.marketId]">
+                                          <span class="plus-book  d-flex" style="margin-right:5px ;"
+                                              *ngIf="isBetsSlipOpened == runner?.selectionId && marketId == markets?.marketId">
+                                              <span style="color:black;margin-right:2px; font-weight: bold;">P
+                                                  :</span>
+                                              <span class="plus-book"> {{ ((runner.price.back[0].price -1) *
+                                                  isValueBetsSlip) | number : '1.0-2' }}</span>
+                                          </span>
+                                          <span class="minus-book d-flex"
+                                              *ngIf="isBetsSlipOpened != runner?.selectionId && marketId == markets?.marketId">
+                                              <span style="color:black;margin-right:2px; font-weight: bold;">L
+                                                  :</span>
+                                              <span class="minus-book">{{ isValueBetsSlip | number : '1.0-2'}} </span>
+                                          </span>
+                                      </span>
+
+
+
+                                  </div>
+                              </td>
+                              <!-- <td></td> -->
+                              <td class="back-1 count sportbook-minwidth p-rltv" appRateHighlight
+                                  [ngClass]="(isBetsSlipOpened == runner.selectionId && marketId == markets.marketId )?'active':''"
+                                  (click)="openBetslip(markets.marketId,runner.selectionId,'back',runner.price.back[0].price,markets.min, markets.max)">
+
+                                  <div class="spnd-casinouniqueLay"
+                                      *ngIf="runner.status=='SUSPEND' && game.status !='SUSPEND'">
+                                      <span class="stats-text">Suspended</span>
+                                  </div>
+                                  <a class="d-flex flex-column p-0" style="text-decoration: none;">
+                                      {{runner.price.back[0].price | number : '1.0-2'}}
+                                      <span class="d-flex justify-content-center">{{runner.price.back[0].size
+                                          }}</span>
+                                  </a>
+                              </td>
+                              <td class="hidden-xs" style="width: 15%;"></td>
+                              <!-- <td class="hidden-xs" style="width: 20%;"></td> -->
+
+                          </tr>
+
+
+                          <tr
+                              *ngIf="isBetsSlipOpened==runner.selectionId && marketId == markets.marketId  && game.status!='SUSPEND'">
+                              <!-- <tr > -->
+                              <td colspan="4" class="p-0" id="betslip">
+                                  <app-betslips style="padding: 0;"
+                                      (newItemEvent)="isBetsSlipOpened=''; isValueBetsSlip = 0"
+                                      (newItemEventPlaceBet)="isBetsSlipOpened='';ProfitLossBalance();"
+                                      (valueEventPlaceBet)="getValueBetSlip($event)" [item]="betplaceObj">
+                                  </app-betslips>
+
+                                  <!-- <app-betslips></app-betslips> -->
+                              </td>
+                          </tr>
+                      </ng-container>
+
+
+
+
+
+                  </table>
+
+              </div>
+
+          </div>
+      </div>
+      <!-- <app-results></app-results> -->
+  </div>
+
+</div>

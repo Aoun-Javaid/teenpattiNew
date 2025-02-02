@@ -15,6 +15,7 @@ import { MaintenanceComponent } from './pages/maintenance/maintenance.component'
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { NotFoundError } from 'rxjs';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { TeenpattiComponent } from './casino/teenpatti/teenpatti.component';
 
 export const routes: Routes = [
   {
@@ -79,6 +80,10 @@ export const routes: Routes = [
       {
         path: 'transactions',
         component:TransactionsComponent
+      },
+      {
+        path:'teenpatti/:id',
+        component:TeenpattiComponent
       },
       {
         path: '**',

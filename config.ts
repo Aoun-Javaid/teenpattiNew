@@ -11,6 +11,14 @@ export const BASE_URL_WS = "https://v2.universestudio.online";
 export const CONFIG = {
   SiteName:'Universe',
   siteKey:'',
+  socketurl: BASE_URL + '',
+
+  // casino Socekt Urls
+  CasinoSocketUrl: '',
+  // CasinoSocketUrl: 'wss://casino.betever365.com/',
+  casninoTableURL: 'universe_casino_77',
+  virtualTableURL: 'universe_casino_88',
+
   bannersList : BASE_URL + "/v2/operator/banners/bannersList",
   bannersListTime: 120,
   NavigationList: BASE_URL + "/v2/operator/navigation/NavigationList",
@@ -25,6 +33,16 @@ export const CONFIG = {
   highRollers: BASE_URL + "/v2/casino/highRollers",
   providersNavigations: BASE_URL + "/api/exchange/provider/providersNavigations",
   providersNavigationsTime:120,
+
+  // casino urls
+  getCasinoResultURL: BASE_URL + '/casinoapp/users/casino/casinoEventResults',
+  videoStreamURL: BASE_URL + '/casinoapp/exchange/users/streaming/casinoEventStreaming',
+  getRulesOfMarketURL: BASE_URL + '/casinoapp/exchange/users/rules/casinoEventRules',
+
+  asianCasinoPlacebetURL: BASE_URL + "/casinoapp/exchange/users/casino/placebet",
+  virtualCasinoPlacebetURL: BASE_URL + "/casinoapp/exchange/users/casino/placebet",
+  getUserBalanceURL: BASE_URL + "/casinoapp/exchange/users/balance/getUserBalance",
+  getAllMarketplURL: BASE_URL + '/casinoapp/exchange/users/pl/getCasinoPl',
 };
 
 

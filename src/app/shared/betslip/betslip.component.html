@@ -1,0 +1,317 @@
+<div class=" fancy-quick-tr placebet " *ngIf="!isDesktop">
+  <!-- marginClass -->
+  <!--  -->
+  <div class="pb-1 place-bet paddtp" [ngClass]="item.bg?'slip-sportsbook':item?.betType=='back'?'slip-back':'slip-lay'">
+      <div class="container">
+          <div class="row pb-0 pt-0">
+              <!-- <div class="col-6 text-right inputset padd-0">
+                  <button class="stakeactionminus btn betButtonMinus" (click)="downValue()" [disabled]="priceDisable">
+                      <span class="betButtonMinus">
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px" height="19px"
+                              viewBox="0 0 19 19" enable-background="new 0 0 19 19" xml:space="preserve">
+                              <g>
+                                  <path fill="currentColor"
+                                      d="M8.056,10.838H0.409V8.091h7.647 M2,8.091h16.591v2.747H8" />
+                              </g>
+                          </svg>
+                      </span>
+                  </button>
+
+                  <input disabled type="text" [value]="item?.price"
+                      class="stakeinput quick-bet-confirm disabled text-center">
+
+                  <button class="stakeactionplus btn  betButtonPlus float-end" (click)="upValue()"
+                      [disabled]="priceDisable">
+                      <span class="betButtonPlus">
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px" height="19px"
+                              viewBox="0 0 19 19" enable-background="new 0 0 19 19" xml:space="preserve">
+                              <g>
+                                  <path fill="currentColor"
+                                      d="M10.946,0.127v7.964h7.646v2.747h-7.646v8.035h-2.89v-8.035H0.409V8.091h7.647V0.127H10.946z" />
+                              </g>
+                          </svg>
+                      </span>
+                  </button>
+              </div> -->
+
+              <div class="col-6 text-bold inputset padd-0">
+                  <div class="priceClass">
+                      <button class="stakeactionminus1 btn betButtonMinus" disabled
+                          style="position:absolute; left: 0;" (click)="downValue()">
+
+                          <span class="betButtonMinus">
+                              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px"
+                                  height="19px" viewBox="0 0 19 19" enable-background="new 0 0 19 19"
+                                  xml:space="preserve">
+                                  <g>
+                                      <path fill="currentColor"
+                                          d="M8.056,10.838H0.409V8.091h7.647 M2,8.091h16.591v2.747H8" />
+                                  </g>
+                              </svg>
+                          </span>
+                          <!-- <span class="fa fa-minus"></span> -->
+                          <span class="betButtonMinus"></span>
+                      </button>
+
+                      <input disabled type="text" [value]="item?.price"
+                          class="stakeinput quick-bet-confirm  text-center">
+
+                      <!-- <input id="betAmount" type="number" [(ngModel)]="selectedAmount" placeholder="01"
+                          (keyup)="inputAmount($event)" class="stakeinput  input-Betslip text-center"> -->
+                      <button class="stakeactionplus1 btn  betButtonPlus" disabled
+                          style="position: absolute; right: 0;" (click)="upValue()">
+                          <!-- <span class="fa fa-plus"></span></button> -->
+                          <span class="betButtonPlus">
+                              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px"
+                                  height="19px" viewBox="0 0 19 19" enable-background="new 0 0 19 19"
+                                  xml:space="preserve">
+                                  <g>
+                                      <path fill="currentColor"
+                                          d="M10.946,0.127v7.964h7.646v2.747h-7.646v8.035h-2.89v-8.035H0.409V8.091h7.647V0.127H10.946z" />
+                                  </g>
+                              </svg>
+                          </span>
+                      </button>
+                  </div>
+
+              </div>
+
+              <div class="col-6 text-bold inputset padd-0">
+                  <div class="priceClass">
+                      <button class="stakeactionminus btn betButtonMinus " style="position:absolute; left: 0;"
+                          (click)="minusStake(selectedAmount)">
+
+                          <span class="betButtonMinus">
+                              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px"
+                                  height="19px" viewBox="0 0 19 19" enable-background="new 0 0 19 19"
+                                  xml:space="preserve">
+                                  <g>
+                                      <path fill="currentColor"
+                                          d="M8.056,10.838H0.409V8.091h7.647 M2,8.091h16.591v2.747H8" />
+                                  </g>
+                              </svg>
+                          </span>
+                          <!-- <span class="fa fa-minus"></span> -->
+                          <span class="betButtonMinus"></span>
+                      </button>
+                      <input id="betAmount" type="number" [(ngModel)]="selectedAmount" placeholder="01"
+                          (keyup)="inputAmount($event)" class="stakeinput  input-Betslip text-center">
+                      <button class="stakeactionplus btn  betButtonPlus " style="position: absolute; right: 0;"
+                          (click)="plusStake(selectedAmount)">
+                          <!-- <span class="fa fa-plus"></span></button> -->
+                          <span class="betButtonPlus">
+                              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px"
+                                  height="19px" viewBox="0 0 19 19" enable-background="new 0 0 19 19"
+                                  xml:space="preserve">
+                                  <g>
+                                      <path fill="currentColor"
+                                          d="M10.946,0.127v7.964h7.646v2.747h-7.646v8.035h-2.89v-8.035H0.409V8.091h7.647V0.127H10.946z" />
+                                  </g>
+                              </svg>
+                          </span>
+                      </button>
+                  </div>
+
+              </div>
+          </div>
+
+
+          <div class="row  stackbutton " [ngClass]="item?.betType=='back'?'stackbutton':'stackbuttonLay'">
+
+              <ng-container *ngIf="pathName?.includes('99.0059')">
+                  <div class="col-3 p-1 stack-inputs " *ngFor="let stake of betStakes ;let i = index "
+                      (click)="setStake(stake.stakeAmount)">
+                      <a class="btn btn-block kbc-tab"
+                          [class.active]="selectedAmount==stake.stakeAmount ">{{stake.stakeName}}</a>
+                  </div>
+              </ng-container>
+
+              <ng-container *ngIf="!pathName?.includes('99.0059')">
+                  <div class="col-3 p-1 stack-inputs " *ngFor="let stake of betStakes ;let i = index "
+                      (click)="setStake(stake.stakeAmount)">
+                      <a class="btn btn-block fancy-quick-btn "
+                          [class.active]="selectedAmount==stake.stakeAmount ">{{stake.stakeName}}</a>
+                  </div>
+              </ng-container>
+
+          </div>
+
+          <div class="row mt-0  pb-0 pt-0 stackbutton"
+              [ngClass]="item?.betType=='back'?'stackbutton':'stackbuttonLay'">
+              <div class="col-6 p-1  pb-0" (click)="cancelBet()">
+                  <a class="btn btn-secondary btn-block btn-cancel">
+                      Cancel </a>
+              </div>
+              <!-- == 0 || selectedAmount < 0 || selectedAmount == undefined  || selectedAmount == null -->
+              <!--btn btn-send btn-block btn-placebet  -->
+
+              <div class="col-6 p-1  pb-0">
+                  <button class="btn btn-send" [ngClass]=" selectedAmount ? 'btn-send-active':'' "
+                      [disabled]="!selectedAmount" (click)="placeCasinoBet()"> Place Bet
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class=" fancy-quick-tr placebet " *ngIf="isDesktop">
+  <div class=" place-bet " [ngClass]="item?.betType=='back'?'slip-back':'slip-lay'">
+      <div class="container">
+          <div class="row pb-0 pt-0" [ngClass]="isDesktop ? 'p-2':'' ">
+              <div class="col p-1  pb-0 hideMobile" (click)="cancelBet()">
+                  <a class="btn btn-secondary btn-block btn-cancel">
+                      Cancel </a>
+              </div>
+              <div class="col text-right ipadPro p-1">
+
+                  <button class="stakeactionminus btn betButtonMinus" (click)="downValue()" disabled>
+                      <span class="betButtonMinus">
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px" height="19px"
+                              viewBox="0 0 19 19" enable-background="new 0 0 19 19" xml:space="preserve">
+                              <g>
+                                  <path fill="currentColor"
+                                      d="M8.056,10.838H0.409V8.091h7.647 M2,8.091h16.591v2.747H8" />
+                              </g>
+                          </svg>
+                      </span>
+                  </button>
+
+                  <input id="betstack" type="text" [value]="item?.price" readonly="readonly" placeholder="0"
+                      class="stakeinput  input-Betslip text-center" disabled *ngIf="item?.oddsType !== 'FANCY'">
+
+                  <input id="betstack" type="text" [value]="item?.price + '/' + item?.size" readonly="readonly"
+                      placeholder="0" class="stakeinput  input-Betslip text-center" [disabled]="priceDisable"
+                      *ngIf="item?.oddsType === 'FANCY'">
+
+                  <button class="stakeactionplus btn  betButtonPlus float-end" (click)="upValue()" disabled>
+                      <span class="betButtonPlus">
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px" height="19px"
+                              viewBox="0 0 19 19" enable-background="new 0 0 19 19" xml:space="preserve">
+                              <g>
+                                  <path fill="currentColor"
+                                      d="M10.946,0.127v7.964h7.646v2.747h-7.646v8.035h-2.89v-8.035H0.409V8.091h7.647V0.127H10.946z" />
+                              </g>
+                          </svg>
+                      </span>
+                  </button>
+
+
+
+
+              </div>
+
+              <div class="col text-right ipadPro p-1">
+
+                  <button class="stakeactionminus btn betButtonMinus" (click)="minusStake(selectedAmount)">
+                      <span class="betButtonMinus">
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px" height="19px"
+                              viewBox="0 0 19 19" enable-background="new 0 0 19 19" xml:space="preserve">
+                              <g>
+                                  <path fill="currentColor"
+                                      d="M8.056,10.838H0.409V8.091h7.647 M2,8.091h16.591v2.747H8" />
+                              </g>
+                          </svg>
+                      </span>
+                  </button>
+
+                  <input id="betAmount" type="number" [(ngModel)]="selectedAmount" placeholder="0"
+                      (keyup)="inputAmount($event)" class="stakeinput  input-Betslip text-center" #myInput>
+
+                  <button class="stakeactionplus1 btn  betButtonPlus float-end" (click)="plusStake(selectedAmount)">
+                      <span class="betButtonPlus">
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px" height="19px"
+                              viewBox="0 0 19 19" enable-background="new 0 0 19 19" xml:space="preserve">
+                              <g>
+                                  <path fill="currentColor"
+                                      d="M10.946,0.127v7.964h7.646v2.747h-7.646v8.035h-2.89v-8.035H0.409V8.091h7.647V0.127H10.946z" />
+                              </g>
+                          </svg>
+                      </span>
+                  </button>
+
+
+
+
+              </div>
+
+              <!-- <div class="col text-bold inputset marginRight p-1">
+                  <button class="stakeactionminus btn betButtonMinus " (click)="minusStake(selectedAmount)">
+                      <span class="betButtonMinus">
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px" height="19px"
+                              viewBox="0 0 19 19" enable-background="new 0 0 19 19" xml:space="preserve">
+                              <g>
+                                  <path fill="currentColor"
+                                      d="M8.056,10.838H0.409V8.091h7.647 M2,8.091h16.591v2.747H8" />
+                              </g>
+                          </svg>
+                      </span>
+                  </button>
+                  <input id="betAmount" type="number" [(ngModel)]="selectedAmount" placeholder="0"
+                      (keyup)="inputAmount($event)" class="stakeinput  input-Betslip text-center" #myInput>
+                  <button class="stakeactionplus btn  betButtonPlus float-end" (click)="plusStake(selectedAmount)">
+                      <span class="betButtonPlus">
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px" height="19px"
+                              viewBox="0 0 19 19" enable-background="new 0 0 19 19" xml:space="preserve">
+                              <g>
+                                  <path fill="currentColor"
+                                      d="M10.946,0.127v7.964h7.646v2.747h-7.646v8.035h-2.89v-8.035H0.409V8.091h7.647V0.127H10.946z" />
+                              </g>
+                          </svg>
+                      </span>
+                  </button>
+
+              </div> -->
+
+              <div class="col p-1  pb-0 hideMobile">
+                  <button class="btn btn-send" [ngClass]=" selectedAmount ? 'btn-send-active':'' "
+                      [disabled]="!selectedAmount" (click)="placeCasinoBet()"> Place Bet
+                  </button>
+              </div>
+          </div>
+
+          <div class="row  stackbutton p-2 pt-0 pb-0"
+              [ngClass]="item?.betType=='back'?'stackbutton':'stackbuttonLay'">
+              <div class="col-3 col-xs-3 col-sm-3 col-md-3  desktopwd p-1" *ngFor="let stake of betStakes">
+                  <a class="btn btn-block fancy-quick-btn"
+                      (click)="setStake(stake.stakeAmount)">{{stake.stakeName}}</a>
+
+              </div>
+
+
+          </div>
+
+          <!-- <div class="row mt-0 p-2 pb-0 pt-0 stackbutton hideDesktop">
+              <div class="col-6 p-1  pb-0" (click)="cancelBet()">
+                  <a class="btn btn-secondary btn-block btn-cancel">
+                      Cancel </a>
+              </div>
+              <div class="col-6 p-1  pb-0">
+                  <button class="btn btn-send" [ngClass]=" selectedAmount ? 'btn-send-active':'' "
+                      [disabled]="!selectedAmount || isbetPlacing" data-bs-toggle="modal"
+                      data-bs-target="#ageconfirmationModal" *ngIf="!token"> Place Bet
+                  </button>
+
+                  <button class="btn btn-send" [ngClass]=" selectedAmount ? 'btn-send-active':'' "
+                      [disabled]="!selectedAmount || isbetPlacing" (click)="placeBet();checkLogin()" *ngIf="token">
+                      Place Bet
+                  </button>
+
+
+              </div>
+          </div> -->
+      </div>
+  </div>
+</div>
