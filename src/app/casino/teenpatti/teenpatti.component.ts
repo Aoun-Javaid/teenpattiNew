@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -23,6 +23,7 @@ declare var $: any;
   styleUrl: './teenpatti.component.css'
 })
 export class TeenpattiComponent {
+  @ViewChild('dropdownContainer', { static: true }) dropdownContainer!: ElementRef;
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;
   subscription!: Subscription;
@@ -32,7 +33,7 @@ export class TeenpattiComponent {
     id: ""
   };
 
-
+  openMobileMinMax:any=[];
   public messageResult = {
     type: "3",
     id: ""
@@ -643,5 +644,23 @@ export class TeenpattiComponent {
     this.encyDecy.sendMessageToSocket(message);
     this.subscription.unsubscribe();
     $('html').css('overflow', 'auto');
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    const elements = document.querySelectorAll('.minMaxMobile');
+    let clickedInside = false;
+
+    elements.forEach((element:any) => {
+      if(element){
+      if (element.contains(event.target)) {
+        clickedInside = true;
+      }
+    }
+    });
+
+    if (!clickedInside) {
+      this.openMobileMinMax = [];
+    }
   }
 }

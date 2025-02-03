@@ -26,13 +26,11 @@
                   <span>Min/Max: {{markets.min}} - {{markets.max}} </span>
               </div>
               <span class="minMaxMobile">
-                  <i data-bs-toggle="collapse" data-bs-toggle="collapse"
-                      [attr.data-bs-target]="'#multiCollapseExample'+markets.marketId"
-                      [attr.data-bs-target]="'#collapse12'+1" class="fa fa-info-circle  ml-2"
-                      data-bs-toggle="dropdown" aria-expanded="false" [attr.id]="'#collapse12'+markets.marketId">
-                  </i>
-                  <ul class="dropdown-menu icon-range min-max-info text-end  hidden tooltip-betlimit"
-                      [attr.aria-labelledby]="'collapse12'+markets.marketId">
+
+                  <i class="fa fa-info-circle  ml-2" (click)="openMobileMinMax[markets.marketId]=!openMobileMinMax[markets.marketId]"></i>
+
+                  <ul *ngIf="openMobileMinMax[markets.marketId]" class="dropdown-menu icon-range min-max-info text-end  tooltip-betlimit z-10"
+                     >
                       <span>Min/Max: {{markets.min}} - {{markets.max}} </span>
                   </ul>
 

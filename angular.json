@@ -37,10 +37,7 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/datatables.net/js/dataTables.min.js",
-              "node_modules/jquery/dist/jquery.min.js",
-              "public/universeadapter.js",
-              "public/universeplayer.js"
-
+              "node_modules/jquery/dist/jquery.min.js"
             ]
           },
           "configurations": {
@@ -103,10 +100,7 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
-              "node_modules/datatables.net/js/dataTables.min.js",
-              "src/assets/universeadapter.js",
-              "src/assets/universeplayer.js"
-
+              "node_modules/datatables.net/js/dataTables.min.js"
             ]
           }
         }
