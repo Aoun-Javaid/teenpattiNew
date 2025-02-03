@@ -1,0 +1,487 @@
+h6 {
+  font-weight: bold;
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.modal-header .close {
+  font-size: 1.3rem;
+}
+
+.paati_boxs h6 {
+  font-size: 1rem;
+}
+
+.body-bottom {
+  margin-bottom: 40px;
+}
+
+.modal-body {
+  max-height: 80vh !important;
+}
+
+.imgClass {
+  width: 29px;
+  height: 35px;
+  border: solid 1px gray;
+  border-radius: 9px;
+}
+.resultVideo{
+background: black;
+}
+.imgClassModal {
+  width: 24px;
+  height: 29px;
+  border: solid 1px gray;
+  border-radius: 6px;
+}
+
+.showall-card li span {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.showall-card {
+  width: 100%;
+  list-style: none;
+  display: inline-block;
+  padding: 2px 5px;
+  margin-bottom: 3px;
+}
+
+.recent-res {
+  background: #000;
+  padding: 5px;
+  color: #fff;
+  margin-top: 50px;
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow-x: auto;
+  margin-bottom: 100px;
+}
+
+.recent-res h5 {
+  display: inline-block;
+  font-size: 1.07375rem;
+  margin: 0;
+}
+
+.recent-res ul {
+  padding: 0;
+  display: inline-block;
+  margin: 0;
+}
+
+.recent-res ul li {
+  width: 35px;
+  color: #333;
+  margin-left: 10px;
+  padding: 5px;
+  list-style: none;
+  text-align: center;
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 15px;
+}
+
+.result li {
+  cursor: pointer;
+}
+
+.casino-b {
+  background: #f9a9ba;
+  color: #000;
+}
+
+.casino-a {
+  background: #72bbef;
+  color: #000;
+}
+
+.casino-c {
+  background: #ffff33;
+  color: #000;
+}
+
+.showall-card li span {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* .casino-d {
+  #c92828
+} */
+
+.baccarat-Banker {
+  background: linear-gradient(-180deg, #af2736 0, #93212d 100%);
+}
+
+.baccarat-player {
+  background: linear-gradient(-180deg, #1285e2 0, #0b5795 100%);
+}
+
+.baccarat-Tie {
+  background: linear-gradient(-180deg, #11b24b 0, #1c6235 100%);
+}
+
+
+.tigerResult {
+  background: #ff4500;
+}
+
+.loinResult {
+  background: #ffff33;
+}
+
+.casin-desk {
+  background: #000;
+  box-shadow: 0 0 2px #fff;
+  border-radius: 0 !important;
+}
+
+.casin-desk-baccarat .text-white {
+  color: #af2736 !important;
+}
+
+.tie-game {
+  background: #09437f;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  display: block;
+  margin: 10px auto;
+}
+
+.casin-desk-tie .text-white {
+  color: #11b24b !important;
+}
+
+.casin-desk-player .text-white {
+  color: #1285e2 !important;
+}
+
+.showall-card li {
+  display: inline-block;
+  padding: 4px 2px;
+  font-weight: 700;
+}
+
+.showall-card li img {
+  height: 40px;
+  width: 30px;
+}
+
+.winer-title-kbc {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 992px) {
+  /* .recent-res ul li {
+      margin-top: 5px;
+  } */
+
+  .recent-res {
+      margin-top: 10px;
+  }
+}
+
+.modal-header {
+  padding: 10px;
+}
+
+
+.paati_boxs {
+  text-align: center;
+  border-right: 1px solid #ddd;
+  padding: 5px 0;
+  margin: 10px 0;
+  float: left;
+}
+
+.card-Img-box img {
+  width: 62px;
+  margin: 0;
+  border: 1px solid black;
+  border-radius: 17px;
+  margin: 6px;
+}
+
+.winner-team {
+  background: #28a745;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  display: block;
+  margin: 10px auto;
+}
+
+@media only screen and (max-width: 767px) {
+
+  .paati_boxs {
+      margin: 5px 0;
+      padding: 0;
+  }
+
+  .paati_boxs h6 {
+      font-size: 18px;
+  }
+
+  .card-Img-box img {
+      width: 50px;
+  }
+
+  .card-Img-box2 {
+      display: flex;
+      justify-content: center;
+  }
+
+  .card-Img-box2 img {
+      width: 50px;
+      height: 65px;
+  }
+
+}
+
+.all-market-winner {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.all-market-winner .sectionA {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
+}
+
+.all-market-winner .sectionB {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
+}
+
+.clearfix {
+  clear: both;
+  border-top: 1px solid #ccc;
+}
+
+
+
+.winner-icon {
+  -webkit-animation: 2s infinite winnerbox;
+  animation: 1.5s infinite winnerbox;
+  border-radius: 50%;
+  color: green;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.winner-label i {
+  font-size: 26px;
+  box-shadow: 0 0 0 #2c3e50;
+  /* -webkit-animation: winnerbox 2s infinite; */
+  animation: winnerbox 1.5s infinite;
+  border-radius: 50%;
+}
+
+.loser-icon {
+  -webkit-animation: 2s infinite winnerbox;
+  animation: 1.5s infinite winnerbox;
+  border-radius: 50%;
+  color: red;
+  transform: rotate(180deg);
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+
+@keyframes winnerbox {
+  0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(29, 127, 30, .6)
+  }
+
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(29, 127, 30, 0)
+  }
+
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(29, 127, 30, 0)
+  }
+}
+
+.showall-card {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2px 5px;
+  margin-bottom: 3px;
+}
+
+.img32Results {
+  width: 24px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+
+
+.number {
+  text-decoration: none;
+  color: #333;
+}
+
+
+@media only screen and (max-width: 426px) {
+  .body-bottom {
+      margin-bottom: 40px;
+  }
+}
+
+@media only screen and (min-width: 426px) {
+  .recent-res {
+      margin-top: 5px;
+  }
+}
+
+
+
+.third-sec-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  padding-bottom: 55px;
+}
+
+.alpha {
+  height: 35px;
+  min-height: 35px;
+  min-width: 35px;
+  width: 35px;
+  line-height: 35px;
+  margin: 5px 10px 5px 0px;
+  background-color: #000;
+  box-shadow: 0 0 2px #646464;
+  color: #fdcf13;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.alpha-dragon {
+  color: #03b37f;
+}
+
+.alpha-lion {
+  color: #fc4242;
+}
+
+.result .virtual.T {
+  background: #0f1626;
+  color: #6198ff;
+  height: 40px;
+  width: 40px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid #273c68;
+  border-radius: 25px;
+}
+
+.result .virtual.T a {
+  color: #6198ff;
+}
+
+.result .virtual.H {
+  background: #1f1426;
+  color: #cc85ff;
+  height: 40px;
+  width: 40px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid #533668;
+  border-radius: 25px;
+}
+
+.result .virtual.H a {
+  color: #cc85ff;
+}
+
+.recent-res .virtual.greenNumber {
+  background: linear-gradient(-180deg, #105d24 1%, #196631 99%);
+  color: #ffffff;
+}
+
+.recent-res .virtual.redNumber {
+  background: linear-gradient(-180deg, #e1282a 1%, #e1272c 99%);
+  color: #ffffff;
+}
+
+.recent-res .virtual.blackNumber {
+  background: linear-gradient(-180deg, #211e1e 1%, #000000 99%);
+  color: #ffffff;
+}
+
+.recent-res .virtual .number {
+  color: #ffffff;
+}
+
+.recent-res.lucky0to9 {
+  background: #b3b0b0;
+  color: #000000;
+}
+
+.dreamcatcher {
+  height: 40px !important;
+  width: 40px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  border-radius: 25px !important;
+}
+
+.numberOne {
+  color: #f7d36d;
+  background: rgba(247, 211, 109, .3);
+  border: 2px solid #f7d36d;
+}
+
+.numberTwo {
+  color: #6e97f8;
+  background: rgba(110, 151, 248, .3);
+  border: 2px solid #6e97f8;
+}
+
+.numberFive {
+  color: #c288f8;
+  background: rgba(194, 136, 248, .3);
+  border: 2px solid #c288f8;
+}
+
+.numberTen {
+  color: #82e483;
+  background: rgba(130, 228, 131, .3);
+  border: 2px solid #82e483;
+}
+
+.numberTwenty {
+  color: #de7a4d;
+  background: rgba(222, 122, 77, .3);
+  border: 2px solid #de7a4d;
+}
+
+.numberFourty {
+  color: #eb5159;
+  background: rgba(235, 81, 89, .3);
+  border: 2px solid #eb5159;
+}
+.sportsbookTile{
+background-color: #72e3a0 !important;
+}

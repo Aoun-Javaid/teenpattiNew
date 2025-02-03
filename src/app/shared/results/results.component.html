@@ -1,0 +1,356 @@
+<div class="recent-res teenpatti" *ngIf="eventid !== '99.0042'" [ngClass]="{'lucky0to9': eventid === '88.0019'}">
+  <h5 style="font-weight: bold;">Recent Result</h5>
+  <ul class="result">
+
+    <ng-container *ngFor="let el of resultArray">
+
+
+      <!-- FOR Dream Catcher RESULT -->
+      <ng-container *ngIf="el?.eventId === '88.0020'">
+        <li class="virtual dreamcatcher" [ngClass]="getCatcherResultClass(el.winner)">
+          <a class="number">
+            {{ el.winner}}
+          </a>
+        </li>
+      </ng-container>
+
+      <!-- FOR Lucky 0 TO 9 RESULT -->
+      <ng-container *ngIf="el?.eventId === '88.0019'">
+        <li class="virtual " [ngClass]="getLuckyResultClass(el.winner)">
+          <a class="number">
+            {{ el.winner}}
+          </a>
+        </li>
+      </ng-container>
+
+
+      <!-- FOR HEAD N TAILS RESULT -->
+      <ng-container *ngIf="el?.eventId === '88.0021'">
+        <li class="virtual" [ngClass]="{'H': el.winner === 'HEADS','T': el.winner === 'TAILS'}">
+          <a class="number">
+            <!-- {{ (el.winner != "" || el.winner != null) ? (el.winner == 'HEADS') ? 'H' : 'T'}} -->
+
+            {{ el.winner == 'HEADS' ? 'H' : 'T'}}
+          </a>
+        </li>
+      </ng-container>
+
+      <!-- FOR BALL BY BALL RESULT -->
+      <ng-container *ngIf="el?.eventId === '99.0062'">
+        <li class="casino-a sportsbookTile" (click)="selectedResult='';setResults(el)" [ngClass]="{'H': el.winner === 'HEADS','T': el.winner === 'TAILS'}">
+          <a class="number"  class="number text-dark" data-bs-toggle="modal"
+            data-bs-target="#ballbyballResult">
+
+            {{el.winner[0]}}
+          </a>
+        </li>
+      </ng-container>
+
+
+      <!-- FOR DTLTeenpatti-A RESULT -->
+
+      <ng-container>
+        <li class=""
+          [ngClass]="{'casino-a': el.winner === 'I', 'casino-b': el.winner === 'M', 'casino-c': el.winner === 'D'}"
+          *ngIf="el?.eventId === '99.0006' " (click)="setResults(el)" class="number text-dark" data-bs-toggle="modal"
+          data-bs-target="#ammarAkbar">
+          <a>
+            {{ (el.winner != "" || el.winner != null) ? el.winner : 'R'}}
+          </a>
+        </li>
+      </ng-container>
+      <ng-container>
+        <li class=""
+          [ngClass]="{'casino-a': el.winner === 'A', 'casino-b': el.winner === 'B', 'casino-c': el.winner === 'C'}"
+          *ngIf="el?.eventId === '99.0005' " (click)="setResults(el)" class="number text-dark" data-bs-toggle="modal"
+          data-bs-target="#ammarAkbar">
+          <a>
+            {{ (el.winner != "" || el.winner != null) ? el.winner : 'R'}}
+          </a>
+        </li>
+      </ng-container>
+
+      <!-- FOR PLAYER A and B RESULT -->
+      <ng-container>
+        <li class="" (click)="setResults(el)" data-bs-toggle="modal" data-bs-target="#resultModal"
+          *ngIf=" el?.eventId !== '99.0001' && el?.eventId !== '99.0002' && el?.eventId !== '99.0003'
+                     && el?.eventId !== '99.0046'  && el?.eventId !== '99.0047'  && el?.eventId !== '99.0048' && el?.eventId !== '99.0022'  && el?.eventId !== '99.0023'
+                     && el?.eventId !== '99.0004' && el?.eventId !== '99.0005' && el?.eventId !== '99.0009' && el?.eventId !== '99.0033' && el?.eventId !== '99.0034'   && el?.eventId  !== '99.0062'
+                     && el?.eventId !== '99.0035' && el?.eventId !== '99.0025' && el?.eventId !== '99.0056' && el?.eventId !== '99.0051'  && el?.eventId !== '99.0021'  && el?.eventId !== '99.0050'  && el?.eventId !== '99.0026' && el?.eventId !== '99.0042'
+                      && el?.eventId !== '99.0006' && el?.eventId !== '99.0020'  && el?.eventId !== '99.0019' && el?.eventId !== '99.0018' && el?.eventId !== '99.0020'
+                      && el?.eventId !== '99.0030' && el?.eventId !== '99.0060' && el?.eventId !== '99.0031' && el?.eventId !== '99.0032' && el?.eventId !== '99.0058'
+                      && eventid !== '99.0040' && el?.eventId !== '99.0007' && el?.eventId !== '99.0008' && el?.eventId !== '88.0021'  && el?.eventId !== '88.0019' && el?.eventId !== '88.0020' && el?.eventId !== '99.0041'  && el?.eventId !== '99.0055'"
+          [ngClass]="el?.winner == 'B' ? 'casino-b': 'casino-a'">
+          <a class="number">
+            {{ (el.winner != null) ? el.winner : 'R'}}
+            <!-- {{ (el.winner != "" || el.winner != null) ? el.winner : 'R'}} -->
+          </a>
+        </li>
+      </ng-container>
+
+      <!-- FOR ANDAR BAHAR -->
+      <ng-container>
+        <li class="" (click)="setResults(el)" data-bs-toggle="modal" data-bs-target="#andarbaharresult"
+          *ngIf="el?.eventId == '99.0025' || el?.eventId == '99.0026' || el?.eventId == '99.0033' || el?.eventId == '99.0034' || el?.eventId == '99.0035' "
+          [ngClass]="el?.winner == 'B' ? 'casino-b': 'casino-a'">
+          <a class="number">
+            {{ (el.winner != null) ? el.winner : 'R'}}
+            <!-- {{ (el.winner != "" || el.winner != null) ? el.winner : 'R'}} -->
+          </a>
+        </li>
+      </ng-container>
+
+      <!-- FOR 29  Baccarat -->
+      <ng-container>
+        <li class="" (click)="setResults(el)" data-bs-toggle="modal" data-bs-target="#baccarat29result"
+          *ngIf="el?.eventId == '99.0025' || el?.eventId == '99.0056' || el?.eventId == '99.0026' || el?.eventId == '99.0033' || el?.eventId == '99.0034' || el?.eventId == '99.0035' "
+          [ngClass]="el?.winner == 'B' ? 'casino-b': 'casino-a'">
+          <a class="number">
+            {{ (el.winner != null) ? el.winner : 'R'}}
+            <!-- {{ (el.winner != "" || el.winner != null) ? el.winner : 'R'}} -->
+          </a>
+        </li>
+      </ng-container>
+
+      <!-- FOR One Card Meter -->
+      <ng-container>
+        <li class="" (click)="setResults(el)" data-bs-toggle="modal" data-bs-target="#onecardmeterresult"
+          *ngIf="el?.eventId == '99.0051' " [ngClass]="el?.winner == 'B' ? 'casino-b': 'casino-a'">
+          <a class="number">
+            {{ (el.winner != null) ? el.winner : 'R'}}
+            <!-- {{ (el.winner != "" || el.winner != null) ? el.winner : 'R'}} -->
+          </a>
+        </li>
+      </ng-container>
+
+
+
+      <!-- FOR 1 day dragon tiger  -->
+      <ng-container>
+        <li class="" (click)="setResults(el)" data-bs-toggle="modal" data-bs-target="#dragontiger1result"
+          *ngIf=" el?.eventId == '99.0021'"
+          [ngClass]="{'casino-a': el.winner === 'DRAGON','casino-b': el.winner === 'TIGER', 'casino-c': el.winner === 'TIE' || el.winner === ''}">
+          <a class="number text-dark" *ngIf="el.winner === 'DRAGON'">
+            D
+          </a>
+          <!-- <a class="number text-dark" *ngIf="el.winner === 'TIE'">
+              T
+            </a> -->
+          <a class="number text-dark" *ngIf="el.winner === 'TIGER'">
+            T
+          </a>
+
+          <a class="number text-dark" *ngIf="el.winner === 'TIE' || el.winner === ''">
+            T
+          </a>
+        </li>
+      </ng-container>
+
+
+      <!-- FOR bollywood  -->
+      <ng-container>
+        <li class="casino-a" (click)="setResults(el)" data-bs-toggle="modal" data-bs-target="#bollywoodResults"
+          *ngIf=" el?.eventId == '99.0050'">
+          <a class="number text-dark" *ngIf="el.winner === 'A'">
+            A
+          </a>
+          <a class="number text-dark" *ngIf="el.winner === 'B'">
+            B
+          </a>
+          <a class="number text-dark" *ngIf="el.winner === 'C'">
+            C
+          </a>
+          <a class="number text-dark" *ngIf="el.winner === 'D'">
+            D
+          </a>
+          <a class="number text-dark" *ngIf="el.winner === 'E'">
+            E
+          </a>
+          <a class="number text-dark" *ngIf="el.winner === 'F'">
+            F
+          </a>
+        </li>
+      </ng-container>
+
+
+
+      <!-- FOR KBC -->
+      <!-- <ng-container>
+        <li class="" (click)="setResults(el)" data-bs-toggle="modal" data-bs-target="#KBCModal"
+          *ngIf="el?.eventId == '99.0059'" [ngClass]="el?.winner == 'B' ? 'casino-b': 'casino-a'">
+          <a class="number">
+            {{ (el.winner != null) ? el.winner : 'R'}}
+          </a>
+        </li>
+      </ng-container> -->
+
+      <!-- FOR Poker RESULT -->
+      <ng-container>
+        <li class="" (click)="setResults(el)" data-bs-toggle="modal" data-bs-target="#pokerResultModal"
+          *ngIf=" el?.eventId == '99.0007' || el?.eventId == '99.0008'"
+          [ngClass]="{'casino-a': el.winner === 'PLAYER A','casino-b': el.winner === 'PLAYER B', 'casino-c': el.winner === 'TIE'}">
+          <a class="number">
+            {{ (el.winner != null) ? el.winner=='PLAYER B'?'B':el.winner=='PLAYER A'?'A':'T' : 'R'}}
+          </a>
+        </li>
+      </ng-container>
+      <!-- FOR Poker RESULT End -->
+
+
+      <!-- FOR Dragon tiger RESULT -->
+      <ng-container>
+        <li
+          [ngClass]="{'casino-a': el.winner === 'DRAGON','casino-b': el.winner === 'TIGER', 'casino-c': el.winner === 'TIE'}"
+          *ngIf="el?.eventId === '99.0020' || el?.eventId=== '99.0019' || el?.eventId=== '99.0018' || el?.eventId=== '99.0020'"
+          (click)="setResults(el)" data-bs-toggle="modal" data-bs-target="#dragonTiger2020">
+          <a class="number text-dark" *ngIf="el.winner === 'DRAGON'">
+            D
+          </a>
+          <a class="number text-dark" *ngIf="el.winner === 'TIGER'">
+            T
+          </a>
+          <a class="number text-dark" *ngIf="el.winner === 'TIE'">
+            T
+          </a>
+        </li>
+      </ng-container>
+
+
+
+
+      <!-- FOR R type RESULT -->
+      <ng-container>
+        <li class="casino-a" *ngIf="el?.eventId === '99.0009' " (click)="setResults(el)" data-bs-toggle="modal"
+          data-bs-target="#worli">
+          <a class="number text-dark">
+            {{ (el.winner != "" || el.winner != null) ? 'R' : 'R'}}
+          </a>
+        </li>
+      </ng-container>
+
+      <!-- FOR BACCARAT RESULT -->
+      <ng-container>
+        <li class=""
+          *ngIf="el?.eventId == '99.0001' || el?.eventId == '99.0002' || el?.eventId == '99.0036' || el?.eventId == '99.0003'"
+          [ngClass]="el?.winner === 'B' ? 'baccarat-Banker':   el?.winner === 'P' ? 'baccarat-player' : 'baccarat-Tie' "
+          (click)="setResults(el) " data-bs-toggle="modal" data-bs-target="#baccarat">
+          <a class="number text-white">
+            {{ (el.winner != "" || el.winner != null) ? el.winner : 'R'}}
+          </a>
+        </li>
+      </ng-container>
+
+      <!-- FOR LUCKY 7 -->
+      <ng-container>
+        <li class="l7" *ngIf="el?.eventId == '99.0031' || el?.eventId == '99.0032' || eventid=='99.0030' "
+          [ngClass]="{'casino-a': el.winner === 'H','casino-b': el.winner === 'L','casino-c': el.winner === 'T'}"
+          (click)="setResults(el) " data-bs-toggle="modal" data-bs-target="#lucky7">
+          <a class="number">
+            {{ (el.winner != "" || el.winner != null) ? el.winner : 'R'}}
+          </a>
+        </li>
+      </ng-container>
+
+
+      <!-- FOR 32 CARD -->
+      <ng-container>
+        <li class="l7 casino-c" *ngIf="el?.eventId == '99.0022' ||  el?.eventId == '99.0023'">
+          <a (click)="setResults(el) " class="number" data-bs-toggle="modal" data-bs-target="#Card32Modal">
+            {{ el.winner === "PLAYER_11" ? '11' : (el.winner === "PLAYER_10" ? '10' : (el.winner === "PLAYER_9" ? '9' :
+            (el.winner === "PLAYER_8" ? '8' : el.winner))) }}
+          </a>
+        </li>
+      </ng-container>
+
+      <!-- FOR DTLTeenpatti RESULT -->
+      <ng-container>
+        <li class="" *ngIf="el?.eventId === '99.0004' || el?.eventId === '99.0041'"
+          [ngClass]="el?.winner === 'T' ? 'tigerResult':   el?.winner === 'L' ? 'loinResult' : 'casino-a' "
+          data-bs-toggle="modal" data-bs-target="#dtlTeenpatti">
+          <a (click)="setResults(el)" class="number text-dark">
+            {{ (el.winner != "" || el.winner != null) ? el.winner : 'R'}}
+          </a>
+        </li>
+      </ng-container>
+      <!-- FOR Casino Meter RESULT -->
+      <ng-container>
+        <li class="" *ngIf="el?.eventId === '99.0055' "
+          [ngClass]="el?.winner === 'LOW' ? 'casino-a':   el?.winner === 'HIGH'?'casino-b' : 'casino-c' "
+          data-bs-toggle="modal" data-bs-target="#casinoResults" (click)="setResults(el)">
+          <a class="number text-dark">
+            {{el.winner == "LOW" ? 'L' : el.winner == "HIGH" ? 'H' :'S'}}
+          </a>
+        </li>
+      </ng-container>
+
+
+
+
+
+      <!-- FOR Card Race RESULT -->
+
+      <ng-container>
+        <li class="" *ngIf="el?.eventId === '99.0046' || el?.eventId === '99.0047'  || el?.eventId === '99.0048' "
+          (click)="setResults(el)" data-bs-toggle="modal" data-bs-target="#CardRaceModal">
+          <a class="number text-dark">
+            <img class="imgClass" [src]="'./../../../../assets/cards/'+el?.winner+'_.png'">
+          </a>
+        </li>
+      </ng-container>
+
+
+      <!-- FOR ammarAkbar RESULT -->
+
+      <!-- 3 cards judgment -->
+      <ng-container>
+        <li class="casino-a" *ngIf="eventid == '99.0040'  || eventid=='99.0060'" (click)="setResults(el)"
+          data-bs-toggle="modal" data-bs-target="#CardJudgmentModal">
+          <a class="number text-dark">
+            {{ 'R'}}
+          </a>
+        </li>
+      </ng-container>
+      <!-- 3 card judgment -->
+
+      <!-- Lottery -->
+      <ng-container>
+        <li class="casino-lottery lottery-r casino-c" *ngIf="eventid == '99.0058'" (click)="setResults(el)"
+          data-bs-toggle="modal" data-bs-target="#lotteryModal">
+          <a class="number text-dark">
+            {{ el.winner}}
+          </a>
+        </li>
+      </ng-container>
+
+    </ng-container>
+
+  </ul>
+</div>
+
+
+<!-- <li class="" *ngIf="el?.eventId === '99.0042' "
+    [ngClass]="el?.winner === 'T' ? 'tigerResult':   el?.winner === 'L' ? 'loinResult' : 'casino-a' ">
+    <a (click)="setResults(el)" class="number text-dark" data-bs-toggle="modal" data-bs-target="#dtlTeenpatti">
+      {{ (el.winner != "" || el.winner != null) ? el.winner : 'R'}}
+    </a>
+  </li> -->
+<div class="third-sec-con" *ngIf="eventid === '99.0042'">
+
+  <ng-container *ngFor="let el of resultArray">
+    <span class="alpha" [ngClass]="el?.winner === 'T' ? 'alpha':   el?.winner === 'L' ? 'alpha-lion' : 'alpha-dragon' ">
+      <a (click)="setResults(el)" class="" data-bs-toggle="modal" data-bs-target="#dtlTeenpatti">
+        {{ (el.winner != "" || el.winner != null) ? el.winner : 'R'}}
+      </a>
+    </span>
+  </ng-container>
+  <!-- <span class="alpha">L</span>
+  <span class="alpha">D</span>
+  <span class="alpha">D</span>
+  <span class="alpha">L</span>
+  <span class="alpha">T</span>
+  <span class="alpha">T</span>
+  <span class="alpha">D</span>
+  <span class="alpha">D</span>
+  <span class="alpha">L</span> -->
+</div>
+
