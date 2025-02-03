@@ -17,7 +17,7 @@ declare var $: any;
   standalone: true,
   imports: [ReactiveFormsModule, FormsModule, NgClass, NgIf, NgFor, CarouselModule, NgStyle],
   templateUrl: './video-player.component.html',
-  styleUrl: './video-player.component.css'
+  styleUrl: './video-player.component.css',
 })
 export class VideoPlayerComponent {
   @Input() eventId: any;
@@ -303,7 +303,7 @@ export class VideoPlayerComponent {
         }
         // console.log("timer", this.TIME_LIMIT)
       }
-      if (this.game.eventId == '99.0062' && this.game.status == 'SUSPEND') {
+      if (this.game?.eventId == '99.0062' && this.game?.status == 'SUSPEND') {
         if (!this.showBanner) {//false
           setTimeout(() => {
             this.showBanner = true;

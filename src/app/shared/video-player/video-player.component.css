@@ -371,7 +371,7 @@ padding: 0px 5px 0px 13px
   margin-top: 5px;
 }
 
-.timer {
+.timerc {
   border-radius: 50%;
   height: 50px;
   overflow: hidden;
@@ -379,7 +379,7 @@ padding: 0px 5px 0px 13px
   width: 50px;
 }
 
-.timer:after {
+.timerc:after {
   background: rgb(17, 17, 17);
   border-radius: 50%;
   content: "";
@@ -391,7 +391,7 @@ padding: 0px 5px 0px 13px
   top: 10px;
 }
 
-.timer .hand {
+.timerc .hand {
   float: left;
   height: 100%;
   overflow: hidden;
@@ -399,7 +399,7 @@ padding: 0px 5px 0px 13px
   width: 50%;
 }
 
-.timer .hand span {
+.timerc .hand span {
   border: 50px solid rgba(0, 255, 255, .4);
   border-bottom-color: transparent;
   border-left-color: transparent;
@@ -413,25 +413,25 @@ padding: 0px 5px 0px 13px
   width: 0;
 }
 
-.timer .hand:first-child {
+.timerc .hand:first-child {
   transform: rotate(180deg);
 }
 
-.timer .hand span {
+.timerc .hand span {
   animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
-.timer .hand:first-child span {
+.timerc .hand:first-child span {
   animation-name: spin1;
 }
 
-.timer .hand:last-child span {
+.timerc .hand:last-child span {
   animation-name: spin2;
 }
 
-.timer.minute {
+.timerc.minute {
   background: rgba(0, 0, 0, .2);
   height: 50px;
   right: 0px;
@@ -439,7 +439,7 @@ padding: 0px 5px 0px 13px
   bottom: 0px;
 }
 
-.timer.minute .hand span {
+.timerc.minute .hand span {
   animation-duration: var(--timerValue);
   border-top-color: green;
   border-right-color: green;
@@ -451,7 +451,7 @@ padding: 0px 5px 0px 13px
   border-right-color: red !important;
 }
 
-.timer.minute:after {
+.timerc.minute:after {
   height: 40px;
   left: 5px;
   width: 40px;

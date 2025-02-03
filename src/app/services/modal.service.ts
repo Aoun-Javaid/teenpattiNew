@@ -7,6 +7,8 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class ModalService {
   betsDetailsModal = new Subject<any>();
   chatRulesModal = new Subject<any>();
+  casinoResultModal = new Subject<any>();
+
   constructor() { }
 
   getBetsDetailModals() {
@@ -25,4 +27,11 @@ export class ModalService {
     this.chatRulesModal.next(val);
   }
 
+  getCasinoResulttModal() {
+    return this.casinoResultModal;
+  }
+
+  setCasinoResultModal(val: any) {
+    this.casinoResultModal.next(val);
+  }
 }

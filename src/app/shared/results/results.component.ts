@@ -4,12 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { NetworkService } from '../../services/network.service';
+import { ModalService } from '../../services/modal.service';
+import { CasinoResultModalComponent } from "../../Modals/casino-result-modal/casino-result-modal.component";
 
 declare var $: any;
 @Component({
   selector: 'app-results',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, NgClass, NgIf, NgFor,],
+  imports: [ReactiveFormsModule, FormsModule, NgClass, NgIf, NgFor, CasinoResultModalComponent],
   templateUrl: './results.component.html',
   styleUrl: './results.component.css'
 })
@@ -34,6 +36,7 @@ export class ResultsComponent implements OnInit{
   constructor(private networkService: NetworkService,
     private cdr: ChangeDetectorRef,
     private deviceService: DeviceDetectorService,
+    private modalsService:ModalService,
     private route: ActivatedRoute) {
     this.eventid = this.route.snapshot.params['id'];
     this.isDesktop = this.deviceService.isDesktop();
@@ -133,6 +136,7 @@ export class ResultsComponent implements OnInit{
         }
       }
     }
+    this.openbetsModal(this.selectedResult);
   }
   getObjectEntries(obj: any): [string, string][] {
     return Object.entries(obj || {});
@@ -170,5 +174,8 @@ export class ResultsComponent implements OnInit{
       return 'numberFourty'
     }
   }
-
+  openbetsModal(item:any) {
+    item.show=true;
+    this.modalsService.setCasinoResultModal(item);
+  }
 }

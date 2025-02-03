@@ -629,9 +629,9 @@
   <!-- video cards end -->
 
   <div class="timer-overlay">
-    <!-- *ngIf="TIME_LIMIT !== 0" -->
-    <div class="timer-group" >
-      <div class="timer minute">
+    <!--  -->
+    <div class="timer-group" *ngIf="TIME_LIMIT !== 0">
+      <div class="timerc minute">
         <div class="hand"><span [ngClass]="timerLeft < 6 ? 'spanColorRed' : ''"></span></div>
         <div class="hand"><span [ngClass]="timerLeft < 6 ? 'spanColorRed' : ''"></span></div>
       </div>
