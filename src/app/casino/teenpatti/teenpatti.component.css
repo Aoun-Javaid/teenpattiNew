@@ -205,3 +205,15 @@ input {
       width: 100%;
   }
 }
+
+.collapse_hidden{
+  max-height: 0;
+  overflow: hidden;
+  background: white;
+  opacity: 0;
+  transition: max-height 0.3s ease-in-out, opacity 0.5s ease-in-out;
+}
+.collapse_show{
+  max-height: auto;
+  transition: max-height 0.3s ease-in-out
+}

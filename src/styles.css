@@ -348,6 +348,10 @@
     --betslip-cmp-stakeactionminus-border: #aaa;
     --betslip-cmp-back-bg: #a7d8fd;
 
+    --market-details-cmp-odd-row-back-1-active-background: #1a8ee1;
+    --market-details-cmp-odd-row-back-1-active-color: #fff;
+    --market-details-cmp-odd-row-lay-1-active-background: #f4496d;
+    --market-details-cmp-odd-row-lay-1-active-color: #fff;
 }
 /* You can add global styles to this file, and also import other style files */
 body {

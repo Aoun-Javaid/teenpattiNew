@@ -34,6 +34,7 @@ export class TeenpattiComponent {
   };
 
   openMobileMinMax:any=[];
+  marketCollapsed:any=[];
   public messageResult = {
     type: "3",
     id: ""

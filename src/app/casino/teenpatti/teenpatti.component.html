@@ -7,14 +7,10 @@
   <div class="" id="marketScroll" style="overflow-y: auto;"
       [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
 
-
-      <div class="card" id="accordion-collapse"  *ngFor="let markets of marketArray; let i=index ; trackBy: trackByFn">
+      <div class="card " id="accordion-collapse"  *ngFor="let markets of marketArray; let i=index ; trackBy: trackByFn">
 
           <span class="btn btn-primary  card-header inner-sportbook">
-              <span class="minmax"
-
-                  [attr.data-bs-target]="'#multiCollapseExample'+markets.marketId" role="button" aria-expanded="true"
-                  aria-controls="multiCollapseExample1">
+              <span class="minmax accordion" (click)="marketCollapsed[markets.marketId]=!marketCollapsed[markets.marketId]" role="button" >
                   <strong>{{markets.marketName}}</strong>
               </span>
 
@@ -41,7 +37,7 @@
 
 
           <div class="col">
-              <div class=" multi-collapse show" [attr.id]="'multiCollapseExample'+ markets.marketId ">
+              <div class=" multi-collapse " [ngClass]="marketCollapsed[markets.marketId]?'collapse_hidden':'collapse_show'">
 
                   <table class="table table-hover tbl-bets p-rltv sportbook-market-tbl">
                       <!-- <colgroup>

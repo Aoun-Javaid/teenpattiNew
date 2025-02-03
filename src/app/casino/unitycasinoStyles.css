@@ -268,7 +268,7 @@ button.close {
 }
 
 .min-max-info {
-  right: 0;
+  right: 25px;
 }
 
 .back {
@@ -398,7 +398,7 @@ button.close {
 }
 
 .tbl-bets .odd-row td span {
-  display: block;
+  display: flex;
   font-weight: 400;
   font-size: 11px;
 }
@@ -464,7 +464,7 @@ button.close {
   position: absolute;
   /* inset: 1px auto auto 214px !important; */
   /* right: 31px !important; */
-  padding: 0px 6px 0px 6px !important;
+  padding: 4px 6px 0px 6px !important;
   transform: translate3d(0px, -2px, 0px) !important;
 
 
@@ -473,6 +473,8 @@ button.close {
   text-align: center !important;
   background-color: #000;
   border-radius: 0.25rem;
+  top: 3px;
+    height: 25px;
 }
 
 .tooltip-betlimit span {

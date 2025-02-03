@@ -122,7 +122,7 @@
           </div>
 
 
-          <div class="row grid grid-cols-2  stackbutton " [ngClass]="item?.betType=='back'?'stackbutton':'stackbuttonLay'">
+          <div class="row grid grid-cols-4  stackbutton " [ngClass]="item?.betType=='back'?'stackbutton':'stackbuttonLay'">
 
               <ng-container *ngIf="pathName?.includes('99.0059')">
                   <div class="col-3 p-1 stack-inputs " *ngFor="let stake of betStakes ;let i = index "
