@@ -1,0 +1,24 @@
+<div class="top_bar_wrapper">
+  <!-- @for (item of betHistory; track $index) {
+  <div class="top_bar">
+      <button [ngClass]="{'red_bg' : item.color === 'Red', 'yellow_bg' : item.color === 'Yellow' }">
+          {{item.winner}}
+      </button>
+  </div>
+  } -->
+  <div class="result">
+    <div class="resultItem-R4uUuB resultItem_size_small-Feox9S">
+      <div class="resultItem__list-J7YJ2v">
+        <div class="abResultLine-eMgxz_">
+          <div class="abResultLine__inner-fF8OCI abResultLine__inner_animateFirstItem-Nbi5o9 abResultLine__inner_stretch-Z3RTMl abResultLine__inner_multipleLines-pKLIP8 animated2-gtLnvD" style="--shift-horizontally: -1.25rem;">
+            @for (item of betHistory; track $index) {
+            <div class="tile-lWsz_U tile_size_small-ATZ3H_ tile_indentSize_medium-U9Lwul " [ngClass]="{'tile_theme_playerA' : item.color === 'Red', 'tile_theme_playerB' : item.color === 'Yellow' }">
+              <div class="tile__label"> {{item.winner}}</div>
+            </div>
+          }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
