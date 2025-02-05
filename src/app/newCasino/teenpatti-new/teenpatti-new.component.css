@@ -1,0 +1,2157 @@
+.newGameWrapper{
+  background-color: #161a2b;
+  /* height: calc(100vh - 119px); */
+  height: 100%;
+    position: relative;
+    width: 100%;
+}
+.dashboard_wrapper {
+  width: 100%;
+  background-color: black;
+}
+
+/* Top Bar start here  */
+
+.top_bar_wrapper {
+  padding: 6px 8px;
+  padding-top: 10.91px;
+  background-color: #161a2b;
+  gap: 8.71px;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top_bar button {
+  border: 0px solid transparent;
+  color: white;
+  border-radius: 2px;
+  height: 13px;
+  width: 13px;
+  font-size: 7px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  line-height: 10.5px;
+  font-family: "Poppins", sans-serif;
+}
+
+.red_bg {
+  background-color: #ab1d37;
+}
+.yellow_bg {
+  background-color: #ed8840;
+}
+
+/* Top bar ends here */
+
+/* Animated Popup Result Announcement start here */
+.popup_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 380px;
+}
+
+.result_popup {
+  background-color: #292929 !important;
+  width: 88px;
+  height: 32px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.result_title_color {
+  color: white !important;
+  font-size: 10px;
+  width: 78px;
+  white-space: nowrap;
+  max-height: 12px;
+  font-family: "Montserrat";
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12.19px;
+  text-align: left;
+}
+.result_amount_color {
+  color: #d2791c;
+  font-size: 10px;
+  max-height: 12px;
+  width: 78px;
+  font-family: Montserrat;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12.19px;
+  text-align: left;
+}
+
+.result_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: 78px;
+  height: 26px;
+  gap: 2px;
+  line-height: 12.19px;
+  padding-left: 6.9px;
+}
+
+/* Animated Popup Result Announcement ends here */
+
+/* Bet Button start here */
+.bet_btn_container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 0;
+  top: 8px;
+}
+
+.bet_btn_wrapper {
+  background-color: #ed8840;
+  border-top-left-radius: 36px;
+  border-bottom-left-radius: 36px;
+  width: 64px;
+  height: 16px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+  padding-left: 1px;
+}
+
+.bet_btn {
+  background-color: #322606;
+  color: white;
+  border: 0px solid transparent;
+  font-size: 10px;
+  line-height: 9.75px;
+  font-family: "Montserrat";
+  font-optical-sizing: auto;
+  font-style: normal;
+  border-radius: 24px;
+  width: 36px;
+  height: 14px;
+}
+
+.bet_img {
+  width: 10.46px;
+  height: 10.46px;
+}
+
+/* Bet Button ends here */
+
+/* Game Screen Starts here */
+.games_container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 43%;
+}
+.games_container img {
+  width: 200px;
+  height: 150px;
+}
+/* .games_container img {
+
+} */
+
+/* Game Screen ends here */
+
+/* High Card section starts here */
+.high_card_container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 0px 20px;
+}
+
+.high_card_primary {
+  background-color: white;
+  color: #ee1600;
+  border: 1px solid;
+  border-image: linear-gradient(
+    274.74deg,
+    rgba(255, 217, 73, 0.89) -21.47%,
+    rgba(206, 18, 18, 0.89) 97.59%
+  );
+  border-image-slice: 1;
+  padding: 2.5px 6.75px;
+  height: 24px;
+  font-family: "Nunito";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.high_card_secondary {
+  background-color: #b2b2b2;
+  border: 1px solid;
+  border-image: linear-gradient(
+    274.74deg,
+    rgba(255, 217, 73, 0.89) -21.47%,
+    rgba(206, 18, 18, 0.89) 97.59%
+  );
+  border-image-slice: 1;
+  padding: 2.5px 6.75px;
+  height: 24px;
+  font-family: "Nunito";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 12px;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+.player_card {
+  background: linear-gradient(
+    90deg,
+    #f46201 0%,
+    #c52806 20.5%,
+    #c52806 62.5%,
+    #f46201 100%
+  );
+  padding: 5px 26.89px;
+  height: 26px;
+  border-radius: 3px;
+  border: 0px solid transparent;
+  color: white;
+  font-family: "Nunito";
+  font-optical-sizing: auto;
+  font-style: normal;
+  white-space: nowrap;
+}
+.player_card h6 {
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0px;
+}
+.high_card_primary h6 {
+  font-size: 12px;
+  font-weight: 900;
+  color: #ee1600;
+  margin: 0px;
+  line-height: 1.5 !important;
+  background: linear-gradient(
+    274.74deg,
+    rgba(255, 217, 73, 0.89) -21.47%,
+    rgba(206, 18, 18, 0.89) 97.59%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.high_card_secondary h6 {
+  font-size: 12px;
+  font-weight: 900;
+  color: #ee1600;
+  margin: 0px;
+  background: linear-gradient(
+    274.74deg,
+    rgba(255, 217, 73, 0.89) -21.47%,
+    rgba(206, 18, 18, 0.89) 97.59%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.font-bold {
+  font-weight: bolder !important;
+}
+
+.custom_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+/* High Card section ends here */
+
+/* Teen patti Cards Section starts here  */
+.teen_patti_conatiner {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 19px;
+}
+
+/* Teen patti Cards Section ends here  */
+
+/* Winning Percentage Chances Section starts here */
+.win_percentage_container {
+  padding: 0px 32px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.win_percentage_wrapper {
+  background-color: #161a2b;
+  height: 30px;
+  padding: 8px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.progress_bar_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.progress_bar_container div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 0px 4px;
+  border-radius: 3.74px;
+  color: white;
+  font-size: 10px;
+  font-family: "Poppins", sans-serif;
+  height: 14px;
+}
+
+/* Winning Percentage Chances Section ends here */
+
+/* Main Table section starts here */
+.main_table_container {
+  background-color: #161a2b;
+  width: 100%;
+  height: 152px;
+}
+
+.player_A_card {
+  background: linear-gradient(273.42deg, #c52806 25.03%, #d56300 95.69%);
+  width: 49.4%;
+  height: 81px;
+  position: absolute;
+  left: 7px;
+  border-radius: 11.21px;
+  top: -3px;
+  padding-left: 26px;
+  padding-top: 5px;
+  overflow: hidden;
+}
+
+.player_A_card h3 {
+  font-family: "Nunito";
+  font-size: 16.43px;
+  font-weight: 900;
+  line-height: 22.42px;
+  text-align: left;
+  color: white;
+  margin: 0;
+}
+.player_A_card h6 {
+  font-family: "Poppins";
+  font-size: 8.96px;
+  font-weight: 400;
+  line-height: 13.45px;
+  text-align: left;
+  color: white;
+  margin: 0;
+}
+.player_A_img {
+  position: absolute;
+  left: 83%;
+  top: 17px;
+  width: 123px;
+  height: 83.09px;
+  opacity: 0.15px;
+  z-index: 10;
+}
+
+.player_B_card {
+  background: linear-gradient(274.38deg, #ffb700 3.52%, #e85a0e 94.99%);
+  width: 49.4%;
+  height: 81px;
+  opacity: 60%;
+  position: absolute;
+  right: 7px;
+  border-radius: 15px;
+  top: -3px;
+  padding-left: 42.4%;
+  padding-top: 5px;
+  overflow: hidden;
+  z-index: 40;
+}
+
+.player_B_card h3 {
+  font-family: "Nunito";
+  font-size: 16.43px;
+  font-weight: 900;
+  line-height: 22.42px;
+  text-align: left;
+  color: white;
+  margin: 0;
+}
+.player_B_card h6 {
+  font-family: "Poppins";
+  font-size: 8.96px;
+  font-weight: 400;
+  line-height: 13.45px;
+  text-align: left;
+  color: white;
+  padding-left: 59px;
+  margin: 0;
+}
+
+.player_B_img {
+  position: absolute;
+  left: 0px;
+  top: 17px;
+  width: 123px;
+  height: 83.09px;
+  opacity: 0.15px;
+  z-index: 10;
+}
+.table_wrapper {
+  transform: translateY(-80px);
+  animation-duration: 1s;
+  /* margin-bottom: 60px; */
+}
+.player_A_pair {
+  background: linear-gradient(272.02deg, #d93916 1.14%, #d56300 96.49%);
+  position: absolute;
+  width: 46.75%;
+  height: 50.32px;
+  top: 81px;
+  left: 6px;
+  gap: 0px;
+  border-radius: 0px 5px 15px 15px;
+  opacity: 0px;
+  color: white;
+  overflow: hidden;
+}
+.player_A_pair h6 {
+  font-family: "Nunito";
+  font-size: 10.46px;
+  font-weight: 500;
+  line-height: 14.26px;
+  text-align: left;
+  padding-left: 24px;
+
+  padding-top: 5px;
+  margin: 0;
+}
+.player_A_pair h4 {
+  font-family: "Nunito";
+  font-size: 13.45px;
+  font-weight: 800;
+  line-height: 18.34px;
+  text-align: left;
+  padding-left: 24px;
+  margin: 0;
+}
+
+.pair_A_img {
+  position: absolute;
+  top: 64.5px;
+  left: 0px;
+}
+
+.player_A_pair_img {
+  position: absolute;
+  top: 0;
+  left: 89%;
+}
+
+.bonus_pair {
+  position: absolute;
+  width: 75px;
+  height: 93.12px;
+  top: 45px;
+  left: 47%;
+  gap: 0px;
+  border-radius: 16px;
+  border: 2px 0px 0px 0px;
+  opacity: 0px;
+  background-color: #206669;
+  color: rgb(55, 7, 7);
+  border: 4px solid #161a2b;
+  z-index: 40;
+  overflow: hidden;
+}
+
+.bonus_pair h3 {
+  font-family: "Nunito";
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 19.1px;
+  text-align: left;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding-top: 7px;
+}
+
+.bonus_pair h6 {
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  text-align: left;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+.bonus_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
+}
+
+.player_B_pair {
+  background: linear-gradient(274.38deg, #ffb700 3.52%, #e85a0e 94.99%);
+  position: absolute;
+  width: 47.45%;
+  height: 50.32px;
+  top: 81px;
+  right: 6px;
+  gap: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  opacity: 60%;
+  rotate: -180 deg;
+  color: white;
+  overflow: hidden;
+  z-index: 30;
+}
+.player_B_pair h6 {
+  font-family: "Nunito";
+  font-size: 10.46px;
+  font-weight: 500;
+  line-height: 14.26px;
+  text-align: left;
+  padding-left: 90%;
+  padding-top: 5px;
+  margin: 0;
+}
+.player_B_pair h4 {
+  font-family: "Nunito";
+  font-size: 13.45px;
+  font-weight: 800;
+  line-height: 18.34px;
+  text-align: left;
+  padding-left: 87%;
+
+  margin: 0;
+}
+
+.pair_B_img {
+  position: absolute;
+  top: 64.5px;
+  right: 0px;
+  right: 6px;
+  opacity: 60%;
+  z-index: 5;
+}
+
+.player_B_pair_img {
+  position: absolute;
+  top: 0;
+  left: 0px;
+}
+.pair_A_img {
+  top: 64.5px;
+  left: 6px;
+}
+
+.player_A_chances {
+  position: absolute;
+  left: 155px;
+  top: 10px;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 0px solid transparent;
+  border-radius: 2px;
+  max-height: 24px !important;
+  overflow: hidden;
+}
+.chance_bg_color {
+  background-color: rgba(217, 217, 217, 0.4);
+  /* opacity: 40%; */
+}
+.chance_wrapper_A {
+  position: absolute;
+  top: 22.5px;
+  left: 155px;
+  width: 24px;
+  height: 24px;
+  border: 0px solid transparent;
+  border-radius: 2px;
+}
+.player_B_chances {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 0px solid transparent;
+  border-radius: 2px;
+  max-height: 24px !important;
+  overflow: hidden;
+}
+.chance_wrapper_B {
+  position: absolute;
+  top: 21.5px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+}
+.chances_container {
+  width: 31px;
+  height: 0px;
+}
+.player_A_chances h4 {
+  font-family: "Poppins";
+  font-size: 6.46px;
+  font-weight: 400;
+  line-height: 9.69px;
+  text-align: left;
+  color: white;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.player_B_chances h4 {
+  font-family: "Poppins";
+  font-size: 6.46px;
+  font-weight: 400;
+  line-height: 9.69px;
+  text-align: left;
+  color: white;
+  text-align: center;
+  padding-top: 4px;
+}
+.player_A_chances,
+.chance_wrapper_A {
+  left: 94.25%;
+}
+.player_B_chances,
+.chance_wrapper_B {
+  left: 17px;
+}
+
+/* Main table section ends here */
+
+/* Bottom section start */
+.bottom_container {
+  background-color: #161a2b;
+  width: 100%;
+  height: 187px;
+  width: 100%;
+  margin-top: -80px;
+  overflow: hidden;
+}
+.empty-div {
+  height: 154px;
+  margin-bottom: 23px;
+}
+.coins-wraper {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 0px;
+  margin-bottom: 29px;
+  height: 59px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.parent-bottom-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 33px;
+  margin-top: 29px;
+  /* transform: translateY(4px); */
+}
+.bottom-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+}
+.text-div {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+.text-white {
+  color: white;
+  font-size: 10px;
+}
+.text-orange {
+  color: #ed8840;
+  font-size: 10px;
+}
+.rigth-text {
+  color: #616976;
+  font-size: 10px;
+}
+.bottom-text-div {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+.cursor_pointer {
+  cursor: pointer;
+}
+.cursior {
+  cursor: pointer;
+  position: relative;
+}
+
+.group-bg {
+  background-color: #2e2b40;
+  border-radius: 999px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.group-div {
+  position: relative;
+  display: inline-block;
+}
+.flex-coins {
+  display: flex;
+  width: 100%;
+}
+
+.flex-coins.show-coins img {
+  animation: slide-in-right 0.5s ease forwards;
+  opacity: 1;
+}
+.flex-coins {
+  padding: 4px 0px;
+  width: 236px;
+  transition: max-width 1s linear;
+  overflow: hidden;
+  border: 0px solid transparent;
+  border-radius: 50px;
+  transform: translateX(-4px);
+}
+
+.bg_animation {
+  background-color: rgba(170, 170, 191, 0.2);
+}
+
+.bet_coins {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  /* width: 370px; */
+  /* overflow: hidden; */
+  transform: translateX(3px);
+}
+.move-up-left {
+  animation: move-up-left 1s ease-in-out;
+}
+.move-down-right {
+  animation: move-down-right 1s ease-in-out;
+}
+.show-bet-icons {
+  animation: show-bet-icons 0.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+.hide-bet-icons {
+  animation: hide-bet-icons 0.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.hamburger {
+  width: 18.68px;
+  height: 14.54px;
+}
+.chat_icon {
+  width: 18.68px;
+  height: 18.68px;
+}
+.multi_coin,
+.refresh_icon {
+  width: 24px;
+  height: 24px;
+}
+
+.selected_coin,
+.pointer {
+  width: 30px;
+  height: 30px;
+}
+.select_coins_icon {
+  width: 8px;
+  height: 9.29px;
+}
+p {
+  margin: 0;
+}
+
+/* bottom section ends */
+
+@media screen and (max-width: 1366px) {
+  .player_B_pair {
+    width: 46.7%;
+  }
+  .player_A_pair {
+    width: 46.6%;
+  }
+  .player_A_pair_img {
+    left: 87%;
+  }
+  .player_A_img {
+    left: 81%;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 93.5%;
+  }
+  .player_B_card {
+    padding-left: 41.5%;
+  }
+  .player_A_pair h6 {
+    padding-left: 24px;
+  }
+  .player_A_pair h4 {
+    padding-left: 24px;
+  }
+  .player_B_pair h6 {
+    padding-left: 90%;
+  }
+  .player_B_pair h4 {
+    padding-left: 87%;
+  }
+  .popup_container {
+    height: 270px;
+  }
+  .games_container {
+    left: 42%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .player_B_pair {
+    width: 46.7%;
+  }
+  .player_A_pair {
+    width: 46.6%;
+  }
+  .player_A_pair_img {
+    left: 87%;
+  }
+  .player_A_img {
+    left: 81%;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 93.5%;
+  }
+  .player_B_card {
+    padding-left: 41.5%;
+  }
+  .player_A_pair h6 {
+    padding-left: 24px;
+  }
+  .player_A_pair h4 {
+    padding-left: 24px;
+  }
+  .player_B_pair h6 {
+    padding-left: 90%;
+  }
+  .player_B_pair h4 {
+    padding-left: 87%;
+  }
+  .popup_container {
+    height: 250px;
+  }
+  .games_container {
+    left: 42%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .player_A_card {
+    width: 49.25%;
+  }
+  .player_B_card {
+    width: 49.25%;
+    padding-left: 350px;
+  }
+  .bonus_pair {
+    left: 45.75%;
+    border: 2.5px solid #161a2b;
+  }
+  .player_A_pair {
+    width: 45.25%;
+  }
+  .player_B_pair {
+    width: 46.35%;
+    padding-left: 260px;
+  }
+  .player_A_img {
+    left: 76%;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 463px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .pair_A_img {
+    top: 65px;
+    left: 6px;
+  }
+  .pair_B_img {
+    top: 65px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 16px;
+  }
+  .popup_container {
+    height: 240px;
+  }
+  .games_container {
+    left: 42%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 92%;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 16px;
+  }
+
+  .player_B_card {
+    padding-left: 405px;
+  }
+  .player_B_pair h6 {
+    padding-left: 152px;
+  }
+  .player_B_pair h4 {
+    padding-left: 135px;
+  }
+  .player_A_pair_img {
+    left: 85%;
+  }
+  .player_A_pair h6 {
+    padding-left: 24px;
+  }
+  .player_A_pair h4 {
+    padding-left: 24px;
+  }
+  .popup_container {
+    height: 800px;
+  }
+  .games_container {
+    left: 39%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .player_A_card {
+    width: 49%;
+  }
+  .player_B_card {
+    width: 49%;
+    padding-left: 240px;
+  }
+  .bonus_pair {
+    left: 43.7%;
+    border: 2.5px solid #161a2b;
+  }
+  .player_A_pair {
+    width: 43%;
+  }
+  .player_B_pair {
+    width: 43.5%;
+    padding-left: 160px;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 335px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .popup_container {
+    height: 800px;
+  }
+  .games_container {
+    left: 39%;
+  }
+}
+
+@media screen and (max-width: 912px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 90%;
+  }
+  .player_B_pair {
+    width: 45.8%;
+  }
+  .player_A_pair {
+    width: 44.5%;
+  }
+  .bonus_pair {
+    left: 45.25%;
+  }
+  .player_A_img {
+    left: 73%;
+  }
+  .player_A_pair_img {
+    left: 83%;
+  }
+  .popup_container {
+    height: 780px;
+  }
+  .games_container {
+    left: 39%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+  .player_B_card {
+    padding-left: 341px;
+  }
+  .player_B_pair h4 {
+    padding-left: 173px;
+  }
+  .player_B_pair h6 {
+    padding-left: 190px;
+  }
+}
+
+@media screen and (max-width: 853px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 90%;
+  }
+  .player_A_img {
+    left: 71%;
+  }
+  .bonus_pair {
+    left: 44.7%;
+  }
+  .player_A_pair {
+    width: 44%;
+  }
+  .player_B_pair {
+    width: 45.75%;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 91.75%;
+  }
+  .player_B_card {
+    padding-left: 317px;
+  }
+  .player_B_pair h6 {
+    padding-left: 168px;
+  }
+  .player_B_pair h4 {
+    padding-left: 150px;
+  }
+  .player_A_card {
+    padding-left: 13px;
+  }
+  .popup_container {
+    height: 700px;
+  }
+  .games_container {
+    left: 39%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 834px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 90%;
+  }
+
+  .player_B_pair h6 {
+    padding-left: 150px;
+  }
+  .player_B_pair h4 {
+    padding-left: 133px;
+  }
+  .player_A_pair h6 {
+    padding-left: 15px;
+  }
+  .player_A_pair h4 {
+    padding-left: 15px;
+  }
+  .bonus_pair {
+    left: 44.7%;
+  }
+  .player_A_pair {
+    width: 44%;
+  }
+  .player_B_pair {
+    width: 45.3%;
+  }
+  .player_A_img {
+    left: 70%;
+  }
+  .player_A_pair_img {
+    left: 81%;
+  }
+  .player_B_card {
+    padding-left: 300px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 16px;
+  }
+  .popup_container {
+    height: 580px;
+  }
+  .games_container {
+    left: 39%;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 90%;
+  }
+
+  .player_B_pair h6 {
+    padding-left: 150px;
+  }
+  .player_B_pair h4 {
+    padding-left: 133px;
+  }
+  .player_A_pair h6 {
+    padding-left: 15px;
+  }
+  .player_A_pair h4 {
+    padding-left: 15px;
+  }
+  .bonus_pair {
+    left: 44.7%;
+  }
+  .player_A_pair {
+    width: 44%;
+  }
+  .player_B_pair {
+    width: 45.3%;
+  }
+  .player_A_img {
+    left: 70%;
+  }
+  .player_A_pair_img {
+    left: 81%;
+  }
+  .player_B_card {
+    padding-left: 300px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 16px;
+  }
+  .popup_container {
+    height: 620px;
+  }
+  .games_container {
+    left: 39%;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .player_B_pair {
+    width: 44.75%;
+  }
+  .player_A_pair {
+    width: 44%;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 13px;
+  }
+  .pair_B_img {
+    top: 64.5px;
+  }
+  .pair_A_img {
+    top: 64.5px;
+  }
+  .bonus_pair {
+    left: 44.7%;
+  }
+  .player_A_img {
+    left: 68%;
+  }
+
+  .player_B_card {
+    padding-left: 275px;
+  }
+  .player_B_pair h6 {
+    padding-left: 121px;
+  }
+  .player_B_pair h4 {
+    padding-left: 104px;
+  }
+  .player_A_pair_img {
+    left: 79%;
+  }
+  .popup_container {
+    height: 560px;
+  }
+  .games_container {
+    left: 38%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .player_B_pair {
+    width: 44.75%;
+  }
+  .player_A_pair {
+    width: 44%;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 13px;
+  }
+  .pair_B_img {
+    top: 64.5px;
+  }
+  .pair_A_img {
+    top: 64.5px;
+  }
+  .bonus_pair {
+    left: 44.7%;
+  }
+  .player_A_img {
+    left: 68%;
+  }
+
+  .player_B_card {
+    padding-left: 275px;
+  }
+  .player_B_pair h6 {
+    padding-left: 121px;
+  }
+  .player_B_pair h4 {
+    padding-left: 104px;
+  }
+  .player_A_pair_img {
+    left: 79%;
+  }
+  .popup_container {
+    height: 470px;
+  }
+  .games_container {
+    left: 38%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* Main Table section starts here */
+  .player_A_card {
+    width: 48.25%;
+  }
+  .player_B_card {
+    width: 48.25%;
+    padding-left: 82px;
+  }
+  .player_A_img {
+    left: 40%;
+  }
+  .player_A_pair_img {
+    left: 45%;
+  }
+  .player_B_pair h6 {
+    padding-left: 89px;
+  }
+  .player_B_pair h4 {
+    padding-left: 67px;
+  }
+  .bonus_pair {
+    left: 41%;
+    border: 2.5px solid #161a2b;
+  }
+  .player_B_pair {
+    width: 42.5%;
+    padding-left: 0;
+  }
+  .player_A_pair {
+    width: 40%;
+  }
+  /* Main table section ends here */
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 163px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .popup_container {
+    height: 470px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 85%;
+  }
+  .player_B_pair {
+    width: 43%;
+  }
+  .player_A_pair {
+    width: 41%;
+  }
+  .bonus_pair {
+    left: 42%;
+  }
+  .player_A_card {
+    left: 8px;
+  }
+  .player_B_card {
+    right: 8px;
+    padding-left: 161px;
+  }
+  .player_A_img {
+    left: 53%;
+  }
+  .player_A_pair_img {
+    left: 67%;
+  }
+  .popup_container {
+    height: 170px;
+  }
+  .games_container {
+    left: 32%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 128px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 13px;
+  }
+  .player_B_pair h6 {
+    padding-left: 172px;
+  }
+  .player_B_pair h4 {
+    padding-left: 156px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .bonus_pair {
+    left: 40%;
+  }
+  .player_B_pair {
+    width: 42%;
+    padding-left: 0;
+  }
+  .player_A_pair {
+    width: 42%;
+  }
+  .popup_container {
+    height: 495px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  /* High Card section starts here */
+
+  .player_card {
+    max-width: 33svw;
+  }
+
+  .high_card_secondary {
+    max-width: 24svw;
+  }
+
+  .high_card_primary {
+    max-width: 24svw;
+  }
+  /* High Card section ends here */
+
+  /* main table start here */
+  .player_B_card {
+    width: 48%;
+    padding-left: 37px;
+  }
+  .player_A_card {
+    width: 48%;
+    padding-left: 7px;
+  }
+  .player_A_img {
+    left: 57px;
+    top: 22px;
+  }
+  .player_B_img {
+    left: 0px;
+    top: 22px;
+  }
+  .player_B_pair {
+    width: 41%;
+    padding-left: 0;
+  }
+  .player_A_pair {
+    width: 38.75%;
+  }
+  .bonus_pair {
+    left: 40%;
+  }
+  .player_B_pair h6 {
+    padding-left: 75px;
+  }
+  .player_B_pair h4 {
+    padding-left: 52px;
+  }
+
+  .pair_A_img {
+    top: 65px;
+    left: 6px;
+  }
+  .pair_B_img {
+    top: 64.5px;
+    right: 6px;
+    opacity: 60%;
+  }
+  /* main table ends here */
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 153px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 8px;
+  }
+  .popup_container {
+    height: 330px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  /* High Card section starts here */
+
+  .player_card {
+    max-width: 33svw;
+  }
+
+  .high_card_secondary {
+    max-width: 24svw;
+  }
+
+  .high_card_primary {
+    max-width: 24svw;
+  }
+  /* High Card section ends here */
+
+  /* main table start here */
+  .player_B_card {
+    width: 48%;
+    padding-left: 37px;
+  }
+  .player_A_card {
+    width: 48%;
+    padding-left: 7px;
+  }
+  .player_A_img {
+    left: 57px;
+    top: 22px;
+  }
+  .player_B_img {
+    left: 0px;
+    top: 22px;
+  }
+  .player_B_pair {
+    width: 41%;
+    padding-left: 0;
+  }
+  .player_A_pair {
+    width: 38.75%;
+  }
+  .bonus_pair {
+    left: 40%;
+  }
+  .player_B_pair h6 {
+    padding-left: 75px;
+  }
+  .player_B_pair h4 {
+    padding-left: 52px;
+  }
+
+  .pair_A_img {
+    top: 65px;
+    left: 6px;
+  }
+  .pair_B_img {
+    top: 64.5px;
+    right: 6px;
+    opacity: 60%;
+  }
+  /* main table ends here */
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 153px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 8px;
+  }
+  .popup_container {
+    height: 495px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 448px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 172px;
+  }
+  .player_A_img {
+    left: 83px;
+    top: 23px;
+  }
+  .player_A_pair_img {
+    left: 54%;
+  }
+  .popup_container {
+    height: 390px;
+  }
+  .games_container {
+    left: 29%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 172px;
+  }
+  .player_A_img {
+    left: 83px;
+    top: 23px;
+  }
+  .player_A_pair_img {
+    left: 54%;
+  }
+  .popup_container {
+    height: 310px;
+  }
+  .games_container {
+    left: 29%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 172px;
+  }
+  .player_A_img {
+    left: 83px;
+    top: 23px;
+  }
+  .player_A_pair_img {
+    left: 54%;
+  }
+  .popup_container {
+    height: 290px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 164px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .player_B_card {
+    padding-left: 97px;
+  }
+  .player_B_pair h6 {
+    padding-left: 106px;
+  }
+  .player_B_pair h4 {
+    padding-left: 89px;
+  }
+  .popup_container {
+    height: 240px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+  .parent-bottom-flex {
+    margin-bottom: 15px;
+  }
+  .main_table_container {
+    height: 138px;
+  }
+  .player_A_pair_img {
+    left: 51%;
+  }
+  .player_A_img {
+    left: 75px;
+  }
+  .teen_patti_conatiner {
+    margin-top: 7px;
+  }
+  .high_card_container {
+    margin-top: 5px;
+  }
+  .win_percentage_container {
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .player_A_card {
+    left: 7px;
+  }
+  .player_B_card {
+    right: 7px;
+  }
+  .player_A_img {
+    left: 75px;
+    top: 23px;
+  }
+  .player_A_pair_img {
+    left: 52%;
+  }
+  .popup_container {
+    height: 230px;
+  }
+  .games_container {
+    left: 27%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+  .player_A_pair h6 {
+    padding-left: 10px;
+  }
+  .player_A_pair h4 {
+    padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 393px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 153px;
+  }
+  .popup_container {
+    height: 250px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 153px;
+  }
+  .popup_container {
+    height: 250px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 153px;
+  }
+  .popup_container {
+    height: 275px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  /* High Card section starts here */
+  .player_card {
+    max-width: 36.268svw;
+  }
+
+  .high_card_secondary {
+    max-width: 24svw;
+  }
+
+  .high_card_primary {
+    max-width: 24svw;
+  }
+  .player_card h6 {
+    font-size: 18px;
+  }
+  .high_card_primary h6 {
+    font-size: 10px;
+    line-height: 1.5 !important;
+  }
+  .high_card_secondary h6 {
+    font-size: 10px;
+  }
+
+  /* High Card section ends here */
+
+  /* main table start here */
+  .player_B_card {
+    width: 48%;
+    padding-left: 81px;
+  }
+  .player_A_card {
+    width: 48%;
+    padding-left: 7px;
+  }
+  .player_A_img {
+    left: 57px;
+    top: 23px;
+  }
+  .player_B_img {
+    left: 0px;
+    top: 22px;
+  }
+
+  .bonus_pair {
+    left: 39%;
+  }
+  .player_B_pair {
+    width: 39.1%;
+    padding-left: 0;
+  }
+  .player_A_pair {
+    width: 37.33%;
+  }
+  .player_B_pair h6 {
+    padding-left: 87px;
+  }
+  .player_B_pair h4 {
+    padding-left: 70px;
+  }
+  .pair_A_img {
+    top: 65px;
+    left: 6px;
+  }
+  .pair_B_img {
+    top: 64.5px;
+    right: 6px;
+    opacity: 60%;
+  }
+  /* main table ends here */
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 81%;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .player_A_pair_img {
+    left: 46%;
+  }
+  .popup_container {
+    height: 165px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 127px;
+  }
+  .win_percentage_container {
+    margin-top: 5px;
+  }
+  .parent-bottom-flex {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 137px;
+  }
+  .player_A_img {
+    left: 50px;
+  }
+  .player_B_card {
+    right: 6px;
+  }
+  .player_A_card {
+    right: 6px;
+  }
+  .player_A_pair_img {
+    left: 43%;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 12px;
+  }
+  .player_B_pair {
+    width: 38.5%;
+  }
+  .popup_container {
+    height: 190px;
+  }
+  .games_container {
+    left: 23%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 170px;
+  }
+  .bonus_pair {
+    height: 89.12px;
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .player_A_card {
+    left: 6px;
+  }
+  .player_B_card {
+    right: 6px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 130px;
+  }
+  .player_B_pair {
+    width: 37.5%;
+    padding-left: 70px;
+  }
+  .player_B_card {
+    width: 48%;
+    padding-left: 66px;
+  }
+  .player_A_img {
+    top: 18px;
+  }
+  .player_B_pair h6 {
+    padding-left: 0px;
+  }
+  .player_B_pair h4 {
+    padding-left: 0px;
+    transform: translateX(-15px);
+  }
+  .popup_container {
+    height: 180px;
+  }
+  .games_container {
+    left: 22%;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .bonus_pair {
+    left: 37%;
+  }
+  .player_B_pair {
+    width: 37.5%;
+    padding-left: 0;
+  }
+  .player_B_pair h6 {
+    padding-left: 73px;
+  }
+  .player_B_pair h4 {
+    padding-left: 55px;
+  }
+  .player_A_pair {
+    width: 35%;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 77.5%;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .player_A_card {
+    width: 47.5%;
+  }
+  .player_B_card {
+    padding-left: 64px;
+    width: 47.5%;
+  }
+  .player_A_img {
+    left: 29px;
+  }
+  .player_A_pair_img {
+    left: 31px;
+  }
+  .popup_container {
+    height: 190px;
+  }
+  .games_container {
+    left: 25%;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .player_A_pair_img {
+    left: 37px;
+  }
+  .player_B_img {
+    top: 17px;
+  }
+  .popup_container {
+    height: 135px;
+  }
+  .games_container {
+    left: 20%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 100px;
+  }
+  .player_A_card {
+    height: 50px;
+  }
+  .player_B_card {
+    height: 50px;
+  }
+  .player_B_pair {
+    height: 40.32px;
+    top: 49%;
+  }
+  .player_A_pair_img {
+    left: 55px;
+  }
+  .player_A_pair {
+    height: 40.32px;
+    top: 49%;
+  }
+  .bonus_pair {
+    height: 57px;
+    top: 35px;
+  }
+  .pair_A_img {
+    top: 34px;
+  }
+  .pair_B_img {
+    top: 32.5px;
+  }
+  .main_table_container {
+    height: 100px;
+  }
+  .win_percentage_container {
+    margin-top: 2px;
+  }
+  .teen_patti_conatiner {
+    margin-top: 5px;
+  }
+  .parent-bottom-flex {
+    margin-bottom: 11px;
+  }
+  .custom_flex img {
+    width: 20px;
+    height: 30px;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes show-bet-icons {
+  0% {
+    max-width: 60px;
+    overflow: hidden;
+  }
+  50% {
+    max-width: 150px;
+  }
+  100% {
+    max-width: 236px;
+  }
+}
+
+@keyframes hide-bet-icons {
+  0% {
+    max-width: 236px;
+    overflow: hidden;
+  }
+  50% {
+    max-width: 150px;
+  }
+  100% {
+    max-width: 0px;
+    overflow: hidden;
+  }
+}
+
+@keyframes move-up-left {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -75px);
+  }
+  100% {
+    transform: translate(-105px, -75px);
+  }
+}
+
+@keyframes move-down-right {
+  0% {
+    transform: translate(-105px, -75px);
+  }
+  50% {
+    transform: translate(0, -75px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* @keyframes inplayAnimation {
+  0% {
+    width: 15px;
+    height: 15px;
+  }
+  50% {
+    width: 30px;
+    height: 30px;
+  }
+  100% {
+    color: green;
+  }
+} */
