@@ -505,3 +505,7 @@ input.input-Betslip:focus {
       padding-top: 0 !important;
   }
 } */
+.fancy-quick-btn.active {
+  background-color: var(--market-details-cmp-odd-row-back-1-active-background)!important;
+  color: var(--market-details-cmp-odd-row-back-1-active-color)!important;
+}

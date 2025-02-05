@@ -11,6 +11,7 @@ import { NetworkService } from '../../services/network.service';
 import { VideoPlayerComponent } from '../../shared/video-player/video-player.component';
 import { BetslipComponent } from "../../shared/betslip/betslip.component";
 import { ResultsComponent } from "../../shared/results/results.component";
+import { VideoPlayerUnrealComponent } from "../../shared/video-player-unreal/video-player-unreal.component";
 
 export let browserRefresh = false;
 declare var $: any;
@@ -18,7 +19,7 @@ declare var $: any;
 @Component({
   selector: 'app-teenpatti',
   standalone: true,
-  imports: [VideoPlayerComponent, FormsModule, CommonModule, BetslipComponent, ResultsComponent],
+  imports: [VideoPlayerComponent, FormsModule, CommonModule, BetslipComponent, ResultsComponent, VideoPlayerUnrealComponent],
   templateUrl: './teenpatti.component.html',
   styleUrl: './teenpatti.component.css'
 })
