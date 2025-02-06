@@ -1,0 +1,15 @@
+<div class="flex items-center justify-center h-screen ">
+    <svg class="w-28 h-28 transform" viewBox="0 0 100 100">
+        <!-- Timer Progress Circle -->
+        <circle  cx="32" cy="32" r="29.088" [attr.stroke]="getStrokeColor()" stroke-width=" 5.824" fill="#0006" 
+            stroke-linecap="round" [attr.stroke-dasharray]="getStrokeDasharray()" stroke-dashoffset="0"
+            [style.opacity]="getOpacity()" class="transition-all duration-500 "  transform="rotate(-90 32 32)"></circle>
+
+        <!-- Timer Text -->
+        <text x="32" y="40" text-anchor="middle" fill="white" font-size="1.76rem" font-weight="bold"  class="dice-container "  
+          >
+            {{ timeLeft }}
+        </text>
+    </svg>
+</div>
+
