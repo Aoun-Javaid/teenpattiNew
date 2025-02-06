@@ -34,7 +34,7 @@
   justify-content: center;
   align-items: center;
   line-height: 10.5px;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 .red_bg {
@@ -187,7 +187,7 @@
   border-image-slice: 1;
   padding: 2.5px 6.75px;
   height: 24px;
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-optical-sizing: auto;
   font-style: normal;
   font-size: 12px;
@@ -205,7 +205,7 @@
   border-image-slice: 1;
   padding: 2.5px 6.75px;
   height: 24px;
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-optical-sizing: auto;
   font-style: normal;
   font-size: 12px;
@@ -225,7 +225,7 @@
   border-radius: 3px;
   border: 0px solid transparent;
   color: white;
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-optical-sizing: auto;
   font-style: normal;
   white-space: nowrap;
@@ -271,7 +271,7 @@
 .custom_flex {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: row;
 }
 
@@ -282,9 +282,13 @@
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   padding: 0px 19px;
+  height: 10rem;;
 }
+.teen_patti_conatiner::before{
 
+}
 /* Teen patti Cards Section ends here  */
 
 /* Winning Percentage Chances Section starts here */
@@ -309,6 +313,7 @@
   font-weight: bold;
   color: white; /* Adjust content color */
   overflow: hidden; /* Ensure background stays within bounds */
+  height: 100%;
 }
 
 .player_B_cards::before,
@@ -347,6 +352,7 @@
   align-items: center;
   flex-direction: row;
   gap: 4px;
+  font-family: 'Baloo', sans-serif;
 }
 
 .progress_bar_container div {
@@ -358,7 +364,7 @@
   border-radius: 3.74px;
   color: white;
   font-size: 10px;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
   height: 14px;
 }
 
@@ -369,6 +375,7 @@
   background-color: #161a2b;
   width: 100%;
   height: 152px;
+  font-family: 'Baloo', sans-serif;
 }
 
 .player_A_card {
@@ -385,7 +392,7 @@
 }
 
 .player_A_card h3 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 16.43px;
   font-weight: 900;
   line-height: 22.42px;
@@ -394,7 +401,7 @@
   margin: 0;
 }
 .player_A_card h6 {
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-size: 8.96px;
   font-weight: 400;
   line-height: 13.45px;
@@ -428,7 +435,7 @@
 }
 
 .player_B_card h3 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   position: absolute;
   white-space: nowrap;
   font-size: 16.43px;
@@ -446,7 +453,7 @@
   top: 6px;
 }
 .player_B_card h6 {
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   position: absolute;
   right: 13px;
   top: 25px;
@@ -492,7 +499,7 @@
   overflow: hidden;
 }
 .player_A_pair h6 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 10.46px;
   font-weight: 500;
   line-height: 14.26px;
@@ -503,7 +510,7 @@
   margin: 0;
 }
 .player_A_pair h4 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 13.45px;
   font-weight: 800;
   line-height: 18.34px;
@@ -536,7 +543,7 @@
 }
 
 .bonus_pair h3 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 14px;
   font-weight: 800;
   line-height: 19.1px;
@@ -548,7 +555,7 @@
 }
 
 .bonus_pair h6 {
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
@@ -584,7 +591,7 @@
   z-index: 30;
 }
 .player_B_pair h6 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 10.46px;
   font-weight: 500;
   line-height: 14.26px;
@@ -594,7 +601,7 @@
   margin: 0;
 }
 .player_B_pair h4 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 13.45px;
   font-weight: 800;
   line-height: 18.34px;
@@ -606,7 +613,7 @@
 
 .pair_B_img {
   position: absolute;
-  top: -3px;
+  top: -5px;
   right: 0px;
   z-index: 5;
 }
@@ -618,7 +625,7 @@
 }
 
 .pair_A_img {
-  top: -3px;
+  top: -5px;
   position: absolute;
   left: 0px;
   z-index: 99;
@@ -675,7 +682,7 @@
   height: 0px;
 }
 .player_A_chances h4 {
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-size: 6.46px;
   font-weight: 400;
   line-height: 9.69px;
@@ -686,7 +693,7 @@
 }
 
 .player_B_chances h4 {
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-size: 6.46px;
   font-weight: 400;
   line-height: 9.69px;
@@ -1551,11 +1558,11 @@ p {
 
   /* main table start here */
   .player_B_card {
-    width: 48%;
+    width: 47.7%;
     padding-left: 37px;
   }
   .player_A_card {
-    width: 48%;
+    width: 47.7%;
     padding-left: 7px;
   }
   .player_A_img {
