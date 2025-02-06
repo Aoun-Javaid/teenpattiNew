@@ -16,21 +16,45 @@
     <div class="teen_patti_conatiner" [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
         <!-- Player A cards start here -->
         <div class="custom_flex gap-2 player_A_cards">
-            <img src="/NteenPatti/images/5hukm.svg" alt="card1">
-            <img src="/NteenPatti/images/2brick.svg" alt="card2">
-            <img src="/NteenPatti/images/3hukm.svg" alt="card3">
+            <img src="/NteenPatti/images/5hukm.svg" class="card-img" alt="card1">
+            <img src="/NteenPatti/images/2brick.svg" class="card-img" alt="card2">
+            <img src="/NteenPatti/images/3hukm.svg" class="card-img" alt="card3">
         </div>
         <!-- Player A cards ends here -->
-    
+
         <!-- Player B cards start here -->
         <div class="custom_flex gap-2 player_B_cards">
-            <img src="/NteenPatti/images/5hukm.svg" alt="card1">
-            <img src="/NteenPatti/images/2brick.svg" alt="card2">
-            <img src="/NteenPatti/images/3hukm.svg" alt="card3">
+            <img src="/NteenPatti/images/5hukm.svg" class="card-img" alt="card1">
+            <img src="/NteenPatti/images/2brick.svg" class="card-img" alt="card2">
+            <img src="/NteenPatti/images/3hukm.svg" class="card-img" alt="card3">
         </div>
         <!-- Player B cards ends here -->
-    
+
     </div>
+
+    <div class="win_percentage_container">
+        <div class="win_percentage_wrapper ">
+            <div class="progress_bar_container">
+                <div class="progress-bar bg-danger" [style.width]="aPlayerChances">
+                    <div class="progress-bar_data">
+                        A
+                    </div>
+                    <div class="progress-bar_data">
+                        {{aPlayerChances}}
+                    </div>
+                </div>
+                <div class="progress-bar yellow_bg " [style.width]="bPlayerChances">
+                    <div class="progress-bar_data">
+                        B
+                    </div>
+                    <div class="progress-bar_data">
+                        {{bPlayerChances}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Teen patti Cards Section ends here -->
     <div class="relative">
         <!-- main contnet -->
@@ -48,33 +72,12 @@
         </div>
         <!-- High Card section ends here -->
 
-       
+
 
 
         <!-- Winning Percentage Chances Section starts here -->
         <div [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
-            <div class="win_percentage_container">
-                <div class="win_percentage_wrapper ">
-                    <!-- <div class="progress_bar_container">
-                        <div class="progress-bar bg-danger" [style.width]="aPlayerChances">
-                            <div class="progress-bar_data">
-                                A
-                            </div>
-                            <div class="progress-bar_data">
-                                {{aPlayerChances}}
-                            </div>
-                        </div>
-                        <div class="progress-bar yellow_bg " [style.width]="bPlayerChances">
-                            <div class="progress-bar_data">
-                                B
-                            </div>
-                            <div class="progress-bar_data">
-                                {{bPlayerChances}}
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
+
             <!-- Winning Percentage Chances Section ends here -->
             <!-- Main Table starts here -->
             <div class="main_table_container position-relative ">
@@ -99,8 +102,10 @@
                     <!-- Player B Card starts -->
 
                     <div class="player_B_card">
-                        <h3>PLAYER B</h3>
-                        <h6>0.95:1</h6>
+                        <div class="player-b-details">
+                            <h3>PLAYER B</h3>
+                            <h6>0.95:1</h6>
+                        </div>
                         <div class="player_B_img">
                             <img src="/NteenPatti/images/playerB.svg" alt="img">
                         </div>
@@ -117,20 +122,21 @@
 
                     <!-- Player A Pair starts -->
 
-                    <div class="pair_A_img">
-                        <img src="/NteenPatti/Icons/pair_A_.svg" alt="img">
-                    </div>
-                    <div class="player_A_pair">
-                        <div>
+
+                    <div class="player_A_pair !overflow-visible z-[99]">
+                        <div class="overflow-hidden">
                             <h6>
                                 Player A
                             </h6>
                             <h4>
                                 Pair Plus
                             </h4>
-                            <div class="player_A_pair_img">
+                            <div class="player_A_pair_img !max-h-[50px] overflow-hidden">
                                 <img src="/NteenPatti/images/player_A_pair.svg" alt="img">
                             </div>
+                        </div>
+                        <div class="pair_A_img ">
+                            <img src="/NteenPatti/Icons/pair_A_.svg" alt="img">
                         </div>
                     </div>
                     <!-- Player A Pair ends -->
@@ -147,21 +153,24 @@
                     <!-- Bonus  Pair ends -->
 
                     <!-- Player B pair starts -->
-                    <!-- <div class="pair_B_img">
-                        <img src="/NteenPatti/Icons/pair_B.svg" alt="img">
-                    </div> -->
-                    <div class="player_B_pair">
-                        <div>
-                            <h6>
-                                Player B
-                            </h6>
-                            <h4>
-                                Pair Plus
-                            </h4>
 
-                            <!-- <div class="player_B_pair_img">
+                    <div class="player_B_pair !overflow-visible">
+                        <div>
+                            <div class="fix-position">
+                                <h6 class="text-nowrap">
+                                    Player B
+                                </h6>
+                                <h4 class="text-nowrap">
+                                    Pair Plus
+                                </h4>
+                            </div>
+
+                            <div class="player_B_pair_img !max-h-[50px] overflow-hidden">
                                 <img src="/NteenPatti/images/player_B_pair.svg" alt="img">
-                            </div> -->
+                            </div>
+                        </div>
+                        <div class="pair_B_img">
+                            <img src="/NteenPatti/Icons/pair_B.svg" alt="img">
                         </div>
                     </div>
                     <!-- Player B pair ends -->
