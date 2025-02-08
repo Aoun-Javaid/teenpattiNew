@@ -185,29 +185,29 @@
 
 
         <div class="bottom_container">
-            <div class="coins-wraper ">
-            <div class="coins-wraper">
-                <div class="flex-coins" [ngClass]="{'bg_animation': coinsState}">
-                    <div class="bet_coins" [ngClass]="{
+            <div class="coins-wraper duration-300" [ngClass]="{'!h-0':!animationContainer}">
+                <div class="coins-wraper duration-300" [ngClass]="{'!h-0': !animationContainer}">
+                    <div class="flex-coins" [ngClass]="{'bg_animation': coinsState}">
+                        <div class="bet_coins" [ngClass]="{
                       'show-bet-icons': coinsState,
                       'hide-bet-icons': !coinsState,
                       'd-none': !coinsState
                     }">
-                        <img src="/NteenPatti/Icons/green-coin.svg.svg" alt="green-coin" class="pointer custom"
-                            (click)="replaceHamburgerImage('/NteenPatti/Icons/green-coin.svg.svg')">
-                        <img src="/NteenPatti/Icons/orange-coin.svg.svg" alt="orange-coin" class="pointer"
-                            (click)="replaceHamburgerImage('/NteenPatti/Icons/orange-coin.svg.svg')">
-                        <img src="/NteenPatti/Icons/pink-coin.svg.svg" alt="pink-coin" class="pointer"
-                            (click)="replaceHamburgerImage('/NteenPatti/Icons/pink-coin.svg.svg')">
-                        <img src="/NteenPatti/Icons/red-coin.svg.svg" alt="red-coin" class="pointer"
-                            (click)="replaceHamburgerImage('/NteenPatti/Icons/red-coin.svg.svg')">
-                        <img src="/NteenPatti/Icons/blue-coin.svg.svg" alt="blue-coin" class="pointer"
-                            (click)="replaceHamburgerImage('/NteenPatti/Icons/blue-coin.svg.svg')">
-                        <img src="/NteenPatti/Icons/black-coin.svg.svg" alt="black-coin" class="pointer"
-                            (click)="replaceHamburgerImage('/NteenPatti/Icons/black-coin.svg.svg')">
+                            <img src="/NteenPatti/Icons/green-coin.svg.svg" alt="green-coin" class="pointer custom"
+                                (click)="replaceHamburgerImage('/NteenPatti/Icons/green-coin.svg.svg')">
+                            <img src="/NteenPatti/Icons/orange-coin.svg.svg" alt="orange-coin" class="pointer"
+                                (click)="replaceHamburgerImage('/NteenPatti/Icons/orange-coin.svg.svg')">
+                            <img src="/NteenPatti/Icons/pink-coin.svg.svg" alt="pink-coin" class="pointer"
+                                (click)="replaceHamburgerImage('/NteenPatti/Icons/pink-coin.svg.svg')">
+                            <img src="/NteenPatti/Icons/red-coin.svg.svg" alt="red-coin" class="pointer"
+                                (click)="replaceHamburgerImage('/NteenPatti/Icons/red-coin.svg.svg')">
+                            <img src="/NteenPatti/Icons/blue-coin.svg.svg" alt="blue-coin" class="pointer"
+                                (click)="replaceHamburgerImage('/NteenPatti/Icons/blue-coin.svg.svg')">
+                            <img src="/NteenPatti/Icons/black-coin.svg.svg" alt="black-coin" class="pointer"
+                                (click)="replaceHamburgerImage('/NteenPatti/Icons/black-coin.svg.svg')">
+                        </div>
                     </div>
                 </div>
-            </div>
 
             </div>
             <div class="parent-bottom-flex">

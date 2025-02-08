@@ -17,6 +17,7 @@ declare var $: any;
 
 @Component({
   selector: 'app-teenpatti-new',
+
   standalone: true,
   imports: [TopResultsComponent, CommonModule, VideoPlayerComponent, VideoPlayerUnrealComponent],
   templateUrl: './teenpatti-new.component.html',
@@ -26,6 +27,7 @@ export class TeenpattiNewComponent {
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
   animateIcon: boolean = false;
+  animationContainer: boolean = false
   betState: boolean = false;
   selectedCoin: string = '/NteenPatti/Icons/green-coin.svg.svg';
   @ViewChild('dropdownContainer', { static: true }) dropdownContainer!: ElementRef;
@@ -681,6 +683,16 @@ export class TeenpattiNewComponent {
   }
 
   replaceHamburgerImage(coinSrc: string) {
+    let timer = 0
+    if (this.animationContainer === true) {
+      timer = 1000
+    }
+    else {
+      timer = 0
+    }
+    setTimeout(() => {
+      this.animationContainer = !this.animationContainer
+    }, timer);
     this.selectedCoin = coinSrc;
     this.betState = false;
     this.animateIcon = false;
@@ -694,14 +706,23 @@ export class TeenpattiNewComponent {
     if (!this.coinStateActive) {
       this.coinStateActive = true;
       this.animateIcon = true;
+      let timer = 0
+      if (this.animationContainer === true) {
+        timer = 1000
+      }
+      else {
+        timer = 0
+      }
+      setTimeout(() => {
+        this.animationContainer = !this.animationContainer
+      }, timer);
 
-   
       setTimeout(() => {
         this.selectedCoin = '/NteenPatti/Icons/Group 237787.svg';
         this.coinsState = true;
       }, 1000);
     } else {
- 
+
       this.selectedCoin = '/NteenPatti/Icons/green-coin.svg.svg';
       this.betState = false;
       this.coinsState = false;
