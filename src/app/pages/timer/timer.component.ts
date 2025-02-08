@@ -12,6 +12,7 @@ import { Component } from '@angular/core';
 export class TimerComponent {
   timeLeft: number = 19;
   interval: any;
+  animate: boolean = false; 
 
   ngOnInit() {
     this.startTimer();
@@ -20,11 +21,19 @@ export class TimerComponent {
   startTimer() {
     this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
+        this.triggerAnimation(); 
         this.timeLeft--;
       } else {
         clearInterval(this.interval);
       }
     }, 1000);
+  }
+
+  triggerAnimation() {
+    this.animate = false;
+    setTimeout(() => {
+      this.animate = true; 
+    }, 50);
   }
 
   getStrokeDasharray(): string {
@@ -34,18 +43,17 @@ export class TimerComponent {
   }
 
   getStrokeColor(): string {
-    if (this.timeLeft <= 0 || this.timeLeft <= 3) {
-      return '#FF0000'; // Red when time is 3 or below
+    if (this.timeLeft <= 3) {
+      return '#FF0000';
     } else if (this.timeLeft === 4) {
-      return '#FF4500'; // Orange when time is 4
+      return '#FF4500';
     } else if (this.timeLeft <= 5) {
-      return '#FEFF00'; // Yellow when time is 5 or less
+      return '#FEFF00';
     }
-    return '#AAFF00'; // Green when time is more than 5
+    return '#AAFF00';
   }
-  
 
   getOpacity(): number {
-    return this.timeLeft > 4 ? 1 : 0.5; // Slight fade-out effect when below 4
+    return this.timeLeft > 4 ? 1 : 0.5;
   }
 }
