@@ -720,7 +720,7 @@ export class TeenpattiNewComponent {
       setTimeout(() => {
         this.selectedCoin = '/NteenPatti/Icons/Group 237787.svg';
         this.coinsState = true;
-      }, 1000);
+      }, 500);
     } else {
 
       this.selectedCoin = '/NteenPatti/Icons/green-coin.svg.svg';
