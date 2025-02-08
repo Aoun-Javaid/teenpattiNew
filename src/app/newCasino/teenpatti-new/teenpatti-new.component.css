@@ -284,10 +284,9 @@
   justify-content: space-between;
   align-items: flex-end;
   padding: 0px 19px;
-  height: 10rem;;
+  height: 10rem;
 }
-.teen_patti_conatiner::before{
-
+.teen_patti_conatiner::before {
 }
 /* Teen patti Cards Section ends here  */
 
@@ -352,7 +351,7 @@
   align-items: center;
   flex-direction: row;
   gap: 4px;
-  font-family: 'Baloo', sans-serif;
+  font-family: "Baloo", sans-serif;
 }
 
 .progress_bar_container div {
@@ -375,7 +374,7 @@
   background-color: #161a2b;
   width: 100%;
   height: 152px;
-  font-family: 'Baloo', sans-serif;
+  font-family: "Baloo", sans-serif;
 }
 
 .player_A_card {
@@ -731,7 +730,6 @@
   align-items: center;
   justify-content: end;
   margin-top: 0px;
-  margin-bottom: 29px;
   height: 59px;
 }
 
@@ -745,7 +743,7 @@
   margin-left: 24px;
   margin-right: 24px;
   margin-bottom: 33px;
-  margin-top: 29px;
+  margin-top: 20px;
   /* transform: translateY(4px); */
 }
 .bottom-div {
@@ -833,16 +831,16 @@
   transform: translateX(3px);
 }
 .move-up-left {
-  animation: move-up-left 1s ease-in-out;
+  animation: move-up-left .5s ease-in-out;
 }
 .move-down-right {
-  animation: move-down-right 1s ease-in-out;
+  animation: move-down-right 0.5s ease-in-out;
 }
 .show-bet-icons {
-  animation: show-bet-icons 0.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: show-bet-icons 0.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 .hide-bet-icons {
-  animation: hide-bet-icons 0.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: hide-bet-icons 0.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 .hamburger {
@@ -2135,19 +2133,19 @@ p {
     transform: translate(0, 0);
   }
   50% {
-    transform: translate(0, -75px);
+    transform: translate(0, -65px);
   }
   100% {
-    transform: translate(-105px, -75px);
+    transform: translate(-105px, -65px);
   }
 }
 
 @keyframes move-down-right {
   0% {
-    transform: translate(-105px, -75px);
+    transform: translate(-105px, -65px);
   }
   50% {
-    transform: translate(0, -75px);
+    transform: translate(0, -65px);
   }
   100% {
     transform: translate(0, 0);
