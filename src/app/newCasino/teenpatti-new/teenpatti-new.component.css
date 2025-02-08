@@ -423,7 +423,7 @@
   background: linear-gradient(274.38deg, #ffb700 3.52%, #e85a0e 94.99%);
   width: 49.4%;
   height: 81px;
-  opacity: 60%;
+  /* opacity: 60%; */
   position: absolute;
   right: 7px;
   border-radius: 15px;
@@ -477,7 +477,7 @@
   top: 17px;
   width: 123px;
   height: 83.09px;
-  opacity: 0.15px;
+  /* opacity: 0.15px; */
   z-index: 10;
 }
 .table_wrapper {
@@ -584,7 +584,7 @@
   border-top-right-radius: 0px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  opacity: 60%;
+  /* opacity: 60%; */
   rotate: -180 deg;
   color: white;
   overflow: hidden;
