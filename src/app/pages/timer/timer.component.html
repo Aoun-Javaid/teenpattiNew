@@ -1,4 +1,4 @@
-<div class="flex items-center justify-center h-screen">
+<div class="flex items-center justify-center h-[80vh]">
     <div class="relative w-[75px] h-[75px] flex items-center justify-center">
         <svg class="w-[75px] h-[75px]" viewBox="0 0 75 75">
             <!-- Timer Progress Circle -->
@@ -14,7 +14,7 @@
         <span 
             [ngClass]="{
                 'roll-up': animate && timeLeft > 5, 
-                'cd-number': animate && timeLeft <= 5
+                'cd-number': animate && timeLeft <= 5,
             }"
             class="absolute inset-0 flex items-center justify-center text-white text-[1.5rem] font-bold">
             {{ timeLeft }}
