@@ -24,6 +24,11 @@ declare var $: any;
 })
 export class VideoPlayerUnrealComponent implements OnDestroy,OnInit{
   @Input() eventId: any;
+
+  @Input() cardsActive:boolean=true;
+  @Input() fancyTimer:boolean=false;
+  @Input() unityTimer:boolean=true;
+
   currentState: boolean = false;
   raceCards: any = [];
   ballbyBallStream: any;

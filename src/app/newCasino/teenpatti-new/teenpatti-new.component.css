@@ -1101,23 +1101,23 @@
 .tabs-wrapper {
     @apply flex mt-[12px];
   }
-  
+
   .tab-slider {
     @apply bg-[#0f212e] flex rounded-[3rem] p-[5px] flex-shrink-0;
   }
-  
+
   .tab-item {
     @apply inline-flex cursor-pointer relative items-center gap-2 justify-center whitespace-nowrap ml-[5px] px-4 py-[15px] font-semibold text-[.875rem] rounded-full bg-[rgb(47,69,83)] transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent focus-visible:outline-white text-sm leading-none [&:hover>svg]:text-white [&_svg]:!text-gray-200;
   }
-  
+
   .tab-item span {
     @apply text-white;
   }
-  
+
   .tab-item1 {
     @apply !ml-0;
   }
-  
+
   .page-content {
     @apply w-full overflow-x-hidden mt-6;
   }
@@ -1136,11 +1136,11 @@
 }
 .chip_size_48-odjDTm {
     @apply h-[3.2rem] w-[3.2rem];
-  
-   
+
+
 }
 .chip-kcN8LW:before {
-   
+
     border: 0.125rem solid #fa0;
     box-shadow: 0 0 0.25rem rgba(255, 221, 51, .225), 0 0 0.59375rem #fb3, inset 0 0 0.59375rem #fb3, inset 0 0 0.25rem rgba(255, 187, 51, .225);
     inset: -0.1875rem;
@@ -1163,7 +1163,7 @@
     background: linear-gradient(135deg, #0c4 0%, #090 100%);
     border-radius: 50%;
     position: relative;
-   
+
     display: grid
 ;
     grid-template-columns: 1fr;
@@ -1175,7 +1175,7 @@
     z-index: 1;
 }
 .chip__frontSide-njKKgE {
-    
+
     display: grid
 ;
     grid-template-columns: 1fr;
@@ -1196,14 +1196,14 @@
     height: 100%;
     position: relative;
     width: 100%;
- 
+
 }
 .chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:before {
     background-color: #fff;
     z-index: 1;
 }
 /* .chip_style_default-zHvD8j .chip__borderDecor_medium-mF_aBv:before {
-  
+
     mask-image: url(/assets/coin-radius.svg);
 } */
 .chip_style_default-zHvD8j .chip__borderDecor_medium-mF_aBv:before {
@@ -1212,9 +1212,9 @@
 .chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:before {
     content: "";
     inset: 0;
-  
+
     mask-position: center;
-   
+
     mask-repeat: no-repeat;
 
     mask-size: 100% 100%;
@@ -1226,7 +1226,7 @@
     z-index: 0;
 }
 .chip_style_default-zHvD8j .chip__borderDecor_medium-mF_aBv:after {
-  
+
     background-image: url(/assets/coin-radius.svg);
 }
 .chip_style_default-zHvD8j .chip_borderDecor-8XR0Vn:after, .chip_style_default-zHvD8j .chip_borderDecor-8XR0Vn:before {
@@ -1248,7 +1248,7 @@
     grid-area: 1 / 1;
 } */
 .chip-kcN8LW:after {
-   
+
     background-color: hsla(0, 0%, 100%, .4);
     inset: 0;
     mix-blend-mode: soft-light;
@@ -1302,7 +1302,7 @@
 }
  .chipTrayWithToggleBg-Nl1Fsr {
     border-radius: 2rem;
-   
+
 }
 .chip-kcN8LW:before {
     content: "";

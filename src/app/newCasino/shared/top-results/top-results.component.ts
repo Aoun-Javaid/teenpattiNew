@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NetworkService } from '../../../services/network.service';
 
 @Component({
   selector: 'app-top-results',
@@ -8,7 +9,8 @@ import { Component } from '@angular/core';
   templateUrl: './top-results.component.html',
   styleUrl: './top-results.component.css'
 })
-export class TopResultsComponent {
+export class TopResultsComponent implements OnInit{
+
 
   betHistory = [
     {
@@ -80,4 +82,16 @@ export class TopResultsComponent {
       color: 'Yellow',
     },
   ];
+
+  constructor(private networkService:NetworkService){
+
+  }
+  ngOnInit(): void {
+
+
+    this.networkService.getResultstream().subscribe(data => {
+      // this.betHistory = data;
+
+    })
+  }
 }

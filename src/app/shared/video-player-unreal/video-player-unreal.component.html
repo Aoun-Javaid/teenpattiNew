@@ -30,7 +30,7 @@
   </span>
 </div>
 
-  <ng-container *ngIf="AndarBahirResult == '0' || AndarBahirResult">
+  <ng-container *ngIf="cardsActive && AndarBahirResult == '0' || AndarBahirResult">
     <div class="andar-bahir-container">
       <div class="video-overlay" [ngClass]="{'video-overlay-wd': hasAndarBahirRoute}">
         <div class="round-id mb-1">RID: {{game.roundId}}</div>
@@ -96,7 +96,7 @@
 
 
 
-  <ng-container *ngIf="eventid && !(AndarBahirResult == '0' || AndarBahirResult)">
+  <ng-container *ngIf="cardsActive && eventid && !(AndarBahirResult == '0' || AndarBahirResult)">
     <div class="video-overlay"
       *ngIf="!boardCards &&(playerACards || playerBCards || BANKER || PLAYER
      || TigerCards || LoinCards || DragonCards || AmarAkbarCard || Card_1 || Card_2 || Card_3 || PLAYER8 || PLAYER9 || PLAYER10 || PLAYER11 || raceCards) ">
@@ -630,6 +630,7 @@
 
   <div class="timer-overlay">
     <!--  -->
+    <ng-container  *ngIf="unityTimer">
     <div class="timer-group" *ngIf="TIME_LIMIT !== 0">
       <div class="timerc minute">
         <div class="hand"><span [ngClass]="timerLeft < 6 ? 'spanColorRed' : ''"></span></div>
@@ -645,9 +646,15 @@
         </span>
       </div>
     </div>
+  </ng-container>
+  <ng-container *ngIf="!unityTimer">
+    <app-timer></app-timer>
+  </ng-container>
 
 
   </div>
+
+
   <!--  timer ends -->
 
 

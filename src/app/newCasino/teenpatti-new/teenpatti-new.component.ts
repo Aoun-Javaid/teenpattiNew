@@ -11,6 +11,8 @@ import { NetworkService } from '../../services/network.service';
 import { VideoPlayerComponent } from '../../shared/video-player/video-player.component';
 import { VideoPlayerUnrealComponent } from "../../shared/video-player-unreal/video-player-unreal.component";
 import { TopResultsComponent } from '../shared/top-results/top-results.component';
+import { QuickStakesEditComponent } from "../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component";
+import { ToggleService } from '../../services/toggle.service';
 
 export let browserRefresh = false;
 declare var $: any;
@@ -19,7 +21,7 @@ declare var $: any;
   selector: 'app-teenpatti-new',
 
   standalone: true,
-  imports: [TopResultsComponent, CommonModule, VideoPlayerComponent, VideoPlayerUnrealComponent],
+  imports: [TopResultsComponent, CommonModule, VideoPlayerComponent, VideoPlayerUnrealComponent, QuickStakesEditComponent],
   templateUrl: './teenpatti-new.component.html',
   styleUrl: './teenpatti-new.component.css'
 })
@@ -106,6 +108,7 @@ export class TeenpattiNewComponent {
   constructor(private route: ActivatedRoute,
     private networkService: NetworkService,
     private encyDecy: EncryptDecryptService,
+    private toggleService: ToggleService,
     private deviceService: DeviceDetectorService,
     private socket: CasinoSocketService) {
 
@@ -251,7 +254,9 @@ export class TeenpattiNewComponent {
     this.getResults();
   }
 
-
+  openQuickStakes(){
+    this.toggleService.setQuickStakeEditSidebarState(true)
+  }
   handleEventResponse(objMarket: any, index: any) {
     // console.log(objMarket,'<=============== objMarket with out index')
     if (Array.isArray(objMarket)) {

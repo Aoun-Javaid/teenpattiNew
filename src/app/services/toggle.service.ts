@@ -15,7 +15,7 @@ export class ToggleService {
   private BrowseMobSidebarState = new Subject<string>();
   private ProfileMobSidebarState = new Subject<string>();
   private ChatMobSidebarState = new Subject<string>();
-
+  private quickStakeEditSidebarState = new Subject<string>();
   constructor() {}
 
   getMobileSideBarState() {
@@ -46,6 +46,15 @@ export class ToggleService {
   public setChatMobSidebarState(message: any): void {
     this.ChatMobSidebarState.next(message);
   }
+  
+  public getQuickStakeEditSidebarState(): Observable<any> {
+    return this.quickStakeEditSidebarState.asObservable();
+  }
+
+  public setQuickStakeEditSidebarState(message: any): void {
+    this.quickStakeEditSidebarState.next(message);
+  }
+
 
   setMobSideBarState(val: boolean) {
     this.mobSideBarState.next(val);

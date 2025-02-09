@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
   imports: [CommonModule],
   templateUrl: './timer.component.html',
   styleUrl: './timer.component.css'
-  
+
 })
 export class TimerComponent {
   timeLeft: number = 19;
   interval: any;
-  animate: boolean = false; 
+  animate: boolean = false;
 
   ngOnInit() {
     this.startTimer();
@@ -21,7 +21,7 @@ export class TimerComponent {
   startTimer() {
     this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
-        this.triggerAnimation(); 
+        this.triggerAnimation();
         this.timeLeft--;
       } else {
         clearInterval(this.interval);
@@ -32,7 +32,7 @@ export class TimerComponent {
   triggerAnimation() {
     this.animate = false;
     setTimeout(() => {
-      this.animate = true; 
+      this.animate = true;
     }, 50);
   }
 

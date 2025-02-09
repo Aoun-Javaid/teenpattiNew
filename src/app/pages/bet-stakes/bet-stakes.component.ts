@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CONFIG, STACK_VALUE } from '../../../../config';
@@ -16,7 +16,7 @@ import { NetworkService } from '../../services/network.service';
 export class BetStakesComponent implements OnInit{
   stackButtonArry = STACK_VALUE;
   editable:boolean =false;
-
+  @Input() showTitle:boolean=true;
   constructor(
     private indexedDb:IndexedDbService,
     private networkService:NetworkService,

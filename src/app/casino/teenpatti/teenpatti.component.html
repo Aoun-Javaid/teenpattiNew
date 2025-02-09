@@ -4,11 +4,11 @@
 
       <!-- <app-video-player [resultDeclared]="RoundWinner"></app-video-player> -->
       <ng-container *ngIf="isMobileInfo == 'iOS'">
-        <app-video-player [resultDeclared]="RoundWinner"></app-video-player>
-      </ng-container>
-      <ng-container *ngIf="isMobileInfo !== 'iOS'">
-        <app-video-player-unreal [resultDeclared]="RoundWinner"></app-video-player-unreal>
-      </ng-container>
+        <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="true" [fancyTimer]="false" [unityTimer]="true"></app-video-player>
+    </ng-container>
+    <ng-container *ngIf="isMobileInfo !== 'iOS'">
+        <app-video-player-unreal [resultDeclared]="RoundWinner" [cardsActive]="true" [fancyTimer]="false" [unityTimer]="true"></app-video-player-unreal>
+    </ng-container>
   </div>
   <!-- marketList  [ngClass]="{'scrollMarket': !isDesktop}"-->
   <div class="" id="marketScroll" style="overflow-y: auto;"
