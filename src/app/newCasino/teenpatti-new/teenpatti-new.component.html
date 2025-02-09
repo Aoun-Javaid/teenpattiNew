@@ -1,9 +1,9 @@
-<div class="newGameWrapper">
+<div class="newGameWrapper ">
 
 
     <app-top-results></app-top-results>
 
-    <div class="h-[308px]">
+    <div class="h-[240px]">
         <ng-container *ngIf="isMobileInfo == 'iOS'">
             <app-video-player [resultDeclared]="RoundWinner"></app-video-player>
         </ng-container>
@@ -16,65 +16,68 @@
     <div class="teen_patti_conatiner" [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
         <!-- Player A cards start here -->
         <div class="custom_flex gap-2 player_A_cards">
-            <img src="/NteenPatti/images/5hukm.svg" alt="card1">
-            <img src="/NteenPatti/images/2brick.svg" alt="card2">
-            <img src="/NteenPatti/images/3hukm.svg" alt="card3">
+            <img src="/NteenPatti/images/5hukm.svg" class="card-img" alt="card1">
+            <img src="/NteenPatti/images/2brick.svg" class="card-img" alt="card2">
+            <img src="/NteenPatti/images/3hukm.svg" class="card-img" alt="card3">
         </div>
         <!-- Player A cards ends here -->
-    
+
         <!-- Player B cards start here -->
         <div class="custom_flex gap-2 player_B_cards">
-            <img src="/NteenPatti/images/5hukm.svg" alt="card1">
-            <img src="/NteenPatti/images/2brick.svg" alt="card2">
-            <img src="/NteenPatti/images/3hukm.svg" alt="card3">
+            <img src="/NteenPatti/images/5hukm.svg" class="card-img" alt="card1">
+            <img src="/NteenPatti/images/2brick.svg" class="card-img" alt="card2">
+            <img src="/NteenPatti/images/3hukm.svg" class="card-img" alt="card3">
         </div>
         <!-- Player B cards ends here -->
-    
+
     </div>
+
+    <div class="win_percentage_container relative">
+        <div class="win_percentage_wrapper ">
+            <div class="progress_bar_container">
+                <div class="progress-bar bg-danger" [style.width]="aPlayerChances">
+                    <div class="progress-bar_data">
+                        A
+                    </div>
+                    <div class="progress-bar_data">
+                        {{aPlayerChances}}
+                    </div>
+                </div>
+                <div class="progress-bar yellow_bg " [style.width]="bPlayerChances">
+                    <div class="progress-bar_data">
+                        B
+                    </div>
+                    <div class="progress-bar_data">
+                        {{bPlayerChances}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Teen patti Cards Section ends here -->
-    <div class="relative">
+    <div class="relative bg-[#161a2b]">
         <!-- main contnet -->
         <!-- High Card section starts here -->
         <div class="high_card_container " [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
             <!-- <div class="high_card_primary custom_flex">
-                <h6>HIGH CARD</h6>
-            </div> -->
+              <h6>HIGH CARD</h6>
+          </div> -->
             <!-- <div class="player_card custom_flex">
-                <h6>PLAYER A</h6>
-            </div> -->
+              <h6>PLAYER A</h6>
+          </div> -->
             <!-- <div class="high_card_secondary custom_flex">
-                <h6>HIGH CARD</h6>
-            </div> -->
+              <h6>HIGH CARD</h6>
+          </div> -->
         </div>
         <!-- High Card section ends here -->
 
-       
+
 
 
         <!-- Winning Percentage Chances Section starts here -->
         <div [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
-            <div class="win_percentage_container">
-                <div class="win_percentage_wrapper ">
-                    <!-- <div class="progress_bar_container">
-                        <div class="progress-bar bg-danger" [style.width]="aPlayerChances">
-                            <div class="progress-bar_data">
-                                A
-                            </div>
-                            <div class="progress-bar_data">
-                                {{aPlayerChances}}
-                            </div>
-                        </div>
-                        <div class="progress-bar yellow_bg " [style.width]="bPlayerChances">
-                            <div class="progress-bar_data">
-                                B
-                            </div>
-                            <div class="progress-bar_data">
-                                {{bPlayerChances}}
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
+
             <!-- Winning Percentage Chances Section ends here -->
             <!-- Main Table starts here -->
             <div class="main_table_container position-relative ">
@@ -99,8 +102,10 @@
                     <!-- Player B Card starts -->
 
                     <div class="player_B_card">
-                        <h3>PLAYER B</h3>
-                        <h6>0.95:1</h6>
+                        <div class="player-b-details">
+                            <h3>PLAYER B</h3>
+                            <h6>0.95:1</h6>
+                        </div>
                         <div class="player_B_img">
                             <img src="/NteenPatti/images/playerB.svg" alt="img">
                         </div>
@@ -117,20 +122,21 @@
 
                     <!-- Player A Pair starts -->
 
-                    <div class="pair_A_img">
-                        <img src="/NteenPatti/Icons/pair_A_.svg" alt="img">
-                    </div>
-                    <div class="player_A_pair">
-                        <div>
+
+                    <div class="player_A_pair !overflow-visible z-[99]">
+                        <div class="overflow-hidden">
                             <h6>
                                 Player A
                             </h6>
                             <h4>
                                 Pair Plus
                             </h4>
-                            <div class="player_A_pair_img">
+                            <div class="player_A_pair_img !max-h-[50px] overflow-hidden">
                                 <img src="/NteenPatti/images/player_A_pair.svg" alt="img">
                             </div>
+                        </div>
+                        <div class="pair_A_img ">
+                            <img src="/NteenPatti/Icons/pair_A_.svg" alt="img">
                         </div>
                     </div>
                     <!-- Player A Pair ends -->
@@ -147,21 +153,24 @@
                     <!-- Bonus  Pair ends -->
 
                     <!-- Player B pair starts -->
-                    <!-- <div class="pair_B_img">
-                        <img src="/NteenPatti/Icons/pair_B.svg" alt="img">
-                    </div> -->
-                    <div class="player_B_pair">
-                        <div>
-                            <h6>
-                                Player B
-                            </h6>
-                            <h4>
-                                Pair Plus
-                            </h4>
 
-                            <!-- <div class="player_B_pair_img">
+                    <div class="player_B_pair !overflow-visible">
+                        <div>
+                            <div class="fix-position">
+                                <h6 class="text-nowrap">
+                                    Player B
+                                </h6>
+                                <h4 class="text-nowrap">
+                                    Pair Plus
+                                </h4>
+                            </div>
+
+                            <div class="player_B_pair_img !max-h-[50px] overflow-hidden">
                                 <img src="/NteenPatti/images/player_B_pair.svg" alt="img">
-                            </div> -->
+                            </div>
+                        </div>
+                        <div class="pair_B_img">
+                            <img src="/NteenPatti/Icons/pair_B.svg" alt="img">
                         </div>
                     </div>
                     <!-- Player B pair ends -->
@@ -176,22 +185,27 @@
 
 
         <div class="bottom_container">
-            <div class="coins-wraper ">
-                <div class="flex-coins" [ngClass]="{'bg_animation': coinsState }">
-                    <div class="bet_coins"
-                        [ngClass]="{'show-bet-icons': coinsState, 'hide-bet-icons': !coinsState && !betState , 'd-none' : betState && !coinsState }">
-                        <img src="/NteenPatti/Icons/green-coin.svg.svg" alt="green-coin" class="pointer custom"
-                            (click)="replaceHamburgerImage('/Icons/green-coin.svg.svg')">
-                        <img src="/NteenPatti/Icons/orange-coin.svg.svg" alt="orange-coin" class="pointer"
-                            (click)="replaceHamburgerImage('/Icons/orange-coin.svg.svg')">
-                        <img src="/NteenPatti/Icons/pink-coin.svg.svg" alt="pink-coin" class="pointer"
-                            (click)="replaceHamburgerImage('/Icons/pink-coin.svg.svg')">
-                        <img src="/NteenPatti/Icons/red-coin.svg.svg" alt="red-coin" class="pointer"
-                            (click)="replaceHamburgerImage('/Icons/red-coin.svg.svg')">
-                        <img src="/NteenPatti/Icons/blue-coin.svg.svg" alt="blue-coin" class="pointer"
-                            (click)="replaceHamburgerImage('/Icons/blue-coin.svg.svg')">
-                        <img src="/NteenPatti/Icons/black-coin.svg.svg" alt="black-coin" class="pointer"
-                            (click)="replaceHamburgerImage('/Icons/black-coin.svg.svg')">
+            <div class="coins-wraper duration-300" [ngClass]="{'!h-0':!animationContainer}">
+                <div class="coins-wraper duration-300" [ngClass]="{'!h-0': !animationContainer}">
+                    <div class="flex-coins" [ngClass]="{'bg_animation': coinsState}">
+                        <div class="bet_coins" [ngClass]="{
+                      'show-bet-icons': coinsState,
+                      'hide-bet-icons': !coinsState,
+                      'd-none': !coinsState
+                    }">
+                            <img src="/NteenPatti/Icons/green-coin.svg.svg" alt="green-coin" class="pointer custom"
+                                (click)="replaceHamburgerImage('/NteenPatti/Icons/green-coin.svg.svg')">
+                            <img src="/NteenPatti/Icons/orange-coin.svg.svg" alt="orange-coin" class="pointer"
+                                (click)="replaceHamburgerImage('/NteenPatti/Icons/orange-coin.svg.svg')">
+                            <img src="/NteenPatti/Icons/pink-coin.svg.svg" alt="pink-coin" class="pointer"
+                                (click)="replaceHamburgerImage('/NteenPatti/Icons/pink-coin.svg.svg')">
+                            <img src="/NteenPatti/Icons/red-coin.svg.svg" alt="red-coin" class="pointer"
+                                (click)="replaceHamburgerImage('/NteenPatti/Icons/red-coin.svg.svg')">
+                            <img src="/NteenPatti/Icons/blue-coin.svg.svg" alt="blue-coin" class="pointer"
+                                (click)="replaceHamburgerImage('/NteenPatti/Icons/blue-coin.svg.svg')">
+                            <img src="/NteenPatti/Icons/black-coin.svg.svg" alt="black-coin" class="pointer"
+                                (click)="replaceHamburgerImage('/NteenPatti/Icons/black-coin.svg.svg')">
+                        </div>
                     </div>
                 </div>
 
@@ -203,7 +217,7 @@
                     <img src="/NteenPatti/Icons/refresh-icon.svg" alt="refresh-icon" class="refresh_icon">
                     <div class="group-bg ">
                         <img [src]="selectedCoin" alt="group-icon" class="group-icon selectedCoin  cursor_pointer"
-                            [ngClass]="{'move-up-left': animateIcon, 'move-down-right': !animateIcon && !betState,'.select_coins_icon ' : selectedCoin==='/NteenPatti/Icons/Group 237787.svg', 'selected_coin' : selectedCoin !=='/NteenPatti/Icons/Group 237787.svg'}"
+                            [ngClass]="{'move-up-left': animateIcon, 'move-down-right ': !animateIcon && !betState,'.select_coins_icon ' : selectedCoin==='/NteenPatti/Icons/Group237787.svg', 'selected_coin' : selectedCoin !=='/NteenPatti/Icons/Group237787.svg'}"
                             (click)="toggleCoinState()">
                         <!-- <div class="blinking_animation" [ngClass]="[betState ? 'active_bet' : 'inactive_bet']"></div> -->
                     </div>

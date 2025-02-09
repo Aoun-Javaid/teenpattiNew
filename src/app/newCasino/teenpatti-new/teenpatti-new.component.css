@@ -34,7 +34,7 @@
   justify-content: center;
   align-items: center;
   line-height: 10.5px;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 .red_bg {
@@ -166,7 +166,7 @@
 
 /* High Card section starts here */
 .high_card_container {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -187,7 +187,7 @@
   border-image-slice: 1;
   padding: 2.5px 6.75px;
   height: 24px;
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-optical-sizing: auto;
   font-style: normal;
   font-size: 12px;
@@ -205,7 +205,7 @@
   border-image-slice: 1;
   padding: 2.5px 6.75px;
   height: 24px;
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-optical-sizing: auto;
   font-style: normal;
   font-size: 12px;
@@ -225,7 +225,7 @@
   border-radius: 3px;
   border: 0px solid transparent;
   color: white;
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-optical-sizing: auto;
   font-style: normal;
   white-space: nowrap;
@@ -270,8 +270,8 @@
 
 .custom_flex {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-end;
   flex-direction: row;
 }
 
@@ -282,32 +282,76 @@
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   padding: 0px 19px;
+  height: 10rem;
 }
-
+.teen_patti_conatiner::before {
+}
 /* Teen patti Cards Section ends here  */
 
 /* Winning Percentage Chances Section starts here */
 .win_percentage_container {
-  padding: 0px 32px;
+  padding: 0px 9px;
+  /* background-color: black; */
   width: 100%;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 
 .win_percentage_wrapper {
-  background-color: #161a2b;
   height: 30px;
-  padding: 8px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  /* padding: 8px; */
+}
+
+.player_B_cards,
+.player_A_cards {
+  position: relative;
+  width: 50%;
+  padding: 10px 0px;
+  text-align: center;
+  font-weight: bold;
+  color: white; /* Adjust content color */
+  overflow: hidden; /* Ensure background stays within bounds */
+  height: 100%;
+}
+
+.player_B_cards::before,
+.player_A_cards::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.player_B_cards::before {
+  background-image: linear-gradient(0deg, #fa0 0%, rgba(255, 270, 0, 0) 100%);
+  opacity: 0.3;
+}
+
+.player_A_cards::before {
+  background-image: linear-gradient(0deg, #ff2b00 0%, rgba(255, 43, 0, 0) 100%);
+  opacity: 0.3;
+}
+
+.card-img {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+  width: 20%;
 }
 
 .progress_bar_container {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: black;
   display: flex;
+  padding: 0px 8px;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
   gap: 4px;
+  font-family: "Baloo", sans-serif;
 }
 
 .progress_bar_container div {
@@ -319,7 +363,7 @@
   border-radius: 3.74px;
   color: white;
   font-size: 10px;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
   height: 14px;
 }
 
@@ -330,6 +374,7 @@
   background-color: #161a2b;
   width: 100%;
   height: 152px;
+  font-family: "Baloo", sans-serif;
 }
 
 .player_A_card {
@@ -346,7 +391,7 @@
 }
 
 .player_A_card h3 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 16.43px;
   font-weight: 900;
   line-height: 22.42px;
@@ -355,7 +400,7 @@
   margin: 0;
 }
 .player_A_card h6 {
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-size: 8.96px;
   font-weight: 400;
   line-height: 13.45px;
@@ -377,7 +422,7 @@
   background: linear-gradient(274.38deg, #ffb700 3.52%, #e85a0e 94.99%);
   width: 49.4%;
   height: 81px;
-  opacity: 60%;
+  /* opacity: 60%; */
   position: absolute;
   right: 7px;
   border-radius: 15px;
@@ -389,16 +434,28 @@
 }
 
 .player_B_card h3 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
+  position: absolute;
+  white-space: nowrap;
   font-size: 16.43px;
   font-weight: 900;
   line-height: 22.42px;
   text-align: left;
   color: white;
   margin: 0;
+  @apply min-[500px]:top-[6px] max-[500px]:top-[0px] max-[500px]:right-[-6px] min-[500px]:right-[13px];
+}
+
+.player-b-details {
+  position: absolute;
+  right: 13px;
+  top: 6px;
 }
 .player_B_card h6 {
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
+  position: absolute;
+  right: 13px;
+  top: 25px;
   font-size: 8.96px;
   font-weight: 400;
   line-height: 13.45px;
@@ -406,6 +463,11 @@
   color: white;
   padding-left: 59px;
   margin: 0;
+  @apply min-[500px]:top-[25px] max-[500px]:top-[22px] max-[500px]:right-[-6px] min-[500px]:right-[13px];
+}
+
+.fix-position {
+  @apply min-[500px]:top-[0px] max-[500px]:top-[0px] text-end flex justify-end flex-col max-[500px]:right-[13px] min-[500px]:right-[24px] absolute;
 }
 
 .player_B_img {
@@ -414,11 +476,10 @@
   top: 17px;
   width: 123px;
   height: 83.09px;
-  opacity: 0.15px;
+  /* opacity: 0.15px; */
   z-index: 10;
 }
 .table_wrapper {
-  transform: translateY(-80px);
   animation-duration: 1s;
   /* margin-bottom: 60px; */
 }
@@ -436,7 +497,7 @@
   overflow: hidden;
 }
 .player_A_pair h6 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 10.46px;
   font-weight: 500;
   line-height: 14.26px;
@@ -447,19 +508,13 @@
   margin: 0;
 }
 .player_A_pair h4 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 13.45px;
   font-weight: 800;
   line-height: 18.34px;
   text-align: left;
   padding-left: 24px;
   margin: 0;
-}
-
-.pair_A_img {
-  position: absolute;
-  top: 64.5px;
-  left: 0px;
 }
 
 .player_A_pair_img {
@@ -486,7 +541,7 @@
 }
 
 .bonus_pair h3 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 14px;
   font-weight: 800;
   line-height: 19.1px;
@@ -498,7 +553,7 @@
 }
 
 .bonus_pair h6 {
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
@@ -527,14 +582,14 @@
   border-top-right-radius: 0px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  opacity: 60%;
+  /* opacity: 60%; */
   rotate: -180 deg;
   color: white;
   overflow: hidden;
   z-index: 30;
 }
 .player_B_pair h6 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 10.46px;
   font-weight: 500;
   line-height: 14.26px;
@@ -544,7 +599,7 @@
   margin: 0;
 }
 .player_B_pair h4 {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 13.45px;
   font-weight: 800;
   line-height: 18.34px;
@@ -556,10 +611,8 @@
 
 .pair_B_img {
   position: absolute;
-  top: 64.5px;
+  top: -5px;
   right: 0px;
-  right: 6px;
-  opacity: 60%;
   z-index: 5;
 }
 
@@ -568,9 +621,12 @@
   top: 0;
   left: 0px;
 }
+
 .pair_A_img {
-  top: 64.5px;
-  left: 6px;
+  top: -5px;
+  position: absolute;
+  left: 0px;
+  z-index: 99;
 }
 
 .player_A_chances {
@@ -624,7 +680,7 @@
   height: 0px;
 }
 .player_A_chances h4 {
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-size: 6.46px;
   font-weight: 400;
   line-height: 9.69px;
@@ -635,7 +691,7 @@
 }
 
 .player_B_chances h4 {
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-size: 6.46px;
   font-weight: 400;
   line-height: 9.69px;
@@ -661,7 +717,7 @@
   width: 100%;
   height: 187px;
   width: 100%;
-  margin-top: -40px;
+  margin-top: 0px;
   overflow: hidden;
 }
 .empty-div {
@@ -673,7 +729,6 @@
   align-items: center;
   justify-content: end;
   margin-top: 0px;
-  margin-bottom: 29px;
   height: 59px;
 }
 
@@ -687,7 +742,7 @@
   margin-left: 24px;
   margin-right: 24px;
   margin-bottom: 33px;
-  margin-top: 29px;
+  margin-top: 20px;
   /* transform: translateY(4px); */
 }
 .bottom-div {
@@ -775,16 +830,16 @@
   transform: translateX(3px);
 }
 .move-up-left {
-  animation: move-up-left 1s ease-in-out;
+  animation: move-up-left 0.5s ease-in-out;
 }
 .move-down-right {
-  animation: move-down-right 1s ease-in-out;
+  animation: move-down-right 0.5s ease-in-out;
 }
 .show-bet-icons {
-  animation: show-bet-icons 0.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: show-bet-icons 0.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 .hide-bet-icons {
-  animation: hide-bet-icons 0.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: hide-bet-icons 0.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 .hamburger {
@@ -934,13 +989,7 @@ p {
   .chance_wrapper_B {
     left: 10px;
   }
-  .pair_A_img {
-    top: 65px;
-    left: 6px;
-  }
-  .pair_B_img {
-    top: 65px;
-  }
+
   .player_B_chances,
   .chance_wrapper_B {
     left: 16px;
@@ -1225,12 +1274,7 @@ p {
   .chance_wrapper_B {
     left: 13px;
   }
-  .pair_B_img {
-    top: 64.5px;
-  }
-  .pair_A_img {
-    top: 64.5px;
-  }
+
   .bonus_pair {
     left: 44.7%;
   }
@@ -1269,12 +1313,7 @@ p {
   .chance_wrapper_B {
     left: 13px;
   }
-  .pair_B_img {
-    top: 64.5px;
-  }
-  .pair_A_img {
-    top: 64.5px;
-  }
+
   .bonus_pair {
     left: 44.7%;
   }
@@ -1328,7 +1367,7 @@ p {
     border: 2.5px solid #161a2b;
   }
   .player_B_pair {
-    width: 42.5%;
+    width: 44%;
     padding-left: 0;
   }
   .player_A_pair {
@@ -1477,15 +1516,6 @@ p {
     padding-left: 52px;
   }
 
-  .pair_A_img {
-    top: 65px;
-    left: 6px;
-  }
-  .pair_B_img {
-    top: 64.5px;
-    right: 6px;
-    opacity: 60%;
-  }
   /* main table ends here */
   .player_A_chances,
   .chance_wrapper_A {
@@ -1525,11 +1555,11 @@ p {
 
   /* main table start here */
   .player_B_card {
-    width: 48%;
+    width: 47.7%;
     padding-left: 37px;
   }
   .player_A_card {
-    width: 48%;
+    width: 47.7%;
     padding-left: 7px;
   }
   .player_A_img {
@@ -1557,15 +1587,6 @@ p {
     padding-left: 52px;
   }
 
-  .pair_A_img {
-    top: 65px;
-    left: 6px;
-  }
-  .pair_B_img {
-    top: 64.5px;
-    right: 6px;
-    opacity: 60%;
-  }
   /* main table ends here */
   .player_A_chances,
   .chance_wrapper_A {
@@ -1702,11 +1723,9 @@ p {
   .teen_patti_conatiner {
     margin-top: 7px;
   }
-  .high_card_container {
-    margin-top: 5px;
-  }
+
   .win_percentage_container {
-    margin-top: 5px;
+    /* margin-top: 5px; */
   }
 }
 
@@ -1714,6 +1733,7 @@ p {
   .player_A_card {
     left: 7px;
   }
+
   .player_B_card {
     right: 7px;
   }
@@ -1853,15 +1873,7 @@ p {
   .player_B_pair h4 {
     padding-left: 70px;
   }
-  .pair_A_img {
-    top: 65px;
-    left: 6px;
-  }
-  .pair_B_img {
-    top: 64.5px;
-    right: 6px;
-    opacity: 60%;
-  }
+
   /* main table ends here */
   .player_A_chances,
   .chance_wrapper_A {
@@ -1884,9 +1896,7 @@ p {
     width: 200px;
     height: 127px;
   }
-  .win_percentage_container {
-    margin-top: 5px;
-  }
+
   .parent-bottom-flex {
     margin-bottom: 10px;
   }
@@ -1897,6 +1907,7 @@ p {
   .chance_wrapper_A {
     left: 137px;
   }
+
   .player_A_img {
     left: 50px;
   }
@@ -1938,6 +1949,7 @@ p {
   .player_B_card {
     right: 6px;
   }
+
   .player_B_chances,
   .chance_wrapper_B {
     left: 10px;
@@ -2043,30 +2055,27 @@ p {
   }
   .player_B_pair {
     height: 40.32px;
-    top: 49%;
+
+    top: 49px;
   }
   .player_A_pair_img {
     left: 55px;
   }
   .player_A_pair {
     height: 40.32px;
-    top: 49%;
+    position: absolute;
+    top: 49px;
   }
   .bonus_pair {
     height: 57px;
     top: 35px;
   }
-  .pair_A_img {
-    top: 34px;
-  }
-  .pair_B_img {
-    top: 32.5px;
-  }
+
   .main_table_container {
     height: 100px;
   }
   .win_percentage_container {
-    margin-top: 2px;
+    /* margin-top: 2px; */
   }
   .teen_patti_conatiner {
     margin-top: 5px;
@@ -2082,11 +2091,11 @@ p {
 
 @keyframes slide-in-right {
   0% {
-    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
     opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
     opacity: 1;
   }
 }
@@ -2120,25 +2129,25 @@ p {
 
 @keyframes move-up-left {
   0% {
-    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
   }
   50% {
-    transform: translate(0, -75px);
+    -webkit-transform: translate(0, -65px);
   }
   100% {
-    transform: translate(-105px, -75px);
+    -webkit-transform: translate(-105px, -65px);
   }
 }
 
 @keyframes move-down-right {
   0% {
-    transform: translate(-105px, -75px);
+    -webkit-transform: translate(-105px, -65px);
   }
   50% {
-    transform: translate(0, -75px);
+    -webkit-transform: translate(0, -65px);
   }
   100% {
-    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
   }
 }
 

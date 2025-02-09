@@ -17,12 +17,19 @@ declare var $: any;
 
 @Component({
   selector: 'app-teenpatti-new',
+
   standalone: true,
-  imports: [TopResultsComponent,CommonModule,VideoPlayerComponent,VideoPlayerUnrealComponent],
+  imports: [TopResultsComponent, CommonModule, VideoPlayerComponent, VideoPlayerUnrealComponent],
   templateUrl: './teenpatti-new.component.html',
   styleUrl: './teenpatti-new.component.css'
 })
 export class TeenpattiNewComponent {
+  coinsState: boolean = false; // Coin bar is hidden by default
+  coinStateActive: boolean = false;
+  animateIcon: boolean = false;
+  animationContainer: boolean = false
+  betState: boolean = false;
+  selectedCoin: string = '/NteenPatti/Icons/green-coin.svg.svg';
   @ViewChild('dropdownContainer', { static: true }) dropdownContainer!: ElementRef;
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;
@@ -32,22 +39,23 @@ export class TeenpattiNewComponent {
     type: "1",
     id: ""
   };
-  coinsState: boolean = false;
-  coinStateActive: boolean = false;
+
   aPlayerChances: string = '48%';
   bPlayerChances: string = '52%';
   showHamburger: boolean = true;
-  selectedCoin: string = '/NteenPatti/Icons/green-coin.svg.svg';
+
+
   animationClass = '';
-  animateIcon: boolean = false;
-  betState: boolean = true;
+
   newHeightPx!: string;
-  openMobileMinMax:any=[];
-  marketCollapsed:any=[];
+  openMobileMinMax: any = [];
+  marketCollapsed: any = [];
   public messageResult = {
     type: "3",
     id: ""
   };
+
+
 
   retryConfig: RetryConfig = {
     count: 1000
@@ -661,19 +669,30 @@ export class TeenpattiNewComponent {
     const elements = document.querySelectorAll('.minMaxMobile');
     let clickedInside = false;
 
-    elements.forEach((element:any) => {
-      if(element){
-      if (element.contains(event.target)) {
-        clickedInside = true;
+    elements.forEach((element: any) => {
+      if (element) {
+        if (element.contains(event.target)) {
+          clickedInside = true;
+        }
       }
-    }
     });
 
     if (!clickedInside) {
       this.openMobileMinMax = [];
     }
   }
+
   replaceHamburgerImage(coinSrc: string) {
+    let timer = 0
+    if (this.animationContainer === true) {
+      timer = 1000
+    }
+    else {
+      timer = 0
+    }
+    setTimeout(() => {
+      this.animationContainer = !this.animationContainer
+    }, timer);
     this.selectedCoin = coinSrc;
     this.betState = false;
     this.animateIcon = false;
@@ -687,21 +706,38 @@ export class TeenpattiNewComponent {
     if (!this.coinStateActive) {
       this.coinStateActive = true;
       this.animateIcon = true;
-      // After selectedCoin animation finishes, show the coins with slide-in
+      let timer = 0
+      if (this.animationContainer === true) {
+        timer = 1000
+      }
+      else {
+        timer = 0
+      }
+      setTimeout(() => {
+        this.animationContainer = !this.animationContainer
+      }, timer);
+
       setTimeout(() => {
         this.selectedCoin = '/NteenPatti/Icons/Group 237787.svg';
         this.coinsState = true;
-      }, 1000);
+      }, 500);
     } else {
+
       this.selectedCoin = '/NteenPatti/Icons/green-coin.svg.svg';
       this.betState = false;
       this.coinsState = false;
+
       setTimeout(() => {
         this.animateIcon = false;
       }, 400);
+
       setTimeout(() => {
         this.coinStateActive = false;
       }, 1500);
     }
   }
 }
+
+
+
+
