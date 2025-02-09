@@ -57,6 +57,8 @@ export class TeenpattiNewComponent {
 
 
 
+
+
   retryConfig: RetryConfig = {
     count: 1000
 
@@ -127,7 +129,7 @@ export class TeenpattiNewComponent {
 
 
   ngOnInit(): void {
-
+    this.getWindowSize()
 
     if (!this.isDesktop) {
       this.setMarketScrollHeight();
@@ -681,6 +683,20 @@ export class TeenpattiNewComponent {
       this.openMobileMinMax = [];
     }
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?: Event) {
+    this.getWindowSize()
+  }
+
+  getWindowSize() {
+    const baseWidth = 352; // Base resolution width
+    const scale = window.innerWidth / baseWidth
+    document.documentElement.style.setProperty('--boardScale', scale.toString());
+  }
+
+
+
 
   replaceHamburgerImage(coinSrc: string) {
     let timer = 0
