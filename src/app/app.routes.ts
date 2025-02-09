@@ -17,6 +17,7 @@ import { NotFoundError } from 'rxjs';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { TeenpattiComponent } from './casino/teenpatti/teenpatti.component';
 import { TeenpattiNewComponent } from './newCasino/teenpatti-new/teenpatti-new.component';
+import { TimerComponent } from './pages/timer/timer.component';
 
 export const routes: Routes = [
   {
@@ -51,6 +52,10 @@ export const routes: Routes = [
           {
             path: 'lobby',
             component: LobbyComponent,
+          },
+          {
+            path: 'timer',
+            component: TimerComponent,
           },
           {
             path: 'universe-originals/:name',
