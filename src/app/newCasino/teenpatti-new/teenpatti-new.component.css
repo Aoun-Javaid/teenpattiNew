@@ -876,6 +876,446 @@
   height: 59px;
 }
 
+/* Adjusted code */
+.buttonsPanel-hAiFyw {
+    display: flex;
+    z-index: 6;
+}
+
+@media (orientation: portrait) {
+    .buttonsPanel__buttons-nTrdCX {
+        margin-left: auto;
+        pointer-events: none;
+    }
+    .buttonsPanel__bettingButtons-tJAgVE > * {
+        margin: 0 0.25rem;
+    }
+}
+
+/* Betting Buttons */
+.buttonsPanel_bettingState-vnMbbl .buttonsPanel__bettingButtons-tJAgVE {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+.chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:before {
+    background-color: #fff;
+    z-index: 1;
+}
+
+.buttonsPanel__bettingButtons-tJAgVE {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    visibility: hidden;
+}
+
+.bettingButton-i5MaZV {
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    height: 3rem;
+    width: 3rem;
+    position: relative;
+    transition: opacity 300ms ease;
+}
+
+.bettingButton-i5MaZV:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.bettingButton-i5MaZV:before {
+    content: "";
+    inset: 0;
+    border-radius: inherit;
+    position: absolute;
+    z-index: 2;
+}
+
+.bettingButton_blue-VHm4OI:before {
+    background: linear-gradient(135deg, #2996cc, #004d99);
+}
+
+.bettingButton_orange-oB31C6:before {
+    background: linear-gradient(135deg, #f93, #f50);
+}
+
+/* Button Icons */
+.bettingButton__icon-PmQi1e,
+.iconButton__icon-k1NKdw {
+    display: flex;
+    position: relative;
+    z-index: 3;
+}
+
+.svgIcon_large-z8G1_Q {
+    width: 3rem;
+}
+
+.svgIcon-JpUo7O {
+    fill: currentColor;
+    aspect-ratio: 1;
+    overflow: visible;
+}
+
+/* Ripple Effect */
+.bettingButton__ctaHighlight-boqUkO {
+    border-radius: inherit;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+}
+
+.bettingButton__ctaHighlight-boqUkO:after {
+    content: "";
+    border: 1px solid #fb3;
+    border-radius: 50%;
+    position: absolute;
+    inset: 0.125rem;
+    box-shadow: 0 0 0.25rem rgba(255, 221, 51, 0.2), 0 0 0.5rem #fa0, inset 0 0 0.75rem rgba(255, 187, 51, 0.8);
+    transition: opacity 300ms ease, visibility 300ms ease;
+    z-index: 1;
+}
+
+/* Chip Tray Button */
+.chipTrayButtonWithToggle_open-LlvgMl .chipTrayButtonWithToggle__bg-zQXxFd {
+    opacity: 1;
+    visibility: visible;
+}
+
+.chipTrayButtonWithToggle__bg-zQXxFd {
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 0;
+    background-color: rgba(138,138,153,0.2);
+    transition: opacity 0s ease 0.4s, visibility 0s ease 0.4s;
+}
+
+/* Icon Button */
+.iconButton-by3moV {
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+    /* color: rgb(255, 255, 255); */
+}
+
+/* Triangle Indicator */
+.chipTrayButtonWithToggle__triangle-nHc70D {
+    border-style: solid;
+    border-width: 0.5rem;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    visibility: hidden;
+}
+
+.chipTrayButtonWithToggle_open-LlvgMl .chipTrayButtonWithToggle__triangle-nHc70D {
+    opacity: 1;
+    visibility: visible;
+}
+.iconButton_theme_default-G6tVtR {
+    color: rgb(255,255,255);
+}
+.iconButton_borderRadiusSize_default-SAVSQu {
+    border-radius: 50%;
+}
+.iconButton_size_medium-YQpLaw {
+    height: 3rem;
+    width: 3rem;
+}
+.iconButton-by3moV {
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    position: relative;
+}
+.iconButton__icon-k1NKdw {
+    display: flex
+;
+    position: relative;
+    z-index: 1;
+}
+.rippleWavesDetectArea-YqGgIY {
+    border-radius: inherit;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 3;
+}
+.iconButton_theme_default-G6tVtR {
+    color: rgb(255,255,255) !important;
+}
+
+
+.svgIcon_default-OFLILg {
+    width: 1.5rem;
+}
+.svgIcon-JpUo7O {
+    fill: currentColor;
+    aspect-ratio: 1;
+    overflow: visible;
+}
+
+
+
+.chipTrayButtonWithToggle_horizontal-CwZaXB .chipTrayButtonWithToggle__triangle_theme_light-gcTnl3 {
+    border-color: rgba(var(--color-ui-1), 0.1) transparent transparent transparent;
+}
+.chipTrayButtonWithToggle_horizontal-CwZaXB .chipTrayButtonWithToggle__triangle-nHc70D {
+    height: 0;
+    left: 50%;
+    top: -1rem;
+    transform: translateX(-50%);
+    width: 0;
+}
+.chipTrayButtonWithToggle_open-LlvgMl .chipTrayButtonWithToggle__triangle-nHc70D {
+    opacity: 1;
+    transition: opacity .2s ease .3s, visibility .2s ease .3s;
+    visibility: visible;
+}
+.chipTrayButtonWithToggle__triangle-nHc70D {
+    border-style: solid;
+    border-width: 0.5rem;
+    opacity: 0;
+    position: absolute;
+    transition: opacity .2s ease 0s, visibility .2s ease 0s;
+    visibility: hidden;
+}
+/* Tabs */
+.tabs-wrapper {
+    @apply flex mt-[12px];
+  }
+  
+  .tab-slider {
+    @apply bg-[#0f212e] flex rounded-[3rem] p-[5px] flex-shrink-0;
+  }
+  
+  .tab-item {
+    @apply inline-flex cursor-pointer relative items-center gap-2 justify-center whitespace-nowrap ml-[5px] px-4 py-[15px] font-semibold text-[.875rem] rounded-full bg-[rgb(47,69,83)] transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent focus-visible:outline-white text-sm leading-none [&:hover>svg]:text-white [&_svg]:!text-gray-200;
+  }
+  
+  .tab-item span {
+    @apply text-white;
+  }
+  
+  .tab-item1 {
+    @apply !ml-0;
+  }
+  
+  .page-content {
+    @apply w-full overflow-x-hidden mt-6;
+  }
+  /* coin */
+  .chipTrayWithToggle__item-nLy9Sn {
+    padding: 0 0.25rem !important;
+}
+
+.chips-rzbOIK {
+    position: relative;
+    transition: opacity 300ms ease;
+}
+ .chip-kcN8LW {
+    transition: opacity 300ms ease;
+
+}
+.chip_size_48-odjDTm {
+    @apply h-[3.2rem] w-[3.2rem];
+  
+   
+}
+.chip-kcN8LW:before {
+   
+    border: 0.125rem solid #fa0;
+    box-shadow: 0 0 0.25rem rgba(255, 221, 51, .225), 0 0 0.59375rem #fb3, inset 0 0 0.59375rem #fb3, inset 0 0 0.25rem rgba(255, 187, 51, .225);
+    inset: -0.1875rem;
+    transition-property: opacity, visibility;
+    visibility: hidden;
+    z-index: 1;
+}
+.chip-kcN8LW:before {
+
+    border-radius: 50%;
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+}
+
+.chip__1st {
+    background: linear-gradient(135deg, #0c4 0%, #090 100%);
+    border-radius: 50%;
+    position: relative;
+   
+    display: grid
+;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: 100%;
+    place-content: center;
+    place-items: center;
+    width: 100%;
+    z-index: 1;
+}
+.chip__frontSide-njKKgE {
+    
+    display: grid
+;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: 100%;
+    place-content: center;
+    place-items: center;
+    width: 100%;
+    z-index: 1;
+}
+.chip__frontSide-njKKgE {
+    border-radius: 50%;
+    position: relative;
+}
+.chip__borderDecor-8XR0Vn {
+    border-radius: inherit;
+    grid-area: 1 / 1;
+    height: 100%;
+    position: relative;
+    width: 100%;
+ 
+}
+.chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:before {
+    background-color: #fff;
+    z-index: 1;
+}
+/* .chip_style_default-zHvD8j .chip__borderDecor_medium-mF_aBv:before {
+  
+    mask-image: url(/assets/coin-radius.svg);
+} */
+.chip_style_default-zHvD8j .chip__borderDecor_medium-mF_aBv:before {
+       background-image: url(/assets/coin-radius.svg);
+}
+.chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:before {
+    content: "";
+    inset: 0;
+  
+    mask-position: center;
+   
+    mask-repeat: no-repeat;
+
+    mask-size: 100% 100%;
+    position: absolute !important;
+}
+.chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:after {
+    background-color: #000;
+    opacity: .1;
+    z-index: 0;
+}
+.chip_style_default-zHvD8j .chip__borderDecor_medium-mF_aBv:after {
+  
+    background-image: url(/assets/coin-radius.svg);
+}
+.chip_style_default-zHvD8j .chip_borderDecor-8XR0Vn:after, .chip_style_default-zHvD8j .chip_borderDecor-8XR0Vn:before {
+    content: "";
+    inset: 0;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    position: absolute;
+}
+.chip__svg-nFRcEL {
+    position: relative;
+    z-index: 1;
+}
+/* .chip_borderDecor-8XR0Vn, .chip_svg-nFRcEL {
+    grid-area: 1 / 1;
+} */
+.chip-kcN8LW:after {
+   
+    background-color: hsla(0, 0%, 100%, .4);
+    inset: 0;
+    mix-blend-mode: soft-light;
+    transition-property: opacity;
+    z-index: 4;
+}
+.chip-kcN8LW:after, .chip-kcN8LW:before {
+
+    border-radius: 50%;
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+}
+.chip_valueShadow-apDxWQ, .chipwinValue-xEmKGO, .chip_winValueShadow-bbxO_z {
+    text-anchor: middle;
+    font-weight: 500;
+}
+.chip_valueShadow-apDxWQ, .chip_winValueShadow-bbxO_z {
+    fill-opacity: .1;
+}
+.chip_valueShadow-apDxWQ, .chip_winValueShadow-bbxO_z {
+    fill: #000;
+}
+.chip_value-B48ghL, .chipvalueShadow-apDxWQ, .chipwinValue-xEmKGO, .chip_winValueShadow-bbxO_z {
+    text-anchor: middle;
+    font-weight: 500;
+}
+.chip_value-B48ghL, .chip_winValue-xEmKGO {
+    fill: #fff;
+}
+.chipTrayWithToggle_open-aWURNM {
+    padding: 0.5rem 0.25rem;
+}
+.chipTrayButtonWithToggle__tray-NCNOky>* {
+    flex-shrink: 0;
+}
+.chipTrayWithToggle_open-aWURNM {
+    opacity: 1;
+    transition: opacity 0s ease .2s, visibility 0s ease .2s, transform .2s ease .2s;
+    visibility: visible;
+}
+.chipTrayWithToggle-It_Bqx {
+    display: flex;
+    justify-content: end;
+    position: relative;
+    transition: opacity 0s ease .2s, visibility 0s ease .2s, transform .2s ease 0s;
+    z-index: 1;
+}
+ .chipTrayWithToggleBg-Nl1Fsr {
+    border-radius: 2rem;
+   
+}
+.chip-kcN8LW:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background-image: url('/assets/coin-radius.svg'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.8;
+  }
+
 .pointer {
   cursor: pointer;
 }
@@ -2293,6 +2733,9 @@ p {
     -webkit-transform: translate(0, 0);
   }
 }
+
+
+
 
 /* @keyframes inplayAnimation {
   0% {
