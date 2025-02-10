@@ -1342,13 +1342,16 @@
 
 .chipTrayWithToggle-It_Bqx {
   display: flex;
-  max-width: 0px;
-  transition: max-width 500ms ease;
-  height: 0px;
-  overflow: hidden;
   justify-content: end;
   position: relative;
   z-index: 1;
+}
+
+.animation-container {
+  overflow: hidden;
+  max-width: 0px;
+  height: 0px;
+  transition: max-width 500ms ease;
 }
 
 .chipTrayWithToggleBg-Nl1Fsr {
