@@ -93,7 +93,11 @@ export class TeenpattiNewComponent {
   betType: any;
   updateValue: any;
   counter: number = 0;
-  changeValue: unknown;
+  changeValue: any;
+  sizeRunner1: any;
+  sizeRunner2: any;
+  firstBoxWidth: string = '';
+  secndBoxWidth: string = '';
   split_arr: any;
   getRoundId: any;
   resultcounter = 0;
@@ -163,7 +167,8 @@ export class TeenpattiNewComponent {
               this.marketArray = objMarket?.data[0]?.marketArr;
               this.game = objMarket?.data[0];
               this.game.marketArr = this.marketArray ? this.marketArray : objMarket?.data[0]?.marketArr;
-
+              this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
+              this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
               this.winnerMarketArray = this.game?.marketArr ? this.game?.marketArr[0] : '';
 
               this.handleEventResponse(objMarket, 0)
@@ -190,6 +195,8 @@ export class TeenpattiNewComponent {
             this.casinoPl = [];
             this.getResults();
             this.betSelectedPlayer = '';
+            this.secndBoxWidth = '';
+            this.firstBoxWidth = '';
 
           }
 
@@ -281,6 +288,8 @@ export class TeenpattiNewComponent {
       if (objMarket.type == "1") {
         if ('data' in objMarket && this.counter == 0 && objMarket.data.marketArr && objMarket.data._id) {
           this.marketArray = objMarket.data.marketArr;
+          this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
+          this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
           this.game = this.marketArray ? this.marketArray : objMarket.data;
           this.game = objMarket.data;
           this.counter = 1;
@@ -357,9 +366,23 @@ export class TeenpattiNewComponent {
             Object.entries(objMarket.data).forEach(([, value]) => {
               this.changeValue = value
 
-              if (this.split_arr[7] == 'size') {
 
+              if (this.split_arr[7] == 'size') {
+                if (runnersIndex == 0) {
+                  // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
+                  let percnt1 = ((this.changeValue / this.sizeRunner1) * 100);
+                  this.firstBoxWidth = -1 * (percnt1 - 100)+'';
+                  console.log('player A',this.firstBoxWidth)
+                }
+                if (runnersIndex == 1) {
+                  // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
+                  let percnt = ((this.changeValue / this.sizeRunner2) * 100);
+                  this.secndBoxWidth = -1 * (percnt - 100) + '';
+                  console.log('player B',this.secndBoxWidth)
+
+                }
                 this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size = this.changeValue;
+
               }
               if (this.split_arr[7] == 'price') {
 

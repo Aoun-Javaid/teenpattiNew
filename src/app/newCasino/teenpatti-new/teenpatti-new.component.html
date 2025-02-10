@@ -303,14 +303,14 @@
                                 </g>
                             </g>
                         </svg>
-                        <div class="win_A_size">
-                            <div class="percentageBetStat">
-                                50%
+                        <div class="win_A_size" *ngIf="firstBoxWidth">
+                            <div class="percentageBetStat" [ngStyle]="{ 'background-position-y': firstBoxWidth + '%' }">
+                               {{firstBoxWidth | number :'1.0-2'}}%
                             </div>
                         </div>
-                        <div class="win_B_size">
-                            <div class="percentageBetStat">
-                                50%
+                        <div class="win_B_size" *ngIf="secndBoxWidth">
+                            <div class="percentageBetStat" [ngStyle]="{ 'background-position-y': secndBoxWidth + '%' }">
+                              {{secndBoxWidth | number :'1.0-2'}}%
                             </div>
                         </div>
                         <div class="table__betInfoGrid">

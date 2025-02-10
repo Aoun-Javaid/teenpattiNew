@@ -78,7 +78,7 @@
     rgba(255, 255, 255, 0.4) 50%,
     rgba(255, 255, 255, 0.4) 100%
   );
-  background-position-y: 51%;
+  /* background-position-y: 51%; */
 }
 
 .win_B_size {
