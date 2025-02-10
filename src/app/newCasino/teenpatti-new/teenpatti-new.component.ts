@@ -45,8 +45,8 @@ export class TeenpattiNewComponent {
     id: ""
   };
 
-  aPlayerChances: string = '48%';
-  bPlayerChances: string = '52%';
+  aPlayerChances: any;
+  bPlayerChances:any;
   showHamburger: boolean = true;
   btnIcon = false
   btnCheck: any
@@ -624,9 +624,20 @@ export class TeenpattiNewComponent {
     this.networkService.getAllRecordsByPost(CONFIG.getCasinoResultURL, { eventId: this.eventid })
       .pipe(first())
       .subscribe(
-        data => {
+        (data:any) => {
           this.networkService.updateResultstream(data.data)
-
+          let playerAWins =0
+          let playerBWins =0
+          debugger
+          data.data.forEach((round:any) => {
+            if (round.winner === 'A') {
+              playerAWins++;
+            } else if (round.winner === 'B') {
+              playerBWins++;
+            }
+          });
+          this.aPlayerChances = (playerAWins / data?.data?.length) * 100
+          this.bPlayerChances = (playerBWins / data?.data?.length) * 100
         },
         error => {
           let responseData = error;

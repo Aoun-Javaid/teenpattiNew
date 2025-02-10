@@ -40,20 +40,20 @@
             <div class="win_percentage_container relative">
                 <div class="win_percentage_wrapper ">
                     <div class="progress_bar_container">
-                        <div class="progress-bar bg-danger" [style.width]="aPlayerChances">
+                        <div class="progress-bar bg-danger" [style.width]="aPlayerChances+'%'">
                             <div class="progress-bar_data">
                                 A
                             </div>
                             <div class="progress-bar_data">
-                                {{aPlayerChances}}
+                                {{aPlayerChances}}%
                             </div>
                         </div>
-                        <div class="progress-bar yellow_bg " [style.width]="bPlayerChances">
+                        <div class="progress-bar yellow_bg " [style.width]="bPlayerChances+'%'">
                             <div class="progress-bar_data">
                                 B
                             </div>
                             <div class="progress-bar_data">
-                                {{bPlayerChances}}
+                                {{bPlayerChances}}%
                             </div>
                         </div>
                     </div>
