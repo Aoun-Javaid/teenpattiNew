@@ -26,6 +26,7 @@ declare var $: any;
   styleUrl: './teenpatti-new.component.css'
 })
 export class TeenpattiNewComponent {
+  reverseAnimate:boolean = false
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
   animateIcon: boolean = false;
@@ -802,6 +803,10 @@ export class TeenpattiNewComponent {
   }
 
   showAnimateCoinBar() {
+    // this.reverseAnimate = false;
+    // setTimeout(() => {
+    //   this.reverseAnimate = false;
+    // }, 100);
     this.btnIcon = false
     if (!this.coinAnimateState) {
       this.coinAnimateState = true;

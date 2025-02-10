@@ -356,15 +356,15 @@
         <!-- Teen patti Cards Section ends here -->
 
         <div class="relative mt-[27px]">
-            <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM"
-                >
-                <div class="overflow-visible animation-container" [ngClass]="{'!max-w-[400px] !h-auto !overflow-visible':coinAnimateState}">
+            <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM">
+                <div class="overflow-visible animation-container"
+                    [ngClass]="{'!max-w-[400px] !h-auto !overflow-visible':coinAnimateState}">
                     <div class="tab-slider min-w-full">
 
                         <div class="flex">
                             <!-- Tab item 4 -->
                             <div class="chipTrayWithToggle__item-nLy9Sn"
-                                [ngClass]="{'move_right':animate && animateCoinVal === 1}"
+                                [ngClass]="{'move_right':animate && animateCoinVal === 1, 'move_back':reverseAnimate && btnCheck === 1}"
                                 (click)="animatecoinValue(1)">
                                 <div class="chips-rzbOIK ">
                                     <div class="chip-kcN8LW chip_size_48-odjDTm "
@@ -391,7 +391,7 @@
                             </div>
                             <!-- Tab item 4 -->
                             <div class="chipTrayWithToggle__item-nLy9Sn "
-                                [ngClass]="{'move_right':animate && animateCoinVal === 2}"
+                                [ngClass]="{'move_right':animate && animateCoinVal === 2, 'move_back':reverseAnimate && btnCheck === 2}"
                                 (click)="animatecoinValue(2)">
                                 <div class="chips-rzbOIK ">
                                     <div class="chip-kcN8LW chip_size_48-odjDTm"
@@ -419,7 +419,7 @@
                             </div>
                             <!-- Tab item 4 -->
                             <div class="chipTrayWithToggle__item-nLy9Sn"
-                                [ngClass]="{'move_right':animate && animateCoinVal === 3}"
+                                [ngClass]="{'move_right':animate && animateCoinVal === 3, 'move_back':reverseAnimate && btnCheck === 3}"
                                 (click)="animatecoinValue(3)">
                                 <div class="chips-rzbOIK ">
                                     <div class="chip-kcN8LW chip_size_48-odjDTm "
@@ -447,7 +447,7 @@
                             </div>
                             <!-- Tab item 4 -->
                             <div class="chipTrayWithToggle__item-nLy9Sn"
-                                [ngClass]="{'move_right':animate && animateCoinVal === 4}"
+                                [ngClass]="{'move_right':animate && animateCoinVal === 4, 'move_back':reverseAnimate && btnCheck === 4}"
                                 (click)="animatecoinValue(4)">
                                 <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
                                     <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250"
@@ -475,7 +475,7 @@
                             </div>
                             <!-- Tab item 4 -->
                             <div class="chipTrayWithToggle__item-nLy9Sn"
-                                [ngClass]="{'move_right':animate && animateCoinVal === 5}"
+                                [ngClass]="{'move_right':animate && animateCoinVal === 5, 'move_back':reverseAnimate && btnCheck === 5}"
                                 (click)="animatecoinValue(5)">
                                 <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
                                     <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250"
@@ -503,7 +503,7 @@
                             </div>
                             <!-- Tab item 4 -->
                             <div class="chipTrayWithToggle__item-nLy9Sn"
-                                [ngClass]="{'move_right':animate && animateCoinVal === 6}"
+                                [ngClass]="{'move_right':animate && animateCoinVal === 6, 'move_back':reverseAnimate && btnCheck === 6}"
                                 (click)="animatecoinValue(6)">
                                 <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
                                     <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250"
