@@ -46,7 +46,7 @@ export class TeenpattiNewComponent {
   };
 
   aPlayerChances: any;
-  bPlayerChances:any;
+  bPlayerChances: any;
   showHamburger: boolean = true;
   btnIcon = false
   btnCheck: any
@@ -375,14 +375,14 @@ export class TeenpattiNewComponent {
                 if (runnersIndex == 0) {
                   // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
                   let percnt1 = ((this.changeValue / this.sizeRunner1) * 100);
-                  this.firstBoxWidth = -1 * (percnt1 - 100)+'';
-                  console.log('player A',this.firstBoxWidth)
+                  this.firstBoxWidth = -1 * (percnt1 - 100) + '';
+                  console.log('player A', this.firstBoxWidth)
                 }
                 if (runnersIndex == 1) {
                   // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
                   let percnt = ((this.changeValue / this.sizeRunner2) * 100);
                   this.secndBoxWidth = -1 * (percnt - 100) + '';
-                  console.log('player B',this.secndBoxWidth)
+                  console.log('player B', this.secndBoxWidth)
 
                 }
                 this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size = this.changeValue;
@@ -624,12 +624,12 @@ export class TeenpattiNewComponent {
     this.networkService.getAllRecordsByPost(CONFIG.getCasinoResultURL, { eventId: this.eventid })
       .pipe(first())
       .subscribe(
-        (data:any) => {
+        (data: any) => {
           this.networkService.updateResultstream(data.data)
-          let playerAWins =0
-          let playerBWins =0
+          let playerAWins = 0
+          let playerBWins = 0
           debugger
-          data.data.forEach((round:any) => {
+          data.data.forEach((round: any) => {
             if (round.winner === 'A') {
               playerAWins++;
             } else if (round.winner === 'B') {
@@ -830,20 +830,20 @@ export class TeenpattiNewComponent {
         translateX = '143.8px';
         break;
       case 3:
-        translateX = '80.51px';
+        translateX = '85.51px';
         break;
       case 4:
         translateX = '26.4px';
         break;
       case 5:
-        translateX = '-30.2px';
+        translateX = '-33.2px';
         break;
       case 6:
-        translateX = '-87.8px';
+        translateX = '-90.8px';
         break;
     }
     document.documentElement.style.setProperty('--translateX', translateX);
-    if (!this.btnCheck){
+    if (!this.btnCheck) {
       this.btnCheck = 1
     }
   }
