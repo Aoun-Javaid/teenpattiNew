@@ -4,6 +4,8 @@
   height: 100%;
   position: relative;
   width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
 }
 .dashboard_wrapper {
   width: 100%;
@@ -1341,7 +1343,7 @@
 .chipTrayWithToggle-It_Bqx {
   display: flex;
   max-width: 0px;
-  transition: max-width 500ms ease,;
+  transition: max-width 500ms ease;
   height: 0px;
   overflow: hidden;
   justify-content: end;
