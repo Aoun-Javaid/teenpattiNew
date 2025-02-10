@@ -1,9 +1,9 @@
 
 
 // const BASE_URL = 'http://101.0.20.58:5011';
-// const BASE_URL = 'https://universestudio.online';
+const BASE_URL = 'https://universestudio.online';
 
-const BASE_URL = '';
+// const BASE_URL = '';
 
 
 export const BASE_URL_WS = "https://universestudio.online";
