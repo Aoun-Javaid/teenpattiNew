@@ -13,24 +13,30 @@
 
     <div class="absolute bottom-[12px] left-0 w-full">
 
-      <!-- Teen patti Cards Section starts here -->
-      <div class="teen_patti_conatiner absolute top-[-5.375rem] w-full"
-          [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
-          <!-- Player A cards start here -->
-          <div class="custom_flex gap-2 player_A_cards">
-            <img [ngClass]="playerACards?.card_1!=0 && playerACards?.card_1 ?'':'opacity-0'" [src]="['assets/cards/'+playerACards?.card_1+'.png']" class="card-img" alt="card1">
-            <img [ngClass]="playerACards?.card_2!=0 && playerACards?.card_2 ?'':'opacity-0'"  [src]="['assets/cards/'+playerACards?.card_2+'.png']" class="card-img" alt="card2">
-            <img [ngClass]="playerACards?.card_3!=0 && playerACards?.card_3 ?'':'opacity-0'"  [src]="['assets/cards/'+playerACards?.card_3+'.png']" class="card-img" alt="card3">
-          </div>
-          <!-- Player A cards ends here -->
+        <!-- Teen patti Cards Section starts here -->
+        <div class="teen_patti_conatiner absolute top-[-5.375rem] w-full"
+            [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
+            <!-- Player A cards start here -->
+            <div class="custom_flex gap-2 player_A_cards">
+                <img [ngClass]="playerACards?.card_1!=0 && playerACards?.card_1 ?'':'opacity-0'"
+                    [src]="['assets/cards/'+playerACards?.card_1+'.png']" class="card-img" alt="card1">
+                <img [ngClass]="playerACards?.card_2!=0 && playerACards?.card_2 ?'':'opacity-0'"
+                    [src]="['assets/cards/'+playerACards?.card_2+'.png']" class="card-img" alt="card2">
+                <img [ngClass]="playerACards?.card_3!=0 && playerACards?.card_3 ?'':'opacity-0'"
+                    [src]="['assets/cards/'+playerACards?.card_3+'.png']" class="card-img" alt="card3">
+            </div>
+            <!-- Player A cards ends here -->
 
-          <!-- Player B cards start here -->
-          <div class="custom_flex gap-2 player_B_cards">
-            <img [ngClass]="playerBCards?.card_1!=0 && playerBCards?.card_1 ?'':'opacity-0'" [src]="['assets/cards/'+playerBCards?.card_1+'.png']" class="card-img" alt="card1">
-            <img [ngClass]="playerBCards?.card_2!=0 && playerBCards?.card_2 ?'':'opacity-0'" [src]="['assets/cards/'+playerBCards?.card_2+'.png']" class="card-img" alt="card2">
-            <img [ngClass]="playerBCards?.card_3!=0 && playerBCards?.card_3 ?'':'opacity-0'" [src]="['assets/cards/'+playerBCards?.card_3+'.png']" class="card-img" alt="card3">
-          </div>
-          <!-- Player B cards ends here -->
+            <!-- Player B cards start here -->
+            <div class="custom_flex gap-2 player_B_cards">
+                <img [ngClass]="playerBCards?.card_1!=0 && playerBCards?.card_1 ?'':'opacity-0'"
+                    [src]="['assets/cards/'+playerBCards?.card_1+'.png']" class="card-img" alt="card1">
+                <img [ngClass]="playerBCards?.card_2!=0 && playerBCards?.card_2 ?'':'opacity-0'"
+                    [src]="['assets/cards/'+playerBCards?.card_2+'.png']" class="card-img" alt="card2">
+                <img [ngClass]="playerBCards?.card_3!=0 && playerBCards?.card_3 ?'':'opacity-0'"
+                    [src]="['assets/cards/'+playerBCards?.card_3+'.png']" class="card-img" alt="card3">
+            </div>
+            <!-- Player B cards ends here -->
 
         </div>
 
@@ -305,12 +311,12 @@
                         </svg>
                         <div class="win_A_size" *ngIf="firstBoxWidth">
                             <div class="percentageBetStat" [ngStyle]="{ 'background-position-y': firstBoxWidth + '%' }">
-                               {{firstBoxWidth | number :'1.0-2'}}%
+                                {{firstBoxWidth | number :'1.0-2'}}%
                             </div>
                         </div>
                         <div class="win_B_size" *ngIf="secndBoxWidth">
                             <div class="percentageBetStat" [ngStyle]="{ 'background-position-y': secndBoxWidth + '%' }">
-                              {{secndBoxWidth | number :'1.0-2'}}%
+                                {{secndBoxWidth | number :'1.0-2'}}%
                             </div>
                         </div>
                         <div class="table__betInfoGrid">
@@ -774,7 +780,8 @@
 
 
     </div>
-</div>
 
+</div>
+<div class="h-[50px] w-full bg-[#161a2b]"></div>
 
 <app-quick-stakes-edit></app-quick-stakes-edit>
