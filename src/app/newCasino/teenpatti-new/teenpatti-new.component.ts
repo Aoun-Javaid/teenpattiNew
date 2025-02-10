@@ -29,6 +29,7 @@ export class TeenpattiNewComponent {
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
   animateIcon: boolean = false;
+  coinAnimateState = false
   animationContainer: boolean = false
   betState: boolean = false;
   selectedCoin: string = '/NteenPatti/Icons/green-coin.svg.svg';
@@ -37,6 +38,8 @@ export class TeenpattiNewComponent {
   videoComponent!: VideoPlayerComponent;
   subscription!: Subscription;
   liveData$: any;
+  animateCoinVal: any
+  animate = false
   public message = {
     type: "1",
     id: ""
@@ -45,7 +48,8 @@ export class TeenpattiNewComponent {
   aPlayerChances: string = '48%';
   bPlayerChances: string = '52%';
   showHamburger: boolean = true;
-
+  btnIcon = false
+  btnCheck: any
 
   animationClass = '';
 
@@ -261,7 +265,7 @@ export class TeenpattiNewComponent {
     this.getResults();
   }
 
-  openQuickStakes(){
+  openQuickStakes() {
     this.toggleService.setQuickStakeEditSidebarState(true)
   }
   handleEventResponse(objMarket: any, index: any) {
@@ -780,6 +784,59 @@ export class TeenpattiNewComponent {
       }, 1500);
     }
   }
+
+  animatecoinValue(value: any) {
+    this.animateCoinVal = value
+    this.btnCheck = value
+  }
+
+  showAnimateCoinBar() {
+    this.btnIcon = false
+    if (!this.coinAnimateState) {
+      this.coinAnimateState = true;
+
+      if (this.animateCoinVal) {
+        this.animate = true;
+      }
+    } else {
+      if (this.coinAnimateState) {
+        this.animate = true;
+      }
+      setTimeout(() => {
+        this.animate = false
+        this.animateCoinVal = null;
+        this.btnIcon = true
+        this.coinAnimateState = false;
+      }, 1000);
+    }
+
+    let translateX = '205px';
+    switch (this.animateCoinVal) {
+      case 1:
+        translateX = '205px';
+        break;
+      case 2:
+        translateX = '143.8px';
+        break;
+      case 3:
+        translateX = '80.51px';
+        break;
+      case 4:
+        translateX = '26.4px';
+        break;
+      case 5:
+        translateX = '-30.2px';
+        break;
+      case 6:
+        translateX = '-87.8px';
+        break;
+    }
+    document.documentElement.style.setProperty('--translateX', translateX);
+    if (!this.btnCheck){
+      this.btnCheck = 1
+    }
+  }
+
 }
 
 

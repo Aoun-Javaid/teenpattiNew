@@ -349,22 +349,20 @@
         </div>
         <!-- Teen patti Cards Section ends here -->
 
-        <div class="relative mt-[27px] ">
+        <div class="relative mt-[27px]">
             <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM"
-                style="transform: translateX(0%);">
-                <div class=" overflow-scroll">
+                [ngClass]="{'!max-w-[400px] !h-auto !overflow-visible':coinAnimateState}">
+                <div class=" overflow-visible">
                     <div class="tab-slider min-w-full">
 
                         <div class="flex">
                             <!-- Tab item 4 -->
-                            <div class="chipTrayWithToggle__item-nLy9Sn" style="
-                             transform: translateX(0%);
-                            transition-delay: 0.25s;
-                              z-index: 100;
-                              opacity: 1;
-                                         ">
+                            <div class="chipTrayWithToggle__item-nLy9Sn"
+                                [ngClass]="{'move_right':animate && animateCoinVal === 1}"
+                                (click)="animatecoinValue(1)">
                                 <div class="chips-rzbOIK ">
-                                    <div class="chip-kcN8LW chip_size_48-odjDTm   " data-locator="chip-250">
+                                    <div class="chip-kcN8LW chip_size_48-odjDTm "
+                                        [ngClass]="{'active-shadow':animateCoinVal === 1}" data-locator="chip-250">
                                         <div class="chip__1st">
                                             <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv"></div>
                                             <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
@@ -386,14 +384,12 @@
                                 </div>
                             </div>
                             <!-- Tab item 4 -->
-                            <div class="chipTrayWithToggle__item-nLy9Sn" style="
-                              transform: translateX(0%);
-                               transition-delay: 0.25s;
-                                          z-index: 100;
-                                            opacity: 1;
-                                                       ">
+                            <div class="chipTrayWithToggle__item-nLy9Sn "
+                                [ngClass]="{'move_right':animate && animateCoinVal === 2}"
+                                (click)="animatecoinValue(2)">
                                 <div class="chips-rzbOIK ">
-                                    <div class="chip-kcN8LW chip_size_48-odjDTm" data-locator="chip-250">
+                                    <div class="chip-kcN8LW chip_size_48-odjDTm"
+                                        [ngClass]="{'active-shadow':animateCoinVal === 2}" data-locator="chip-250">
                                         <div class="chip__frontSide-njKKgE"
                                             style=" background: linear-gradient(135deg, #f93 0%, #f50 100%, #8a8a99);">
                                             <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv"></div>
@@ -416,14 +412,12 @@
                                 </div>
                             </div>
                             <!-- Tab item 4 -->
-                            <div class="chipTrayWithToggle__item-nLy9Sn" style="
-                             transform: translateX(0%);
-                             transition-delay: 0.25s;
-                                        z-index: 100;
-                                          opacity: 1;
-                                                     ">
+                            <div class="chipTrayWithToggle__item-nLy9Sn"
+                                [ngClass]="{'move_right':animate && animateCoinVal === 3}"
+                                (click)="animatecoinValue(3)">
                                 <div class="chips-rzbOIK ">
-                                    <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250">
+                                    <div class="chip-kcN8LW chip_size_48-odjDTm "
+                                        [ngClass]="{'active-shadow':animateCoinVal === 3}" data-locator="chip-250">
                                         <div class="chip__frontSide-njKKgE"
                                             style="background: linear-gradient(135deg, #f69 0%, #c06 100%);">
                                             <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv"></div>
@@ -446,14 +440,12 @@
                                 </div>
                             </div>
                             <!-- Tab item 4 -->
-                            <div class="chipTrayWithToggle__item-nLy9Sn" style="
-                               transform: translateX(0%);
-                              transition-delay: 0.25s;
-                                   z-index: 100;
-                                     opacity: 1;
-                                                ">
+                            <div class="chipTrayWithToggle__item-nLy9Sn"
+                                [ngClass]="{'move_right':animate && animateCoinVal === 4}"
+                                (click)="animatecoinValue(4)">
                                 <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
-                                    <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250">
+                                    <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250"
+                                        [ngClass]="{'active-shadow':animateCoinVal === 4}">
                                         <div class="chip__frontSide-njKKgE"
                                             style="background:  linear-gradient(135deg, #f33 0%, #900 100%)">
                                             <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv"></div>
@@ -476,14 +468,12 @@
                                 </div>
                             </div>
                             <!-- Tab item 4 -->
-                            <div class="chipTrayWithToggle__item-nLy9Sn" style="
-         transform: translateX(0%);
-         transition-delay: 0.25s;
-         z-index: 100;
-         opacity: 1;
-       ">
+                            <div class="chipTrayWithToggle__item-nLy9Sn"
+                                [ngClass]="{'move_right':animate && animateCoinVal === 5}"
+                                (click)="animatecoinValue(5)">
                                 <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
-                                    <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250">
+                                    <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250"
+                                        [ngClass]="{'active-shadow':animateCoinVal === 5}">
                                         <div class="chip__frontSide-njKKgE"
                                             style="background: linear-gradient(135deg, #5f29cc 0%, #009 100%);">
                                             <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv"></div>
@@ -506,14 +496,12 @@
                                 </div>
                             </div>
                             <!-- Tab item 4 -->
-                            <div class="chipTrayWithToggle__item-nLy9Sn" style="
-                                 transform: translateX(0%);
-                                 transition-delay: 0.25s;
-                                 z-index: 100;
-                                  opacity: 1;
-                                              ">
+                            <div class="chipTrayWithToggle__item-nLy9Sn"
+                                [ngClass]="{'move_right':animate && animateCoinVal === 6}"
+                                (click)="animatecoinValue(6)">
                                 <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
-                                    <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250">
+                                    <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250"
+                                        [ngClass]="{'active-shadow':animateCoinVal === 6}">
                                         <div class="chip__frontSide-njKKgE"
                                             style="background: linear-gradient(135deg, #2e3133 0%, #0b0c0d 100%);">
                                             <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv"></div>
@@ -560,10 +548,10 @@
                         <div data-locator="chip-tray-button"
                             class=" chipTrayButtonWithToggle_open-LlvgMl chipTrayButtonWithToggle_horizontal-CwZaXB">
                             <div class="chipTrayButtonWithToggle__bg-zQXxFd ">
-                                <button
+                                <button (click)="showAnimateCoinBar()"
                                     class="iconButton-by3moV iconButton_theme_default-G6tVtR iconButton_size_medium-YQpLaw iconButton_borderRadiusSize_default-SAVSQu"
-                                    type="button">
-                                    <span class="iconButton__icon-k1NKdw">
+                                    type="button" [ngClass]="{'!h-[4rem] !w-[4rem]':btnIcon && btnCheck}">
+                                    <span class="iconButton__icon-k1NKdw" *ngIf="!btnIcon">
                                         <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -575,9 +563,184 @@
                                             <path
                                                 d="M4.00004 14.9999C4.00004 14.8272 4.08754 14.6597 4.25207 14.4999C5.14021 15.3625 8.27238 15.9999 12 15.9999C15.7276 15.9999 18.8598 15.3625 19.7479 14.4999C19.9125 14.6597 20 14.8272 20 14.9999V16.9999C20 18.1044 16.4183 18.9999 12 18.9999C7.58172 18.9999 4 18.1044 4 16.9999L4.00004 14.9999Z"
                                                 fill="currentColor"></path>
-                                        </svg></span>
+                                        </svg>
+                                    </span>
+
+                                    <!-- Tab item 4 -->
+                                    <div class="chipTrayWithToggle__item-nLy9Sn" *ngIf="btnIcon && btnCheck ===1">
+                                        <div class="chips-rzbOIK ">
+                                            <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250">
+                                                <div class="chip__1st">
+                                                    <div
+                                                        class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                                    </div>
+                                                    <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <text x="29%" y="50%" transform="translate(0, 1.25)"
+                                                            class="chip__valueShadow-apDxWQ"
+                                                            text-rendering="geometricPrecision"
+                                                            dominant-baseline="central" style="font-size: 16px">
+                                                            2.5
+                                                        </text>
+                                                        <text x="29%" y="50%" transform="translate(0, 0)"
+                                                            class="chip__value-B48ghL"
+                                                            text-rendering="geometricPrecision"
+                                                            data-locator="chip-value" dominant-baseline="central"
+                                                            style="font-size: 16px">
+                                                            2.5
+                                                        </text>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Tab item 4 -->
+                                    <div class="chipTrayWithToggle__item-nLy9Sn " *ngIf="btnIcon && btnCheck ===2">
+                                        <div class="chips-rzbOIK ">
+                                            <div class="chip-kcN8LW chip_size_48-odjDTm" data-locator="chip-250">
+                                                <div class="chip__frontSide-njKKgE"
+                                                    style=" background: linear-gradient(135deg, #f93 0%, #f50 100%, #8a8a99);">
+                                                    <div
+                                                        class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                                    </div>
+                                                    <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <text x="29%" y="50%" transform="translate(0, 1.25)"
+                                                            class="chip__valueShadow-apDxWQ"
+                                                            text-rendering="geometricPrecision"
+                                                            dominant-baseline="central" style="font-size: 16px">
+                                                            2.5
+                                                        </text>
+                                                        <text x="29%" y="50%" transform="translate(0, 0)"
+                                                            class="chip__value-B48ghL"
+                                                            text-rendering="geometricPrecision"
+                                                            data-locator="chip-value" dominant-baseline="central"
+                                                            style="font-size: 16px">
+                                                            2.5
+                                                        </text>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Tab item 4 -->
+                                    <div class="chipTrayWithToggle__item-nLy9Sn" *ngIf="btnIcon && btnCheck ===3">
+                                        <div class="chips-rzbOIK ">
+                                            <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250">
+                                                <div class="chip__frontSide-njKKgE"
+                                                    style="background: linear-gradient(135deg, #f69 0%, #c06 100%);">
+                                                    <div
+                                                        class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                                    </div>
+                                                    <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <text x="29%" y="50%" transform="translate(0, 1.25)"
+                                                            class="chip__valueShadow-apDxWQ"
+                                                            text-rendering="geometricPrecision"
+                                                            dominant-baseline="central" style="font-size: 16px">
+                                                            2.5
+                                                        </text>
+                                                        <text x="29%" y="50%" transform="translate(0, 0)"
+                                                            class="chip__value-B48ghL"
+                                                            text-rendering="geometricPrecision"
+                                                            data-locator="chip-value" dominant-baseline="central"
+                                                            style="font-size: 16px">
+                                                            2.5
+                                                        </text>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Tab item 4 -->
+                                    <div class="chipTrayWithToggle__item-nLy9Sn" *ngIf="btnIcon && btnCheck ===4">
+                                        <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
+                                            <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250">
+                                                <div class="chip__frontSide-njKKgE"
+                                                    style="background:  linear-gradient(135deg, #f33 0%, #900 100%)">
+                                                    <div
+                                                        class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                                    </div>
+                                                    <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <text x="29%" y="50%" transform="translate(0, 1.25)"
+                                                            class="chip__valueShadow-apDxWQ"
+                                                            text-rendering="geometricPrecision"
+                                                            dominant-baseline="central" style="font-size: 16px">
+                                                            2.5
+                                                        </text>
+                                                        <text x="29%" y="50%" transform="translate(0, 0)"
+                                                            class="chip__value-B48ghL"
+                                                            text-rendering="geometricPrecision"
+                                                            data-locator="chip-value" dominant-baseline="central"
+                                                            style="font-size: 16px">
+                                                            2.5
+                                                        </text>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Tab item 4 -->
+                                    <div class="chipTrayWithToggle__item-nLy9Sn" *ngIf="btnIcon && btnCheck ===5">
+                                        <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
+                                            <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250">
+                                                <div class="chip__frontSide-njKKgE"
+                                                    style="background: linear-gradient(135deg, #5f29cc 0%, #009 100%);">
+                                                    <div
+                                                        class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                                    </div>
+                                                    <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <text x="29%" y="50%" transform="translate(0, 1.25)"
+                                                            class="chip__valueShadow-apDxWQ"
+                                                            text-rendering="geometricPrecision"
+                                                            dominant-baseline="central" style="font-size: 16px">
+                                                            2.5
+                                                        </text>
+                                                        <text x="29%" y="50%" transform="translate(0, 0)"
+                                                            class="chip__value-B48ghL"
+                                                            text-rendering="geometricPrecision"
+                                                            data-locator="chip-value" dominant-baseline="central"
+                                                            style="font-size: 16px">
+                                                            2.5
+                                                        </text>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Tab item 4 -->
+                                    <div class="chipTrayWithToggle__item-nLy9Sn" *ngIf="btnIcon && btnCheck ===6">
+                                        <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
+                                            <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250">
+                                                <div class="chip__frontSide-njKKgE"
+                                                    style="background: linear-gradient(135deg, #2e3133 0%, #0b0c0d 100%);">
+                                                    <div
+                                                        class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                                    </div>
+                                                    <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <text x="29%" y="50%" transform="translate(0, 1.25)"
+                                                            class="chip__valueShadow-apDxWQ"
+                                                            text-rendering="geometricPrecision"
+                                                            dominant-baseline="central" style="font-size: 16px">
+                                                            2.5
+                                                        </text>
+                                                        <text x="29%" y="50%" transform="translate(0, 0)"
+                                                            class="chip__value-B48ghL"
+                                                            text-rendering="geometricPrecision"
+                                                            data-locator="chip-value" dominant-baseline="central"
+                                                            style="font-size: 16px">
+                                                            2.5
+                                                        </text>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </button>
-                                <div class="chipTrayButtonWithToggle__triangle-nHc70D"></div>
+                                <!-- <div class="chipTrayButtonWithToggle__triangle-nHc70D"></div> -->
                             </div>
                         </div>
                         <button class="bettingButton-i5MaZV bettingButton_orange-oB31C6" type="button" disabled=""
@@ -601,7 +764,10 @@
                             <path
                                 d="M3 8c0-.552.424-1 .947-1h16.106c.523 0 .947.448.947 1s-.424 1-.947 1H3.947C3.424 9 3 8.552 3 8zm0 4c0-.552.424-1 .947-1h16.106c.523 0 .947.448.947 1s-.424 1-.947 1H3.947C3.424 13 3 12.552 3 12zm0 4c0-.552.424-1 .947-1h16.106c.523 0 .947.448.947 1s-.424 1-.947 1H3.947C3.424 17 3 16.552 3 16z"
                                 fill="currentColor"></path>
-                        </svg></span><span class="rippleWavesDetectArea-YqGgIY"></span>
+                        </svg>
+                    </span><span class="rippleWavesDetectArea-YqGgIY">
+
+                    </span>
                 </button>
             </div>
         </div>
