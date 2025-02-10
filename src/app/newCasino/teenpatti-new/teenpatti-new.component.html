@@ -18,17 +18,17 @@
           [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
           <!-- Player A cards start here -->
           <div class="custom_flex gap-2 player_A_cards">
-            <img *ngIf="playerACards?.card_1!=0 && playerACards?.card_1" [src]="['assets/cards/'+playerACards?.card_1+'.png']" class="card-img" alt="card1">
-            <img *ngIf="playerACards?.card_2!=0 && playerACards?.card_2" [src]="['assets/cards/'+playerACards?.card_2+'.png']" class="card-img" alt="card2">
-            <img *ngIf="playerACards?.card_3!=0 && playerACards?.card_3" [src]="['assets/cards/'+playerACards?.card_3+'.png']" class="card-img" alt="card3">
+            <img [ngClass]="playerACards?.card_1!=0 && playerACards?.card_1 ?'':'opacity-0'" [src]="['assets/cards/'+playerACards?.card_1+'.png']" class="card-img" alt="card1">
+            <img [ngClass]="playerACards?.card_2!=0 && playerACards?.card_2 ?'':'opacity-0'"  [src]="['assets/cards/'+playerACards?.card_2+'.png']" class="card-img" alt="card2">
+            <img [ngClass]="playerACards?.card_3!=0 && playerACards?.card_3 ?'':'opacity-0'"  [src]="['assets/cards/'+playerACards?.card_3+'.png']" class="card-img" alt="card3">
           </div>
           <!-- Player A cards ends here -->
 
           <!-- Player B cards start here -->
           <div class="custom_flex gap-2 player_B_cards">
-            <img *ngIf="playerBCards?.card_1!=0 && playerBCards?.card_1" [src]="['assets/cards/'+playerBCards?.card_1+'.png']" class="card-img" alt="card1">
-            <img *ngIf="playerBCards?.card_2!=0 && playerBCards?.card_2" [src]="['assets/cards/'+playerBCards?.card_2+'.png']" class="card-img" alt="card2">
-            <img *ngIf="playerBCards?.card_3!=0 && playerBCards?.card_3" [src]="['assets/cards/'+playerBCards?.card_3+'.png']" class="card-img" alt="card3">
+            <img [ngClass]="playerBCards?.card_1!=0 && playerBCards?.card_1 ?'':'opacity-0'" [src]="['assets/cards/'+playerBCards?.card_1+'.png']" class="card-img" alt="card1">
+            <img [ngClass]="playerBCards?.card_2!=0 && playerBCards?.card_2 ?'':'opacity-0'" [src]="['assets/cards/'+playerBCards?.card_2+'.png']" class="card-img" alt="card2">
+            <img [ngClass]="playerBCards?.card_3!=0 && playerBCards?.card_3 ?'':'opacity-0'" [src]="['assets/cards/'+playerBCards?.card_3+'.png']" class="card-img" alt="card3">
           </div>
           <!-- Player B cards ends here -->
 
