@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { first, retry, RetryConfig, Subscription } from 'rxjs';
-import { CONFIG } from '../../../../config';
+import { CONFIG, STACK_VALUE } from '../../../../config';
 import { CasinoSocketService } from '../../services/casino-socket.service';
 import { EncryptDecryptService } from '../../services/encrypt-decrypt.service';
 import { NetworkService } from '../../services/network.service';
@@ -13,6 +13,7 @@ import { VideoPlayerUnrealComponent } from "../../shared/video-player-unreal/vid
 import { TopResultsComponent } from '../shared/top-results/top-results.component';
 import { QuickStakesEditComponent } from "../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component";
 import { ToggleService } from '../../services/toggle.service';
+import { IndexedDbService } from '../../services/indexed-db.service';
 
 export let browserRefresh = false;
 declare var $: any;
@@ -113,12 +114,14 @@ export class TeenpattiNewComponent {
   isMobile: boolean;
   isMobileInfo: string;
   // isTeNteenPatti:any;
+  stackButtonArry = STACK_VALUE;
 
   constructor(private route: ActivatedRoute,
     private networkService: NetworkService,
     private encyDecy: EncryptDecryptService,
     private toggleService: ToggleService,
     private deviceService: DeviceDetectorService,
+    private indexedDb:IndexedDbService,
     private socket: CasinoSocketService) {
 
     this.eventid = this.route.snapshot.params['id'];
@@ -141,6 +144,7 @@ export class TeenpattiNewComponent {
 
 
   ngOnInit(): void {
+    this.getStackData();
     this.getWindowSize()
 
     if (!this.isDesktop) {
@@ -265,7 +269,17 @@ export class TeenpattiNewComponent {
     this.getAllMarketProfitLoss();
     this.getResults();
   }
-
+  getStackData() {
+    const path = CONFIG.userGetStackURL.split('/').filter(Boolean).pop();
+    this.indexedDb.getRecord(path).subscribe((res: any) => {
+      if (res?.data?.stake) {
+        this.stackButtonArry = res.data.stake;
+      } else {
+        this.stackButtonArry = STACK_VALUE;
+      }
+      console.log('stakc',this.stackButtonArry)
+    })
+  }
   openQuickStakes() {
     this.toggleService.setQuickStakeEditSidebarState(true)
   }
