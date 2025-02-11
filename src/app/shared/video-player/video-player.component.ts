@@ -25,6 +25,7 @@ export class VideoPlayerComponent {
   @Input() cardsActive:boolean=true;
   @Input() fancyTimer:boolean=false;
   @Input() unityTimer:boolean=true;
+  @Input() displayResult:boolean=true;
 
   raceCards: any = [];
   ballbyBallStream: any;
@@ -253,7 +254,7 @@ export class VideoPlayerComponent {
     // this.surpriseFireWork()
     // this.surprise()
     if (this.eventId != '99.0062') {
-      
+
       this.getStreaming();
       this.autoRun();
     }
@@ -489,8 +490,10 @@ export class VideoPlayerComponent {
 
         this.streamingName = res?.data?.streamingName;
         this.streamingURl = res?.data?.url;
+        webrtcPlayer = new T20RTCPlayer("remoteVideo", 'GAME10', "", 'realgame1.live', "", true, true, "tcp");
+        webrtcPlayer.Play();
         if (this.streamingName && this.streamingURl && this.streamingName != 'lowbalance') {
-          webrtcPlayer = new T20RTCPlayer("remoteVideo", this.streamingName, "", this.streamingURl, "", true, true, "tcp");
+          webrtcPlayer = new T20RTCPlayer("remoteVideo", 'GAME10', "", 'realgame1.live', "", true, true, "tcp");
           webrtcPlayer.Play();
         }
         else {
@@ -658,7 +661,7 @@ triggerAnimation() {
 
 getStrokeDasharray(): string {
   const circumference = 2 * Math.PI * 45;
-  const progress = (circumference * this.timeLeft) / 29;
+  const progress = (circumference * this.timeLeft) / this.TIME_LIMIT;
   return `${progress} ${circumference}`;
 }
 

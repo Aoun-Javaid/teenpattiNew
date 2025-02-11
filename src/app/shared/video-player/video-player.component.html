@@ -1,13 +1,13 @@
 <div class="relative">
 
 <div class="videoPlayer">
-  
+
 
   <ng-container *ngIf="eventid!='99.0062'; else ballbyball">
     <video #videoElement style="background-color:black;background-size: contain;" id="remoteVideo" width="100%"
       height="100%" autoplay playsinline muted></video>
   </ng-container>
- 
+
   <ng-template #ballbyball>
     <video id="videoBallByball" *ngIf="game?.status=='SUSPEND' && !showBanner" style="background-color:black;background-size: contain;"
     width="100%" class="isDesktop" autoplay playsinline muted>
@@ -480,7 +480,7 @@
 
 
   <div class="winnerOverlay" *ngIf="game?.eventId!=='99.0062'">
-    <div class="mini-result-new" [ngClass]="resultDeclared?'active':'resultRemover'">
+    <div class="mini-result-new" [ngClass]="resultDeclared?'active':'resultRemover'" *ngIf="displayResult">
 
       <span *ngIf="resultDeclared">
         {{resultDeclared}} win
@@ -631,7 +631,7 @@
 
   <!-- video cards end -->
 
-  <div class="timer-overlay">
+  <div class="timer-overlay" [ngClass]="unityTimer?'right-1':'left-[50%]'">
     <!--  -->
     <ng-container  *ngIf="unityTimer">
     <div class="timer-group" *ngIf="TIME_LIMIT !== 0">
@@ -650,14 +650,14 @@
       </div>
     </div>
   </ng-container>
-  <div class="">
+
     <!-- timer -->
      <!-- <app-timer></app-timer> -->
-    <div class="timerPortrait" >
-      <div
-        class=""
+    <div class="timerPortrait" *ngIf="!unityTimer">
+      <div *ngIf="TIME_LIMIT !== 0"
+
         data-locator="betting-timer"
-        
+
         style="--size: 4rem"
       >
       <svg class="bettingTimer_timer" viewBox="0 0 64 64">
@@ -680,17 +680,17 @@
       </svg>
         <div
         [ngClass]="{
-            'roll-up': animate && timeLeft > 5, 
+            'roll-up': animate && timeLeft > 5,
             'cd-number': animate && timeLeft <= 5,
-        }"  
+        }"
           class=" absolute inset-0 flex items-center justify-center text-[22px] text-white   "
-         
+
         >
         {{ timeLeft }}
         </div>
       </div>
     </div>
-  </div>
+
 
   </div>
   <!--  timer ends -->

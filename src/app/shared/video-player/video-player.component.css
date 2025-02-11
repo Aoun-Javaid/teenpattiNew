@@ -214,7 +214,7 @@ padding: 0px 5px 0px 13px
   position: absolute;
   /* right: 4px; */
   height: auto;
-  left: 50%;
+  /* left: 50%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -697,7 +697,7 @@ video {
   transform: translatey(-30%);
   z-index: 1;
   margin-top: 25px;
-  
+
 
 }
 .roll-up {
@@ -739,7 +739,8 @@ video {
   pointer-events: none;
   position: absolute;
   right: 50%;
-  top: 7.5rem;
+  /* top: 7.5rem; */
+  top: 4.5rem;
   transform: translateX(50%);
   transition: transform .2s ease .2s, opacity .25s ease .75s, visibility .25s .75s;
   width: 4rem;

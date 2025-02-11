@@ -28,6 +28,7 @@ export class VideoPlayerUnrealComponent implements OnDestroy,OnInit{
   @Input() cardsActive:boolean=true;
   @Input() fancyTimer:boolean=false;
   @Input() unityTimer:boolean=true;
+  @Input() displayResult:boolean=true;
 
   currentState: boolean = false;
   raceCards: any = [];
@@ -495,14 +496,30 @@ export class VideoPlayerUnrealComponent implements OnDestroy,OnInit{
         if (this.streamingName && this.streamingURl && this.streamingName != 'lowbalance') {
           setTimeout(() => {
             if ("MediaSource" in window && "WebSocket" in window) {
+              RunPlayer(
+                "UnrealPlayer1",
+                '100%',
+                '100%',
+                "ltve.live",
+                443,
+                true,
+                "“ltve3",
+                "",
+                true,
+                true,
+                1,
+                "/public/video/bg.png",
+                false
+              );
               // RunPlayer(
               //   "UnrealPlayer1",
               //   '100%',
               //   '100%',
-              //   "ltve.live",
+              //   'this.streamingURl',
+              //   'realgame1.live',
               //   443,
               //   true,
-              //   "ltve1",
+              //   this.streamingName,
               //   "",
               //   true,
               //   true,
@@ -510,21 +527,6 @@ export class VideoPlayerUnrealComponent implements OnDestroy,OnInit{
               //   "/assets/video/bg.png",
               //   false
               // );
-              RunPlayer(
-                "UnrealPlayer1",
-                '100%',
-                '100%',
-                this.streamingURl,
-                443,
-                true,
-                this.streamingName,
-                "",
-                true,
-                true,
-                1,
-                "/assets/video/bg.png",
-                false
-              );
               this.initializeVolumeControls();
               this.currentState=true;
             }

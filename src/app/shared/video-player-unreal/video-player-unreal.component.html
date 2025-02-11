@@ -1,5 +1,5 @@
 
-  
+
 
 <div class="videoPlayer">
   <!-- <app-timer class="timer-div"></app-timer> -->
@@ -481,8 +481,8 @@
   </ng-container>
 
 
-  <div class="winnerOverlay" *ngIf="game?.eventId!=='99.0062'">
-    <div class="mini-result-new" [ngClass]="resultDeclared?'active':'resultRemover'">
+  <div class="winnerOverlay" *ngIf="game?.eventId!=='99.0062'" >
+    <div class="mini-result-new" [ngClass]="resultDeclared?'active':'resultRemover' "  *ngIf="displayResult">
 
       <span *ngIf="resultDeclared">
         {{resultDeclared}} win
@@ -493,7 +493,7 @@
       <canvas width="100vw" height="100vh"></canvas>
     </span>
   </div>
- 
+
 
   <!-- Result Declartion for borard cards and player A and Banker  -->
   <!-- <div class="winnerOverlay" *ngIf=" !boardCards &&(playerACards || playerBCards) ">
@@ -633,9 +633,9 @@
 
   <!-- video cards end -->
 
-  <div class="timer-overlay">
+  <div class="timer-overlay" >
     <!--  -->
-    <!-- <ng-container  *ngIf="unityTimer">
+    <ng-container  *ngIf="unityTimer">
     <div class="timer-group" *ngIf="TIME_LIMIT !== 0">
       <div class="timerc minute">
         <div class="hand"><span [ngClass]="timerLeft < 6 ? 'spanColorRed' : ''"></span></div>
@@ -651,7 +651,7 @@
         </span>
       </div>
     </div>
-  </ng-container> -->
+  </ng-container>
   <!-- <div class="absolute top-[50%] left-[50%] ">
     <app-timer></app-timer>
    </div>  -->
@@ -659,11 +659,11 @@
 
     <!-- timer -->
      <!-- <app-timer></app-timer> -->
-    <div class="timerPortrait" >
+    <div class="timerPortrait" *ngIf="!unityTimer">
       <div
         class=""
         data-locator="betting-timer"
-        
+
         style="--size: 4rem"
       >
       <svg class="bettingTimer_timer" viewBox="0 0 64 64">
@@ -685,17 +685,17 @@
       </svg>
         <div
         [ngClass]="{
-            'roll-up': animate && timeLeft > 5, 
+            'roll-up': animate && timeLeft > 5,
             'cd-number': animate && timeLeft <= 5,
-        }"  
+        }"
           class=" absolute inset-0 flex items-center justify-center text-[22px] text-white   "
-         
+
         >
         {{ timeLeft }}
         </div>
       </div>
     </div>
- 
+
   </div>
 
 

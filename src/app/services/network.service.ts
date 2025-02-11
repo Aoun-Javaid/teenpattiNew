@@ -10,6 +10,7 @@ export class NetworkService {
   private eventData = new Subject<string>();
   private resultObj = new Subject<any>();
   private resultData = new Subject<string>();
+  private betPlaceObj = new Subject<any>();
 
   constructor(private http: HttpClient) { }
 
@@ -48,7 +49,12 @@ export class NetworkService {
   getResultData() {
     return this.resultObj
   }
-
+  setBetPlace(betObj: any) {
+    this.betPlaceObj.next(betObj);
+  }
+  getBetPlace() {
+    return this.betPlaceObj
+  }
   getvideoStreamURL(eventId: any): Observable<any> {
     return this.http.post(CONFIG.videoStreamURL, { eventId })
   }

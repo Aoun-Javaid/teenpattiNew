@@ -1,15 +1,17 @@
-<div class="newGameWrapper relative" style="overflow-y: hidden;">
+<div class="newGameWrapper relative" style="overflow-y: hidden;" *ngIf="marketArray">
     <app-top-results></app-top-results>
 
     <div #target>
-        <ng-container *ngIf="isMobileInfo == 'iOS'">
+      <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true" [displayResult]="false"
+      [unityTimer]="false"></app-video-player>
+        <!-- <ng-container *ngIf="isMobileInfo == 'iOS'">
             <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
                 [unityTimer]="false"></app-video-player>
         </ng-container>
         <ng-container *ngIf="isMobileInfo !== 'iOS'">
             <app-video-player-unreal [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
                 [unityTimer]="false"></app-video-player-unreal>
-        </ng-container>
+        </ng-container> -->
     </div>
     <div id="marketScroll" style="overflow-y: auto;" [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
 
@@ -57,6 +59,14 @@
                                     {{aPlayerChances}}%
                                 </div>
                             </div>
+                            <div *ngIf="TPlayerChances" class="progress-bar bg-Tie" [style.width]="TPlayerChances+'%'">
+                              <div class="progress-bar_data">
+                                  T
+                              </div>
+                              <div class="progress-bar_data">
+                                  {{TPlayerChances}}%
+                              </div>
+                          </div>
                             <div class="progress-bar yellow_bg " [style.width]="bPlayerChances+'%'">
                                 <div class="progress-bar_data">
                                     B
@@ -326,33 +336,33 @@
                             <div class="win_A_size" *ngIf="firstBoxWidth">
                                 <div class="percentageBetStat"
                                     [ngStyle]="{ 'background-position-y': firstBoxWidth + '%' }">
-                                    {{firstBoxWidth | number :'1.0-2'}}%
+                                    {{firstBoxWidth | number :'1.0-1'}}%
                                 </div>
                             </div>
                             <div class="win_B_size" *ngIf="secndBoxWidth">
                                 <div class="percentageBetStat"
                                     [ngStyle]="{ 'background-position-y': secndBoxWidth + '%' }">
-                                    {{secndBoxWidth | number :'1.0-2'}}%
+                                    {{secndBoxWidth | number :'1.0-1'}}%
                                 </div>
                             </div>
                             <div class="table__betInfoGrid">
-                                <div class="betPlaceInfo">
-                                    <div class="betPlayer_A ">PLAYER A</div>
-                                    <div class="betPlaceInfo__roundInfo">0.95:1</div>
+                                <div class="betPlaceInfo" (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[0].selectionId,'back',marketArray[0].runners[0].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)">
+                                    <div class="betPlayer_A ">{{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}</div>
+                                    <div class="betPlaceInfo__roundInfo">{{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.2-2'}}</div>
                                 </div>
 
-                                <div class="betPlaceInfo betPlaceInfo_main_playerB">
-                                    <div class="betPlayer_A ">PLAYER B</div>
-                                    <div class="betPlaceInfo__roundInfo">0.95:1</div>
+                                <div class="betPlaceInfo betPlaceInfo_main_playerB" (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[1].selectionId,'back',marketArray[0].runners[1].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)">
+                                    <div class="betPlayer_A ">{{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}</div>
+                                    <div class="betPlaceInfo__roundInfo">{{marketArray[0]?.runners[1]?.price?.back[0]?.price | number : '1.2-2'}}</div>
                                 </div>
 
-                                <div class="betPlaceInfo_pairPlus_playerA betPlaceInfo  ">
+                                <div class="betPlaceInfo_pairPlus_playerA betPlaceInfo" (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[0].selectionId,'back',marketArray[1].runners[0].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)">
                                     <div class="pair-plus">Pair Plus</div>
                                     <div class="down-player">PLAYER A</div>
 
                                 </div>
 
-                                <div class="betPlaceInfo_pairPlus_playerB betPlaceInfo ">
+                                <div class="betPlaceInfo_pairPlus_playerB betPlaceInfo "  (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[1].selectionId,'back',marketArray[1].runners[1].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)">
                                     <div class="pair-plus">Pair Plus</div>
                                     <div class="down-player">PLAYER B</div>
 
@@ -567,8 +577,8 @@
                 <div class="buttonsPanel-hAiFyw buttonsPanel_bettingState-vnMbbl">
                     <div class="buttonsPanel__buttons-nTrdCX">
                         <div class="buttonsPanel__bettingButtons-tJAgVE ">
-                            <button class="bettingButton-i5MaZV bg-[rgba(138,138,153,0.2)] flex justify-center items-center" type="button" disabled="" data-locator="undo-bet-btn">
-                            <img _ngcontent-ng-c2176840777="" class="w-[23px] h-[28px]" src="/images/stakeEdit.svg" alt="Stake Edit">
+                            <button (click)="openQuickStakes()" class="bettingButton-i5MaZV bg-[rgba(138,138,153,0.2)] flex justify-center items-center" type="button"  data-locator="undo-bet-btn">
+                            <img  class="w-[23px] h-[28px]" src="/images/stakeEdit.svg" alt="Stake Edit">
                             </button>
                             <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI" type="button" disabled=""
                                 data-locator="undo-bet-btn">

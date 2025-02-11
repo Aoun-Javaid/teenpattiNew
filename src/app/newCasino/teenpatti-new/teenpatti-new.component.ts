@@ -15,6 +15,7 @@ import { QuickStakesEditComponent } from "../../shared/mob-navigation/quick-stak
 import { ToggleService } from '../../services/toggle.service';
 import { IndexedDbService } from '../../services/indexed-db.service';
 import { ShortNumberPipe } from '../../pipes/short-number.pipe';
+import { ToastrService } from 'ngx-toastr';
 
 export let browserRefresh = false;
 declare var $: any;
@@ -48,9 +49,10 @@ export class TeenpattiNewComponent {
     type: "1",
     id: ""
   };
-
+  selectedBetAmount:any;
   aPlayerChances: any;
   bPlayerChances: any;
+  TPlayerChances:any;
   showHamburger: boolean = true;
   btnIcon = false
   btnCheck: any
@@ -64,7 +66,7 @@ export class TeenpattiNewComponent {
     type: "3",
     id: ""
   };
-
+  isbetInProcess: boolean = false;
 
 
 
@@ -117,7 +119,6 @@ export class TeenpattiNewComponent {
   isMobileInfo: string;
   // isTeNteenPatti:any;
   stackButtonArry: any = STACK_VALUE;
-  coinPrice: any
 
   constructor(private route: ActivatedRoute,
     private networkService: NetworkService,
@@ -125,6 +126,7 @@ export class TeenpattiNewComponent {
     private toggleService: ToggleService,
     private deviceService: DeviceDetectorService,
     private indexedDb: IndexedDbService,
+    private toaster:ToastrService,
     private socket: CasinoSocketService) {
 
     this.eventid = this.route.snapshot.params['id'];
@@ -166,13 +168,15 @@ export class TeenpattiNewComponent {
 
     this.subscription = this.encyDecy.getMarketData().pipe(retry(this.retryConfig)).subscribe((marketData: any) => {
       this.socket = marketData; // Update the receivedMessage variable with the received message
+
       if (marketData) {
         this.getRoundId = localStorage.getItem('roundID')
 
         let objMarket = JSON.parse(marketData);
+        console.log('market data',objMarket)
         // let objMarket = marketData;
         if (this.eventid == '99.0046') {
-          console.log(objMarket)
+          // console.log(objMarket)
         }
 
         //First time get responce in array
@@ -282,14 +286,14 @@ export class TeenpattiNewComponent {
     this.indexedDb.getRecord(path).subscribe((res: any) => {
       if (res?.data?.stake) {
         this.stackButtonArry = res.data.stake;
-        this.coinPrice = this.stackButtonArry[0].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[0].stakeAmount
       } else {
         this.stackButtonArry = STACK_VALUE;
-        this.coinPrice = STACK_VALUE[0].stakeAmount
+        this.selectedBetAmount = STACK_VALUE[0].stakeAmount
       }
-      console.log('default value', this.coinPrice);
+      // console.log('default value', this.selectedBetAmount);
 
-      console.log('stakc', this.stackButtonArry);
+      // console.log('stakc', this.stackButtonArry);
     })
   }
   openQuickStakes() {
@@ -403,13 +407,13 @@ export class TeenpattiNewComponent {
                   // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
                   let percnt1 = ((this.changeValue / this.sizeRunner1) * 100);
                   this.firstBoxWidth = -1 * (percnt1 - 100) + '';
-                  console.log('player A', this.firstBoxWidth)
+                  // console.log('player A', this.firstBoxWidth)
                 }
                 if (runnersIndex == 1) {
                   // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
                   let percnt = ((this.changeValue / this.sizeRunner2) * 100);
                   this.secndBoxWidth = -1 * (percnt - 100) + '';
-                  console.log('player B', this.secndBoxWidth)
+                  // console.log('player B', this.secndBoxWidth)
 
                 }
                 this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size = this.changeValue;
@@ -465,63 +469,117 @@ export class TeenpattiNewComponent {
 
 
   openBetslip(marketId: any, selectionId: any, betType: any, price: any, min: any, max: any) {
-    // this.scrollToBetslip() ;
-    setTimeout(() => {
-      const element = document.getElementById('betslip');
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
 
-        if (isVisible) {
-          // console.log('Betslip is completely in the viewport');
-        } else {
-          // console.log('Betslip is not completely in the viewport');
-          this.scrollToBetslip()
+    if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
+      if (this.selectedBetAmount > 0) {
+        this.isBetsSlipOpened = selectionId;
+        this.marketId = marketId;
+        this.betType = betType
+        this.isValueBetsSlip = 0;
+
+        this.betplaceObj = {
+          marketId: marketId,
+          selectionId: selectionId,
+          betType: betType,
+          price: price,
+          eventId: this.eventid,
+          roomId: this._roomId,
+          minValue: min,
+          maxValue: max
+
         }
+        this.placeCasinoBet();
       }
-
-    }, 50);
-    // setTimeout(() => {
-    //   this.centerScrollableDiv('betslip');
-
-    // }, 100);
-
-    setTimeout(() => {
-      const betslipElement = document.getElementById('betslip');
-      const isBetslipOpen = betslipElement && betslipElement.style.display !== 'none';
-
-      if (!isBetslipOpen) {
-        // If the betslip is not already open, set up the event listener
-        this.callFunctionOnClickNearBottom(350, this.scrollToBetslip);
-        // this.centerScrollableDiv('betslip')
-
-      } else {
-        // console.log('Betslip is already open, no need to scroll');
+      else {
+        this.toaster.error("please select chips for Bet", '', {
+          positionClass: 'toast-top-right',
+        })
       }
-    }, 1);
-
-
-
-
-    this.isBetsSlipOpened = selectionId;
-    this.marketId = marketId;
-    this.betType = betType
-    this.isValueBetsSlip = 0;
-
-    this.betplaceObj = {
-      marketId: marketId,
-      selectionId: selectionId,
-      betType: betType,
-      price: price,
-      eventId: this.eventid,
-      roomId: this._roomId,
-      minValue: min,
-      maxValue: max
-
+    }
+    else {
+      return
     }
 
   }
 
+  placeCasinoBet() {
+    this.isbetInProcess = true;
+
+    let data = {
+      marketId: this.betplaceObj.marketId,
+      selectionId: this.betplaceObj.selectionId,
+      stake: this.selectedBetAmount,
+      eventId: this.betplaceObj.eventId,
+      flag: this.betplaceObj.betType
+    };
+
+    $('.btn-placebet').prop('disabled', true);
+    let apiURL;
+
+    apiURL = CONFIG.asianCasinoPlacebetURL;
+
+    // if (this.item.roomId == 'eu') {
+    //   apiURL = CONFIG.eUCasinoPlacebetURL;
+    // } else {
+    //   apiURL = CONFIG.asianCasinoPlacebetURL;
+    // }
+
+    this.networkService.getAllRecordsByPost(apiURL, data)
+      .pipe(first())
+      .subscribe(
+        res => {
+          // console.log(res , "betslip")
+          if (res?.meta?.status == true) {
+            //this.toastr.successToastr(data.meta.message);
+            // $('.btn-placebet').prop('disabled', false);
+            // this.afterPlaceBet();
+            this.getBalance();
+            this.getAllMarketProfitLoss();
+            this.isbetInProcess = false;
+            let placeBetObj = {
+              profitlossCall: true,
+              loader: false,
+            }
+            this.networkService.setBetPlace(placeBetObj);
+
+          }
+          else {
+            // $('.btn-placebet').prop('disabled', false);
+            // this.afterPlaceBet();
+            if (res?.meta.status == false) {
+              this.toaster.error(res.meta.message, '', {
+                positionClass: 'toast-top-right',
+              });
+              // this.cancelBet();
+            } else {
+              this.toaster.error("Something went wrong please try again.", '', {
+                positionClass: 'toast-top-right',
+              });
+            }
+            this.isbetInProcess = false;
+          }
+
+          var pl = res.pl;
+
+
+        },
+        error => {
+          //let statusError = error;
+          $('.btn-placebet').prop('disabled', false);
+          //this.afterPlaceBet();
+          if (error?.error.meta.status == false) {
+            this.toaster.error(error.error.meta.message, '', {
+              positionClass: 'toast-top-right',
+            });
+            // this.cancelBet();
+          } else {
+            this.toaster.error("Something went wrong please try again.", '', {
+              positionClass: 'toast-top-right',
+            });
+          }
+          this.isbetInProcess = false;
+        });
+  }
   callFunctionOnClickNearBottom(thresholdFromBottom: number, callback: () => void) {
     window.addEventListener("click", (event) => {
       const viewportHeight = window.innerHeight;
@@ -655,7 +713,7 @@ export class TeenpattiNewComponent {
           this.networkService.updateResultstream(data.data)
           let playerAWins = 0
           let playerBWins = 0
-          debugger
+          // debugger
           data.data.forEach((round: any) => {
             if (round.winner === 'A') {
               playerAWins++;
@@ -665,6 +723,7 @@ export class TeenpattiNewComponent {
           });
           this.aPlayerChances = (playerAWins / data?.data?.length) * 100
           this.bPlayerChances = (playerBWins / data?.data?.length) * 100
+          this.TPlayerChances = (100 - this.aPlayerChances - this.bPlayerChances);
         },
         error => {
           let responseData = error;
@@ -903,28 +962,28 @@ export class TeenpattiNewComponent {
     document.documentElement.style.setProperty('--translateXReverse', translateXRevers);
     switch (this.btnCheck) {
       case 1:
-        this.coinPrice = this.stackButtonArry[0].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[0].stakeAmount
         break;
       case 2:
-        this.coinPrice = this.stackButtonArry[1].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[1].stakeAmount
         break;
       case 3:
-        this.coinPrice = this.stackButtonArry[2].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[2].stakeAmount
         break;
       case 4:
-        this.coinPrice = this.stackButtonArry[3].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[3].stakeAmount
         break;
       case 5:
-        this.coinPrice = this.stackButtonArry[4].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[4].stakeAmount
         break;
       case 6:
-        this.coinPrice = this.stackButtonArry[5].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[5].stakeAmount
         break;
       default:
-        this.coinPrice = this.stackButtonArry[5].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[5].stakeAmount
         break
     }
-    console.log('onclick', this.coinPrice);
+    console.log('onclick', this.selectedBetAmount);
   }
 
 

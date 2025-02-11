@@ -500,6 +500,9 @@
   gap: 4px;
   font-family: "Baloo", sans-serif;
 }
+.bg-Tie{
+  background: #18862e;
+}
 
 .progress_bar_container div {
   display: flex;
