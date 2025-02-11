@@ -157,7 +157,9 @@ export class TeenpattiNewComponent {
 
     if (!this.isDesktop) {
       this.setMarketScrollHeight();
-      $('html').css('overflow', 'hidden');
+      if(this.isMobileInfo !== 'iOS'){
+        $('html').css('overflow', 'hidden');
+      }
     }
     // if(this.game == undefined || this.game === null){
     this.resultcounter = 0;
