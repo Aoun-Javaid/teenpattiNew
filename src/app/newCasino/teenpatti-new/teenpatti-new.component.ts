@@ -14,6 +14,7 @@ import { TopResultsComponent } from '../shared/top-results/top-results.component
 import { QuickStakesEditComponent } from "../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component";
 import { ToggleService } from '../../services/toggle.service';
 import { IndexedDbService } from '../../services/indexed-db.service';
+import { ShortNumberPipe } from '../../pipes/short-number.pipe';
 
 export let browserRefresh = false;
 declare var $: any;
@@ -22,7 +23,7 @@ declare var $: any;
   selector: 'app-teenpatti-new',
 
   standalone: true,
-  imports: [TopResultsComponent, CommonModule, VideoPlayerComponent, VideoPlayerUnrealComponent, QuickStakesEditComponent],
+  imports: [TopResultsComponent, ShortNumberPipe, CommonModule, VideoPlayerComponent, VideoPlayerUnrealComponent, QuickStakesEditComponent],
   templateUrl: './teenpatti-new.component.html',
   styleUrl: './teenpatti-new.component.css'
 })
@@ -31,7 +32,7 @@ export class TeenpattiNewComponent {
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
   animateIcon: boolean = false;
-  coinAnimateState = false
+  coinAnimateState = false;
   animationContainer: boolean = false
   betState: boolean = false;
   selectedCoin: string = '/NteenPatti/Icons/green-coin.svg.svg';
@@ -41,6 +42,7 @@ export class TeenpattiNewComponent {
   subscription!: Subscription;
   liveData$: any;
   animateCoinVal: any
+
   animate = false
   public message = {
     type: "1",
@@ -114,14 +116,15 @@ export class TeenpattiNewComponent {
   isMobile: boolean;
   isMobileInfo: string;
   // isTeNteenPatti:any;
-  stackButtonArry = STACK_VALUE;
+  stackButtonArry: any = STACK_VALUE;
+  coinPrice: any
 
   constructor(private route: ActivatedRoute,
     private networkService: NetworkService,
     private encyDecy: EncryptDecryptService,
     private toggleService: ToggleService,
     private deviceService: DeviceDetectorService,
-    private indexedDb:IndexedDbService,
+    private indexedDb: IndexedDbService,
     private socket: CasinoSocketService) {
 
     this.eventid = this.route.snapshot.params['id'];
@@ -131,6 +134,7 @@ export class TeenpattiNewComponent {
     this.isDesktop = this.deviceService.isDesktop();
     this.isMobile = this.deviceService.isMobile();
     this.isMobileInfo = this.deviceService.os;
+
     // this.sendMsg();
 
     // this.router.events.subscribe((event: any) => {
@@ -144,6 +148,8 @@ export class TeenpattiNewComponent {
 
 
   ngOnInit(): void {
+
+
     this.getStackData();
     this.getWindowSize()
 
@@ -269,15 +275,21 @@ export class TeenpattiNewComponent {
     this.getAllMarketProfitLoss();
     this.getResults();
   }
+
+
   getStackData() {
     const path = CONFIG.userGetStackURL.split('/').filter(Boolean).pop();
     this.indexedDb.getRecord(path).subscribe((res: any) => {
       if (res?.data?.stake) {
         this.stackButtonArry = res.data.stake;
+        this.coinPrice = this.stackButtonArry[0].stakeAmount
       } else {
         this.stackButtonArry = STACK_VALUE;
+        this.coinPrice = STACK_VALUE[0].stakeAmount
       }
-      console.log('stakc',this.stackButtonArry)
+      console.log('default value', this.coinPrice);
+
+      console.log('stakc', this.stackButtonArry);
     })
   }
   openQuickStakes() {
@@ -889,9 +901,35 @@ export class TeenpattiNewComponent {
         break;
     }
     document.documentElement.style.setProperty('--translateXReverse', translateXRevers);
-
-
+    switch (this.btnCheck) {
+      case 1:
+        this.coinPrice = this.stackButtonArry[0].stakeAmount
+        break;
+      case 2:
+        this.coinPrice = this.stackButtonArry[1].stakeAmount
+        break;
+      case 3:
+        this.coinPrice = this.stackButtonArry[2].stakeAmount
+        break;
+      case 4:
+        this.coinPrice = this.stackButtonArry[3].stakeAmount
+        break;
+      case 5:
+        this.coinPrice = this.stackButtonArry[4].stakeAmount
+        break;
+      case 6:
+        this.coinPrice = this.stackButtonArry[5].stakeAmount
+        break;
+      default:
+        this.coinPrice = this.stackButtonArry[5].stakeAmount
+        break
+    }
+    console.log('onclick', this.coinPrice);
   }
+
+
+
+
 
 }
 
