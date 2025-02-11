@@ -1350,8 +1350,13 @@
 .animation-container {
   overflow: hidden;
   max-width: 0px;
-  height: 0px;
-  transition: max-width 500ms ease;
+  max-height: 0px;
+  transition: max-width 300ms ease, max-height 600ms ease;
+}
+
+.open-coin-bar {
+  @apply !max-w-[400px] !max-h-[200px] !overflow-visible;
+  transition: max-width 300ms ease, max-height 200ms ease !important;
 }
 
 .chipTrayWithToggleBg-Nl1Fsr {
@@ -2802,15 +2807,19 @@ p {
 } */
 
 .move_right {
-  animation: move_right 1s;
+  animation: move_right 500ms;
 }
 
 @keyframes move_right {
   0% {
     -webkit-transform: translate(0, 0);
+    position: relative;
+    z-index: 20;
   }
   50% {
     -webkit-transform: translate(var(--translateX), 0px);
+    position: relative;
+    z-index: 20;
   }
   100% {
     -webkit-transform: translate(var(--translateX), 67px);
@@ -2818,17 +2827,99 @@ p {
 }
 
 .move_back {
-  animation: move_back 1s forwards;
+  animation: move_back 500ms forwards;
 }
 
 @keyframes move_back {
   0% {
-    -webkit-transform: translate(var(--translateX), 67px);
+    -webkit-transform: translate(var(--translateXReverse), 67px);
+    position: relative;
+    z-index: 20;
   }
   50% {
-    -webkit-transform: translate(var(--translateX), 0px);
+    -webkit-transform: translate(var(--translateXReverse), 0px);
+    position: relative;
+    z-index: 20;
   }
   100% {
     -webkit-transform: translate(0, 0);
+  }
+}
+
+.move_center-1 {
+  animation: move_center-1 250ms forwards;
+}
+
+@keyframes move_center-1 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(205px, 0);
+  }
+}
+
+.move_center-2 {
+  animation: move_center-2 250ms forwards;
+}
+
+@keyframes move_center-2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(143.8px, 0);
+  }
+}
+
+.move_center-3 {
+  animation: move_center-3 250ms forwards;
+}
+
+@keyframes move_center-3 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(85.51px, 0);
+  }
+}
+
+.move_center-4 {
+  animation: move_center-4 250ms forwards;
+}
+
+@keyframes move_center-4 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(26.4px, 0);
+  }
+}
+
+.move_center-5 {
+  animation: move_center-5 250ms forwards;
+}
+
+@keyframes move_center-5 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(-33.2px, 0);
+  }
+}
+
+.move_center-6 {
+  animation: move_center-6 250ms forwards;
+}
+
+@keyframes move_center-6 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(-92.8px, 0);
   }
 }

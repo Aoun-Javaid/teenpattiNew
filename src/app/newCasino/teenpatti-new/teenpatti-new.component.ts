@@ -26,7 +26,7 @@ declare var $: any;
   styleUrl: './teenpatti-new.component.css'
 })
 export class TeenpattiNewComponent {
-  reverseAnimate:boolean = false
+  reverseAnimate: boolean = false
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
   animateIcon: boolean = false;
@@ -803,16 +803,17 @@ export class TeenpattiNewComponent {
   }
 
   showAnimateCoinBar() {
-    // this.reverseAnimate = false;
-    // setTimeout(() => {
-    //   this.reverseAnimate = false;
-    // }, 100);
+
+    setTimeout(() => {
+      this.reverseAnimate = false
+    }, 500);
     this.btnIcon = false
     if (!this.coinAnimateState) {
       this.coinAnimateState = true;
-
+      this.reverseAnimate = true
       if (this.animateCoinVal) {
         this.animate = true;
+
       }
     } else {
       if (this.coinAnimateState) {
@@ -823,7 +824,7 @@ export class TeenpattiNewComponent {
         this.animateCoinVal = null;
         this.btnIcon = true
         this.coinAnimateState = false;
-      }, 1000);
+      }, 500);
     }
 
     let translateX = '205px';
@@ -851,6 +852,31 @@ export class TeenpattiNewComponent {
     if (!this.btnCheck) {
       this.btnCheck = 1
     }
+
+    let translateXRevers = '205px';
+    switch (this.btnCheck) {
+      case 1:
+        translateXRevers = '205px';
+        break;
+      case 2:
+        translateXRevers = '143.8px';
+        break;
+      case 3:
+        translateXRevers = '85.51px';
+        break;
+      case 4:
+        translateXRevers = '26.4px';
+        break;
+      case 5:
+        translateXRevers = '-33.2px';
+        break;
+      case 6:
+        translateXRevers = '-90.8px';
+        break;
+    }
+    document.documentElement.style.setProperty('--translateXReverse', translateXRevers);
+
+
   }
 
 }
