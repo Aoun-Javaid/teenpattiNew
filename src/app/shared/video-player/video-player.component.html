@@ -491,45 +491,7 @@
       <canvas width="100vw" height="100vh"></canvas>
     </span>
   </div>
-  <div class="timer-div">
-    <!-- timer -->
-    <div class="timerPortrait" >
-      <div
-        class=""
-        data-locator="betting-timer"
-        
-        style="--size: 4rem"
-      >
-      <svg class="bettingTimer_timer" viewBox="0 0 64 64">
-        <circle
-          class="bettingTimer_circle"
-          fill="#0006"
-          [attr.stroke]="getStrokeColor()"
-          stroke-linecap="round"
-          [attr.stroke-dasharray]="getStrokeDasharray()"
-          stroke-dashoffset="0"
-          [style.opacity]="getOpacity()"
-          class="transition-all duration-500  "
-          cx="32"
-          cy="32"
-          r="29.088"
-          stroke-width="5.824"
-          transform="rotate(-90 32 32)"
-        ></circle>
-      </svg>
-        <div
-        [ngClass]="{
-            'roll-up': animate && timeLeft > 5, 
-            'cd-number': animate && timeLeft <= 5,
-        }"  
-          class=" absolute inset-0 flex items-center justify-center text-[22px] text-white   "
-         
-        >
-        {{ timeLeft }}
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- Result Declartion for borard cards and player A and Banker  -->
   <!-- <div class="winnerOverlay" *ngIf=" !boardCards &&(playerACards || playerBCards) ">
@@ -688,7 +650,47 @@
       </div>
     </div>
   </ng-container>
-  
+  <div class="">
+    <!-- timer -->
+     <!-- <app-timer></app-timer> -->
+    <div class="timerPortrait" >
+      <div
+        class=""
+        data-locator="betting-timer"
+        
+        style="--size: 4rem"
+      >
+      <svg class="bettingTimer_timer" viewBox="0 0 64 64">
+        <circle
+          class="bettingTimer_circle"
+          fill="#0006"
+          [attr.stroke]="getStrokeColor()"
+          stroke-linecap="round"
+          [attr.stroke-dasharray]="getStrokeDasharray()"
+          stroke-dashoffset="0"
+          [style.opacity]="getOpacity()"
+          class="transition-all duration-500  "
+          cx="32"
+          cy="32"
+          r="29.088"
+          stroke-width="5.824"
+          transform="rotate(-90 32 32)"
+        >
+      </circle>
+      </svg>
+        <div
+        [ngClass]="{
+            'roll-up': animate && timeLeft > 5, 
+            'cd-number': animate && timeLeft <= 5,
+        }"  
+          class=" absolute inset-0 flex items-center justify-center text-[22px] text-white   "
+         
+        >
+        {{ timeLeft }}
+        </div>
+      </div>
+    </div>
+  </div>
 
   </div>
   <!--  timer ends -->

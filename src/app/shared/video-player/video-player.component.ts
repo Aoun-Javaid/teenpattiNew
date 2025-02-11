@@ -253,6 +253,7 @@ export class VideoPlayerComponent {
     // this.surpriseFireWork()
     // this.surprise()
     if (this.eventId != '99.0062') {
+      
       this.getStreaming();
       this.autoRun();
     }

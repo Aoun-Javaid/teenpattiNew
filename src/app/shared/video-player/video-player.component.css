@@ -212,9 +212,9 @@ padding: 0px 5px 0px 13px
 
 .timer-overlay {
   position: absolute;
-  right: 4px;
+  /* right: 4px; */
   height: auto;
-
+  left: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
