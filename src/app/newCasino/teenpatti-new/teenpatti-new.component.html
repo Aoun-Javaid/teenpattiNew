@@ -1,6 +1,7 @@
-<div class="newGameWrapper relative">
+<div class="newGameWrapper relative" style="overflow-y: hidden;">
     <app-top-results></app-top-results>
-    <div class="h-[48.5%]">
+
+    <div  #target>
         <ng-container *ngIf="isMobileInfo == 'iOS'">
             <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
                 [unityTimer]="false"></app-video-player>
@@ -10,8 +11,11 @@
                 [unityTimer]="false"></app-video-player-unreal>
         </ng-container>
     </div>
+    <div  id="marketScroll" style="overflow-y: auto;"
+    [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
 
-    <div class="absolute bottom-[12px] left-0 w-full">
+
+    <div class="absolute bottom-[12px] left-0 w-full" >
 
         <!-- Teen patti Cards Section starts here -->
         <div class="teen_patti_conatiner absolute top-[-5.375rem] w-full"
@@ -779,7 +783,7 @@
 
 
     </div>
-
+  </div>
 </div>
 <!-- <div class="h-[50px] w-full bg-[#161a2b]"></div> -->
 
