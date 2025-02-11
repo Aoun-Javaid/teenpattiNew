@@ -1,10 +1,10 @@
 .newGameWrapper {
   background-color: #161a2b;
-  /* height: calc(100vh - 119px); */
-  height: 100%;
+  height: calc(100vh - 119px);
+  /* height: 100%; */
   position: relative;
   width: 100%;
-  height: 100vh;
+  /* height: ; */
   overflow-y: scroll;
 }
 .dashboard_wrapper {
