@@ -1349,14 +1349,14 @@
 
 .animation-container {
   overflow: hidden;
-  max-width: 0px;
   max-height: 0px;
-  transition: max-width 300ms ease, max-height 600ms ease;
+  transition: max-height 600ms ease;
+  opacity: 0;
 }
 
 .open-coin-bar {
-  @apply !max-w-[400px] !max-h-[200px] !overflow-visible;
-  transition: max-width 300ms ease, max-height 200ms ease !important;
+  @apply !max-h-[200px] !overflow-visible opacity-[1];
+  transition: max-height 200ms ease !important;
 }
 
 .chipTrayWithToggleBg-Nl1Fsr {
@@ -2856,6 +2856,7 @@ p {
   }
   100% {
     -webkit-transform: translate(205px, 0);
+    opacity: 0;
   }
 }
 
@@ -2869,6 +2870,7 @@ p {
   }
   100% {
     -webkit-transform: translate(143.8px, 0);
+    opacity: 0;
   }
 }
 
@@ -2882,6 +2884,7 @@ p {
   }
   100% {
     -webkit-transform: translate(85.51px, 0);
+    opacity: 0;
   }
 }
 
@@ -2895,6 +2898,7 @@ p {
   }
   100% {
     -webkit-transform: translate(26.4px, 0);
+    opacity: 0;
   }
 }
 
@@ -2908,6 +2912,7 @@ p {
   }
   100% {
     -webkit-transform: translate(-33.2px, 0);
+    opacity: 0;
   }
 }
 
@@ -2921,5 +2926,84 @@ p {
   }
   100% {
     -webkit-transform: translate(-92.8px, 0);
+    opacity: 0;
+  }
+}
+
+.move_center-back-1 {
+  animation: move_center-back-1 350ms forwards;
+}
+
+@keyframes move_center-back-1 {
+  0% {
+    -webkit-transform: translate(205px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+.move_center-back-2 {
+  animation: move_center-back-2 350ms forwards;
+}
+
+@keyframes move_center-back-2 {
+  0% {
+    -webkit-transform: translate(143.8px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+.move_center-back-3 {
+  animation: move_center-back-3 350ms forwards;
+}
+
+@keyframes move_center-back-3 {
+  0% {
+    -webkit-transform: translate(85.51px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+.move_center-back-4 {
+  animation: move_center-back-4 350ms forwards;
+}
+
+@keyframes move_center-back-4 {
+  0% {
+    -webkit-transform: translate(26.4px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+.move_center-back-5 {
+  animation: move_center-back-5 350ms forwards;
+}
+
+@keyframes move_center-back-5 {
+  0% {
+    -webkit-transform: translate(-33.2px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+.move_center-back-6 {
+  animation: move_center-back-6 350ms forwards;
+}
+
+@keyframes move_center-back-6 {
+  0% {
+    -webkit-transform: translate(-90.8px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
   }
 }
