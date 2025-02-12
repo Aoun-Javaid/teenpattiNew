@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, map, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, first, map, Observable, Subject } from 'rxjs';
 import { CONFIG } from '../../../config';
 declare var $:any;
 @Injectable({
@@ -9,7 +9,7 @@ declare var $:any;
 export class NetworkService {
   private eventData = new Subject<string>();
   private resultObj = new Subject<any>();
-  private resultData = new Subject<string>();
+  private resultData : BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
   private betPlaceObj = new Subject<any>();
 
   constructor(private http: HttpClient) { }

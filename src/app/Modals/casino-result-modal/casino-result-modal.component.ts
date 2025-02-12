@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModalService } from '../../services/modal.service';
 import { NetworkService } from '../../services/network.service';
 
@@ -12,6 +12,9 @@ import { NetworkService } from '../../services/network.service';
 })
 export class CasinoResultModalComponent {
   @Output() dataSent = new EventEmitter<string>();
+
+  @Input() darkTheme: boolean = false;
+  @Input() extraMarkets: boolean = true;
 
   isShow: boolean = false
   selectedResult:any={}

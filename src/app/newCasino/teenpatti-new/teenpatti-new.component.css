@@ -419,6 +419,7 @@
   align-items: flex-start;
   padding: 20px;
   flex-direction: row;
+
 }
 
 /* High Card section ends here */
@@ -453,7 +454,7 @@
 .player_A_cards {
   position: relative;
   width: 50%;
-  padding: 10px 0px;
+  padding: 10px 20px;
   text-align: center;
   font-weight: bold;
   color: white; /* Adjust content color */

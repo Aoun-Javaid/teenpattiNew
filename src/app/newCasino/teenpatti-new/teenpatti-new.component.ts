@@ -227,6 +227,9 @@ export class TeenpattiNewComponent {
             this.isBetsSlipOpened = '';
             this.isValueBetsSlip = 0;
           }
+          if (this.game.status == 'ONLINE') {
+            
+          }
           this.playerACards = this.game?.cardsArr?.PLAYER_A;
           this.playerBCards = this.game?.cardsArr?.PLAYER_B;
           this.winnerMarketArray = this.game.marketArr ? this.game.marketArr[0] : ''

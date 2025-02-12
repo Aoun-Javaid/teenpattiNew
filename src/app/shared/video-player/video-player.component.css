@@ -744,5 +744,5 @@ video {
   transform: translateX(50%);
   transition: transform .2s ease .2s, opacity .25s ease .75s, visibility .25s .75s;
   width: 4rem;
-  z-index: 1055 !important;
+  z-index: 998 !important;
 }

@@ -11,10 +11,10 @@
       <div class="resultItem__list-J7YJ2v">
         <div class="abResultLine-eMgxz_">
           <div class="abResultLine__inner-fF8OCI abResultLine__inner_animateFirstItem-Nbi5o9 abResultLine__inner_stretch-Z3RTMl abResultLine__inner_multipleLines-pKLIP8 animated2-gtLnvD" style="--shift-horizontally: -1.25rem;">
-            @for (item of betHistory; track $index) {
-            <div class="tile-lWsz_U tile_size_small-ATZ3H_ tile_indentSize_medium-U9Lwul " [ngClass]="{'tile_theme_playerA' : item.color === 'Red', 'tile_theme_playerB' : item.color === 'Yellow' }">
+            @for (item of resultArray; track $index) {
+            <a (click)="setResults(item)" class="tile-lWsz_U tile_size_small-ATZ3H_ tile_indentSize_medium-U9Lwul " [ngClass]="{'tile_theme_playerA' : item.winner === 'A', 'tile_theme_playerB' : item.winner === 'B','tile_theme_playerTie' : item.winner === 'T'  }">
               <div class="tile__label"> {{item.winner}}</div>
-            </div>
+            </a>
           }
           </div>
         </div>
@@ -22,3 +22,6 @@
     </div>
   </div>
 </div>
+
+
+<app-casino-result-modal [darkTheme]="true" [extraMarkets]="false"></app-casino-result-modal>

@@ -23,7 +23,7 @@
             </div>
             <div class="content-container">
               <div class="content">
-                <div style="margin-bottom: 80px;">
+                <div [ngStyle]="{'margin-bottom': extraMarkets ? '80px' : '0'}">
                   <div class="modal-title  p-2 ">
                     <h6 class="text-right round-id"><b>Round Id:</b>
                       {{selectedResult?.roundId}}
@@ -62,7 +62,7 @@
                   </div>
 
                   <div class="clearfix"></div>
-
+                  <ng-container *ngIf="extraMarkets">
                   <div class="w-full xs:w-full all-market-winner" *ngFor="let result of selectedResult?.results">
                     <h6 class="text-center fw-bold">{{result?.marketName}}</h6>
                     <ng-container *ngFor="let runner of result?.runners">
@@ -72,6 +72,7 @@
                       <!-- <div class="card-Img-box sectionA"> PLAYER B -<i class="fa fa-trophy loser-icon"></i></div> -->
                     </ng-container>
                   </div>
+                </ng-container>
                 </div>
 
               </div>
