@@ -621,3 +621,24 @@ background-color: #72e3a0 !important;
   border: 1px solid #f89215;
   border-radius: 4px;
 }
+.darkTheme{
+  background: #161a2b;
+}
+.darkTheme .modal-header-container{
+  border: 1px solid grey;
+}
+.darkTheme .content{
+  background: #161a2b;
+  color: white;
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  border: 1px solid grey;
+  border-top: none;
+}
+.darkTheme .round-id{
+  color: white;
+}
+.darkTheme .paati_boxs{
+  border: none;
+}
+

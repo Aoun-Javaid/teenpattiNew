@@ -3,7 +3,7 @@
     <div class="popup-content">
       <div class="modal rounded-[.5rem]">
 
-          <div class="modal-main-content-wrapper" (click)="$event.stopPropagation()">
+          <div class="modal-main-content-wrapper" [ngClass]="darkTheme?'darkTheme':''" (click)="$event.stopPropagation()">
             <div class="modal-header-container">
               <div class="modal-title">
 
