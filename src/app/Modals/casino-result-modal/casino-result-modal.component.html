@@ -32,7 +32,7 @@
                   <div class="w-full md:w-1/2 xs:w-full paati_boxs">
                     <h6>Player A</h6>
                     <div class="card-Img-box">
-                      <div class="flex justify-center items-center">
+                      <div class="flex justify-center items-center" [ngClass]="darkTheme?'darkPlayerA':''">
                         <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER_A']?.card_1+'.png']">
                         <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER_A']?.card_2+'.png']">
                         <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER_A']?.card_3+'.png']">
@@ -45,7 +45,7 @@
                   <div class="w-full md:w-1/2 xs:w-full paati_boxs">
                     <h6>Player B</h6>
                     <div class="card-Img-box">
-                      <div class="flex justify-center items-center">
+                      <div class="flex justify-center items-center" [ngClass]="darkTheme?'darkPlayerB':''">
                       <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER_B']?.card_1+'.png']">
                       <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER_B']?.card_2+'.png']">
                       <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER_B']?.card_3+'.png']">
@@ -60,9 +60,9 @@
                       <button *ngIf="selectedResult?.winner=='B'" class="btn winner-team Winnerb">Winner</button>
                     </div>
                   </div>
-
-                  <div class="clearfix"></div>
                   <ng-container *ngIf="extraMarkets">
+                  <div  class="clearfix"></div>
+
                   <div class="w-full xs:w-full all-market-winner" *ngFor="let result of selectedResult?.results">
                     <h6 class="text-center fw-bold">{{result?.marketName}}</h6>
                     <ng-container *ngFor="let runner of result?.runners">

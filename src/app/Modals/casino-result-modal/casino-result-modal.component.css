@@ -613,3 +613,11 @@ background: black;
 .sportsbookTile{
 background-color: #72e3a0 !important;
 }
+.darkPlayerA img{
+  border: 1px solid #f34731;
+  border-radius: 4px;
+}
+.darkPlayerB img{
+  border: 1px solid #f89215;
+  border-radius: 4px;
+}

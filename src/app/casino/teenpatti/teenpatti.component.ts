@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -23,7 +23,7 @@ declare var $: any;
   templateUrl: './teenpatti.component.html',
   styleUrl: './teenpatti.component.css'
 })
-export class TeenpattiComponent {
+export class TeenpattiComponent implements OnInit,OnDestroy{
   @ViewChild('dropdownContainer', { static: true }) dropdownContainer!: ElementRef;
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;

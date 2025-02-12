@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -28,7 +28,7 @@ declare var $: any;
   templateUrl: './teenpatti-new.component.html',
   styleUrl: './teenpatti-new.component.css'
 })
-export class TeenpattiNewComponent {
+export class TeenpattiNewComponent implements OnInit,OnDestroy{
   reverseAnimate: boolean = false
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
@@ -210,6 +210,7 @@ export class TeenpattiNewComponent {
           this.gameroundId = this.game.roundId;
 
           //  get result balance on round Id change
+
           if (this.getRoundId != this.game.roundId || this.getRoundId == '') {
             localStorage.setItem('roundID', this.game.roundId)
             this.getBalance();
@@ -228,7 +229,7 @@ export class TeenpattiNewComponent {
             this.isValueBetsSlip = 0;
           }
           if (this.game.status == 'ONLINE') {
-            
+
           }
           this.playerACards = this.game?.cardsArr?.PLAYER_A;
           this.playerBCards = this.game?.cardsArr?.PLAYER_B;
