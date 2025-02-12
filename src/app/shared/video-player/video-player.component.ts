@@ -657,7 +657,7 @@ export class VideoPlayerComponent {
   }
 
   getStrokeDasharray(): string {
-    const circumference = 2 * Math.PI * 29;
+    const circumference = 2 * Math.PI * 28.5;
     const progress = (circumference * this.timeLeft) / this.TIME_LIMIT;
     return `${progress} ${circumference}`;
   }
