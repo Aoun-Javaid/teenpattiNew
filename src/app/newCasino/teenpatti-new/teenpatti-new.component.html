@@ -143,7 +143,7 @@
                                     d="M12 0A12 12 0 0 0 0 12v100a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h48a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12H181a12 12 0 0 0-11.96 11h-2.08A12 12 0 0 0 155 0H12Z">
                                 </path>
                                 <g class="mainBetPlaceSvg_roundResult_lose-EwvTF6">
-                                    <path id="PlayerA"
+                                    <path id="PlayerA" style="pointer-events: all;" (click)="playerA()"
                                         d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
                                         class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
                                         fill="url(#teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:true)"></path>
@@ -172,7 +172,7 @@
                                     </defs>
                                 </g>
                                 <g class="">
-                                    <path id="PlayerB"
+                                    <path id="PlayerB" style="pointer-events: all;" (click)="playerA()"
                                         d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z"
                                         class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
                                         fill="url(#teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:false)">
@@ -205,7 +205,7 @@
                                     </defs>
                                 </g>
                                 <g class="">
-                                    <path id="PairPlusPlayerA"
+                                    <path id="PairPlusPlayerA" style="pointer-events: all;" (click)="playerA()"
                                         fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:true)"
                                         class="secondaryBetPlaceSvg__backgroundClickZone-dEesVC"
                                         d="M2.229 76.026C1.503 75.319 0 75.799 0 76.812V112c0 6.627 5.373 12 12 12h106c6.627 0 12-5.373 12-12V82a2 2 0 0 0-2-2H12a13.954 13.954 0 0 1-9.771-3.974Z">
@@ -235,8 +235,8 @@
                                         </radialGradient>
                                     </defs>
                                 </g>
-                                <g class="">
-                                    <path id="PairPlusPlayerB"
+                                <g class=""> 
+                                    <path id="PairPlusPlayerB" style="pointer-events: all;" (click)="playerA()"
                                         fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:false)"
                                         class="secondaryBetPlaceSvg__backgroundClickZone-dEesVC"
                                         d="M208 79.9997C206.895 79.9997 206 80.8951 206 81.9997V112C206 118.627 211.373 124 218 124H324C330.627 124 336 118.627 336 112V76.812C336 75.7988 334.497 75.3187 333.771 76.0259C331.248 78.4848 327.801 79.9997 324 79.9997H208Z">
@@ -269,7 +269,7 @@
                                     </defs>
                                 </g>
                                 <g class="bonusBetPlaceSvg_roundResult_lose-iymbKS">
-                                    <path id="Bonus" fill="url(#teenPatti_BonusBetPlaceSvg_backgroundGradient)"
+                                    <path id="Bonus" (click)="playerA()" style="pointer-events: all;" fill="url(#teenPatti_BonusBetPlaceSvg_backgroundGradient)"
                                         d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12"
                                         class="bonusBetPlaceSvg__backgroundClickZone-Qybilv"></path>
                                     <path class="bonusBetPlaceSvg__ctaBackground-ATQPoe"
