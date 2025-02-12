@@ -22,10 +22,10 @@ declare var $: any;
 })
 export class VideoPlayerComponent {
   @Input() eventId: any;
-  @Input() cardsActive:boolean=true;
-  @Input() fancyTimer:boolean=false;
-  @Input() unityTimer:boolean=true;
-  @Input() displayResult:boolean=true;
+  @Input() cardsActive: boolean = true;
+  @Input() fancyTimer: boolean = false;
+  @Input() unityTimer: boolean = true;
+  @Input() displayResult: boolean = true;
 
   raceCards: any = [];
   ballbyBallStream: any;
@@ -286,7 +286,6 @@ export class VideoPlayerComponent {
           this.casinoService.setTimelimit(this.TIME_LIMIT);
           if (this.TIME_LIMIT) {
             this.timeLeft = this.TIME_LIMIT;
-
             this.timerInterval = setInterval(() => {
 
               this.timeLeft = this.timeLeft - 1;
@@ -632,53 +631,51 @@ export class VideoPlayerComponent {
       myConfetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
     }, 250);
   }
-// timer
-timeLeft: number = 19;
-interval: any;
-animate: boolean = false;
+  // timer
+  timeLeft: number = 19;
+  interval: any;
+  animate: boolean = false;
 
-// ngOnInit() {
-//   this.startTimer();
-// }
+  // ngOnInit() {
+  //   this.startTimer();
+  // }
 
-startTimer() {
-  this.interval = setInterval(() => {
-    if (this.timeLeft > 0) {
-      this.triggerAnimation();
-      this.timeLeft--;
-    } else {
-      clearInterval(this.interval);
-    }
-  }, 1000);
-}
-
-triggerAnimation() {
-  this.animate = false;
-  setTimeout(() => {
-    this.animate = true;
-  }, 50);
-}
-
-getStrokeDasharray(): string {
-  const circumference = 2 * Math.PI * 45;
-  const progress = (circumference * this.timeLeft) / this.TIME_LIMIT;
-  return `${progress} ${circumference}`;
-}
-
-getStrokeColor(): string {
-  if (this.timeLeft <= 3) {
-    return '#FF0000';
-  } else if (this.timeLeft === 4) {
-    return '#FF4500';
-  } else if (this.timeLeft <= 5) {
-    return '#FEFF00';
+  startTimer() {
+    this.interval = setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.triggerAnimation();
+        this.timeLeft--;
+      }
+    }, 1000);
   }
-  return '#AAFF00';
-}
 
-getOpacity(): number {
-  return this.timeLeft > 4 ? 1 : 0.5;
-}
+  triggerAnimation() {
+    this.animate = false;
+    setTimeout(() => {
+      this.animate = true;
+    }, 50);
+  }
+
+  getStrokeDasharray(): string {
+    const circumference = 2 * Math.PI * 29;
+    const progress = (circumference * this.timeLeft) / this.TIME_LIMIT;
+    return `${progress} ${circumference}`;
+  }
+
+  getStrokeColor(): string {
+    if (this.timeLeft <= 3) {
+      return '#FF0000';
+    } else if (this.timeLeft === 4) {
+      return '#FF4500';
+    } else if (this.timeLeft <= 5) {
+      return '#FEFF00';
+    }
+    return '#AAFF00';
+  }
+
+  getOpacity(): number {
+    return this.timeLeft > 4 ? 1 : 0.5;
+  }
 
 
 
