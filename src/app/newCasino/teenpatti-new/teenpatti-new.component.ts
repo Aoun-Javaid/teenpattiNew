@@ -49,13 +49,13 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
     type: "1",
     id: ""
   };
-  selectedBetAmount:any;
+  selectedBetAmount: any;
   aPlayerChances: any;
   bPlayerChances: any;
-  TPlayerChances:any;
+  TPlayerChances: any;
   showHamburger: boolean = true;
   btnIcon = false
-  btnCheck: any
+  btnCheck = 1
 
   animationClass = '';
 
@@ -126,7 +126,7 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
     private toggleService: ToggleService,
     private deviceService: DeviceDetectorService,
     private indexedDb: IndexedDbService,
-    private toaster:ToastrService,
+    private toaster: ToastrService,
     private socket: CasinoSocketService) {
 
     this.eventid = this.route.snapshot.params['id'];
@@ -157,7 +157,7 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
 
     if (!this.isDesktop) {
       this.setMarketScrollHeight();
-      if(this.isMobileInfo !== 'iOS'){
+      if (this.isMobileInfo !== 'iOS') {
         $('html').css('overflow', 'hidden');
       }
     }
@@ -175,7 +175,7 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
         this.getRoundId = localStorage.getItem('roundID')
 
         let objMarket = JSON.parse(marketData);
-        console.log('market data',objMarket)
+        console.log('market data', objMarket)
         // let objMarket = marketData;
         if (this.eventid == '99.0046') {
           // console.log(objMarket)
@@ -285,6 +285,9 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
     this.getAllMarketProfitLoss();
     this.getResults();
   }
+
+
+  
 
 
   getStackData() {
@@ -940,9 +943,7 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
         break;
     }
     document.documentElement.style.setProperty('--translateX', translateX);
-    if (!this.btnCheck) {
-      this.btnCheck = 1
-    }
+
 
     let translateXRevers = '205px';
     switch (this.btnCheck) {
@@ -993,7 +994,7 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
   }
 
 
-  playerA(){
+  playerA() {
     console.log('player A');
 
   }

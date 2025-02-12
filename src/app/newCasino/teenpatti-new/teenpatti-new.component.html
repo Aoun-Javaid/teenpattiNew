@@ -599,7 +599,7 @@
                                     <button (click)="showAnimateCoinBar()"
                                         class="iconButton-by3moV iconButton_theme_default-G6tVtR iconButton_size_medium-YQpLaw iconButton_borderRadiusSize_default-SAVSQu"
                                         type="button">
-                                        <span class="iconButton__icon-k1NKdw" *ngIf="!btnIcon">
+                                        <span class="iconButton__icon-k1NKdw" *ngIf="coinAnimateState">
                                             <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -615,7 +615,7 @@
                                         </span>
 
                                         <!-- Tab item 4 -->
-                                        <div class="chipTrayWithToggle__item-nLy9Sn" *ngIf="btnIcon && btnCheck ===1">
+                                        <div class="chipTrayWithToggle__item-nLy9Sn" *ngIf="!coinAnimateState && btnCheck ===1">
                                             <div class="chips-rzbOIK ">
                                                 <div class="chip-kcN8LW chip_size_48-odjDTm !h-[2.2rem] !w-[2.2rem]"
                                                     data-locator="chip-250">

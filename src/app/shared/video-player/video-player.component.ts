@@ -1,5 +1,5 @@
 import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -20,7 +20,7 @@ declare var $: any;
   templateUrl: './video-player.component.html',
   styleUrl: './video-player.component.css',
 })
-export class VideoPlayerComponent {
+export class VideoPlayerComponent implements OnChanges {
   @Input() eventId: any;
   @Input() cardsActive: boolean = true;
   @Input() fancyTimer: boolean = false;
@@ -250,7 +250,6 @@ export class VideoPlayerComponent {
   }
 
   ngOnInit(): void {
-    this.startTimer();
     // this.surpriseFireWork()
     // this.surprise()
     if (this.eventId != '99.0062') {
@@ -404,6 +403,7 @@ export class VideoPlayerComponent {
       this.PLAYER11 = this.game?.cardsArr?.PLAYER_11;
 
 
+
       this.FIGHTER_A = this.game?.cardsArr?.FIGHTER_A;
       this.FIGHTER_B = this.game?.cardsArr?.FIGHTER_B;
 
@@ -458,6 +458,8 @@ export class VideoPlayerComponent {
       }
 
     });
+
+
 
   }
 
@@ -639,6 +641,11 @@ export class VideoPlayerComponent {
   // ngOnInit() {
   //   this.startTimer();
   // }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.game?.status == "ONLINE") {
+      this.startTimer();
+    }
+  }
 
   startTimer() {
     this.interval = setInterval(() => {
