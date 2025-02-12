@@ -991,7 +991,7 @@ export class TeenpattiNewComponent {
 
   playerA(){
     console.log('player A');
-    
+
   }
 
 
