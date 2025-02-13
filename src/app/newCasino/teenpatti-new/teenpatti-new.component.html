@@ -1,4 +1,4 @@
-<div class="newGameWrapper relative" style="overflow-y: hidden;" *ngIf="marketArray">
+<div class="newGameWrapper relative" style="overflow-y: hidden;">
     <app-top-results></app-top-results>
 
     <div #target>
@@ -13,9 +13,12 @@
                 [unityTimer]="false"></app-video-player-unreal>
         </ng-container> -->
     </div>
-    <div class="" id="marketScroll" style="overflow-y: auto;"
+    <div  id="marketScroll" style="overflow-y: auto;"
         [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
-        <div
+        <div class="gradientDiv">
+
+
+        <div  *ngIf="marketArray"
             class="absolute md:fixed md:bottom-[0px] md:left-[50%] md:translate-x-[-50%] bottom-[64px] max-[375px]:bottom-[8px] md:!max-w-[21rem]  left-0 w-full ">
 
             <!-- Teen patti Cards Section starts here -->
@@ -391,8 +394,8 @@
             <!-- Teen patti Cards Section ends here -->
 
             <div class="relative md:max-w-[22rem]" >
-                <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM" *ngIf="this.game?.status!='SUSPEND'">
-                    <div class="overflow-visible animation-container" [ngClass]="{'open-coin-bar':coinAnimateState}">
+                <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM" >
+                    <div class="overflow-visible animation-container" *ngIf="this.game?.status!='SUSPEND'" [ngClass]="{'open-coin-bar':coinAnimateState}">
                         <div class="tab-slider min-w-full">
 
                             <div class="flex">
@@ -838,18 +841,20 @@
                 </div>
             </div>
 
-            <div class="time-container">
-                <div class="last-win">{{this.game.eventName}}
-                  <!-- <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">€ 0</span> -->
-                </div>
-                <div class="roundInfo-date">
-                  <!-- <span class="inline-block">.</span>  -->
-                  {{this.game.roundId}}
-                </div>
-            </div>
+
 
 
         </div>
+      </div>
+        <div class="time-container">
+          <div class="last-win">{{this.game.eventName}}
+            <!-- <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">€ 0</span> -->
+          </div>
+          <div class="roundInfo-date">
+            <!-- <span class="inline-block">.</span>  -->
+            {{this.game.roundId}}
+          </div>
+      </div>
     </div>
 </div>
 <!-- <div class="h-[50px] w-full bg-[#161a2b]"></div> -->

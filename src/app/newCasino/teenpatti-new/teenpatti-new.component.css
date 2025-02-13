@@ -447,10 +447,14 @@
   -webkit-text-fill-color: transparent;
 }
 
+.gradientDiv{
+  height: 55%;
+  background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
+}
 .time-container {
   @apply flex justify-between w-full items-center px-[4%] mt-1 ;
-  position: fixed;
-  bottom:60px;
+  position: absolute;
+  bottom:2px;
 }
 
 .roundInfo-date {

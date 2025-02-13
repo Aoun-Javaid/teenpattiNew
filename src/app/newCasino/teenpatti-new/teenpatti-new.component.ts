@@ -156,6 +156,7 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
     this.getWindowSize()
 
     if (!this.isDesktop) {
+
       this.setMarketScrollHeight();
       if (this.isMobileInfo !== 'iOS') {
         $('html').css('overflow', 'hidden');
@@ -210,7 +211,8 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
           this.gameroundId = this.game.roundId;
 
           //  get result balance on round Id change
-
+          // console.log('roundId',this.getRoundId)
+          // console.log('game ',this.game.roundId)
           if (this.getRoundId != this.game.roundId || this.getRoundId == '') {
             localStorage.setItem('roundID', this.game.roundId)
             this.getBalance();
@@ -222,7 +224,7 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
 
           }
 
-          this.networkService.updateRoundId(this.game);
+          // this.networkService.updateRoundId(this.game);
 
           if (this.game.status == 'SUSPEND') {
             this.isBetsSlipOpened = '';
@@ -233,6 +235,15 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
           }
           this.playerACards = this.game?.cardsArr?.PLAYER_A;
           this.playerBCards = this.game?.cardsArr?.PLAYER_B;
+
+          if (this.playerACards) {
+            if (this.playerACards?.card_1 == 0 && this.game.status == 'SUSPEND') {
+              this.game.noMoreBets = true;
+            }
+            else {
+              this.game.noMoreBets = false;
+            }
+          }
           this.winnerMarketArray = this.game.marketArr ? this.game.marketArr[0] : ''
           this.runnersName = this.winnerMarketArray.runnersName;
         }
@@ -287,7 +298,7 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
   }
 
 
-  
+
 
 
   getStackData() {
@@ -399,53 +410,52 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
           //One linner change from socket
 
           var key_str = Object.keys(objMarket?.data)[0];
+          var key_str = Object.keys(objMarket?.data)[0];
           if (key_str.includes('.')) {
-
             this.split_arr = key_str.split('.');
+            // console.log(this.split_arr);
+            Object.entries(objMarket.data).forEach(
+              ([, value]) => (this.changeValue = value),
+            );
+
             let marketIndex = parseInt(this.split_arr[1]);
             let runnersIndex = this.split_arr[3];
             let backIndex = this.split_arr[6];
 
-
-            Object.entries(objMarket.data).forEach(([, value]) => {
-              this.changeValue = value
-
-
-              if (this.split_arr[7] == 'size') {
-                if (runnersIndex == 0) {
-                  // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-                  let percnt1 = ((this.changeValue / this.sizeRunner1) * 100);
-                  this.firstBoxWidth = -1 * (percnt1 - 100) + '';
-                  // console.log('player A', this.firstBoxWidth)
-                }
-                if (runnersIndex == 1) {
-                  // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-                  let percnt = ((this.changeValue / this.sizeRunner2) * 100);
-                  this.secndBoxWidth = -1 * (percnt - 100) + '';
-                  // console.log('player B', this.secndBoxWidth)
-
-                }
-                this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size = this.changeValue;
-
-              }
-              if (this.split_arr[7] == 'price') {
-
-                this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].price = this.changeValue;
-              }
-
-              if (this.split_arr[4] == 'status') {
-
-                this.marketArray[marketIndex].runners[runnersIndex].status = this.changeValue;
-              }
-
-
-
-
-            })
-
             // this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].price  = this.changeValue;
 
+            if (this.split_arr[7] == 'size') {
+
+              if (runnersIndex == 0 && marketIndex==0) {
+                // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
+                let percnt1 = ((this.changeValue / this.sizeRunner1) * 100);
+                this.firstBoxWidth = -1 * (percnt1 - 100) + '';
+                // console.log('player A', this.firstBoxWidth)
+              }
+              if (runnersIndex == 1 && marketIndex==0) {
+                // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
+                let percnt = ((this.changeValue / this.sizeRunner2) * 100);
+                this.secndBoxWidth = -1 * (percnt - 100) + '';
+                // console.log('player B', this.secndBoxWidth)
+
+              }
+
+              this.marketArray[marketIndex].runners[runnersIndex].price.back[
+                backIndex
+              ].size = this.changeValue;
+
+            }
+            if (this.split_arr[7] == 'price') {
+              this.marketArray[marketIndex].runners[runnersIndex].price.back[
+                backIndex
+              ].price = this.changeValue;
+            }
+            if (this.split_arr[4] === 'status') {
+              this.marketArray[marketIndex].runners[runnersIndex].status =
+                this.changeValue;
+            }
           }
+
         }
       }
     }
@@ -454,6 +464,7 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
 
 
   setMarketScrollHeight() {
+
     const marketScrollElement = document.getElementById('marketScroll');
     const windowHeight = window.innerHeight;
     // Adjust the percentage or calculation based on your specific needs.
@@ -990,12 +1001,12 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
         this.selectedBetAmount = this.stackButtonArry[5].stakeAmount
         break
     }
-    console.log('onclick', this.selectedBetAmount);
+    // console.log('onclick', this.selectedBetAmount);
   }
 
 
   playerA() {
-    console.log('player A');
+    // console.log('player A');
 
   }
 

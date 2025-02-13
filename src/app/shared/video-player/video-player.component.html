@@ -683,7 +683,7 @@
     <!--  timer ends -->
 
     <!-- no bet more  -->
-    <div class="no-more-bets">No more bets</div>
+    <div *ngIf="this.game?.noMoreBets && this.game?.status == 'SUSPEND'" class="no-more-bets">No more bets</div>
     <!-- no bet more  -->
 
 
