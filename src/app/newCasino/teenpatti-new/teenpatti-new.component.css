@@ -97,6 +97,19 @@
   line-height: 0.75rem;
 }
 
+.card-animation {
+  animation: card-animation 500ms forwards;
+}
+
+@keyframes card-animation {
+  0% {
+    transform: translateY(-10px);
+  }
+  100%{
+     transform: translateY(0);
+  }
+}
+
 /* use{
   opacity: 0;
 } */
