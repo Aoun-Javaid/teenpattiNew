@@ -15,8 +15,6 @@
     </div>
     <div class="" id="marketScroll" style="overflow-y: auto;"
         [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
-
-
         <div
             class="absolute md:fixed md:bottom-[0px] md:left-[50%] md:translate-x-[-50%] bottom-[64px] max-[375px]:bottom-[8px] md:!max-w-[21rem]  left-0 w-full ">
 
@@ -150,10 +148,10 @@
                                         d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
                                         class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
                                         fill="url(#teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:true)"></path>
-                                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p" class="opacity-0"
-                                        d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
-                                        fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true)">
-                                    </path>
+
+                                        <path class="mainBetPlaceSvg__ctaBackground-_0sk4p" class="opacity-0 win-animation-player-a"
+                                            d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
+                                            fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true)"></path>
                                     <g id="PlayerADecoration"
                                         mask="url(#teenPatti_MainBetPlaceSvg_BackgroundMaskPlayerA">
                                         <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
@@ -181,7 +179,7 @@
                                         class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
                                         fill="url(#teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:false)">
                                     </path>
-                                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p opacity-0"
+                                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p opacity-0 win-animation"
                                         d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z"
                                         fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:false)">
                                     </path>
@@ -327,7 +325,7 @@
                                     </g>
                                 </g>
                                 <g filter="url(#buttonShadowPlayerA)" class="betPlacesGridSvg_winBet-ymPuYs">
-                                    <use xlink:href="#PairPlusPlayerA" class="opacity-0"></use>
+                                    <use xlink:href="#PairPlusPlayerA" class="opacity-0 win-animation"></use>
                                     <g class="betPlacesGridSvg__flower-oJthYK">
                                         <use xlink:href="#PairPlusPlayerADecoration"></use>
                                     </g>
@@ -843,7 +841,7 @@
             <div class="time-container">
                 <div class="last-win">Last win <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">€ 0</span>
                 </div>
-                <div class="roundInfo-date">13 Feb 2025 15:28:21  <span class="inline-block">.</span>  56676640</div>
+                <div class="roundInfo-date">13 Feb 2025 15:28:21 <span class="inline-block">.</span> 56676640</div>
             </div>
 
 

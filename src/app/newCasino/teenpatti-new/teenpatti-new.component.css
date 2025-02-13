@@ -97,9 +97,9 @@
   line-height: 0.75rem;
 }
 
-.player_A_player_B_opacity {
+/* .player_A_player_B_opacity {
   opacity: 0.5;
-}
+} */
 
 .card-animation {
   animation: card-animation 500ms forwards;
@@ -128,6 +128,23 @@
   }
   100% {
     opacity: 0;
+  }
+}
+
+.win-animation-player-a {
+  fill: #e23512;
+  animation: ctaAnimation-A 500ms ease infinite forwards;
+}
+
+@keyframes ctaAnimation-A {
+  33% {
+    opacity: 1;
+    filter: blur(20px);
+  }
+  100% {
+    opacity: 0;
+    fill: #e23512;
+    filter: blur(0px);
   }
 }
 
