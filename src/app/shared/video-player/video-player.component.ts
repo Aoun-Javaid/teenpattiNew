@@ -288,6 +288,11 @@ export class VideoPlayerComponent implements OnChanges {
             this.timerInterval = setInterval(() => {
 
               this.timeLeft = this.timeLeft - 1;
+              this.animate = false;
+              setTimeout(() => {
+                this.animate = true;
+                console.log('hiii true');
+              }, 50);
               if (this.TIME_LIMIT) {
                 document.documentElement.style.setProperty('--timerValue', this.TIME_LIMIT.toString() + 's');
               }
@@ -651,7 +656,8 @@ export class VideoPlayerComponent implements OnChanges {
     this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
         this.triggerAnimation();
-        this.timeLeft--;
+        // this.timeLeft--;
+        console.log('hiii down');
       }
     }, 1000);
   }
@@ -660,6 +666,7 @@ export class VideoPlayerComponent implements OnChanges {
     this.animate = false;
     setTimeout(() => {
       this.animate = true;
+      console.log('hiii true');
     }, 50);
   }
 
