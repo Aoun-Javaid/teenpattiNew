@@ -97,6 +97,23 @@
   line-height: 0.75rem;
 }
 
+/* use{
+  opacity: 0;
+} */
+
+.win-animation {
+  animation: ctaAnimation-Nm6A8V 500ms ease infinite forwards;
+}
+
+@keyframes ctaAnimation-Nm6A8V {
+  33% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .betPlaceInfo_pairPlus_playerB {
   align-items: end;
   flex-direction: column-reverse !important;
@@ -419,7 +436,6 @@
   align-items: flex-start;
   padding: 20px;
   flex-direction: row;
-
 }
 
 /* High Card section ends here */
@@ -501,7 +517,7 @@
   gap: 4px;
   font-family: "Baloo", sans-serif;
 }
-.bg-Tie{
+.bg-Tie {
   background: #18862e;
 }
 

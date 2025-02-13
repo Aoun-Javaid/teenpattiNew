@@ -2,8 +2,8 @@
     <app-top-results></app-top-results>
 
     <div #target>
-      <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true" [displayResult]="false"
-      [unityTimer]="false"></app-video-player>
+        <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
+            [displayResult]="false" [unityTimer]="false"></app-video-player>
         <!-- <ng-container *ngIf="isMobileInfo == 'iOS'">
             <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
                 [unityTimer]="false"></app-video-player>
@@ -13,13 +13,15 @@
                 [unityTimer]="false"></app-video-player-unreal>
         </ng-container> -->
     </div>
-    <div id="marketScroll" style="overflow-y: auto;" [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
+    <div class="" id="marketScroll" style="overflow-y: auto;"
+        [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
 
 
-        <div class="absolute bottom-[64px] max-[375px]:bottom-[8px]  left-0 w-full">
+        <div
+            class="absolute md:fixed md:bottom-[0px] md:left-[50%] md:translate-x-[-50%] bottom-[64px] max-[375px]:bottom-[8px] md:!max-w-[25rem]  left-0 w-full ">
 
             <!-- Teen patti Cards Section starts here -->
-            <div class="teen_patti_conatiner absolute top-[-5.375rem] w-full"
+            <div class="teen_patti_conatiner absolute top-[-5.375rem] w-full md:!max-w-[21rem]"
                 [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
                 <!-- Player A cards start here -->
                 <div class="custom_flex gap-2 player_A_cards">
@@ -47,7 +49,7 @@
 
 
 
-            <div class="relative   z-[1] h-full">
+            <div class="relative   z-[1] h-full lg:max-w-[21rem] ">
                 <div class="win_percentage_container relative">
                     <div class="win_percentage_wrapper ">
                         <div class="progress_bar_container">
@@ -60,13 +62,13 @@
                                 </div>
                             </div>
                             <div *ngIf="TPlayerChances" class="progress-bar bg-Tie" [style.width]="TPlayerChances+'%'">
-                              <div class="progress-bar_data">
-                                  T
-                              </div>
-                              <div class="progress-bar_data">
-                                  {{TPlayerChances}}%
-                              </div>
-                          </div>
+                                <div class="progress-bar_data">
+                                    T
+                                </div>
+                                <div class="progress-bar_data">
+                                    {{TPlayerChances}}%
+                                </div>
+                            </div>
                             <div class="progress-bar yellow_bg " [style.width]="bPlayerChances+'%'">
                                 <div class="progress-bar_data">
                                     B
@@ -78,10 +80,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative !mx-[2%]  !bg-[black] rounded-b-[17px]">
+                <div class="relative !mx-[2%]   md:!mx-0 !bg-[black] rounded-b-[17px]">
                     <!-- main contnet -->
-                    <div class=" mb-[1.5rem] relative p-[17.9048%]">
-                        <div class="h-[7.75rem] w-[21rem] absolute left-[50%]"
+                    <div class=" mb-[1.5rem] md:mb-[5px] relative p-[17.9048%]  md:!p-0">
+                        <div class="h-[7.75rem] w-[21rem] absolute left-[50%] md:!scale-[1] md:static"
                             style="transform: translate(-50%, -50%) scale(var(--boardScale, 1));">
                             <svg class="betPlacesGridSvg" viewBox="0 0 336 124" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
@@ -143,11 +145,12 @@
                                     d="M12 0A12 12 0 0 0 0 12v100a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h48a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12H181a12 12 0 0 0-11.96 11h-2.08A12 12 0 0 0 155 0H12Z">
                                 </path>
                                 <g class="mainBetPlaceSvg_roundResult_lose-EwvTF6">
-                                    <path id="PlayerA" style="pointer-events: all;" (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[0].selectionId,'back',marketArray[0].runners[0].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
+                                    <path id="PlayerA" style="pointer-events: all;"
+                                        (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[0].selectionId,'back',marketArray[0].runners[0].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
                                         d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
                                         class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
                                         fill="url(#teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:true)"></path>
-                                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p"
+                                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p" class="opacity-0"
                                         d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
                                         fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true)">
                                     </path>
@@ -172,12 +175,13 @@
                                     </defs>
                                 </g>
                                 <g class="">
-                                    <path id="PlayerB" style="pointer-events: all;" (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[1].selectionId,'back',marketArray[0].runners[1].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
+                                    <path id="PlayerB" style="pointer-events: all;"
+                                        (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[1].selectionId,'back',marketArray[0].runners[1].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
                                         d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z"
                                         class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
                                         fill="url(#teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:false)">
                                     </path>
-                                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p"
+                                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p opacity-0"
                                         d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z"
                                         fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:false)">
                                     </path>
@@ -205,12 +209,13 @@
                                     </defs>
                                 </g>
                                 <g class="">
-                                    <path id="PairPlusPlayerA" style="pointer-events: all;" (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[0].selectionId,'back',marketArray[1].runners[0].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)"
+                                    <path id="PairPlusPlayerA" style="pointer-events: all;"
+                                        (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[0].selectionId,'back',marketArray[1].runners[0].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)"
                                         fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:true)"
                                         class="secondaryBetPlaceSvg__backgroundClickZone-dEesVC"
                                         d="M2.229 76.026C1.503 75.319 0 75.799 0 76.812V112c0 6.627 5.373 12 12 12h106c6.627 0 12-5.373 12-12V82a2 2 0 0 0-2-2H12a13.954 13.954 0 0 1-9.771-3.974Z">
                                     </path>
-                                    <path class="secondaryBetPlaceSvg__ctaBackground-WNhcu8"
+                                    <path class="secondaryBetPlaceSvg__ctaBackground-WNhcu8 opacity-0"
                                         d="M2.229 76.026C1.503 75.319 0 75.799 0 76.812V112c0 6.627 5.373 12 12 12h106c6.627 0 12-5.373 12-12V82a2 2 0 0 0-2-2H12a13.954 13.954 0 0 1-9.771-3.974Z"
                                         fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true)">
                                     </path>
@@ -236,12 +241,13 @@
                                     </defs>
                                 </g>
                                 <g class="">
-                                    <path id="PairPlusPlayerB" style="pointer-events: all;" (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[1].selectionId,'back',marketArray[1].runners[1].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)"
+                                    <path id="PairPlusPlayerB" style="pointer-events: all;"
+                                        (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[1].selectionId,'back',marketArray[1].runners[1].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)"
                                         fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:false)"
                                         class="secondaryBetPlaceSvg__backgroundClickZone-dEesVC"
                                         d="M208 79.9997C206.895 79.9997 206 80.8951 206 81.9997V112C206 118.627 211.373 124 218 124H324C330.627 124 336 118.627 336 112V76.812C336 75.7988 334.497 75.3187 333.771 76.0259C331.248 78.4848 327.801 79.9997 324 79.9997H208Z">
                                     </path>
-                                    <path class="secondaryBetPlaceSvg__ctaBackground-WNhcu8"
+                                    <path class="secondaryBetPlaceSvg__ctaBackground-WNhcu8 opacity-0"
                                         d="M208 79.9997C206.895 79.9997 206 80.8951 206 81.9997V112C206 118.627 211.373 124 218 124H324C330.627 124 336 118.627 336 112V76.812C336 75.7988 334.497 75.3187 333.771 76.0259C331.248 78.4848 327.801 79.9997 324 79.9997H208Z"
                                         fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:false)">
                                     </path>
@@ -269,10 +275,11 @@
                                     </defs>
                                 </g>
                                 <g class="bonusBetPlaceSvg_roundResult_lose-iymbKS">
-                                    <path id="Bonus" (click)="playerA()" style="pointer-events: all;" fill="url(#teenPatti_BonusBetPlaceSvg_backgroundGradient)"
+                                    <path id="Bonus" (click)="playerA()" style="pointer-events: all;"
+                                        fill="url(#teenPatti_BonusBetPlaceSvg_backgroundGradient)"
                                         d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12"
                                         class="bonusBetPlaceSvg__backgroundClickZone-Qybilv"></path>
-                                    <path class="bonusBetPlaceSvg__ctaBackground-ATQPoe"
+                                    <path class="bonusBetPlaceSvg__ctaBackground-ATQPoe opacity-0"
                                         d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12"
                                         fill="url(#teenPatti_BonusBetPlaceSvg_cta_backgroundGradient)"></path>
                                     <g id="BonusDecoration">
@@ -314,20 +321,20 @@
                                 </g>
                                 <g filter="url(#buttonShadowPlayerB)"
                                     class="betPlacesGridSvg_winBet-ymPuYs betPlacesGridSvg_winBet_playerB-Yl_SpB">
-                                    <use xlink:href="#PlayerB"></use>
+                                    <use xlink:href="#PlayerB" class="opacity-0 win-animation"></use>
                                     <g class="betPlacesGridSvg__flower-oJthYK">
                                         <use xlink:href="#PlayerBDecoration"></use>
                                     </g>
                                 </g>
                                 <g filter="url(#buttonShadowPlayerA)" class="betPlacesGridSvg_winBet-ymPuYs">
-                                    <use xlink:href="#PairPlusPlayerA"></use>
+                                    <use xlink:href="#PairPlusPlayerA" class="opacity-0"></use>
                                     <g class="betPlacesGridSvg__flower-oJthYK">
                                         <use xlink:href="#PairPlusPlayerADecoration"></use>
                                     </g>
                                 </g>
                                 <g filter="url(#buttonShadowPlayerB)"
                                     class="betPlacesGridSvg_winBet-ymPuYs betPlacesGridSvg_winBet_playerB-Yl_SpB">
-                                    <use xlink:href="#PairPlusPlayerB"></use>
+                                    <use xlink:href="#PairPlusPlayerB" class="opacity-0 win-animation"></use>
                                     <g class="betPlacesGridSvg__flower-oJthYK">
                                         <use xlink:href="#PairPlusPlayerBDecoration"></use>
                                     </g>
@@ -346,23 +353,27 @@
                                 </div>
                             </div>
                             <div class="table__betInfoGrid">
-                                <div class="betPlaceInfo" >
-                                    <div class="betPlayer_A ">{{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}</div>
-                                    <div class="betPlaceInfo__roundInfo">{{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.2-2'}}</div>
+                                <div class="betPlaceInfo">
+                                    <div class="betPlayer_A ">
+                                        {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}</div>
+                                    <div class="betPlaceInfo__roundInfo">
+                                        {{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.2-2'}}</div>
                                 </div>
 
-                                <div class="betPlaceInfo betPlaceInfo_main_playerB" >
-                                    <div class="betPlayer_A ">{{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}</div>
-                                    <div class="betPlaceInfo__roundInfo">{{marketArray[0]?.runners[1]?.price?.back[0]?.price | number : '1.2-2'}}</div>
+                                <div class="betPlaceInfo betPlaceInfo_main_playerB">
+                                    <div class="betPlayer_A ">
+                                        {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}</div>
+                                    <div class="betPlaceInfo__roundInfo">
+                                        {{marketArray[0]?.runners[1]?.price?.back[0]?.price | number : '1.2-2'}}</div>
                                 </div>
 
-                                <div class="betPlaceInfo_pairPlus_playerA betPlaceInfo" >
+                                <div class="betPlaceInfo_pairPlus_playerA betPlaceInfo">
                                     <div class="pair-plus">Pair Plus</div>
                                     <div class="down-player">PLAYER A</div>
 
                                 </div>
 
-                                <div class="betPlaceInfo_pairPlus_playerB betPlaceInfo "  >
+                                <div class="betPlaceInfo_pairPlus_playerB betPlaceInfo ">
                                     <div class="pair-plus">Pair Plus</div>
                                     <div class="down-player">PLAYER B</div>
 
@@ -381,7 +392,7 @@
             </div>
             <!-- Teen patti Cards Section ends here -->
 
-            <div class="relative " *ngIf="this.game?.status!='SUSPEND'">
+            <div class="relative md:max-w-[22rem]" *ngIf="this.game?.status!='SUSPEND'" >
                 <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM">
                     <div class="overflow-visible animation-container" [ngClass]="{'open-coin-bar':coinAnimateState}">
                         <div class="tab-slider min-w-full">
@@ -574,11 +585,13 @@
                     </div>
                 </div>
 
-                <div class="buttonsPanel-hAiFyw buttonsPanel_bettingState-vnMbbl">
+                <div class="buttonsPanel-hAiFyw buttonsPanel_bettingState-vnMbbl md:!justify-end md:pr-2.5 ">
                     <div class="buttonsPanel__buttons-nTrdCX">
                         <div class="buttonsPanel__bettingButtons-tJAgVE ">
-                            <button (click)="openQuickStakes()" class="bettingButton-i5MaZV bg-[rgba(138,138,153,0.2)] flex justify-center items-center" type="button"  data-locator="undo-bet-btn">
-                            <img  class="w-[23px] h-[28px]" src="/images/stakeEdit.svg" alt="Stake Edit">
+                            <button (click)="openQuickStakes()"
+                                class="bettingButton-i5MaZV bg-[rgba(138,138,153,0.2)] flex justify-center items-center"
+                                type="button" data-locator="undo-bet-btn">
+                                <img class="w-[23px] h-[28px]" src="/images/stakeEdit.svg" alt="Stake Edit">
                             </button>
                             <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI" type="button" disabled=""
                                 data-locator="undo-bet-btn">
@@ -615,7 +628,8 @@
                                         </span>
 
                                         <!-- Tab item 4 -->
-                                        <div class="chipTrayWithToggle__item-nLy9Sn" *ngIf="!coinAnimateState && btnCheck ===1">
+                                        <div class="chipTrayWithToggle__item-nLy9Sn"
+                                            *ngIf="!coinAnimateState && btnCheck ===1">
                                             <div class="chips-rzbOIK ">
                                                 <div class="chip-kcN8LW chip_size_48-odjDTm !h-[2.2rem] !w-[2.2rem]"
                                                     data-locator="chip-250">
