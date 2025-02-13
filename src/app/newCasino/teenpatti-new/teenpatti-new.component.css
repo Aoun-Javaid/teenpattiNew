@@ -97,6 +97,12 @@
   line-height: 0.75rem;
 }
 
+
+.player_A_player_B_opacity {
+   opacity: .5;
+}
+
+
 .card-animation {
   animation: card-animation 500ms forwards;
 }
@@ -539,12 +545,13 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+
   padding: 0px 4px;
   border-radius: 3.74px;
   color: white;
   font-size: 10px;
   /* font-family: "Poppins", sans-serif; */
-  height: 14px;
+  height: 16px;
 }
 
 /* Winning Percentage Chances Section ends here */

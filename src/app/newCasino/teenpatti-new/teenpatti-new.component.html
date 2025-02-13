@@ -53,7 +53,7 @@
                 <div class="win_percentage_container relative">
                     <div class="win_percentage_wrapper ">
                         <div class="progress_bar_container">
-                            <div class="progress-bar bg-danger" [style.width]="aPlayerChances+'%'">
+                            <div class="progress-bar bg-danger !bg-[#CC493E]" [style.width]="aPlayerChances+'%'">
                                 <div class="progress-bar_data">
                                     A
                                 </div>
@@ -69,7 +69,8 @@
                                     {{TPlayerChances}}%
                                 </div>
                             </div>
-                            <div class="progress-bar yellow_bg " [style.width]="bPlayerChances+'%'">
+                            <div class="progress-bar yellow_bg  !flex-row-reverse"
+                                [style.width]="bPlayerChances+'%'">
                                 <div class="progress-bar_data">
                                     B
                                 </div>
@@ -353,14 +354,14 @@
                                 </div>
                             </div>
                             <div class="table__betInfoGrid">
-                                <div class="betPlaceInfo">
+                                <div class="betPlaceInfo player_A_player_B_opacity">
                                     <div class="betPlayer_A ">
                                         {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}</div>
                                     <div class="betPlaceInfo__roundInfo">
                                         {{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.2-2'}}</div>
                                 </div>
 
-                                <div class="betPlaceInfo betPlaceInfo_main_playerB">
+                                <div class="betPlaceInfo betPlaceInfo_main_playerB player_A_player_B_opacity">
                                     <div class="betPlayer_A ">
                                         {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}</div>
                                     <div class="betPlaceInfo__roundInfo">
