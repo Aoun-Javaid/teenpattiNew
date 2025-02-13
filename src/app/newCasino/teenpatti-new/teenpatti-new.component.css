@@ -97,11 +97,9 @@
   line-height: 0.75rem;
 }
 
-
 .player_A_player_B_opacity {
-   opacity: .5;
+  opacity: 0.5;
 }
-
 
 .card-animation {
   animation: card-animation 500ms forwards;
@@ -111,8 +109,8 @@
   0% {
     transform: translateY(-10px);
   }
-  100%{
-     transform: translateY(0);
+  100% {
+    transform: translateY(0);
   }
 }
 
@@ -431,6 +429,23 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.time-container {
+  @apply flex justify-between w-full items-center px-[4%] mt-1;
+}
+
+.roundInfo-date{
+    color: #8a8a99;
+    display: flex;
+    font-weight: 300;
+    line-height: 1.5;
+    font-size: 10px;
+}
+
+.last-win {
+  @apply text-[0.625rem] text-white;
+}
+
 .high_card_secondary h6 {
   font-size: 12px;
   font-weight: 900;
