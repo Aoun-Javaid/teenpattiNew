@@ -97,9 +97,9 @@
   line-height: 0.75rem;
 }
 
-/* .player_A_player_B_opacity {
+.player_A_player_B_opacity {
   opacity: 0.5;
-} */
+}
 
 .card-animation {
   animation: card-animation 500ms forwards;
@@ -448,7 +448,9 @@
 }
 
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1;
+  @apply flex justify-between w-full items-center px-[4%] mt-1 ;
+  position: fixed;
+  bottom:60px;
 }
 
 .roundInfo-date {

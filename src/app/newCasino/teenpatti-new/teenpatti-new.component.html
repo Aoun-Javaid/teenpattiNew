@@ -149,7 +149,7 @@
                                         class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
                                         fill="url(#teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:true)"></path>
 
-                                        <path class="mainBetPlaceSvg__ctaBackground-_0sk4p" class="opacity-0 win-animation-player-a"
+                                        <path class="mainBetPlaceSvg__ctaBackground-_0sk4p" class="opacity-0 " [ngClass]="{'win-animation-player-a':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
                                             d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
                                             fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true)"></path>
                                     <g id="PlayerADecoration"
@@ -179,7 +179,7 @@
                                         class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
                                         fill="url(#teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:false)">
                                     </path>
-                                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p opacity-0 win-animation"
+                                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p opacity-0" [ngClass]="{'win-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}"
                                         d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z"
                                         fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:false)">
                                     </path>
@@ -319,20 +319,20 @@
                                 </g>
                                 <g filter="url(#buttonShadowPlayerB)"
                                     class="betPlacesGridSvg_winBet-ymPuYs betPlacesGridSvg_winBet_playerB-Yl_SpB">
-                                    <use xlink:href="#PlayerB" class="opacity-0 win-animation"></use>
+                                    <use xlink:href="#PlayerB" class="opacity-0" [ngClass]="{'win-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}"></use>
                                     <g class="betPlacesGridSvg__flower-oJthYK">
                                         <use xlink:href="#PlayerBDecoration"></use>
                                     </g>
                                 </g>
                                 <g filter="url(#buttonShadowPlayerA)" class="betPlacesGridSvg_winBet-ymPuYs">
-                                    <use xlink:href="#PairPlusPlayerA" class="opacity-0 win-animation"></use>
+                                    <use xlink:href="#PairPlusPlayerA" class="opacity-0" [ngClass]="{'win-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"></use>
                                     <g class="betPlacesGridSvg__flower-oJthYK">
                                         <use xlink:href="#PairPlusPlayerADecoration"></use>
                                     </g>
                                 </g>
                                 <g filter="url(#buttonShadowPlayerB)"
                                     class="betPlacesGridSvg_winBet-ymPuYs betPlacesGridSvg_winBet_playerB-Yl_SpB">
-                                    <use xlink:href="#PairPlusPlayerB" class="opacity-0 win-animation"></use>
+                                    <use xlink:href="#PairPlusPlayerB" class="opacity-0 " [ngClass]="{'win-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}"></use>
                                     <g class="betPlacesGridSvg__flower-oJthYK">
                                         <use xlink:href="#PairPlusPlayerBDecoration"></use>
                                     </g>
@@ -351,14 +351,14 @@
                                 </div>
                             </div>
                             <div class="table__betInfoGrid">
-                                <div class="betPlaceInfo player_A_player_B_opacity">
+                                <div class="betPlaceInfo " [ngClass]="this.game.status=='SUSPEND'?'player_A_player_B_opacity':''">
                                     <div class="betPlayer_A ">
                                         {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}</div>
                                     <div class="betPlaceInfo__roundInfo">
                                         {{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.2-2'}}</div>
                                 </div>
 
-                                <div class="betPlaceInfo betPlaceInfo_main_playerB player_A_player_B_opacity">
+                                <div class="betPlaceInfo betPlaceInfo_main_playerB " [ngClass]="this.game.status=='SUSPEND'?'player_A_player_B_opacity':''">
                                     <div class="betPlayer_A ">
                                         {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}</div>
                                     <div class="betPlaceInfo__roundInfo">
@@ -390,8 +390,8 @@
             </div>
             <!-- Teen patti Cards Section ends here -->
 
-            <div class="relative md:max-w-[22rem]" *ngIf="this.game?.status!='SUSPEND'">
-                <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM">
+            <div class="relative md:max-w-[22rem]" >
+                <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM" *ngIf="this.game?.status!='SUSPEND'">
                     <div class="overflow-visible animation-container" [ngClass]="{'open-coin-bar':coinAnimateState}">
                         <div class="tab-slider min-w-full">
 
@@ -584,8 +584,8 @@
                 </div>
 
                 <div class="buttonsPanel-hAiFyw buttonsPanel_bettingState-vnMbbl md:!justify-end md:pr-2.5 ">
-                    <div class="buttonsPanel__buttons-nTrdCX">
-                        <div class="buttonsPanel__bettingButtons-tJAgVE ">
+                    <div class="buttonsPanel__buttons-nTrdCX"  >
+                        <div class="buttonsPanel__bettingButtons-tJAgVE " *ngIf="this.game?.status!='SUSPEND'">
                             <button (click)="openQuickStakes()"
                                 class="bettingButton-i5MaZV bg-[rgba(138,138,153,0.2)] flex justify-center items-center"
                                 type="button" data-locator="undo-bet-btn">
@@ -839,9 +839,13 @@
             </div>
 
             <div class="time-container">
-                <div class="last-win">Last win <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">€ 0</span>
+                <div class="last-win">{{this.game.eventName}}
+                  <!-- <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">€ 0</span> -->
                 </div>
-                <div class="roundInfo-date">13 Feb 2025 15:28:21 <span class="inline-block">.</span> 56676640</div>
+                <div class="roundInfo-date">
+                  <!-- <span class="inline-block">.</span>  -->
+                  {{this.game.roundId}}
+                </div>
             </div>
 
 
