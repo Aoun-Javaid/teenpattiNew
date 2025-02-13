@@ -657,7 +657,8 @@
 
       <!-- timer -->
       <!-- <app-timer></app-timer> -->
-      <div class="timerPortrait" *ngIf="!unityTimer">
+      <!-- *ngIf="!unityTimer" -->
+      <div class="timerPortrait">
         <div *ngIf="TIME_LIMIT !== 0" data-locator="betting-timer" style="--size: 4rem">
           <svg class="bettingTimer_timer" viewBox="0 0 64 64">
             <circle class="bettingTimer_circle" fill="#0006" [attr.stroke]="getStrokeColor()" stroke-linecap="round"
@@ -669,7 +670,7 @@
           <div [ngClass]="{
             'roll-up': animate && timeLeft > 5,
             'cd-number': animate && timeLeft <= 5,
-        }" class=" absolute  inset-0 flex items-center justify-center text-[1.76rem] font-medium text-white   ">
+        }" class=" absolute  inset-0 flex items-center justify-center text-[1.76rem] font-medium text-white font-[Rubik]  ">
             {{ timeLeft }}
           </div>
         </div>
