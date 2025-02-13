@@ -447,14 +447,14 @@
   -webkit-text-fill-color: transparent;
 }
 
-.gradientDiv{
+.gradientDiv {
   height: 55%;
   background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
 }
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 ;
+  @apply flex justify-between w-full items-center px-[4%] mt-1;
   position: absolute;
-  bottom:2px;
+  bottom: 2px;
 }
 
 .roundInfo-date {
@@ -1235,7 +1235,7 @@
 }
 /* coin */
 .chipTrayWithToggle__item-nLy9Sn {
-  padding: 0 0.25rem !important;
+  padding: 0 0.25rem ;
 }
 
 .chips-rzbOIK {
@@ -1246,7 +1246,7 @@
   transition: opacity 300ms ease;
 }
 .chip_size_48-odjDTm {
-  @apply h-[3.2rem] w-[3.2rem];
+  @apply h-[48px] w-[48px];
 }
 
 .active-shadow {
@@ -1258,6 +1258,7 @@
   transition-property: opacity, visibility;
   /* visibility: hidden;
   z-index: 1; */
+  border: 2px solid #fa0;
 }
 
 .chip-kcN8LW:before {

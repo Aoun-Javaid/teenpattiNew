@@ -395,7 +395,7 @@
 
             <div class="relative md:max-w-[22rem]" >
                 <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM" >
-                    <div class="overflow-visible animation-container" *ngIf="this.game?.status!='SUSPEND'" [ngClass]="{'open-coin-bar':coinAnimateState}">
+                    <div class="overflow-visible animation-container"  [ngClass]="{'open-coin-bar':coinAnimateState}">
                         <div class="tab-slider min-w-full">
 
                             <div class="flex">
@@ -588,7 +588,7 @@
 
                 <div class="buttonsPanel-hAiFyw buttonsPanel_bettingState-vnMbbl md:!justify-end md:pr-2.5 ">
                     <div class="buttonsPanel__buttons-nTrdCX"  >
-                        <div class="buttonsPanel__bettingButtons-tJAgVE " *ngIf="this.game?.status!='SUSPEND'">
+                        <div class="buttonsPanel__bettingButtons-tJAgVE " >
                             <button (click)="openQuickStakes()"
                                 class="bettingButton-i5MaZV bg-[rgba(138,138,153,0.2)] flex justify-center items-center"
                                 type="button" data-locator="undo-bet-btn">
@@ -607,13 +607,13 @@
                                 <span class="bettingButton__ctaHighlight-boqUkO"></span><span
                                     class="rippleWavesDetectArea-YqGgIY"></span>
                             </button>
-                            <div data-locator="chip-tray-button"
+                            <div data-locator="chip-tray-button" *ngIf="coinAnimateState"
                                 class=" chipTrayButtonWithToggle_open-LlvgMl chipTrayButtonWithToggle_horizontal-CwZaXB">
                                 <div class="chipTrayButtonWithToggle__bg-zQXxFd ">
                                     <button (click)="showAnimateCoinBar()"
                                         class="iconButton-by3moV iconButton_theme_default-G6tVtR iconButton_size_medium-YQpLaw iconButton_borderRadiusSize_default-SAVSQu"
                                         type="button">
-                                        <span class="iconButton__icon-k1NKdw" *ngIf="coinAnimateState">
+                                        <span class="iconButton__icon-k1NKdw" >
                                             <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -627,189 +627,143 @@
                                                     fill="currentColor"></path>
                                             </svg>
                                         </span>
-
-                                        <!-- Tab item 4 -->
-                                        <div class="chipTrayWithToggle__item-nLy9Sn"
-                                            *ngIf="!coinAnimateState && btnCheck ===1">
-                                            <div class="chips-rzbOIK ">
-                                                <div class="chip-kcN8LW chip_size_48-odjDTm !h-[2.2rem] !w-[2.2rem]"
-                                                    data-locator="chip-250">
-                                                    <div class="chip__1st">
-                                                        <div
-                                                            class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
-                                                        </div>
-                                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <text x="29%" y="50%" transform="translate(0, 1.25)"
-                                                                class="chip__valueShadow-apDxWQ"
-                                                                text-rendering="geometricPrecision"
-                                                                dominant-baseline="central" style="font-size: 16px">
-                                                                {{this.stackButtonArry[0].stakeAmount | shortNumber}}
-                                                            </text>
-                                                            <text x="29%" y="50%" transform="translate(0, 0)"
-                                                                class="chip__value-B48ghL"
-                                                                text-rendering="geometricPrecision"
-                                                                data-locator="chip-value" dominant-baseline="central"
-                                                                style="font-size: 16px">
-                                                                {{this.stackButtonArry[0].stakeAmount | shortNumber}}
-                                                            </text>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Tab item 4 -->
-                                        <div class="chipTrayWithToggle__item-nLy9Sn " *ngIf="btnIcon && btnCheck ===2">
-                                            <div class="chips-rzbOIK ">
-                                                <div class="chip-kcN8LW chip_size_48-odjDTm !h-[2.2rem] !w-[2.2rem]"
-                                                    data-locator="chip-250">
-                                                    <div class="chip__frontSide-njKKgE"
-                                                        style=" background: linear-gradient(135deg, #f93 0%, #f50 100%, #8a8a99);">
-                                                        <div
-                                                            class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
-                                                        </div>
-                                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <text x="29%" y="50%" transform="translate(0, 1.25)"
-                                                                class="chip__valueShadow-apDxWQ"
-                                                                text-rendering="geometricPrecision"
-                                                                dominant-baseline="central" style="font-size: 16px">
-                                                                {{this.stackButtonArry[1].stakeAmount | shortNumber}}
-                                                            </text>
-                                                            <text x="29%" y="50%" transform="translate(0, 0)"
-                                                                class="chip__value-B48ghL"
-                                                                text-rendering="geometricPrecision"
-                                                                data-locator="chip-value" dominant-baseline="central"
-                                                                style="font-size: 16px">
-                                                                {{this.stackButtonArry[1].stakeAmount | shortNumber}}
-                                                            </text>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Tab item 4 -->
-                                        <div class="chipTrayWithToggle__item-nLy9Sn" *ngIf="btnIcon && btnCheck ===3">
-                                            <div class="chips-rzbOIK ">
-                                                <div class="chip-kcN8LW chip_size_48-odjDTm !h-[2.2rem] !w-[2.2rem]"
-                                                    data-locator="chip-250">
-                                                    <div class="chip__frontSide-njKKgE"
-                                                        style="background: linear-gradient(135deg, #f69 0%, #c06 100%);">
-                                                        <div
-                                                            class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
-                                                        </div>
-                                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <text x="20%" y="50%" transform="translate(0, 1.25)"
-                                                                class="chip__valueShadow-apDxWQ"
-                                                                text-rendering="geometricPrecision"
-                                                                dominant-baseline="central" style="font-size: 16px">
-                                                                {{this.stackButtonArry[2].stakeAmount | shortNumber}}
-                                                            </text>
-                                                            <text x="20%" y="50%" transform="translate(0, 0)"
-                                                                class="chip__value-B48ghL"
-                                                                text-rendering="geometricPrecision"
-                                                                data-locator="chip-value" dominant-baseline="central"
-                                                                style="font-size: 16px">
-                                                                {{this.stackButtonArry[2].stakeAmount | shortNumber}}
-                                                            </text>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Tab item 4 -->
-                                        <div class="chipTrayWithToggle__item-nLy9Sn" *ngIf="btnIcon && btnCheck ===4">
-                                            <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
-                                                <div class="chip-kcN8LW chip_size_48-odjDTm !h-[2.2rem] !w-[2.2rem]"
-                                                    data-locator="chip-250">
-                                                    <div class="chip__frontSide-njKKgE"
-                                                        style="background:  linear-gradient(135deg, #f33 0%, #900 100%)">
-                                                        <div
-                                                            class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
-                                                        </div>
-                                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <text x="20%" y="50%" transform="translate(0, 1.25)"
-                                                                class="chip__valueShadow-apDxWQ"
-                                                                text-rendering="geometricPrecision"
-                                                                dominant-baseline="central" style="font-size: 16px">
-                                                                {{this.stackButtonArry[3].stakeAmount | shortNumber}}
-                                                            </text>
-                                                            <text x="20%" y="50%" transform="translate(0, 0)"
-                                                                class="chip__value-B48ghL"
-                                                                text-rendering="geometricPrecision"
-                                                                data-locator="chip-value" dominant-baseline="central"
-                                                                style="font-size: 16px">
-                                                                {{this.stackButtonArry[3].stakeAmount | shortNumber}}
-                                                            </text>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Tab item 4 -->
-                                        <div class="chipTrayWithToggle__item-nLy9Sn" *ngIf="btnIcon && btnCheck ===5">
-                                            <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
-                                                <div class="chip-kcN8LW chip_size_48-odjDTm !h-[2.2rem] !w-[2.2rem]"
-                                                    data-locator="chip-250">
-                                                    <div class="chip__frontSide-njKKgE"
-                                                        style="background: linear-gradient(135deg, #5f29cc 0%, #009 100%);">
-                                                        <div
-                                                            class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
-                                                        </div>
-                                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <text x="24%" y="50%" transform="translate(0, 1.25)"
-                                                                class="chip__valueShadow-apDxWQ"
-                                                                text-rendering="geometricPrecision"
-                                                                dominant-baseline="central" style="font-size: 16px">
-                                                                {{this.stackButtonArry[4].stakeAmount | shortNumber}}
-                                                            </text>
-                                                            <text x="24%" y="50%" transform="translate(0, 0)"
-                                                                class="chip__value-B48ghL"
-                                                                text-rendering="geometricPrecision"
-                                                                data-locator="chip-value" dominant-baseline="central"
-                                                                style="font-size: 16px">
-                                                                {{this.stackButtonArry[4].stakeAmount | shortNumber}}
-                                                            </text>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Tab item 4 -->
-                                        <div class="chipTrayWithToggle__item-nLy9Sn" *ngIf="btnIcon && btnCheck ===6">
-                                            <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
-                                                <div class="chip-kcN8LW chip_size_48-odjDTm !h-[2.2rem] !w-[2.2rem] "
-                                                    data-locator="chip-250">
-                                                    <div class="chip__frontSide-njKKgE"
-                                                        style="background: linear-gradient(135deg, #2e3133 0%, #0b0c0d 100%);">
-                                                        <div
-                                                            class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
-                                                        </div>
-                                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <text x="14%" y="50%" transform="translate(0, 1.25)"
-                                                                class="chip__valueShadow-apDxWQ"
-                                                                text-rendering="geometricPrecision"
-                                                                dominant-baseline="central" style="font-size: 16px">
-                                                                {{this.stackButtonArry[5].stakeAmount | shortNumber}}
-                                                            </text>
-                                                            <text x="14%" y="50%" transform="translate(0, 0)"
-                                                                class="chip__value-B48ghL"
-                                                                text-rendering="geometricPrecision"
-                                                                data-locator="chip-value" dominant-baseline="central"
-                                                                style="font-size: 16px">
-                                                                {{this.stackButtonArry[5].stakeAmount | shortNumber}}
-                                                            </text>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </button>
+                                       </button>
+                                     
+                                 
                                     <!-- <div class="chipTrayButtonWithToggle__triangle-nHc70D"></div> -->
+                                </div>
+                            </div>
+                            <!-- Tab item 4 -->
+                            <div class="chipTrayWithToggle__item-nLy9Sn !p-0" (click)="showAnimateCoinBar()" *ngIf="!coinAnimateState && btnCheck ===1">
+                                <div class="chips-rzbOIK ">
+                                    <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px]" data-locator="chip-250">
+                                        <div class="chip__1st">
+                                            <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                            </div>
+                                            <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <text x="29%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                                                    text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                                                    {{this.stackButtonArry[0].stakeAmount | shortNumber}}
+                                                </text>
+                                                <text x="29%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                                    text-rendering="geometricPrecision" data-locator="chip-value" dominant-baseline="central"
+                                                    style="font-size: 16px">
+                                                    {{this.stackButtonArry[0].stakeAmount | shortNumber}}
+                                                </text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tab item 4 -->
+                            <div class="chipTrayWithToggle__item-nLy9Sn !p-0 " (click)="showAnimateCoinBar()" *ngIf="btnIcon && btnCheck ===2">
+                                <div class="chips-rzbOIK ">
+                                    <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px]" data-locator="chip-250">
+                                        <div class="chip__frontSide-njKKgE"
+                                            style=" background: linear-gradient(135deg, #f93 0%, #f50 100%, #8a8a99);">
+                                            <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                            </div>
+                                            <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <text x="29%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                                                    text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                                                    {{this.stackButtonArry[1].stakeAmount | shortNumber}}
+                                                </text>
+                                                <text x="29%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                                    text-rendering="geometricPrecision" data-locator="chip-value" dominant-baseline="central"
+                                                    style="font-size: 16px">
+                                                    {{this.stackButtonArry[1].stakeAmount | shortNumber}}
+                                                </text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tab item 4 -->
+                            <div class="chipTrayWithToggle__item-nLy9Sn !p-0" (click)="showAnimateCoinBar()" *ngIf="btnIcon && btnCheck ===3">
+                                <div class="chips-rzbOIK ">
+                                    <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px]" data-locator="chip-250">
+                                        <div class="chip__frontSide-njKKgE" style="background: linear-gradient(135deg, #f69 0%, #c06 100%);">
+                                            <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                            </div>
+                                            <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <text x="20%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                                                    text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                                                    {{this.stackButtonArry[2].stakeAmount | shortNumber}}
+                                                </text>
+                                                <text x="20%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                                    text-rendering="geometricPrecision" data-locator="chip-value" dominant-baseline="central"
+                                                    style="font-size: 16px">
+                                                    {{this.stackButtonArry[2].stakeAmount | shortNumber}}
+                                                </text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tab item 4 -->
+                            <div class="chipTrayWithToggle__item-nLy9Sn !p-0" (click)="showAnimateCoinBar()" *ngIf="btnIcon && btnCheck ===4">
+                                <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
+                                    <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px]" data-locator="chip-250">
+                                        <div class="chip__frontSide-njKKgE" style="background:  linear-gradient(135deg, #f33 0%, #900 100%)">
+                                            <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                            </div>
+                                            <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <text x="20%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                                                    text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                                                    {{this.stackButtonArry[3].stakeAmount | shortNumber}}
+                                                </text>
+                                                <text x="20%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                                    text-rendering="geometricPrecision" data-locator="chip-value" dominant-baseline="central"
+                                                    style="font-size: 16px">
+                                                    {{this.stackButtonArry[3].stakeAmount | shortNumber}}
+                                                </text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tab item 4 -->
+                            <div class="chipTrayWithToggle__item-nLy9Sn !p-0" (click)="showAnimateCoinBar()" *ngIf="btnIcon && btnCheck ===5">
+                                <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
+                                    <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px]" data-locator="chip-250">
+                                        <div class="chip__frontSide-njKKgE" style="background: linear-gradient(135deg, #5f29cc 0%, #009 100%);">
+                                            <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                            </div>
+                                            <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <text x="24%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                                                    text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                                                    {{this.stackButtonArry[4].stakeAmount | shortNumber}}
+                                                </text>
+                                                <text x="24%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                                    text-rendering="geometricPrecision" data-locator="chip-value" dominant-baseline="central"
+                                                    style="font-size: 16px">
+                                                    {{this.stackButtonArry[4].stakeAmount | shortNumber}}
+                                                </text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tab item 4 -->
+                            <div class="chipTrayWithToggle__item-nLy9Sn !p-0" (click)="showAnimateCoinBar()" *ngIf="btnIcon && btnCheck ===6">
+                                <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
+                                    <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] " data-locator="chip-250">
+                                        <div class="chip__frontSide-njKKgE" style="background: linear-gradient(135deg, #2e3133 0%, #0b0c0d 100%);">
+                                            <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                            </div>
+                                            <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <text x="14%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                                                    text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                                                    {{this.stackButtonArry[5].stakeAmount | shortNumber}}
+                                                </text>
+                                                <text x="14%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                                    text-rendering="geometricPrecision" data-locator="chip-value" dominant-baseline="central"
+                                                    style="font-size: 16px">
+                                                    {{this.stackButtonArry[5].stakeAmount | shortNumber}}
+                                                </text>
+                                            </svg>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <button class="bettingButton-i5MaZV bettingButton_orange-oB31C6" type="button" disabled=""

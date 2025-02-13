@@ -28,7 +28,7 @@ declare var $: any;
   templateUrl: './teenpatti-new.component.html',
   styleUrl: './teenpatti-new.component.css'
 })
-export class TeenpattiNewComponent implements OnInit,OnDestroy{
+export class TeenpattiNewComponent implements OnInit, OnDestroy {
   reverseAnimate: boolean = false
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
@@ -426,13 +426,13 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
 
             if (this.split_arr[7] == 'size') {
 
-              if (runnersIndex == 0 && marketIndex==0) {
+              if (runnersIndex == 0 && marketIndex == 0) {
                 // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
                 let percnt1 = ((this.changeValue / this.sizeRunner1) * 100);
                 this.firstBoxWidth = -1 * (percnt1 - 100) + '';
                 // console.log('player A', this.firstBoxWidth)
               }
-              if (runnersIndex == 1 && marketIndex==0) {
+              if (runnersIndex == 1 && marketIndex == 0) {
                 // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
                 let percnt = ((this.changeValue / this.sizeRunner2) * 100);
                 this.secndBoxWidth = -1 * (percnt - 100) + '';
@@ -932,49 +932,49 @@ export class TeenpattiNewComponent implements OnInit,OnDestroy{
       }, 500);
     }
 
-    let translateX = '205px';
+    let translateX = '187px';
     switch (this.animateCoinVal) {
       case 1:
-        translateX = '205px';
+        translateX = '187px';
         break;
       case 2:
-        translateX = '143.8px';
+        translateX = '130px';
         break;
       case 3:
-        translateX = '85.51px';
+        translateX = '70px';
         break;
       case 4:
-        translateX = '26.4px';
+        translateX = '17px';
         break;
       case 5:
-        translateX = '-33.2px';
+        translateX = '-40.2px';
         break;
       case 6:
-        translateX = '-90.8px';
+        translateX = '-97.8px';
         break;
     }
     document.documentElement.style.setProperty('--translateX', translateX);
 
 
-    let translateXRevers = '205px';
+    let translateXRevers = '187px';
     switch (this.btnCheck) {
       case 1:
-        translateXRevers = '205px';
+        translateXRevers = '187px';
         break;
       case 2:
-        translateXRevers = '143.8px';
+        translateXRevers = '130px';
         break;
       case 3:
-        translateXRevers = '85.51px';
+        translateXRevers = '70px';
         break;
       case 4:
-        translateXRevers = '26.4px';
+        translateXRevers = '17px';
         break;
       case 5:
-        translateXRevers = '-33.2px';
+        translateXRevers = '-40.2px';
         break;
       case 6:
-        translateXRevers = '-90.8px';
+        translateXRevers = '-97.8px';
         break;
     }
     document.documentElement.style.setProperty('--translateXReverse', translateXRevers);
