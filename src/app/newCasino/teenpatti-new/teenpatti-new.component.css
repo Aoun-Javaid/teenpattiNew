@@ -646,6 +646,14 @@
   fill: white !important;
 }
 
+
+
+.desktop-coin {
+  @apply md:fixed  right-[-6%] top-[50%] z-[99] -rotate-[90deg] h-[122px] flex flex-col justify-end
+}
+
+
+
 .player_A_card h3 {
   /* font-family: "Nunito"; */
   font-size: 16.43px;
@@ -994,6 +1002,7 @@
   z-index: 6;
   align-items: center;
 }
+ 
 
 @media (orientation: portrait) {
   .buttonsPanel__buttons-nTrdCX {
@@ -1024,6 +1033,7 @@
   pointer-events: none;
   transition: opacity 0.2s ease, visibility 0.2s ease;
   visibility: hidden;
+  @apply md:gap-1
 }
 
 .bettingButton-i5MaZV {
@@ -1238,7 +1248,7 @@
 }
 /* coin */
 .chipTrayWithToggle__item-nLy9Sn {
-  padding: 0 0.25rem ;
+  padding: 0 0.25rem;
 }
 
 .chips-rzbOIK {
