@@ -649,7 +649,7 @@
 
 
 .desktop-coin {
-  @apply md:fixed  right-[-6%] top-[50%] z-[99] -rotate-[90deg] h-[122px] flex flex-col justify-end
+  @apply md:fixed  right-[-6%] top-[50%] z-[99] -rotate-[90deg] h-[122px] flex flex-col justify-end max-md:!hidden
 }
 
 
@@ -1033,7 +1033,7 @@
   pointer-events: none;
   transition: opacity 0.2s ease, visibility 0.2s ease;
   visibility: hidden;
-  @apply md:gap-1
+  @apply md:gap-2
 }
 
 .bettingButton-i5MaZV {
@@ -1045,6 +1045,7 @@
   width: 3rem;
   position: relative;
   transition: opacity 300ms ease;
+  @apply md:h-[93px] md:w-[93px]
 }
 
 .bettingButton-i5MaZV:disabled {
@@ -1259,7 +1260,7 @@
   transition: opacity 300ms ease;
 }
 .chip_size_48-odjDTm {
-  @apply h-[48px] w-[48px];
+  @apply h-[48px] w-[48px] md:h-[93px] md:w-[93px] md:rotate-[93deg];
 }
 
 .active-shadow {
