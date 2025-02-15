@@ -74,8 +74,8 @@
 
 
                 <div class="relative   z-[1] h-full lg:max-w-[473px] ">
-                    <div class="win_percentage_container relative">
-                        <div class="win_percentage_wrapper ">
+                    <div class="win_percentage_container relative lg:!hidden">
+                        <div class="win_percentage_wrapper  ">
                             <div class="progress_bar_container">
                                 <div class="progress-bar bg-danger !bg-[#CC493E]" [style.width]="aPlayerChances+'%'">
                                     <div class="progress-bar_data">
@@ -916,8 +916,7 @@
 
                     <div class="flex">
                         <!-- Tab item 4 -->
-                        <div class="chipTrayWithToggle__item-nLy9Sn"
-                            (click)="animatecoinValue(1)">
+                        <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(1)">
                             <div class="chips-rzbOIK ">
                                 <div class="chip-kcN8LW chip_size_48-odjDTm !w-[32.59px] !h-[32.59px] !rotate-0 "
                                     [ngClass]="{'active-shadow':animateCoinVal === 1 || btnCheck === 1 }"
@@ -943,8 +942,7 @@
                             </div>
                         </div>
                         <!-- Tab item 4 -->
-                        <div class="chipTrayWithToggle__item-nLy9Sn "
-                            (click)="animatecoinValue(2)">
+                        <div class="chipTrayWithToggle__item-nLy9Sn " (click)="animatecoinValue(2)">
                             <div class="chips-rzbOIK ">
                                 <div class="chip-kcN8LW chip_size_48-odjDTm !w-[32.59px] !h-[32.59px] !rotate-0"
                                     [ngClass]="{'active-shadow':animateCoinVal === 2 || btnCheck === 2}"
@@ -971,8 +969,7 @@
                             </div>
                         </div>
                         <!-- Tab item 4 -->
-                        <div class="chipTrayWithToggle__item-nLy9Sn"
-                            (click)="animatecoinValue(3)">
+                        <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(3)">
                             <div class="chips-rzbOIK ">
                                 <div class="chip-kcN8LW chip_size_48-odjDTm !w-[32.59px] !h-[32.59px] !rotate-0 "
                                     [ngClass]="{'active-shadow':animateCoinVal === 3 || btnCheck === 3}"
@@ -999,9 +996,7 @@
                             </div>
                         </div>
                         <!-- Tab item 4 -->
-                        <div class="chipTrayWithToggle__item-nLy9Sn"
-                           
-                            (click)="animatecoinValue(4)">
+                        <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(4)">
                             <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
                                 <div class="chip-kcN8LW chip_size_48-odjDTm !w-[32.59px] !h-[32.59px] !rotate-0 "
                                     data-locator="chip-250"
@@ -1028,8 +1023,7 @@
                             </div>
                         </div>
                         <!-- Tab item 4 -->
-                        <div class="chipTrayWithToggle__item-nLy9Sn"
-                            (click)="animatecoinValue(5)">
+                        <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(5)">
                             <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
                                 <div class="chip-kcN8LW chip_size_48-odjDTm !w-[32.59px] !h-[32.59px] !rotate-0 "
                                     data-locator="chip-250"
@@ -1056,8 +1050,7 @@
                             </div>
                         </div>
                         <!-- Tab item 4 -->
-                        <div class="chipTrayWithToggle__item-nLy9Sn"
-                            (click)="animatecoinValue(6)">
+                        <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(6)">
                             <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
                                 <div class="chip-kcN8LW chip_size_48-odjDTm !w-[32.59px] !h-[32.59px] !rotate-0 "
                                     data-locator="chip-250"
@@ -1545,6 +1538,38 @@
         </button>
     </div>
 </div>
+
+
+<!-- <div class="win_percentage_container relative  max-lg:hidden">
+    <div class="win_percentage_wrapper  ">
+        <div class="progress_bar_container">
+            <div class="progress-bar bg-danger !bg-[#CC493E]" [style.width]="aPlayerChances+'%'">
+                <div class="progress-bar_data">
+                    A
+                </div>
+                <div class="progress-bar_data">
+                    {{aPlayerChances}}%
+                </div>
+            </div>
+            <div *ngIf="TPlayerChances" class="progress-bar bg-Tie" [style.width]="TPlayerChances+'%'">
+                <div class="progress-bar_data">
+                    T
+                </div>
+                <div class="progress-bar_data">
+                    {{TPlayerChances}}%
+                </div>
+            </div>
+            <div class="progress-bar yellow_bg  !flex-row-reverse" [style.width]="bPlayerChances+'%'">
+                <div class="progress-bar_data">
+                    B
+                </div>
+                <div class="progress-bar_data">
+                    {{bPlayerChances}}%
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
 
 
 
