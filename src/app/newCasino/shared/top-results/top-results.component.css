@@ -57,9 +57,9 @@
   position: relative;
 }
 .abResultLine__inner-fF8OCI.animated2-gtLnvD {
-  animation-name: newNumber2-LtXZix;
+  animation-name: newNumber2;
 }
-@keyframes newNumber2-LtXZix {
+@keyframes newNumber2 {
   0% {
     transform: translateX(var(--shift-horizontally, -1.5rem));
   }
@@ -113,7 +113,7 @@
 .tile_size_small-ATZ3H_ {
   font-size: 0.625rem;
   line-height: 1rem;
-  width: 1rem;
+  /* width: 1rem; */
 }
 .tile_indentSize_medium-U9Lwul {
   margin: 0 0.25rem;
@@ -129,6 +129,7 @@
 }
 .tile_size_small-ATZ3H_ .tile__label {
   height: 1rem;
+  width: 1.5rem;
 }
 .tile__label {
   align-items: center;
