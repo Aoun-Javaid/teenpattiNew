@@ -173,7 +173,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
       this.socket = marketData; // Update the receivedMessage variable with the received message
 
       if (marketData) {
-        this.getRoundId = localStorage.getItem('roundID')
+        // this.getRoundId = localStorage.getItem('roundID')
 
         let objMarket = JSON.parse(marketData);
         console.log('market data', objMarket)
@@ -192,7 +192,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
               this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
               this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
               this.winnerMarketArray = this.game?.marketArr ? this.game?.marketArr[0] : '';
-
+              this.getRoundId = this.game.roundId
               this.handleEventResponse(objMarket, 0)
 
             }
@@ -214,7 +214,8 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
           // console.log('roundId',this.getRoundId)
           // console.log('game ',this.game.roundId)
           if (this.getRoundId != this.game.roundId || this.getRoundId == '') {
-            localStorage.setItem('roundID', this.game.roundId)
+            this.getRoundId = this.game.roundId;
+            // localStorage.setItem('roundID', this.game.roundId);
             this.getBalance();
             this.casinoPl = [];
             this.getResults();
