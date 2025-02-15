@@ -18,6 +18,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { TeenpattiComponent } from './casino/teenpatti/teenpatti.component';
 import { TeenpattiNewComponent } from './newCasino/teenpatti-new/teenpatti-new.component';
 import { TimerComponent } from './shared/timer/timer.component';
+import {DragonTigerComponent} from "./newCasino/dragon-tiger/dragon-tiger.component";
 
 
 export const routes: Routes = [
@@ -99,6 +100,10 @@ export const routes: Routes = [
       {
         path:'Nteenpatti/:id',
         component:TeenpattiNewComponent
+      },
+      {
+        path:'dragon-tiger',
+        component:DragonTigerComponent
       },
       {
         path: '**',
