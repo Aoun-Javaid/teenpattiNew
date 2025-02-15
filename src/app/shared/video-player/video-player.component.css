@@ -443,7 +443,7 @@
   animation-duration: var(--timerValue);
   border-top-color: green;
   border-right-color: green;
-  border-width: 25px;
+  border-width: 26px;
 }
 
 .spanColorRed {

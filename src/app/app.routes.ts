@@ -93,6 +93,10 @@ export const routes: Routes = [
         component:TeenpattiComponent
       },
       {
+        path:'dt/:id',
+        component:TeenpattiComponent
+      },
+      {
         path:'Nteenpatti/:id',
         component:TeenpattiNewComponent
       },
