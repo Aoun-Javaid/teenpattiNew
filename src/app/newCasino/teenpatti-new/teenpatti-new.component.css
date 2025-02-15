@@ -415,7 +415,14 @@
   transform: translateY(1.625rem) scaleX(0);
   text-align: center;
 }
-
+.playerA-winnerText{
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(204 73 62 ) 50%,
+    transparent 100%
+  ) !important;
+}
 .animation-player-scale {
   animation: scaleAnimation 2s ease-out, translateAnimation 2s;
 }
