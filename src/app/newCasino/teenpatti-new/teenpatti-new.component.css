@@ -38,7 +38,7 @@
   line-height: 0.75rem;
   display: flex;
   justify-content: flex-start;
-  font-family: 'Rubik'
+  font-family: "Rubik";
 }
 
 .bonus_value {
@@ -165,7 +165,7 @@
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 0.75rem;
-  font-family: 'Rubik';
+  font-family: "Rubik";
 }
 
 .down-player {
@@ -174,7 +174,7 @@
   font-size: 0.75rem;
   margin: 0.25rem 0;
   font-weight: 500;
-  font-family: 'Rubik';
+  font-family: "Rubik";
 }
 
 .betPlaceInfo {
@@ -374,6 +374,14 @@
   padding: 0px 20px;
 }
 
+.playerA-win-point {
+  @apply left-[50%] cursor-none absolute translate-x-[-50%] z-[4] top-[9.125rem];
+}
+
+.player-content-wrapper {
+  @apply w-[10.5rem];
+}
+
 .high_card_primary {
   background-color: white;
   color: #ee1600;
@@ -391,6 +399,49 @@
   font-style: normal;
   font-size: 12px;
   white-space: nowrap;
+}
+
+.player-text {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(248, 149, 0) 50%,
+    transparent 100%
+  );
+  font-family: Baloo\2, sans-serif;
+  font-weight: 800;
+  padding: 0.125rem 0;
+  text-shadow: 0 0.0625rem 0 rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  transform: translateY(1.625rem) scaleX(0);
+  text-align: center;
+}
+
+.animation-player-scale {
+  animation: scaleAnimation 2s ease-out, translateAnimation 2s;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(1.625rem) scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(1.625rem) scaleX(1);
+  }
+}
+
+@keyframes translateAnimation {
+  0% {
+    transform: translateY(1.625rem);
+  }
+  80% {
+    transform: translateY(-0.3125rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .high_card_secondary {
@@ -646,13 +697,9 @@
   fill: white !important;
 }
 
-
-
 .desktop-coin {
-  @apply md:fixed  right-[-6%] top-[50%] z-[99] -rotate-[90deg] h-[122px] flex flex-col justify-end max-md:!hidden
+  @apply md:fixed  right-[-6%] top-[50%] z-[99] -rotate-[90deg] h-[122px] flex flex-col justify-end max-md:!hidden;
 }
-
-
 
 .player_A_card h3 {
   /* font-family: "Nunito"; */
@@ -1003,7 +1050,6 @@
   align-items: center;
 }
 
-
 @media (orientation: portrait) {
   .buttonsPanel__buttons-nTrdCX {
     margin-left: auto;
@@ -1033,7 +1079,7 @@
   pointer-events: none;
   transition: opacity 0.2s ease, visibility 0.2s ease;
   visibility: hidden;
-  @apply md:gap-2
+  @apply md:gap-2;
 }
 
 .bettingButton-i5MaZV {
@@ -1045,7 +1091,7 @@
   width: 3rem;
   position: relative;
   transition: opacity 300ms ease;
-  @apply md:h-[93px] md:w-[93px]
+  @apply md:h-[93px] md:w-[93px];
 }
 
 .bettingButton-i5MaZV:disabled {
@@ -1380,22 +1426,19 @@
     grid-area: 1 / 1;
 } */
 
-
 .high-card {
-    background: white;
-    border-radius: 0.25rem;
-    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, .25);
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    height: 1.25rem;
-    line-height: 1.25rem;
-    padding: 0 0.5rem;
-    transition: opacity 300msease;
-    white-space: nowrap;
+  background: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  height: 1.25rem;
+  line-height: 1.25rem;
+  padding: 0 0.5rem;
+  transition: opacity 300msease;
+  white-space: nowrap;
 }
-
-
 
 .chip-kcN8LW:after {
   background-color: hsla(0, 0%, 100%, 0.4);

@@ -14,6 +14,13 @@
         </ng-container> -->
     </div>
 
+    <div class="playerA-win-point">
+        <div class="player-content-wrapper">
+            <div class="player-text animation-player-scale">player A</div>
+        </div>
+    </div>
+
+
     <div id="marketScroll" style="overflow-y: auto;" [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
         <div class="gradientDiv">
 
@@ -27,7 +34,7 @@
                 <div class="teen_patti_conatiner absolute top-[-5.375rem] w-full md:!max-w-[473px]"
                     [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
 
-                    <div class="flex items-center w-full absolute  top-[-13px] pe-[9%] z-[99]">
+                    <div class="flex items-center w-full absolute  top-[-15px] pe-[9%] z-[99]">
                         <div class="flex justify-center w-[50%]">
                             <div class="high-card text-[rgb(204,73,62)]">High Card</div>
                         </div>
