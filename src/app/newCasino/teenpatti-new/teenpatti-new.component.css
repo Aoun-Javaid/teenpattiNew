@@ -133,7 +133,6 @@
 }
 
 .win-animation-player-a {
-  
   animation: ctaAnimation-A 500ms ease infinite forwards;
 }
 
@@ -506,7 +505,7 @@
   background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
 }
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1;
+  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
   position: absolute;
   bottom: 2px;
 }
