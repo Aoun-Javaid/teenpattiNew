@@ -64,6 +64,7 @@
     font-weight: 500;
     position: relative;
     z-index: 1;
+     font-family: Rubik, sans-serif;
 }
 
 .table__mainBetStat-tA7Phx {
@@ -92,6 +93,7 @@
     display: flex;
     font-weight: 500;
     gap: 0.25rem;
+  font-family: Rubik, sans-serif;
 }
 
 .betStat_align_left-oq1Q2K, .betStat_align_left-oq1Q2K .betStat__info-iGat4V {
@@ -166,7 +168,7 @@
 
 .tableMainStatic__payout-cdrdZV {
     color: rgba(255, 255, 255, 0.6);
-    font-family: Baloo\ 2, sans-serif;
+    font-family: Baloo, sans-serif;
     font-size: 0.75rem;
     font-weight: 700;
     line-height: 1;
@@ -179,7 +181,7 @@
 
 .tableMainStatic__title-VDxh9o {
     color: rgb(255, 255, 255);
-    font-family: Baloo\ 2, sans-serif;
+    font-family: Baloo, sans-serif;
     font-size: 1rem;
     font-weight: 800;
     line-height: 1;
@@ -343,7 +345,7 @@
 
 .tableSideStatic__title-gncnfi {
     color: rgb(255, 255, 255);
-    font-family: Baloo\ 2, sans-serif;
+    font-family: Baloo, sans-serif;
     font-size: 0.75rem;
     font-size-adjust: none;
     font-weight: 700;
@@ -353,7 +355,7 @@
 
 .tableSideStatic__payout-fnrtY7 {
     color: rgba(255, 255, 255, 0.5);
-    font-family: Baloo\ 2, sans-serif;
+    font-family: Baloo, sans-serif;
     font-size: 0.625rem;
     font-weight: 700;
     line-height: 1;
@@ -379,6 +381,7 @@
 .scoreBoardInfo-USWOxa, .scoreBoardInfo__total-b3bUj3, .scoreBoardInfo__totalItem-KhIYhz {
     align-items: center;
     display: flex;
+  font-family: Rubik, sans-serif;
 }
 
 .scoreBoardInfo-USWOxa {
