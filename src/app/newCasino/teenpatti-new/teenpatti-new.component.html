@@ -1,5 +1,5 @@
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
-    <app-top-results></app-top-results>
+    <app-top-results class="max-[1200px]:hidden"></app-top-results>
 
     <div #target>
         <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
@@ -16,7 +16,8 @@
 
     <div class="playerA-win-point" *ngIf="this.RoundWinner">
         <div class="player-content-wrapper">
-            <div class="player-text animation-player-scale" [ngClass]="{'playerA-winnerText':this.RoundWinner=='PLAYER A'}">{{this.RoundWinner}}</div>
+            <div class="player-text animation-player-scale"
+                [ngClass]="{'playerA-winnerText':this.RoundWinner=='PLAYER A'}">{{this.RoundWinner}}</div>
         </div>
     </div>
 
@@ -74,7 +75,7 @@
 
 
                 <div class="relative   z-[1] h-full lg:max-w-[473px] ">
-                    <div class="win_percentage_container relative lg:!hidden">
+                    <div class="win_percentage_container relative min-[1200px]:!hidden">
                         <div class="win_percentage_wrapper  ">
                             <div class="progress_bar_container">
                                 <div class="progress-bar bg-danger !bg-[#CC493E]" [style.width]="aPlayerChances+'%'">
@@ -441,8 +442,8 @@
                     </div>
                 </div>
                 <!-- Teen patti Cards Section ends here -->
-                   <app-bet-coin (eventBetValue)="getCoinValue($event)"></app-bet-coin>
-                
+                <app-bet-coin (eventBetValue)="getCoinValue($event)"></app-bet-coin>
+
 
                 <!-- desktop-coin  -->
 
@@ -648,7 +649,8 @@
             <div class="last-win">{{this.game.eventName}}
                 <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold"> {{winnerMarketArray.min}}</span>
                 -
-                <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold"> {{winnerMarketArray.max | shortNumber}}</span>
+                <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold"> {{winnerMarketArray.max |
+                    shortNumber}}</span>
             </div>
             <div class="roundInfo-date">
                 <!-- <span class="inline-block">.</span>  -->
@@ -659,7 +661,7 @@
 </div>
 <!-- <div class="h-[50px] w-full bg-[#161a2b]"></div> -->
 
-<app-quick-stakes-edit ></app-quick-stakes-edit>
+<app-quick-stakes-edit></app-quick-stakes-edit>
 
 
 
@@ -669,37 +671,48 @@
 
 
 
+<div class="max-[1200px]:hidden fixed w-[22.5rem] mx-[2%] bottom-[7%] flex flex-col gap-[1.5rem]">
+    <div class="win_percentage_container  relative w-full !p-0">
+        <div class="win_percentage_wrapper  ">
 
-<!-- <div class="win_percentage_container relative  max-lg:hidden">
-    <div class="win_percentage_wrapper  ">
-        <div class="progress_bar_container">
-            <div class="progress-bar bg-danger !bg-[#CC493E]" [style.width]="aPlayerChances+'%'">
-                <div class="progress-bar_data">
-                    A
+            <div
+                class="progress_bar_container !flex-col !rounded-[15px] !bg-[linear-gradient(135deg,rgba(31,31,51,.9),rgba(31,37,51,.9))]">
+                <div class="flex justify-between w-full text-white text-[0.875rem] font-medium font-[Rubik,sans-serif]">
+                    <div>Player A</div>
+                    <div>Player B</div>
                 </div>
-                <div class="progress-bar_data">
-                    {{aPlayerChances}}%
-                </div>
-            </div>
-            <div *ngIf="TPlayerChances" class="progress-bar bg-Tie" [style.width]="TPlayerChances+'%'">
-                <div class="progress-bar_data">
-                    T
-                </div>
-                <div class="progress-bar_data">
-                    {{TPlayerChances}}%
-                </div>
-            </div>
-            <div class="progress-bar yellow_bg  !flex-row-reverse" [style.width]="bPlayerChances+'%'">
-                <div class="progress-bar_data">
-                    B
-                </div>
-                <div class="progress-bar_data">
-                    {{bPlayerChances}}%
+                <div class="flex w-full gap-1">
+                    <div class="progress-bar bg-danger !bg-[#CC493E]" [style.width]="aPlayerChances+'%'">
+                        <div class="progress-bar_data">
+                            A
+                        </div>
+                        <div class="progress-bar_data">
+                            {{aPlayerChances}}%
+                        </div>
+                    </div>
+                    <div *ngIf="TPlayerChances" class="progress-bar bg-Tie" [style.width]="TPlayerChances+'%'">
+                        <div class="progress-bar_data">
+                            T
+                        </div>
+                        <div class="progress-bar_data">
+                            {{TPlayerChances}}%
+                        </div>
+                    </div>
+                    <div class="progress-bar yellow_bg  !flex-row-reverse" [style.width]="bPlayerChances+'%'">
+                        <div class="progress-bar_data">
+                            B
+                        </div>
+                        <div class="progress-bar_data">
+                            {{bPlayerChances}}%
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+
+    <app-top-results></app-top-results>
+</div>
 
 
 

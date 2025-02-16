@@ -844,6 +844,11 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
     const baseWidth = 352; // Base resolution width
     const scale = window.innerWidth / baseWidth
     document.documentElement.style.setProperty('--boardScale', scale.toString());
+
+
+    const baseHeight = 716; // Base resolution height
+    const scaleY = window.innerHeight / baseWidth
+    document.documentElement.style.setProperty('--boardScaleY', scaleY.toString());
   }
 
 
