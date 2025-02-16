@@ -1,0 +1,3163 @@
+.newGameWrapper {
+  background-color: #0a0a1a;
+  height: calc(100vh - 114px);
+  /* height: 100%; */
+  position: relative;
+  width: 100%;
+  /* height: ; */
+  overflow-y: scroll;
+}
+.dashboard_wrapper {
+  width: 100%;
+  background-color: black;
+}
+
+.table__betInfoGrid {
+  font-family: "Baloo", sans-serif;
+  display: grid;
+  gap: 0.125rem;
+  grid-template-areas:
+    "playerA commonArea playerB"
+    "sidePlayerA bonus sidePlayerB";
+  /* grid-template-columns: 8.125rem 4.5rem 8.125rem; */
+  /* grid-template-rows: 4.875rem 2.75rem; */
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.betPlaceInfo_bonus {
+  align-items: center;
+  align-self: end;
+  grid-area: bonus;
+  height: 5.125rem;
+  padding: 0.5rem 0.5rem 0.625rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 0.75rem;
+  display: flex;
+  justify-content: flex-start;
+  font-family: "Rubik";
+}
+
+.bonus_value {
+  @apply my-[0.25rem] text-[0.75rem] leading-[0.75rem];
+}
+
+.betPlaceInfo_pairPlus_playerA {
+  align-items: start;
+  flex-direction: column-reverse !important;
+  grid-area: sidePlayerA;
+}
+
+.win_A_size {
+  opacity: 1;
+  visibility: visible;
+  margin: 0.5rem 0.5625rem;
+  right: 50%;
+  position: absolute;
+  top: 0;
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+
+.percentageBetStat {
+  align-items: center;
+  background-size: 200% 200%;
+  border-radius: 0.25rem;
+  color: #fff;
+  display: flex;
+  font-size: 0.5rem;
+  height: 1.5rem;
+  justify-content: center;
+  overflow: hidden;
+  transition: background-position-y 0.35s ease;
+  width: 1.5rem;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  /* background-position-y: 51%; */
+}
+
+.win_B_size {
+  opacity: 1;
+  visibility: visible;
+  margin: 0.5rem 0.5625rem;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+
+.bounus {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 0.75rem;
+}
+
+.player_A_player_B_opacity {
+  opacity: 0.5;
+}
+
+.card-animation {
+  animation: card-animation 500ms forwards;
+}
+
+@keyframes card-animation {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* use{
+  opacity: 0;
+} */
+
+.win-animation {
+  animation: ctaAnimation-Nm6A8V 500ms ease infinite forwards;
+}
+
+@keyframes ctaAnimation-Nm6A8V {
+  33% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.win-animation-player-a {
+  animation: ctaAnimation-A 500ms ease infinite forwards;
+}
+
+@keyframes ctaAnimation-A {
+  33% {
+    opacity: 1;
+    filter: blur(20px);
+  }
+  100% {
+    opacity: 0;
+    fill: #e23512;
+    filter: blur(0px);
+  }
+}
+
+.betPlaceInfo_pairPlus_playerB {
+  align-items: end;
+  flex-direction: column-reverse !important;
+  grid-area: sidePlayerB;
+}
+
+.betPlacesGridSvg {
+  color: rgba(255, 255, 255, 0.12);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.pair-plus {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 0.75rem;
+  font-family: "Rubik";
+}
+
+.down-player {
+  font-weight: 500;
+  line-height: 0.75rem;
+  font-size: 0.75rem;
+  margin: 0.25rem 0;
+  font-weight: 500;
+  font-family: "Rubik";
+}
+
+.betPlaceInfo {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 0.75rem;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0.5rem;
+  position: relative;
+  transition: opacity 300ms ease;
+  color: #ffffffdb;
+}
+
+.betPlayer_A {
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+
+.betPlaceInfo__roundInfo {
+  font-size: 0.625rem;
+  margin: 0.25rem 0;
+  position: relative;
+}
+
+.betPlaceInfo_main_playerB {
+  align-items: flex-end;
+  grid-area: playerB;
+  justify-self: flex-end;
+}
+
+/* Top Bar start here  */
+
+.top_bar_wrapper {
+  padding: 6px 8px;
+  padding-top: 10.91px;
+  background-color: #161a2b;
+  gap: 8.71px;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top_bar button {
+  border: 0px solid transparent;
+  color: white;
+  border-radius: 2px;
+  height: 13px;
+  width: 13px;
+  font-size: 7px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  line-height: 10.5px;
+  /* font-family: "Poppins", sans-serif; */
+}
+
+.red_bg {
+  background-color: #ab1d37;
+}
+.yellow_bg {
+  background-color: #ed8840;
+}
+
+/* Top bar ends here */
+
+/* Animated Popup Result Announcement start here */
+.popup_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 380px;
+}
+
+.result_popup {
+  background-color: #292929 !important;
+  width: 88px;
+  height: 32px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.result_title_color {
+  color: white !important;
+  font-size: 10px;
+  width: 78px;
+  white-space: nowrap;
+  max-height: 12px;
+  font-family: "Montserrat";
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12.19px;
+  text-align: left;
+}
+.result_amount_color {
+  color: #d2791c;
+  font-size: 10px;
+  max-height: 12px;
+  width: 78px;
+  font-family: Montserrat;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12.19px;
+  text-align: left;
+}
+
+.result_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: 78px;
+  height: 26px;
+  gap: 2px;
+  line-height: 12.19px;
+  padding-left: 6.9px;
+}
+
+/* Animated Popup Result Announcement ends here */
+
+/* Bet Button start here */
+.bet_btn_container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 0;
+  top: 8px;
+}
+
+.bet_btn_wrapper {
+  background-color: #ed8840;
+  border-top-left-radius: 36px;
+  border-bottom-left-radius: 36px;
+  width: 64px;
+  height: 16px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+  padding-left: 1px;
+}
+
+.bet_btn {
+  background-color: #322606;
+  color: white;
+  border: 0px solid transparent;
+  font-size: 10px;
+  line-height: 9.75px;
+  font-family: "Montserrat";
+  font-optical-sizing: auto;
+  font-style: normal;
+  border-radius: 24px;
+  width: 36px;
+  height: 14px;
+}
+
+.bet_img {
+  width: 10.46px;
+  height: 10.46px;
+}
+
+/* Bet Button ends here */
+
+/* Game Screen Starts here */
+.games_container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 43%;
+}
+.games_container img {
+  width: 200px;
+  height: 150px;
+}
+/* .games_container img {
+
+} */
+
+/* Game Screen ends here */
+
+/* High Card section starts here */
+.high_card_container {
+  /* margin-top: 10px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 0px 20px;
+}
+
+.playerA-win-point {
+  @apply left-[50%] cursor-none absolute translate-x-[-50%] z-[4] top-[9.125rem];
+}
+
+.player-content-wrapper {
+  @apply w-[10.5rem];
+}
+
+.high_card_primary {
+  background-color: white;
+  color: #ee1600;
+  border: 1px solid;
+  border-image: linear-gradient(
+    274.74deg,
+    rgba(255, 217, 73, 0.89) -21.47%,
+    rgba(206, 18, 18, 0.89) 97.59%
+  );
+  border-image-slice: 1;
+  padding: 2.5px 6.75px;
+  height: 24px;
+  /* font-family: "Nunito"; */
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.player-text {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(248, 149, 0) 50%,
+    transparent 100%
+  );
+  font-family: Baloo\2, sans-serif;
+  font-weight: 800;
+  padding: 0.125rem 0;
+  text-shadow: 0 0.0625rem 0 rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  transform: translateY(1.625rem) scaleX(0);
+  text-align: center;
+}
+
+.animation-player-scale {
+  animation: scaleAnimation 2s ease-out, translateAnimation 2s;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(1.625rem) scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(1.625rem) scaleX(1);
+  }
+}
+
+@keyframes translateAnimation {
+  0% {
+    transform: translateY(1.625rem);
+  }
+  80% {
+    transform: translateY(-0.3125rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.high_card_secondary {
+  background-color: #b2b2b2;
+  border: 1px solid;
+  border-image: linear-gradient(
+    274.74deg,
+    rgba(255, 217, 73, 0.89) -21.47%,
+    rgba(206, 18, 18, 0.89) 97.59%
+  );
+  border-image-slice: 1;
+  padding: 2.5px 6.75px;
+  height: 24px;
+  /* font-family: "Nunito"; */
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 12px;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+.player_card {
+  background: linear-gradient(
+    90deg,
+    #f46201 0%,
+    #c52806 20.5%,
+    #c52806 62.5%,
+    #f46201 100%
+  );
+  padding: 5px 26.89px;
+  height: 26px;
+  border-radius: 3px;
+  border: 0px solid transparent;
+  color: white;
+  /* font-family: "Nunito"; */
+  font-optical-sizing: auto;
+  font-style: normal;
+  white-space: nowrap;
+}
+.player_card h6 {
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0px;
+}
+.high_card_primary h6 {
+  font-size: 12px;
+  font-weight: 900;
+  color: #ee1600;
+  margin: 0px;
+  line-height: 1.5 !important;
+  background: linear-gradient(
+    274.74deg,
+    rgba(255, 217, 73, 0.89) -21.47%,
+    rgba(206, 18, 18, 0.89) 97.59%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradientDiv {
+  height: 55%;
+  background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
+}
+.time-container {
+  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
+  position: absolute;
+  bottom: 2px;
+}
+
+.roundInfo-date {
+  color: #8a8a99;
+  display: flex;
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 10px;
+}
+
+.last-win {
+  @apply text-[0.625rem] text-white;
+}
+
+.high_card_secondary h6 {
+  font-size: 12px;
+  font-weight: 900;
+  color: #ee1600;
+  margin: 0px;
+  background: linear-gradient(
+    274.74deg,
+    rgba(255, 217, 73, 0.89) -21.47%,
+    rgba(206, 18, 18, 0.89) 97.59%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.font-bold {
+  font-weight: bolder !important;
+}
+
+.custom_flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 20px;
+  flex-direction: row;
+}
+
+/* High Card section ends here */
+
+/* Teen patti Cards Section starts here  */
+.teen_patti_conatiner {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0px 19px;
+  height: 10rem;
+}
+.teen_patti_conatiner::before {
+}
+/* Teen patti Cards Section ends here  */
+
+/* Winning Percentage Chances Section starts here */
+.win_percentage_container {
+  padding: 0px 2%;
+  /* background-color: black; */
+  width: 100%;
+  /* margin-top: 15px; */
+}
+
+.win_percentage_wrapper {
+  height: 32px;
+  /* padding: 8px; */
+}
+
+.player_B_cards,
+.player_A_cards {
+  position: relative;
+  width: 50%;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+  color: white; /* Adjust content color */
+  overflow: hidden; /* Ensure background stays within bounds */
+  height: 100%;
+}
+
+.player_B_cards::before,
+.player_A_cards::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.player_B_cards::before {
+  background-image: linear-gradient(0deg, #fa0 0%, rgba(255, 270, 0, 0) 100%);
+  opacity: 0.3;
+}
+
+.player_A_cards::before {
+  background-image: linear-gradient(0deg, #ff2b00 0%, rgba(255, 43, 0, 0) 100%);
+  opacity: 0.3;
+}
+
+.card-img {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+  width: 34px;
+  border-radius: 2px;
+}
+
+.progress_bar_container {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: black;
+  display: flex;
+  padding: 8px 8px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 4px;
+  font-family: "Baloo", sans-serif;
+}
+.bg-Tie {
+  background: #18862e;
+}
+
+.progress_bar_container div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin: 0px !important;
+  padding: 0px 4px;
+  border-radius: 3.74px;
+  color: white;
+  font-size: 10px;
+  /* font-family: "Poppins", sans-serif; */
+  height: 16px;
+}
+
+/* Winning Percentage Chances Section ends here */
+
+/* Main Table section starts here */
+.main_table_container {
+  background-color: #161a2b;
+  width: 100%;
+  height: 152px;
+  font-family: "Baloo", sans-serif;
+}
+
+.chip__borderDecor_medium-mF_aBv {
+  position: absolute !important;
+}
+
+.chip__borderDecor-8XR0Vn:before {
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 48 48%27%3E%3Cpath fill=%27%23000%27 fill-rule=%27evenodd%27 d=%27M20.312 6.378c-.54.113-1.088-.201-1.23-.734L17.786.812A24.033 24.033 0 0 1 24 0c2.149 0 4.231.282 6.213.812l-1.295 4.832c-.142.533-.69.847-1.23.734A18.078 18.078 0 0 0 24 6c-1.264 0-2.497.13-3.688.378Zm20.659.651-3.536 3.536c-.39.39-.388 1.022-.02 1.433a17.98 17.98 0 0 1 3.69 6.383c.173.525.719.843 1.252.7l4.831-1.294A23.976 23.976 0 0 0 40.97 7.029Zm6.217 23.184-4.83-1.294c-.534-.143-1.08.175-1.252.7a17.981 17.981 0 0 1-3.691 6.383c-.368.411-.37 1.042.02 1.433l3.535 3.536a23.974 23.974 0 0 0 6.218-10.758ZM30.213 47.188l-1.295-4.832c-.142-.533-.69-.847-1.23-.734-1.19.248-2.424.378-3.688.378a18.08 18.08 0 0 1-3.688-.378c-.54-.113-1.088.201-1.23.734l-1.295 4.832c1.981.53 4.064.812 6.213.812s4.231-.282 6.213-.812ZM7.029 40.97l3.536-3.535c.39-.39.388-1.022.02-1.433a17.981 17.981 0 0 1-3.69-6.383c-.173-.525-.719-.843-1.253-.7l-4.83 1.294a23.974 23.974 0 0 0 6.217 10.758ZM.812 17.788l4.83 1.294c.534.143 1.08-.175 1.252-.7a17.981 17.981 0 0 1 3.69-6.383c.37-.411.371-1.042-.02-1.433L7.03 7.029A23.975 23.975 0 0 0 .812 17.787Z%27 clip-rule=%27evenodd%27/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 48 48%27%3E%3Cpath fill=%27%23000%27 fill-rule=%27evenodd%27 d=%27M20.312 6.378c-.54.113-1.088-.201-1.23-.734L17.786.812A24.033 24.033 0 0 1 24 0c2.149 0 4.231.282 6.213.812l-1.295 4.832c-.142.533-.69.847-1.23.734A18.078 18.078 0 0 0 24 6c-1.264 0-2.497.13-3.688.378Zm20.659.651-3.536 3.536c-.39.39-.388 1.022-.02 1.433a17.98 17.98 0 0 1 3.69 6.383c.173.525.719.843 1.252.7l4.831-1.294A23.976 23.976 0 0 0 40.97 7.029Zm6.217 23.184-4.83-1.294c-.534-.143-1.08.175-1.252.7a17.981 17.981 0 0 1-3.691 6.383c-.368.411-.37 1.042.02 1.433l3.535 3.536a23.974 23.974 0 0 0 6.218-10.758ZM30.213 47.188l-1.295-4.832c-.142-.533-.69-.847-1.23-.734-1.19.248-2.424.378-3.688.378a18.08 18.08 0 0 1-3.688-.378c-.54-.113-1.088.201-1.23.734l-1.295 4.832c1.981.53 4.064.812 6.213.812s4.231-.282 6.213-.812ZM7.029 40.97l3.536-3.535c.39-.39.388-1.022.02-1.433a17.981 17.981 0 0 1-3.69-6.383c-.173-.525-.719-.843-1.253-.7l-4.83 1.294a23.974 23.974 0 0 0 6.217 10.758ZM.812 17.788l4.83 1.294c.534.143 1.08-.175 1.252-.7a17.981 17.981 0 0 1 3.69-6.383c.37-.411.371-1.042-.02-1.433L7.03 7.029A23.975 23.975 0 0 0 .812 17.787Z%27 clip-rule=%27evenodd%27/%3E%3C/svg%3E");
+  background-color: white;
+  z-index: 1;
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.chip__borderDecor-8XR0Vn:after {
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 48 48%27%3E%3Cpath fill=%27%23000%27 fill-rule=%27evenodd%27 d=%27M20.312 6.378c-.54.113-1.088-.201-1.23-.734L17.786.812A24.033 24.033 0 0 1 24 0c2.149 0 4.231.282 6.213.812l-1.295 4.832c-.142.533-.69.847-1.23.734A18.078 18.078 0 0 0 24 6c-1.264 0-2.497.13-3.688.378Zm20.659.651-3.536 3.536c-.39.39-.388 1.022-.02 1.433a17.98 17.98 0 0 1 3.69 6.383c.173.525.719.843 1.252.7l4.831-1.294A23.976 23.976 0 0 0 40.97 7.029Zm6.217 23.184-4.83-1.294c-.534-.143-1.08.175-1.252.7a17.981 17.981 0 0 1-3.691 6.383c-.368.411-.37 1.042.02 1.433l3.535 3.536a23.974 23.974 0 0 0 6.218-10.758ZM30.213 47.188l-1.295-4.832c-.142-.533-.69-.847-1.23-.734-1.19.248-2.424.378-3.688.378a18.08 18.08 0 0 1-3.688-.378c-.54-.113-1.088.201-1.23.734l-1.295 4.832c1.981.53 4.064.812 6.213.812s4.231-.282 6.213-.812ZM7.029 40.97l3.536-3.535c.39-.39.388-1.022.02-1.433a17.981 17.981 0 0 1-3.69-6.383c-.173-.525-.719-.843-1.253-.7l-4.83 1.294a23.974 23.974 0 0 0 6.217 10.758ZM.812 17.788l4.83 1.294c.534.143 1.08-.175 1.252-.7a17.981 17.981 0 0 1 3.69-6.383c.37-.411.371-1.042-.02-1.433L7.03 7.029A23.975 23.975 0 0 0 .812 17.787Z%27 clip-rule=%27evenodd%27/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 48 48%27%3E%3Cpath fill=%27%23000%27 fill-rule=%27evenodd%27 d=%27M20.312 6.378c-.54.113-1.088-.201-1.23-.734L17.786.812A24.033 24.033 0 0 1 24 0c2.149 0 4.231.282 6.213.812l-1.295 4.832c-.142.533-.69.847-1.23.734A18.078 18.078 0 0 0 24 6c-1.264 0-2.497.13-3.688.378Zm20.659.651-3.536 3.536c-.39.39-.388 1.022-.02 1.433a17.98 17.98 0 0 1 3.69 6.383c.173.525.719.843 1.252.7l4.831-1.294A23.976 23.976 0 0 0 40.97 7.029Zm6.217 23.184-4.83-1.294c-.534-.143-1.08.175-1.252.7a17.981 17.981 0 0 1-3.691 6.383c-.368.411-.37 1.042.02 1.433l3.535 3.536a23.974 23.974 0 0 0 6.218-10.758ZM30.213 47.188l-1.295-4.832c-.142-.533-.69-.847-1.23-.734-1.19.248-2.424.378-3.688.378a18.08 18.08 0 0 1-3.688-.378c-.54-.113-1.088.201-1.23.734l-1.295 4.832c1.981.53 4.064.812 6.213.812s4.231-.282 6.213-.812ZM7.029 40.97l3.536-3.535c.39-.39.388-1.022.02-1.433a17.981 17.981 0 0 1-3.69-6.383c-.173-.525-.719-.843-1.253-.7l-4.83 1.294a23.974 23.974 0 0 0 6.217 10.758ZM.812 17.788l4.83 1.294c.534.143 1.08-.175 1.252-.7a17.981 17.981 0 0 1 3.69-6.383c.37-.411.371-1.042-.02-1.433L7.03 7.029A23.975 23.975 0 0 0 .812 17.787Z%27 clip-rule=%27evenodd%27/%3E%3C/svg%3E");
+  background-color: white;
+  z-index: 1;
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.player_A_card {
+  background: linear-gradient(273.42deg, #c52806 25.03%, #d56300 95.69%);
+  width: 49.4%;
+  height: 81px;
+  position: absolute;
+  left: 7px;
+  border-radius: 11.21px;
+  top: -3px;
+  padding-left: 26px;
+  padding-top: 5px;
+  overflow: hidden;
+}
+
+.chip__svg-nFRcEL {
+  fill: white !important;
+}
+
+.desktop-coin {
+  @apply md:fixed  right-[-6%] top-[50%] z-[99] -rotate-[90deg] h-[122px] flex flex-col justify-end max-md:!hidden;
+}
+
+.player_A_card h3 {
+  /* font-family: "Nunito"; */
+  font-size: 16.43px;
+  font-weight: 900;
+  line-height: 22.42px;
+  text-align: left;
+  color: white;
+  margin: 0;
+}
+.player_A_card h6 {
+  /* font-family: "Poppins"; */
+  font-size: 8.96px;
+  font-weight: 400;
+  line-height: 13.45px;
+  text-align: left;
+  color: white;
+  margin: 0;
+}
+.player_A_img {
+  position: absolute;
+  left: 83%;
+  top: 17px;
+  width: 123px;
+  height: 83.09px;
+  opacity: 0.15px;
+  z-index: 10;
+}
+
+.player_B_card {
+  background: linear-gradient(274.38deg, #ffb700 3.52%, #e85a0e 94.99%);
+  width: 49.4%;
+  height: 81px;
+  /* opacity: 60%; */
+  position: absolute;
+  right: 7px;
+  border-radius: 15px;
+  top: -3px;
+  padding-left: 42.4%;
+  padding-top: 5px;
+  overflow: hidden;
+  z-index: 40;
+}
+
+.player_B_card h3 {
+  /* font-family: "Nunito"; */
+  position: absolute;
+  white-space: nowrap;
+  font-size: 16.43px;
+  font-weight: 900;
+  line-height: 22.42px;
+  text-align: left;
+  color: white;
+  margin: 0;
+  @apply min-[500px]:top-[6px] max-[500px]:top-[0px] max-[500px]:right-[-6px] min-[500px]:right-[13px];
+}
+
+.player-b-details {
+  position: absolute;
+  right: 13px;
+  top: 6px;
+}
+.player_B_card h6 {
+  /* font-family: "Poppins"; */
+  position: absolute;
+  right: 13px;
+  top: 25px;
+  font-size: 8.96px;
+  font-weight: 400;
+  line-height: 13.45px;
+  text-align: left;
+  color: white;
+  padding-left: 59px;
+  margin: 0;
+  @apply min-[500px]:top-[25px] max-[500px]:top-[22px] max-[500px]:right-[-6px] min-[500px]:right-[13px];
+}
+
+.fix-position {
+  @apply min-[500px]:top-[0px] max-[500px]:top-[0px] text-end flex justify-end flex-col max-[500px]:right-[13px] min-[500px]:right-[24px] absolute;
+}
+
+.player_B_img {
+  position: absolute;
+  left: 0px;
+  top: 17px;
+  width: 123px;
+  height: 83.09px;
+  /* opacity: 0.15px; */
+  z-index: 10;
+}
+.table_wrapper {
+  animation-duration: 1s;
+  /* margin-bottom: 60px; */
+}
+.player_A_pair {
+  background: linear-gradient(272.02deg, #d93916 1.14%, #d56300 96.49%);
+  position: absolute;
+  width: 46.75%;
+  height: 50.32px;
+  top: 81px;
+  left: 6px;
+  gap: 0px;
+  border-radius: 0px 5px 15px 15px;
+  opacity: 0px;
+  color: white;
+  overflow: hidden;
+}
+.player_A_pair h6 {
+  /* font-family: "Nunito"; */
+  font-size: 10.46px;
+  font-weight: 500;
+  line-height: 14.26px;
+  text-align: left;
+  padding-left: 24px;
+
+  padding-top: 5px;
+  margin: 0;
+}
+.player_A_pair h4 {
+  /* font-family: "Nunito"; */
+  font-size: 13.45px;
+  font-weight: 800;
+  line-height: 18.34px;
+  text-align: left;
+  padding-left: 24px;
+  margin: 0;
+}
+
+.player_A_pair_img {
+  position: absolute;
+  top: 0;
+  left: 89%;
+}
+
+.bonus_pair {
+  position: absolute;
+  width: 75px;
+  height: 93.12px;
+  top: 45px;
+  left: 47%;
+  gap: 0px;
+  border-radius: 16px;
+  border: 2px 0px 0px 0px;
+  opacity: 0px;
+  background-color: #206669;
+  color: rgb(55, 7, 7);
+  border: 4px solid #161a2b;
+  z-index: 40;
+  overflow: hidden;
+}
+
+.bonus_pair h3 {
+  /* font-family: "Nunito"; */
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 19.1px;
+  text-align: left;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding-top: 7px;
+}
+
+.bonus_pair h6 {
+  /* font-family: "Poppins"; */
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  text-align: left;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+.bonus_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
+}
+
+.player_B_pair {
+  background: linear-gradient(274.38deg, #ffb700 3.52%, #e85a0e 94.99%);
+  position: absolute;
+  width: 47.45%;
+  height: 50.32px;
+  top: 81px;
+  right: 6px;
+  gap: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  /* opacity: 60%; */
+  rotate: -180 deg;
+  color: white;
+  overflow: hidden;
+  z-index: 30;
+}
+.player_B_pair h6 {
+  /* font-family: "Nunito"; */
+  font-size: 10.46px;
+  font-weight: 500;
+  line-height: 14.26px;
+  text-align: left;
+  padding-left: 90%;
+  padding-top: 5px;
+  margin: 0;
+}
+.player_B_pair h4 {
+  /* font-family: "Nunito"; */
+  font-size: 13.45px;
+  font-weight: 800;
+  line-height: 18.34px;
+  text-align: left;
+  padding-left: 87%;
+
+  margin: 0;
+}
+
+.pair_B_img {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  z-index: 5;
+}
+
+.player_B_pair_img {
+  position: absolute;
+  top: 0;
+  left: 0px;
+}
+
+.pair_A_img {
+  top: -5px;
+  position: absolute;
+  left: 0px;
+  z-index: 99;
+}
+
+.player_A_chances {
+  position: absolute;
+  left: 155px;
+  top: 10px;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 0px solid transparent;
+  border-radius: 2px;
+  max-height: 24px !important;
+  overflow: hidden;
+}
+.chance_bg_color {
+  background-color: rgba(217, 217, 217, 0.4);
+  /* opacity: 40%; */
+}
+.chance_wrapper_A {
+  position: absolute;
+  top: 22.5px;
+  left: 155px;
+  width: 24px;
+  height: 24px;
+  border: 0px solid transparent;
+  border-radius: 2px;
+}
+.player_B_chances {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 0px solid transparent;
+  border-radius: 2px;
+  max-height: 24px !important;
+  overflow: hidden;
+}
+.chance_wrapper_B {
+  position: absolute;
+  top: 21.5px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+}
+.chances_container {
+  width: 31px;
+  height: 0px;
+}
+.player_A_chances h4 {
+  /* font-family: "Poppins"; */
+  font-size: 6.46px;
+  font-weight: 400;
+  line-height: 9.69px;
+  text-align: left;
+  color: white;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.player_B_chances h4 {
+  /* font-family: "Poppins"; */
+  font-size: 6.46px;
+  font-weight: 400;
+  line-height: 9.69px;
+  text-align: left;
+  color: white;
+  text-align: center;
+  padding-top: 4px;
+}
+.player_A_chances,
+.chance_wrapper_A {
+  left: 94.25%;
+}
+.player_B_chances,
+.chance_wrapper_B {
+  left: 17px;
+}
+
+/* Main table section ends here */
+
+/* Bottom section start */
+.bottom_container {
+  background-color: #161a2b;
+  width: 100%;
+  height: 187px;
+  width: 100%;
+  margin-top: 0px;
+  overflow: hidden;
+}
+.empty-div {
+  height: 154px;
+  margin-bottom: 23px;
+}
+.coins-wraper {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 0px;
+  height: 59px;
+}
+
+/* Adjusted code */
+.buttonsPanel-hAiFyw {
+  display: flex;
+  z-index: 6;
+  align-items: center;
+}
+
+@media (orientation: portrait) {
+  .buttonsPanel__buttons-nTrdCX {
+    margin-left: auto;
+    pointer-events: none;
+  }
+  .buttonsPanel__bettingButtons-tJAgVE > * {
+    margin: 0 0.25rem;
+  }
+}
+
+/* Betting Buttons */
+.buttonsPanel_bettingState-vnMbbl .buttonsPanel__bettingButtons-tJAgVE {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+.chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:before {
+  background-color: #fff;
+  z-index: 1;
+}
+
+.buttonsPanel__bettingButtons-tJAgVE {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  visibility: hidden;
+  @apply md:gap-2;
+}
+
+.bettingButton-i5MaZV {
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  height: 3rem;
+  width: 3rem;
+  position: relative;
+  transition: opacity 300ms ease;
+  @apply md:h-[93px] md:w-[93px];
+}
+
+.bettingButton-i5MaZV:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.bettingButton-i5MaZV:before {
+  content: "";
+  inset: 0;
+  border-radius: inherit;
+  position: absolute;
+  z-index: 2;
+}
+
+.bettingButton_blue-VHm4OI:before {
+  background: linear-gradient(135deg, #2996cc, #004d99);
+}
+
+.bettingButton_orange-oB31C6:before {
+  background: linear-gradient(135deg, #f93, #f50);
+}
+
+/* Button Icons */
+.bettingButton__icon-PmQi1e,
+.iconButton__icon-k1NKdw {
+  display: flex;
+  position: relative;
+  z-index: 3;
+}
+
+.svgIcon_large-z8G1_Q {
+  width: 3rem;
+}
+
+.svgIcon-JpUo7O {
+  fill: currentColor;
+  aspect-ratio: 1;
+  overflow: visible;
+}
+
+/* Ripple Effect */
+.bettingButton__ctaHighlight-boqUkO {
+  border-radius: inherit;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+}
+
+.bettingButton__ctaHighlight-boqUkO:after {
+  content: "";
+  border: 1px solid #fb3;
+  border-radius: 50%;
+  position: absolute;
+  inset: 0.125rem;
+  box-shadow: 0 0 0.25rem rgba(255, 221, 51, 0.2), 0 0 0.5rem #fa0,
+    inset 0 0 0.75rem rgba(255, 187, 51, 0.8);
+  transition: opacity 300ms ease, visibility 300ms ease;
+  z-index: 1;
+}
+
+/* Chip Tray Button */
+.chipTrayButtonWithToggle_open-LlvgMl .chipTrayButtonWithToggle__bg-zQXxFd {
+  opacity: 1;
+  visibility: visible;
+}
+
+.chipTrayButtonWithToggle__bg-zQXxFd {
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+  background-color: rgba(138, 138, 153, 0.2);
+  transition: opacity 0s ease 0.4s, visibility 0s ease 0.4s;
+}
+
+/* Icon Button */
+.iconButton-by3moV {
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+  height: 3rem;
+  width: 3rem;
+  /* color: rgb(255, 255, 255); */
+}
+
+/* Triangle Indicator */
+.chipTrayButtonWithToggle__triangle-nHc70D {
+  border-style: solid;
+  border-width: 0.5rem;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  visibility: hidden;
+}
+
+.chipTrayButtonWithToggle_open-LlvgMl
+  .chipTrayButtonWithToggle__triangle-nHc70D {
+  opacity: 1;
+  visibility: visible;
+}
+.iconButton_theme_default-G6tVtR {
+  color: rgb(255, 255, 255);
+}
+.iconButton_borderRadiusSize_default-SAVSQu {
+  border-radius: 50%;
+}
+.iconButton_size_medium-YQpLaw {
+  height: 3rem;
+  width: 3rem;
+}
+.iconButton-by3moV {
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+}
+.iconButton__icon-k1NKdw {
+  display: flex;
+  position: relative;
+  z-index: 1;
+}
+.rippleWavesDetectArea-YqGgIY {
+  border-radius: inherit;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
+.iconButton_theme_default-G6tVtR {
+  color: rgb(255, 255, 255) !important;
+}
+
+.svgIcon_default-OFLILg {
+  width: 1.5rem;
+}
+.svgIcon-JpUo7O {
+  fill: currentColor;
+  aspect-ratio: 1;
+  overflow: visible;
+}
+
+.chipTrayButtonWithToggle_horizontal-CwZaXB
+  .chipTrayButtonWithToggle__triangle_theme_light-gcTnl3 {
+  border-color: rgba(var(--color-ui-1), 0.1) transparent transparent transparent;
+}
+.chipTrayButtonWithToggle_horizontal-CwZaXB
+  .chipTrayButtonWithToggle__triangle-nHc70D {
+  height: 0;
+  left: 50%;
+  top: -1rem;
+  transform: translateX(-50%);
+  width: 0;
+}
+.chipTrayButtonWithToggle_open-LlvgMl
+  .chipTrayButtonWithToggle__triangle-nHc70D {
+  opacity: 1;
+  transition: opacity 0.2s ease 0.3s, visibility 0.2s ease 0.3s;
+  visibility: visible;
+}
+.chipTrayButtonWithToggle__triangle-nHc70D {
+  border-style: solid;
+  border-width: 0.5rem;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.2s ease 0s, visibility 0.2s ease 0s;
+  visibility: hidden;
+}
+/* Tabs */
+.tabs-wrapper {
+  @apply flex mt-[12px];
+}
+
+.tab-slider {
+  @apply bg-[#0f212e] flex rounded-[3rem] p-[5px] flex-shrink-0;
+}
+
+.tab-item {
+  @apply inline-flex cursor-pointer relative items-center gap-2 justify-center whitespace-nowrap ml-[5px] px-4 py-[15px] font-semibold text-[.875rem] rounded-full bg-[rgb(47,69,83)] transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent focus-visible:outline-white text-sm leading-none [&:hover>svg]:text-white [&_svg]:!text-gray-200;
+}
+
+.tab-item span {
+  @apply text-white;
+}
+
+.tab-item1 {
+  @apply !ml-0;
+}
+
+.page-content {
+  @apply w-full overflow-x-hidden mt-6;
+}
+/* coin */
+.chipTrayWithToggle__item-nLy9Sn {
+  padding: 0 0.25rem;
+}
+
+.chips-rzbOIK {
+  position: relative;
+  transition: opacity 300ms ease;
+}
+.chip-kcN8LW {
+  transition: opacity 300ms ease;
+}
+.chip_size_48-odjDTm {
+  @apply h-[48px] w-[48px] md:h-[93px] md:w-[93px] md:rotate-[93deg];
+}
+
+.active-shadow {
+  /* border: 0.125rem solid #fa0; */
+  box-shadow: 0 0 0.25rem rgba(255, 221, 51, 0.225), 0 0 0.59375rem #fb3,
+    inset 0 0 0.59375rem #fb3, inset 0 0 0.25rem rgba(255, 187, 51, 0.225);
+  inset: -0.1875rem;
+  border-radius: 23px;
+  transition-property: opacity, visibility;
+  /* visibility: hidden;
+  z-index: 1; */
+  border: 2px solid #fa0;
+}
+
+.chip-kcN8LW:before {
+  border: 0.125rem solid #fa0;
+  box-shadow: 0 0 0.25rem rgba(255, 221, 51, 0.225), 0 0 0.59375rem #fb3,
+    inset 0 0 0.59375rem #fb3, inset 0 0 0.25rem rgba(255, 187, 51, 0.225);
+  inset: -0.1875rem;
+  transition-property: opacity, visibility;
+  visibility: hidden;
+  z-index: 1;
+}
+.chip-kcN8LW:before {
+  border-radius: 50%;
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+.chip__1st {
+  background: linear-gradient(135deg, #0c4 0%, #090 100%);
+  border-radius: 50%;
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+  place-content: center;
+  place-items: center;
+  width: 100%;
+  z-index: 1;
+}
+.chip__frontSide-njKKgE {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+  place-content: center;
+  place-items: center;
+  width: 100%;
+  z-index: 1;
+}
+.chip__frontSide-njKKgE {
+  border-radius: 50%;
+  position: relative;
+}
+.chip__borderDecor-8XR0Vn {
+  border-radius: inherit;
+  grid-area: 1 / 1;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+.chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:before {
+  background-color: #fff;
+  z-index: 1;
+}
+/* .chip_style_default-zHvD8j .chip__borderDecor_medium-mF_aBv:before {
+
+    mask-image: url(/assets/coin-radius.svg);
+}
+.chip_style_default-zHvD8j .chip__borderDecor_medium-mF_aBv:before {
+  background-image: url(/assets/coin-radius.svg);
+}
+.chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:before {
+    content: "";
+    inset: 0;
+
+    mask-position: center;
+
+    mask-repeat: no-repeat;
+
+  mask-size: 100% 100%;
+  position: absolute !important;
+}
+.chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:after {
+  background-color: #000;
+  opacity: 0.1;
+  z-index: 0;
+}
+.chip_style_default-zHvD8j .chip__borderDecor_medium-mF_aBv:after {
+
+    background-image: url(/assets/coin-radius.svg);
+}
+.chip_style_default-zHvD8j .chip_borderDecor-8XR0Vn:after,
+.chip_style_default-zHvD8j .chip_borderDecor-8XR0Vn:before {
+  content: "";
+  inset: 0;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  position: absolute;
+}
+.chip__svg-nFRcEL {
+  position: relative;
+  z-index: 1;
+}
+/* .chip_borderDecor-8XR0Vn, .chip_svg-nFRcEL {
+    grid-area: 1 / 1;
+} */
+
+.high-card {
+  background: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  height: 1.25rem;
+  line-height: 1.25rem;
+  padding: 0 0.5rem;
+  transition: opacity 300msease;
+  white-space: nowrap;
+}
+
+.chip-kcN8LW:after {
+  background-color: hsla(0, 0%, 100%, 0.4);
+  inset: 0;
+  mix-blend-mode: soft-light;
+  transition-property: opacity;
+  z-index: 4;
+}
+.chip-kcN8LW:after,
+.chip-kcN8LW:before {
+  border-radius: 50%;
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+.chip_valueShadow-apDxWQ,
+.chipwinValue-xEmKGO,
+.chip_winValueShadow-bbxO_z {
+  text-anchor: middle;
+  font-weight: 500;
+}
+.chip_valueShadow-apDxWQ,
+.chip_winValueShadow-bbxO_z {
+  fill-opacity: 0.1;
+}
+.chip_valueShadow-apDxWQ,
+.chip_winValueShadow-bbxO_z {
+  fill: #000;
+}
+.chip_value-B48ghL,
+.chipvalueShadow-apDxWQ,
+.chipwinValue-xEmKGO,
+.chip_winValueShadow-bbxO_z {
+  text-anchor: middle;
+  font-weight: 500;
+}
+.chip_value-B48ghL,
+.chip_winValue-xEmKGO {
+  fill: #fff;
+}
+.chipTrayWithToggle_open-aWURNM {
+  padding: 0.5rem 0.25rem;
+}
+.chipTrayButtonWithToggle__tray-NCNOky > * {
+  flex-shrink: 0;
+}
+.chipTrayWithToggle_open-aWURNM {
+  opacity: 1;
+  transition: opacity 0s ease 0.2s, visibility 0s ease 0.2s,
+    transform 0.2s ease 0.2s;
+  visibility: visible;
+}
+
+.chipTrayWithToggle-It_Bqx {
+  display: flex;
+  justify-content: end;
+  position: relative;
+  z-index: 1;
+}
+
+.animation-container {
+  overflow: hidden;
+  max-height: 0px;
+  transition: max-height 600ms ease;
+  opacity: 0;
+}
+
+.open-coin-bar {
+  @apply !max-h-[200px] !overflow-visible opacity-[1];
+  transition: max-height 200ms ease !important;
+}
+
+.chipTrayWithToggleBg-Nl1Fsr {
+  border-radius: 2rem;
+}
+.chip-kcN8LW:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background-image: url('/assets/coin-radius.svg'); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.8;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.parent-bottom-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 33px;
+  margin-top: 20px;
+  /* transform: translateY(4px); */
+}
+.bottom-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+}
+.text-div {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+.text-white {
+  color: white;
+  font-size: 10px;
+}
+.text-orange {
+  color: #ed8840;
+  font-size: 10px;
+}
+.rigth-text {
+  color: #616976;
+  font-size: 10px;
+}
+.bottom-text-div {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+.cursor_pointer {
+  cursor: pointer;
+}
+.cursior {
+  cursor: pointer;
+  position: relative;
+}
+
+.group-bg {
+  background-color: #2e2b40;
+  border-radius: 999px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.group-div {
+  position: relative;
+  display: inline-block;
+}
+.flex-coins {
+  display: flex;
+  width: 100%;
+}
+
+.flex-coins.show-coins img {
+  animation: slide-in-right 0.5s ease forwards;
+  opacity: 1;
+}
+.flex-coins {
+  padding: 4px 0px;
+  width: 236px;
+  transition: max-width 1s linear;
+  overflow: hidden;
+  border: 0px solid transparent;
+  border-radius: 50px;
+  transform: translateX(-4px);
+}
+
+.bg_animation {
+  background-color: rgba(170, 170, 191, 0.2);
+}
+
+.bet_coins {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  /* width: 370px; */
+  /* overflow: hidden; */
+  transform: translateX(3px);
+}
+.move-up-left {
+  animation: move-up-left 0.5s ease-in-out;
+}
+.move-down-right {
+  animation: move-down-right 0.5s ease-in-out;
+}
+.show-bet-icons {
+  animation: show-bet-icons 0.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+.hide-bet-icons {
+  animation: hide-bet-icons 0.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.hamburger {
+  width: 18.68px;
+  height: 14.54px;
+}
+.chat_icon {
+  width: 18.68px;
+  height: 18.68px;
+}
+.multi_coin,
+.refresh_icon {
+  width: 24px;
+  height: 24px;
+}
+
+.selected_coin,
+.pointer {
+  width: 30px;
+  height: 30px;
+}
+.select_coins_icon {
+  width: 8px;
+  height: 9.29px;
+}
+p {
+  margin: 0;
+}
+
+/* bottom section ends */
+
+@media screen and (max-width: 1366px) {
+  .player_B_pair {
+    width: 46.7%;
+  }
+  .player_A_pair {
+    width: 46.6%;
+  }
+  .player_A_pair_img {
+    left: 87%;
+  }
+  .player_A_img {
+    left: 81%;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 93.5%;
+  }
+  .player_B_card {
+    padding-left: 41.5%;
+  }
+  .player_A_pair h6 {
+    padding-left: 24px;
+  }
+  .player_A_pair h4 {
+    padding-left: 24px;
+  }
+  .player_B_pair h6 {
+    padding-left: 90%;
+  }
+  .player_B_pair h4 {
+    padding-left: 87%;
+  }
+  .popup_container {
+    height: 270px;
+  }
+  .games_container {
+    left: 42%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .player_B_pair {
+    width: 46.7%;
+  }
+  .player_A_pair {
+    width: 46.6%;
+  }
+  .player_A_pair_img {
+    left: 87%;
+  }
+  .player_A_img {
+    left: 81%;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 93.5%;
+  }
+  .player_B_card {
+    padding-left: 41.5%;
+  }
+  .player_A_pair h6 {
+    padding-left: 24px;
+  }
+  .player_A_pair h4 {
+    padding-left: 24px;
+  }
+  .player_B_pair h6 {
+    padding-left: 90%;
+  }
+  .player_B_pair h4 {
+    padding-left: 87%;
+  }
+  .popup_container {
+    height: 250px;
+  }
+  .games_container {
+    left: 42%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .player_A_card {
+    width: 49.25%;
+  }
+  .player_B_card {
+    width: 49.25%;
+    padding-left: 350px;
+  }
+  .bonus_pair {
+    left: 45.75%;
+    border: 2.5px solid #161a2b;
+  }
+  .player_A_pair {
+    width: 45.25%;
+  }
+  .player_B_pair {
+    width: 46.35%;
+    padding-left: 260px;
+  }
+  .player_A_img {
+    left: 76%;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 463px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 16px;
+  }
+  .popup_container {
+    height: 240px;
+  }
+  .games_container {
+    left: 42%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 92%;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 16px;
+  }
+
+  .player_B_card {
+    padding-left: 405px;
+  }
+  .player_B_pair h6 {
+    padding-left: 152px;
+  }
+  .player_B_pair h4 {
+    padding-left: 135px;
+  }
+  .player_A_pair_img {
+    left: 85%;
+  }
+  .player_A_pair h6 {
+    padding-left: 24px;
+  }
+  .player_A_pair h4 {
+    padding-left: 24px;
+  }
+  .popup_container {
+    height: 800px;
+  }
+  .games_container {
+    left: 39%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .player_A_card {
+    width: 49%;
+  }
+  .player_B_card {
+    width: 49%;
+    padding-left: 240px;
+  }
+  .bonus_pair {
+    left: 43.7%;
+    border: 2.5px solid #161a2b;
+  }
+  .player_A_pair {
+    width: 43%;
+  }
+  .player_B_pair {
+    width: 43.5%;
+    padding-left: 160px;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 335px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .popup_container {
+    height: 800px;
+  }
+  .games_container {
+    left: 39%;
+  }
+}
+
+@media screen and (max-width: 912px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 90%;
+  }
+  .player_B_pair {
+    width: 45.8%;
+  }
+  .player_A_pair {
+    width: 44.5%;
+  }
+  .bonus_pair {
+    left: 45.25%;
+  }
+  .player_A_img {
+    left: 73%;
+  }
+  .player_A_pair_img {
+    left: 83%;
+  }
+  .popup_container {
+    height: 780px;
+  }
+  .games_container {
+    left: 39%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+  .player_B_card {
+    padding-left: 341px;
+  }
+  .player_B_pair h4 {
+    padding-left: 173px;
+  }
+  .player_B_pair h6 {
+    padding-left: 190px;
+  }
+}
+
+@media screen and (max-width: 853px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 90%;
+  }
+  .player_A_img {
+    left: 71%;
+  }
+  .bonus_pair {
+    left: 44.7%;
+  }
+  .player_A_pair {
+    width: 44%;
+  }
+  .player_B_pair {
+    width: 45.75%;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 91.75%;
+  }
+  .player_B_card {
+    padding-left: 317px;
+  }
+  .player_B_pair h6 {
+    padding-left: 168px;
+  }
+  .player_B_pair h4 {
+    padding-left: 150px;
+  }
+  .player_A_card {
+    padding-left: 13px;
+  }
+  .popup_container {
+    height: 700px;
+  }
+  .games_container {
+    left: 39%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 834px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 90%;
+  }
+
+  .player_B_pair h6 {
+    padding-left: 150px;
+  }
+  .player_B_pair h4 {
+    padding-left: 133px;
+  }
+  .player_A_pair h6 {
+    padding-left: 15px;
+  }
+  .player_A_pair h4 {
+    padding-left: 15px;
+  }
+  .bonus_pair {
+    left: 44.7%;
+  }
+  .player_A_pair {
+    width: 44%;
+  }
+  .player_B_pair {
+    width: 45.3%;
+  }
+  .player_A_img {
+    left: 70%;
+  }
+  .player_A_pair_img {
+    left: 81%;
+  }
+  .player_B_card {
+    padding-left: 300px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 16px;
+  }
+  .popup_container {
+    height: 580px;
+  }
+  .games_container {
+    left: 39%;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 90%;
+  }
+
+  .player_B_pair h6 {
+    padding-left: 150px;
+  }
+  .player_B_pair h4 {
+    padding-left: 133px;
+  }
+  .player_A_pair h6 {
+    padding-left: 15px;
+  }
+  .player_A_pair h4 {
+    padding-left: 15px;
+  }
+  .bonus_pair {
+    left: 44.7%;
+  }
+  .player_A_pair {
+    width: 44%;
+  }
+  .player_B_pair {
+    width: 45.3%;
+  }
+  .player_A_img {
+    left: 70%;
+  }
+  .player_A_pair_img {
+    left: 81%;
+  }
+  .player_B_card {
+    padding-left: 300px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 16px;
+  }
+  .popup_container {
+    height: 620px;
+  }
+  .games_container {
+    left: 39%;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .player_B_pair {
+    width: 44.75%;
+  }
+  .player_A_pair {
+    width: 44%;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 13px;
+  }
+
+  .bonus_pair {
+    left: 44.7%;
+  }
+  .player_A_img {
+    left: 68%;
+  }
+
+  .player_B_card {
+    padding-left: 275px;
+  }
+  .player_B_pair h6 {
+    padding-left: 121px;
+  }
+  .player_B_pair h4 {
+    padding-left: 104px;
+  }
+  .player_A_pair_img {
+    left: 79%;
+  }
+  .popup_container {
+    height: 560px;
+  }
+  .games_container {
+    left: 38%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .player_B_pair {
+    width: 44.75%;
+  }
+  .player_A_pair {
+    width: 44%;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 13px;
+  }
+
+  .bonus_pair {
+    left: 44.7%;
+  }
+  .player_A_img {
+    left: 68%;
+  }
+
+  .player_B_card {
+    padding-left: 275px;
+  }
+  .player_B_pair h6 {
+    padding-left: 121px;
+  }
+  .player_B_pair h4 {
+    padding-left: 104px;
+  }
+  .player_A_pair_img {
+    left: 79%;
+  }
+  .popup_container {
+    height: 470px;
+  }
+  .games_container {
+    left: 38%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* Main Table section starts here */
+  .player_A_card {
+    width: 48.25%;
+  }
+  .player_B_card {
+    width: 48.25%;
+    padding-left: 82px;
+  }
+  .player_A_img {
+    left: 40%;
+  }
+  .player_A_pair_img {
+    left: 45%;
+  }
+  .player_B_pair h6 {
+    padding-left: 89px;
+  }
+  .player_B_pair h4 {
+    padding-left: 67px;
+  }
+  .bonus_pair {
+    left: 41%;
+    border: 2.5px solid #161a2b;
+  }
+  .player_B_pair {
+    width: 44%;
+    padding-left: 0;
+  }
+  .player_A_pair {
+    width: 40%;
+  }
+  /* Main table section ends here */
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 163px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .popup_container {
+    height: 470px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 85%;
+  }
+  .player_B_pair {
+    width: 43%;
+  }
+  .player_A_pair {
+    width: 41%;
+  }
+  .bonus_pair {
+    left: 42%;
+  }
+  .player_A_card {
+    left: 8px;
+  }
+  .player_B_card {
+    right: 8px;
+    padding-left: 161px;
+  }
+  .player_A_img {
+    left: 53%;
+  }
+  .player_A_pair_img {
+    left: 67%;
+  }
+  .popup_container {
+    height: 170px;
+  }
+  .games_container {
+    left: 32%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 128px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 13px;
+  }
+  .player_B_pair h6 {
+    padding-left: 172px;
+  }
+  .player_B_pair h4 {
+    padding-left: 156px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .bonus_pair {
+    left: 40%;
+  }
+  .player_B_pair {
+    width: 42%;
+    padding-left: 0;
+  }
+  .player_A_pair {
+    width: 42%;
+  }
+  .popup_container {
+    height: 495px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  /* High Card section starts here */
+
+  .player_card {
+    max-width: 33svw;
+  }
+
+  .high_card_secondary {
+    max-width: 24svw;
+  }
+
+  .high_card_primary {
+    max-width: 24svw;
+  }
+  /* High Card section ends here */
+
+  /* main table start here */
+  .player_B_card {
+    width: 48%;
+    padding-left: 37px;
+  }
+  .player_A_card {
+    width: 48%;
+    padding-left: 7px;
+  }
+  .player_A_img {
+    left: 57px;
+    top: 22px;
+  }
+  .player_B_img {
+    left: 0px;
+    top: 22px;
+  }
+  .player_B_pair {
+    width: 41%;
+    padding-left: 0;
+  }
+  .player_A_pair {
+    width: 38.75%;
+  }
+  .bonus_pair {
+    left: 40%;
+  }
+  .player_B_pair h6 {
+    padding-left: 75px;
+  }
+  .player_B_pair h4 {
+    padding-left: 52px;
+  }
+
+  /* main table ends here */
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 153px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 8px;
+  }
+  .popup_container {
+    height: 330px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  /* High Card section starts here */
+
+  .player_card {
+    max-width: 33svw;
+  }
+
+  .high_card_secondary {
+    max-width: 24svw;
+  }
+
+  .high_card_primary {
+    max-width: 24svw;
+  }
+  /* High Card section ends here */
+
+  /* main table start here */
+  .player_B_card {
+    width: 47.7%;
+    padding-left: 37px;
+  }
+  .player_A_card {
+    width: 47.7%;
+    padding-left: 7px;
+  }
+  .player_A_img {
+    left: 57px;
+    top: 22px;
+  }
+  .player_B_img {
+    left: 0px;
+    top: 22px;
+  }
+  .player_B_pair {
+    width: 41%;
+    padding-left: 0;
+  }
+  .player_A_pair {
+    width: 38.75%;
+  }
+  .bonus_pair {
+    left: 40%;
+  }
+  .player_B_pair h6 {
+    padding-left: 75px;
+  }
+  .player_B_pair h4 {
+    padding-left: 52px;
+  }
+
+  /* main table ends here */
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 153px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 8px;
+  }
+  .popup_container {
+    height: 495px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 448px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 172px;
+  }
+  .player_A_img {
+    left: 83px;
+    top: 23px;
+  }
+  .player_A_pair_img {
+    left: 54%;
+  }
+  .popup_container {
+    height: 390px;
+  }
+  .games_container {
+    left: 29%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 172px;
+  }
+  .player_A_img {
+    left: 83px;
+    top: 23px;
+  }
+  .player_A_pair_img {
+    left: 54%;
+  }
+  .popup_container {
+    height: 310px;
+  }
+  .games_container {
+    left: 29%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 172px;
+  }
+  .player_A_img {
+    left: 83px;
+    top: 23px;
+  }
+  .player_A_pair_img {
+    left: 54%;
+  }
+  .popup_container {
+    height: 290px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 164px;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .player_B_card {
+    padding-left: 97px;
+  }
+  .player_B_pair h6 {
+    padding-left: 106px;
+  }
+  .player_B_pair h4 {
+    padding-left: 89px;
+  }
+  .popup_container {
+    height: 240px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+  .parent-bottom-flex {
+    margin-bottom: 15px;
+  }
+  .main_table_container {
+    height: 138px;
+  }
+  .player_A_pair_img {
+    left: 51%;
+  }
+  .player_A_img {
+    left: 75px;
+  }
+  .teen_patti_conatiner {
+    margin-top: 7px;
+  }
+
+  .win_percentage_container {
+    /* margin-top: 5px; */
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .player_A_card {
+    left: 7px;
+  }
+
+  .player_B_card {
+    right: 7px;
+  }
+  .player_A_img {
+    left: 75px;
+    top: 23px;
+  }
+  .player_A_pair_img {
+    left: 52%;
+  }
+  .popup_container {
+    height: 230px;
+  }
+  .games_container {
+    left: 27%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+  .player_A_pair h6 {
+    padding-left: 10px;
+  }
+  .player_A_pair h4 {
+    padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 393px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 153px;
+  }
+  .popup_container {
+    height: 250px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 153px;
+  }
+  .popup_container {
+    height: 250px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 153px;
+  }
+  .popup_container {
+    height: 275px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  /* High Card section starts here */
+  .player_card {
+    max-width: 36.268svw;
+  }
+
+  .high_card_secondary {
+    max-width: 24svw;
+  }
+
+  .high_card_primary {
+    max-width: 24svw;
+  }
+  .player_card h6 {
+    font-size: 18px;
+  }
+  .high_card_primary h6 {
+    font-size: 10px;
+    line-height: 1.5 !important;
+  }
+  .high_card_secondary h6 {
+    font-size: 10px;
+  }
+
+  /* High Card section ends here */
+
+  /* main table start here */
+  .player_B_card {
+    width: 48%;
+    padding-left: 81px;
+  }
+  .player_A_card {
+    width: 48%;
+    padding-left: 7px;
+  }
+  .player_A_img {
+    left: 57px;
+    top: 23px;
+  }
+  .player_B_img {
+    left: 0px;
+    top: 22px;
+  }
+
+  .bonus_pair {
+    left: 39%;
+  }
+  .player_B_pair {
+    width: 39.1%;
+    padding-left: 0;
+  }
+  .player_A_pair {
+    width: 37.33%;
+  }
+  .player_B_pair h6 {
+    padding-left: 87px;
+  }
+  .player_B_pair h4 {
+    padding-left: 70px;
+  }
+
+  /* main table ends here */
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 81%;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .player_A_pair_img {
+    left: 46%;
+  }
+  .popup_container {
+    height: 165px;
+  }
+  .games_container {
+    left: 25%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 127px;
+  }
+
+  .parent-bottom-flex {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 137px;
+  }
+
+  .player_A_img {
+    left: 50px;
+  }
+  .player_B_card {
+    right: 6px;
+  }
+  .player_A_card {
+    right: 6px;
+  }
+  .player_A_pair_img {
+    left: 43%;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 12px;
+  }
+  .player_B_pair {
+    width: 38.5%;
+  }
+  .popup_container {
+    height: 190px;
+  }
+  .games_container {
+    left: 23%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 170px;
+  }
+  .bonus_pair {
+    height: 89.12px;
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .player_A_card {
+    left: 6px;
+  }
+  .player_B_card {
+    right: 6px;
+  }
+
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 130px;
+  }
+  .player_B_pair {
+    width: 37.5%;
+    padding-left: 70px;
+  }
+  .player_B_card {
+    width: 48%;
+    padding-left: 66px;
+  }
+  .player_A_img {
+    top: 18px;
+  }
+  .player_B_pair h6 {
+    padding-left: 0px;
+  }
+  .player_B_pair h4 {
+    padding-left: 0px;
+    transform: translateX(-15px);
+  }
+  .popup_container {
+    height: 180px;
+  }
+  .games_container {
+    left: 22%;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .bonus_pair {
+    left: 37%;
+  }
+  .player_B_pair {
+    width: 37.5%;
+    padding-left: 0;
+  }
+  .player_B_pair h6 {
+    padding-left: 73px;
+  }
+  .player_B_pair h4 {
+    padding-left: 55px;
+  }
+  .player_A_pair {
+    width: 35%;
+  }
+  .player_A_chances,
+  .chance_wrapper_A {
+    left: 77.5%;
+  }
+  .player_B_chances,
+  .chance_wrapper_B {
+    left: 10px;
+  }
+  .player_A_card {
+    width: 47.5%;
+  }
+  .player_B_card {
+    padding-left: 64px;
+    width: 47.5%;
+  }
+  .player_A_img {
+    left: 29px;
+  }
+  .player_A_pair_img {
+    left: 31px;
+  }
+  .popup_container {
+    height: 190px;
+  }
+  .games_container {
+    left: 25%;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .player_A_pair_img {
+    left: 37px;
+  }
+  .player_B_img {
+    top: 17px;
+  }
+  .popup_container {
+    height: 135px;
+  }
+  .games_container {
+    left: 20%;
+  }
+  .games_container img {
+    width: 200px;
+    height: 100px;
+  }
+  .player_A_card {
+    height: 50px;
+  }
+  .player_B_card {
+    height: 50px;
+  }
+  .player_B_pair {
+    height: 40.32px;
+
+    top: 49px;
+  }
+  .player_A_pair_img {
+    left: 55px;
+  }
+  .player_A_pair {
+    height: 40.32px;
+    position: absolute;
+    top: 49px;
+  }
+  .bonus_pair {
+    height: 57px;
+    top: 35px;
+  }
+
+  .main_table_container {
+    height: 100px;
+  }
+  .win_percentage_container {
+    /* margin-top: 2px; */
+  }
+  .teen_patti_conatiner {
+    margin-top: 5px;
+  }
+  .parent-bottom-flex {
+    margin-bottom: 11px;
+  }
+  .custom_flex img {
+    width: auto;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes show-bet-icons {
+  0% {
+    -webkit-max-width: 60px;
+    overflow: hidden;
+  }
+  50% {
+    -webkit-max-width: 150px;
+  }
+  100% {
+    -webkit-max-width: 236px;
+  }
+}
+
+@keyframes hide-bet-icons {
+  0% {
+    -webkit-max-width: 236px;
+    -webkit-overflow: hidden;
+  }
+  50% {
+    max-width: 150px;
+  }
+  100% {
+    -webkit-max-width: 0px;
+    -webkit-overflow: hidden;
+  }
+}
+
+@keyframes move-up-left {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, -65px);
+  }
+  100% {
+    -webkit-transform: translate(-105px, -65px);
+  }
+}
+
+@keyframes move-down-right {
+  0% {
+    -webkit-transform: translate(-105px, -65px);
+  }
+  50% {
+    -webkit-transform: translate(0, -65px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+/* @keyframes inplayAnimation {
+  0% {
+    width: 15px;
+    height: 15px;
+  }
+  50% {
+    width: 30px;
+    height: 30px;
+  }
+  100% {
+    color: green;
+  }
+} */
+
+.move_right {
+  animation: move_right 500ms;
+}
+
+@keyframes move_right {
+  0% {
+    -webkit-transform: translate(0, 0);
+    position: relative;
+    z-index: 20;
+  }
+  50% {
+    -webkit-transform: translate(var(--translateX), 0px);
+    position: relative;
+    z-index: 20;
+  }
+  100% {
+    -webkit-transform: translate(var(--translateX), 67px);
+  }
+}
+
+.move_back {
+  animation: move_back 500ms forwards;
+}
+
+@keyframes move_back {
+  0% {
+    -webkit-transform: translate(var(--translateXReverse), 67px);
+    position: relative;
+    z-index: 20;
+  }
+  50% {
+    -webkit-transform: translate(var(--translateXReverse), 0px);
+    position: relative;
+    z-index: 20;
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+.move_center-1 {
+  animation: move_center-1 250ms forwards;
+}
+
+@keyframes move_center-1 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(205px, 0);
+    opacity: 0;
+  }
+}
+
+.move_center-2 {
+  animation: move_center-2 250ms forwards;
+}
+
+@keyframes move_center-2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(143.8px, 0);
+    opacity: 0;
+  }
+}
+
+.move_center-3 {
+  animation: move_center-3 250ms forwards;
+}
+
+@keyframes move_center-3 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(85.51px, 0);
+    opacity: 0;
+  }
+}
+
+.move_center-4 {
+  animation: move_center-4 250ms forwards;
+}
+
+@keyframes move_center-4 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(26.4px, 0);
+    opacity: 0;
+  }
+}
+
+.move_center-5 {
+  animation: move_center-5 250ms forwards;
+}
+
+@keyframes move_center-5 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(-33.2px, 0);
+    opacity: 0;
+  }
+}
+
+.move_center-6 {
+  animation: move_center-6 250ms forwards;
+}
+
+@keyframes move_center-6 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(-92.8px, 0);
+    opacity: 0;
+  }
+}
+
+.move_center-back-1 {
+  animation: move_center-back-1 350ms forwards;
+}
+
+@keyframes move_center-back-1 {
+  0% {
+    -webkit-transform: translate(205px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+.move_center-back-2 {
+  animation: move_center-back-2 350ms forwards;
+}
+
+@keyframes move_center-back-2 {
+  0% {
+    -webkit-transform: translate(143.8px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+.move_center-back-3 {
+  animation: move_center-back-3 350ms forwards;
+}
+
+@keyframes move_center-back-3 {
+  0% {
+    -webkit-transform: translate(85.51px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+.move_center-back-4 {
+  animation: move_center-back-4 350ms forwards;
+}
+
+@keyframes move_center-back-4 {
+  0% {
+    -webkit-transform: translate(26.4px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+.move_center-back-5 {
+  animation: move_center-back-5 350ms forwards;
+}
+
+@keyframes move_center-back-5 {
+  0% {
+    -webkit-transform: translate(-33.2px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+.move_center-back-6 {
+  animation: move_center-back-6 350ms forwards;
+}
+
+@keyframes move_center-back-6 {
+  0% {
+    -webkit-transform: translate(-90.8px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
