@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ShortNumberPipe } from '../../pipes/short-number.pipe';
 import { ToggleService } from '../../services/toggle.service';
 import { CONFIG, STACK_VALUE } from '../../../../config';
@@ -20,10 +20,10 @@ export class BetCoinComponent implements OnInit {
   btnIcon = false
   animate = false
   selectedBetAmount: any
-  stackButtonArry: any = []
+  stackButtonArry: any = [];
+  @Output() eventBetValue = new EventEmitter<string>();
+  constructor(private toggleService: ToggleService, private indexedDb: IndexedDbService) { }
 
-
-  constructor(private toggleService:ToggleService,  private indexedDb: IndexedDbService){}
 
   openQuickStakes() {
     this.toggleService.setQuickStakeEditSidebarState(true)
@@ -33,28 +33,25 @@ export class BetCoinComponent implements OnInit {
   animatecoinValue(value: any) {
     this.animateCoinVal = value
     this.btnCheck = value
-
   }
 
   ngOnInit(): void {
-    this.getStackData()
+    this.getStackData();
   }
 
-   getStackData() {
-      const path = CONFIG.userGetStackURL.split('/').filter(Boolean).pop();
-      this.indexedDb.getRecord(path).subscribe((res: any) => {
-        if (res?.data?.stake) {
-          this.stackButtonArry = res.data.stake;
-          this.selectedBetAmount = this.stackButtonArry[0].stakeAmount
-        } else {
-          this.stackButtonArry = STACK_VALUE;
-          this.selectedBetAmount = STACK_VALUE[0].stakeAmount
-        }
-        // console.log('default value', this.selectedBetAmount);
-  
-        // console.log('stakc', this.stackButtonArry);
-      })
-    }
+  getStackData() {
+    const path = CONFIG.userGetStackURL.split('/').filter(Boolean).pop();
+    this.indexedDb.getRecord(path).subscribe((res: any) => {
+      if (res?.data?.stake) {
+        this.stackButtonArry = res.data.stake;
+        this.selectedBetAmount = this.stackButtonArry[0].stakeAmount
+      } else {
+        this.stackButtonArry = STACK_VALUE;
+        this.selectedBetAmount = STACK_VALUE[0].stakeAmount
+      }
+      this.eventBetValue.emit(this.selectedBetAmount);
+    })
+  }
 
 
   showAnimateCoinBar() {
@@ -150,6 +147,6 @@ export class BetCoinComponent implements OnInit {
         this.selectedBetAmount = this.stackButtonArry[5].stakeAmount
         break
     }
-    // console.log('onclick', this.selectedBetAmount);
+    this.eventBetValue.emit(this.selectedBetAmount);
   }
 }

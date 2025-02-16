@@ -847,6 +847,11 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   }
 
 
+  getCoinValue(event: any) {
+    console.log('event', event);
+  }
+
+
 
 
   replaceHamburgerImage(coinSrc: string) {
@@ -868,6 +873,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
       this.coinStateActive = false;
     }, 900);
   }
+
 
   toggleCoinState() {
     if (!this.coinStateActive) {

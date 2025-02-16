@@ -441,7 +441,7 @@
                     </div>
                 </div>
                 <!-- Teen patti Cards Section ends here -->
-                   <app-bet-coin></app-bet-coin>
+                   <app-bet-coin (eventBetValue)="getCoinValue($event)"></app-bet-coin>
                 
 
                 <!-- desktop-coin  -->
@@ -659,7 +659,7 @@
 </div>
 <!-- <div class="h-[50px] w-full bg-[#161a2b]"></div> -->
 
-<app-quick-stakes-edit></app-quick-stakes-edit>
+<app-quick-stakes-edit ></app-quick-stakes-edit>
 
 
 
