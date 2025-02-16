@@ -39,4 +39,8 @@ export class DragonTigerComponent implements OnInit {
     document.documentElement.style.setProperty('--boardScale', scale.toString());
   }
 
+  getCoinValue(event: any) {
+    console.log('event', event);
+  }
+
 }
