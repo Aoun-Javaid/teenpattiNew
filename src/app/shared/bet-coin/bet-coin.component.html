@@ -405,7 +405,7 @@
 
 
 
-<div class="desktop-coin  relative md:max-w-[22rem] ">
+<div class="desktop-coin  relative md:max-w-[22rem] !hidden">
     <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM">
         <div class="overflow-visible animation-container" [ngClass]="{'open-coin-bar':coinAnimateState}">
             <div class="tab-slider min-w-full">
@@ -819,3 +819,184 @@
         </button>
     </div>
 </div>
+
+
+
+<!-- desktop-coin  -->
+
+<div class="flex items center gap-[9.78px] relative !mt-[51px] max-md:hidden justify-center">
+    <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI !h-[34.59px] !w-[34.59px]" type="button" disabled=""
+        data-locator="undo-bet-btn">
+        <span class="bettingButton__icon-PmQi1e"><svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q h-full !w-auto"
+                viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="m24 17c-3.866 0-7 3.134-7 7 0 0.5523-0.4477 1-1 1s-1-0.4477-1-1c0-4.9706 4.0295-9 9-9 4.9706 0 9 4.0294 9 9s-4.0294 9-9 9c-0.5523 0-1-0.4477-1-1s0.4477-1 1-1c3.866 0 7-3.134 7-7s-3.134-7-7-7z"
+                    clip-rule="evenodd" fill-rule="evenodd"></path>
+                <path d="m16 28-3-4h6.0622l-3.0622 4z"></path>
+            </svg></span>
+        <span class="bettingButton__ctaHighlight-boqUkO"></span><span class="rippleWavesDetectArea-YqGgIY"></span>
+    </button>
+
+    <div class="flex">
+        <!-- Tab item 4 -->
+        <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(1)">
+            <div class="chips-rzbOIK ">
+                <div class="chip-kcN8LW chip_size_48-odjDTm !w-[32.59px] !h-[32.59px] !rotate-0 "
+                    [ngClass]="{'active-shadow':animateCoinVal === 1 || btnCheck === 1 }" data-locator="chip-250">
+                    <div class="chip__1st">
+                        <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                        </div>
+                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <text x="29%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                                text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                                {{this.stackButtonArry[0].stakeAmount | shortNumber}}
+                            </text>
+                            <text x="29%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                text-rendering="geometricPrecision" data-locator="chip-value"
+                                dominant-baseline="central" style="font-size: 16px">
+                                {{this.stackButtonArry[0].stakeAmount | shortNumber}}
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tab item 4 -->
+        <div class="chipTrayWithToggle__item-nLy9Sn " (click)="animatecoinValue(2)">
+            <div class="chips-rzbOIK ">
+                <div class="chip-kcN8LW chip_size_48-odjDTm !w-[32.59px] !h-[32.59px] !rotate-0"
+                    [ngClass]="{'active-shadow':animateCoinVal === 2 || btnCheck === 2}" data-locator="chip-250">
+                    <div class="chip__frontSide-njKKgE"
+                        style=" background: linear-gradient(135deg, #f93 0%, #f50 100%, #8a8a99);">
+                        <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                        </div>
+                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <text x="29%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                                text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                                {{this.stackButtonArry[1].stakeAmount | shortNumber}}
+                            </text>
+                            <text x="29%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                text-rendering="geometricPrecision" data-locator="chip-value"
+                                dominant-baseline="central" style="font-size: 16px">
+                                {{this.stackButtonArry[1].stakeAmount | shortNumber}}
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tab item 4 -->
+        <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(3)">
+            <div class="chips-rzbOIK ">
+                <div class="chip-kcN8LW chip_size_48-odjDTm !w-[32.59px] !h-[32.59px] !rotate-0 "
+                    [ngClass]="{'active-shadow':animateCoinVal === 3 || btnCheck === 3}" data-locator="chip-250">
+                    <div class="chip__frontSide-njKKgE"
+                        style="background: linear-gradient(135deg, #f69 0%, #c06 100%);">
+                        <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                        </div>
+                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <text x="20%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                                text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                                {{this.stackButtonArry[2].stakeAmount | shortNumber}}
+                            </text>
+                            <text x="20%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                text-rendering="geometricPrecision" data-locator="chip-value"
+                                dominant-baseline="central" style="font-size: 16px">
+                                {{this.stackButtonArry[2].stakeAmount | shortNumber}}
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tab item 4 -->
+        <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(4)">
+            <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
+                <div class="chip-kcN8LW chip_size_48-odjDTm !w-[32.59px] !h-[32.59px] !rotate-0 "
+                    data-locator="chip-250" [ngClass]="{'active-shadow':animateCoinVal === 4 || btnCheck === 4}">
+                    <div class="chip__frontSide-njKKgE"
+                        style="background:  linear-gradient(135deg, #f33 0%, #900 100%)">
+                        <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                        </div>
+                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <text x="20%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                                text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                                {{this.stackButtonArry[3].stakeAmount | shortNumber}}
+                            </text>
+                            <text x="20%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                text-rendering="geometricPrecision" data-locator="chip-value"
+                                dominant-baseline="central" style="font-size: 16px">
+                                {{this.stackButtonArry[3].stakeAmount | shortNumber}}
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tab item 4 -->
+        <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(5)">
+            <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
+                <div class="chip-kcN8LW chip_size_48-odjDTm !w-[32.59px] !h-[32.59px] !rotate-0 "
+                    data-locator="chip-250" [ngClass]="{'active-shadow':animateCoinVal === 5 || btnCheck === 5}">
+                    <div class="chip__frontSide-njKKgE"
+                        style="background: linear-gradient(135deg, #5f29cc 0%, #009 100%);">
+                        <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                        </div>
+                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <text x="24%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                                text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                                {{this.stackButtonArry[4].stakeAmount | shortNumber}}
+                            </text>
+                            <text x="24%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                text-rendering="geometricPrecision" data-locator="chip-value"
+                                dominant-baseline="central" style="font-size: 16px">
+                                {{this.stackButtonArry[4].stakeAmount | shortNumber}}
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tab item 4 -->
+        <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(6)">
+            <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
+                <div class="chip-kcN8LW chip_size_48-odjDTm !w-[32.59px] !h-[32.59px] !rotate-0 "
+                    data-locator="chip-250" [ngClass]="{'active-shadow':animateCoinVal === 6 || btnCheck === 6}">
+                    <div class="chip__frontSide-njKKgE"
+                        style="background: linear-gradient(135deg, #2e3133 0%, #0b0c0d 100%);">
+                        <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                        </div>
+                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <text x="14%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                                text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                                {{this.stackButtonArry[5].stakeAmount | shortNumber}}
+                            </text>
+                            <text x="14%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                text-rendering="geometricPrecision" data-locator="chip-value"
+                                dominant-baseline="central" style="font-size: 16px">
+                                {{this.stackButtonArry[5].stakeAmount | shortNumber}}
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <button class="bettingButton-i5MaZV bettingButton_orange-oB31C6 !h-[34.59px] !w-[34.59px]" type="button" disabled=""
+        data-locator="double-bet-btn">
+        <span class="bettingButton__icon-PmQi1e">
+            <svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q !h-full !w-full " viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M20.75 25.02l2.555 2.95c-.152.485-.388.872-.706 1.163-.319.277-.706.415-1.163.415-.152 0-.34-.041-.561-.124a1.479 1.479 0 01-.54-.436l-1.724-2.078-2.576 2.784a2.755 2.755 0 01-.768-.229 3.483 3.483 0 01-.623-.415 2.244 2.244 0 01-.395-.52 1.252 1.252 0 01-.145-.56c0-.263.18-.596.54-.997l1.932-2.056L14 22.257c.055-.207.139-.415.25-.622.124-.208.27-.388.435-.54.167-.166.347-.298.54-.395a1.33 1.33 0 01.603-.145c.374 0 .692.152.955.457l1.953 2.118 2.554-2.68c.43.14.81.375 1.143.707.332.332.498.706.498 1.122a1.2 1.2 0 01-.124.498 2.174 2.174 0 01-.416.54l-1.64 1.703zm4.381-4.88c0-.72.34-1.254 1.018-1.6.678-.36 1.592-.54 2.741-.54.817 0 1.537.104 2.16.312.624.193 1.143.463 1.558.81.416.346.727.754.935 1.225.208.47.312.976.312 1.516 0 1.454-.824 2.839-2.472 4.154l-2.721 2.181h4.985c.083.153.16.346.228.582.084.235.125.491.125.768 0 .499-.11.859-.332 1.08-.222.208-.513.312-.873.312h-7.207a2.333 2.333 0 01-.727-.79 2.57 2.57 0 01-.25-1.162c0-.471.098-.866.291-1.184a2.9 2.9 0 01.644-.79l2.867-2.45c.36-.305.657-.575.893-.81.235-.25.422-.471.56-.665a1.83 1.83 0 00.312-.54 1.24 1.24 0 00.104-.478c0-.388-.16-.692-.478-.914-.304-.221-.733-.332-1.287-.332-.554 0-1.053.09-1.496.27a5.6 5.6 0 00-1.08.54 2.083 2.083 0 01-.581-.623 1.64 1.64 0 01-.229-.873z"
+                    fill="currentColor"></path>
+            </svg> </span><span class="bettingButton__ctaHighlight-boqUkO"></span><span
+            class="rippleWavesDetectArea-YqGgIY"></span>
+    </button>
+
+</div>
+
+<!-- desktop-coin  -->

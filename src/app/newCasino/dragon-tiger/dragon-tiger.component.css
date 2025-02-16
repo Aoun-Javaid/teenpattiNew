@@ -16,6 +16,7 @@
     gap: 0.125rem;
     grid-template-rows: 6.7rem 2.5rem;
     pointer-events: none;
+    @apply min-[1312px]:[grid-template-rows:9.7rem_2.5rem];
 }
 
 .tableMainCards-LsS1Pt, .tableMainChips-LUyExt, .tableMainStatic-R4ES6P, .tableSideChips-BtyLLs, .tableSideStatic-Hgozqb, .table__html-CXMssa, .table__mainBetStat-tA7Phx {
@@ -145,6 +146,7 @@
     grid-template-rows: 3rem 2rem 1rem;
     padding: 0.5rem;
     transition: opacity 300ms ease;
+    @apply min-[1312px]:[grid-template-rows:5rem_2rem_1rem]
 }
 
 .table_lose_dragon-bEbsRm .tableMainStatic__dragon-AzpGwn, .table_lose_dragonBig-SpZg7d .tableSideStatic__dragonBig-TlYCrs, .table_lose_dragonEven-XlwlbB .tableSideStatic__dragonEven-QFtUYx, .table_lose_dragonOdd-pMg0DM .tableSideStatic__dragonOdd-N1tw0w, .table_lose_dragonSmall-cUcc7_ .tableSideStatic__dragonSmall-g5iN2q, .table_lose_suitedTie-Evy6Sg .tableMainStatic__suitedTie-M9pbef, .table_lose_tie-CYfH2Y .tableMainStatic__tie-fDeGvN, .table_lose_tiger-KvTRje .tableMainStatic__tiger-Y7P6nk, .table_lose_tigerBig-SuYONK .tableSideStatic__tigerBig-dpKtTP, .table_lose_tigerEven-fjVGth .tableSideStatic__tigerEven-dzn5KK, .table_lose_tigerOdd-QAMFed .tableSideStatic__tigerOdd-Z4H_SB, .table_lose_tigerSmall-loWWQd .tableSideStatic__tigerSmall-rf_rnt {
@@ -225,6 +227,7 @@
     gap: 7.5rem;
     grid-template-areas: "dragon tiger";
     grid-template-columns: repeat(2, 1fr);
+    @apply min-[1312px]:gap-[10.5rem]
 }
 
 .tableMainChips-LUyExt {
