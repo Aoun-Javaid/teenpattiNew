@@ -24,6 +24,7 @@ export class BetCoinComponent implements OnInit {
   @Output() eventBetValue = new EventEmitter<string>();
   constructor(private toggleService: ToggleService, private indexedDb: IndexedDbService) { }
 
+
   openQuickStakes() {
     this.toggleService.setQuickStakeEditSidebarState(true)
   }
