@@ -1,12 +1,7 @@
 <div class="top_bar_wrapper">
-  <!-- @for (item of betHistory; track $index) {
-  <div class="top_bar">
-      <button [ngClass]="{'red_bg' : item.color === 'Red', 'yellow_bg' : item.color === 'Yellow' }">
-          {{item.winner}}
-      </button>
-  </div>
-  } -->
-  <div class="result">
+
+  <!-- teenpatti result -->
+  <div class="result" *ngIf="eventid=='99.0010'">
     <div class="resultItem-R4uUuB resultItem_size_small-Feox9S">
       <div class="resultItem__list-J7YJ2v">
         <div class="abResultLine-eMgxz_">

@@ -442,10 +442,7 @@
                     </div>
                 </div>
                 <!-- Teen patti Cards Section ends here -->
-                <app-bet-coin (eventBetValue)="getCoinValue($event)"></app-bet-coin>
-
-
-              
+                <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game.status"></app-bet-coin>
             </div>
         </div>
         <div class="time-container" *ngIf="this.game">

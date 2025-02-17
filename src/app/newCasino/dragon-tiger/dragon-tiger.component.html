@@ -602,16 +602,16 @@
                                         </div>
                                         <div class="tableMainStatic-R4ES6P">
                                             <div class="tableMainStatic__tie-fDeGvN">
-                                                <div class="tableMainStatic__payout-cdrdZV">11:1</div>
+                                                <div class="tableMainStatic__payout-cdrdZV">  {{marketArray[0]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                                 <div class="tableMainStatic__title-VDxh9o" data-locator="tie-title">
-                                                    Tie
+                                                  {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}
                                                 </div>
                                             </div>
                                             <div class="tableMainStatic__dragon-AzpGwn">
                                                 <div class="tableMainStatic__title-VDxh9o" data-locator="dragon-title">
-                                                    Dragon
+                                                  {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}
                                                 </div>
-                                                <div class="tableMainStatic__payout-cdrdZV">1:1</div>
+                                                <div class="tableMainStatic__payout-cdrdZV">  {{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableMainStatic__suitedTie-M9pbef">
                                                 <div class="tableMainStatic__title-VDxh9o"
@@ -620,9 +620,9 @@
                                                 <div class="tableMainStatic__payout-cdrdZV">50:1</div>
                                             </div>
                                             <div class="tableMainStatic__tiger-Y7P6nk">
-                                                <div class="tableMainStatic__payout-cdrdZV">1:1</div>
+                                                <div class="tableMainStatic__payout-cdrdZV">  {{marketArray[0]?.runners[2]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                                 <div class="tableMainStatic__title-VDxh9o" data-locator="tiger-title">
-                                                    Tiger
+                                                  {{marketArray[0]?.runnersName[marketArray[0]?.runners[2]?.selectionId]}}
                                                 </div>
                                             </div>
                                         </div>
@@ -630,16 +630,9 @@
                                             <div class="tableMainCards__dragon-qAO3wf">
                                                 <div class="tableMainCards__card-QjtSNA">
                                                     <div class="card-wi2ADp card_size_large-HaRpNj card_color_black-iDcRjL">
-                                                        <div class="card__inner-CIH8Z7" data-locator="♠-7">
-                                                            <svg class="card__frontSide-tJBKcu" viewBox="0 0 34 48"
-                                                                 xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                        d="M21.681,31.819c-1.524,-1.611 -4.681,-4.726 -4.681,-4.726c-0,-0 -2.606,2.524 -4.681,4.726c-1.789,1.893 -3.519,3.443 -3.519,5.739l0.015,0.418c0.224,2.087 2.087,3.131 4.339,3.131l0.298,-0c1.288,-0.074 2.465,-0.762 3.16,-1.849c-0.164,0.775 -0.149,1.357 -0.477,2.341l-0.104,0.298c-0.362,1.07 -1.127,1.958 -2.132,2.475l0,0.611l6.202,-0l-0,-0.611c-0,-0 -1.446,-0.597 -2.132,-2.49l-0.179,-0.507c-0.253,-0.85 -0.253,-1.401 -0.402,-2.132c0.692,1.092 1.869,1.787 3.16,1.864l0.298,-0c2.252,-0 4.115,-1.044 4.324,-3.131l0.03,-0.447c-0,-2.281 -1.73,-3.832 -3.519,-5.725l0,0.015Z"
-                                                                        fill="currentColor"></path>
-                                                                <path
-                                                                        d="M10.539,3.623l0,3.253l8.728,-0l-6.771,15.439l4.212,0l6.432,-15.37l0.038,-0.087l-0,-3.235l-12.639,0Z"
-                                                                        fill="currentColor"></path>
-                                                            </svg>
+                                                        <div class="card__inner-CIH8Z7">
+                                                          <img [ngClass]="dragonCards?.card_1!='0' && dragonCards?.card_1 ?'card-animation':'opacity-0'"
+                                                               [src]="['assets/cards/'+dragonCards?.card_1+'.png']" class="card-img" alt="card1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -647,16 +640,9 @@
                                             <div class="tableMainCards__tiger-FJdFda">
                                                 <div class="tableMainCards__card-QjtSNA">
                                                     <div class="card-wi2ADp card_size_large-HaRpNj card_color_red-oOULpU">
-                                                        <div class="card__inner-CIH8Z7" data-locator="♥-9">
-                                                            <svg class="card__frontSide-tJBKcu" viewBox="0 0 34 48"
-                                                                 xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                        d="M20.951,27.098c-1.723,-0 -3.208,1.723 -3.951,3.417c-0.758,-1.694 -2.243,-3.417 -3.951,-3.417c-2.481,-0 -4.219,1.961 -4.219,4.902c-0,1.188 0.356,2.377 1.01,3.357c0.267,0.505 0.594,0.995 0.936,1.456l6.224,8.111l6.239,-8.111c0.327,-0.461 0.654,-0.951 0.936,-1.456c0.639,-0.995 0.995,-2.154 0.995,-3.357c0,-2.941 -1.753,-4.902 -4.219,-4.902Z"
-                                                                        fill="currentColor"></path>
-                                                                <path
-                                                                        d="M16.295,16.307l0.027,0l-4.163,6.054l4.719,-0l5.744,-8.727c0.705,-1.086 1.072,-2.357 1.055,-3.651c-0,-3.739 -2.751,-6.349 -6.686,-6.349c-3.936,0 -6.687,2.612 -6.687,6.349c-0,3.5 2.407,6.042 5.992,6.324l-0.001,0Zm-2.222,-6.322c-0,-1.86 1.466,-2.833 2.918,-2.833c1.716,0 2.918,1.166 2.918,2.833c-0,1.664 -1.196,2.831 -2.919,2.831c-1.452,-0.002 -2.919,-0.975 -2.919,-2.831l0.002,0Z"
-                                                                        fill="currentColor"></path>
-                                                            </svg>
+                                                        <div class="card__inner-CIH8Z7">
+                                                          <img [ngClass]="tigerCards?.card_1!='0' && tigerCards?.card_1 ?'card-animation':'opacity-0'"
+                                                               [src]="['assets/cards/'+tigerCards?.card_1+'.png']" class="card-img" alt="card1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -666,53 +652,56 @@
                                     </div>
                                     <div class="table__sideHtml-zfGh6c">
                                         <div class="tableSideStatic-Hgozqb">
+                                          <!-- dragon -->
                                             <div class="tableSideStatic__dragonEven-QFtUYx">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="dragon-even-title">Even
+                                                     data-locator="dragon-even-title">{{(marketArray[1]?.runnersName[marketArray[1]?.runners[1]?.selectionId] | slice:7) }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">{{marketArray[1]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableSideStatic__dragonOdd-N1tw0w">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="dragon-odd-title">Odd
+                                                     data-locator="dragon-odd-title">{{(marketArray[1]?.runnersName[marketArray[1]?.runners[0]?.selectionId] | slice:7) }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">
+                                                  {{marketArray[1]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableSideStatic__dragonSmall-g5iN2q">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="dragon-small-title">Small
+                                                     data-locator="dragon-small-title">{{marketArray[3]?.runnersName[marketArray[3]?.runners[0]?.selectionId] }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7"> {{marketArray[3]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableSideStatic__dragonBig-TlYCrs">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="dragon-big-title">Big
+                                                     data-locator="dragon-big-title">{{marketArray[3]?.runnersName[marketArray[3]?.runners[1]?.selectionId] }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">{{marketArray[3]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
+                                            <!-- tiger -->
                                             <div class="tableSideStatic__tigerBig-dpKtTP">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="tiger-big-title">Big
+                                                     data-locator="tiger-big-title">{{marketArray[4]?.runnersName[marketArray[4]?.runners[1]?.selectionId] }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">{{marketArray[4]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableSideStatic__tigerSmall-rf_rnt">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="tiger-small-title">Small
+                                                     data-locator="tiger-small-title">{{marketArray[4]?.runnersName[marketArray[4]?.runners[0]?.selectionId] }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">{{marketArray[4]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableSideStatic__tigerOdd-Z4H_SB">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="tiger-odd-title">Odd
+                                                     data-locator="tiger-odd-title">{{(marketArray[2]?.runnersName[marketArray[2]?.runners[0]?.selectionId] | slice:6) }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">{{marketArray[2]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableSideStatic__tigerEven-dzn5KK">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="tiger-even-title">Even
+                                                     data-locator="tiger-even-title">{{(marketArray[2]?.runnersName[marketArray[2]?.runners[1]?.selectionId] | slice:6) }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">{{marketArray[2]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                         </div>
                                         <div class="tableSideChips-BtyLLs"></div>
@@ -798,14 +787,15 @@
              </div>
             </div>
           <div class="time-container">
-            <div class="last-win">Virtual Dragon Tiger
-              <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">100</span>
+            <div class="last-win">{{this.game?.eventName}}
+              <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.min}}</span>
               -
-              <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">500k</span>
+              <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.max |
+                shortNumber}}</span>
             </div>
             <div class="roundInfo-date">
               <!-- <span class="inline-block">.</span>  -->
-              57278112
+              {{this.game?.roundId}}
             </div>
           </div>
         </div>

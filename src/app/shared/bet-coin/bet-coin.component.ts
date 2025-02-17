@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ShortNumberPipe } from '../../pipes/short-number.pipe';
 import { ToggleService } from '../../services/toggle.service';
 import { CONFIG, STACK_VALUE } from '../../../../config';
@@ -22,6 +22,7 @@ export class BetCoinComponent implements OnInit {
   selectedBetAmount: any
   stackButtonArry: any = [];
   @Output() eventBetValue = new EventEmitter<string>();
+  @Input() status:any;
   constructor(private toggleService: ToggleService, private indexedDb: IndexedDbService) { }
 
 
