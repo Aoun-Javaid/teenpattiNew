@@ -784,14 +784,15 @@
              </div>
             </div>
           <div class="time-container">
-            <div class="last-win">Virtual Dragon Tiger
-              <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">100</span>
+            <div class="last-win">{{this.game?.eventName}}
+              <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.min}}</span>
               -
-              <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">500k</span>
+              <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.max |
+                shortNumber}}</span>
             </div>
             <div class="roundInfo-date">
               <!-- <span class="inline-block">.</span>  -->
-              57278112
+              {{this.game?.roundId}}
             </div>
           </div>
         </div>
