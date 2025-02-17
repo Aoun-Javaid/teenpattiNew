@@ -19,6 +19,7 @@ import { TeenpattiComponent } from './casino/teenpatti/teenpatti.component';
 import { TeenpattiNewComponent } from './newCasino/teenpatti-new/teenpatti-new.component';
 import { TimerComponent } from './shared/timer/timer.component';
 import {DragonTigerComponent} from "./newCasino/dragon-tiger/dragon-tiger.component";
+import { SicBoComponent } from './newCasino/sic-bo/sic-bo.component';
 
 
 export const routes: Routes = [
@@ -104,6 +105,11 @@ export const routes: Routes = [
       {
         path:'Ndt/:id',
         component:DragonTigerComponent
+      },
+
+      {
+        path: 'sic-bo',
+        component: SicBoComponent
       },
       {
         path: '**',
