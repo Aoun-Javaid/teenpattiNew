@@ -102,7 +102,7 @@ export const routes: Routes = [
         component:TeenpattiNewComponent
       },
       {
-        path:'dragon-tiger',
+        path:'Ndt/:id',
         component:DragonTigerComponent
       },
       {
