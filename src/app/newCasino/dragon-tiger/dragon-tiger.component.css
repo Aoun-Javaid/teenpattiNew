@@ -319,19 +319,14 @@
 }
 
 .card-wi2ADp:not(.card_hasBackSide-tUG5vz):before {
-  background-color: #000;
   border-radius: inherit;
   content: "";
   inset: 0;
   position: absolute;
 }
 
-.card_size_large-HaRpNj .card__inner-CIH8Z7 {
-  box-shadow: 0 0.5rem 1rem var(--box-shadow-color);
-}
 
 .card__inner-CIH8Z7 {
-  background: #fff;
   border-radius: inherit;
   height: inherit;
   position: relative;

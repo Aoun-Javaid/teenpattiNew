@@ -47,7 +47,6 @@ export class TopResultsComponent implements OnInit{
     this.networkService.getResultstream().subscribe(data => {
       this.resultArray = data;
       // console.log(data,'=============')
-
       // setTimeout(() => {
       //   this.getBalance();
       // }, 1000);

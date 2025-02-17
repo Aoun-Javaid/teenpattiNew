@@ -181,7 +181,7 @@
 
     <div class="buttonsPanel-hAiFyw buttonsPanel_bettingState-vnMbbl md:!justify-end md:pr-2.5">
         <div class="buttonsPanel__buttons-nTrdCX">
-            <div class="buttonsPanel__bettingButtons-tJAgVE ">
+            <div class="buttonsPanel__bettingButtons-tJAgVE " *ngIf="status !== 'SUSPEND'">
                 <button (click)="openQuickStakes()"
                     class="bettingButton-i5MaZV bg-[rgba(138,138,153,0.2)] flex justify-center items-center"
                     type="button" data-locator="undo-bet-btn">
@@ -824,7 +824,8 @@
 
 <!-- desktop-coin  -->
 
-<div class="flex items center gap-[9.78px] relative !mt-[51px] max-md:hidden justify-center">
+<div class="flex items center gap-[9.78px] relative !mt-[51px] max-md:hidden justify-center" *ngIf="status !== 'SUSPEND'">
+    
     <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI !h-[34.59px] !w-[34.59px]" type="button" disabled=""
         data-locator="undo-bet-btn">
         <span class="bettingButton__icon-PmQi1e"><svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q h-full !w-auto"

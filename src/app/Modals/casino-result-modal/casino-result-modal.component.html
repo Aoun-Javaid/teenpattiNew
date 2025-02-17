@@ -29,6 +29,9 @@
                       {{selectedResult?.roundId}}
                     </h6>
                   </div>
+
+                  <!-- for teenpatti result -->
+                  <ng-container *ngIf="selectedResult?.eventId=='99.0010'">
                   <div class="w-full md:w-1/2 xs:w-full paati_boxs">
                     <h6>Player A</h6>
                     <div class="card-Img-box">
@@ -60,6 +63,8 @@
                       <button *ngIf="selectedResult?.winner=='B'" class="btn winner-team Winnerb">Winner</button>
                     </div>
                   </div>
+                </ng-container>
+
                   <ng-container *ngIf="extraMarkets">
                   <div  class="clearfix"></div>
 
