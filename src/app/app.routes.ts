@@ -19,7 +19,11 @@ import { TeenpattiComponent } from './casino/teenpatti/teenpatti.component';
 import { TeenpattiNewComponent } from './newCasino/teenpatti-new/teenpatti-new.component';
 import { TimerComponent } from './shared/timer/timer.component';
 import {DragonTigerComponent} from "./newCasino/dragon-tiger/dragon-tiger.component";
+
+import { LiveBaccaratComponent } from './newCasino/live-baccarat/live-baccarat.component';
+
 import { SicBoComponent } from './newCasino/sic-bo/sic-bo.component';
+
 
 
 export const routes: Routes = [
@@ -110,6 +114,10 @@ export const routes: Routes = [
       {
         path: 'sic-bo',
         component: SicBoComponent
+      },
+      {
+        path:'live-baccarat',
+        component:LiveBaccaratComponent
       },
       {
         path: '**',

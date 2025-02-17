@@ -1,0 +1,309 @@
+.newGameWrapper {
+  background-color: #0a0a1a;
+  height: calc(100vh - 114px);
+  position: relative;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.gradientDiv {
+  height: 55%;
+  background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
+}
+
+.table__html-VdPMCb {
+  pointer-events: none;
+}
+
+.table_roundStatusBetting-C_wBcs .table__bankerBetStat-TsrOF4, .table_roundStatusBetting-C_wBcs .table__bankerPairPayout-DTrMfa, .table_roundStatusBetting-C_wBcs .table__eitherPairPayout-Mz8nuW, .table_roundStatusBetting-C_wBcs .table__perfectPairPayout-jEF5WI, .table_roundStatusBetting-C_wBcs .table__perfectPairSecondPayout-OP50cA, .table_roundStatusBetting-C_wBcs .table__playerBetStat-SIKZO5, .table_roundStatusBetting-C_wBcs .table__playerPairPayout-b4Lfsu, .table_roundStatusBetting-C_wBcs .table__superSixPayout-wYHWoo, .table_roundStatusBetting-C_wBcs .table__tieBetStat-WGzf9d, .table_roundStatusFinished-ND_ckx .table__bankerScore-LBpRzc, .table_roundStatusFinished-ND_ckx .table__playerScore-pzJbwP {
+  opacity: 1;
+  visibility: visible;
+}
+
+.table__playerBetStat-SIKZO5 {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.table__bankerBetStat-TsrOF4, .table__playerBetStat-SIKZO5, .table__tieBetStat-WGzf9d {
+  /* opacity: 0; */
+  position: absolute;
+  transition: opacity 300ms ease, visibility 300ms ease;
+  /* visibility: hidden; */
+}
+
+.betStat_size_small-kxmCJ5 {
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+}
+.betStat-ms3aoF {
+  align-items: center;
+  color: hsla(0, 0%, 100%, .6);
+  display: flex;
+  font-weight: 500;
+  gap: 0.25rem;
+}
+
+.betStat__percentage-BBxzKO {
+  flex-shrink: 0;
+}
+
+.betStat_size_small-kxmCJ5 {
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+}
+
+.percentageBetStat-cKHkzI {
+  align-items: center;
+  background-size: 200% 200%;
+  border-radius: 0.25rem;
+  color: #fff;
+  display: flex;
+  font-size: 0.5rem;
+  height: 1.5rem;
+  justify-content: center;
+  overflow: hidden;
+  transition: background-position-y .35s ease;
+  width: 1.5rem;
+}
+
+.betStat__info-iGat4V {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.svgIcon_small-WRm0qc {
+  width: 0.75rem;
+}
+.svgIcon-JpUo7O {
+  fill: currentColor;
+  aspect-ratio: 1;
+  overflow: visible;
+}
+
+.table__bankerBetStat-TsrOF4 {
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+.betStat_align_left-oq1Q2K, .betStat_align_left-oq1Q2K, .betStat__info-iGat4V {
+  flex-direction: row-reverse;
+}
+
+.betStat_align_left-oq1Q2K {
+  justify-content: flex-end;
+}
+
+.betStat_align_bottom-oEv3fK {
+  flex-direction: column;
+}
+
+.table__tieBetStat-WGzf9d {
+  left: 0;
+  right: 0;
+  top: 0.875rem;
+}
+
+.table__playerScore-pzJbwP {
+  left: 0.5625rem;
+}
+.table__bankerScore-LBpRzc, .table__playerScore-pzJbwP {
+  color: rgb(255 255 255);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  /* opacity: 0; */
+  position: absolute;
+  top: 0.4375rem;
+  transition: opacity 300ms ease, visibility 300ms ease;
+  /* visibility: hidden; */
+}
+
+.table__bankerScore-LBpRzc {
+  right: 0.5625rem;
+}
+
+.table__playerTitle-IDg1Sx {
+  left: 0.5rem;
+}
+.table__bankerTitle-xysbeW, .table__playerTitle-IDg1Sx, .table__tieTitle-uPf3Aa {
+  color: rgb(255 255 255);
+  font-family: Baloo\ 2, sans-serif;
+  font-size: 1rem;
+  font-size-adjust: var(--main-bets-font-size-adjust-ratio, none);
+  font-weight: 800;
+  line-height: 1;
+  position: absolute;
+  top: 5.75rem;
+  transition: opacity 300ms ease;
+}
+
+.table__bankerTitle-xysbeW {
+  right: 0.5rem;
+}
+
+.table__tieTitle-uPf3Aa {
+  align-items: center;
+  display: flex;
+  font-weight: 700;
+  height: 0;
+  justify-content: center;
+  left: 50%;
+  top: 5.8125rem;
+  white-space: nowrap;
+  width: 0;
+}
+
+.table_sizeSmall-JYYIuA.table_roundStatusBetting-C_wBcs .table__bankerPairTitle-jKSnQU, .table_sizeSmall-JYYIuA.table_roundStatusBetting-C_wBcs .table__eitherPairTitle-P2DiF2, .table_sizeSmall-JYYIuA.table_roundStatusBetting-C_wBcs .table__perfectPairTitle-bR3biK, .table_sizeSmall-JYYIuA.table_roundStatusBetting-C_wBcs .table__playerPairTitle-zjbgYU {
+  transform: translateY(-0.3125rem);
+}
+
+.table_sizeSmall-JYYIuA.table_withAdditionalSideBets-lKZYWb .table__playerPairChip-R9tjwM, .table_sizeSmall-JYYIuA.table_withAdditionalSideBets-lKZYWb .table__playerPairPayout-b4Lfsu, .table_sizeSmall-JYYIuA.table_withAdditionalSideBets-lKZYWb .table__playerPairTitle-zjbgYU {
+  left: 3.5625rem;
+  top: 10.5625rem;
+}
+
+.table_sizeSmall-JYYIuA .table__bankerBonusTitle-ct9ndo, .table_sizeSmall-JYYIuA .table__bankerPairTitle-jKSnQU, .table_sizeSmall-JYYIuA .table__eitherPairTitle-P2DiF2, .table_sizeSmall-JYYIuA .table__perfectPairTitle-bR3biK, .table_sizeSmall-JYYIuA .table__playerBonusTitle-ayiQYv, .table_sizeSmall-JYYIuA .table__playerPairTitle-zjbgYU {
+  font-size: 0.75rem;
+}
+
+.table__bankerBonusTitle-ct9ndo, .table__bankerPairPayout-DTrMfa, .table__bankerPairTitle-jKSnQU, .table__eitherPairPayout-Mz8nuW, .table__eitherPairTitle-P2DiF2, .table__perfectPairPayout-jEF5WI, .table__perfectPairSecondPayout-OP50cA, .table__perfectPairTitle-bR3biK, .table__playerBonusTitle-ayiQYv, .table__playerPairPayout-b4Lfsu, .table__playerPairTitle-zjbgYU, .table__superSixPayout-wYHWoo, .table__superSixTitle-KJjyBe {
+  align-items: center;
+  color: rgb(255 255 255);
+  display: flex;
+  font-size: 0.625rem;
+  font-size-adjust: var(--additional-side-bets-font-size-adjust-ratio, none);
+  height: 0;
+  justify-content: center;
+  position: absolute;
+  transition-duration: 300ms;
+  transition-property: opacity, color, transform;
+  transition-timing-function: ease;
+  white-space: nowrap;
+  width: 0;
+}
+
+.table_sizeSmall-JYYIuA .table__bankerPairPayout-DTrMfa, .table_sizeSmall-JYYIuA .table__eitherPairPayout-Mz8nuW, .table_sizeSmall-JYYIuA .table__perfectPairPayout-jEF5WI, .table_sizeSmall-JYYIuA .table__perfectPairSecondPayout-OP50cA, .table_sizeSmall-JYYIuA .table__playerPairPayout-b4Lfsu {
+  font-size: 0.625rem;
+  transform: translateY(0.625rem);
+}
+
+.table__bankerPairPayout-DTrMfa, .table__eitherPairPayout-Mz8nuW, .table__perfectPairPayout-jEF5WI, .table__perfectPairSecondPayout-OP50cA, .table__playerPairPayout-b4Lfsu {
+  color: rgb(138, 138, 153);
+  /* opacity: 0; */
+  transition: opacity 300ms ease, visibility 300ms ease;
+  /* visibility: hidden; */
+}
+
+.table_sizeSmall-JYYIuA.table_withAdditionalSideBets-lKZYWb .table__bankerPairChip-iPpORd, .table_sizeSmall-JYYIuA.table_withAdditionalSideBets-lKZYWb .table__bankerPairPayout-DTrMfa, .table_sizeSmall-JYYIuA.table_withAdditionalSideBets-lKZYWb .table__bankerPairTitle-jKSnQU {
+  right: 3.5625rem;
+  top: 10.5625rem;
+}
+
+.table_sizeSmall-JYYIuA .table__playerBonusTitle-ayiQYv {
+  left: 3.5625rem;
+  top: 8.1875rem;
+}
+
+.table__playerPairTitle-zjbgYU {
+  left: 3.5625rem;
+  top: 10.5625rem;
+}
+
+.table_sizeSmall-JYYIuA .table__perfectPairChip-ucHAGB, .table_sizeSmall-JYYIuA .table__perfectPairPayout-jEF5WI, .table_sizeSmall-JYYIuA .table__perfectPairSecondPayout-OP50cA, .table_sizeSmall-JYYIuA .table__perfectPairTitle-bR3biK {
+  left: 50%;
+  top: 8.1875rem;
+}
+
+.table_sizeSmall-JYYIuA .table__perfectPairChip-ucHAGB, .table_sizeSmall-JYYIuA .table__perfectPairPayout-jEF5WI, .table_sizeSmall-JYYIuA .table__perfectPairSecondPayout-OP50cA, .table_sizeSmall-JYYIuA .table__perfectPairTitle-bR3biK {
+  left: 50%;
+  top: 8.1875rem;
+}
+.table__perfectPairSecondPayout-OP50cA {
+  animation-direction: alternate-reverse;
+}
+
+.table__perfectPairPayout-jEF5WI {
+  animation-direction: alternate;
+}
+
+.table__perfectPairPayout-jEF5WI, .table__perfectPairSecondPayout-OP50cA {
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-name: payoutToggleVisibilityAnimation-peh7oz;
+}
+
+.table_sizeSmall-JYYIuA .table__eitherPairChip-XAXAXr, .table_sizeSmall-JYYIuA .table__eitherPairPayout-Mz8nuW, .table_sizeSmall-JYYIuA .table__eitherPairTitle-P2DiF2 {
+  left: 50%;
+  top: 10.5625rem;
+}
+
+.table__playerCards-o5vD_n {
+  left: 0.5rem;
+}
+.table__bankerCards-i5f6OJ, .table__playerCards-o5vD_n {
+  position: absolute;
+  top: 2.5rem;
+  transition: opacity 300ms ease;
+}
+
+.baccaratCardsStack_size_medium-jfc47n {
+  width: 6.375rem;
+}
+.baccaratCardsStack_align_left-vV4OO8 {
+  align-items: flex-end;
+}
+
+.baccaratCardsStack-JZy7rm {
+  display: flex;
+  flex-direction: column;
+}
+
+.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cards-AobfKq {
+  grid-template-columns: auto 1fr 1fr;
+}
+.baccaratCardsStack__cards-AobfKq {
+  display: grid;
+  gap: 0.25rem;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.table__bankerCards-i5f6OJ {
+  right: 0.5rem;
+}
+
+.baccaratCardsStack_align_right-zQbAAZ .baccaratCardsStack__cards-AobfKq {
+  grid-template-columns: 1fr 1fr auto;
+}
+.baccaratCardsStack__cards-AobfKq {
+  display: grid;
+  gap: 0.25rem;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* key frame ====================== */
+@keyframes payoutToggleVisibilityAnimation-peh7oz {
+  0%, 44% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
