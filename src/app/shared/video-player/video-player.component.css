@@ -681,14 +681,47 @@ video {
 
 @keyframes roll-up {
   0% {
-    /* opacity: 1; */
-    transform: translateY(-3%);
-  }
-
-  100% {
+    transform: translateY(50%);
     opacity: 0;
-    transform: translateY(-7%);
   }
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+}
+
+.timerTextContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 1.1rem;
+}
+
+.timerTextWrapper {
+  position: relative;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.timerText {
+  position: absolute;
+  font-size: 1.76rem;
+  font-weight: medium;
+  color: white;
+  font-family: Rubik, sans-serif;
+  animation: roll-up 1s ease-in-out infinite;
 }
 
 .cd-number {
