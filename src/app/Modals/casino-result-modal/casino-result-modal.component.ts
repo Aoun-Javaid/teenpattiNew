@@ -30,6 +30,7 @@ export class CasinoResultModalComponent {
       if(value.show){
         this.selectedResult = value;
         this.isShow = value.show;
+        console.log('selected result',this.selectedResult)
       }
     })
   }

@@ -602,16 +602,16 @@
                                         </div>
                                         <div class="tableMainStatic-R4ES6P">
                                             <div class="tableMainStatic__tie-fDeGvN">
-                                                <div class="tableMainStatic__payout-cdrdZV">11:1</div>
+                                                <div class="tableMainStatic__payout-cdrdZV">  {{marketArray[0]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                                 <div class="tableMainStatic__title-VDxh9o" data-locator="tie-title">
-                                                    Tie
+                                                  {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}
                                                 </div>
                                             </div>
                                             <div class="tableMainStatic__dragon-AzpGwn">
                                                 <div class="tableMainStatic__title-VDxh9o" data-locator="dragon-title">
-                                                    Dragon
+                                                  {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}
                                                 </div>
-                                                <div class="tableMainStatic__payout-cdrdZV">1:1</div>
+                                                <div class="tableMainStatic__payout-cdrdZV">  {{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableMainStatic__suitedTie-M9pbef">
                                                 <div class="tableMainStatic__title-VDxh9o"
@@ -620,9 +620,9 @@
                                                 <div class="tableMainStatic__payout-cdrdZV">50:1</div>
                                             </div>
                                             <div class="tableMainStatic__tiger-Y7P6nk">
-                                                <div class="tableMainStatic__payout-cdrdZV">1:1</div>
+                                                <div class="tableMainStatic__payout-cdrdZV">  {{marketArray[0]?.runners[2]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                                 <div class="tableMainStatic__title-VDxh9o" data-locator="tiger-title">
-                                                    Tiger
+                                                  {{marketArray[0]?.runnersName[marketArray[0]?.runners[2]?.selectionId]}}
                                                 </div>
                                             </div>
                                         </div>
@@ -652,53 +652,56 @@
                                     </div>
                                     <div class="table__sideHtml-zfGh6c">
                                         <div class="tableSideStatic-Hgozqb">
+                                          <!-- dragon -->
                                             <div class="tableSideStatic__dragonEven-QFtUYx">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="dragon-even-title">Even
+                                                     data-locator="dragon-even-title">{{(marketArray[1]?.runnersName[marketArray[1]?.runners[1]?.selectionId] | slice:7) }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">{{marketArray[1]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableSideStatic__dragonOdd-N1tw0w">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="dragon-odd-title">Odd
+                                                     data-locator="dragon-odd-title">{{(marketArray[1]?.runnersName[marketArray[1]?.runners[0]?.selectionId] | slice:7) }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">
+                                                  {{marketArray[1]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableSideStatic__dragonSmall-g5iN2q">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="dragon-small-title">Small
+                                                     data-locator="dragon-small-title">{{marketArray[3]?.runnersName[marketArray[3]?.runners[0]?.selectionId] }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7"> {{marketArray[3]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableSideStatic__dragonBig-TlYCrs">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="dragon-big-title">Big
+                                                     data-locator="dragon-big-title">{{marketArray[3]?.runnersName[marketArray[3]?.runners[1]?.selectionId] }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">{{marketArray[3]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
+                                            <!-- tiger -->
                                             <div class="tableSideStatic__tigerBig-dpKtTP">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="tiger-big-title">Big
+                                                     data-locator="tiger-big-title">{{marketArray[4]?.runnersName[marketArray[4]?.runners[1]?.selectionId] }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">{{marketArray[4]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableSideStatic__tigerSmall-rf_rnt">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="tiger-small-title">Small
+                                                     data-locator="tiger-small-title">{{marketArray[4]?.runnersName[marketArray[4]?.runners[0]?.selectionId] }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">{{marketArray[4]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableSideStatic__tigerOdd-Z4H_SB">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="tiger-odd-title">Odd
+                                                     data-locator="tiger-odd-title">{{(marketArray[2]?.runnersName[marketArray[2]?.runners[0]?.selectionId] | slice:6) }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">{{marketArray[2]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableSideStatic__tigerEven-dzn5KK">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="tiger-even-title">Even
+                                                     data-locator="tiger-even-title">{{(marketArray[2]?.runnersName[marketArray[2]?.runners[1]?.selectionId] | slice:6) }}
                                                 </div>
-                                                <div class="tableSideStatic__payout-fnrtY7">1:1</div>
+                                                <div class="tableSideStatic__payout-fnrtY7">{{marketArray[2]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                         </div>
                                         <div class="tableSideChips-BtyLLs"></div>
