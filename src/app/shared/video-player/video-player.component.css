@@ -684,17 +684,13 @@ video {
     transform: translateY(50%);
     opacity: 0;
   }
-  30% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  70% {
+  50% {
     opacity: 1;
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-50%);
-    opacity: 0;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
