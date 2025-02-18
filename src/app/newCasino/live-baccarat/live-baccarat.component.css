@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
+
 .newGameWrapper {
   background-color: #0a0a1a;
   height: calc(100vh - 114px);
@@ -11,8 +13,60 @@
   background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
 }
 
+.table__svg-uuecxW {
+  overflow: visible;
+}
+
+.svgBetPlace-sylXGS {
+  cursor: pointer;
+  transition: opacity 300ms ease;
+}
+
+.svgBetPlace__ctaPath-kMdMxM, .svgBetPlace__losePath-ls3X5l, .svgBetPlace__winGroup-BgAOli {
+  opacity: 0;
+  transition-duration: 300ms;
+  transition-property: opacity, visibility;
+  transition-timing-function: ease;
+  visibility: hidden;
+}
+
+.svgBetPlace__ctaPath-kMdMxM{
+  animation: highlightAnimationBackground-XRfTxu 600ms ease infinite alternate;
+  visibility: visible;
+}
+
+.svgBetPlace_cta-ULmy2Z .svgBetPlace__hieroglyph-diRB3e {
+  animation: ctaAnimationHieroglyph-helyO_ 1200ms ease infinite alternate;
+  animation-delay: 1200ms;
+}
+
+.svgBetPlace-sylXGS {
+  cursor: pointer;
+  transition: opacity 300ms ease;
+}
+
+
+.svgBetPlace_cta-ULmy2Z .svgBetPlace__ctaPath-kMdMxM, .svgBetPlace_win-AzyqtL .svgBetPlace__winGroup-BgAOli {
+  animation: highlightAnimationBackground-XRfTxu 600ms ease infinite alternate;
+  visibility: visible;
+}
+
+.svgIcon_small-WRm0qc {
+  width: 0.75rem;
+}
+.svgIcon-JpUo7O {
+  fill: currentColor;
+  aspect-ratio: 1;
+  overflow: visible;
+}
+
+.betStat_align_left-oq1Q2K, .betStat_align_left-oq1Q2K .betStat__info-iGat4V {
+  flex-direction: row-reverse;
+}
+
 .table__html-VdPMCb {
   pointer-events: none;
+  font-family: Rubik, sans-serif;
 }
 
 .table_roundStatusBetting-C_wBcs .table__bankerBetStat-TsrOF4, .table_roundStatusBetting-C_wBcs .table__bankerPairPayout-DTrMfa, .table_roundStatusBetting-C_wBcs .table__eitherPairPayout-Mz8nuW, .table_roundStatusBetting-C_wBcs .table__perfectPairPayout-jEF5WI, .table_roundStatusBetting-C_wBcs .table__perfectPairSecondPayout-OP50cA, .table_roundStatusBetting-C_wBcs .table__playerBetStat-SIKZO5, .table_roundStatusBetting-C_wBcs .table__playerPairPayout-b4Lfsu, .table_roundStatusBetting-C_wBcs .table__superSixPayout-wYHWoo, .table_roundStatusBetting-C_wBcs .table__tieBetStat-WGzf9d, .table_roundStatusFinished-ND_ckx .table__bankerScore-LBpRzc, .table_roundStatusFinished-ND_ckx .table__playerScore-pzJbwP {
@@ -23,6 +77,7 @@
 .table__playerBetStat-SIKZO5 {
   left: 0.5rem;
   top: 0.5rem;
+  @apply min-[1312px]:!left-[4.4375rem] min-[1312px]:!top-[0.4375rem];
 }
 
 .table__bankerBetStat-TsrOF4, .table__playerBetStat-SIKZO5, .table__tieBetStat-WGzf9d {
@@ -85,10 +140,7 @@
 .table__bankerBetStat-TsrOF4 {
   right: 0.5rem;
   top: 0.5rem;
-}
-
-.betStat_align_left-oq1Q2K, .betStat_align_left-oq1Q2K, .betStat__info-iGat4V {
-  flex-direction: row-reverse;
+  @apply min-[1312px]:!right-[4.4375rem] min-[1312px]:!top-[0.375rem];
 }
 
 .betStat_align_left-oq1Q2K {
@@ -126,6 +178,7 @@
 
 .table__playerTitle-IDg1Sx {
   left: 0.5rem;
+  @apply min-[1312px]:!left-[4.4375rem];
 }
 .table__bankerTitle-xysbeW, .table__playerTitle-IDg1Sx, .table__tieTitle-uPf3Aa {
   color: rgb(255 255 255);
@@ -141,6 +194,7 @@
 
 .table__bankerTitle-xysbeW {
   right: 0.5rem;
+  @apply min-[1312px]:!right-[4.4375rem];
 }
 
 .table__tieTitle-uPf3Aa {
@@ -155,71 +209,133 @@
   width: 0;
 }
 
-.table_sizeSmall-JYYIuA.table_roundStatusBetting-C_wBcs .table__bankerPairTitle-jKSnQU, .table_sizeSmall-JYYIuA.table_roundStatusBetting-C_wBcs .table__eitherPairTitle-P2DiF2, .table_sizeSmall-JYYIuA.table_roundStatusBetting-C_wBcs .table__perfectPairTitle-bR3biK, .table_sizeSmall-JYYIuA.table_roundStatusBetting-C_wBcs .table__playerPairTitle-zjbgYU {
+.table__playerPairTitle-zjbgYU{
+  @apply min-[1312px]:!translate-y-[0rem] min-[1312px]:!bottom-[1.125rem] min-[1312px]:!left-[1.2rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.625rem];
   transform: translateY(-0.3125rem);
-}
-
-.table_sizeSmall-JYYIuA.table_withAdditionalSideBets-lKZYWb .table__playerPairChip-R9tjwM, .table_sizeSmall-JYYIuA.table_withAdditionalSideBets-lKZYWb .table__playerPairPayout-b4Lfsu, .table_sizeSmall-JYYIuA.table_withAdditionalSideBets-lKZYWb .table__playerPairTitle-zjbgYU {
-  left: 3.5625rem;
-  top: 10.5625rem;
-}
-
-.table_sizeSmall-JYYIuA .table__bankerBonusTitle-ct9ndo, .table_sizeSmall-JYYIuA .table__bankerPairTitle-jKSnQU, .table_sizeSmall-JYYIuA .table__eitherPairTitle-P2DiF2, .table_sizeSmall-JYYIuA .table__perfectPairTitle-bR3biK, .table_sizeSmall-JYYIuA .table__playerBonusTitle-ayiQYv, .table_sizeSmall-JYYIuA .table__playerPairTitle-zjbgYU {
+  left: 1.64rem;
+  top: 9.7rem;
   font-size: 0.75rem;
+  position: absolute;
+  white-space: nowrap;
 }
 
-.table__bankerBonusTitle-ct9ndo, .table__bankerPairPayout-DTrMfa, .table__bankerPairTitle-jKSnQU, .table__eitherPairPayout-Mz8nuW, .table__eitherPairTitle-P2DiF2, .table__perfectPairPayout-jEF5WI, .table__perfectPairSecondPayout-OP50cA, .table__perfectPairTitle-bR3biK, .table__playerBonusTitle-ayiQYv, .table__playerPairPayout-b4Lfsu, .table__playerPairTitle-zjbgYU, .table__superSixPayout-wYHWoo, .table__superSixTitle-KJjyBe {
-  align-items: center;
-  color: rgb(255 255 255);
-  display: flex;
-  font-size: 0.625rem;
-  font-size-adjust: var(--additional-side-bets-font-size-adjust-ratio, none);
-  height: 0;
-  justify-content: center;
+.table__playerPairPayout-b4Lfsu{
+  @apply min-[1312px]:!bottom-[1.125rem] min-[1312px]:!left-[1.5rem] min-[1312px]:!top-auto;
+  left: 2.88rem;
+  top: 9.596rem;
+  font-size: 0.68rem;
+  transform: translateY(0.849rem);
+  color: rgb(138, 138, 153);
+  transition: opacity 300ms ease, visibility 300ms ease;
+  position: absolute;
+}
+
+.table__bankerPairTitle-jKSnQU{
+  @apply min-[1312px]:!translate-y-[0rem] min-[1312px]:!bottom-[1.125rem] min-[1312px]:!right-[1.2rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.625rem];
+  transform: translateY(-0.3125rem);
+  right: 1.4rem;
+  top: 9.7rem;
+  font-size: 0.75rem;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.table__bankerPairPayout-DTrMfa{
+  @apply min-[1312px]:!bottom-[1.125rem] min-[1312px]:!right-[1.5rem] min-[1312px]:!top-auto;
+  right: 2.88rem;
+  top: 9.596rem;
+  font-size: 0.68rem;
+  transform: translateY(0.849rem);
+  color: rgb(138, 138, 153);
+  transition: opacity 300ms ease, visibility 300ms ease;
+  position: absolute;
+}
+
+.table__playerBonusTitle-ayiQYv{
+  @apply min-[1312px]:!left-[0.8rem] min-[1312px]:!top-[0.8rem] min-[1312px]:!text-[0.625rem];
+  left: 1.1rem;
+  top: 7.5rem;
+  position: absolute;
+  font-size: 0.75rem;
+  transition-duration: 300ms;
+  transition-property: opacity, color, transform;
+  transition-timing-function: ease;
+  white-space: nowrap;
+  color: white;
+}
+
+.table__bankerBonusTitle-ct9ndo{
+  @apply min-[1312px]:!right-[0.8rem] min-[1312px]:!top-[0.8rem] min-[1312px]:!text-[0.625rem];
+  right: 1rem;
+  top: 7.55rem;
+  position: absolute;
+  font-size: 0.75rem;
+  transition-duration: 300ms;
+  transition-property: opacity, color, transform;
+  transition-timing-function: ease;
+  white-space: nowrap;
+  color: white;
+}
+
+.table__perfectPairTitle-bR3biK{
+  @apply min-[1312px]:!translate-y-[-0rem] min-[1312px]:!left-[0.4rem] min-[1312px]:!top-[39%] min-[1312px]:!text-[0.625rem];
+  transform: translateY(-0.3125rem);
+  left: 41%;
+  top: 7.4rem;
+  font-size: 0.75rem;
   position: absolute;
   transition-duration: 300ms;
   transition-property: opacity, color, transform;
   transition-timing-function: ease;
   white-space: nowrap;
-  width: 0;
 }
 
-.table_sizeSmall-JYYIuA .table__bankerPairPayout-DTrMfa, .table_sizeSmall-JYYIuA .table__eitherPairPayout-Mz8nuW, .table_sizeSmall-JYYIuA .table__perfectPairPayout-jEF5WI, .table_sizeSmall-JYYIuA .table__perfectPairSecondPayout-OP50cA, .table_sizeSmall-JYYIuA .table__playerPairPayout-b4Lfsu {
-  font-size: 0.625rem;
-  transform: translateY(0.625rem);
-}
-
-.table__bankerPairPayout-DTrMfa, .table__eitherPairPayout-Mz8nuW, .table__perfectPairPayout-jEF5WI, .table__perfectPairSecondPayout-OP50cA, .table__playerPairPayout-b4Lfsu {
+.table__perfectPairPayout-jEF5WI{
+  @apply min-[1312px]:!translate-y-[0.4375rem] min-[1312px]:!left-[0.45rem] min-[1312px]:!top-[45%] min-[1312px]:!text-[0.5rem];
+  right: 40.35%;
+  top: 7.3rem;
+  font-size: 0.68rem;
+  transform: translateY(0.849rem);
   color: rgb(138, 138, 153);
-  /* opacity: 0; */
   transition: opacity 300ms ease, visibility 300ms ease;
-  /* visibility: hidden; */
+  position: absolute;
 }
 
-.table_sizeSmall-JYYIuA.table_withAdditionalSideBets-lKZYWb .table__bankerPairChip-iPpORd, .table_sizeSmall-JYYIuA.table_withAdditionalSideBets-lKZYWb .table__bankerPairPayout-DTrMfa, .table_sizeSmall-JYYIuA.table_withAdditionalSideBets-lKZYWb .table__bankerPairTitle-jKSnQU {
-  right: 3.5625rem;
-  top: 10.5625rem;
+.table__perfectPairSecondPayout-OP50cA{
+  @apply min-[1312px]:!translate-y-[0.4375rem] min-[1312px]:!left-[0.7rem] min-[1312px]:!top-[45%] min-[1312px]:!text-[0.5rem];
+  right: 41.9%;
+  top: 7.3rem;
+  font-size: 0.68rem;
+  transform: translateY(0.849rem);
+  color: rgb(138, 138, 153);
+  transition: opacity 300ms ease, visibility 300ms ease;
+  position: absolute;
 }
 
-.table_sizeSmall-JYYIuA .table__playerBonusTitle-ayiQYv {
-  left: 3.5625rem;
-  top: 8.1875rem;
+.table__eitherPairTitle-P2DiF2{
+  @apply min-[1312px]:!translate-y-[-0rem] min-[1312px]:!right-[0.55rem] min-[1312px]:!top-[39%] min-[1312px]:!text-[0.625rem] min-[1312px]:text-end;
+  transform: translateY(-0.3125rem);
+  left: 42%;
+  top: 9.7rem;
+  font-size: 0.75rem;
+  position: absolute;
+  transition-duration: 300ms;
+  transition-property: opacity, color, transform;
+  transition-timing-function: ease;
+  white-space: nowrap;
 }
 
-.table__playerPairTitle-zjbgYU {
-  left: 3.5625rem;
-  top: 10.5625rem;
+.table__eitherPairPayout-Mz8nuW {
+  @apply min-[1312px]:!translate-y-[0.4375rem] min-[1312px]:!right-[1.7rem] min-[1312px]:!top-[45%] min-[1312px]:!text-[0.5rem];
+  right: 48%;
+  top: 9.596rem;
+  font-size: 0.68rem;
+  transform: translateY(0.849rem);
+  color: rgb(138, 138, 153);
+  transition: opacity 300ms ease, visibility 300ms ease;
+  position: absolute;
 }
 
-.table_sizeSmall-JYYIuA .table__perfectPairChip-ucHAGB, .table_sizeSmall-JYYIuA .table__perfectPairPayout-jEF5WI, .table_sizeSmall-JYYIuA .table__perfectPairSecondPayout-OP50cA, .table_sizeSmall-JYYIuA .table__perfectPairTitle-bR3biK {
-  left: 50%;
-  top: 8.1875rem;
-}
-
-.table_sizeSmall-JYYIuA .table__perfectPairChip-ucHAGB, .table_sizeSmall-JYYIuA .table__perfectPairPayout-jEF5WI, .table_sizeSmall-JYYIuA .table__perfectPairSecondPayout-OP50cA, .table_sizeSmall-JYYIuA .table__perfectPairTitle-bR3biK {
-  left: 50%;
-  top: 8.1875rem;
-}
 .table__perfectPairSecondPayout-OP50cA {
   animation-direction: alternate-reverse;
 }
@@ -306,4 +422,20 @@
     opacity: 0;
   }
 }
+
+@keyframes highlightAnimationBackground-XRfTxu {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ctaAnimationHieroglyph-helyO_ {
+  0% {
+    fill: #000;
+  }
+  100% {
+    fill: #fff;
+  }
+}
+
 
