@@ -526,13 +526,13 @@
                                         </div>
                                         <div class="table__mainBetStat-tA7Phx">
                                             <div class="betStat-ms3aoF betStat_size_small-kxmCJ5">
-                                                <div class="betStat__percentage-BBxzKO">
-                                                    <div class="percentageBetStat-cKHkzI"
-                                                         data-locator="dragon-bet-stat-percent"
-                                                         style="background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 100%); background-position-y: 0%;">
-                                                        0%
-                                                    </div>
+                                              <div class="betStat__percentage-BBxzKO" *ngIf="firstBoxWidth">
+                                                <div class="percentageBetStat-cKHkzI"
+                                                     [ngStyle]="{ 'background-position-y': firstBoxWidth + '%' }"
+                                                     data-locator="dragon-bet-stat-percent">
+                                                  {{firstBoxWidth | number :'1.0-1'}}%
                                                 </div>
+                                              </div>
                                                 <div class="betStat__details-UyYdlK">
                                                     <div class="betStat__info-iGat4V">
                                                         <svg class="svgIcon-JpUo7O svgIcon_small-WRm0qc"
@@ -563,13 +563,13 @@
                                                 </div>
                                             </div>
                                             <div class="betStat-ms3aoF betStat_align_left-oq1Q2K betStat_size_small-kxmCJ5">
-                                                <div class="betStat__percentage-BBxzKO">
-                                                    <div class="percentageBetStat-cKHkzI"
-                                                         data-locator="tiger-bet-stat-percent"
-                                                         style="background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 100%); background-position-y: 0%;">
-                                                        0%
-                                                    </div>
+                                              <div class="betStat__percentage-BBxzKO" *ngIf="secndBoxWidth">
+                                                <div class="percentageBetStat-cKHkzI"
+                                                     [ngStyle]="{ 'background-position-y': secndBoxWidth + '%' }"
+                                                     data-locator="tiger-bet-stat-percent">
+                                                  {{secndBoxWidth | number :'1.0-1'}}%
                                                 </div>
+                                              </div>
                                                 <div class="betStat__details-UyYdlK">
                                                     <div class="betStat__info-iGat4V">
                                                         <svg class="svgIcon-JpUo7O svgIcon_small-WRm0qc"

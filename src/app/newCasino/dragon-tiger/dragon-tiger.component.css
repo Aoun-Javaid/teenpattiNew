@@ -131,6 +131,7 @@
   overflow: hidden;
   transition: background-position-y 0.35s ease;
   width: 1.5rem;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 100%);
 }
 
 .betStat__info-iGat4V {
