@@ -33,6 +33,7 @@ export class LiveBaccaratComponent implements OnInit {
     const baseWidth = 352; // Base resolution width
     const scale = window.innerWidth / baseWidth
     document.documentElement.style.setProperty('--boardScale', scale.toString());
+    this.isDesktop = window.innerWidth > 1312;
   }
 
   getCoinValue(event: any) {
