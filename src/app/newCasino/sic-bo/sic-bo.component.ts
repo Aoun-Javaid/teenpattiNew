@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './sic-bo.component.css'
 })
 export class SicBoComponent {
-
+ 
 }
