@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
+
 .newGameWrapper {
   background-color: #0a0a1a;
   height: calc(100vh - 114px);
@@ -73,8 +75,9 @@
 }
 
 .table__playerBetStat-SIKZO5 {
-  left: 1rem;
+  left: 0.5rem;
   top: 0.5rem;
+  @apply min-[1312px]:!left-[4.4375rem] min-[1312px]:!top-[0.4375rem];
 }
 
 .table__bankerBetStat-TsrOF4, .table__playerBetStat-SIKZO5, .table__tieBetStat-WGzf9d {
@@ -135,8 +138,9 @@
 }
 
 .table__bankerBetStat-TsrOF4 {
-  right: 1rem;
+  right: 0.5rem;
   top: 0.5rem;
+  @apply min-[1312px]:!right-[4.4375rem] min-[1312px]:!top-[0.375rem];
 }
 
 .betStat_align_left-oq1Q2K {
@@ -173,7 +177,8 @@
 }
 
 .table__playerTitle-IDg1Sx {
-  left: 1rem;
+  left: 0.5rem;
+  @apply min-[1312px]:!left-[4.4375rem];
 }
 .table__bankerTitle-xysbeW, .table__playerTitle-IDg1Sx, .table__tieTitle-uPf3Aa {
   color: rgb(255 255 255);
@@ -188,7 +193,8 @@
 }
 
 .table__bankerTitle-xysbeW {
-  right: 1rem;
+  right: 0.5rem;
+  @apply min-[1312px]:!right-[4.4375rem];
 }
 
 .table__tieTitle-uPf3Aa {
@@ -204,17 +210,19 @@
 }
 
 .table__playerPairTitle-zjbgYU{
+  @apply min-[1312px]:!translate-y-[0rem] min-[1312px]:!bottom-[1.125rem] min-[1312px]:!left-[1.2rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.625rem];
   transform: translateY(-0.3125rem);
-  left: 2.3rem;
-  top: 10.4rem;
+  left: 1.64rem;
+  top: 9.7rem;
   font-size: 0.75rem;
   position: absolute;
   white-space: nowrap;
 }
 
 .table__playerPairPayout-b4Lfsu{
-  left: 3.6rem;
-  top: 10.4rem;
+  @apply min-[1312px]:!bottom-[1.125rem] min-[1312px]:!left-[1.5rem] min-[1312px]:!top-auto;
+  left: 2.88rem;
+  top: 9.596rem;
   font-size: 0.68rem;
   transform: translateY(0.849rem);
   color: rgb(138, 138, 153);
@@ -223,17 +231,19 @@
 }
 
 .table__bankerPairTitle-jKSnQU{
+  @apply min-[1312px]:!translate-y-[0rem] min-[1312px]:!bottom-[1.125rem] min-[1312px]:!right-[1.2rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.625rem];
   transform: translateY(-0.3125rem);
-  right: 2.3rem;
-  top: 10.4rem;
+  right: 1.4rem;
+  top: 9.7rem;
   font-size: 0.75rem;
   position: absolute;
   white-space: nowrap;
 }
 
 .table__bankerPairPayout-DTrMfa{
-  right: 3.8rem;
-  top: 10.4rem;
+  @apply min-[1312px]:!bottom-[1.125rem] min-[1312px]:!right-[1.5rem] min-[1312px]:!top-auto;
+  right: 2.88rem;
+  top: 9.596rem;
   font-size: 0.68rem;
   transform: translateY(0.849rem);
   color: rgb(138, 138, 153);
@@ -242,8 +252,9 @@
 }
 
 .table__playerBonusTitle-ayiQYv{
-  left: 1.9rem;
-  top: 8rem;
+  @apply min-[1312px]:!left-[0.8rem] min-[1312px]:!top-[0.8rem] min-[1312px]:!text-[0.625rem];
+  left: 1.1rem;
+  top: 7.5rem;
   position: absolute;
   font-size: 0.75rem;
   transition-duration: 300ms;
@@ -254,8 +265,9 @@
 }
 
 .table__bankerBonusTitle-ct9ndo{
-  right: 1.9rem;
-  top: 8rem;
+  @apply min-[1312px]:!right-[0.8rem] min-[1312px]:!top-[0.8rem] min-[1312px]:!text-[0.625rem];
+  right: 1rem;
+  top: 7.55rem;
   position: absolute;
   font-size: 0.75rem;
   transition-duration: 300ms;
@@ -266,9 +278,10 @@
 }
 
 .table__perfectPairTitle-bR3biK{
+  @apply min-[1312px]:!translate-y-[-0rem] min-[1312px]:!left-[0.4rem] min-[1312px]:!top-[39%] min-[1312px]:!text-[0.625rem];
   transform: translateY(-0.3125rem);
-  left: 42%;
-  top: 7.9rem;
+  left: 41%;
+  top: 7.4rem;
   font-size: 0.75rem;
   position: absolute;
   transition-duration: 300ms;
@@ -277,10 +290,10 @@
   white-space: nowrap;
 }
 
-.table__perfectPairPayout-jEF5WI,
-.table__perfectPairSecondPayout-OP50cA{
-  right: 41%;
-  top: 7.9rem;
+.table__perfectPairPayout-jEF5WI{
+  @apply min-[1312px]:!translate-y-[0.4375rem] min-[1312px]:!left-[0.45rem] min-[1312px]:!top-[45%] min-[1312px]:!text-[0.5rem];
+  right: 40.35%;
+  top: 7.3rem;
   font-size: 0.68rem;
   transform: translateY(0.849rem);
   color: rgb(138, 138, 153);
@@ -289,8 +302,9 @@
 }
 
 .table__perfectPairSecondPayout-OP50cA{
-  right: 42.89%;
-  top: 7.9rem;
+  @apply min-[1312px]:!translate-y-[0.4375rem] min-[1312px]:!left-[0.7rem] min-[1312px]:!top-[45%] min-[1312px]:!text-[0.5rem];
+  right: 41.9%;
+  top: 7.3rem;
   font-size: 0.68rem;
   transform: translateY(0.849rem);
   color: rgb(138, 138, 153);
@@ -299,9 +313,10 @@
 }
 
 .table__eitherPairTitle-P2DiF2{
+  @apply min-[1312px]:!translate-y-[-0rem] min-[1312px]:!right-[0.55rem] min-[1312px]:!top-[39%] min-[1312px]:!text-[0.625rem] min-[1312px]:text-end;
   transform: translateY(-0.3125rem);
   left: 42%;
-  top: 10.4rem;
+  top: 9.7rem;
   font-size: 0.75rem;
   position: absolute;
   transition-duration: 300ms;
@@ -311,8 +326,9 @@
 }
 
 .table__eitherPairPayout-Mz8nuW {
+  @apply min-[1312px]:!translate-y-[0.4375rem] min-[1312px]:!right-[1.7rem] min-[1312px]:!top-[45%] min-[1312px]:!text-[0.5rem];
   right: 48%;
-  top: 10.4rem;
+  top: 9.596rem;
   font-size: 0.68rem;
   transform: translateY(0.849rem);
   color: rgb(138, 138, 153);
