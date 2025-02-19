@@ -1,5 +1,5 @@
 .sicBo__interactiveArea-_Pd65K {
-  display: flex;
+  display: none;
   margin-left: auto;
   padding-right: 0.5rem;
   width: 100%;
@@ -120,6 +120,13 @@
   z-index: -1;
 }
 
+.dice_size_16-nOOJLo {
+  box-shadow: 0 0.04167rem 0.08333rem rgba(0, 0, 0, 0.4);
+  height: 1rem;
+  padding: 0.16667rem;
+  width: 1rem;
+}
+
 .betPlace_orientation_vertical-aY79dn.betPlace_anyTripleBet-qqLJtg
   .betPlace__flipBack-SmZf5S,
 .betPlace_orientation_vertical-aY79dn.betPlace_anyTripleBet-qqLJtg
@@ -226,11 +233,6 @@
   width: 100%;
 }
 
-.betPlace__flipFront-ttQDsg {
-  transition-property: rotate, visibility;
-  transition-timing-function: linear;
-}
-
 .betPlace__flipBack-SmZf5S,
 .betPlace__flipFront-ttQDsg {
   align-items: center;
@@ -264,6 +266,13 @@
   height: 0.75rem;
   padding: 0.125rem;
   width: 0.75rem;
+}
+
+.dice_size_16-nOOJLo {
+  box-shadow: 0 0.04167rem 0.08333rem rgba(0, 0, 0, 0.4);
+  height: 1rem;
+  padding: 0.16667rem;
+  width: 1rem;
 }
 
 .dice-_xaMkD {
@@ -546,14 +555,345 @@
   inset: 0;
 }
 
+.tableHorizontal_size_medium-Aj8PE_ .tableHorizontal__section_combine-ILAhJR {
+  grid-template-columns: 5rem repeat(6, 4.875rem);
+  height: 4.875rem;
+}
+
+.sicBo__betsTable_betting-Gy23yv {
+  /* transform: translateY(-0.75rem); */
+  transition-delay: 0s;
+}
+
+.sicBo__betsTable-WJ28TI {
+  transform: translateY(2.625rem);
+  transition: transform 0.3s ease;
+  width: 35rem;
+}
+.sicBo-VDSDXG,
+.sicBo__betsTable-WJ28TI {
+  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+}
+
+.tableTooltip-YTZM32 {
+  position: relative;
+  z-index: 0;
+}
+
+.table_size_medium-wvZtzV.table_orientation_horizontal-VBjVN9 {
+  height: 13.25rem;
+  padding-bottom: 0.875rem;
+  width: 35rem;
+}
+
+.table__wrapper-xYwJxu {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.table_size_medium-wvZtzV.table_orientation_horizontal-VBjVN9
+  .table__mask-T0Bvf0 {
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27560%27 height=%27198%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M8 0a8 8 0 0 0-8 8v62a8 8 0 0 0 8 8h70a2 2 0 0 0 2-2V8a8 8 0 0 0-8-8H8Zm82 14a8 8 0 0 0-8 8v54c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2H90Zm80 0a8 8 0 0 0-8 8v54c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-15Zm-61 2c0-1.1.9-2 2-2h21a2 2 0 0 1 2 2v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V16Zm82-2a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-21Zm-55 2c0-1.1.9-2 2-2h14a8 8 0 0 1 8 8v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V16Zm82-2a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h20a2 2 0 0 0 2-2V22a8 8 0 0 0-8-8h-14ZM0 88a8 8 0 0 1 8-8h30a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2H8a8 8 0 0 1-8-8V88Zm44-8a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2H44Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2H84a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h28a8 8 0 0 0 8-8V88a8 8 0 0 0-8-8h-28Zm-297 42c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2H85a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2H49Zm-36 8a8 8 0 0 1 8-8h22a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2H21a8 8 0 0 1-8-8v-28Zm252-8a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h22a8 8 0 0 1 8 8v28a8 8 0 0 1-8 8h-22a2 2 0 0 1-2-2v-40ZM8 166a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h82a2 2 0 0 0 2-2v-28a2 2 0 0 0-2-2H8Zm86 2c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2H96a2 2 0 0 1-2-2v-28Zm96-2a2 2 0 0 0-2 2v28c0 1.1.9 2 2 2h88a2 2 0 0 0 2-2v-28a2 2 0 0 0-2-2h-88Zm92 2c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2h-88a2 2 0 0 1-2-2v-28Zm96-2a2 2 0 0 0-2 2v28c0 1.1.9 2 2 2h88a2 2 0 0 0 2-2v-28a2 2 0 0 0-2-2h-88Zm92 2c0-1.1.9-2 2-2h80a8 8 0 0 1 8 8v16a8 8 0 0 1-8 8h-80a2 2 0 0 1-2-2v-28ZM242 8a8 8 0 0 1 8-8h62a8 8 0 0 1 8 8v68a2 2 0 0 1-2 2h-74a2 2 0 0 1-2-2V8Zm248-8a8 8 0 0 0-8 8v68c0 1.1.9 2 2 2h68a8 8 0 0 0 8-8V8a8 8 0 0 0-8-8h-62Zm-88 22a8 8 0 0 1 8-8h15a2 2 0 0 1 2 2v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V22Zm29-8a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-21Zm25 2c0-1.1.9-2 2-2h14a8 8 0 0 1 8 8v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V16Zm-126-2a8 8 0 0 0-8 8v54c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-15Zm19 2c0-1.1.9-2 2-2h21a2 2 0 0 1 2 2v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V16Zm29-2a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h20a2 2 0 0 0 2-2V22a8 8 0 0 0-8-8h-14Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27560%27 height=%27198%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M8 0a8 8 0 0 0-8 8v62a8 8 0 0 0 8 8h70a2 2 0 0 0 2-2V8a8 8 0 0 0-8-8H8Zm82 14a8 8 0 0 0-8 8v54c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2H90Zm80 0a8 8 0 0 0-8 8v54c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-15Zm-61 2c0-1.1.9-2 2-2h21a2 2 0 0 1 2 2v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V16Zm82-2a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-21Zm-55 2c0-1.1.9-2 2-2h14a8 8 0 0 1 8 8v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V16Zm82-2a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h20a2 2 0 0 0 2-2V22a8 8 0 0 0-8-8h-14ZM0 88a8 8 0 0 1 8-8h30a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2H8a8 8 0 0 1-8-8V88Zm44-8a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2H44Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2H84a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h28a8 8 0 0 0 8-8V88a8 8 0 0 0-8-8h-28Zm-297 42c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2H85a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2H49Zm-36 8a8 8 0 0 1 8-8h22a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2H21a8 8 0 0 1-8-8v-28Zm252-8a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h22a8 8 0 0 1 8 8v28a8 8 0 0 1-8 8h-22a2 2 0 0 1-2-2v-40ZM8 166a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h82a2 2 0 0 0 2-2v-28a2 2 0 0 0-2-2H8Zm86 2c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2H96a2 2 0 0 1-2-2v-28Zm96-2a2 2 0 0 0-2 2v28c0 1.1.9 2 2 2h88a2 2 0 0 0 2-2v-28a2 2 0 0 0-2-2h-88Zm92 2c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2h-88a2 2 0 0 1-2-2v-28Zm96-2a2 2 0 0 0-2 2v28c0 1.1.9 2 2 2h88a2 2 0 0 0 2-2v-28a2 2 0 0 0-2-2h-88Zm92 2c0-1.1.9-2 2-2h80a8 8 0 0 1 8 8v16a8 8 0 0 1-8 8h-80a2 2 0 0 1-2-2v-28ZM242 8a8 8 0 0 1 8-8h62a8 8 0 0 1 8 8v68a2 2 0 0 1-2 2h-74a2 2 0 0 1-2-2V8Zm248-8a8 8 0 0 0-8 8v68c0 1.1.9 2 2 2h68a8 8 0 0 0 8-8V8a8 8 0 0 0-8-8h-62Zm-88 22a8 8 0 0 1 8-8h15a2 2 0 0 1 2 2v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V22Zm29-8a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-21Zm25 2c0-1.1.9-2 2-2h14a8 8 0 0 1 8 8v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V16Zm-126-2a8 8 0 0 0-8 8v54c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-15Zm19 2c0-1.1.9-2 2-2h21a2 2 0 0 1 2 2v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V16Zm29-2a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h20a2 2 0 0 0 2-2V22a8 8 0 0 0-8-8h-14Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+}
+
+.table_size_medium-wvZtzV.table_orientation_horizontal-VBjVN9
+  .table__gaps-VxxpIl {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27544%27 height=%27180%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M72 6v54a2 2 0 0 1-2 2H0a1 1 0 1 1 0 2h30a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2H13a1 1 0 0 1 0 2h22a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2H13a1 1 0 0 1 0 2h69a2 2 0 0 1 2 2v28a1 1 0 0 1 2 0v-28c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a1 1 0 0 1 2 0v-28c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a1 1 0 0 1 2 0v-28c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a1 1 0 0 1 2 0v-28c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a1 1 0 0 1 2 0v-28c0-1.1.9-2 2-2h67a1 1 0 0 1 0-2h-22a2 2 0 0 1-2-2v-40c0-1.1.9-2 2-2h22a1 1 0 0 1 0-2h-15a2 2 0 0 1-2-2V66c0-1.1.9-2 2-2h28a1 1 0 0 1 0-2h-68a2 2 0 0 1-2-2V6a1 1 0 0 1-2 0v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V6a1 1 0 0 1-2 0v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V6a1 1 0 0 1-2 0v54a2 2 0 0 1-2 2h-74a2 2 0 0 1-2-2V6a1 1 0 0 1-2 0v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V6a1 1 0 0 1-2 0v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2H76a2 2 0 0 1-2-2V6a1 1 0 1 1-2 0ZM34 66c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2H36a2 2 0 0 1-2-2V66Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V66a2 2 0 0 0-2-2H76Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V66Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V66a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V66Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V66a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V66Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V66a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V66Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V66a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V66Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V66a2 2 0 0 0-2-2h-34Zm-255 40a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2H77Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2H41a2 2 0 0 1-2-2v-40Zm216 0c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  background-position: center top 1rem;
+  background-size: 34rem 11.25rem;
+}
+
+.table__gaps-VxxpIl {
+  background-repeat: no-repeat;
+}
+
+.table__gaps-VxxpIl,
+.table__mask-T0Bvf0 {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.tableHorizontal-VSRITG {
+  display: grid;
+  position: relative;
+  row-gap: 0.125rem;
+  z-index: 1;
+}
+
+.tableHorizontal_size_medium-Aj8PE_ .tableHorizontal__section_combine-ILAhJR {
+  grid-template-columns: 5rem repeat(6, 4.875rem);
+  height: 4.875rem;
+}
+
+.tableHorizontal__section-toxuWm {
+  -moz-column-gap: 0.125rem;
+  column-gap: 0.125rem;
+  display: grid;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_anyTripleBet-qqLJtg
+  .betPlace__label-ODEbdF {
+  font-family: Baloo\2, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 0.8;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_anyTripleBet-qqLJtg
+  .betPlace__subLabel-PMzYhh {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.625rem;
+  justify-content: center;
+  line-height: 1.2;
+  margin-top: auto;
+  row-gap: 0.25rem;
+  text-align: center;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_anyTripleBet-qqLJtg
+  .betPlace__flipBack-SmZf5S,
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_anyTripleBet-qqLJtg
+  .betPlace__flipFront-ttQDsg {
+  padding-bottom: 0.25rem;
+  padding-top: 0.375rem;
+}
+
+.tableHorizontal_size_medium-Aj8PE_ .tableHorizontal__section_pairBet-puTkJg,
+.tableHorizontal_size_medium-Aj8PE_ .tableHorizontal__section_tripleBet-FFun9Q {
+  grid-template-columns: repeat(2, 1.5625rem) 1.5rem;
+  grid-template-rows: 0.75rem 1fr;
+  row-gap: 0.125rem;
+}
+
+.tableHorizontal__section-toxuWm {
+  -moz-column-gap: 0.125rem;
+  column-gap: 0.125rem;
+  display: grid;
+}
+
+.tableHorizontal__section_pairBet-puTkJg > :first-child,
+.tableHorizontal__section_pairBet-puTkJg > :nth-child(2),
+.tableHorizontal__section_pairBet-puTkJg > :nth-child(3),
+.tableHorizontal__section_tripleBet-FFun9Q > :first-child,
+.tableHorizontal__section_tripleBet-FFun9Q > :nth-child(2),
+.tableHorizontal__section_tripleBet-FFun9Q > :nth-child(3) {
+  grid-row: 2 / -1;
+}
+
+.tableHorizontal__section_pairBet-puTkJg > :first-child,
+.tableHorizontal__section_tripleBet-FFun9Q > :first-child {
+  border-top-left-radius: 0.5rem;
+}
+.betPlace_roundStatus_betting-M0s9yC {
+  cursor: pointer;
+}
+.betPlace-ALnS59 {
+  border-radius: 0.125rem;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.tableHorizontal__section_pairBet-puTkJg > :nth-child(4),
+.tableHorizontal__section_tripleBet-FFun9Q > :nth-child(4) {
+  grid-column: 1 / -1;
+}
+
+.payout_direction_top-lwKcVT {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.payout-WiMrEx {
+  align-items: center;
+  background-color: rgba(102, 72, 51, 0.6);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+.payout_direction_top-lwKcVT:before {
+  background-position: left -0.0625rem top;
+  left: 0;
+}
+.payout_direction_top-lwKcVT:after,
+.payout_direction_top-lwKcVT:before {
+  top: 100%;
+}
+.payout-WiMrEx:after,
+.payout-WiMrEx:before {
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    transparent 0.5rem,
+    rgba(102, 72, 51, 0.6) 0.5rem
+  );
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  content: "";
+  height: 0.5rem;
+  position: absolute;
+  width: 0.5rem;
+}
+
+.payout_direction_top-lwKcVT:after {
+  background-position: right -0.0625rem top !important;
+  right: 0 !important;
+}
+
+.tableHorizontal__section_threeNumberTotalBet-noM4Yj {
+  grid-template-columns: 2.5rem repeat(13, 2.375rem);
+  height: 2.375rem;
+}
+
+.tableHorizontal__section-toxuWm {
+  -moz-column-gap: 0.125rem;
+  column-gap: 0.125rem;
+  display: grid;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_threeNumberTotalBet-LQt49B
+  .betPlace__label-ODEbdF {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_threeNumberTotalBet-LQt49B
+  .betPlace__subLabel-PMzYhh {
+  font-size: 0.625rem;
+  line-height: 1.2;
+}
+
+.tableHorizontal_size_medium-Aj8PE_
+  .tableHorizontal__section_twoNumberCombinationBet-C5djCr {
+  grid-template-columns: 0.6875rem 2rem repeat(13, 2.125rem) 2rem 0.6875rem;
+  height: 2.75rem;
+}
+
+.tableHorizontal__section_twoNumberCombinationBet-C5djCr > :first-child {
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  grid-column: 2 / 3;
+}
+
+.tableHorizontal_size_medium-Aj8PE_
+  .tableHorizontal__section_twoNumberCombinationBet-C5djCr
+  > :nth-child(16) {
+  grid-row: 1 / 2;
+}
+
+.tableHorizontal__section_twoNumberCombinationBet-C5djCr > :nth-child(16) {
+  grid-column: 1 / 2;
+}
+.payout_direction_left-M54nhb {
+  scale: -1 -1;
+}
+
+.payout_direction_left-M54nhb .payout__title-ufIQIe,
+.payout_direction_right-m4vpky .payout__title-ufIQIe {
+  writing-mode: vertical-rl;
+}
+
+.payout_direction_left-M54nhb:before,
+.payout_direction_right-m4vpky:before {
+  background-position: right top -0.0625rem;
+  top: 0;
+}
+
+.payout_direction_left-M54nhb:after,
+.payout_direction_right-m4vpky:after {
+  background-position: right bottom -0.0625rem !important;
+  bottom: 0 !important;
+}
+
+.tableHorizontal_size_medium-Aj8PE_
+  .tableHorizontal__section_singleNumberBet-Mx9zMY {
+  grid-template-columns: repeat(5, 5.75rem) 5.625rem;
+  height: 2rem;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_singleNumberBet-V579S7
+  .betPlace__flipBack-SmZf5S,
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_singleNumberBet-V579S7
+  .betPlace__flipFront-ttQDsg {
+  -moz-column-gap: 0.375rem;
+  column-gap: 0.375rem;
+  flex-direction: row;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_singleNumberBet-V579S7:first-child
+  .betPlace__label-ODEbdF,
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_singleNumberBet-V579S7:nth-child(
+    2
+  )
+  .betPlace__label-ODEbdF,
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_singleNumberBet-V579S7:nth-child(
+    3
+  )
+  .betPlace__label-ODEbdF {
+  order: 2;
+}
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_singleNumberBet-V579S7
+  .betPlace__label-ODEbdF {
+  flex-grow: 1;
+  font-family: Baloo, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.dice_size_24-qhdI3e {
+  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.4);
+  height: 1.5rem;
+  padding: 0.25rem;
+  width: 1.5rem;
+}
+
+.tableHorizontal_size_medium-Aj8PE_ .tableHorizontal__payoutsGroup-xrctjk {
+  height: 0.875rem;
+  left: 0;
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27560%27 height=%2715%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M0 1.14C0 .18 1.35-.33 2.13.24A9.95 9.95 0 0 0 8 2.14h544c2.2 0 4.22-.7 5.87-1.9.78-.57 2.13-.06 2.13.9v5a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8v-5Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27560%27 height=%2715%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M0 1.14C0 .18 1.35-.33 2.13.24A9.95 9.95 0 0 0 8 2.14h544c2.2 0 4.22-.7 5.87-1.9.78-.57 2.13-.06 2.13.9v5a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8v-5Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  -webkit-mask-size: 35rem 0.9375rem;
+  mask-size: 35rem 0.9375rem;
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+
+.tableHorizontal_size_medium-Aj8PE_
+  .tableHorizontal__payoutsGroup-xrctjk
+  > *
+  > * {
+  flex-basis: 33.3333%;
+}
+.payout_size_medium-X7juqg .payout__title-ufIQIe {
+  font-size: 0.625rem;
+}
+
 @media (max-width: 1135px) {
   .sicBo__interactiveArea-_Pd65K {
     align-items: flex-end;
+    display: flex;
     height: 100%;
     justify-content: space-between;
   }
   .sicBo__controls-bEHBgU {
     height: 100%;
+  }
+
+  .sicBo__betsTable-WJ28TI {
+    display: none;
   }
 
   .sicBo__tableArea-KVdEwC {
