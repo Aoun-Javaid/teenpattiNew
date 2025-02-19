@@ -400,16 +400,84 @@
   width: fit-content;
 }
 
+.baccaratHistoryPortrait__scoreInfo-hQjSei {
+  padding: 27px 0.5rem 0.25rem;
+  @apply min-[1312px]:!pt-0;
+}
 
+.scoreBoardInfo-USWOxa{
+  display: flex;
+  align-items: center;
+  background: rgba(rgb(0 0 0 / 40%), 0.4);
+  border-radius: 0.5rem;
+  justify-content: space-between;
+}
 
+.scoreBoardInfo__total-b3bUj3{
+  display: flex;
+  align-items: center;
+}
 
+.scoreBoardInfo__totalItem-KhIYhz{
+  color: #fff;
+  cursor: default;
+  font-size: 0.625rem;
+  margin: 0 0.25rem;
+  min-width: 1.875rem;
+  display: flex;
+  align-items: center;
+}
 
+.scoreBoardInfo__totalItemSvg-eW0Cnx {
+  aspect-ratio: 1;
+  display: block;
+  margin-right: 0.125rem;
+  width: 0.5625rem;
+}
 
+.scoreBoardInfo__buttons-nUvY7g {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  justify-content: space-between;
+}
 
+.scoreBoardInfo__button_left-cIMRsf {
+  border: 0.0625rem solid #4781f7;
+  border-radius: 0.5rem 0.125rem 0.125rem 0.5rem;
+}
+.scoreBoardInfo__button-wmBupa {
+  box-sizing: content-box;
+  cursor: pointer;
+  max-width: 3rem;
+  padding: 0.1875rem 0.25rem 0.1875rem 0.4375rem;
+  position: relative;
+  transition: background-color 300ms ease;
+}
 
+.scoreBoardInfo__button-wmBupa>svg {
+  height: 0.5rem;
+  width: 2rem;
+}
 
+.scoreBoardInfo__button-wmBupa:before {
+  background-color: transparent;
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: .2;
+  position: absolute;
+  top: 0;
+  transition: background-color 300ms ease;
+  width: 100%;
+  z-index: -1;
+}
 
-
+.scoreBoardInfo__button_right-ZSwl6f {
+  border: 0.0625rem solid #e54c45;
+  border-radius: 0.125rem 0.5rem 0.5rem 0.125rem;
+}
 
 
 
