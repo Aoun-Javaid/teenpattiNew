@@ -44,7 +44,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   liveData$: any;
   animateCoinVal: any
-
+  waitRound: any
   animate = false
   public message = {
     type: "1",
@@ -1019,7 +1019,13 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
 
   playerA() {
-    // console.log('player A');
+    if (this.game.status == 'SUSPEND') {
+      this.waitRound = true
+      setTimeout(() => {
+        this.waitRound = false
+      }, 1000);
+    }
+
 
   }
 
