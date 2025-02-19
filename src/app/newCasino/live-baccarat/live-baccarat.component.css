@@ -220,7 +220,7 @@
 }
 
 .table__playerPairPayout-b4Lfsu{
-  @apply min-[1312px]:!bottom-[1.125rem] min-[1312px]:!left-[1.5rem] min-[1312px]:!top-auto;
+  @apply min-[1312px]:!bottom-[1.3rem] min-[1312px]:!left-[1.5rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.5rem];
   left: 2.88rem;
   top: 9.596rem;
   font-size: 0.68rem;
@@ -241,7 +241,7 @@
 }
 
 .table__bankerPairPayout-DTrMfa{
-  @apply min-[1312px]:!bottom-[1.125rem] min-[1312px]:!right-[1.5rem] min-[1312px]:!top-auto;
+  @apply min-[1312px]:!bottom-[1.3rem] min-[1312px]:!right-[1.67rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.5rem];
   right: 2.88rem;
   top: 9.596rem;
   font-size: 0.68rem;
@@ -357,6 +357,7 @@
 
 .table__playerCards-o5vD_n {
   left: 0.5rem;
+  @apply min-[1312px]:!left-[4.4375rem];
 }
 .table__bankerCards-i5f6OJ, .table__playerCards-o5vD_n {
   position: absolute;
@@ -388,6 +389,7 @@
 
 .table__bankerCards-i5f6OJ {
   right: 0.5rem;
+  @apply min-[1312px]:!right-[4.4375rem];
 }
 
 .baccaratCardsStack_align_right-zQbAAZ .baccaratCardsStack__cards-AobfKq {
@@ -400,17 +402,242 @@
   width: fit-content;
 }
 
+.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:first-of-type {
+  grid-area: 1 / 2;
+}
+
+.baccaratCardsStack__cardWrap-g60f5P {
+  display: flex;
+  justify-content: inherit;
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(2) {
+  grid-area: 1 / 3;
+}
+
+.baccaratCardsStack__cardWrap-g60f5P {
+  display: flex;
+  justify-content: inherit;
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__card-NpnM09 {
+  width: 1.75rem;
+}
+.baccaratCardsStack__card-NpnM09 {
+  border-radius: 0.125rem;
+}
+
+.card_size_medium-rVA6GX {
+  height: 2.375rem;
+  width: 1.75rem;
+}
+.card_color_red-oOULpU {
+  color: #e13639;
+}
+
+.card-wi2ADp {
+  --box-shadow-color: rgba(0, 0, 0, .4);
+  border-radius: 0.125rem;
+  position: relative;
+}
+
+.card-wi2ADp:not(.card_hasBackSide-tUG5vz):before {
+  background-color: #000;
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.card_size_medium-rVA6GX .card__inner-CIH8Z7 {
+  box-shadow: 0 0.5rem 0.75rem var(--box-shadow-color);
+}
+
+.card__inner-CIH8Z7 {
+  background: #fff;
+  border-radius: inherit;
+  height: inherit;
+  position: relative;
+  transition: opacity 300ms ease;
+}
+
+.card__frontSide-tJBKcu {
+  height: 100%;
+  width: 100%;
+}
+
+.card__backSide-eZ4pXs, .card__frontSide-tJBKcu {
+  backface-visibility: hidden;
+  background-color: #fff;
+  border-radius: inherit;
+  inset: 0;
+  position: absolute;
+}
+
+.card_size_medium-rVA6GX {
+  height: 2.375rem;
+  width: 1.75rem;
+}
+
+.card_color_black-iDcRjL {
+  color: #000;
+}
+.card-wi2ADp {
+  --box-shadow-color: rgba(0, 0, 0, .4);
+  border-radius: 0.125rem;
+  position: relative;
+}
+
+.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) {
+  width: 2.375rem;
+}
+
+.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) .baccaratCardsStack__card-NpnM09 {
+  box-shadow: -0.5rem 0 0.75rem rgba(0, 0, 0, .4);
+  overflow: hidden;
+}
+
+.baccaratCardsStack_align_right-zQbAAZ .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) .baccaratCardsStack__card-NpnM09 {
+  transform: rotate(-90deg) translateY(100%);
+  transform-origin: left bottom;
+}
+
+.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) {
+  width: 2.375rem;
+}
+
+.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(3) {
+  grid-area: 1 / 1;
+  justify-content: flex-end;
+}
+
+.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) .baccaratCardsStack__card-NpnM09 {
+  box-shadow: -0.5rem 0 0.75rem rgba(0, 0, 0, .4);
+  overflow: hidden;
+}
+
+.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(3) .baccaratCardsStack__card-NpnM09 {
+  transform: rotate(-90deg) translateX(100%);
+  transform-origin: right bottom;
+}
 
 
+.baccaratHistoryPortrait__scoreInfo-hQjSei {
+  padding: 6% 0.5rem 0.25rem;
+  @apply min-[1312px]:!pt-0;
+}
 
+.scoreBoardInfo-USWOxa{
+  display: flex;
+  align-items: center;
+  background: rgba(0 0 0 / 0.4);
+  border-radius: 0.5rem;
+  justify-content: space-between;
+}
 
+.scoreBoardInfo__total-b3bUj3{
+  display: flex;
+  align-items: center;
+}
 
+.scoreBoardInfo__totalItem-KhIYhz{
+  color: #fff;
+  cursor: default;
+  font-size: 0.625rem;
+  margin: 0 0.25rem;
+  min-width: 1.875rem;
+  display: flex;
+  align-items: center;
+  
+}
 
+.scoreBoardInfo__totalItemSvg-eW0Cnx {
+  aspect-ratio: 1;
+  display: block;
+  margin-right: 0.125rem;
+  width: 0.5625rem;
+}
 
+.scoreBoardInfo__buttons-nUvY7g {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  justify-content: space-between;
+}
 
+.scoreBoardInfo__button_left-cIMRsf {
+  border: 0.0625rem solid #4781f7;
+  border-radius: 0.5rem 0.125rem 0.125rem 0.5rem;
+}
+.scoreBoardInfo__button-wmBupa {
+  box-sizing: content-box;
+  cursor: pointer;
+  max-width: 3rem;
+  padding: 0.1875rem 0.25rem 0.1875rem 0.4375rem;
+  position: relative;
+  transition: background-color 300ms ease;
+}
 
+.scoreBoardInfo__button-wmBupa>svg {
+  height: 0.5rem;
+  width: 2rem;
+}
 
+.scoreBoardInfo__button-wmBupa:before {
+  background-color: transparent;
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: .2;
+  position: absolute;
+  top: 0;
+  transition: background-color 300ms ease;
+  width: 100%;
+  z-index: -1;
+}
 
+.scoreBoardInfo__button_right-ZSwl6f {
+  border: 0.0625rem solid #e54c45;
+  border-radius: 0.125rem 0.5rem 0.5rem 0.125rem;
+}
+
+.mobileSvg{
+  visibility: visible !important;
+  height: auto !important;
+}
+
+.desktopSvg{
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+@media screen and (min-width:1312px) {
+  .mobileSvg{
+    visibility: hidden !important;
+    height: 0 !important;
+  }
+  
+  .desktopSvg{
+    visibility: visible !important;
+    position: absolute;
+    height: 100% !important;
+    top: 0;
+  }
+
+  .baccaratHistoryPortrait__scoreInfo-hQjSei{
+    left: -26.5rem !important;
+    top: 0;
+    position: absolute;
+  }
+
+  .scoreBoardInfo-USWOxa{
+    width: 18rem;
+  }
+  
+}
 
 
 /* key frame ====================== */
