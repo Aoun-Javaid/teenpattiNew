@@ -37,7 +37,6 @@
 
 }
 .result{
-
   width: 100%;
 }
 
@@ -110,6 +109,14 @@
   flex-shrink: 0;
   position: relative;
 }
+.tile-lWsz_U_dt{
+  border-radius: 50%;
+  color: #fff;
+  display: inline-flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: relative;
+}
 .tile_size_small-ATZ3H_ {
   font-size: 0.625rem;
   line-height: 1rem;
@@ -124,6 +131,15 @@
 .tile_theme_playerB .tile__label {
   background-color: #ed8840
 }
+.tile_theme_Dragon{
+  background-color: rgb(198, 40, 8);
+}
+.tile_theme_Tiger{
+  background-color: rgb(225, 157, 25);
+}
+.tile_theme_Tie{
+  background-color: rgb(41, 204, 204);
+}
 .tile_theme_playerA .tile__label {
   background-color: #cc493e;
 }
@@ -131,10 +147,43 @@
   height: 1rem;
   width: 1.5rem;
 }
+.tile_size_small-ATZ3H_ .tile__label_dt{
+  height: 1rem;
+  width: 1rem;
+}
+.tile__label_dt{
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  font-weight: 500;
+  justify-content: center;
+}
 .tile__label {
   align-items: center;
   border-radius: 0.25rem;
   display: flex;
   font-weight: 500;
   justify-content: center;
+}
+.carousel__slide-KasfxJ:last-child {
+  margin-right: 0.5rem;
+}
+.carousel__slide-KasfxJ {
+  align-self: flex-end;
+  flex-shrink: 0;
+  margin-right: 0.3125rem;
+  scroll-snap-align: start;
+  transition: opacity 300ms ease;
+  width: 100%;
+}
+.scoreBoardPanel-AVowPF {
+  background: rgba(0,0,0,0.4);
+  border: 0.0625rem solid transparent;
+  border-radius: 0.25rem;
+  padding: 0.1875rem;
+}
+.svgMatrix-m_PnD5 {
+  display: block;
+  height: auto;
+  width: 100%;
 }

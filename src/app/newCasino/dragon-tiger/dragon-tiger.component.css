@@ -289,11 +289,11 @@
   grid-area: tiger;
 }
 
-.tableMainCards__card-QjtSNA {
-  animation: cardAnimationAppearing-pwlTCT 300ms ease forwards;
+.tableMainCards__card__animation{
+  animation: cardAnimationAppearing 300ms ease forwards;
 }
 
-@keyframes cardAnimationAppearing-pwlTCT {
+@keyframes cardAnimationAppearing {
   0% {
     opacity: 0;
     transform: translateY(-0.25rem);
