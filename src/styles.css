@@ -1501,6 +1501,10 @@ body {
   }
 }
 
+.animation-player-translate {
+  animation:  translateAnimation 2s;
+}
+
 @keyframes translateAnimation {
   0% {
     transform: translateY(1.625rem);
