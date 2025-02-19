@@ -5,355 +5,394 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-
   --topHeaderColor: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
-  --account-arrow-border:#1e1e1e;
-    --account-arrow-text: #1e1e1e;
-    --account-link-border: #e0e6e6;
-    --account-links-bg: #ffffff;
-    --account-links-text: #2789ce;
-    --account-logout-bg: linear-gradient(-180deg,#e93522 0,#be2414 100%);
-    --account-logout-border: #8a0011;
-    --account-logout-text: #ffffff;
-    --account-title-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --account-title-text: #ffffff;
-    --acoount-arrow-bg: #ffffff;
-    --after-bet-cashout-bg: #ccc;
-    --age-modal-bg: linear-gradient(#535353 0%, #000000 80%);
-    --age-modal-btn-border: #FFFFFF;
-    --age-modal-cancel-btn-bg: #000000;
-    --age-modal-cancel-btn-text: #FFFFFF;
-    --age-modal-confirm-btn-bg: #FFFFFF;
-    --age-modal-confirm-btn-text: #000000;
-    --age-modal-cross-bg: #fd8f3b;
-    --age-modal-cross-text: #000000;
-    --age-modal-lines: #FFFFFF;
-    --age-modal-text: #FFFFFF;
-    --bets-btn-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
-    --bets-btn-border-color: #0B1933;
-    --bets-btn-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, .4);
-    --bets-btn-color: white;
-    --bookmaker-back-lay-color: #000000;
-    --bookmaker-bg: #FAF8D8;
-    --bookmaker-bottom-border: #7e97a7;
-    --bookmaker-news-text: #333333;
-    --bookmaker-pl-minus: #d0021b;
-    --bookmaker-pl-plus: #228b22;
-    --bookmaker-runners-text: #23282C;
-    --bookmaker-suspended-bg: rgba(36, 58, 72, .4);
-    --bookmaker-suspended-color: #FFFFFF;
-    --bottom-nav-active-bg: linear-gradient(-180deg,#32617f 20%,#1f4258 91%);
-    --bottom-nav-active-icon: #ffffff;
-    --bottom-nav-active-text: #ffffff;
-    --bottom-nav-bg: linear-gradient(-180deg, #243a48 20%, #172732 91%);
-    --bottom-nav-icon: black;
-    --bottom-nav-text: #ffffff;
-    --cashout-icon-bg: #FFB900;
-    --cashout-icon-color: #000000;
-    --casino-bottom-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
-    --casino-bottom-color: #000000;
-    --casino-container-bg: linear-gradient(180deg, #ffffff, #ffffff 42%);
-    --casino-container-border-bottom: #7e97a7;
-    --casino-icon-bg: linear-gradient(180deg, #000000, #000000 42%);
-    --casino-tab-active-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
-    --casino-tab-active-color: #000000;
-    --casino-tab-bg: linear-gradient(180deg, #000000, #000000 42%);
-    --casino-tab-color: #ffffff;
-    --child-navigation-link: #2789ce;
-    --country-event-box-bg: #e2e2e2;
-    --country-event-box-color: #000000;
-    --country-event-color: #000000;
-    --country-list-border: #c8ced3;
-    --country-ui-bg: #e2e2e2;
-    --desktop-1x2-bg: #dddcd6;
-    --desktop-1x2-bottom-border-color: #dddcd6;
-    --desktop-1x2-text-color: #000000;
-    --desktop-account-btn-bg: linear-gradient(180deg, #2e2e2e, #282828 42%, #2e2e2e);
-    --desktop-account-icons-color: #fd8f3b;
-    --desktop-account-text-color: white;
-    --desktop-highlights-sport-bar-bg: linear-gradient(-180deg, #fd3523 0%, #fd8f3b 100%);
-    --desktop-sports-tile-active-bg: #dddcd6;
-    --desktop-sports-tile-active-text-color: #000000;
-    --desktop-sports-tile-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --desktop-sports-tile-text-color: #ffffff;
-    --exchange-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --exchange-text-color: white;
-    --facny-pl-plus: #228b22;
-    --facny-suspended-bg: rgba(36, 58, 72, .4);
-    --facny-suspended-color: #ffffff;
-    --fancy-book-btn-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --fancy-book-btn-text: #ffffff;
-    --fancy-category-active-bg: #ffffff;
-    --fancy-category-active-text: #000000;
-    --fancy-category-bg: rgba(255,255,255,.5);
-    --fancy-category-text: #000000;
-    --fancy-info-icon-bg: linear-gradient(180deg,#1cb0b5 15%,#1cb0b5 100%);
-    --fancy-market-bg: #ffffff;
-    --fancy-mbl-minmax-bg: #ffffff;
-    --fancy-mbl-minmax-cross: #1e1e1e;
-    --fancy-minmax-border: #e0e6e6;
-    --fancy-minmax-text-color: #577c94;
-    --fancy-minmax-value: #000000;
-    --fancy-news-bg: #c2d5e4;
-    --fancy-news-text: #3b5160;
-    --fancy-pl-minus: #d0021b;
-    --fancy-runner-bottom-border: #7e97a7;
-    --fancy-runner-text: #23282C;
-    --footer-border-top: rgba(0, 0, 0, .3);
-    --footer-phone-color: black;
-    --footer-support-text-color: #000000;
-    --footer-telegram-color: #0088cc;
-    --footer-text-color: #000000;
-    --footer-whatsapp-color: #28D146;
-    --header-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
-    --header-exposure-color: red;
-    --header-text-color: white;
-    --highlgiht-tile-text-color: #000000;
-    --highlight-tile-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
-    --horseRacing-country-active-bg: #ffffff;
-    --horseRacing-country-active-border: #c8ced3;
-    --horseRacing-country-active-color: #000000;
-    --horseRacing-country-color: #000000;
-    --hosrseRacing-schedule-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
-    --hosrseRacing-schedule-color: #ffffff;
-    --inplay-1x2-bg: #DDDCD6;
-    --inplay-1x2-text: #000000;
-    --inplay-sports-tile-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
-    --inplay-sports-tile-text: #FFFFFF;
-    --inplay-tabs-active-bg: #3B5160;
-    --inplay-tabs-active-text: #FFFFFF;
-    --inplay-tabs-bg: #FFFFFF;
-    --inplay-tabs-border: #3B5160;
-    --inplay-tabs-text: #3B5160;
-    --input-disable-stake-color: black;
-    --input-stake-bg: #ffffff;
-    --input-stake-color: #1e1e1e;
-    --jockey-tags-bg: #bed5d8;
-    --jockey-tags-text: #000000;
-    --loader1-bg: linear-gradient(180deg, #2A3A43 27%, #1C282D 83%);
-    --loader2-bg: linear-gradient(-180deg, #FD8F3B 0%, #FD3523 100%);
-    --loader-body: #ffffff;
-    --loader-text: black;
-    --login-bg: linear-gradient(#535353 0%, #000000 80%);
-    --login-btn-bg: linear-gradient(-180deg, #f72424 0%, #bb1c00 100%);
-    --login-btn-color: white;
-    --login-cross-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
-    --login-cross-color: black;
-    --login-error-msg: white;
-    --login-input-bg: white;
-    --login-input-border: #fd8f3b;
-    --login-input-icon: black;
-    --login-input-placeholder: grey;
-    --login-input-text: black;
-    --login-page-btn-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
-    --login-page-btn-text: white;
-    --magnifier-bg: linear-gradient(#525252 0%, #2d2d2d 80%);
-    --magnifier-color: white;
-    --mainBodyBG: #ededed;
-    --market-border: #c8ced3;
-    --marketName-bar-bottom-border: #7e97a7;
-    --marketdetails-info-icon: #FFFFFF;
-    --marketdetails-marketName-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --marketdetails-marketName-text: #FFFFFF;
-    --marketdetails-marketname-bar-bg: #FFFFFF;
-    --marketdetails-marketname-bar-text: #000000;
-    --marketdetails-matchodds-Box-bg: linear-gradient(180deg, #ffffff , #ffffff 42%);
-    --marketdetails-matchodds-bottom-border: #7e97a7;
-    --markets-bg: linear-gradient(-180deg, #ffffff 0%, #ffffff 100%);
-    --markets-border-bottom: #c8ced3;
-    --markets-clock-icon-color: #008000;
-    --markets-dateTime-color: #777777;
-    --markets-fancy-icon-bg: linear-gradient(180deg,#0a92a5 15%,#076875 100%);
-    --markets-fancy-info: #ffffff;
-    --markets-fancy-text: #FFFFFF;
-    --markets-pin-color: #7e97a7;
-    --markets-pin-color-active: #6bbd0f;
-    --markets-sportsbook-bg: linear-gradient(180deg,#f26d1c 15%,#d14100 100%);
-    --markets-sportsbook-info: #ffffff;
-    --markets-sportsbook-text: #ffffff;
-    --markets-text-color: #2789ce;
-    --markets-virtual-icon: #000000;
-    --matchodds-minmax-bg: #bed5d8;
-    --matchodds-minmax-text: #315195;
-    --matchodds-minmax-value: #000000;
-    --matchodds-pl-minus: #d0021b;
-    --matchodds-pl-plus: #228b22;
-    --matchodds-runner-text: #23282c;
-    --matchodds-suspended-bg: #fff;
-    --matchodds-suspended-border: #ca1010;
-    --matchodds-suspended-color: #ca1010;
-    --mb-tvScore-border: #666060;
-    --mbl-exchange-bar-active-border: #ffffff;
-    --mbl-exchange-bar-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --mbl-exchange-bar-border-color: #ffffff;
-    --mbl-exchange-bar-text-color: #ffffff;
-    --mbl-filter-background: linear-gradient(-180deg, #e0e6e6 0%, #e0e6e6 100%);
-    --mbl-filter-tab-active-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
-    --mbl-filter-tab-active-border: #000000;
-    --mbl-filter-tab-active-text: #000000;
-    --mbl-filter-tab-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --mbl-filter-tab-border: #000000;
-    --mbl-filter-tab-text: #FFFFFF;
-    --mbl-sportName-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --mbl-sportName-text: #FFFFFF;
-    --mbl-sportName-tv: #FFFFFF;
-    --mbl-sports-active-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
-    --mbl-sports-active-text-color: white;
-    --mbl-sports-bar-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
-    --mbl-sports-text-color: black;
-    --mbl-tvScore-active-border: #FFFFFF;
-    --mbl-tvScore-tab-bg: linear-gradient(180deg, #303030, #303030 42%);
-    --mbl-tvScore-tab-text: #FFFFFF;
-    --modal-bg: #FFFFFF;
-    --modal-header-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
-    --modal-header-text: #FFFFFF;
-    --modal-heading-bg: #eee;
-    --modal-heading-text: #243a48;
-    --modal-line: #cccccc;
-    --modal-ok-bg: white;
-    --modal-ok-border: grey;
-    --modal-ok-text: black;
-    --modal-text: #23282c;
-    --myaccount-bg: white;
-    --myaccount-border: #c8ced3;
-    --myaccount-box-shadow: rgba(0,0,0,.5);
-    --myaccount-logout-btn-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --myaccount-logout-btn-text: white;
-    --myaccount-text: black;
-    --myaccount-username-bg: #e4e7ea;
-    --myaccount-username-border: #ccc;
-    --myaccount-username-text: black;
-    --news-bar-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --news-marque-text-color: #FFFFFF;
-    --news-text-bg: linear-gradient(-180deg, #274253 0%, #0f191f 82%);
-    --news-text-color: white;
-    --news-text-icon-color: #FFFFFF;
-    --plusMinus-bg: linear-gradient(-180deg,#fff 0,#eee 89%);
-    --plusMinus-border-color: #aaaaaa;
-    --plusMinus-color: #1f72ac;
-    --refresh-btn-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
-    --refresh-btn-border-color: #0B1933;
-    --refresh-btn-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, .4);
-    --refresh-btn-color: white;
-    --reports-filters-box-bg: #e0e6e6;
-    --reports-filters-box-border: #000501;
-    --reports-submit-btn-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --reports-submit-btn-border: #cccccc;
-    --reports-submit-btn-clr: #ffffff;
-    --reports-table-head-bg: #e0e6e6;
-    --reports-table-head-text: #000000;
-    --reports-title-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --reports-title-text: #ffffff;
-    --right-sidenav-bg: #FFFFFF;
-    --right-sidenav-title-bar-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
-    --right-sidenav-title-bar-color: #FFFFFF;
-    --search-box-bg: white;
-    --search-box-border: #ccc;
-    --search-box-bottom-border-color: black;
-    --search-box-text-color: black;
-    --search-input-bg: white;
-    --search-input-border-color: black;
-    --search-input-icons-color: black;
-    --search-input-text-color: black;
-    --setting-save-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
-    --setting-save-color: #FFFFFF;
-    --settings-bar-bg: linear-gradient(-180deg,#2e4b5e 0,#243a48 82%);
-    --settings-bar-color: #FFFFFF;
-    --settings-btn-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
-    --settings-btn-border-color: #0B1933;
-    --settings-btn-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, .4);
-    --settings-btn-color: white;
-    --side-nav-bg: linear-gradient(-180deg, #FFFFFF 0%, #FFFFFF 100%);
-    --side-nav-hover-bg: #E6EFD1;
-    --side-nav-hover-text-color: #83AE17;
-    --side-nav-icon-color: #83AE17;
-    --side-nav-link-border: #d2d6e2;
-    --side-nav-text-color: #223869;
-    --side-nav-top-bar-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
-    --side-nav-top-text-color: #FFFFFF;
-    --sport-allsports-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --sport-allsports-text: #ffffff;
-    --sport-link-icons: #ffffff;
-    --sport-link-text: #ffffff;
-    --sport-linkstab-bg: #14213d;
-    --sport-linkstab-border: #4b4b4b;
-    --sport-list-bg: #ffffff;
-    --sport-list-border: #e0e6e6;
-    --sport-list-icon-bg: #ffffff;
-    --sport-list-icon-color: #1e1e1e;
-    --sport-list-text: #2789ce;
-    --sportbook-market-bg: #ffffff;
-    --sportbook-pl-minus: #d0021b;
-    --sportbook-pl-plus: #228b22;
-    --sportbook-runner-border: #7e97a7;
-    --sportbook-runner-text: #23282C;
-    --sportmarket-border: #c8ced3;
-    --sports-quicklinks-bg: linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);
-    --sports-quicklinks-text: #ffffff;
-    --sportsbar-active-color: white;
-    --sportsbar-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
-    --sportsbar-border-color: #797777;
-    --sportsbar-text-color: black;
-    --sportsbook-category-active-bg: #ffffff;
-    --sportsbook-category-active-text: #000000;
-    --sportsbook-category-bg: rgb(255, 255, 255, 50%);
-    --sportsbook-category-text: #000000;
-    --sportsbook-info-icon-bg: linear-gradient(180deg,#f58b30 15%,#f58b30 100%);
-    --stack-bg: #f9f9f9;
-    --stack-border-bg: #333;
-    --stack-border-color: conic-gradient(#6ca7ec,#2222b9,#6ca7ec,#2222b9,#6ca7ec,#2222b9,#6ca7ec) 1;
-    --stack-cancel-bg: #f9f9f9;
-    --stack-cancel-border-bg: #333;
-    --stack-cancel-color: #000000;
-    --stack-color: #000000;
-    --stack-heading-color: #243a48;
-    --stack-placebet-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
-    --stack-placebet-border-bg: #000000;
-    --stack-placebet-color: #ffffff;
-    --betslip-cmp-ui-link-bg: rgba(0, 0, 0, .7);
-    --betslip-cmp-modal-body-bg: #000;
-    --betslip-cmp-modal-body-color: #fff;
-    --betslip-cmp-btn-verification-bg: rgba(0, 0, 0, 0);
-    --betslip-cmp-btn-verification-border: #fff;
-    --betslip-cmp-btn-verification-color: #fff;
-    --betslip-cmp-btn-confirm-bg: #000;
-    --betslip-cmp-btn-confirm-color: #fff;
-    --betslip-cmp-stakeinput-disable-bg: #b2bcc5;
-    --betslip-cmp-stakeinput-disable-border: #b2bcc5;
-    --betslip-cmp-stakeactionplus-disable-bg: #b2bcc5;
-    --betslip-cmp-stakeactionminus-disable-bg: #b2bcc5;
-    --betslip-cmp-slip-lay-br-border-t: #dfa3b3;
-    --betslip-cmp-slip-lay-bg: #faeff2;
-    --betslip-cmp-slip-back-br-border-t: #7dbbe9;
-    --betslip-cmp-slip-back-bg: #d4e8f8;
-    --betslip-cmp-input-Betslip-bg: #eee;
-    --betslip-cmp-input-Betslip-border: #3333337a;
-    --betslip-cmp-input-Betslip-color: #1e1e1e;
-    --betslip-cmp-quick-bet-confirm-bg: rgba(255, 255, 255, .5);
-    --betslip-cmp-quick-bet-confirm-color: rgb(33, 33, 33);
-    --betslip-cmp-btn-cancel-bg: #eee;
-    --betslip-cmp-btn-cancel-color: #1e1e1e;
-    --betslip-cmp-btn-cancel-border: #333;
-    --betslip-cmp-btn-send-active-bg: linear-gradient(-180deg, #315195 0, #14213d 100%);
-    --betslip-cmp-btn-send-active-color: #fff;
-    --betslip-cmp-btn-send-active-border: #000;
-    --betslip-cmp-btn-send-bg: #a4a4a4;
-    --betslip-cmp-btn-send-color: #e6dfcd;
-    --betslip-cmp-btn-send-border: #333;
-    /* --betslip-cmp-slip-back-bg: #beddf4; */
-    /* --betslip-cmp-slip-lay-bg: #f3dce2; */
-    --betslip-cmp-stakeactionminus-bg: linear-gradient(-180deg, #fff 0, #eee 89%);
-    --betslip-cmp-stakeactionminus-color: #0000ff;
-    --betslip-cmp-stakeactionminus-border: #aaa;
-    --betslip-cmp-back-bg: #a7d8fd;
+  --account-arrow-border: #1e1e1e;
+  --account-arrow-text: #1e1e1e;
+  --account-link-border: #e0e6e6;
+  --account-links-bg: #ffffff;
+  --account-links-text: #2789ce;
+  --account-logout-bg: linear-gradient(-180deg, #e93522 0, #be2414 100%);
+  --account-logout-border: #8a0011;
+  --account-logout-text: #ffffff;
+  --account-title-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --account-title-text: #ffffff;
+  --acoount-arrow-bg: #ffffff;
+  --after-bet-cashout-bg: #ccc;
+  --age-modal-bg: linear-gradient(#535353 0%, #000000 80%);
+  --age-modal-btn-border: #ffffff;
+  --age-modal-cancel-btn-bg: #000000;
+  --age-modal-cancel-btn-text: #ffffff;
+  --age-modal-confirm-btn-bg: #ffffff;
+  --age-modal-confirm-btn-text: #000000;
+  --age-modal-cross-bg: #fd8f3b;
+  --age-modal-cross-text: #000000;
+  --age-modal-lines: #ffffff;
+  --age-modal-text: #ffffff;
+  --bets-btn-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
+  --bets-btn-border-color: #0b1933;
+  --bets-btn-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  --bets-btn-color: white;
+  --bookmaker-back-lay-color: #000000;
+  --bookmaker-bg: #faf8d8;
+  --bookmaker-bottom-border: #7e97a7;
+  --bookmaker-news-text: #333333;
+  --bookmaker-pl-minus: #d0021b;
+  --bookmaker-pl-plus: #228b22;
+  --bookmaker-runners-text: #23282c;
+  --bookmaker-suspended-bg: rgba(36, 58, 72, 0.4);
+  --bookmaker-suspended-color: #ffffff;
+  --bottom-nav-active-bg: linear-gradient(-180deg, #32617f 20%, #1f4258 91%);
+  --bottom-nav-active-icon: #ffffff;
+  --bottom-nav-active-text: #ffffff;
+  --bottom-nav-bg: linear-gradient(-180deg, #243a48 20%, #172732 91%);
+  --bottom-nav-icon: black;
+  --bottom-nav-text: #ffffff;
+  --cashout-icon-bg: #ffb900;
+  --cashout-icon-color: #000000;
+  --casino-bottom-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
+  --casino-bottom-color: #000000;
+  --casino-container-bg: linear-gradient(180deg, #ffffff, #ffffff 42%);
+  --casino-container-border-bottom: #7e97a7;
+  --casino-icon-bg: linear-gradient(180deg, #000000, #000000 42%);
+  --casino-tab-active-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
+  --casino-tab-active-color: #000000;
+  --casino-tab-bg: linear-gradient(180deg, #000000, #000000 42%);
+  --casino-tab-color: #ffffff;
+  --child-navigation-link: #2789ce;
+  --country-event-box-bg: #e2e2e2;
+  --country-event-box-color: #000000;
+  --country-event-color: #000000;
+  --country-list-border: #c8ced3;
+  --country-ui-bg: #e2e2e2;
+  --desktop-1x2-bg: #dddcd6;
+  --desktop-1x2-bottom-border-color: #dddcd6;
+  --desktop-1x2-text-color: #000000;
+  --desktop-account-btn-bg: linear-gradient(
+    180deg,
+    #2e2e2e,
+    #282828 42%,
+    #2e2e2e
+  );
+  --desktop-account-icons-color: #fd8f3b;
+  --desktop-account-text-color: white;
+  --desktop-highlights-sport-bar-bg: linear-gradient(
+    -180deg,
+    #fd3523 0%,
+    #fd8f3b 100%
+  );
+  --desktop-sports-tile-active-bg: #dddcd6;
+  --desktop-sports-tile-active-text-color: #000000;
+  --desktop-sports-tile-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --desktop-sports-tile-text-color: #ffffff;
+  --exchange-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --exchange-text-color: white;
+  --facny-pl-plus: #228b22;
+  --facny-suspended-bg: rgba(36, 58, 72, 0.4);
+  --facny-suspended-color: #ffffff;
+  --fancy-book-btn-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --fancy-book-btn-text: #ffffff;
+  --fancy-category-active-bg: #ffffff;
+  --fancy-category-active-text: #000000;
+  --fancy-category-bg: rgba(255, 255, 255, 0.5);
+  --fancy-category-text: #000000;
+  --fancy-info-icon-bg: linear-gradient(180deg, #1cb0b5 15%, #1cb0b5 100%);
+  --fancy-market-bg: #ffffff;
+  --fancy-mbl-minmax-bg: #ffffff;
+  --fancy-mbl-minmax-cross: #1e1e1e;
+  --fancy-minmax-border: #e0e6e6;
+  --fancy-minmax-text-color: #577c94;
+  --fancy-minmax-value: #000000;
+  --fancy-news-bg: #c2d5e4;
+  --fancy-news-text: #3b5160;
+  --fancy-pl-minus: #d0021b;
+  --fancy-runner-bottom-border: #7e97a7;
+  --fancy-runner-text: #23282c;
+  --footer-border-top: rgba(0, 0, 0, 0.3);
+  --footer-phone-color: black;
+  --footer-support-text-color: #000000;
+  --footer-telegram-color: #0088cc;
+  --footer-text-color: #000000;
+  --footer-whatsapp-color: #28d146;
+  --header-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
+  --header-exposure-color: red;
+  --header-text-color: white;
+  --highlgiht-tile-text-color: #000000;
+  --highlight-tile-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
+  --horseRacing-country-active-bg: #ffffff;
+  --horseRacing-country-active-border: #c8ced3;
+  --horseRacing-country-active-color: #000000;
+  --horseRacing-country-color: #000000;
+  --hosrseRacing-schedule-bg: linear-gradient(
+    -180deg,
+    #000000 0%,
+    #000000 100%
+  );
+  --hosrseRacing-schedule-color: #ffffff;
+  --inplay-1x2-bg: #dddcd6;
+  --inplay-1x2-text: #000000;
+  --inplay-sports-tile-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
+  --inplay-sports-tile-text: #ffffff;
+  --inplay-tabs-active-bg: #3b5160;
+  --inplay-tabs-active-text: #ffffff;
+  --inplay-tabs-bg: #ffffff;
+  --inplay-tabs-border: #3b5160;
+  --inplay-tabs-text: #3b5160;
+  --input-disable-stake-color: black;
+  --input-stake-bg: #ffffff;
+  --input-stake-color: #1e1e1e;
+  --jockey-tags-bg: #bed5d8;
+  --jockey-tags-text: #000000;
+  --loader1-bg: linear-gradient(180deg, #2a3a43 27%, #1c282d 83%);
+  --loader2-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
+  --loader-body: #ffffff;
+  --loader-text: black;
+  --login-bg: linear-gradient(#535353 0%, #000000 80%);
+  --login-btn-bg: linear-gradient(-180deg, #f72424 0%, #bb1c00 100%);
+  --login-btn-color: white;
+  --login-cross-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
+  --login-cross-color: black;
+  --login-error-msg: white;
+  --login-input-bg: white;
+  --login-input-border: #fd8f3b;
+  --login-input-icon: black;
+  --login-input-placeholder: grey;
+  --login-input-text: black;
+  --login-page-btn-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
+  --login-page-btn-text: white;
+  --magnifier-bg: linear-gradient(#525252 0%, #2d2d2d 80%);
+  --magnifier-color: white;
+  --mainBodyBG: #ededed;
+  --market-border: #c8ced3;
+  --marketName-bar-bottom-border: #7e97a7;
+  --marketdetails-info-icon: #ffffff;
+  --marketdetails-marketName-bg: linear-gradient(
+    -180deg,
+    #2e4b5e 0%,
+    #243a48 82%
+  );
+  --marketdetails-marketName-text: #ffffff;
+  --marketdetails-marketname-bar-bg: #ffffff;
+  --marketdetails-marketname-bar-text: #000000;
+  --marketdetails-matchodds-Box-bg: linear-gradient(
+    180deg,
+    #ffffff,
+    #ffffff 42%
+  );
+  --marketdetails-matchodds-bottom-border: #7e97a7;
+  --markets-bg: linear-gradient(-180deg, #ffffff 0%, #ffffff 100%);
+  --markets-border-bottom: #c8ced3;
+  --markets-clock-icon-color: #008000;
+  --markets-dateTime-color: #777777;
+  --markets-fancy-icon-bg: linear-gradient(180deg, #0a92a5 15%, #076875 100%);
+  --markets-fancy-info: #ffffff;
+  --markets-fancy-text: #ffffff;
+  --markets-pin-color: #7e97a7;
+  --markets-pin-color-active: #6bbd0f;
+  --markets-sportsbook-bg: linear-gradient(180deg, #f26d1c 15%, #d14100 100%);
+  --markets-sportsbook-info: #ffffff;
+  --markets-sportsbook-text: #ffffff;
+  --markets-text-color: #2789ce;
+  --markets-virtual-icon: #000000;
+  --matchodds-minmax-bg: #bed5d8;
+  --matchodds-minmax-text: #315195;
+  --matchodds-minmax-value: #000000;
+  --matchodds-pl-minus: #d0021b;
+  --matchodds-pl-plus: #228b22;
+  --matchodds-runner-text: #23282c;
+  --matchodds-suspended-bg: #fff;
+  --matchodds-suspended-border: #ca1010;
+  --matchodds-suspended-color: #ca1010;
+  --mb-tvScore-border: #666060;
+  --mbl-exchange-bar-active-border: #ffffff;
+  --mbl-exchange-bar-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --mbl-exchange-bar-border-color: #ffffff;
+  --mbl-exchange-bar-text-color: #ffffff;
+  --mbl-filter-background: linear-gradient(-180deg, #e0e6e6 0%, #e0e6e6 100%);
+  --mbl-filter-tab-active-bg: linear-gradient(
+    -180deg,
+    #fd8f3b 0%,
+    #fd3523 100%
+  );
+  --mbl-filter-tab-active-border: #000000;
+  --mbl-filter-tab-active-text: #000000;
+  --mbl-filter-tab-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --mbl-filter-tab-border: #000000;
+  --mbl-filter-tab-text: #ffffff;
+  --mbl-sportName-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --mbl-sportName-text: #ffffff;
+  --mbl-sportName-tv: #ffffff;
+  --mbl-sports-active-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
+  --mbl-sports-active-text-color: white;
+  --mbl-sports-bar-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
+  --mbl-sports-text-color: black;
+  --mbl-tvScore-active-border: #ffffff;
+  --mbl-tvScore-tab-bg: linear-gradient(180deg, #303030, #303030 42%);
+  --mbl-tvScore-tab-text: #ffffff;
+  --modal-bg: #ffffff;
+  --modal-header-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
+  --modal-header-text: #ffffff;
+  --modal-heading-bg: #eee;
+  --modal-heading-text: #243a48;
+  --modal-line: #cccccc;
+  --modal-ok-bg: white;
+  --modal-ok-border: grey;
+  --modal-ok-text: black;
+  --modal-text: #23282c;
+  --myaccount-bg: white;
+  --myaccount-border: #c8ced3;
+  --myaccount-box-shadow: rgba(0, 0, 0, 0.5);
+  --myaccount-logout-btn-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --myaccount-logout-btn-text: white;
+  --myaccount-text: black;
+  --myaccount-username-bg: #e4e7ea;
+  --myaccount-username-border: #ccc;
+  --myaccount-username-text: black;
+  --news-bar-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --news-marque-text-color: #ffffff;
+  --news-text-bg: linear-gradient(-180deg, #274253 0%, #0f191f 82%);
+  --news-text-color: white;
+  --news-text-icon-color: #ffffff;
+  --plusMinus-bg: linear-gradient(-180deg, #fff 0, #eee 89%);
+  --plusMinus-border-color: #aaaaaa;
+  --plusMinus-color: #1f72ac;
+  --refresh-btn-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
+  --refresh-btn-border-color: #0b1933;
+  --refresh-btn-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  --refresh-btn-color: white;
+  --reports-filters-box-bg: #e0e6e6;
+  --reports-filters-box-border: #000501;
+  --reports-submit-btn-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --reports-submit-btn-border: #cccccc;
+  --reports-submit-btn-clr: #ffffff;
+  --reports-table-head-bg: #e0e6e6;
+  --reports-table-head-text: #000000;
+  --reports-title-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --reports-title-text: #ffffff;
+  --right-sidenav-bg: #ffffff;
+  --right-sidenav-title-bar-bg: linear-gradient(
+    -180deg,
+    #000000 0%,
+    #000000 100%
+  );
+  --right-sidenav-title-bar-color: #ffffff;
+  --search-box-bg: white;
+  --search-box-border: #ccc;
+  --search-box-bottom-border-color: black;
+  --search-box-text-color: black;
+  --search-input-bg: white;
+  --search-input-border-color: black;
+  --search-input-icons-color: black;
+  --search-input-text-color: black;
+  --setting-save-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
+  --setting-save-color: #ffffff;
+  --settings-bar-bg: linear-gradient(-180deg, #2e4b5e 0, #243a48 82%);
+  --settings-bar-color: #ffffff;
+  --settings-btn-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
+  --settings-btn-border-color: #0b1933;
+  --settings-btn-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  --settings-btn-color: white;
+  --side-nav-bg: linear-gradient(-180deg, #ffffff 0%, #ffffff 100%);
+  --side-nav-hover-bg: #e6efd1;
+  --side-nav-hover-text-color: #83ae17;
+  --side-nav-icon-color: #83ae17;
+  --side-nav-link-border: #d2d6e2;
+  --side-nav-text-color: #223869;
+  --side-nav-top-bar-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
+  --side-nav-top-text-color: #ffffff;
+  --sport-allsports-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --sport-allsports-text: #ffffff;
+  --sport-link-icons: #ffffff;
+  --sport-link-text: #ffffff;
+  --sport-linkstab-bg: #14213d;
+  --sport-linkstab-border: #4b4b4b;
+  --sport-list-bg: #ffffff;
+  --sport-list-border: #e0e6e6;
+  --sport-list-icon-bg: #ffffff;
+  --sport-list-icon-color: #1e1e1e;
+  --sport-list-text: #2789ce;
+  --sportbook-market-bg: #ffffff;
+  --sportbook-pl-minus: #d0021b;
+  --sportbook-pl-plus: #228b22;
+  --sportbook-runner-border: #7e97a7;
+  --sportbook-runner-text: #23282c;
+  --sportmarket-border: #c8ced3;
+  --sports-quicklinks-bg: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
+  --sports-quicklinks-text: #ffffff;
+  --sportsbar-active-color: white;
+  --sportsbar-bg: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
+  --sportsbar-border-color: #797777;
+  --sportsbar-text-color: black;
+  --sportsbook-category-active-bg: #ffffff;
+  --sportsbook-category-active-text: #000000;
+  --sportsbook-category-bg: rgb(255, 255, 255, 50%);
+  --sportsbook-category-text: #000000;
+  --sportsbook-info-icon-bg: linear-gradient(180deg, #f58b30 15%, #f58b30 100%);
+  --stack-bg: #f9f9f9;
+  --stack-border-bg: #333;
+  --stack-border-color: conic-gradient(
+      #6ca7ec,
+      #2222b9,
+      #6ca7ec,
+      #2222b9,
+      #6ca7ec,
+      #2222b9,
+      #6ca7ec
+    )
+    1;
+  --stack-cancel-bg: #f9f9f9;
+  --stack-cancel-border-bg: #333;
+  --stack-cancel-color: #000000;
+  --stack-color: #000000;
+  --stack-heading-color: #243a48;
+  --stack-placebet-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
+  --stack-placebet-border-bg: #000000;
+  --stack-placebet-color: #ffffff;
+  --betslip-cmp-ui-link-bg: rgba(0, 0, 0, 0.7);
+  --betslip-cmp-modal-body-bg: #000;
+  --betslip-cmp-modal-body-color: #fff;
+  --betslip-cmp-btn-verification-bg: rgba(0, 0, 0, 0);
+  --betslip-cmp-btn-verification-border: #fff;
+  --betslip-cmp-btn-verification-color: #fff;
+  --betslip-cmp-btn-confirm-bg: #000;
+  --betslip-cmp-btn-confirm-color: #fff;
+  --betslip-cmp-stakeinput-disable-bg: #b2bcc5;
+  --betslip-cmp-stakeinput-disable-border: #b2bcc5;
+  --betslip-cmp-stakeactionplus-disable-bg: #b2bcc5;
+  --betslip-cmp-stakeactionminus-disable-bg: #b2bcc5;
+  --betslip-cmp-slip-lay-br-border-t: #dfa3b3;
+  --betslip-cmp-slip-lay-bg: #faeff2;
+  --betslip-cmp-slip-back-br-border-t: #7dbbe9;
+  --betslip-cmp-slip-back-bg: #d4e8f8;
+  --betslip-cmp-input-Betslip-bg: #eee;
+  --betslip-cmp-input-Betslip-border: #3333337a;
+  --betslip-cmp-input-Betslip-color: #1e1e1e;
+  --betslip-cmp-quick-bet-confirm-bg: rgba(255, 255, 255, 0.5);
+  --betslip-cmp-quick-bet-confirm-color: rgb(33, 33, 33);
+  --betslip-cmp-btn-cancel-bg: #eee;
+  --betslip-cmp-btn-cancel-color: #1e1e1e;
+  --betslip-cmp-btn-cancel-border: #333;
+  --betslip-cmp-btn-send-active-bg: linear-gradient(
+    -180deg,
+    #315195 0,
+    #14213d 100%
+  );
+  --betslip-cmp-btn-send-active-color: #fff;
+  --betslip-cmp-btn-send-active-border: #000;
+  --betslip-cmp-btn-send-bg: #a4a4a4;
+  --betslip-cmp-btn-send-color: #e6dfcd;
+  --betslip-cmp-btn-send-border: #333;
+  /* --betslip-cmp-slip-back-bg: #beddf4; */
+  /* --betslip-cmp-slip-lay-bg: #f3dce2; */
+  --betslip-cmp-stakeactionminus-bg: linear-gradient(-180deg, #fff 0, #eee 89%);
+  --betslip-cmp-stakeactionminus-color: #0000ff;
+  --betslip-cmp-stakeactionminus-border: #aaa;
+  --betslip-cmp-back-bg: #a7d8fd;
 
-    --market-details-cmp-odd-row-back-1-active-background: #1a8ee1;
-    --market-details-cmp-odd-row-back-1-active-color: #fff;
-    --market-details-cmp-odd-row-lay-1-active-background: #f4496d;
-    --market-details-cmp-odd-row-lay-1-active-color: #fff;
-
+  --market-details-cmp-odd-row-back-1-active-background: #1a8ee1;
+  --market-details-cmp-odd-row-back-1-active-color: #fff;
+  --market-details-cmp-odd-row-lay-1-active-background: #f4496d;
+  --market-details-cmp-odd-row-lay-1-active-color: #fff;
 }
 /* You can add global styles to this file, and also import other style files */
 body {
@@ -361,7 +400,7 @@ body {
   color: #fff;
   font-family: "SF-PRO", Arial, sans-serif !important;
   cursor: default;
-  user-select: none
+  user-select: none;
   /* overflow: hidden; */
 }
 /* @font-face {
@@ -439,39 +478,39 @@ body {
 }
 
 @font-face {
-  font-family: 'Rubik';
-  src: url('./../public/fonts/rubik-light-300.woff2') format('woff2');
+  font-family: "Rubik";
+  src: url("./../public/fonts/rubik-light-300.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Rubik';
-  src: url('./../public/fonts/rubik-regular-400.woff2') format('woff2');
+  font-family: "Rubik";
+  src: url("./../public/fonts/rubik-regular-400.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Rubik';
-  src: url('./../public/fonts/rubik-medium-500.woff2') format('woff2');
+  font-family: "Rubik";
+  src: url("./../public/fonts/rubik-medium-500.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Rubik';
-  src: url('./../public/fonts/rubik-bold-700.woff2') format('woff2');
+  font-family: "Rubik";
+  src: url("./../public/fonts/rubik-bold-700.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Baloo';
-  src: url('./../public/fonts/baloo-bhai-400.woff2') format('woff2');
+  font-family: "Baloo";
+  src: url("./../public/fonts/baloo-bhai-400.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -1399,6 +1438,77 @@ body {
   grid-area: footer;
 }
 
-.pagination-div{
+.pagination-div {
   user-select: none;
+}
+
+.wait-next-round {
+  @apply bg-black text-white text-[12px] px-3 py-0.5 font-medium max-w-fit absolute translate-x-[-50%] font-[Rubik] text-nowrap translate-y-[-50%] rounded-[12px] left-[50%] top-[50%] z-20;
+}
+
+.no-more-bets {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  max-width: fit-content;
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  text-wrap: nowrap;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 0.875rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.playerA-win-point {
+  @apply left-[50%] cursor-none absolute translate-x-[-50%] z-[4] top-[9.125rem];
+}
+
+.player-content-wrapper {
+  @apply w-[10.5rem];
+}
+
+.player-text {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #f89500 50%,
+    transparent 100%
+  );
+  font-family: Baloo\2, sans-serif;
+  font-weight: 800;
+  padding: 0.125rem 0;
+  text-shadow: 0 0.0625rem 0 rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  transform: translateY(1.625rem) scaleX(0);
+  text-align: center;
+}
+
+.animation-player-scale {
+  animation: scaleAnimation 2s ease-out, translateAnimation 2s;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(1.625rem) scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(1.625rem) scaleX(1);
+  }
+}
+
+@keyframes translateAnimation {
+  0% {
+    transform: translateY(1.625rem);
+  }
+  80% {
+    transform: translateY(-0.3125rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
