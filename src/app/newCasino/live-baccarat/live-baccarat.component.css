@@ -402,13 +402,13 @@
 
 .baccaratHistoryPortrait__scoreInfo-hQjSei {
   padding: 27px 0.5rem 0.25rem;
-  @apply min-[1312px]:!pt-0;
+  @apply min-[1312px]:!p-0;
 }
 
 .scoreBoardInfo-USWOxa{
   display: flex;
   align-items: center;
-  background: rgba(rgb(0 0 0 / 40%), 0.4);
+  background: rgba(0 0 0 / 0.4);
   border-radius: 0.5rem;
   justify-content: space-between;
 }
@@ -479,6 +479,30 @@
   border-radius: 0.125rem 0.5rem 0.5rem 0.125rem;
 }
 
+.mobileSvg{
+  visibility: visible !important;
+  height: auto !important;
+}
+
+.desktopSvg{
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+@media screen and (min-width:1312px) {
+  .mobileSvg{
+    visibility: hidden !important;
+    height: 0 !important;
+  }
+  
+  .desktopSvg{
+    visibility: visible !important;
+    position: absolute;
+    height: 100% !important;
+    top: 0;
+  }
+  
+}
 
 
 /* key frame ====================== */
