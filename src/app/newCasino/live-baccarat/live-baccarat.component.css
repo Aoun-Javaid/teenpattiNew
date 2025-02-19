@@ -1,5 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
 
+/* .hide{
+  opacity: 0 !important;
+  visibility: hidden;
+}
+
+.noAnimate{
+  animation: none !important;
+}
+
+.blurText{
+  opacity: 0.2;
+}
+
+.pPair{
+  top: 10.1rem !important;
+}
+
+.bPair{
+  top: 10.1rem !important;
+}
+
+.ePair{
+  top: 10.1rem !important;
+}
+
+.sPair{
+  top: 7.9rem !important;
+} */
+
+/* ================================== */
+
 .newGameWrapper {
   background-color: #0a0a1a;
   height: calc(100vh - 114px);
@@ -188,7 +219,7 @@
   font-weight: 800;
   line-height: 1;
   position: absolute;
-  top: 5.75rem;
+  top: 5.69rem;
   transition: opacity 300ms ease;
 }
 
@@ -204,23 +235,23 @@
   height: 0;
   justify-content: center;
   left: 50%;
-  top: 5.8125rem;
+  top: 5.6rem;
   white-space: nowrap;
   width: 0;
 }
 
 .table__playerPairTitle-zjbgYU{
-  @apply min-[1312px]:!translate-y-[0rem] min-[1312px]:!bottom-[1.125rem] min-[1312px]:!left-[1.2rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.625rem];
+  @apply min-[1312px]:!translate-y-[0rem] min-[1312px]:!bottom-[1.125rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.625rem];
   transform: translateY(-0.3125rem);
   left: 1.64rem;
-  top: 9.7rem;
+  top: 9.79rem;
   font-size: 0.75rem;
   position: absolute;
   white-space: nowrap;
 }
 
 .table__playerPairPayout-b4Lfsu{
-  @apply min-[1312px]:!bottom-[1.3rem] min-[1312px]:!left-[1.5rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.5rem];
+  @apply min-[1312px]:!bottom-[1.3rem] min-[1312px]:!left-[1.5rem] min-[1312px]:!text-[0.5rem];
   left: 2.88rem;
   top: 9.596rem;
   font-size: 0.68rem;
@@ -234,14 +265,14 @@
   @apply min-[1312px]:!translate-y-[0rem] min-[1312px]:!bottom-[1.125rem] min-[1312px]:!right-[1.2rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.625rem];
   transform: translateY(-0.3125rem);
   right: 1.4rem;
-  top: 9.7rem;
+  top: 9.79rem;
   font-size: 0.75rem;
   position: absolute;
   white-space: nowrap;
 }
 
 .table__bankerPairPayout-DTrMfa{
-  @apply min-[1312px]:!bottom-[1.3rem] min-[1312px]:!right-[1.67rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.5rem];
+  @apply min-[1312px]:!bottom-[1.3rem] min-[1312px]:!right-[1.67rem] min-[1312px]:!text-[0.5rem];
   right: 2.88rem;
   top: 9.596rem;
   font-size: 0.68rem;
@@ -291,9 +322,9 @@
 }
 
 .table__perfectPairPayout-jEF5WI{
-  @apply min-[1312px]:!translate-y-[0.4375rem] min-[1312px]:!left-[0.45rem] min-[1312px]:!top-[45%] min-[1312px]:!text-[0.5rem];
+  @apply min-[1312px]:!translate-y-[0.4375rem] min-[1312px]:!left-[0.45rem] min-[1312px]:!text-[0.5rem];
   right: 40.35%;
-  top: 7.3rem;
+  top: 7.2rem;
   font-size: 0.68rem;
   transform: translateY(0.849rem);
   color: rgb(138, 138, 153);
@@ -302,9 +333,9 @@
 }
 
 .table__perfectPairSecondPayout-OP50cA{
-  @apply min-[1312px]:!translate-y-[0.4375rem] min-[1312px]:!left-[0.7rem] min-[1312px]:!top-[45%] min-[1312px]:!text-[0.5rem];
+  @apply min-[1312px]:!translate-y-[0.4375rem] min-[1312px]:!left-[0.7rem] min-[1312px]:!text-[0.5rem];
   right: 41.9%;
-  top: 7.3rem;
+  top: 7.2rem;
   font-size: 0.68rem;
   transform: translateY(0.849rem);
   color: rgb(138, 138, 153);
@@ -316,7 +347,7 @@
   @apply min-[1312px]:!translate-y-[-0rem] min-[1312px]:!right-[0.55rem] min-[1312px]:!top-[39%] min-[1312px]:!text-[0.625rem] min-[1312px]:text-end;
   transform: translateY(-0.3125rem);
   left: 42%;
-  top: 9.7rem;
+  top: 9.79rem;
   font-size: 0.75rem;
   position: absolute;
   transition-duration: 300ms;
@@ -326,7 +357,7 @@
 }
 
 .table__eitherPairPayout-Mz8nuW {
-  @apply min-[1312px]:!translate-y-[0.4375rem] min-[1312px]:!right-[1.7rem] min-[1312px]:!top-[45%] min-[1312px]:!text-[0.5rem];
+  @apply min-[1312px]:!translate-y-[0.4375rem] min-[1312px]:!right-[1.7rem] min-[1312px]:!text-[0.5rem];
   right: 48%;
   top: 9.596rem;
   font-size: 0.68rem;
@@ -636,6 +667,40 @@
   .scoreBoardInfo-USWOxa{
     width: 18rem;
   }
+
+  .table__playerPairTitle-zjbgYU{
+    left: 1.1rem !important;
+  }
+
+  .table__playerPairPayout-b4Lfsu,
+  .table__bankerPairPayout-DTrMfa{
+    top: 5.3rem !important;
+  }
+
+  .table__perfectPairPayout-jEF5WI,
+  .table__perfectPairSecondPayout-OP50cA{
+    top: 44.5% !important;
+  }
+
+  .table__eitherPairPayout-Mz8nuW{
+    top: 44.5% !important;
+  }
+
+  /* .pPair{
+    top: 5.7rem !important;
+  }
+  
+  .bPair{
+    top: 5.7rem !important;
+  }
+  
+  .ePair{
+    top: 3.2rem !important;
+  }
+  
+  .sPair{
+    top: 3.2rem !important;
+  } */
   
 }
 
