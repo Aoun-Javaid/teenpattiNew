@@ -477,11 +477,83 @@
   white-space: nowrap;
 }
 
+.sicBo__controls-bEHBgU {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 6;
+}
+
+.controlsPanel-mDHDjp {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  position: relative;
+  width: 3rem;
+}
+
+.svgIcon_default-OFLILg {
+  width: 1.5rem;
+  fill: white;
+}
+
+.secbo-btn {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-wrapper {
+  @apply flex flex-col mb-2;
+}
+
+.bettingButton_blue-VHm4OI:before {
+  background: linear-gradient(135deg, #2996cc, #004d99);
+}
+.bettingButton-i5MaZV:before {
+  inset: 0;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50% !important;
+}
+
+.svgIcon_large-z8G1_Q {
+  width: 3rem;
+}
+
+.svgIcon-JpUo7O {
+  fill: currentColor;
+  aspect-ratio: 1;
+  overflow: visible;
+}
+
+.bettingButton-i5MaZV:after,
+.bettingButton-i5MaZV:before {
+  border-radius: inherit;
+  content: "";
+  position: absolute;
+  z-index: 2;
+}
+
+.bettingButton_orange-oB31C6:before {
+  background: linear-gradient(135deg, #f93, #f50);
+}
+
+.bettingButton-i5MaZV:before {
+  inset: 0;
+}
+
 @media (max-width: 1135px) {
   .sicBo__interactiveArea-_Pd65K {
     align-items: flex-end;
     height: 100%;
     justify-content: space-between;
+  }
+  .sicBo__controls-bEHBgU {
+    height: 100%;
   }
 
   .sicBo__tableArea-KVdEwC {
