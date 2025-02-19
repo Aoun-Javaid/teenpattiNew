@@ -354,12 +354,14 @@
                                             </filter>
                                         </defs>
                                     </g>
-                                    <g class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
+                                    <g  (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[1].selectionId,'back',marketArray[1].runners[1].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)" class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
                                        data-locator="dragon-even-button">
                                         <path
                                                 d="M2.21,109.827c-0.715,-0.717 -2.21,-0.243 -2.21,0.77l0,27.403c0,6.627 5.373,12 12,12l28,0c1.105,0 2,-0.896 2,-2l0,-32c0,-1.105 -0.895,-2 -2,-2l-28,0c-3.81,0 -7.265,-1.643 -9.79,-4.173Z"
                                                 fill="url(#DT_table_sideBet_isDragon:true__background)"></path>
-                                        <path class="svg__ctaBackground-pE1PGC"
+                                        <path
+
+                                        class="svg__ctaBackground-pE1PGC"
                                               d="M2.21,109.827c-0.715,-0.717 -2.21,-0.243 -2.21,0.77l0,27.403c0,6.627 5.373,12 12,12l28,0c1.105,0 2,-0.896 2,-2l0,-32c0,-1.105 -0.895,-2 -2,-2l-28,0c-3.81,0 -7.265,-1.643 -9.79,-4.173Z"
                                               fill="url(#DT_table_sideBet_isDragon:true__ctaBackground)"></path>
                                         <path class="svg__winBackground-AgT0Cm"
@@ -368,7 +370,8 @@
                                               filter="url(#DT_table_sideBet_isDragon:true__winShadow)"></path>
                                     </g>
                                     <g class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
-                                       data-locator="dragon-odd-button">
+                                       data-locator="dragon-odd-button"
+                                       (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[0].selectionId,'back',marketArray[1].runners[0].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)" >
                                         <path
                                                 d="M44,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                                 fill="url(#DT_table_sideBet_isDragon:true__background)"></path>
@@ -380,7 +383,8 @@
                                               fill="url(#DT_table_sideBet_isDragon:true__winBackground)"
                                               filter="url(#DT_table_sideBet_isDragon:true__winShadow)"></path>
                                     </g>
-                                    <g class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
+                                    <g (click)="openBetslip(marketArray[3].marketId,marketArray[3].runners[0].selectionId,'back',marketArray[3].runners[0].price.back[0].price,marketArray[3]?.min,marketArray[3]?.max)"
+                                     class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
                                        data-locator="dragon-small-button">
                                         <path
                                                 d="M87,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
@@ -393,7 +397,9 @@
                                               fill="url(#DT_table_sideBet_isDragon:true__winBackground)"
                                               filter="url(#DT_table_sideBet_isDragon:true__winShadow)"></path>
                                     </g>
-                                    <g class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
+                                    <g
+                                    (click)="openBetslip(marketArray[3].marketId,marketArray[3].runners[1].selectionId,'back',marketArray[3].runners[1].price.back[0].price,marketArray[3]?.min,marketArray[3]?.max)"
+                                     class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
                                        data-locator="dragon-big-button">
                                         <path
                                                 d="M130,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
@@ -435,7 +441,9 @@
                                             </filter>
                                         </defs>
                                     </g>
-                                    <g class="svg-kKAHVZ svg_cta-fTTgEw svg_win-qJa6ey" data-locator="tiger-big-button">
+                                    <g
+                                    (click)="openBetslip(marketArray[4].marketId,marketArray[4].runners[1].selectionId,'back',marketArray[4].runners[1].price.back[0].price,marketArray[4]?.min,marketArray[4]?.max)"
+                                     class="svg-kKAHVZ svg_cta-fTTgEw svg_win-qJa6ey" data-locator="tiger-big-button">
                                         <path
                                                 d="M173,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                                 fill="url(#DT_table_sideBet_isDragon:false__background)"></path>
@@ -476,7 +484,8 @@
                                             </filter>
                                         </defs>
                                     </g>
-                                    <g class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
+                                    <g (click)="openBetslip(marketArray[4].marketId,marketArray[4].runners[0].selectionId,'back',marketArray[4].runners[0].price.back[0].price,marketArray[4]?.min,marketArray[4]?.max)"
+                                    class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
                                        data-locator="tiger-small-button">
                                         <path
                                                 d="M216,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
@@ -489,7 +498,11 @@
                                               fill="url(#DT_table_sideBet_isDragon:false__winBackground)"
                                               filter="url(#DT_table_sideBet_isDragon:false__winShadow)"></path>
                                     </g>
-                                    <g class="svg-kKAHVZ svg_cta-fTTgEw svg_win-qJa6ey" data-locator="tiger-odd-button">
+                                    <g
+
+                                    (click)="openBetslip(marketArray[2].marketId,marketArray[2].runners[0].selectionId,'back',marketArray[2].runners[0].price.back[0].price,marketArray[2]?.min,marketArray[2]?.max)"
+                                    class="svg-kKAHVZ svg_cta-fTTgEw svg_win-qJa6ey"
+                                    data-locator="tiger-odd-button">
                                         <path
                                                 d="M259,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                                 fill="url(#DT_table_sideBet_isDragon:false__background)"></path>
@@ -501,7 +514,9 @@
                                               fill="url(#DT_table_sideBet_isDragon:false__winBackground)"
                                               filter="url(#DT_table_sideBet_isDragon:false__winShadow)"></path>
                                     </g>
-                                    <g class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
+                                    <g
+                                    (click)="openBetslip(marketArray[2].marketId,marketArray[2].runners[1].selectionId,'back',marketArray[2].runners[1].price.back[0].price,marketArray[2]?.min,marketArray[2]?.max)"
+                                    class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
                                        data-locator="tiger-even-button">
                                         <path
                                                 d="M341.79,109.827c0.715,-0.717 2.21,-0.243 2.21,0.77l0,27.403c0,6.627 -5.373,12 -12,12l-28,0c-1.105,0 -2,-0.896 -2,-2l0,-32c0,-1.105 0.895,-2 2,-2l28,0c3.81,0 7.265,-1.643 9.79,-4.173Z"
@@ -649,7 +664,7 @@
                                     <div class="table__sideHtml-zfGh6c">
                                         <div class="tableSideStatic-Hgozqb">
                                           <!-- dragon -->
-                                            <div class="tableSideStatic__dragonEven-QFtUYx">
+                                            <div class="tableSideStatic__dragonEven-QFtUYx" >
                                                 <div class="tableSideStatic__title-gncnfi"
                                                      data-locator="dragon-even-title">{{(marketArray[1]?.runnersName[marketArray[1]?.runners[1]?.selectionId] | slice:7) }}
                                                 </div>
