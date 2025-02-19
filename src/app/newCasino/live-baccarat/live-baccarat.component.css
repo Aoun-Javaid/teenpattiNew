@@ -357,6 +357,7 @@
 
 .table__playerCards-o5vD_n {
   left: 0.5rem;
+  @apply min-[1312px]:!left-[4.4375rem];
 }
 .table__bankerCards-i5f6OJ, .table__playerCards-o5vD_n {
   position: absolute;
@@ -388,6 +389,7 @@
 
 .table__bankerCards-i5f6OJ {
   right: 0.5rem;
+  @apply min-[1312px]:!right-[4.4375rem];
 }
 
 .baccaratCardsStack_align_right-zQbAAZ .baccaratCardsStack__cards-AobfKq {
@@ -400,9 +402,131 @@
   width: fit-content;
 }
 
+.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:first-of-type {
+  grid-area: 1 / 2;
+}
+
+.baccaratCardsStack__cardWrap-g60f5P {
+  display: flex;
+  justify-content: inherit;
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(2) {
+  grid-area: 1 / 3;
+}
+
+.baccaratCardsStack__cardWrap-g60f5P {
+  display: flex;
+  justify-content: inherit;
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__card-NpnM09 {
+  width: 1.75rem;
+}
+.baccaratCardsStack__card-NpnM09 {
+  border-radius: 0.125rem;
+}
+
+.card_size_medium-rVA6GX {
+  height: 2.375rem;
+  width: 1.75rem;
+}
+.card_color_red-oOULpU {
+  color: #e13639;
+}
+
+.card-wi2ADp {
+  --box-shadow-color: rgba(0, 0, 0, .4);
+  border-radius: 0.125rem;
+  position: relative;
+}
+
+.card-wi2ADp:not(.card_hasBackSide-tUG5vz):before {
+  background-color: #000;
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.card_size_medium-rVA6GX .card__inner-CIH8Z7 {
+  box-shadow: 0 0.5rem 0.75rem var(--box-shadow-color);
+}
+
+.card__inner-CIH8Z7 {
+  background: #fff;
+  border-radius: inherit;
+  height: inherit;
+  position: relative;
+  transition: opacity 300ms ease;
+}
+
+.card__frontSide-tJBKcu {
+  height: 100%;
+  width: 100%;
+}
+
+.card__backSide-eZ4pXs, .card__frontSide-tJBKcu {
+  backface-visibility: hidden;
+  background-color: #fff;
+  border-radius: inherit;
+  inset: 0;
+  position: absolute;
+}
+
+.card_size_medium-rVA6GX {
+  height: 2.375rem;
+  width: 1.75rem;
+}
+
+.card_color_black-iDcRjL {
+  color: #000;
+}
+.card-wi2ADp {
+  --box-shadow-color: rgba(0, 0, 0, .4);
+  border-radius: 0.125rem;
+  position: relative;
+}
+
+.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) {
+  width: 2.375rem;
+}
+
+.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) .baccaratCardsStack__card-NpnM09 {
+  box-shadow: -0.5rem 0 0.75rem rgba(0, 0, 0, .4);
+  overflow: hidden;
+}
+
+.baccaratCardsStack_align_right-zQbAAZ .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) .baccaratCardsStack__card-NpnM09 {
+  transform: rotate(-90deg) translateY(100%);
+  transform-origin: left bottom;
+}
+
+.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) {
+  width: 2.375rem;
+}
+
+.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(3) {
+  grid-area: 1 / 1;
+  justify-content: flex-end;
+}
+
+.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) .baccaratCardsStack__card-NpnM09 {
+  box-shadow: -0.5rem 0 0.75rem rgba(0, 0, 0, .4);
+  overflow: hidden;
+}
+
+.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(3) .baccaratCardsStack__card-NpnM09 {
+  transform: rotate(-90deg) translateX(100%);
+  transform-origin: right bottom;
+}
+
+
 .baccaratHistoryPortrait__scoreInfo-hQjSei {
-  padding: 27px 0.5rem 0.25rem;
-  @apply min-[1312px]:!p-0;
+  padding: 6% 0.5rem 0.25rem;
+  @apply min-[1312px]:!pt-0;
 }
 
 .scoreBoardInfo-USWOxa{
@@ -426,6 +550,7 @@
   min-width: 1.875rem;
   display: flex;
   align-items: center;
+  
 }
 
 .scoreBoardInfo__totalItemSvg-eW0Cnx {
@@ -500,6 +625,16 @@
     position: absolute;
     height: 100% !important;
     top: 0;
+  }
+
+  .baccaratHistoryPortrait__scoreInfo-hQjSei{
+    left: -26.5rem !important;
+    top: 0;
+    position: absolute;
+  }
+
+  .scoreBoardInfo-USWOxa{
+    width: 18rem;
   }
   
 }
