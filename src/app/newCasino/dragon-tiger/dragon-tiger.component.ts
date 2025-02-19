@@ -488,9 +488,8 @@ export class DragonTigerComponent implements OnInit {
     }
   }
 
-
   openBetslip(marketId: any, selectionId: any, betType: any, price: any, min: any, max: any) {
-
+    console.log('method clicked ',price)
     if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
       if (this.selectedBetAmount > 0) {
         this.isBetsSlipOpened = selectionId;
