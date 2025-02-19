@@ -220,7 +220,7 @@
 }
 
 .table__playerPairPayout-b4Lfsu{
-  @apply min-[1312px]:!bottom-[1.125rem] min-[1312px]:!left-[1.5rem] min-[1312px]:!top-auto;
+  @apply min-[1312px]:!bottom-[1.3rem] min-[1312px]:!left-[1.5rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.5rem];
   left: 2.88rem;
   top: 9.596rem;
   font-size: 0.68rem;
@@ -241,7 +241,7 @@
 }
 
 .table__bankerPairPayout-DTrMfa{
-  @apply min-[1312px]:!bottom-[1.125rem] min-[1312px]:!right-[1.5rem] min-[1312px]:!top-auto;
+  @apply min-[1312px]:!bottom-[1.3rem] min-[1312px]:!right-[1.67rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.5rem];
   right: 2.88rem;
   top: 9.596rem;
   font-size: 0.68rem;
