@@ -4,7 +4,10 @@
   font-size: 15px;
   font-weight: bold;
 }
-
+#marketScroll{
+  background: #fff;
+  padding-top: 1px;
+}
 .baccarat .baccarat-bets-name div {
   font-size: 15px;
   font-weight: bold;
@@ -569,7 +572,7 @@ li.chips_1_selected {
 
 @media only screen and (min-width: 767px) {
 
-  .chips li .ring{
+  .chips li .rings{
       width: 60px;
       height: 48px;
       left: calc(50% - 59px / 2);

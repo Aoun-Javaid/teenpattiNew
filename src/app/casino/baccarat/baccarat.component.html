@@ -2,7 +2,7 @@
 
   <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="true" [fancyTimer]="false" [displayResult]="true"
   [unityTimer]="true"></app-video-player>
-  <div class="" [ngClass]="{'scrollMarket': !isDesktop}">
+  <div class="" id="marketScroll" [ngClass]="{'scrollMarket': !isDesktop}">
       <div class="baccarat" *ngIf="isDesktop">
           <div class="baccarat-bets">
               <!-- <div class="player-pair hidden-xs hidden-xs-left">
@@ -957,7 +957,7 @@
                               src="/assets/chips/chips20.svg">
                           <img *ngIf="stake.stakeAmount >= 50000" src="/assets/chips/chips1k.svg">
                           <p>{{stake.stakeName | shortNumber }} </p>
-                          <span class="ring">ring</span>
+                          <span class="rings">ring</span>
                       </li>
                   </ul>
               </section>
@@ -979,7 +979,7 @@
                       src="/assets/chips/chips20.svg">
                   <img *ngIf="stake.stakeAmount >= 50000" src="/assets/chips/chips1k.svg">
                   <p>{{stake.stakeName | shortNumber }} </p>
-                  <span class="ring">ring</span>
+                  <span class="rings">ring</span>
               </li>
           </ul>
       </section>
