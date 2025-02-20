@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
 
-.hide{
+/* .hide{
   opacity: 0 !important;
   visibility: hidden;
 }
@@ -27,12 +27,12 @@
 
 .sPair{
   top: 7.9rem !important;
-}
+} */
 
-/* .player_score,
+.player_score,
 .banker_score{
   display: none !important;
-} */
+}
 
 /* .winner{
   animation: highlightAnimationBackground-XRfTxu 600ms ease infinite alternate;
@@ -274,7 +274,7 @@
 .table__bankerPairTitle-jKSnQU{
   @apply min-[1312px]:!translate-y-[0rem] min-[1312px]:!bottom-[1.125rem] min-[1312px]:!right-[1.2rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.625rem];
   transform: translateY(-0.3125rem);
-  right: 1.4rem;
+  right: 1.5rem;
   top: 9.79rem;
   font-size: 0.75rem;
   position: absolute;
@@ -283,7 +283,7 @@
 
 .table__bankerPairPayout-DTrMfa{
   @apply min-[1312px]:!bottom-[1.3rem] min-[1312px]:!right-[1.67rem] min-[1312px]:!text-[0.5rem];
-  right: 2.88rem;
+  right: 2.95rem;
   top: 9.596rem;
   font-size: 0.68rem;
   transform: translateY(0.849rem);
@@ -695,7 +695,7 @@
   .table__eitherPairPayout-Mz8nuW{
     top: 44.5% !important;
   }
-
+/* 
   .pPair{
     top: 5.7rem !important;
   }
@@ -710,7 +710,7 @@
   
   .sPair{
     top: 3.2rem !important;
-  }
+  } */
   
 }
 
