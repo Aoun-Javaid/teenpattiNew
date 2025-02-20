@@ -116,7 +116,7 @@ export const routes: Routes = [
         component: SicBoComponent
       },
       {
-        path:'live-baccarat',
+        path:'live-baccarat/:id',
         component:LiveBaccaratComponent
       },
       {

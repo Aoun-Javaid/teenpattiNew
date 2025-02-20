@@ -29,10 +29,10 @@
   top: 7.9rem !important;
 }
 
-.player_score,
+/* .player_score,
 .banker_score{
   display: none !important;
-}
+} */
 
 .winner{
   animation: highlightAnimationBackground-XRfTxu 600ms ease infinite alternate;
@@ -675,7 +675,7 @@
   }
 
   .scoreBoardInfo-USWOxa{
-    width: 18rem;
+    width: 22.5rem;
   }
 
   .table__playerPairTitle-zjbgYU{
@@ -712,6 +712,19 @@
     top: 3.2rem !important;
   }
   
+}
+
+.card-animation {
+  animation: card-animation 500ms forwards;
+}
+
+@keyframes card-animation {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 
