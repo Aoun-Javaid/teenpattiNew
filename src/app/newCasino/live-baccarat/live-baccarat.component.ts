@@ -39,4 +39,9 @@ export class LiveBaccaratComponent implements OnInit {
   getCoinValue(event: any) {
     console.log('event', event);
   }
+
+  getClickedItem(blockName: string){
+    console.log(blockName + " Method Clicked");
+  }
+ 
 }
