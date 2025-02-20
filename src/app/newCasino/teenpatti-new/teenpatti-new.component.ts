@@ -492,6 +492,13 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
   openBetslip(marketId: any, selectionId: any, betType: any, price: any, min: any, max: any) {
 
+    if(this.game.status=='SUSPEND'){
+      this.waitRound = true
+      setTimeout(() => {
+        this.waitRound = false
+      }, 1000);
+    }
+
     if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
       if (this.selectedBetAmount > 0) {
         this.isBetsSlipOpened = selectionId;
@@ -563,6 +570,12 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
               loader: false,
             }
             this.networkService.setBetPlace(placeBetObj);
+            this.game.betAccepted = true;
+            this.networkService.updateRoundId(this.game);
+            setTimeout(() => {
+              this.game.betAccepted = false;
+              this.networkService.updateRoundId(this.game);
+            }, 1500);
 
           }
           else {
@@ -1018,16 +1031,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   }
 
 
-  playerA() {
-    if (this.game.status == 'SUSPEND') {
-      this.waitRound = true
-      setTimeout(() => {
-        this.waitRound = false
-      }, 1000);
-    }
 
-
-  }
 
 
 
