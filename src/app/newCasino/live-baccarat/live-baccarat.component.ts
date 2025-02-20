@@ -126,12 +126,12 @@ export class LiveBaccaratComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
 onResize(event?: Event) {
-  console.log(this.checkWindowSize()); // ✅ Ab ye true/false return karega
+  console.log(this.checkWindowSize());
 }
 
 checkWindowSize() {
   this.isMobile = window.innerWidth <= 1312;
-  return this.isMobile; // 🔥 Ab yeh value return karega
+  return this.isMobile;
 }
 
 
