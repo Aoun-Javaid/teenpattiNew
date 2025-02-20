@@ -125,6 +125,10 @@
   line-height: 1.5rem;
   /* width: 1rem; */
 }
+.tile_size_small_dt{
+  font-size: 1rem;
+  line-height: 2rem;
+}
 .tile_indentSize_medium-U9Lwul {
   margin: 0 0.25rem;
 }
@@ -150,9 +154,9 @@
   height: 1rem;
   width: 1.5rem;
 }
-.tile_size_small-ATZ3H_ .tile__label_dt{
-  height: 1.5rem;
-  width: 1.5rem;
+.tile__label_dt{
+  height: 2rem;
+  width: 2rem;
 }
 .tile__label_dt{
   align-items: center;
