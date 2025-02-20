@@ -1264,8 +1264,10 @@
 
                 </div>
 
-                <div class="btn-wrapper">
-                    <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI  relative mb-2">
+                <div class="btn-wrapper gap-2  "
+                    [ngClass]="openCoinBarState ? 'absolute bottom-[-30px] z-30 justify-between inset-0 py-4 !pb-0 ' : ' !static !py-0 !pb-0'">
+
+                    <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI  relative">
                         <svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q relative z-20" viewBox="0 0 48 48"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -1275,7 +1277,184 @@
                         </svg>
                     </button>
 
-                    <button class="bettingButton-i5MaZV bettingButton_orange-oB31C6 relative">
+                    <div (click)="openBetCoin()" class="flex flex-col gap-2 max-h-[48px] relative z-30 overflow-hidden"
+                        [ngClass]="{'max-h-full':openCoinBarState === true}">
+
+                        <div class="chipTrayWithToggle__item-nLy9Sn">
+                            <div class="chips-rzbOIK ">
+                                <div class="chip-kcN8LW chip_size_48-odjDTm  !rotate-0 " data-locator="chip-250">
+                                    <div class="chip__1st">
+                                        <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                        </div>
+                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <text x="32%" y="50%" transform="translate(0, 1.25)"
+                                                class="chip__valueShadow-apDxWQ" text-rendering="geometricPrecision"
+                                                dominant-baseline="central"
+                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                                {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
+                                            </text>
+                                            <text x="32%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                                text-rendering="geometricPrecision" data-locator="chip-value"
+                                                dominant-baseline="central"
+                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                                {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
+                                            </text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="chipTrayWithToggle__item-nLy9Sn">
+                            <div class="chips-rzbOIK ">
+                                <div class="chip-kcN8LW chip_size_48-odjDTm  !rotate-0 " data-locator="chip-250">
+                                    <div class="chip__1st"
+                                        style=" background: linear-gradient(135deg, #f93 0%, #f50 100%, #8a8a99) !important; ">
+                                        <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                        </div>
+                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <text x="32%" y="50%" transform="translate(0, 1.25)"
+                                                class="chip__valueShadow-apDxWQ" text-rendering="geometricPrecision"
+                                                dominant-baseline="central"
+                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                                {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
+                                            </text>
+                                            <text x="32%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                                text-rendering="geometricPrecision" data-locator="chip-value"
+                                                dominant-baseline="central"
+                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                                {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
+                                            </text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chipTrayWithToggle__item-nLy9Sn">
+                            <div class="chips-rzbOIK ">
+                                <div class="chip-kcN8LW chip_size_48-odjDTm  !rotate-0 " data-locator="chip-250">
+                                    <div class="chip__1st"
+                                        style="background: linear-gradient(135deg, #f69 0%, #c06 100%) !important;">
+                                        <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                        </div>
+                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <text x="32%" y="50%" transform="translate(0, 1.25)"
+                                                class="chip__valueShadow-apDxWQ" text-rendering="geometricPrecision"
+                                                dominant-baseline="central"
+                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                                {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
+                                            </text>
+                                            <text x="32%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                                text-rendering="geometricPrecision" data-locator="chip-value"
+                                                dominant-baseline="central"
+                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                                {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
+                                            </text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chipTrayWithToggle__item-nLy9Sn">
+                            <div class="chips-rzbOIK ">
+                                <div class="chip-kcN8LW chip_size_48-odjDTm  !rotate-0 " data-locator="chip-250">
+                                    <div class="chip__1st"
+                                        style="background:  linear-gradient(135deg, #f33 0%, #900 100%) !important;">
+                                        <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                        </div>
+                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <text x="32%" y="50%" transform="translate(0, 1.25)"
+                                                class="chip__valueShadow-apDxWQ" text-rendering="geometricPrecision"
+                                                dominant-baseline="central"
+                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                                {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
+                                            </text>
+                                            <text x="32%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                                text-rendering="geometricPrecision" data-locator="chip-value"
+                                                dominant-baseline="central"
+                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                                {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
+                                            </text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chipTrayWithToggle__item-nLy9Sn">
+                            <div class="chips-rzbOIK ">
+                                <div class="chip-kcN8LW chip_size_48-odjDTm  !rotate-0 " data-locator="chip-250">
+                                    <div class="chip__1st"
+                                        style="background: linear-gradient(135deg, #5f29cc 0%, #009 100%);">
+                                        <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                        </div>
+                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <text x="32%" y="50%" transform="translate(0, 1.25)"
+                                                class="chip__valueShadow-apDxWQ" text-rendering="geometricPrecision"
+                                                dominant-baseline="central"
+                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                                {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
+                                            </text>
+                                            <text x="32%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                                text-rendering="geometricPrecision" data-locator="chip-value"
+                                                dominant-baseline="central"
+                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                                {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
+                                            </text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chipTrayWithToggle__item-nLy9Sn">
+                            <div class="chips-rzbOIK ">
+                                <div class="chip-kcN8LW chip_size_48-odjDTm  !rotate-0 " data-locator="chip-250">
+                                    <div class="chip__1st"
+                                        style="background: linear-gradient(135deg, #2e3133 0%, #0b0c0d 100%);">
+                                        <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                                        </div>
+                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <text x="32%" y="50%" transform="translate(0, 1.25)"
+                                                class="chip__valueShadow-apDxWQ" text-rendering="geometricPrecision"
+                                                dominant-baseline="central"
+                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                                {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
+                                            </text>
+                                            <text x="32%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                                                text-rendering="geometricPrecision" data-locator="chip-value"
+                                                dominant-baseline="central"
+                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                                {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
+                                            </text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <button class="mt-5 secbo-btn" (click)="closeBetCoin()" *ngIf="openCoinBarState">
+                            <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4l16 16m0-16L4 20" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round"></path>
+                            </svg>
+                        </button>
+
+
+                    </div>
+
+                    <button class="bettingButton-i5MaZV bettingButton_orange-oB31C6 relative" *ngIf="!openCoinBarState">
                         <svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q relative z-20" viewBox="0 0 48 48"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
