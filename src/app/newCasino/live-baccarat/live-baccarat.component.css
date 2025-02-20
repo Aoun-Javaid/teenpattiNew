@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
 
-/* .hide{
+.hide{
   opacity: 0 !important;
   visibility: hidden;
 }
@@ -27,7 +27,17 @@
 
 .sPair{
   top: 7.9rem !important;
-} */
+}
+
+.player_score,
+.banker_score{
+  display: none !important;
+}
+
+.winner{
+  animation: highlightAnimationBackground-XRfTxu 600ms ease infinite alternate;
+  visibility: visible !important;
+}
 
 /* ================================== */
 
@@ -686,7 +696,7 @@
     top: 44.5% !important;
   }
 
-  /* .pPair{
+  .pPair{
     top: 5.7rem !important;
   }
   
@@ -700,7 +710,7 @@
   
   .sPair{
     top: 3.2rem !important;
-  } */
+  }
   
 }
 
