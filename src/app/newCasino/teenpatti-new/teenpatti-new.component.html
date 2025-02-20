@@ -192,7 +192,7 @@
                                         d="M12 0A12 12 0 0 0 0 12v100a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h48a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12H181a12 12 0 0 0-11.96 11h-2.08A12 12 0 0 0 155 0H12Z">
                                     </path>
                                     <g class="mainBetPlaceSvg_roundResult_lose-EwvTF6">
-                                        <path id="PlayerA" style="pointer-events: all;" (click)="playerA()"
+                                        <path id="PlayerA" style="pointer-events: all;"
                                             (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[0].selectionId,'back',marketArray[0].runners[0].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
                                             d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
                                             class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
@@ -723,3 +723,71 @@
     ;
     flex-direction: column;
     justify-content: end; -->
+
+
+    <!-- <app-bets-chips *ngIf="BetPlaced[winnerMarketArray?.marketId][winnerMarketArray.runners[1].selectionId]"
+    [BetPlaced]="BetPlaced" [marketId]="winnerMarketArray?.marketId"
+    [runnerId]="winnerMarketArray.runners[1].selectionId"></app-bets-chips> -->
+<!--
+    <img [src]="'/images/chips/'+stakeIndex+'.webp'" alt="">
+
+<span class="absolute top-[7px] w-full flex justify-center cdChipSpan" [ngClass]="
+                      {
+                        '!text-[#00a08f]':stakeIndex==1,
+                        '!text-[#0052a0]':stakeIndex==2,
+                        '!text-[#4A00A0]':stakeIndex==3,
+                        '!text-[#9200A0]':stakeIndex==4,
+                        '!text-[#A07F00]':stakeIndex==5,
+                        '!text-[#A05300]':stakeIndex==6,
+                        '!text-[#A00600]':stakeIndex==7,
+                        '!text-[#A0003C]':stakeIndex==8
+                      }" *ngIf="BetPlaced[marketId][runnerId]">
+  {{ absValue(BetPlaced[marketId][runnerId]) | shortNumber }}
+</span> -->
+
+<!-- betStakes:any;
+stakeIndex:any=1;
+constructor(private indexedDb:IndexedDbService){
+
+}
+ngOnInit(): void {
+
+}
+@Input() BetPlaced:any={};
+@Input() marketId:any;
+@Input() runnerId:any;
+
+absValue(x: any) {
+  return Math.abs(x)
+}
+ngOnChanges() {
+    // Check if the current value is different from the previous value using deep comparison
+    this.getStakes(this.BetPlaced[this.marketId][this.runnerId]);
+
+}
+CalculateIndex(){
+  // console.log('calculating index')
+  this.getStakes(this.BetPlaced[this.marketId][this.runnerId]);
+}
+getStakes(stake:any){
+
+  const path = CONFIG.userGetStackURL.split('/').filter(Boolean).pop();
+  this.indexedDb.getRecord(path).subscribe((res: any) => {
+    if (res?.data && res?.data !== null) {
+      this.betStakes = res?.data?.stake;
+      this.findStakeIndex(stake)
+      // console.warn("stake Index",this.stakeIndex)
+    }
+  })
+}
+findStakeIndex(stake:any) {
+  for (let i = 0; i < this.betStakes.length; i++) {
+      if (this.betStakes[i].stakeAmount >= stake) {
+        this.stakeIndex = i+1;
+        return
+      }
+  }
+ this.stakeIndex = 1;
+ return
+
+} -->

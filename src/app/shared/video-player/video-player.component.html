@@ -689,7 +689,7 @@
     <!-- no bet more  -->
 
     <!-- bet-confirm  -->
-    <div class="no-more-bets">Bet confirmed</div>
+    <div *ngIf="this.game?.betAccepted" class="no-more-bets">Bet confirmed</div>
     <!-- bet-confirm  -->
 
 
