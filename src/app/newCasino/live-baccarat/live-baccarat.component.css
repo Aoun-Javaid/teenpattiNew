@@ -139,13 +139,14 @@
   gap: 0.25rem;
 }
 
-.betStat__percentage-BBxzKO {
-  flex-shrink: 0;
-}
 
 .betStat_size_small-kxmCJ5 {
   font-size: 0.5rem;
   line-height: 0.75rem;
+}
+
+.betStat__percentage-BBxzKO {
+  flex-shrink: 0;
 }
 
 .percentageBetStat-cKHkzI {
@@ -158,8 +159,9 @@
   height: 1.5rem;
   justify-content: center;
   overflow: hidden;
-  transition: background-position-y .35s ease;
+  transition: background-position-y 0.35s ease;
   width: 1.5rem;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 100%);
 }
 
 .betStat__info-iGat4V {
@@ -590,7 +592,7 @@
   min-width: 1.875rem;
   display: flex;
   align-items: center;
-  
+
 }
 
 .scoreBoardInfo__totalItemSvg-eW0Cnx {
@@ -659,7 +661,7 @@
     visibility: hidden !important;
     height: 0 !important;
   }
-  
+
   .desktopSvg{
     visibility: visible !important;
     position: absolute;
@@ -694,23 +696,23 @@
   .table__eitherPairPayout-Mz8nuW{
     top: 44.5% !important;
   }
-/* 
+/*
   .pPair{
     top: 5.7rem !important;
   }
-  
+
   .bPair{
     top: 5.7rem !important;
   }
-  
+
   .ePair{
     top: 3.2rem !important;
   }
-  
+
   .sPair{
     top: 3.2rem !important;
   } */
-  
+
 }
 
 .card-animation {
