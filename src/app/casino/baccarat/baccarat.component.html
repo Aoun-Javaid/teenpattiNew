@@ -1,0 +1,992 @@
+<div class="">
+
+  <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="true" [fancyTimer]="false" [displayResult]="true"
+  [unityTimer]="true"></app-video-player>
+  <div class="" [ngClass]="{'scrollMarket': !isDesktop}">
+      <div class="baccarat" *ngIf="isDesktop">
+          <div class="baccarat-bets">
+              <!-- <div class="player-pair hidden-xs hidden-xs-left">
+                  <div class="baccarat-bets-name"
+                      (click)="openBetslip(winnerMarketArray?.marketId,winnerMarketArray?.runners[0]?.selectionId,'back',winnerMarketArray?.runners[0]?.price?.back[0]?.price,winnerMarketArray?.min, winnerMarketArray?.max)">
+                      <div>{{winnerMarketArray?.runnersName[winnerMarketArray?.runners[0]?.selectionId]}}</div>
+                      <div class="mb-0">{{winnerMarketArray?.runners[0]?.price?.back[0]?.price | number : '1.2-2'}}
+                      </div>
+                  </div>
+              </div> -->
+              <div class="player"
+                  [ngClass]="winnerMarketArray?.runners[0]?.status=='SUSPEND' || game?.status=='SUSPEND' ?'suspended':''  "
+                  (click)="openBetslip(winnerMarketArray?.marketId,winnerMarketArray?.runners[0]?.selectionId,'back',winnerMarketArray?.runners[0]?.price?.back[0]?.price,winnerMarketArray?.min, winnerMarketArray?.max)">
+                  <div class="baccarat-bets-name">
+                      <!-- [ngClass]="(isBetsSlipOpened  == winnerMarketArray?.runners[0]?.selectionId) &&   game?.status!='SUSPEND' ? 'firstboxTpSelected' :'' " -->
+                      <div [style.width]="playerMarket" [ngClass]="playerMarket === '0%' ?'adjustmnet':''"
+                          *ngIf="playerMarket !== '0%'" class="market-size-container-firstbox">
+
+                          {{(playerMarket=='0%'?'':intoNumber(playerMarket)) | number }}%
+
+                      </div>
+
+                      <div>{{winnerMarketArray?.runnersName[winnerMarketArray?.runners[0]?.selectionId]}}</div>
+                      <div>{{winnerMarketArray?.runners[0]?.price?.back[0]?.price | number : '1.2-2'}}
+                      </div>
+                      <!-- <div class="mb-0">
+                          <span>
+                              <img src="https://realclub.games//assets/img/cards/0.png" style="width: 20px;">
+                          </span>
+                          <span>
+                              <img src="https://realclub.games//assets/img/cards/0.png" style="width: 20px;">
+                          </span>
+                      </div> -->
+                      <div class="profitLoss">
+
+                          <!-- <span *ngIf="casinoPl[winnerMarketArray.marketId]">
+                          <span *ngIf="casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[0].selectionId]"
+                              [ngClass]="[casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[0].selectionId] > 0  ? 'plus-book' : 'minus-book']">
+                              {{casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[0].selectionId]
+                              ? (casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[0].selectionId] |
+                              number) :
+                              '0.00'}}</span>
+                      </span> -->
+                          <span class="" style="display:flex; font-size:13px;font-weight:400;margin-right:25px"
+                              *ngIf="casinoPl[winnerMarketArray?.marketId]">
+
+                              <span
+                                  *ngIf="casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId] < 0"
+                                  style=" font-weight: bold !important;"> L : </span>
+                              <span
+                                  *ngIf="casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId] > 0"
+                                  style=" font-weight: bold !important;"> P :</span>
+
+                              <span class="flex"
+                                  [ngClass]="[casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId] > 0  ? 'plus-book' : 'minus-book']"
+                                  style="color:white" *ngIf=" casinoPl[winnerMarketArray?.marketId]">
+                                  {{casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId]
+                                  ? (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId]
+                                  |
+                                  number) :
+                                  '0.00' }}
+
+                                  <!-- <span
+                                      [ngClass]="(((winnerMarketArray?.price?.back[0]?.price -1) * isValueBetsSlip) +
+                                       (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId] )) > 0  ? 'plus-book' : 'minus-book'"
+                                      style="color:rgb(255, 255, 255)" *ngIf="isBetsSlipOpened == winnerMarketArray?.runners[0]?.selectionId
+                                           && marketId == winnerMarketArray?.marketId
+                                            && isValueBetsSlip != 0 ">
+
+                                      ({{ ((winnerMarketArray?.runners[0]?.price?.back[0]?.price -1) *
+                                      isValueBetsSlip) +
+                                      (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId]
+                                      )
+                                      }})
+                                  </span>
+
+
+                                  <span
+                                      [ngClass]="((casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId] ) - isValueBetsSlip ) > 0  ? 'plus-book' : 'minus-book'"
+                                      style="color:rgb(234, 2, 2)" *ngIf="  winnerMarketArray?.runners[0]?.price?.back[0]
+                                       && isValueBetsSlip
+                                      && isValueBetsSlip != 0
+                                      && isBetsSlipOpened != winnerMarketArray?.runners[0]?.selectionId
+                                      && marketId == winnerMarketArray?.marketId">
+
+                                      ( {{
+                                      (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId]
+                                      )
+                                      -
+                                      isValueBetsSlip }})
+                                  </span> -->
+
+                              </span>
+
+                          </span>
+                          <!-- <span style="display: flex; justify-content: center;"
+                              *ngIf="isValueBetsSlip && !casinoPl[winnerMarketArray?.marketId]">
+
+                              <span class="plus-book  flex" style="margin-right:5px ;color: white;"
+                                  *ngIf="isBetsSlipOpened == winnerMarketArray?.runners[0]?.selectionId && marketId == winnerMarketArray?.marketId">
+                                  <span style="margin-right:2px; font-weight: bold; color: white;">P :</span>
+                                  <span class="plus-book" style="color: white;"> {{
+                                      (
+                                      (winnerMarketArray?.runners[0]?.price.back[0].price -1) *
+                                      isValueBetsSlip
+                                      ) }}
+                                  </span>
+                              </span>
+                              <span class="minus-book flex"
+                                  *ngIf="isBetsSlipOpened != winnerMarketArray?.runners[0]?.selectionId && marketId == winnerMarketArray?.marketId">
+                                  <span style="margin-right:2px; font-weight: bold; color: white;">L :</span>
+                                  <span class="minus-book" style="color: white;">{{ isValueBetsSlip }} </span>
+                              </span>
+
+
+                          </span> -->
+
+                      </div>
+                      <li class="chips_1_selected" style="display: none;">
+                          <p></p>
+                      </li>
+                      <!-- <div class="mb-0">
+                      <span>
+                          <img src="../../..//assets/cards/0.png"></span>
+                      <span><img src="../../..//assets/cards/0.png"></span>
+                  </div> -->
+                  </div>
+              </div>
+
+              <div class="tie"
+                  [ngClass]="tieMarketArray?.runners[0]?.status=='SUSPEND' || game?.status=='SUSPEND' ?'suspended':''  "
+                  (click)="openBetslip(tieMarketArray?.marketId,tieMarketArray?.runners[0]?.selectionId,'back',tieMarketArray?.runners[0]?.price?.back[0]?.price,tieMarketArray?.min, tieMarketArray?.max)">
+
+
+                  <div class="baccarat-bets-name">
+                      <!-- [ngClass]="isBetsSlipOpened  == tieMarketArray?.runners[0].selectionId &&  game?.status!='SUSPEND'  ? 'firstboxTpSelected' :'' " -->
+                      <div [style.width]="tieMarket" [style.left]="tieMarketLeft"
+                          [ngClass]="tieMarket === '0%' ?'adjustmnet':''" *ngIf="tieMarket !== '0%'"
+                          class="market-size-container-tieMarket">
+
+                          <span>
+                              {{(tieMarket=='0%'?'':intoNumber(tieMarket)) | number }}%
+
+                          </span>
+
+                      </div>
+                      <div>{{tieMarketArray?.runnersName[tieMarketArray?.runners[0]?.selectionId]}}</div>
+                      <div class="mb-0">{{tieMarketArray?.runners[0]?.price?.back[0]?.price | number : '1.2-2'}}</div>
+
+                      <div class="profitLoss">
+
+                          <!-- <span *ngIf="casinoPl[tieMarketArray.marketId]">
+                          <span *ngIf="casinoPl[tieMarketArray.marketId][tieMarketArray.runners[0].selectionId]"
+                              [ngClass]="[casinoPl[tieMarketArray.marketId][tieMarketArray.runners[0].selectionId] > 0  ? 'plus-book' : 'minus-book']">
+                              {{casinoPl[tieMarketArray.marketId][tieMarketArray.runners[0].selectionId]
+                              ? (casinoPl[tieMarketArray.marketId][tieMarketArray.runners[0].selectionId] |
+                              number) :
+                              '0.00'}}</span>
+                      </span> -->
+                          <span class="" style="display:flex; font-size:11px;font-weight:400;flex-direction: column;"
+                              *ngIf="casinoPl[tieMarketArray?.marketId]">
+
+
+
+                              <span class="flex"
+                                  [ngClass]="[casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId] > 0  ? 'plus-book' : 'minus-book']"
+                                  style="color:white" *ngIf=" casinoPl[tieMarketArray?.marketId]">
+
+                                  <span
+                                      *ngIf="casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId] < 0"
+                                      style=" font-weight: bold !important;"> L : </span>
+                                  <span
+                                      *ngIf="casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId] > 0"
+                                      style=" font-weight: bold !important;"> P :</span>
+
+                                  {{casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId]
+                                  ? (casinoPl[tieMarketArray?.marketId][tieMarketArray.runners[0]?.selectionId] |
+                                  number) :
+                                  '0.00' }}
+                              </span>
+                              <!-- <span
+                                  [ngClass]="(((tieMarketArray?.price?.back[0]?.price -1) * isValueBetsSlip) +
+                                     (casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId] )) > 0  ? 'plus-book' : 'minus-book'"
+                                  style="color:white" *ngIf="isBetsSlipOpened == tieMarketArray?.runners[0]?.selectionId
+                                        && marketId == tieMarketArray?.marketId
+                                        && isValueBetsSlip != 0 ">
+
+                                  ({{ ((tieMarketArray?.runners[0]?.price?.back[0]?.price -1) * isValueBetsSlip)
+                                  +
+                                  (casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId] )
+                                  }})
+                              </span>
+
+
+                              <span
+                                  [ngClass]="((casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId] ) - isValueBetsSlip ) > 0  ? 'plus-book' : 'minus-book'"
+                                  style="color:white" *ngIf="  tieMarketArray?.runners[0]?.price?.back[0]
+                                    && isValueBetsSlip
+                                    && isValueBetsSlip != 0
+                                    && isBetsSlipOpened != tieMarketArray?.runners[0]?.selectionId
+
+                                    && marketId == tieMarketArray?.marketId">
+
+                                  ({{
+                                  (casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId]
+                                  ? casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId]
+                                  :0)
+                                  -
+                                  isValueBetsSlip }})
+                              </span> -->
+
+
+
+                          </span>
+                          <!-- <span style="display: flex; justify-content: center;"
+                              *ngIf="isValueBetsSlip && !casinoPl[tieMarketArray?.marketId]">
+
+                              <span class="plus-book  flex" style="margin-right:5px ;color: white;"
+                                  *ngIf="isBetsSlipOpened == tieMarketArray?.runners[0]?.selectionId && marketId == tieMarketArray?.marketId">
+                                  <span style="margin-right:2px; font-weight: bold; color: white;">P :</span>
+                                  <span class="plus-book" style="color: white;"> {{
+                                      ((tieMarketArray?.runners[0]?.price.back[0].price -1) *
+                                      isValueBetsSlip) }}</span>
+                              </span>
+                              <span class="minus-book flex" style="color:white"
+                                  *ngIf="isBetsSlipOpened != tieMarketArray?.runners[0]?.selectionId && marketId == tieMarketArray?.marketId">
+                                  <span style="margin-right:2px; font-weight: bold; color: white;">L :</span>
+                                  <span class="minus-book" style="color: white;">{{ isValueBetsSlip }} </span>
+                              </span>
+
+
+                          </span> -->
+
+                      </div>
+
+
+
+
+
+                      <li class="chips_1_selected" style="display: none;">
+                          <p></p>
+                      </li>
+                  </div>
+              </div>
+
+              <div class="banker"
+                  [ngClass]="tieMarketArray?.runners[0].status=='SUSPEND' || game?.status=='SUSPEND' ?'suspended':''  "
+                  (click)="openBetslip(winnerMarketArray?.marketId,winnerMarketArray?.runners[1]?.selectionId,'back',winnerMarketArray?.runners[1].price?.back[0]?.price,winnerMarketArray?.min, winnerMarketArray?.max)">
+
+                  <div [style.width]="bankerMarket" [ngClass]="bankerMarket === '0%' ?'adjustmnet':''"
+                      *ngIf="bankerMarket !== '0%'" class="market-size-container-secondBox">
+                      {{(bankerMarket=='0%'?'':intoNumber(bankerMarket)) | number }}%
+
+                  </div>
+
+                  <div class="baccarat-bets-name">
+                      <!-- [ngClass]="isBetsSlipOpened  == winnerMarketArray?.runners[1].selectionId && game?.status!='SUSPEND'  ? 'firstboxTpSelected' :'' " -->
+                      <div>{{winnerMarketArray?.runnersName[winnerMarketArray?.runners[1]?.selectionId]}}</div>
+                      <div>{{winnerMarketArray?.runners[1]?.price?.back[0]?.price | number : '1.2-2'}}</div>
+                      <!-- <div class="mb-0">
+                          <span>
+                              <img src="https://realclub.games//assets/img/cards/0.png" style="width: 20px;">
+                          </span>
+                          <span>
+                              <img src="https://realclub.games//assets/img/cards/0.png" style="width: 20px;">
+                          </span>
+                      </div> -->
+                      <div class="profitLoss">
+
+                          <!-- <span *ngIf="casinoPl[winnerMarketArray.marketId]">
+                          <span *ngIf="casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[1].selectionId]"
+                              [ngClass]="[casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[1].selectionId] > 0  ? 'plus-book' : 'minus-book']">{{casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[1].selectionId]
+                              ? (casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[1].selectionId] |
+                              number) :
+                              '0.00'}}</span>
+                      </span> -->
+                          <span class="" style="display:flex; font-size:13px;font-weight:400;margin-left:40px"
+                              *ngIf="casinoPl[winnerMarketArray?.marketId]">
+
+                              <span
+                                  *ngIf="casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1].selectionId] < 0"
+                                  style=" font-weight: bold !important;"> L : </span>
+                              <span
+                                  *ngIf="casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1].selectionId] > 0"
+                                  style=" font-weight: bold !important;"> P :</span>
+
+                              <span class="flex"
+                                  [ngClass]="[casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1].selectionId] > 0  ? 'plus-book' : 'minus-book']"
+                                  style="color:white" *ngIf=" casinoPl[winnerMarketArray?.marketId]">
+                                  {{casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1]?.selectionId]
+                                  ? (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1]?.selectionId]
+                                  |
+                                  number) :
+                                  '0.00' }}
+
+                                  <!-- <span
+                                      [ngClass]="(((winnerMarketArray?.price?.back[0]?.price -1) * isValueBetsSlip) +
+                 (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1]?.selectionId] )) > 0  ? 'plus-book' : 'minus-book'"
+                                      style="color:white" *ngIf="isBetsSlipOpened == winnerMarketArray?.runners[1]?.selectionId
+                  && marketId == winnerMarketArray?.marketId
+                  && isValueBetsSlip != 0 ">
+
+                                      ({{((winnerMarketArray?.runners[1]?.price?.back[0].price -1) *
+                                      isValueBetsSlip) +
+                                      (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1]?.selectionId]
+                                      )
+                                      }})
+                                  </span>
+
+
+                                  <span
+                                      [ngClass]="((casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1]?.selectionId] ) - isValueBetsSlip ) > 0  ? 'plus-book' : 'minus-book'"
+                                      style="color:white" *ngIf="  winnerMarketArray?.runners[1]?.price?.back[0]
+              && isValueBetsSlip
+              && isValueBetsSlip != 0
+              && isBetsSlipOpened != winnerMarketArray?.runners[1]?.selectionId
+              && marketId == winnerMarketArray?.marketId">
+
+                                      ({{
+                                      (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1]?.selectionId]
+                                      )
+                                      -
+                                      isValueBetsSlip }})
+                                  </span> -->
+
+                              </span>
+
+                          </span>
+                          <!-- <span style="display: flex; justify-content: center;"
+                              *ngIf="isValueBetsSlip && !casinoPl[winnerMarketArray?.marketId]">
+
+                              <span class="plus-book  flex" style="margin-right:5px ;color: white;"
+                                  *ngIf="isBetsSlipOpened == winnerMarketArray?.runners[1]?.selectionId && marketId == winnerMarketArray?.marketId">
+                                  <span style="margin-right:2px; font-weight: bold; color: white;">P :</span>
+                                  <span class="plus-book" style="color: white;"> {{
+                                      ((winnerMarketArray?.runners[1]?.price?.back[0]?.price -1) *
+                                      isValueBetsSlip) }}</span>
+                              </span>
+                              <span class="minus-book flex"
+                                  *ngIf="isBetsSlipOpened != winnerMarketArray?.runners[1]?.selectionId && marketId == winnerMarketArray?.marketId">
+                                  <span style="margin-right:2px; font-weight: bold; color: white;">L :</span>
+                                  <span class="minus-book" style="color: white;">{{ isValueBetsSlip }} </span>
+                              </span>
+
+
+                          </span> -->
+
+                      </div>
+
+
+
+
+
+
+                      <li class="chips_1_selected" style="display: none;">
+                          <p></p>
+                      </li>
+                      <!-- <div class="mb-0">
+                      <span>
+                          <img src="../../..//assets/cards/0.png"></span>
+                      <span><img src="../../..//assets/cards/0.png"></span>
+                  </div> -->
+                  </div>
+              </div>
+
+              <!--   <div class="banker-pair hidden-xs hidden-xs-right">
+                  <div class="baccarat-bets-name" style="color:white"
+                      (click)="openBetslip(winnerMarketArray?.marketId,winnerMarketArray?.runners[1]?.selectionId,'back',winnerMarketArray?.runners[1]?.price?.back[0]?.price,winnerMarketArray?.min, winnerMarketArray?.max)">
+                      <div>{{winnerMarketArray?.runnersName[winnerMarketArray?.runners[1]?.selectionId]}}</div>
+                      <div class="mb-0">{{winnerMarketArray?.runners[1]?.price?.back[0]?.price | number : '1.2-2'}}
+                      </div>
+                      <li class="chips_1_selected" style="display: none;">
+                          <p></p>
+                      </li>
+                  </div>
+              </div> -->
+
+
+          </div>
+      </div>
+
+      <div class="baccarat" *ngIf="!isDesktop">
+          <div class="baccarat-bets">
+              <!-- <div class="player-pair hidden-xs">
+                  <div class="baccarat-bets-name"
+                      (click)="openBetslip(winnerMarketArray?.marketId,winnerMarketArray?.runners[0]?.selectionId,'back',winnerMarketArray?.runners[0]?.price?.back[0]?.price,winnerMarketArray?.min, winnerMarketArray?.max)">
+                      <div>{{winnerMarketArray?.runnersName[winnerMarketArray?.runners[0]?.selectionId]}}</div>
+                      <div class="mb-0">{{winnerMarketArray?.runners[0]?.price?.back[0]?.price}}</div>
+                  </div>
+              </div> -->
+              <div class="player"
+                  [ngClass]="winnerMarketArray?.runners[0]?.status=='SUSPEND' || game?.status=='SUSPEND' ?'suspended':''  "
+                  (click)="openBetslip(winnerMarketArray?.marketId,winnerMarketArray?.runners[0]?.selectionId,'back',winnerMarketArray?.runners[0]?.price?.back[0]?.price,winnerMarketArray?.min, winnerMarketArray?.max)">
+                  <div class="baccarat-bets-name">
+                      <!-- [ngClass]="(isBetsSlipOpened  == winnerMarketArray?.runners[0]?.selectionId) &&   game?.status!='SUSPEND' ? 'firstboxTpSelected' :'' " -->
+                      <div [style.width]="playerMarket" [ngClass]="playerMarket === '0%' ?'adjustmnet':''"
+                          *ngIf="playerMarket !== '0%'" class="market-size-container-firstbox">
+
+                          {{(playerMarket=='0%'?'':intoNumber(playerMarket)) | number }}%
+
+                      </div>
+
+                      <div>{{winnerMarketArray?.runnersName[winnerMarketArray?.runners[0]?.selectionId]}}</div>
+                      <div>{{winnerMarketArray?.runners[0]?.price?.back[0]?.price}}
+                      </div>
+                      <div class="profitLoss">
+
+                          <!-- <span *ngIf="casinoPl[winnerMarketArray.marketId]">
+                          <span *ngIf="casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[0].selectionId]"
+                              [ngClass]="[casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[0].selectionId] > 0  ? 'plus-book' : 'minus-book']">
+                              {{casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[0].selectionId]
+                              ? (casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[0].selectionId] |
+                              number) :
+                              '0.00'}}</span>
+                      </span> -->
+                          <span class="" style="display:flex; font-size:13px;font-weight:400;margin-right:25px"
+                              *ngIf="casinoPl[winnerMarketArray?.marketId]">
+
+                              <span
+                                  *ngIf="casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId] < 0"
+                                  style=" font-weight: bold !important;"> L : </span>
+                              <span
+                                  *ngIf="casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId] > 0"
+                                  style=" font-weight: bold !important;"> P :</span>
+
+                              <span class="flex"
+                                  [ngClass]="[casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId] > 0  ? 'plus-book' : 'minus-book']"
+                                  style="color:white" *ngIf=" casinoPl[winnerMarketArray?.marketId]">
+                                  {{casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId]
+                                  ? (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId]
+                                  |
+                                  number) :
+                                  '0.00' }}
+
+                                  <!-- <span
+                                      [ngClass]="(((winnerMarketArray?.price?.back[0]?.price -1) * isValueBetsSlip) +
+                                       (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId] )) > 0  ? 'plus-book' : 'minus-book'"
+                                      style="color:rgb(255, 255, 255)" *ngIf="isBetsSlipOpened == winnerMarketArray?.runners[0]?.selectionId
+                                           && marketId == winnerMarketArray?.marketId
+                                            && isValueBetsSlip != 0 ">
+
+                                      ({{ ((winnerMarketArray?.runners[0]?.price?.back[0]?.price -1) *
+                                      isValueBetsSlip) +
+                                      (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId]
+                                      )
+                                      }})
+                                  </span>
+
+
+                                  <span
+                                      [ngClass]="((casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId] ) - isValueBetsSlip ) > 0  ? 'plus-book' : 'minus-book'"
+                                      style="color:rgb(234, 2, 2)" *ngIf="  winnerMarketArray?.runners[0]?.price?.back[0]
+                                       && isValueBetsSlip
+                                      && isValueBetsSlip != 0
+                                      && isBetsSlipOpened != winnerMarketArray?.runners[0]?.selectionId
+                                      && marketId == winnerMarketArray?.marketId">
+
+                                      ( {{
+                                      (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[0]?.selectionId]
+                                      )
+                                      -
+                                      isValueBetsSlip }})
+                                  </span> -->
+
+                              </span>
+
+                          </span>
+                          <!-- <span style="display: flex; justify-content: center;"
+                              *ngIf="isValueBetsSlip && !casinoPl[winnerMarketArray?.marketId]">
+
+                              <span class="plus-book  flex" style="margin-right:5px ;color: white;"
+                                  *ngIf="isBetsSlipOpened == winnerMarketArray?.runners[0]?.selectionId && marketId == winnerMarketArray?.marketId">
+                                  <span style="margin-right:2px; font-weight: bold; color: white;">P :</span>
+                                  <span class="plus-book" style="color: white;"> {{
+                                      (
+                                      (winnerMarketArray?.runners[0]?.price.back[0].price -1) *
+                                      isValueBetsSlip
+                                      ) }}
+                                  </span>
+                              </span>
+                              <span class="minus-book flex"
+                                  *ngIf="isBetsSlipOpened != winnerMarketArray?.runners[0]?.selectionId && marketId == winnerMarketArray?.marketId">
+                                  <span style="margin-right:2px; font-weight: bold; color: white;">L :</span>
+                                  <span class="minus-book" style="color: white;">{{ isValueBetsSlip }} </span>
+                              </span>
+
+
+                          </span> -->
+
+                      </div>
+                      <li class="chips_1_selected" style="display: none;">
+                          <p></p>
+                      </li>
+                      <!-- <div class="mb-0">
+                      <span>
+                          <img src="../../..//assets/cards/0.png"></span>
+                      <span><img src="../../..//assets/cards/0.png"></span>
+                  </div> -->
+                  </div>
+              </div>
+
+
+              <!-- Tie Market -->
+
+              <div class="tie"
+                  [ngClass]="tieMarketArray?.runners[0]?.status=='SUSPEND' || game?.status=='SUSPEND' ?'suspended':''  "
+                  (click)="openBetslip(tieMarketArray?.marketId,tieMarketArray?.runners[0]?.selectionId,'back',tieMarketArray?.runners[0]?.price?.back[0]?.price,tieMarketArray?.min, tieMarketArray?.max)">
+
+
+                  <div class="baccarat-bets-name">
+                      <!-- [ngClass]="isBetsSlipOpened  == tieMarketArray?.runners[0].selectionId &&  game?.status!='SUSPEND'  ? 'firstboxTpSelected' :'' " -->
+                      <div [style.width]="tieMarket" [style.left]="tieMarketLeft"
+                          [ngClass]="tieMarket === '0%' ?'adjustmnet':''" *ngIf="tieMarket !== '0%'"
+                          class="market-size-container-tieMarket">
+
+                          <span>
+                              {{(tieMarket=='0%'?'':intoNumber(tieMarket)) | number }}%
+
+                          </span>
+
+                      </div>
+                      <div>{{tieMarketArray?.runnersName[tieMarketArray?.runners[0]?.selectionId]}}</div>
+                      <div class="mb-0">{{tieMarketArray?.runners[0]?.price?.back[0]?.price}}</div>
+
+                      <div class="profitLoss">
+
+                          <!-- <span *ngIf="casinoPl[tieMarketArray.marketId]">
+                          <span *ngIf="casinoPl[tieMarketArray.marketId][tieMarketArray.runners[0].selectionId]"
+                              [ngClass]="[casinoPl[tieMarketArray.marketId][tieMarketArray.runners[0].selectionId] > 0  ? 'plus-book' : 'minus-book']">
+                              {{casinoPl[tieMarketArray.marketId][tieMarketArray.runners[0].selectionId]
+                              ? (casinoPl[tieMarketArray.marketId][tieMarketArray.runners[0].selectionId] |
+                              number) :
+                              '0.00'}}</span>
+                      </span> -->
+                          <span class="" style="display:flex; font-size:11px;font-weight:400;flex-direction: column;"
+                              *ngIf="casinoPl[tieMarketArray?.marketId]">
+
+
+
+                              <span class="flex"
+                                  [ngClass]="[casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId] > 0  ? 'plus-book' : 'minus-book']"
+                                  style="color:white" *ngIf=" casinoPl[tieMarketArray?.marketId]">
+
+                                  <span
+                                      *ngIf="casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId] < 0"
+                                      style=" font-weight: bold !important;"> L : </span>
+                                  <span
+                                      *ngIf="casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId] > 0"
+                                      style=" font-weight: bold !important;"> P :</span>
+
+                                  {{casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId]
+                                  ? (casinoPl[tieMarketArray?.marketId][tieMarketArray.runners[0]?.selectionId] |
+                                  number) :
+                                  '0.00' }}
+                              </span>
+                              <!-- <span
+                                  [ngClass]="(((tieMarketArray?.price?.back[0]?.price -1) * isValueBetsSlip) +
+                                     (casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId] )) > 0  ? 'plus-book' : 'minus-book'"
+                                  style="color:white" *ngIf="isBetsSlipOpened == tieMarketArray?.runners[0]?.selectionId
+                                        && marketId == tieMarketArray?.marketId
+                                        && isValueBetsSlip != 0 ">
+
+                                  ({{ ((tieMarketArray?.runners[0]?.price?.back[0]?.price -1) * isValueBetsSlip)
+                                  +
+                                  (casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId] )
+                                  }})
+                              </span>
+
+
+                              <span
+                                  [ngClass]="((casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId] ) - isValueBetsSlip ) > 0  ? 'plus-book' : 'minus-book'"
+                                  style="color:white" *ngIf="  tieMarketArray?.runners[0]?.price?.back[0]
+                                    && isValueBetsSlip
+                                    && isValueBetsSlip != 0
+                                    && isBetsSlipOpened != tieMarketArray?.runners[0]?.selectionId
+
+                                    && marketId == tieMarketArray?.marketId">
+
+                                  ({{
+                                  (casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId]
+                                  ? casinoPl[tieMarketArray?.marketId][tieMarketArray?.runners[0]?.selectionId]
+                                  :0)
+                                  -
+                                  isValueBetsSlip }})
+                              </span> -->
+
+
+
+                          </span>
+                          <!-- <span style="display: flex; justify-content: center;"
+                              *ngIf="isValueBetsSlip && !casinoPl[tieMarketArray?.marketId]">
+
+                              <span class="plus-book  flex" style="margin-right:5px ;color: white;"
+                                  *ngIf="isBetsSlipOpened == tieMarketArray?.runners[0]?.selectionId && marketId == tieMarketArray?.marketId">
+                                  <span style="margin-right:2px; font-weight: bold; color: white;">P :</span>
+                                  <span class="plus-book" style="color: white;"> {{
+                                      ((tieMarketArray?.runners[0]?.price.back[0].price -1) *
+                                      isValueBetsSlip) }}</span>
+                              </span>
+                              <span class="minus-book flex" style="color:white"
+                                  *ngIf="isBetsSlipOpened != tieMarketArray?.runners[0]?.selectionId && marketId == tieMarketArray?.marketId">
+                                  <span style="margin-right:2px; font-weight: bold; color: white;">L :</span>
+                                  <span class="minus-book" style="color: white;">{{ isValueBetsSlip }} </span>
+                              </span>
+
+
+                          </span> -->
+
+                      </div>
+
+
+
+
+
+                      <li class="chips_1_selected" style="display: none;">
+                          <p></p>
+                      </li>
+                  </div>
+              </div>
+
+
+
+
+              <div class="banker"
+                  [ngClass]="tieMarketArray?.runners[0].status=='SUSPEND' || game?.status=='SUSPEND' ?'suspended':''  "
+                  (click)="openBetslip(winnerMarketArray?.marketId,winnerMarketArray?.runners[1]?.selectionId,'back',winnerMarketArray?.runners[1].price?.back[0]?.price,winnerMarketArray?.min, winnerMarketArray?.max)">
+
+                  <div [style.width]="bankerMarket" [ngClass]="bankerMarket === '0%' ?'adjustmnet':''"
+                      *ngIf="bankerMarket !== '0%'" class="market-size-container-secondBox">
+                      {{(bankerMarket=='0%'?'':intoNumber(bankerMarket)) | number }}%
+
+                  </div>
+
+                  <div class="baccarat-bets-name">
+                      <!-- [ngClass]="isBetsSlipOpened  == winnerMarketArray?.runners[1].selectionId && game?.status!='SUSPEND'  ? 'firstboxTpSelected' :'' " -->
+                      <div>{{winnerMarketArray?.runnersName[winnerMarketArray?.runners[1]?.selectionId]}}</div>
+                      <div>{{winnerMarketArray?.runners[1]?.price?.back[0]?.price}}</div>
+
+                      <div class="profitLoss">
+
+                          <!-- <span *ngIf="casinoPl[winnerMarketArray.marketId]">
+                          <span *ngIf="casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[1].selectionId]"
+                              [ngClass]="[casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[1].selectionId] > 0  ? 'plus-book' : 'minus-book']">{{casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[1].selectionId]
+                              ? (casinoPl[winnerMarketArray.marketId][winnerMarketArray.runners[1].selectionId] |
+                              number) :
+                              '0.00'}}</span>
+                      </span> -->
+                          <span class="" style="display:flex; font-size:13px;font-weight:400;margin-left:40px"
+                              *ngIf="casinoPl[winnerMarketArray?.marketId]">
+
+                              <span
+                                  *ngIf="casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1].selectionId] < 0"
+                                  style=" font-weight: bold !important;"> L : </span>
+                              <span
+                                  *ngIf="casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1].selectionId] > 0"
+                                  style=" font-weight: bold !important;"> P :</span>
+
+                              <span class="flex"
+                                  [ngClass]="[casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1].selectionId] > 0  ? 'plus-book' : 'minus-book']"
+                                  style="color:white" *ngIf=" casinoPl[winnerMarketArray?.marketId]">
+                                  {{casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1]?.selectionId]
+                                  ? (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1]?.selectionId]
+                                  |
+                                  number) :
+                                  '0.00' }}
+
+                                  <!-- <span
+                                      [ngClass]="(((winnerMarketArray?.price?.back[0]?.price -1) * isValueBetsSlip) +
+                 (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1]?.selectionId] )) > 0  ? 'plus-book' : 'minus-book'"
+                                      style="color:white" *ngIf="isBetsSlipOpened == winnerMarketArray?.runners[1]?.selectionId
+                  && marketId == winnerMarketArray?.marketId
+                  && isValueBetsSlip != 0 ">
+
+                                      ({{((winnerMarketArray?.runners[1]?.price?.back[0].price -1) *
+                                      isValueBetsSlip) +
+                                      (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1]?.selectionId]
+                                      )
+                                      }})
+                                  </span>
+
+
+                                  <span
+                                      [ngClass]="((casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1]?.selectionId] ) - isValueBetsSlip ) > 0  ? 'plus-book' : 'minus-book'"
+                                      style="color:white" *ngIf="  winnerMarketArray?.runners[1]?.price?.back[0]
+              && isValueBetsSlip
+              && isValueBetsSlip != 0
+              && isBetsSlipOpened != winnerMarketArray?.runners[1]?.selectionId
+              && marketId == winnerMarketArray?.marketId">
+
+                                      ({{
+                                      (casinoPl[winnerMarketArray?.marketId][winnerMarketArray?.runners[1]?.selectionId]
+                                      )
+                                      -
+                                      isValueBetsSlip }})
+                                  </span> -->
+
+                              </span>
+
+                          </span>
+                          <!-- <span style="display: flex; justify-content: center;"
+                              *ngIf="isValueBetsSlip && !casinoPl[winnerMarketArray?.marketId]">
+
+                              <span class="plus-book  flex" style="margin-right:5px ;color: white;"
+                                  *ngIf="isBetsSlipOpened == winnerMarketArray?.runners[1]?.selectionId && marketId == winnerMarketArray?.marketId">
+                                  <span style="margin-right:2px; font-weight: bold; color: white;">P :</span>
+                                  <span class="plus-book" style="color: white;"> {{
+                                      ((winnerMarketArray?.runners[1]?.price?.back[0]?.price -1) *
+                                      isValueBetsSlip) }}</span>
+                              </span>
+                              <span class="minus-book flex"
+                                  *ngIf="isBetsSlipOpened != winnerMarketArray?.runners[1]?.selectionId && marketId == winnerMarketArray?.marketId">
+                                  <span style="margin-right:2px; font-weight: bold; color: white;">L :</span>
+                                  <span class="minus-book" style="color: white;">{{ isValueBetsSlip }} </span>
+                              </span>
+
+
+                          </span> -->
+
+                      </div>
+
+
+
+
+
+
+                      <li class="chips_1_selected" style="display: none;">
+                          <p></p>
+                      </li>
+                      <!-- <div class="mb-0">
+                      <span>
+                          <img src="../../..//assets/cards/0.png"></span>
+                      <span><img src="../../..//assets/cards/0.png"></span>
+                  </div> -->
+                  </div>
+              </div>
+              <!-- <div class="banker-pair hidden-xs">
+                  <div class="baccarat-bets-name" style="color:white"
+                      (click)="openBetslip(winnerMarketArray?.marketId,winnerMarketArray?.runners[1]?.selectionId,'back',winnerMarketArray?.runners[1]?.price?.back[0]?.price,winnerMarketArray?.min, winnerMarketArray?.max)">
+                      <div>{{winnerMarketArray?.runnersName[winnerMarketArray?.runners[1]?.selectionId]}}</div>
+                      <div class="mb-0">{{winnerMarketArray?.runners[1]?.price?.back[0]?.price}}</div>
+                      <li class="chips_1_selected" style="display: none;">
+                          <p></p>
+                      </li>
+                  </div>
+              </div> -->
+
+
+          </div>
+      </div>
+
+      <!-- PAIR SEC -->
+
+
+      <div class="pairmobile show-xs mt-3">
+          <div class="baccarat" style="margin-top: 1px;">
+              <div class="baccarat-bets" style="margin: 0 0 15px 0;">
+                  <div class="player-pair" [ngClass]="{'suspended': (pairMarketArray?.runners[0]?.status=='SUSPEND' || game?.status=='SUSPEND'), 'playerWidthCard20': eventid == '99.0057'}">
+                      <div [style.width]="pairPlayer" [ngClass]="pairPlayer === '0%' ?'adjustmnet':''"
+                          *ngIf="pairPlayer !== '0%'" class="market-size-container-firstbox-pair">
+
+
+                          {{(pairPlayer=='0%'?'':intoNumber(pairPlayer)) | number }}%
+
+                      </div>
+                      <div class="baccarat-bets-name" (click)="playerPair();openBetslip(pairMarketArray?.marketId,pairMarketArray?.runners[0]?.selectionId,'back'
+                          ,pairMarketArray?.runners[0]?.price?.back[0]?.price,pairMarketArray?.min,
+                          pairMarketArray?.max)">
+                          <div>{{pairMarketArray?.runnersName[pairMarketArray?.runners[0]?.selectionId]}}</div>
+                          <div class="mb-0">{{pairMarketArray?.runners[0]?.price?.back[0]?.price}}</div>
+
+
+                          <div class="profitLoss">
+                              <span class="" style="display:flex; font-size:13px;font-weight:400;"
+                                  *ngIf="casinoPl[pairMarketArray?.marketId]">
+
+                                  <span
+                                      *ngIf="casinoPl[pairMarketArray?.marketId][pairMarketArray?.runners[0].selectionId] < 0"
+                                      style=" font-weight: bold !important;"> L : </span>
+                                  <span
+                                      *ngIf="casinoPl[pairMarketArray?.marketId][pairMarketArray?.runners[0].selectionId] > 0"
+                                      style=" font-weight: bold !important;"> P :</span>
+
+                                  <span class="flex" style="color: white;"
+                                      *ngIf=" casinoPl[pairMarketArray?.marketId]">
+                                      {{casinoPl[pairMarketArray?.marketId][pairMarketArray.runners[0]?.selectionId]
+                                      ? (casinoPl[pairMarketArray?.marketId][pairMarketArray.runners[0]?.selectionId]
+                                      |
+                                      number) :
+                                      '0.00' }}
+
+                                  </span>
+
+                              </span>
+
+                          </div>
+
+                          <li class="chips_1_selected" style="display: none;">
+                              <p></p>
+                          </li>
+                      </div>
+                  </div>
+
+                  <div class="banker-pair"
+                      [ngClass]="pairMarketArray?.runners[1]?.status=='SUSPEND' || game?.status=='SUSPEND' ?'suspended':''  " *ngIf="eventid !== '99.0057'">
+                      <div [style.width]="pairBanker" [ngClass]="pairBanker === '0%' ?'adjustmnet':''"
+                          *ngIf="pairBanker !== '0%'" class="market-size-container-secondBox-pair">
+
+                          {{(pairBanker=='0%'?'':intoNumber(pairBanker)) | number }}%
+
+                      </div>
+                      <!-- [ngClass]="isBetsSlipOpened  == pairMarketArray?.runners[1]?.selectionId &&  game?.status!='SUSPEND'  ? 'firstboxTpSelected' :'' " -->
+                      <div class="baccarat-bets-name" (click)="bankerPair();openBetslip(pairMarketArray?.marketId,pairMarketArray?.runners[1]?.selectionId,'back'
+                          ,pairMarketArray?.runners[1]?.price?.back[0]?.price,pairMarketArray?.min, pairMarketArray?.max)
+                          ">
+                          <div>{{pairMarketArray?.runnersName[pairMarketArray?.runners[1]?.selectionId]}}</div>
+                          <div class="mb-0">{{pairMarketArray?.runners[1]?.price?.back[0]?.price}}</div>
+
+                          <div class="profitLoss">
+
+                              <span class="" style="display:flex; font-size:13px;font-weight:400"
+                                  *ngIf="casinoPl[pairMarketArray?.marketId]">
+
+                                  <span
+                                      *ngIf="casinoPl[pairMarketArray?.marketId][pairMarketArray.runners[1].selectionId] < 0"
+                                      style=" font-weight: bold !important;"> L : </span>
+                                  <span
+                                      *ngIf="casinoPl[pairMarketArray?.marketId][pairMarketArray.runners[1].selectionId] > 0"
+                                      style=" font-weight: bold !important;"> P :</span>
+
+                                  <span class="flex" style="color: white;"
+                                      *ngIf=" casinoPl[pairMarketArray?.marketId]">
+                                      {{casinoPl[pairMarketArray?.marketId][pairMarketArray.runners[1]?.selectionId]
+                                      ? (casinoPl[pairMarketArray?.marketId][pairMarketArray.runners[1]?.selectionId]
+                                      |
+                                      number) :
+                                      '0.00' }}
+
+                                  </span>
+
+                              </span>
+
+                          </div>
+
+
+                          <li class="chips_1_selected" style="display: none;">
+                              <p></p>
+                          </li>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="row" *ngIf="isDesktop && eventid !== '99.0057'">
+          <div class="col-md-5">
+              <div class="title"> STATISTICS </div>
+              <div>
+                  <svg width="365" height="200" aria-label="A chart." style="overflow: hidden;">
+                      <defs id="_ABSTRACT_RENDERER_ID_1"></defs>
+                      <rect x="0" y="0" width="365" height="200" stroke="none" stroke-width="0" fill="#eeeeee"></rect>
+                      <g>
+                          <rect x="242" y="0" width="123" height="42" stroke="none" stroke-width="0" fill-opacity="0"
+                              fill="#ffffff"></rect>
+                          <g column-id="Player">
+                              <rect x="242" y="0" width="123" height="10" stroke="none" stroke-width="0"
+                                  fill-opacity="0" fill="#ffffff"></rect>
+                              <g>
+                                  <text text-anchor="start" x="256" y="8.5" font-family="Arial" font-size="10"
+                                      stroke="none" stroke-width="0" fill="#222222">Player
+                                  </text>
+                              </g>
+                              <circle cx="247" cy="5" r="5" stroke="none" stroke-width="0" fill="#086cb8"></circle>
+                          </g>
+                          <g column-id="Banker">
+                              <rect x="242" y="16" width="123" height="10" stroke="none" stroke-width="0"
+                                  fill-opacity="0" fill="#ffffff"></rect>
+                              <g>
+                                  <text text-anchor="start" x="256" y="24.5" font-family="Arial" font-size="10"
+                                      stroke="none" stroke-width="0" fill="#222222">Banker
+                                  </text>
+                              </g>
+                              <circle cx="247" cy="21" r="5" stroke="none" stroke-width="0" fill="#ae2130"></circle>
+                          </g>
+                          <g column-id="Tie">
+                              <rect x="242" y="32" width="123" height="10" stroke="none" stroke-width="0"
+                                  fill-opacity="0" fill="#ffffff"></rect>
+                              <g>
+                                  <text text-anchor="start" x="256" y="40.5" font-family="Arial" font-size="10"
+                                      stroke="none" stroke-width="0" fill="#222222">Tie
+                                  </text>
+                              </g>
+                              <circle cx="247" cy="37" r="5" stroke="none" stroke-width="0" fill="#279532"></circle>
+                          </g>
+                      </g>
+                      <g>
+                          <path
+                              d="M213,90L213,110A100,80,0,0,1,181.45471059286888,168.31749019371293L181.45471059286888,148.31749019371293A100,80,0,0,0,213,90"
+                              stroke="#06518a" stroke-width="1" fill="#06518a"></path>
+                          <path
+                              d="M113,90L113,110L181.45471059286888,168.31749019371293L181.45471059286888,148.31749019371293"
+                              stroke="#06518a" stroke-width="1" fill="#06518a"></path>
+                          <path
+                              d="M113,90L113,10A100,80,0,0,1,181.45471059286888,148.31749019371293L113,90A0,0,0,0,0,113,90"
+                              stroke="#086cb8" stroke-width="1" fill="#086cb8"></path>
+                          <text text-anchor="start" x="175.80747867400245" y="71.07937328901528" font-family="Arial"
+                              font-size="10" stroke="none" stroke-width="0" fill="#ffffff">38%
+                          </text>
+                      </g>
+                      <g>
+                          <path
+                              d="M113,90L113,110L54.22147477075268,45.27864045000422L54.22147477075268,25.278640450004218"
+                              stroke="#1d7026" stroke-width="1" fill="#1d7026"></path>
+                          <path
+                              d="M113,90L54.22147477075268,25.278640450004218A100,80,0,0,1,113,10L113,90A0,0,0,0,0,113,90"
+                              stroke="#279532" stroke-width="1" fill="#279532"></path>
+                          <text text-anchor="start" x="78.13005322102802" y="33.967468843948105" font-family="Arial"
+                              font-size="10" stroke="none" stroke-width="0" fill="#ffffff">10%
+                          </text>
+                      </g>
+                      <g>
+                          <path
+                              d="M181.45471059286888,148.31749019371293L181.45471059286888,168.31749019371293A100,80,0,0,1,13,110.00000000000001L13,90A100,80,0,0,0,181.45471059286888,148.31749019371293"
+                              stroke="#831924" stroke-width="1" fill="#831924"></path>
+                          <path
+                              d="M113,90L181.45471059286888,148.31749019371293A100,80,0,1,1,54.22147477075268,25.278640450004218L113,90A0,0,0,1,0,113,90"
+                              stroke="#ae2130" stroke-width="1" fill="#ae2130"></path>
+                          <text text-anchor="start" x="42.756710036872164" y="132.26256511522956" font-family="Arial"
+                              font-size="10" stroke="none" stroke-width="0" fill="#ffffff">52%
+                          </text>
+                      </g>
+                      <g></g>
+                  </svg>
+              </div>
+          </div>
+          <div class="col-md-7">
+              <div class="title" style="">CHIPS</div>
+              <section class="function_zone" id="functionZone">
+                  <ul class="chips" id="chips">
+                      <li class="chips_1" *ngFor="let stake of betStakes" (click)="setStake(stake.stakeAmount)"
+                          [ngClass]="selectedBetAmount == stake.stakeName ?'now':''">
+                          <img *ngIf="stake.stakeAmount < 1000" src="/assets/chips/chips1.svg">
+                          <img *ngIf="stake.stakeAmount >= 1000 &&  stake.stakeAmount < 2000"
+                              src="/assets/chips/chips1k.svg">
+                          <img *ngIf="stake.stakeAmount >= 2000 &&  stake.stakeAmount < 5000"
+                              src="/assets/chips/chips2.svg">
+                          <img *ngIf="stake.stakeAmount >= 5000  &&  stake.stakeAmount < 10000"
+                              src="/assets/chips/chips5.svg">
+                          <img *ngIf="stake.stakeAmount >= 10000 &&  stake.stakeAmount < 20000"
+                              src="/assets/chips/chips10.svg">
+                          <img *ngIf="stake.stakeAmount >= 20000 &&  stake.stakeAmount < 50000"
+                              src="/assets/chips/chips20.svg">
+                          <img *ngIf="stake.stakeAmount >= 50000" src="/assets/chips/chips1k.svg">
+                          <p>{{stake.stakeName | shortNumber }} </p>
+                          <span class="ring">ring</span>
+                      </li>
+                  </ul>
+              </section>
+          </div>
+      </div>
+
+
+      <section class="function_zone" id="functionZone" *ngIf="!isDesktop">
+          <ul class="chips" id="chips">
+              <li class="chips_1" *ngFor="let stake of betStakes" (click)="setStake(stake.stakeAmount)"
+                  [ngClass]="selectedBetAmount == stake.stakeName ?'now':''">
+                  <img *ngIf="stake.stakeAmount < 1000" src="/assets/chips/chips1.svg">
+                  <img *ngIf="stake.stakeAmount >= 1000 &&  stake.stakeAmount < 2000" src="/assets/chips/chips1k.svg">
+                  <img *ngIf="stake.stakeAmount >= 2000 &&  stake.stakeAmount < 5000" src="/assets/chips/chips2.svg">
+                  <img *ngIf="stake.stakeAmount >= 5000  &&  stake.stakeAmount < 10000" src="/assets/chips/chips5.svg">
+                  <img *ngIf="stake.stakeAmount >= 10000 &&  stake.stakeAmount < 20000"
+                      src="/assets/chips/chips10.svg">
+                  <img *ngIf="stake.stakeAmount >= 20000 &&  stake.stakeAmount < 50000"
+                      src="/assets/chips/chips20.svg">
+                  <img *ngIf="stake.stakeAmount >= 50000" src="/assets/chips/chips1k.svg">
+                  <p>{{stake.stakeName | shortNumber }} </p>
+                  <span class="ring">ring</span>
+              </li>
+          </ul>
+      </section>
+
+      <app-results></app-results>
+
+
+
+  </div>
+</div>
