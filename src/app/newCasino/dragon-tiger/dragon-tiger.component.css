@@ -554,3 +554,9 @@
 .tableSideStatic__dragonEven-QFtUYx{
   opacity: 0.4!important;
 }
+.player-text{
+  background: linear-gradient(90deg, transparent 0%, rgb(225, 157, 25) 50%, transparent 100%);
+}
+.playerA-winnerText{
+  background: linear-gradient(90deg, transparent 0%, rgb(198,40,8) 50%, transparent 100%)!important;
+}
