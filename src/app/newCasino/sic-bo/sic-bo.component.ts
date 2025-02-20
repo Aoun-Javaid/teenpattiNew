@@ -47,12 +47,19 @@ export class SicBoComponent {
     })
   }
 
-  openBetCoin(){
+  openBetCoin() {
     this.openCoinBarState = true;
   }
 
-  closeBetCoin(){
+  closeBetCoin(event: any) {
+    event.stopPropagation();
     this.openCoinBarState = false;
-    console.log('openCoinBarState', this.openCoinBarState);
   }
+
+  animatecoinValue(value: any) {
+    this.animateCoinVal = value
+    this.btnCheck = value
+  }
+
+  
 }

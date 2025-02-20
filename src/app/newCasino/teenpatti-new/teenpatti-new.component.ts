@@ -17,6 +17,7 @@ import { IndexedDbService } from '../../services/indexed-db.service';
 import { ShortNumberPipe } from '../../pipes/short-number.pipe';
 import { ToastrService } from 'ngx-toastr';
 import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
+import { BetsChipsComponent } from '../shared/bets-chips/bets-chips.component';
 
 export let browserRefresh = false;
 declare var $: any;
@@ -24,7 +25,7 @@ declare var $: any;
 @Component({
   selector: 'app-teenpatti-new',
   standalone: true,
-  imports: [TopResultsComponent, ShortNumberPipe, CommonModule, VideoPlayerComponent, VideoPlayerUnrealComponent, QuickStakesEditComponent, BetCoinComponent],
+  imports: [TopResultsComponent, ShortNumberPipe, CommonModule, VideoPlayerComponent, VideoPlayerUnrealComponent, QuickStakesEditComponent, BetCoinComponent, BetsChipsComponent],
   templateUrl: './teenpatti-new.component.html',
   styleUrl: './teenpatti-new.component.css'
 })
