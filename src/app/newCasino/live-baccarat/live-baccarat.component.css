@@ -40,7 +40,6 @@
 } */
 
 /* ================================== */
-
 .newGameWrapper {
   background-color: #0a0a1a;
   height: calc(100vh - 114px);
@@ -253,7 +252,7 @@
 .table__playerPairTitle-zjbgYU{
   @apply min-[1312px]:!translate-y-[0rem] min-[1312px]:!bottom-[1.125rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.625rem];
   transform: translateY(-0.3125rem);
-  left: 1.64rem;
+  left: 1.57rem;
   top: 9.79rem;
   font-size: 0.75rem;
   position: absolute;
@@ -274,7 +273,7 @@
 .table__bankerPairTitle-jKSnQU{
   @apply min-[1312px]:!translate-y-[0rem] min-[1312px]:!bottom-[1.125rem] min-[1312px]:!right-[1.2rem] min-[1312px]:!top-auto min-[1312px]:!text-[0.625rem];
   transform: translateY(-0.3125rem);
-  right: 1.5rem;
+  right: 1.57rem;
   top: 9.79rem;
   font-size: 0.75rem;
   position: absolute;
@@ -307,7 +306,7 @@
 
 .table__bankerBonusTitle-ct9ndo{
   @apply min-[1312px]:!right-[0.8rem] min-[1312px]:!top-[0.8rem] min-[1312px]:!text-[0.625rem];
-  right: 1rem;
+  right: 1.1rem;
   top: 7.55rem;
   position: absolute;
   font-size: 0.75rem;
@@ -715,15 +714,18 @@
 }
 
 .card-animation {
+  position: relative;
   animation: card-animation 500ms forwards;
 }
 
 @keyframes card-animation {
   0% {
-    transform: translateY(-10px);
+    top: -10px;
+    opacity: 0;
   }
   100% {
-    transform: translateY(0);
+    top: 0;
+    opacity: 1;
   }
 }
 

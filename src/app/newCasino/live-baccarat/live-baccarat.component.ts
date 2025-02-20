@@ -24,6 +24,8 @@ declare var $: any;
   styleUrl: './live-baccarat.component.css'
 })
 export class LiveBaccaratComponent implements OnInit {
+  isMobile: boolean = false;
+
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;
   subscription!: Subscription
@@ -121,6 +123,16 @@ export class LiveBaccaratComponent implements OnInit {
     // console.log(this.isDesktop, 'isDesktop');
 
   }
+
+  @HostListener('window:resize', ['$event'])
+onResize(event?: Event) {
+  console.log(this.checkWindowSize()); // ✅ Ab ye true/false return karega
+}
+
+checkWindowSize() {
+  this.isMobile = window.innerWidth <= 1312;
+  return this.isMobile; // 🔥 Ab yeh value return karega
+}
 
 
   ngOnDestroy(): void {
@@ -250,6 +262,7 @@ export class LiveBaccaratComponent implements OnInit {
     this.getAllMarketProfitLoss();
     this.getBetStake();
     this.getResults();
+    this.checkWindowSize();
   }
 
   handleEventResponse(objMarket: any, index: any) {
