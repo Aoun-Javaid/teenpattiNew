@@ -47,6 +47,9 @@
 .resultItem_size_small-Feox9S .resultItem__list-J7YJ2v {
   height: 1rem;
 }
+.resultItem_size_small-dt .resultItem__list-J7YJ2v {
+  height: 2rem;
+}
 
 .resultItem__list-J7YJ2v {
   overflow: hidden;
@@ -119,7 +122,7 @@
 }
 .tile_size_small-ATZ3H_ {
   font-size: 0.625rem;
-  line-height: 1rem;
+  line-height: 1.5rem;
   /* width: 1rem; */
 }
 .tile_indentSize_medium-U9Lwul {
@@ -148,8 +151,8 @@
   width: 1.5rem;
 }
 .tile_size_small-ATZ3H_ .tile__label_dt{
-  height: 1rem;
-  width: 1rem;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 .tile__label_dt{
   align-items: center;
