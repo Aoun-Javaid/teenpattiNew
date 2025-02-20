@@ -16,7 +16,7 @@
   gap: 0.125rem;
   grid-template-rows: 6.7rem 2.5rem;
   pointer-events: none;
-  @apply min-[1312px]:[grid-template-rows:9.7rem_2.5rem];
+  @apply lg:[grid-template-rows:9.7rem_2.5rem];
 }
 
 .tableMainCards-LsS1Pt,
@@ -40,7 +40,7 @@
   margin-top: -0.7rem;
   position: absolute;
   top: 50%;
-  @apply min-[1312px]:-ml-4 min-[1312px]:-mt-4;
+  @apply lg:-ml-4 lg:-mt-4;
 }
 
 .tieProgress-_85S40 {
@@ -52,7 +52,7 @@
   position: relative;
   width: 1.5rem;
 
-  @apply min-[1312px]:w-[2rem] min-[1312px]:h-[2rem];
+  @apply lg:w-[2rem] lg:h-[2rem];
 }
 
 .tieProgress__progress-wVn5_x {
@@ -157,7 +157,7 @@
   grid-template-rows: 3rem 2rem 1rem;
   padding: 0.5rem;
   transition: opacity 300ms ease;
-  @apply min-[1312px]:[grid-template-rows:5rem_2rem_1rem];
+  @apply lg:[grid-template-rows:5rem_2rem_1rem];
 }
 
 .table_lose_dragon-bEbsRm .tableMainStatic__dragon-AzpGwn,
@@ -255,7 +255,7 @@
   gap: 7.5rem;
   grid-template-areas: "dragon tiger";
   grid-template-columns: repeat(2, 1fr);
-  @apply min-[1312px]:gap-[10.5rem];
+  @apply lg:gap-[10.5rem];
 }
 
 .tableMainChips-LUyExt {
