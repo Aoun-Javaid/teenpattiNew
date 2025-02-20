@@ -23,6 +23,7 @@ import {DragonTigerComponent} from "./newCasino/dragon-tiger/dragon-tiger.compon
 import { LiveBaccaratComponent } from './newCasino/live-baccarat/live-baccarat.component';
 
 import { SicBoComponent } from './newCasino/sic-bo/sic-bo.component';
+import { BaccaratComponent } from './casino/baccarat/baccarat.component';
 
 
 
@@ -99,6 +100,10 @@ export const routes: Routes = [
         component:TeenpattiComponent
       },
       {
+        path: 'baccarat/:id',
+        component: BaccaratComponent
+      },
+      {
         path:'dt/:id',
         component:TeenpattiComponent
       },
@@ -116,7 +121,7 @@ export const routes: Routes = [
         component: SicBoComponent
       },
       {
-        path:'live-baccarat',
+        path:'live-baccarat/:id',
         component:LiveBaccaratComponent
       },
       {

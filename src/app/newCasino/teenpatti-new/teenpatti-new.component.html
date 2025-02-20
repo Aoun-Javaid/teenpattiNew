@@ -542,42 +542,12 @@
                                     <div class="betPlaceInfo_pairPlus_playerB betPlaceInfo ">
                                         <div class="flex justify-between w-full items-center">
 
-                                            <div class="chipTrayWithToggle__item-nLy9Sn">
-                                                <div class="chips-rzbOIK ">
-                                                    <div class="chip-kcN8LW chip_size_48-odjDTm !w-[25px]  !h-[25px] !rotate-0 "
-                                                        data-locator="chip-250">
-                                                        <div class="chip__1st">
-                                                            <div
-                                                                class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
-                                                            </div>
-                                                            <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <text x="32%" y="50%" transform="translate(0, 1.25)"
-                                                                    class="chip__valueShadow-apDxWQ"
-                                                                    text-rendering="geometricPrecision"
-                                                                    dominant-baseline="central"
-                                                                    style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
-                                                                    {{this.stackButtonArry[0].stakeAmount |
-                                                                    shortNumber}}
-                                                                </text>
-                                                                <text x="32%" y="50%" transform="translate(0, 0)"
-                                                                    class="chip__value-B48ghL"
-                                                                    text-rendering="geometricPrecision"
-                                                                    data-locator="chip-value"
-                                                                    dominant-baseline="central"
-                                                                    style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
-                                                                    {{this.stackButtonArry[0].stakeAmount |
-                                                                    shortNumber}}
-                                                                </text>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <app-bets-chips></app-bets-chips>
 
                                             <div>
                                                 <div class="pair-plus">Pair Plus</div>
                                                 <div class="down-player">Player B</div>
+
                                             </div>
 
                                         </div>
@@ -725,7 +695,7 @@
     justify-content: end; -->
 
 
-    <!-- <app-bets-chips *ngIf="BetPlaced[winnerMarketArray?.marketId][winnerMarketArray.runners[1].selectionId]"
+<!-- <app-bets-chips *ngIf="BetPlaced[winnerMarketArray?.marketId][winnerMarketArray.runners[1].selectionId]"
     [BetPlaced]="BetPlaced" [marketId]="winnerMarketArray?.marketId"
     [runnerId]="winnerMarketArray.runners[1].selectionId"></app-bets-chips> -->
 <!--

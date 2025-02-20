@@ -1,32 +1,31 @@
-import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
-import {TopResultsComponent} from "../shared/top-results/top-results.component";
-import {VideoPlayerComponent} from "../../shared/video-player/video-player.component";
-import {CommonModule} from "@angular/common";
-import {BetCoinComponent} from "../../shared/bet-coin/bet-coin.component";
-import {ShortNumberPipe} from "../../pipes/short-number.pipe";
-import { first, retry, RetryConfig, Subscription } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { ToastrService } from 'ngx-toastr';
+import { first, retry, RetryConfig, Subscription } from 'rxjs';
+import { CONFIG } from '../../../../config';
+import { EncryptDecryptService } from '../../services/encrypt-decrypt.service';
 import { MainService } from '../../services/main.service';
 import { NetworkService } from '../../services/network.service';
-import { DeviceDetectorService } from 'ngx-device-detector';
-import { EncryptDecryptService } from '../../services/encrypt-decrypt.service';
-import { ToastrService } from 'ngx-toastr';
-import { CONFIG } from '../../../../config';
-import { CasinoSocketService } from '../../services/casino-socket.service';
+import { VideoPlayerComponent } from '../../shared/video-player/video-player.component';
+import { ShortNumberPipe } from "../../pipes/short-number.pipe";
+import { ResultsComponent } from "../../shared/results/results.component";
 
 declare var $: any;
 
 @Component({
-  selector: 'app-live-baccarat',
+  selector: 'app-baccarat',
   standalone: true,
-  imports: [TopResultsComponent, VideoPlayerComponent, CommonModule, BetCoinComponent],
-  templateUrl: './live-baccarat.component.html',
-  styleUrl: './live-baccarat.component.css'
+  imports: [CommonModule, VideoPlayerComponent, ShortNumberPipe, ResultsComponent],
+  templateUrl: './baccarat.component.html',
+  styleUrl: './baccarat.component.css'
 })
-export class LiveBaccaratComponent implements OnInit {
+export class BaccaratComponent {
+  subscription!: Subscription;
+
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;
-  subscription!: Subscription
 
   liveData$: any;
   public message = {
@@ -39,6 +38,7 @@ export class LiveBaccaratComponent implements OnInit {
     type: "3",
     id: ""
   };
+
 
   selectedBetAmount = 0;
   eventid: any;
@@ -68,9 +68,9 @@ export class LiveBaccaratComponent implements OnInit {
   betType: any;
   tieMarketArray: any;
   pairMarketArray: any;
-  getRoundId: any;
-  counter: number = 0;
-  split_arr: any;
+  getRoundId!: string | null;
+  counter!: number;
+  split_arr!: string[];
   changeValue: any;
   resultcounter = 0;
   RoundWinner: any;
@@ -104,7 +104,7 @@ export class LiveBaccaratComponent implements OnInit {
   };
 
   constructor(private route: ActivatedRoute,
-    private socket: CasinoSocketService,
+
     private toaster: ToastrService,
     private encyDecy: EncryptDecryptService,
     private deviceService: DeviceDetectorService,
@@ -147,7 +147,7 @@ export class LiveBaccaratComponent implements OnInit {
 
     this.subscription = this.encyDecy.getMarketData().pipe(retry(this.retryConfig)).subscribe((marketData: any = []) => {
       // this.subscription = this.encyDecy.getMarketData().pipe(retry(this.retryConfig)).subscribe((marketData: any) => {
-      this.socket = marketData; // Update the receivedMessage variable with the received message
+
       if (marketData) {
         this.getRoundId = localStorage.getItem('roundID')
 
@@ -711,10 +711,7 @@ export class LiveBaccaratComponent implements OnInit {
   catchWebSocketEvents(msg: any) {
   }
 
-  sendMsg() {
-    // this.casinoService.messages.next(this.message);
-    this.socket.send(this.message);
-  }
+
 
 
   ProfitLossBalance() {
@@ -752,13 +749,4 @@ export class LiveBaccaratComponent implements OnInit {
           let responseData = error;
         });
   }
-
-  getCoinValue(event: any) {
-    console.log('event', event);
-  }
-
-  getClickedItem(blockName: string){
-    console.log(blockName + " Method Clicked");
-  }
- 
 }

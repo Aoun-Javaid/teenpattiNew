@@ -678,7 +678,7 @@ button.close {
   text-indent: -99999px;
 }
 
-.chips li .ring {
+.chips li .rings {
   position: absolute;
   width: 64px;
   height: 52px;
@@ -744,11 +744,11 @@ button.close {
   display: none;
 }
 
-.chips li.now .ring {
+.chips li.now .rings {
   border: 4px solid #fd8f3b;
   transition: all .15s linear;
   display: revert;
-  top: 30px;
+  top: 27px;
 }
 
 .fancy-info {
@@ -785,18 +785,18 @@ button.close {
 
   .chips li p,
   .chips li img {
-      width: 50px;
+      width: 46px;
       height: 62px;
       font-size: 10px;
   }
 
-  .chips li .ring {
+  .chips li .rings {
       position: absolute;
       width: 46px;
       height: 33px;
       border-radius: 100px/85px;
       bottom: 12px;
-      left: calc(50% - 40px/2);
+      left: calc(50% - 45px/2);
   }
 
 }

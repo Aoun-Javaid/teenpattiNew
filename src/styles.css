@@ -6,6 +6,13 @@
 @tailwind utilities;
 
 :root {
+
+  --font-v-small: 10px;
+
+  --font-small: 12px;
+  --font-caption: 15px;
+
+
   --topHeaderColor: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
   --account-arrow-border: #1e1e1e;
   --account-arrow-text: #1e1e1e;
