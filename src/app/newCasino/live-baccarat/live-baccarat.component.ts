@@ -25,6 +25,8 @@ declare var $: any;
 })
 export class LiveBaccaratComponent implements OnInit {
   isMobile: boolean = false;
+  firstBoxWidth: string = '';
+  secndBoxWidth: string = '';
 
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;
@@ -199,6 +201,8 @@ checkWindowSize() {
             this.casinoPl = [];
             this.getResults();
             this.betSelectedPlayer = '';
+            this.secndBoxWidth = '';
+            this.firstBoxWidth = '';
           }
 
           this.networkService.updateRoundId(this.game);
@@ -773,5 +777,5 @@ checkWindowSize() {
   getClickedItem(blockName: string){
     console.log(blockName + " Method Clicked");
   }
- 
+
 }

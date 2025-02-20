@@ -1,5 +1,5 @@
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
-    <app-top-results></app-top-results>
+    <app-top-results class="min-[1200px]:!hidden"></app-top-results>
     <div #target>
         <app-video-player [cardsActive]="false" [displayResult]="false" [fancyTimer]="true"
             [resultDeclared]="RoundWinner" [unityTimer]="false"></app-video-player>
@@ -713,12 +713,13 @@
                                     <div class="table__playerBetStat-SIKZO5">
                                         <span class="player_score inline-block absolute left-[2px] font-bold">7</span>
                                         <div class="hide betStat-ms3aoF betStat_size_small-kxmCJ5">
-                                            <div class="betStat__percentage-BBxzKO">
-                                                <div class="percentageBetStat-cKHkzI"
-                                                    data-locator="undefined-bet-stat-percent"
-                                                    style="background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 100%); background-position-y: 12%;">
-                                                    12%</div>
+                                          <div class="betStat__percentage-BBxzKO" *ngIf="playerMarket">
+                                            <div class="percentageBetStat-cKHkzI"
+                                                 [ngStyle]="{ 'background-position-y': playerMarket + '%' }"
+                                                 data-locator="dragon-bet-stat-percent">
+                                              {{playerMarket | number :'1.0-1'}}%
                                             </div>
+                                          </div>
                                             <div class="betStat__details-UyYdlK">
                                                 <div class="betStat__info-iGat4V">
                                                     <svg class="svgIcon-JpUo7O svgIcon_small-WRm0qc" viewBox="0 0 24 24"
@@ -751,12 +752,13 @@
                                         <span class="banker_score inline-block absolute right-[2px] font-bold">7</span>
                                         <div
                                             class="hide betStat-ms3aoF betStat_align_left-oq1Q2K betStat_size_small-kxmCJ5">
-                                            <div class="betStat__percentage-BBxzKO">
-                                                <div class="percentageBetStat-cKHkzI"
-                                                    data-locator="undefined-bet-stat-percent"
-                                                    style="background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 100%); background-position-y: 88%;">
-                                                    88%</div>
+                                          <div class="betStat__percentage-BBxzKO" *ngIf="bankerMarket">
+                                            <div class="percentageBetStat-cKHkzI"
+                                                 [ngStyle]="{ 'background-position-y': bankerMarket + '%' }"
+                                                 data-locator="tiger-bet-stat-percent">
+                                              {{bankerMarket | number :'1.0-1'}}%
                                             </div>
+                                          </div>
                                             <div class="betStat__details-UyYdlK">
                                                 <div class="betStat__info-iGat4V"><svg
                                                         class="svgIcon-JpUo7O svgIcon_small-WRm0qc" viewBox="0 0 24 24"
@@ -786,12 +788,13 @@
                                     <div class="hide table__tieBetStat-WGzf9d">
                                         <div
                                             class="betStat-ms3aoF betStat_align_bottom-oEv3fK betStat_size_small-kxmCJ5">
-                                            <div class="betStat__percentage-BBxzKO">
-                                                <div class="percentageBetStat-cKHkzI"
-                                                    data-locator="undefined-bet-stat-percent"
-                                                    style="background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 100%); background-position-y: 0%;">
-                                                    0%</div>
+                                          <div class="betStat__percentage-BBxzKO" *ngIf="tieMarket">
+                                            <div class="percentageBetStat-cKHkzI"
+                                                 [ngStyle]="{ 'background-position-y': tieMarket + '%' }"
+                                                 data-locator="tiger-bet-stat-percent">
+                                              {{tieMarket | number :'1.0-1'}}%
                                             </div>
+                                          </div>
                                             <div class="betStat__details-UyYdlK">
                                                 <div class="betStat__info-iGat4V"><svg
                                                         class="svgIcon-JpUo7O svgIcon_small-WRm0qc" viewBox="0 0 24 24"

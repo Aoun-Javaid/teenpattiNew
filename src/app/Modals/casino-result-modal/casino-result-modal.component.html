@@ -97,6 +97,41 @@
                     </div>
                   </ng-container>
 
+<!--                  For live baccarat results-->
+                  <ng-container *ngIf="selectedResult?.eventId=='99.0001'">
+                    <div class="w-full md:w-1/2 xs:w-full paati_boxs">
+                      <h6>Banker</h6>
+                      <div class="card-Img-box">
+                        <div class="flex justify-center items-center" [ngClass]="darkTheme?'darkPlayerA':''">
+                          <img [src]="['assets/cards/'+selectedResult?.cards['BANKER']?.card_1+'.png']">
+                          <img [src]="['assets/cards/'+selectedResult?.cards['BANKER']?.card_2+'.png']">
+                          <img [src]="['assets/cards/'+selectedResult?.cards['BANKER']?.card_3+'.png']">
+                        </div>
+
+                        <button *ngIf="selectedResult?.winner=='B'" [ngClass]="{'winner-team btn': selectedResult?.winner != 'P', 'winner-banker': selectedResult?.winner == 'B'}">Winner</button>
+                      </div>
+                    </div>
+
+                    <div class="w-full md:w-1/2 xs:w-full paati_boxs">
+                      <h6>Player</h6>
+                      <div class="card-Img-box">
+                        <div class="flex justify-center items-center" [ngClass]="darkTheme?'darkPlayerB':''">
+                          <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER']?.card_1+'.png']">
+                          <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER']?.card_2+'.png']">
+                          <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER']?.card_3+'.png']">
+                        </div>
+                        <button *ngIf="selectedResult?.winner=='P'"  [ngClass]="{'winner-team btn': selectedResult?.winner != 'B', 'winner-player': selectedResult?.winner == 'P'}">Winner</button>
+                      </div>
+                    </div>
+                    <div class="w-full md:w-1/2 xs:w-full paati_boxs" *ngIf="selectedResult?.cards['JOKER']">
+                      <h6>JOKER</h6>
+                      <div class="card-Img-box">
+                        <img [src]="['assets/cards/'+selectedResult?.cards['JOKER']?.card_1+'.png']">
+                        <button *ngIf="selectedResult?.winner=='B'" class="btn winner-team Winnerb">Winner</button>
+                      </div>
+                    </div>
+                  </ng-container>
+
                   <ng-container *ngIf="extraMarkets">
                   <div  class="clearfix"></div>
 

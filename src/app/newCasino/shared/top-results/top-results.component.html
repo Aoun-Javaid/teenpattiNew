@@ -37,6 +37,27 @@
       </div>
     </div>
   </div>
+
+<!--  live baccarat results-->
+  <div class="result" *ngIf="eventid=='99.0001'">
+    <div class="resultItem-R4uUuB resultItem_size_small-dt">
+      <div class="resultItem__list-J7YJ2v">
+        <div class="abResultLine-eMgxz_">
+          <div class="abResultLine__inner-fF8OCI abResultLine__inner_animateFirstItem-Nbi5o9 abResultLine__inner_stretch-Z3RTMl abResultLine__inner_multipleLines-pKLIP8 animated2-gtLnvD" style="--shift-horizontally: -1.25rem;">
+            @for (item of resultArray; track $index) {
+              <a (click)="setResults(item)" class="tile-lWsz_U_dt tile_size_small_dt tile_indentSize_medium-U9Lwul"
+                 [ngClass]="{'tile_theme_Baccarat': item.winner === 'B', 'tile_theme_Player': item.winner === 'P', 'tile_theme_baccarat_Tie': item.winner === 'T'}">
+                <div class="tile__label_dt">
+                  {{ item.winner}}
+                </div>
+              </a>
+
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
