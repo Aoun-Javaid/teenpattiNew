@@ -1,5 +1,5 @@
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
-    <app-top-results></app-top-results>
+    <app-top-results class="min-[1200px]:!hidden"></app-top-results>
     <div #target>
         <app-video-player [cardsActive]="false" [displayResult]="false" [fancyTimer]="true"
                           [resultDeclared]="RoundWinner" [unityTimer]="false"></app-video-player>
@@ -646,7 +646,7 @@
                                                     <div class="card-wi2ADp card_size_large-HaRpNj card_color_black-iDcRjL">
                                                         <div class="card__inner-CIH8Z7">
                                                           <img [ngClass]="dragonCards?.card_1!='0' && dragonCards?.card_1 ?'tableMainCards__card__animation':'opacity-0'"
-                                                               [src]="['assets/cards/'+dragonCards?.card_1+'.png']" class="card-img" alt="card1">
+                                                               [src]="['assets/cards/'+dragonCards?.card_1+'.png']" class="card-img  rounded-[0.125rem]" alt="card1">
                                                         </div>
                                                     </div>
                                             </div>
@@ -654,7 +654,7 @@
                                                     <div class="card-wi2ADp card_size_large-HaRpNj card_color_red-oOULpU">
                                                         <div class="card__inner-CIH8Z7">
                                                           <img [ngClass]="tigerCards?.card_1!='0' && tigerCards?.card_1 ?'tableMainCards__card__animation':'opacity-0'"
-                                                               [src]="['assets/cards/'+tigerCards?.card_1+'.png']" class="card-img" alt="card1">
+                                                               [src]="['assets/cards/'+tigerCards?.card_1+'.png']" class="card-img rounded-[0.125rem]" alt="card1">
                                                         </div>
                                                     </div>
                                             </div>

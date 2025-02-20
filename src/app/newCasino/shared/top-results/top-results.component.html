@@ -19,12 +19,12 @@
 
 <!--  Dragon Tiger Results-->
   <div class="result" *ngIf="eventid=='99.0018'">
-    <div class="resultItem-R4uUuB resultItem_size_small-Feox9S">
+    <div class="resultItem-R4uUuB resultItem_size_small-dt">
       <div class="resultItem__list-J7YJ2v">
         <div class="abResultLine-eMgxz_">
           <div class="abResultLine__inner-fF8OCI abResultLine__inner_animateFirstItem-Nbi5o9 abResultLine__inner_stretch-Z3RTMl abResultLine__inner_multipleLines-pKLIP8 animated2-gtLnvD" style="--shift-horizontally: -1.25rem;">
             @for (item of resultArray; track $index) {
-              <a (click)="setResults(item)" class="tile-lWsz_U_dt tile_size_small-ATZ3H_ tile_indentSize_medium-U9Lwul"
+              <a (click)="setResults(item)" class="tile-lWsz_U_dt tile_size_small_dt tile_indentSize_medium-U9Lwul"
                  [ngClass]="{'tile_theme_Dragon': item.winner === 'DRAGON', 'tile_theme_Tiger': item.winner === 'TIGER', 'tile_theme_Tie': item.winner === 'TIE'}">
                 <div class="tile__label_dt">
                   {{ item.winner === 'DRAGON' ? 'D' : item.winner === 'TIGER' ? 'T' : item.winner === 'TIE' ? 'T' : '' }}

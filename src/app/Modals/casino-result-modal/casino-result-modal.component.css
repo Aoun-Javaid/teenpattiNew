@@ -346,6 +346,23 @@ background: black;
   margin: 10px auto;
   border-radius: 4px;
 }
+.winner-team-tiger {
+  background: linear-gradient(90deg, transparent 0%, rgb(225, 157, 25) 50%, transparent 100%);
+  color: #fff;
+}
+.winner-team-dragon {
+  background: linear-gradient(90deg, transparent 0%, rgb(198,40,8) 50%, transparent 100%);
+  color: #fff;
+}
+.winner-team-A{
+  background: linear-gradient(90deg, transparent 0%, rgb(255,85,0) 50%, transparent 100%);
+  color: #fff;
+}
+.winner-team-B{
+  background: linear-gradient(90deg, transparent 0%, rgb(248,149,0) 50%, transparent 100%);
+  color: #fff;
+}
+
 
 @media only screen and (max-width: 767px) {
 
