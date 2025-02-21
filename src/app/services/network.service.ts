@@ -127,7 +127,8 @@ export class NetworkService {
       .subscribe(
         res => {
           if (res?.meta?.status == true) {
-            item.stake= item.stake,
+            item.stake= item.stake;
+            item.betSuccess= true;
             this.setBetPlace(item);
             this.toaster.success(res.meta.message, '', {
               positionClass: 'toast-top-center',
@@ -143,7 +144,7 @@ export class NetworkService {
                 positionClass: 'toast-top-center',
                 toastClass: 'ngx-toastr custom-toast',
               });
-              this.cancelBet();
+              this.cancelBet(item);
             } else {
               this.toaster.error("Something went wrong please try again.", '', {
                 positionClass: 'toast-top-center',
@@ -158,15 +159,16 @@ export class NetworkService {
         },
         error => {
           // this.selectedOptionType = '1';
-          this.cancelBet();
+          this.cancelBet(item);
 
           let responseData = error.error;
           this.ErrorNotification_Manager(responseData);
 
         });
   }
-  cancelBet() {
-
+  cancelBet(item:any) {
+    item.betSuccess= false;
+    this.setBetPlace(item);
   }
   ErrorNotification_Manager(responseData: any) {
     if (responseData.meta) {

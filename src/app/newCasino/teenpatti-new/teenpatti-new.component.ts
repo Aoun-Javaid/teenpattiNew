@@ -156,6 +156,18 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
+    this.networkService.getBetPlace().subscribe((betObj:any)=>{
+      // this.getAllMarketProfitLoss();
+      if(betObj.betSuccess){
+        this.handleIncomingBetObject(betObj);
+
+      }else{
+        this.isbetInProcess=false;
+      }
+
+
+
+    })
 
     this.getStackData();
     this.getWindowSize()
@@ -339,7 +351,15 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
       this.BetPlaced[marketId][selectionId] = stake;
     }
+    console.log('bet placed',this.BetPlaced);
       this.betsChipsComponent?.CalculateIndex();
+
+      this.game.betAccepted = true;
+      this.networkService.updateRoundId(this.game);
+      setTimeout(() => {
+        this.game.betAccepted = false;
+        this.networkService.updateRoundId(this.game);
+      }, 1500);
   }
   handleEventResponse(objMarket: any, index: any) {
     // console.log(objMarket,'<=============== objMarket with out index')
@@ -538,7 +558,11 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
           maxValue: max,
           stake:this.selectedBetAmount
         }
+
         // this.placeCasinoBet();
+        this.isbetInProcess = true;
+        this.networkService.placeBet(this.betplaceObj);
+
       }
       else {
         this.toaster.error("please select chips for Bet", '', {
@@ -828,7 +852,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
         data => {
 
           if (data.meta.status == true) {
-            let availBalance = (data.data.bankBalance - data.data.exposure).toFixed(2)
+            let availBalance = (data.data.balance - data.data.exposure).toFixed(2)
             $('.userTotalBalance').text(availBalance);
             $('.userTotalExposure').text(data.data.exposure);
             let ex = data.data.exposure.toLocaleString('en-US', { style: 'currency', currency: 'USD', symbol: '' });

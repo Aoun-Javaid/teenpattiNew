@@ -1,21 +1,30 @@
 <div class="chipTrayWithToggle__item-nLy9Sn">
     <div class="chips-rzbOIK ">
         <div class="chip-kcN8LW chip_size_48-odjDTm !w-[25px]  !h-[25px] !rotate-0 " data-locator="chip-250">
-            <div class="chip__1st">
+            <div class="chip__1st"
+            [ngClass]="
+                      {
+                        'chip__1st':stakeIndex==1,
+                        '!text-[#0052a0]':stakeIndex==2,
+                        '!text-[#4A00A0]':stakeIndex==3,
+                        '!text-[#9200A0]':stakeIndex==4,
+                        '!text-[#A07F00]':stakeIndex==5,
+                        '!text-[#A05300]':stakeIndex==6,
+                        '!text-[#A00600]':stakeIndex==7,
+                        '!text-[#A0003C]':stakeIndex==8
+                      }" *ngIf="BetPlaced[marketId][runnerId]">
                 <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
                 </div>
                 <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                     <text x="32%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
                         text-rendering="geometricPrecision" dominant-baseline="central"
                         style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
-                        {{this.stackButtonArry[0]?.stakeAmount |
-                        shortNumber}}
+                        {{absValue(BetPlaced[marketId][runnerId]) | shortNumber}}
                     </text>
                     <text x="32%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
                         text-rendering="geometricPrecision" data-locator="chip-value" dominant-baseline="central"
                         style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
-                        {{this.stackButtonArry[0]?.stakeAmount |
-                        shortNumber}}
+                        {{absValue(BetPlaced[marketId][runnerId]) | shortNumber}}
                     </text>
                 </svg>
             </div>

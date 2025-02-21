@@ -343,7 +343,7 @@ export class VideoPlayerComponent implements OnChanges {
         }
 
       }
-      else if (this.game.eventId == '99.0062' && this.game.status != 'SUSPEND') {
+      else if (this.game?.eventId == '99.0062' && this.game?.status != 'SUSPEND') {
         this.showBanner = false;
       }
       if (!data) {
@@ -497,10 +497,9 @@ export class VideoPlayerComponent implements OnChanges {
 
         this.streamingName = res?.data?.streamingName;
         this.streamingURl = res?.data?.url;
-        webrtcPlayer = new T20RTCPlayer("remoteVideo", 'GAME10', "", 'realgame1.live', "", true, true, "tcp");
-        webrtcPlayer.Play();
+
         if (this.streamingName && this.streamingURl && this.streamingName != 'lowbalance') {
-          webrtcPlayer = new T20RTCPlayer("remoteVideo", 'GAME10', "", 'realgame1.live', "", true, true, "tcp");
+          webrtcPlayer = new T20RTCPlayer("remoteVideo", this.streamingName, "", this.streamingURl, "", true, true, "tcp");
           webrtcPlayer.Play();
         }
         else {
