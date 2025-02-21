@@ -177,7 +177,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
         // this.getRoundId = localStorage.getItem('roundID')
 
         let objMarket = JSON.parse(marketData);
-        console.log('market data', objMarket)
+        // console.log('market data', objMarket)
         // let objMarket = marketData;
         if (this.eventid == '99.0046') {
           // console.log(objMarket)
