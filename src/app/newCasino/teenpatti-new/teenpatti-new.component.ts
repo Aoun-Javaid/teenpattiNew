@@ -25,11 +25,14 @@ declare var $: any;
 @Component({
   selector: 'app-teenpatti-new',
   standalone: true,
-  imports: [TopResultsComponent, ShortNumberPipe, CommonModule, VideoPlayerComponent, VideoPlayerUnrealComponent, QuickStakesEditComponent, BetCoinComponent, BetsChipsComponent],
+  imports: [TopResultsComponent, ShortNumberPipe, CommonModule, VideoPlayerComponent, QuickStakesEditComponent, BetCoinComponent, BetsChipsComponent],
   templateUrl: './teenpatti-new.component.html',
   styleUrl: './teenpatti-new.component.css'
 })
 export class TeenpattiNewComponent implements OnInit, OnDestroy {
+
+  @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
+
   reverseAnimate: boolean = false
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
@@ -57,6 +60,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   showHamburger: boolean = true;
   btnIcon = false
   btnCheck = 1
+  BetPlaced:any={};
 
   animationClass = '';
 
@@ -220,6 +224,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
             this.getBalance();
             this.casinoPl = [];
             this.getResults();
+            this.BetPlaced = {}
             this.betSelectedPlayer = '';
             this.secndBoxWidth = '';
             this.firstBoxWidth = '';
@@ -321,6 +326,21 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   openQuickStakes() {
     this.toggleService.setQuickStakeEditSidebarState(true)
   }
+  handleIncomingBetObject(incomingObj:any) {
+    const { marketId, selectionId, stake } = incomingObj;
+
+    if (!this.BetPlaced[marketId]) {
+      this.BetPlaced[marketId] = {};
+    }
+    if (this.BetPlaced[marketId][selectionId] !== undefined) {
+
+      this.BetPlaced[marketId][selectionId] += stake;
+    } else {
+
+      this.BetPlaced[marketId][selectionId] = stake;
+    }
+      this.betsChipsComponent?.CalculateIndex();
+  }
   handleEventResponse(objMarket: any, index: any) {
     // console.log(objMarket,'<=============== objMarket with out index')
     if (Array.isArray(objMarket)) {
@@ -396,6 +416,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
                 // console.log(this.RoundWinner)
+                this.BetPlaced=[];
               }
               if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
                 setTimeout(() => {
@@ -514,10 +535,10 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
           eventId: this.eventid,
           roomId: this._roomId,
           minValue: min,
-          maxValue: max
-
+          maxValue: max,
+          stake:this.selectedBetAmount
         }
-        this.placeCasinoBet();
+        // this.placeCasinoBet();
       }
       else {
         this.toaster.error("please select chips for Bet", '', {
@@ -576,7 +597,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
               this.game.betAccepted = false;
               this.networkService.updateRoundId(this.game);
             }, 1500);
-
+            this.handleIncomingBetObject(res.data)
           }
           else {
             // $('.btn-placebet').prop('disabled', false);

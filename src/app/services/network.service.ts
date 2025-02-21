@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, first, map, Observable, Subject } from 'rxjs';
 import { CONFIG } from '../../../config';
 declare var $:any;
@@ -12,7 +13,7 @@ export class NetworkService {
   private resultData : BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
   private betPlaceObj = new Subject<any>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private toaster:ToastrService) { }
 
   getAllRecordsByPost(url: any, params: any) {
     return this.http.post<any>(url, params)
@@ -71,4 +72,128 @@ export class NetworkService {
   getCasinoPLURL(eventId: any): Observable<any> {
     return this.http.post(CONFIG.getAllMarketplURL, { eventId })
   }
+  placeBet(item:any) {
+    // this.showLoading();
+
+    var token = localStorage.getItem('token');
+    if (!token) {
+      this.toaster.error("Log In first", '', {
+        positionClass: 'toast-top-center',
+        toastClass: 'ngx-toastr custom-toast',
+      });
+      // this.router.navigate(['/login']);
+      return
+    }
+
+    let apiUrl:any;
+    if (item.eventId.startsWith("99.")) {
+      apiUrl = CONFIG.asianCasinoPlacebetURL
+    }
+    if (item.eventId.startsWith("88.")) {
+      apiUrl = CONFIG.virtualCasinoPlacebetURL
+    }
+    let data;
+    if(item.eventId == '99.0049'  || item.eventId == '99.0040' ){
+      data = {
+        marketId: item.marketId,
+        selectionId: item.selectionId,
+        selected : item.selected,
+        stake: item.stake,
+        eventId: item.eventId,
+        flag: item.betType
+      };
+    }
+    else if(item.eventId == '99.0059' ){
+      data = {
+        roundId: item.roundId,
+        selectionId: item.selectionId,
+        stake: item.stake,
+        eventId: item.eventId,
+        optionType: item.optionType
+      };
+    }
+    else{
+      data = {
+        marketId: item.marketId,
+        selectionId: item.selectionId,
+        stake: item.stake,
+        eventId: item.eventId,
+        flag: item.betType
+      };
+    }
+
+    this.getAllRecordsByPost(apiUrl, data)
+      .pipe(first())
+      .subscribe(
+        res => {
+          if (res?.meta?.status == true) {
+            item.stake= item.stake,
+            this.setBetPlace(item);
+            this.toaster.success(res.meta.message, '', {
+              positionClass: 'toast-top-center',
+              toastClass: 'ngx-toastr custom-toast success',
+            });
+
+            this.getBalance();
+          }
+          else {
+
+            if (res?.meta.status == false) {
+              this.toaster.error(res.meta.message, '', {
+                positionClass: 'toast-top-center',
+                toastClass: 'ngx-toastr custom-toast',
+              });
+              this.cancelBet();
+            } else {
+              this.toaster.error("Something went wrong please try again.", '', {
+                positionClass: 'toast-top-center',
+                toastClass: 'ngx-toastr custom-toast',
+              });
+            }
+          }
+
+          var pl = res.pl;
+          // this.selectedOptionType = '1';
+
+        },
+        error => {
+          // this.selectedOptionType = '1';
+          this.cancelBet();
+
+          let responseData = error.error;
+          this.ErrorNotification_Manager(responseData);
+
+        });
+  }
+  cancelBet() {
+
+  }
+  ErrorNotification_Manager(responseData: any) {
+    if (responseData.meta) {
+      let errorObject = responseData.meta.message;
+      if (typeof errorObject === 'object') {
+        for (var key of Object.keys(errorObject)) {
+          this.toaster.error(errorObject[key].message, '', {
+            positionClass: 'toast-top-center',
+            toastClass: 'ngx-toastr custom-toast',
+          });
+          return;
+        }
+      } else {
+        this.toaster.error(errorObject, '', {
+          positionClass: 'toast-top-center',
+          toastClass: 'ngx-toastr custom-toast',
+        });
+        return;
+      }
+
+    } else {
+      this.toaster.error("Something went wrong please try again.", '', {
+        positionClass: 'toast-top-center',
+        toastClass: 'ngx-toastr custom-toast',
+      });
+      return;
+    }
+  }
+
 }
