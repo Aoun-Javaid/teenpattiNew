@@ -13,7 +13,7 @@ import { ShortNumberPipe } from '../../../pipes/short-number.pipe';
 export class BetsChipsComponent {
   betStakes: any;
   stakeIndex: any = 1;
-  stackButtonArry:any
+  stackButtonArry:any=[];
   selectedBetAmount:any
   constructor(private indexedDb: IndexedDbService) {
 
