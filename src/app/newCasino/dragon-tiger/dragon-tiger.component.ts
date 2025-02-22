@@ -14,6 +14,7 @@ import {DeviceDetectorService} from "ngx-device-detector";
 import {IndexedDbService} from "../../services/indexed-db.service";
 import {ToastrService} from "ngx-toastr";
 import {CasinoSocketService} from "../../services/casino-socket.service";
+import {BetsChipsComponent} from "../shared/bets-chips/bets-chips.component";
 
 declare var $: any;
 
@@ -29,6 +30,8 @@ declare var $: any;
 })
 export class DragonTigerComponent implements OnInit {
 
+  @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
+
   reverseAnimate: boolean = false
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
@@ -43,7 +46,7 @@ export class DragonTigerComponent implements OnInit {
   subscription!: Subscription;
   liveData$: any;
   animateCoinVal: any
-
+  waitRound: any
   animate = false
   public message = {
     type: "1",
@@ -56,6 +59,7 @@ export class DragonTigerComponent implements OnInit {
   showHamburger: boolean = true;
   btnIcon = false
   btnCheck = 1
+  BetPlaced:any={};
 
   animationClass = '';
 
@@ -151,6 +155,17 @@ export class DragonTigerComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.networkService.getBetPlace().subscribe((betObj:any)=>{
+      // this.getAllMarketProfitLoss();
+      if(betObj.betSuccess){
+        this.handleIncomingBetObject(betObj);
+
+      }else{
+        this.isbetInProcess=false;
+      }
+
+    })
+
 
     this.getStackData();
     this.getWindowSize()
@@ -176,7 +191,7 @@ export class DragonTigerComponent implements OnInit {
         // this.getRoundId = localStorage.getItem('roundID')
 
         let objMarket = JSON.parse(marketData);
-        console.log('market data', objMarket)
+        // console.log('market data', objMarket)
         // let objMarket = marketData;
         if (this.eventid == '99.0046') {
           // console.log(objMarket)
@@ -320,6 +335,29 @@ export class DragonTigerComponent implements OnInit {
   openQuickStakes() {
     this.toggleService.setQuickStakeEditSidebarState(true)
   }
+  handleIncomingBetObject(incomingObj:any) {
+    const { marketId, selectionId, stake } = incomingObj;
+
+    if (!this.BetPlaced[marketId]) {
+      this.BetPlaced[marketId] = {};
+    }
+    if (this.BetPlaced[marketId][selectionId] !== undefined) {
+
+      this.BetPlaced[marketId][selectionId] += stake;
+    } else {
+
+      this.BetPlaced[marketId][selectionId] = stake;
+    }
+    console.log('bet placed',this.BetPlaced);
+    this.betsChipsComponent?.CalculateIndex();
+
+    this.game.betAccepted = true;
+    this.networkService.updateRoundId(this.game);
+    setTimeout(() => {
+      this.game.betAccepted = false;
+      this.networkService.updateRoundId(this.game);
+    }, 1500);
+  }
   handleEventResponse(objMarket: any, index: any) {
     // console.log(objMarket,'<=============== objMarket with out index')
     if (Array.isArray(objMarket)) {
@@ -395,6 +433,7 @@ export class DragonTigerComponent implements OnInit {
 
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
                 // console.log(this.RoundWinner)
+                this.BetPlaced=[];
               }
               if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
                 setTimeout(() => {
@@ -489,6 +528,14 @@ export class DragonTigerComponent implements OnInit {
   }
 
   openBetslip(marketId: any, selectionId: any, betType: any, price: any, min: any, max: any) {
+
+    if(this.game.status=='SUSPEND'){
+      this.waitRound = true
+      setTimeout(() => {
+        this.waitRound = false
+      }, 1000);
+    }
+
     console.log('method clicked ',price)
     if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
       if (this.selectedBetAmount > 0) {
@@ -505,10 +552,14 @@ export class DragonTigerComponent implements OnInit {
           eventId: this.eventid,
           roomId: this._roomId,
           minValue: min,
-          maxValue: max
+          maxValue: max,
+          stake:this.selectedBetAmount
 
         }
-        this.placeCasinoBet();
+
+        // this.placeCasinoBet();
+        this.isbetInProcess = true;
+        this.networkService.placeBet(this.betplaceObj);
       }
       else {
         this.toaster.error("please select chips for Bet", '', {
@@ -561,7 +612,13 @@ export class DragonTigerComponent implements OnInit {
               loader: false,
             }
             this.networkService.setBetPlace(placeBetObj);
-
+            this.game.betAccepted = true;
+            this.networkService.updateRoundId(this.game);
+            setTimeout(() => {
+              this.game.betAccepted = false;
+              this.networkService.updateRoundId(this.game);
+            }, 1500);
+            this.handleIncomingBetObject(res.data)
           }
           else {
             // $('.btn-placebet').prop('disabled', false);
@@ -735,9 +792,9 @@ export class DragonTigerComponent implements OnInit {
           let playerBWins = 0
           // debugger
           data.data.forEach((round: any) => {
-            if (round.winner === 'A') {
+            if (round.winner === 'DRAGON') {
               playerAWins++;
-            } else if (round.winner === 'B') {
+            } else if (round.winner === 'TIGER') {
               playerBWins++;
             }
           });

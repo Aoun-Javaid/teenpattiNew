@@ -1,8 +1,8 @@
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
     <app-top-results class="min-[1200px]:!hidden"></app-top-results>
     <div #target>
-        <app-video-player [cardsActive]="false" [displayResult]="false" [fancyTimer]="true"
-                          [resultDeclared]="RoundWinner" [unityTimer]="false"></app-video-player>
+      <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
+                        [displayResult]="false" [unityTimer]="false"></app-video-player>
         <!-- <ng-container *ngIf="isMobileInfo == 'iOS'">
             <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
                 [unityTimer]="false"></app-video-player>
@@ -18,9 +18,21 @@
            [ngClass]="{'playerA-winnerText':this.RoundWinner=='DRAGON'}">{{this.RoundWinner}}</div>
     </div>
   </div>
+
+  <div class="playerA-win-point">
+    <div class="player-content-wrapper">
+      <div
+        class="player-text border-y-[#FFA400] border-y  ![background:linear-gradient(90deg,transparent_0%,#000_50%,transparent_100%)] animation-player-scale">
+        <div class="text-white text-sm">You win </div>
+        <div class="text-[#FFA400] font-[Rubik] font-medium text-[18px]">
+          $ 1.98</div>
+      </div>
+    </div>
+  </div>
     <div [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'" id="marketScroll" style="overflow-y: auto;">
         <div class="gradientDiv" *ngIf="this.game">
-            <div class="absolute lg:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] lg:bottom-[60px] max-[375px]:bottom-[25px] lg:!max-w-[473px]  left-0 w-full ">
+            <div *ngIf="marketArray"
+                 class="absolute lg:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] lg:bottom-[60px] max-[375px]:bottom-[25px] lg:!max-w-[473px]  left-0 w-full ">
                 <div class="relative z-[1] h-full lg:max-w-[473px] ">
                     <div class="relative !mx-[2%] md:!mx-0 !bg-[black] rounded-b-[17px]">
                         <!-- main content -->
@@ -35,9 +47,12 @@
                                           fill-rule="evenodd" opacity=".8"></path>
                                     <g class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4" data-locator="dragon-button">
                                         <path
+                                          style="pointer-events: all;"
+                                          (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[0].selectionId,'back',marketArray[0].runners[0].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
                                                 d="M12,0c-6.627,0 -12,5.373 -12,12l0,88c0,6.627 5.373,12 12,12l155,0c2.209,0 4,-1.791 4,-4l0,-0.009c-28.257,-0.533 -51,-23.606 -51,-51.991c0,-28.385 22.743,-51.458 51,-51.991l0,-0.009c0,-2.209 -1.791,-4 -4,-4l-155,0Z"
                                                 fill="url(#DT_table_main_Dragon__background)"></path>
                                         <path class="svg__ctaBackground-pE1PGC"
+                                              [ngClass]="{'svg__winBackground-AgT0Cm':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
                                               d="M12,0c-6.627,0 -12,5.373 -12,12l0,88c0,6.627 5.373,12 12,12l155,0c2.209,0 4,-1.791 4,-4l0,-0.009c-28.257,-0.533 -51,-23.606 -51,-51.991c0,-28.385 22.743,-51.458 51,-51.991l0,-0.009c0,-2.209 -1.791,-4 -4,-4l-155,0Z"
                                               fill="url(#DT_table_main_Dragon__ctaBackground)"></path>
                                         <path class="svg__winBackground-AgT0Cm"
@@ -154,9 +169,12 @@
                                     </g>
                                     <g class="svg-kKAHVZ svg_cta-fTTgEw svg_win-qJa6ey" data-locator="tiger-button">
                                         <path
+                                          style="pointer-events: all;"
+                                          (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[1].selectionId,'back',marketArray[0].runners[1].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
                                                 d="M177,0c-2.209,0 -4,1.791 -4,4l0,0.009c28.257,0.533 51,23.606 51,51.991c0,28.385 -22.743,51.458 -51,51.991l0,0.009c0,2.209 1.791,4 4,4l155,0c6.627,0 12,-5.373 12,-12l0,-88c0,-6.627 -5.373,-12 -12,-12l-155,0Z"
                                                 fill="url(#DT_table_main_Tiger__background)"></path>
                                         <path class="svg__ctaBackground-pE1PGC"
+                                              [ngClass]="{'svg__winBackground-AgT0Cm':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}"
                                               d="M177,0c-2.209,0 -4,1.791 -4,4l0,0.009c28.257,0.533 51,23.606 51,51.991c0,28.385 -22.743,51.458 -51,51.991l0,0.009c0,2.209 1.791,4 4,4l155,0c6.627,0 12,-5.373 12,-12l0,-88c0,-6.627 -5.373,-12 -12,-12l-155,0Z"
                                               fill="url(#DT_table_main_Tiger__ctaBackground)"></path>
                                         <path class="svg__winBackground-AgT0Cm"
@@ -800,7 +818,7 @@
                 </div>
 
              <div class="w-full  lg:mt-[110px]">
-                 <app-bet-coin (eventBetValue)="getCoinValue($event)"></app-bet-coin>
+                 <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game.status"></app-bet-coin>
              </div>
             </div>
           <div class="time-container">
