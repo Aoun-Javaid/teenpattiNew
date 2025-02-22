@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {TopResultsComponent} from "../shared/top-results/top-results.component";
 import {VideoPlayerComponent} from "../../shared/video-player/video-player.component";
 import {CommonModule} from "@angular/common";
@@ -28,7 +28,7 @@ declare var $: any;
   templateUrl: './dragon-tiger.component.html',
   styleUrl: './dragon-tiger.component.css'
 })
-export class DragonTigerComponent implements OnInit {
+export class DragonTigerComponent implements OnInit,OnDestroy {
 
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
 
@@ -164,8 +164,9 @@ export class DragonTigerComponent implements OnInit {
         this.isbetInProcess=false;
       }
 
-    })
 
+
+    })
 
     this.getStackData();
     this.getWindowSize()
@@ -234,6 +235,7 @@ export class DragonTigerComponent implements OnInit {
             this.getBalance();
             this.casinoPl = [];
             this.getResults();
+            this.BetPlaced = {}
             this.betSelectedPlayer = '';
             this.secndBoxWidth = '';
             this.firstBoxWidth = '';
@@ -527,6 +529,7 @@ export class DragonTigerComponent implements OnInit {
     }
   }
 
+
   openBetslip(marketId: any, selectionId: any, betType: any, price: any, min: any, max: any) {
 
     if(this.game.status=='SUSPEND'){
@@ -554,12 +557,12 @@ export class DragonTigerComponent implements OnInit {
           minValue: min,
           maxValue: max,
           stake:this.selectedBetAmount
-
         }
 
         // this.placeCasinoBet();
         this.isbetInProcess = true;
         this.networkService.placeBet(this.betplaceObj);
+
       }
       else {
         this.toaster.error("please select chips for Bet", '', {
@@ -849,7 +852,7 @@ export class DragonTigerComponent implements OnInit {
         data => {
 
           if (data.meta.status == true) {
-            let availBalance = (data.data.bankBalance - data.data.exposure).toFixed(2)
+            let availBalance = (data.data.balance - data.data.exposure).toFixed(2)
             $('.userTotalBalance').text(availBalance);
             $('.userTotalExposure').text(data.data.exposure);
             let ex = data.data.exposure.toLocaleString('en-US', { style: 'currency', currency: 'USD', symbol: '' });
@@ -1071,14 +1074,5 @@ export class DragonTigerComponent implements OnInit {
     }
     // console.log('onclick', this.selectedBetAmount);
   }
-
-
-  playerA() {
-    // console.log('player A');
-
-  }
-
-
-
 
 }
