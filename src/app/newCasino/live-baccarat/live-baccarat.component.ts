@@ -129,6 +129,7 @@ export class LiveBaccaratComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
 onResize(event?: Event) {
   console.log(this.checkWindowSize());
+  this.getWindowSize()
 }
 
 checkWindowSize() {
@@ -267,6 +268,7 @@ checkWindowSize() {
     this.getBetStake();
     this.getResults();
     this.checkWindowSize();
+    this.getWindowSize();
   }
 
   handleEventResponse(objMarket: any, index: any) {
@@ -768,6 +770,17 @@ checkWindowSize() {
         error => {
           let responseData = error;
         });
+  }
+
+  getWindowSize() {
+    const baseWidth = 352; // Base resolution width
+    const scale = window.innerWidth / baseWidth
+    document.documentElement.style.setProperty('--boardScale', scale.toString());
+
+
+    const baseHeight = 716; // Base resolution height
+    const scaleY = window.innerHeight / baseWidth
+    document.documentElement.style.setProperty('--boardScaleY', scaleY.toString());
   }
 
   getCoinValue(event: any) {
