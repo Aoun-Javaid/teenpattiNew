@@ -674,6 +674,12 @@
     top: 0;
   }
 
+  .table__playerTitle-IDg1Sx,
+  .table__bankerTitle-xysbeW,
+  .table__tieTitle-uPf3Aa{
+    top: 6.15rem !important;
+  }
+
   .baccaratHistoryPortrait__scoreInfo-hQjSei{
     left: -26.5rem !important;
     top: 0;
