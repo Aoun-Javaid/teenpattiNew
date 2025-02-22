@@ -687,7 +687,7 @@
   }
 
   .scoreBoardInfo-USWOxa{
-    width: 22.5rem;
+    width: 20.5rem;
   }
 
   .table__playerPairTitle-zjbgYU{
@@ -707,6 +707,11 @@
   .table__eitherPairPayout-Mz8nuW{
     top: 44.5% !important;
   }
+
+  .baccaratHistoryPortrait__scoreInfo-hQjSei{
+    max-width: 22.5rem !important;
+  }
+
 /*
   .pPair{
     top: 5.7rem !important;
