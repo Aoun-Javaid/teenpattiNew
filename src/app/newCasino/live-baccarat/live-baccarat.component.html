@@ -713,13 +713,13 @@
                                     <div class="table__playerBetStat-SIKZO5">
                                         <span class="player_score inline-block absolute left-[2px] font-bold">7</span>
                                         <div class="hide betStat-ms3aoF betStat_size_small-kxmCJ5">
-                                          <div class="betStat__percentage-BBxzKO" *ngIf="playerMarket">
-                                            <div class="percentageBetStat-cKHkzI"
-                                                 [ngStyle]="{ 'background-position-y': playerMarket + '%' }"
-                                                 data-locator="dragon-bet-stat-percent">
-                                              {{playerMarket | number :'1.0-1'}}%
+                                            <div class="betStat__percentage-BBxzKO" *ngIf="playerMarket">
+                                                <div class="percentageBetStat-cKHkzI"
+                                                    [ngStyle]="{ 'background-position-y': playerMarket + '%' }"
+                                                    data-locator="dragon-bet-stat-percent">
+                                                    {{playerMarket | number :'1.0-1'}}%
+                                                </div>
                                             </div>
-                                          </div>
                                             <div class="betStat__details-UyYdlK">
                                                 <div class="betStat__info-iGat4V">
                                                     <svg class="svgIcon-JpUo7O svgIcon_small-WRm0qc" viewBox="0 0 24 24"
@@ -752,13 +752,13 @@
                                         <span class="banker_score inline-block absolute right-[2px] font-bold">7</span>
                                         <div
                                             class="hide betStat-ms3aoF betStat_align_left-oq1Q2K betStat_size_small-kxmCJ5">
-                                          <div class="betStat__percentage-BBxzKO" *ngIf="bankerMarket">
-                                            <div class="percentageBetStat-cKHkzI"
-                                                 [ngStyle]="{ 'background-position-y': bankerMarket + '%' }"
-                                                 data-locator="tiger-bet-stat-percent">
-                                              {{bankerMarket | number :'1.0-1'}}%
+                                            <div class="betStat__percentage-BBxzKO" *ngIf="bankerMarket">
+                                                <div class="percentageBetStat-cKHkzI"
+                                                    [ngStyle]="{ 'background-position-y': bankerMarket + '%' }"
+                                                    data-locator="tiger-bet-stat-percent">
+                                                    {{bankerMarket | number :'1.0-1'}}%
+                                                </div>
                                             </div>
-                                          </div>
                                             <div class="betStat__details-UyYdlK">
                                                 <div class="betStat__info-iGat4V"><svg
                                                         class="svgIcon-JpUo7O svgIcon_small-WRm0qc" viewBox="0 0 24 24"
@@ -788,13 +788,13 @@
                                     <div class="hide table__tieBetStat-WGzf9d">
                                         <div
                                             class="betStat-ms3aoF betStat_align_bottom-oEv3fK betStat_size_small-kxmCJ5">
-                                          <div class="betStat__percentage-BBxzKO" *ngIf="tieMarket">
-                                            <div class="percentageBetStat-cKHkzI"
-                                                 [ngStyle]="{ 'background-position-y': tieMarket + '%' }"
-                                                 data-locator="tiger-bet-stat-percent">
-                                              {{tieMarket | number :'1.0-1'}}%
+                                            <div class="betStat__percentage-BBxzKO" *ngIf="tieMarket">
+                                                <div class="percentageBetStat-cKHkzI"
+                                                    [ngStyle]="{ 'background-position-y': tieMarket + '%' }"
+                                                    data-locator="tiger-bet-stat-percent">
+                                                    {{tieMarket | number :'1.0-1'}}%
+                                                </div>
                                             </div>
-                                          </div>
                                             <div class="betStat__details-UyYdlK">
                                                 <div class="betStat__info-iGat4V"><svg
                                                         class="svgIcon-JpUo7O svgIcon_small-WRm0qc" viewBox="0 0 24 24"
@@ -1033,6 +1033,7 @@
                                 </svg></button>
                         </div>
                     </div>
+                    <app-top-results class="max-[1200px]:hidden"></app-top-results>
                 </div>
                 <div class="w-full min-[1312px]:mt-[-2.7rem]">
                     <app-bet-coin (eventBetValue)="getCoinValue($event)"></app-bet-coin>
