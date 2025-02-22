@@ -284,7 +284,7 @@
 
 .table__bankerPairPayout-DTrMfa{
   @apply min-[1312px]:!bottom-[1.3rem] min-[1312px]:!right-[1.67rem] min-[1312px]:!text-[0.5rem];
-  right: 2.88rem; 
+  right: 3rem; 
   top: 9.7rem;
   font-size: 0.68rem;
   transform: translateY(0.849rem);
@@ -572,7 +572,7 @@
 
 
 .baccaratHistoryPortrait__scoreInfo-hQjSei {
-  padding: 6% 0.5rem 0.25rem;
+  padding: 6% 0.9rem 0.25rem;
   @apply min-[1312px]:!pt-0;
 }
 
