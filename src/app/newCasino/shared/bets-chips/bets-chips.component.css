@@ -67,3 +67,23 @@
   inset: 0;
   position: absolute;
 }
+
+.orange-bg {
+  background: linear-gradient(135deg, #f93 0%, #f50 100%, #8a8a99) !important;
+}
+
+.pink-bg {
+  background: linear-gradient(135deg, #f69 0%, #c06 100%) !important;
+}
+
+.red-bg {
+  background: linear-gradient(135deg, #f33 0%, #900 100%) !important;
+}
+
+.blue-bg {
+  background: linear-gradient(135deg, #5f29cc 0%, #009 100%) !important;
+}
+
+.black-bg {
+  background: linear-gradient(135deg, #2e3133 0%, #0b0c0d 100%) !important;
+}
