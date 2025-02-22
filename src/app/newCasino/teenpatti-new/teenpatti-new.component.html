@@ -423,9 +423,10 @@
                                             {{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.2-2'}}
                                         </div>
                                         <div *ngIf="BetPlaced[marketArray[0]?.marketId]">
-                                          <app-bets-chips *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[0]?.selectionId]"
-                                          [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
-                                          [runnerId]="marketArray[0].runners[0].selectionId"></app-bets-chips>
+                                            <app-bets-chips
+                                                *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[0]?.selectionId]"
+                                                [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
+                                                [runnerId]="marketArray[0].runners[0].selectionId"></app-bets-chips>
                                         </div>
 
 
@@ -441,9 +442,10 @@
                                         </div>
 
                                         <div *ngIf="BetPlaced[marketArray[0]?.marketId]">
-                                          <app-bets-chips *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[1]?.selectionId]"
-                                          [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
-                                          [runnerId]="marketArray[0].runners[1].selectionId"></app-bets-chips>
+                                            <app-bets-chips
+                                                *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[1]?.selectionId]"
+                                                [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
+                                                [runnerId]="marketArray[0].runners[1].selectionId"></app-bets-chips>
                                         </div>
 
                                     </div>
@@ -455,12 +457,15 @@
                                                 <div class="down-player">Player A</div>
                                             </div>
 
-                                           <!--  -->
-                                           <div *ngIf="BetPlaced[marketArray[1]?.marketId]">
-                                            <app-bets-chips *ngIf="BetPlaced[marketArray[1]?.marketId][marketArray[1]?.runners[0]?.selectionId]"
-                                            [BetPlaced]="BetPlaced" [marketId]="marketArray[1]?.marketId"
-                                            [runnerId]="marketArray[1].runners[0].selectionId"></app-bets-chips>
-                                          </div>
+                                            <!--  -->
+                                            <div class="h-[25px] w-[25px]">
+                                                <div *ngIf="BetPlaced[marketArray[1]?.marketId]">
+                                                    <app-bets-chips
+                                                        *ngIf="BetPlaced[marketArray[1]?.marketId][marketArray[1]?.runners[0]?.selectionId]"
+                                                        [BetPlaced]="BetPlaced" [marketId]="marketArray[1]?.marketId"
+                                                        [runnerId]="marketArray[1].runners[0].selectionId"></app-bets-chips>
+                                                </div>
+                                            </div>
                                         </div>
 
                                     </div>
@@ -468,11 +473,14 @@
                                     <div class="betPlaceInfo_pairPlus_playerB betPlaceInfo ">
                                         <div class="flex justify-between w-full items-center">
 
-                                          <div *ngIf="BetPlaced[marketArray[1]?.marketId]">
-                                            <app-bets-chips *ngIf="BetPlaced[marketArray[1]?.marketId][marketArray[1]?.runners[1]?.selectionId]"
-                                            [BetPlaced]="BetPlaced" [marketId]="marketArray[1]?.marketId"
-                                            [runnerId]="marketArray[1].runners[1].selectionId"></app-bets-chips>
-                                          </div>
+                                            <div class="h-[25px] w-[25px]">
+                                                <div *ngIf="BetPlaced[marketArray[1]?.marketId]">
+                                                    <app-bets-chips
+                                                        *ngIf="BetPlaced[marketArray[1]?.marketId][marketArray[1]?.runners[1]?.selectionId]"
+                                                        [BetPlaced]="BetPlaced" [marketId]="marketArray[1]?.marketId"
+                                                        [runnerId]="marketArray[1].runners[1].selectionId"></app-bets-chips>
+                                                </div>
+                                            </div>
 
                                             <div>
                                                 <div class="pair-plus">Pair Plus</div>
