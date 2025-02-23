@@ -676,7 +676,7 @@ video {
 }
 
 .no-more-bets {
-  @apply absolute left-[50%] translate-x-[-50%] text-nowrap top-[50%] text-[#fff] text-[0.875rem] !bg-none px-1  max-w-fit;
+  @apply absolute left-[50%] translate-x-[-50%] text-nowrap top-[50%] text-[#fff] text-[0.875rem] !bg-none px-2  max-w-fit;
 }
 
 .roundStatus__decor-DDvAQJ {
