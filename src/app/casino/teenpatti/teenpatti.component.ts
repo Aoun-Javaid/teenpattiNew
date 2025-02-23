@@ -127,7 +127,7 @@ export class TeenpattiComponent implements OnInit,OnDestroy{
     this.subscription = this.encyDecy.getMarketData().pipe(retry(this.retryConfig)).subscribe((marketData: any) => {
       this.socket = marketData; // Update the receivedMessage variable with the received message
       if (marketData) {
-        this.getRoundId = localStorage.getItem('roundID')
+        // this.getRoundId = localStorage.getItem('roundID')
 
         let objMarket = JSON.parse(marketData);
         // let objMarket = marketData;
@@ -144,7 +144,7 @@ export class TeenpattiComponent implements OnInit,OnDestroy{
               this.game.marketArr = this.marketArray ? this.marketArray : objMarket?.data[0]?.marketArr;
 
               this.winnerMarketArray = this.game?.marketArr ? this.game?.marketArr[0] : '';
-
+              this.getRoundId = this.game.roundId
               this.handleEventResponse(objMarket, 0)
 
             }
@@ -164,7 +164,8 @@ export class TeenpattiComponent implements OnInit,OnDestroy{
 
           //  get result balance on round Id change
           if (this.getRoundId != this.game.roundId || this.getRoundId == '') {
-            localStorage.setItem('roundID', this.game.roundId)
+            this.getRoundId = this.game.roundId
+            // localStorage.setItem('roundID', this.game.roundId)
             this.getBalance();
             this.casinoPl = [];
             this.getResults();

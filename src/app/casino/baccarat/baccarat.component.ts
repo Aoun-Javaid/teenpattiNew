@@ -149,7 +149,7 @@ export class BaccaratComponent {
       // this.subscription = this.encyDecy.getMarketData().pipe(retry(this.retryConfig)).subscribe((marketData: any) => {
 
       if (marketData) {
-        this.getRoundId = localStorage.getItem('roundID')
+        // this.getRoundId = localStorage.getItem('roundID')
 
         let objMarket = JSON.parse(marketData);
 
@@ -165,7 +165,7 @@ export class BaccaratComponent {
             this.pairPlayerSize = this.marketArray[2]?.runners[0]?.price?.back[0]?.size;
             this.pairBankerSize = this.marketArray[2]?.runners[1]?.price?.back[0]?.size;
             this.winnerMarketArray = this.game?.marketArr ? this.game?.marketArr[0] : '';
-
+            this.getRoundId = this.game.roundId
             this.handleEventResponse(objMarket, 0)
           }
 
@@ -182,7 +182,8 @@ export class BaccaratComponent {
 
           //  get balance on round Id change
           if (this.getRoundId != this.game.roundId || this.getRoundId == '') {
-            localStorage.setItem('roundID', this.game.roundId)
+            this.getRoundId = this.game.roundId
+            // localStorage.setItem('roundID', this.game.roundId)
             this.getBalance();
             this.casinoPl = [];
             this.getResults();
