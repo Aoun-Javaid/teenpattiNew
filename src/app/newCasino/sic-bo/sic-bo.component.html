@@ -1335,12 +1335,12 @@
           </button>
 
           <div class="h-full flex justify-end items-end" [ngClass]="{'h-[calc(100vh-200px)] ':openCoinBarState}">
-            <div (click)="openBetCoin()"
-              class="flex duration-height justify-end items-end relative flex-col gap-2 h-[48px]  z-30 overflow-hidden" [ngClass]="{
-                          'full-height !h-[404px]': openCoinBarState === true
+            <div class=" duration-height justify-end items-end relative flex-col gap-2  hidden  z-30 overflow-hidden"
+              [ngClass]="{
+                          'full-height !flex': openCoinBarState === true
                         }">
               <div class="chipTrayWithToggle__item-nLy9Sn z-10" (click)="animatecoinValue(1)"
-                [ngClass]="{ '':!openCoinBarState, 'z-20 absolute  duration-700 transition-all':btnCheck === 1 && !openCoinBarState, }">
+                [ngClass]="{ 'move_center-back-1':coinAnimateCheck, 'transition-all':btnCheck === 1 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 1, }">
                 <div class="chips-rzbOIK">
                   <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" [ngClass]="{
                                 'active-shadow': btnCheck === 1 && openCoinBarState
@@ -1372,7 +1372,7 @@
               </div>
 
               <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(2)"
-                [ngClass]="{'':!openCoinBarState, 'z-20 absolute  duration-700 transition-all':btnCheck === 2 && !openCoinBarState, }">
+                [ngClass]="{'move_center-back-2':coinAnimateCheck, 'transition-all':btnCheck === 2 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 2, }">
                 <div class="chips-rzbOIK">
                   <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" data-locator="chip-250" [ngClass]="{
                                 'active-shadow': btnCheck === 2 && openCoinBarState
@@ -1411,7 +1411,7 @@
               </div>
 
               <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(3)"
-                [ngClass]="{ '':!openCoinBarState, 'z-20 absolute  duration-700 transition-all':btnCheck === 3 && !openCoinBarState, }">
+                [ngClass]="{ 'move_center-back-3':coinAnimateCheck, 'transition-all':btnCheck === 3 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 3, }">
                 <div class="chips-rzbOIK">
                   <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" data-locator="chip-250" [ngClass]="{
                                 'active-shadow': btnCheck === 3 && openCoinBarState
@@ -1449,7 +1449,7 @@
               </div>
 
               <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(4)"
-                [ngClass]="{'':!openCoinBarState, 'z-20 absolute  duration-700 transition-all':btnCheck === 4 && !openCoinBarState, }">
+                [ngClass]="{'move_center-back-4':coinAnimateCheck, 'transition-all':btnCheck === 4 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 4, }">
                 <div class="chips-rzbOIK">
                   <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" data-locator="chip-250" [ngClass]="{
                                 'active-shadow': btnCheck === 4 && openCoinBarState
@@ -1487,7 +1487,7 @@
               </div>
 
               <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(5)"
-                [ngClass]="{ '':!openCoinBarState, 'z-20 absolute  duration-700 transition-all':btnCheck === 5 && !openCoinBarState, }">
+                [ngClass]="{ 'move_center-back-5':coinAnimateCheck,  'transition-all relative z-20':btnCheck === 5, 'transition-all':btnCheck === 5 && !openCoinBarState, }">
                 <div class="chips-rzbOIK">
                   <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" data-locator="chip-250" [ngClass]="{
                                 'active-shadow': btnCheck === 5 && openCoinBarState === true
@@ -1525,7 +1525,7 @@
               </div>
 
               <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(6)"
-                [ngClass]="{'':!openCoinBarState, 'z-20 absolute  duration-700 transition-all':btnCheck === 6 && !openCoinBarState, }">
+                [ngClass]="{'move_center-back-6':coinAnimateCheck, 'transition-all':btnCheck === 6 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 6, }">
                 <div class="chips-rzbOIK">
                   <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" data-locator="chip-250" [ngClass]="{
                                 'active-shadow': btnCheck === 6 && openCoinBarState === true
@@ -1570,6 +1570,40 @@
               </button>
             </div>
           </div>
+
+
+          <div class="chipTrayWithToggle__item-nLy9Sn z-10" (click)="openBetCoin()" *ngIf="!openCoinBarState">
+            <div class="chips-rzbOIK">
+              <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" data-locator="chip-250">
+                <div class="chip__1st"
+                  [ngClass]="{'orange-bg': animateCoinVal === 2, 'pink-bg': animateCoinVal === 3, 'red-bg': animateCoinVal === 4, 'blue-bg': animateCoinVal === 5, 'black-bg': animateCoinVal === 6, }">
+                  <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv"></div>
+                  <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <text x="50%" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
+                      text-rendering="geometricPrecision" dominant-baseline="central" text-anchor="middle" style="
+                                                font-size: 18px;
+                                                font-family: 'Rubik';
+                                                font-weight: 500;
+                                              ">
+                      {{ selectedBetAmount | shortNumber }}
+                    </text>
+                    <text x="50%" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
+                      text-rendering="geometricPrecision" data-locator="chip-value" dominant-baseline="central"
+                      text-anchor="middle" style="
+                                                font-size: 18px;
+                                                font-family: 'Rubik';
+                                                font-weight: 500;
+                                              ">
+                      {{ selectedBetAmount | shortNumber }}
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
 
           <button class="bettingButton-i5MaZV bettingButton_orange-oB31C6 relative" *ngIf="!openCoinBarState">
             <svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q relative z-20" viewBox="0 0 48 48"

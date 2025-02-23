@@ -26,6 +26,7 @@ export class SicBoComponent {
   selectedBetAmount: any
   stackButtonArry: any = [];
   openCoinBarState = false;
+  coinAnimateCheck = false
 
 
   constructor(private toggleService: ToggleService, private indexedDb: IndexedDbService) { }
@@ -53,13 +54,76 @@ export class SicBoComponent {
 
   closeBetCoin(event: any) {
     event.stopPropagation();
-    this.openCoinBarState = false;
+    setTimeout(() => {
+      this.openCoinBarState = false;
+    }, 500);
+    this.coinAnimateCheck = true
+    setTimeout(() => {
+      this.coinAnimateCheck = false
+    }, 500);
+
+   
+
+    let translateYRevers = ''; // Change `const` to `let`
+
+    switch (this.btnCheck) {
+      case 1:
+        translateYRevers = '-40';
+        break;
+      case 2:
+        translateYRevers = '-20px';
+        break;
+      case 3:
+        translateYRevers = '-10px';
+        break;
+      case 4:
+        translateYRevers = '10px';
+        break;
+      case 5:
+        translateYRevers = '20px';
+        break;
+      case 6:
+        translateYRevers = '40px';
+        break;
+    }
+
+    document.documentElement.style.setProperty('--translateY', translateYRevers);
   }
+
 
   animatecoinValue(value: any) {
     this.animateCoinVal = value
-    this.btnCheck = value
+    this.btnCheck = value;
+    this.coinAnimateCheck = false;
+
+
+    switch (this.btnCheck) {
+      case 1:
+        this.selectedBetAmount = this.stackButtonArry[0].stakeAmount
+        break;
+      case 2:
+        this.selectedBetAmount = this.stackButtonArry[1].stakeAmount
+        break;
+      case 3:
+        this.selectedBetAmount = this.stackButtonArry[2].stakeAmount
+        break;
+      case 4:
+        this.selectedBetAmount = this.stackButtonArry[3].stakeAmount
+        break;
+      case 5:
+        this.selectedBetAmount = this.stackButtonArry[4].stakeAmount
+        break;
+      case 6:
+        this.selectedBetAmount = this.stackButtonArry[5].stakeAmount
+        break;
+      default:
+        this.selectedBetAmount = this.stackButtonArry[5].stakeAmount
+        break
+    }
   }
 
+
   
+
+
 }
