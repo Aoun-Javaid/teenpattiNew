@@ -25,6 +25,7 @@ import { LiveBaccaratComponent } from './newCasino/live-baccarat/live-baccarat.c
 import { SicBoComponent } from './newCasino/sic-bo/sic-bo.component';
 import { BaccaratComponent } from './casino/baccarat/baccarat.component';
 import {VirtualDtComponent} from "./virtualCasino/virtual-dt/virtual-dt.component";
+import { VirtualTeenpattiComponent } from './virtualCasino/virtual-teenpatti/virtual-teenpatti.component';
 
 
 
@@ -127,6 +128,10 @@ export const routes: Routes = [
       {
         path:'Vdt',
         component:VirtualDtComponent
+      },
+      {
+        path:'Vteenpatti',
+        component:VirtualTeenpattiComponent
       },
       {
         path: '**',
