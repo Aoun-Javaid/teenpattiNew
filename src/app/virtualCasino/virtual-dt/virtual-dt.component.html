@@ -1,11 +1,38 @@
 <div class="main__wrapper">
+<!--  Game Background Video-->
 <div class="game__substrateLayer">
   <div class="game__video dragonTiger__staticVideoWrap">
     <div class="game__staticVideo">
       <div class="h-full w-full relative">
         <img class="staticVideo__poster staticVideo__poster_hidden staticVideo__player_withPoster" src="https://client.petros04.com/js/../img/dragon-tiger.60ab225c.png" alt="poster">
+        <video class="staticVideo__player staticVideo__player_withPoster">
+          <source src="https://client.petros04.com/js/../img/DRAGON_TIGER.bb1e2845.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
+    <div class="gradient-_9dd5n gradient_mobile-cBpe4n"></div>
   </div>
 </div>
+<!--  Game Body Table -->
+  <div class="game__body flex h-full relative z-[1]">
+    <div class="chatPreview chatPreview_mobile chatPreview_hidden-GXvWSw">
+      <div class="messagePreview"></div>
+    </div>
+    <div class="promoWidget"></div>
+    <div class="dragonTiger-RufiAg dragonTiger_rngGame">
+      <div class="dragonTiger__rngTable">
+        <div class="rngTable rngTable_ready">
+          <img class="rngTableImage" src="https://client.petros04.com/js/../img/dragon-tiger-rng-table.fee030a4.png" alt="table">
+          <div class="rngTable__cards">
+            <div class="canvasBase">
+              <div class="konvajs-content" role="presentation" style="position: relative; user-select: none; width: 329.625px; height: 151.078px;"><canvas width="659" height="302" style="padding: 0px; margin: 0px; border: 0px; background: transparent; position: absolute; top: 0px; left: 0px; width: 329.625px; height: 151.078px; display: block;"></canvas></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dragonTiger__winningPlayers" >
+        <div class="winningPlayersMessage" ><div class="winningPlayersMessage__message" ><strong>1 player(s)</strong> won</div><div class="winningPlayersMessage__totalWin" >€ 2.21</div></div></div>
+      <app-timer [fancyTimer]="true"></app-timer>
+    </div>
+  </div>
 </div>
