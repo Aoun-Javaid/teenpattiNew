@@ -17,6 +17,9 @@
 
 .chip__1st {
   background: linear-gradient(135deg, #0c4 0%, #090 100%);
+
+}
+.chips{
   border-radius: 50%;
   position: relative;
 
