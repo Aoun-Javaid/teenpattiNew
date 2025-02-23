@@ -123,6 +123,10 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
   isMobileInfo: string;
   // isTeNteenPatti:any;
   stackButtonArry: any = STACK_VALUE;
+  totalResults: number = 0;
+  dragonWins: number = 0;
+  tigerWins: number = 0;
+  ties: number = 0;
 
   constructor(private route: ActivatedRoute,
               private networkService: NetworkService,
@@ -163,9 +167,6 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
       }else{
         this.isbetInProcess=false;
       }
-
-
-
     })
 
     this.getStackData();
@@ -192,7 +193,7 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
         // this.getRoundId = localStorage.getItem('roundID')
 
         let objMarket = JSON.parse(marketData);
-        // console.log('market data', objMarket)
+        console.log('market data', objMarket)
         // let objMarket = marketData;
         if (this.eventid == '99.0046') {
           // console.log(objMarket)
@@ -791,19 +792,23 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
       .subscribe(
         (data: any) => {
           this.networkService.updateResultstream(data.data)
-          let playerAWins = 0
-          let playerBWins = 0
+          this.dragonWins = 0;
+          this.tigerWins = 0;
+          this.ties = 0;
           // debugger
+          this.totalResults = data.data.length;
           data.data.forEach((round: any) => {
             if (round.winner === 'DRAGON') {
-              playerAWins++;
+              this.dragonWins++;
             } else if (round.winner === 'TIGER') {
-              playerBWins++;
+              this.tigerWins++;
+            } else if (round.winner === 'TIE') {
+              this.ties++;
             }
           });
-          this.aPlayerChances = (playerAWins / data?.data?.length) * 100
-          this.bPlayerChances = (playerBWins / data?.data?.length) * 100
-          this.TPlayerChances = (100 - this.aPlayerChances - this.bPlayerChances);
+          // this.aPlayerChances = (this.dragonWins / data?.data?.length) * 100
+          // this.bPlayerChances = (this.tigerWins / data?.data?.length) * 100
+          // this.TPlayerChances = (100 - this.aPlayerChances - this.bPlayerChances);
         },
         error => {
           let responseData = error;
