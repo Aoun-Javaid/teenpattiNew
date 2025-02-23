@@ -542,6 +542,7 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
     }
 
     console.log('method clicked ',price)
+    return
     if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
       if (this.selectedBetAmount > 0) {
         this.isBetsSlipOpened = selectionId;
@@ -793,20 +794,23 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
       .subscribe(
         (data: any) => {
           this.networkService.updateResultstream(data.data)
-          this.dragonWins = 0;
-          this.tigerWins = 0;
-          this.ties = 0;
+          let dragonWins = 0;
+          let tigerWins = 0;
+          let ties = 0;
           // debugger
           this.totalResults = data.data.length;
           data.data.forEach((round: any) => {
             if (round.winner === 'DRAGON') {
-              this.dragonWins++;
+              dragonWins++;
             } else if (round.winner === 'TIGER') {
-              this.tigerWins++;
+              tigerWins++;
             } else if (round.winner === 'TIE') {
-              this.ties++;
+             ties++;
             }
           });
+          this.dragonWins= dragonWins;
+          this.tigerWins= tigerWins;
+          this.ties= ties;
           // this.aPlayerChances = (this.dragonWins / data?.data?.length) * 100
           // this.bPlayerChances = (this.tigerWins / data?.data?.length) * 100
           // this.TPlayerChances = (100 - this.aPlayerChances - this.bPlayerChances);
