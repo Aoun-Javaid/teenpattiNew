@@ -15,6 +15,7 @@ import {IndexedDbService} from "../../services/indexed-db.service";
 import {ToastrService} from "ngx-toastr";
 import {CasinoSocketService} from "../../services/casino-socket.service";
 import {BetsChipsComponent} from "../shared/bets-chips/bets-chips.component";
+import { QuickStakesEditComponent } from "../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component";
 
 declare var $: any;
 
@@ -23,8 +24,9 @@ declare var $: any;
   standalone: true,
   imports: [
     TopResultsComponent,
-    VideoPlayerComponent, CommonModule, BetCoinComponent, ShortNumberPipe
-  ],
+    VideoPlayerComponent, CommonModule, BetCoinComponent, ShortNumberPipe,
+    QuickStakesEditComponent
+],
   templateUrl: './dragon-tiger.component.html',
   styleUrl: './dragon-tiger.component.css'
 })
@@ -161,11 +163,10 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
 
     this.networkService.getBetPlace().subscribe((betObj:any)=>{
       // this.getAllMarketProfitLoss();
+      this.isbetInProcess=false;
       if(betObj.betSuccess){
         this.handleIncomingBetObject(betObj);
 
-      }else{
-        this.isbetInProcess=false;
       }
     })
 

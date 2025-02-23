@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CONFIG, STACK_VALUE } from '../../../../config';
 import { IndexedDbService } from '../../services/indexed-db.service';
 import { NetworkService } from '../../services/network.service';
+import { ToggleService } from '../../services/toggle.service';
 
 @Component({
   selector: 'app-bet-stakes',
@@ -17,10 +18,13 @@ export class BetStakesComponent implements OnInit{
   stackButtonArry = STACK_VALUE;
   editable:boolean =false;
   @Input() showTitle:boolean=true;
+  @Input() isPopup:boolean=false;
+
   constructor(
     private indexedDb:IndexedDbService,
     private networkService:NetworkService,
-    private router:Router
+    private router:Router,
+    private toggle:ToggleService
     ){
 
   }
@@ -83,7 +87,10 @@ export class BetStakesComponent implements OnInit{
       .subscribe((data: any) => {
         if (data.meta && data.meta.status === true) {
           // this.toaster.success(data.meta.message, '');
-          this.router.navigate(['/home']);
+          if(!this.isPopup){
+            this.router.navigate(['/home']);
+          }
+
         }
       })
 
