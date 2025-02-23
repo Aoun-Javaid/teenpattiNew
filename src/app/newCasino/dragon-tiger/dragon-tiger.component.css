@@ -131,7 +131,12 @@
   overflow: hidden;
   transition: background-position-y 0.35s ease;
   width: 1.5rem;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 100%);
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
 }
 
 .betStat__info-iGat4V {
@@ -289,7 +294,7 @@
   grid-area: tiger;
 }
 
-.tableMainCards__card__animation{
+.tableMainCards__card__animation {
   animation: cardAnimationAppearing 300ms ease forwards;
 }
 
@@ -325,7 +330,6 @@
   inset: 0;
   position: absolute;
 }
-
 
 .card__inner-CIH8Z7 {
   border-radius: inherit;
@@ -530,6 +534,12 @@
   animation: blinkingAnimation-BVoTic 2s ease 2s infinite;
   visibility: visible;
 }
+
+.blinking_animation {
+  animation: blinkingAnimation-BVoTic 2s ease 2s infinite;
+  visibility: visible;
+}
+
 .time-container {
   @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
   position: absolute;
@@ -551,12 +561,22 @@
     opacity: 1;
   }
 }
-.tableSideStatic__dragonEven-QFtUYx{
-  opacity: 0.4!important;
+.tableSideStatic__dragonEven-QFtUYx {
+  opacity: 0.4 !important;
 }
-.player-text{
-  background: linear-gradient(90deg, transparent 0%, rgb(225, 157, 25) 50%, transparent 100%);
+.player-text {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(225, 157, 25) 50%,
+    transparent 100%
+  );
 }
-.playerA-winnerText{
-  background: linear-gradient(90deg, transparent 0%, rgb(198,40,8) 50%, transparent 100%)!important;
+.playerA-winnerText {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(198, 40, 8) 50%,
+    transparent 100%
+  ) !important;
 }
