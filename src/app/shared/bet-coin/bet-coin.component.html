@@ -1,4 +1,4 @@
-<div class="relative md:max-w-[22rem] md:hidden">
+<div class="relative md:max-w-[22rem] md:hidden" *ngIf="status !== 'SUSPEND'">
     <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM">
         <div class="overflow-visible animation-container" [ngClass]="{'open-coin-bar':coinAnimateState}">
             <div class="tab-slider min-w-full">
@@ -22,9 +22,10 @@
                                             dominant-baseline="central" style="font-size: 16px">
                                             {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
                                         </text>
-                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                            text-rendering="geometricPrecision" data-locator="chip-value"
-                                            dominant-baseline="central" style="font-size: 16px">
+                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                            class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                            data-locator="chip-value" dominant-baseline="central"
+                                            style="font-size: 16px">
                                             {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
                                         </text>
                                     </svg>
@@ -51,9 +52,10 @@
                                             dominant-baseline="central" style="font-size: 16px">
                                             {{this.stackButtonArry[1]?.stakeAmount | shortNumber}}
                                         </text>
-                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                            text-rendering="geometricPrecision" data-locator="chip-value"
-                                            dominant-baseline="central" style="font-size: 16px">
+                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                            class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                            data-locator="chip-value" dominant-baseline="central"
+                                            style="font-size: 16px">
                                             {{this.stackButtonArry[1]?.stakeAmount | shortNumber}}
                                         </text>
                                     </svg>
@@ -80,9 +82,10 @@
                                             dominant-baseline="central" style="font-size: 16px">
                                             {{this.stackButtonArry[2]?.stakeAmount | shortNumber}}
                                         </text>
-                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                            text-rendering="geometricPrecision" data-locator="chip-value"
-                                            dominant-baseline="central" style="font-size: 16px">
+                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                            class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                            data-locator="chip-value" dominant-baseline="central"
+                                            style="font-size: 16px">
                                             {{this.stackButtonArry[2]?.stakeAmount | shortNumber}}
                                         </text>
                                     </svg>
@@ -108,9 +111,10 @@
                                             dominant-baseline="central" style="font-size: 16px">
                                             {{this.stackButtonArry[3]?.stakeAmount | shortNumber}}
                                         </text>
-                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                            text-rendering="geometricPrecision" data-locator="chip-value"
-                                            dominant-baseline="central" style="font-size: 16px">
+                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                            class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                            data-locator="chip-value" dominant-baseline="central"
+                                            style="font-size: 16px">
                                             {{this.stackButtonArry[3]?.stakeAmount | shortNumber}}
                                         </text>
                                     </svg>
@@ -136,9 +140,10 @@
                                             dominant-baseline="central" style="font-size: 16px">
                                             {{this.stackButtonArry[4]?.stakeAmount | shortNumber}}
                                         </text>
-                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                            text-rendering="geometricPrecision" data-locator="chip-value"
-                                            dominant-baseline="central" style="font-size: 16px">
+                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                            class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                            data-locator="chip-value" dominant-baseline="central"
+                                            style="font-size: 16px">
                                             {{this.stackButtonArry[4]?.stakeAmount | shortNumber}}
                                         </text>
                                     </svg>
@@ -164,9 +169,10 @@
                                             dominant-baseline="central" style="font-size: 16px">
                                             {{this.stackButtonArry[5]?.stakeAmount | shortNumber}}
                                         </text>
-                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                            text-rendering="geometricPrecision" data-locator="chip-value"
-                                            dominant-baseline="central" style="font-size: 16px">
+                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                            class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                            data-locator="chip-value" dominant-baseline="central"
+                                            style="font-size: 16px">
                                             {{this.stackButtonArry[5]?.stakeAmount | shortNumber}}
                                         </text>
                                     </svg>
@@ -239,9 +245,9 @@
                                         dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
                                     </text>
-                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                        text-rendering="geometricPrecision" data-locator="chip-value"
-                                        dominant-baseline="central" style="font-size: 16px">
+                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                        class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                        data-locator="chip-value" dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
                                     </text>
                                 </svg>
@@ -264,9 +270,9 @@
                                         dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[1]?.stakeAmount | shortNumber}}
                                     </text>
-                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                        text-rendering="geometricPrecision" data-locator="chip-value"
-                                        dominant-baseline="central" style="font-size: 16px">
+                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                        class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                        data-locator="chip-value" dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[1]?.stakeAmount | shortNumber}}
                                     </text>
                                 </svg>
@@ -289,9 +295,9 @@
                                         dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[2]?.stakeAmount | shortNumber}}
                                     </text>
-                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                        text-rendering="geometricPrecision" data-locator="chip-value"
-                                        dominant-baseline="central" style="font-size: 16px">
+                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                        class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                        data-locator="chip-value" dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[2]?.stakeAmount | shortNumber}}
                                     </text>
                                 </svg>
@@ -314,9 +320,9 @@
                                         dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[3]?.stakeAmount | shortNumber}}
                                     </text>
-                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                        text-rendering="geometricPrecision" data-locator="chip-value"
-                                        dominant-baseline="central" style="font-size: 16px">
+                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                        class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                        data-locator="chip-value" dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[3]?.stakeAmount | shortNumber}}
                                     </text>
                                 </svg>
@@ -339,9 +345,9 @@
                                         dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[4]?.stakeAmount | shortNumber}}
                                     </text>
-                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                        text-rendering="geometricPrecision" data-locator="chip-value"
-                                        dominant-baseline="central" style="font-size: 16px">
+                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                        class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                        data-locator="chip-value" dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[4]?.stakeAmount | shortNumber}}
                                     </text>
                                 </svg>
@@ -364,9 +370,9 @@
                                         dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[5]?.stakeAmount | shortNumber}}
                                     </text>
-                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                        text-rendering="geometricPrecision" data-locator="chip-value"
-                                        dominant-baseline="central" style="font-size: 16px">
+                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                        class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                        data-locator="chip-value" dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[5]?.stakeAmount | shortNumber}}
                                     </text>
                                 </svg>
@@ -429,9 +435,10 @@
                                             dominant-baseline="central" style="font-size: 16px">
                                             {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
                                         </text>
-                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                            text-rendering="geometricPrecision" data-locator="chip-value"
-                                            dominant-baseline="central" style="font-size: 16px">
+                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                            class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                            data-locator="chip-value" dominant-baseline="central"
+                                            style="font-size: 16px">
                                             {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
                                         </text>
                                     </svg>
@@ -458,9 +465,10 @@
                                             dominant-baseline="central" style="font-size: 16px">
                                             {{this.stackButtonArry[1]?.stakeAmount | shortNumber}}
                                         </text>
-                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                            text-rendering="geometricPrecision" data-locator="chip-value"
-                                            dominant-baseline="central" style="font-size: 16px">
+                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                            class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                            data-locator="chip-value" dominant-baseline="central"
+                                            style="font-size: 16px">
                                             {{this.stackButtonArry[1]?.stakeAmount | shortNumber}}
                                         </text>
                                     </svg>
@@ -487,9 +495,10 @@
                                             dominant-baseline="central" style="font-size: 16px">
                                             {{this.stackButtonArry[2]?.stakeAmount | shortNumber}}
                                         </text>
-                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                            text-rendering="geometricPrecision" data-locator="chip-value"
-                                            dominant-baseline="central" style="font-size: 16px">
+                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                            class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                            data-locator="chip-value" dominant-baseline="central"
+                                            style="font-size: 16px">
                                             {{this.stackButtonArry[2]?.stakeAmount | shortNumber}}
                                         </text>
                                     </svg>
@@ -515,9 +524,10 @@
                                             dominant-baseline="central" style="font-size: 16px">
                                             {{this.stackButtonArry[3]?.stakeAmount | shortNumber}}
                                         </text>
-                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                            text-rendering="geometricPrecision" data-locator="chip-value"
-                                            dominant-baseline="central" style="font-size: 16px">
+                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                            class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                            data-locator="chip-value" dominant-baseline="central"
+                                            style="font-size: 16px">
                                             {{this.stackButtonArry[3]?.stakeAmount | shortNumber}}
                                         </text>
                                     </svg>
@@ -543,9 +553,10 @@
                                             dominant-baseline="central" style="font-size: 16px">
                                             {{this.stackButtonArry[4]?.stakeAmount | shortNumber}}
                                         </text>
-                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                            text-rendering="geometricPrecision" data-locator="chip-value"
-                                            dominant-baseline="central" style="font-size: 16px">
+                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                            class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                            data-locator="chip-value" dominant-baseline="central"
+                                            style="font-size: 16px">
                                             {{this.stackButtonArry[4]?.stakeAmount | shortNumber}}
                                         </text>
                                     </svg>
@@ -571,9 +582,10 @@
                                             dominant-baseline="central" style="font-size: 16px">
                                             {{this.stackButtonArry[5]?.stakeAmount | shortNumber}}
                                         </text>
-                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                            text-rendering="geometricPrecision" data-locator="chip-value"
-                                            dominant-baseline="central" style="font-size: 16px">
+                                        <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                            class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                            data-locator="chip-value" dominant-baseline="central"
+                                            style="font-size: 16px">
                                             {{this.stackButtonArry[5]?.stakeAmount | shortNumber}}
                                         </text>
                                     </svg>
@@ -650,9 +662,9 @@
                                         dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
                                     </text>
-                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                        text-rendering="geometricPrecision" data-locator="chip-value"
-                                        dominant-baseline="central" style="font-size: 16px">
+                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                        class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                        data-locator="chip-value" dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
                                     </text>
                                 </svg>
@@ -676,9 +688,9 @@
                                         dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[1]?.stakeAmount | shortNumber}}
                                     </text>
-                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                        text-rendering="geometricPrecision" data-locator="chip-value"
-                                        dominant-baseline="central" style="font-size: 16px">
+                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                        class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                        data-locator="chip-value" dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[1]?.stakeAmount | shortNumber}}
                                     </text>
                                 </svg>
@@ -702,9 +714,9 @@
                                         dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[2]?.stakeAmount | shortNumber}}
                                     </text>
-                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                        text-rendering="geometricPrecision" data-locator="chip-value"
-                                        dominant-baseline="central" style="font-size: 16px">
+                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                        class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                        data-locator="chip-value" dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[2]?.stakeAmount | shortNumber}}
                                     </text>
                                 </svg>
@@ -728,9 +740,9 @@
                                         dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[3]?.stakeAmount | shortNumber}}
                                     </text>
-                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                        text-rendering="geometricPrecision" data-locator="chip-value"
-                                        dominant-baseline="central" style="font-size: 16px">
+                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                        class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                        data-locator="chip-value" dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[3]?.stakeAmount | shortNumber}}
                                     </text>
                                 </svg>
@@ -754,9 +766,9 @@
                                         dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[4]?.stakeAmount | shortNumber}}
                                     </text>
-                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                        text-rendering="geometricPrecision" data-locator="chip-value"
-                                        dominant-baseline="central" style="font-size: 16px">
+                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                        class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                        data-locator="chip-value" dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[4]?.stakeAmount | shortNumber}}
                                     </text>
                                 </svg>
@@ -780,9 +792,9 @@
                                         dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[5]?.stakeAmount | shortNumber}}
                                     </text>
-                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                        text-rendering="geometricPrecision" data-locator="chip-value"
-                                        dominant-baseline="central" style="font-size: 16px">
+                                    <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                        class="chip__value-B48ghL" text-rendering="geometricPrecision"
+                                        data-locator="chip-value" dominant-baseline="central" style="font-size: 16px">
                                         {{this.stackButtonArry[5]?.stakeAmount | shortNumber}}
                                     </text>
                                 </svg>
@@ -824,7 +836,8 @@
 
 <!-- desktop-coin  -->
 
-<div class="flex items center gap-[9.78px] relative !mt-[51px] max-md:hidden justify-center" *ngIf="status !== 'SUSPEND'">
+<div class="flex items center gap-[9.78px] relative !mt-[51px] max-md:hidden justify-center"
+    *ngIf="status !== 'SUSPEND'">
 
     <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI !h-[34.59px] !w-[34.59px]" type="button" disabled=""
         data-locator="undo-bet-btn">
@@ -848,12 +861,13 @@
                         <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
                         </div>
                         <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
-                                text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 1.25)"
+                                class="chip__valueShadow-apDxWQ" text-rendering="geometricPrecision"
+                                dominant-baseline="central" style="font-size: 16px">
                                 {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
                             </text>
-                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                text-rendering="geometricPrecision" data-locator="chip-value"
+                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                class="chip__value-B48ghL" text-rendering="geometricPrecision" data-locator="chip-value"
                                 dominant-baseline="central" style="font-size: 16px">
                                 {{this.stackButtonArry[0]?.stakeAmount | shortNumber}}
                             </text>
@@ -872,12 +886,13 @@
                         <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
                         </div>
                         <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
-                                text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 1.25)"
+                                class="chip__valueShadow-apDxWQ" text-rendering="geometricPrecision"
+                                dominant-baseline="central" style="font-size: 16px">
                                 {{this.stackButtonArry[1]?.stakeAmount | shortNumber}}
                             </text>
-                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                text-rendering="geometricPrecision" data-locator="chip-value"
+                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                class="chip__value-B48ghL" text-rendering="geometricPrecision" data-locator="chip-value"
                                 dominant-baseline="central" style="font-size: 16px">
                                 {{this.stackButtonArry[1]?.stakeAmount | shortNumber}}
                             </text>
@@ -896,12 +911,13 @@
                         <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
                         </div>
                         <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
-                                text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 1.25)"
+                                class="chip__valueShadow-apDxWQ" text-rendering="geometricPrecision"
+                                dominant-baseline="central" style="font-size: 16px">
                                 {{this.stackButtonArry[2]?.stakeAmount | shortNumber}}
                             </text>
-                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                text-rendering="geometricPrecision" data-locator="chip-value"
+                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                class="chip__value-B48ghL" text-rendering="geometricPrecision" data-locator="chip-value"
                                 dominant-baseline="central" style="font-size: 16px">
                                 {{this.stackButtonArry[2]?.stakeAmount | shortNumber}}
                             </text>
@@ -920,12 +936,13 @@
                         <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
                         </div>
                         <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
-                                text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 1.25)"
+                                class="chip__valueShadow-apDxWQ" text-rendering="geometricPrecision"
+                                dominant-baseline="central" style="font-size: 16px">
                                 {{this.stackButtonArry[3]?.stakeAmount | shortNumber}}
                             </text>
-                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                text-rendering="geometricPrecision" data-locator="chip-value"
+                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                class="chip__value-B48ghL" text-rendering="geometricPrecision" data-locator="chip-value"
                                 dominant-baseline="central" style="font-size: 16px">
                                 {{this.stackButtonArry[3]?.stakeAmount | shortNumber}}
                             </text>
@@ -944,12 +961,13 @@
                         <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
                         </div>
                         <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
-                                text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 1.25)"
+                                class="chip__valueShadow-apDxWQ" text-rendering="geometricPrecision"
+                                dominant-baseline="central" style="font-size: 16px">
                                 {{this.stackButtonArry[4]?.stakeAmount | shortNumber}}
                             </text>
-                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                text-rendering="geometricPrecision" data-locator="chip-value"
+                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                class="chip__value-B48ghL" text-rendering="geometricPrecision" data-locator="chip-value"
                                 dominant-baseline="central" style="font-size: 16px">
                                 {{this.stackButtonArry[4]?.stakeAmount | shortNumber}}
                             </text>
@@ -968,12 +986,13 @@
                         <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
                         </div>
                         <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 1.25)" class="chip__valueShadow-apDxWQ"
-                                text-rendering="geometricPrecision" dominant-baseline="central" style="font-size: 16px">
+                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 1.25)"
+                                class="chip__valueShadow-apDxWQ" text-rendering="geometricPrecision"
+                                dominant-baseline="central" style="font-size: 16px">
                                 {{this.stackButtonArry[5]?.stakeAmount | shortNumber}}
                             </text>
-                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)" class="chip__value-B48ghL"
-                                text-rendering="geometricPrecision" data-locator="chip-value"
+                            <text x="50%" text-anchor="middle" y="50%" transform="translate(0, 0)"
+                                class="chip__value-B48ghL" text-rendering="geometricPrecision" data-locator="chip-value"
                                 dominant-baseline="central" style="font-size: 16px">
                                 {{this.stackButtonArry[5]?.stakeAmount | shortNumber}}
                             </text>
