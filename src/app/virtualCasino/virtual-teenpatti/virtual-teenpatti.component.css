@@ -691,8 +691,8 @@
   padding: 0px 19px;
   height: 10rem;
 }
-.teen_patti_conatiner::before {
-}
+/* .teen_patti_conatiner::before {
+} */
 /* Teen patti Cards Section ends here  */
 
 /* Winning Percentage Chances Section starts here */
@@ -2640,9 +2640,9 @@ p {
     margin-top: 7px;
   }
 
-  .win_percentage_container {
-    /* margin-top: 5px; */
-  }
+  /* .win_percentage_container {
+    margin-top: 5px;
+  } */
 }
 
 @media screen and (max-width: 412px) {
@@ -2990,9 +2990,9 @@ p {
   .main_table_container {
     height: 100px;
   }
-  .win_percentage_container {
-    /* margin-top: 2px; */
-  }
+  /* .win_percentage_container {
+    margin-top: 2px;
+  } */
   .teen_patti_conatiner {
     margin-top: 5px;
   }
