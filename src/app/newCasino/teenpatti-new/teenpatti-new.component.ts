@@ -158,11 +158,10 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
     this.networkService.getBetPlace().subscribe((betObj:any)=>{
       // this.getAllMarketProfitLoss();
+      this.isbetInProcess=false;
       if(betObj.betSuccess){
         this.handleIncomingBetObject(betObj);
 
-      }else{
-        this.isbetInProcess=false;
       }
 
 
