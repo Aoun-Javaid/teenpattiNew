@@ -6,12 +6,10 @@
 @tailwind utilities;
 
 :root {
-
   --font-v-small: 10px;
 
   --font-small: 12px;
   --font-caption: 15px;
-
 
   --topHeaderColor: linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);
   --account-arrow-border: #1e1e1e;
@@ -1463,7 +1461,6 @@ body {
     rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
     scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   text-wrap: nowrap;
-  background-color: rgba(0, 0, 0, 0.6);
   font-size: 0.875rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
@@ -1509,7 +1506,7 @@ body {
 }
 
 .animation-player-translate {
-  animation:  translateAnimation 2s;
+  animation: translateAnimation 2s;
 }
 
 @keyframes translateAnimation {
