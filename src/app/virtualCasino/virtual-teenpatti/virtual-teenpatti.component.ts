@@ -891,10 +891,11 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         this.openMobileMinMax = [];
       }
     }
-  
+    screenWidth = window.innerWidth;
     @HostListener('window:resize', ['$event'])
     onResize(event?: Event) {
-      this.getWindowSize()
+      this.getWindowSize();
+      this.screenWidth = window.innerWidth;
     }
   
     getWindowSize() {

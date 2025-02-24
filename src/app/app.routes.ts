@@ -130,7 +130,7 @@ export const routes: Routes = [
         component:VirtualDtComponent
       },
       {
-        path:'Vteenpatti',
+        path:'Vteenpatti/:id',
         component:VirtualTeenpattiComponent
       },
       {

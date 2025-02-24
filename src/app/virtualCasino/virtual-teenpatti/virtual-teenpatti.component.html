@@ -1,5 +1,6 @@
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
-    <app-top-results class="hidden"></app-top-results>
+    <app-top-results
+        class="[@media(min-width:1200px)]:hidden inline-block w-full relative z-10 bottom-[1px]"></app-top-results>
     <div class="game__substrateLayer-LGkRLq">
         <div class="game__video-YzLt9h dragonTiger__staticVideoWrap-Pnti_t">
             <div class="game__staticVideo-y5rXT0">
@@ -34,8 +35,6 @@
             </div>
         </div>
     </div>
-
-    
 
     <div class="playerA-win-point" *ngIf="this.RoundWinner">
         <div class="player-content-wrapper">
@@ -103,7 +102,7 @@
 
 
 
-                <div class="relative   z-[1] h-full lg:max-w-[473px] ">
+                <div [ngClass]="{'top-[39px]': screenWidth < 412}" class="relative z-[1] h-full lg:max-w-[473px]">
                     <div class="win_percentage_container relative min-[1200px]:!hidden">
                         <div class="win_percentage_wrapper  ">
                             <div class="progress_bar_container">
@@ -556,11 +555,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- Teen patti Cards Section ends here -->
-                <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game.status"></app-bet-coin>
+                <div [ngClass]="{'top-[39px]': screenWidth < 412}" class="betcoin-wrapper relative min-h-full w-full">
+                    <app-bet-coin class="betStyle" (eventBetValue)="getCoinValue($event)"
+                        [status]="this.game.status"></app-bet-coin>
+                </div>
             </div>
         </div>
-        <div class="time-container" *ngIf="this.game">
+        <div class="time-container">
             <div class="last-win">{{this.game.eventName}}
                 <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold"> {{winnerMarketArray.min}}</span>
                 -
@@ -573,12 +574,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
 </div>
 <!-- <div class="h-[50px] w-full bg-[#161a2b]"></div> -->
 
@@ -592,10 +587,9 @@
 
 
 
-<div class="max-[1200px]:hidden fixed w-[22.5rem] mx-[2%] bottom-[7%] flex flex-col gap-[1.5rem]">
+<div class=" [@media(max-width:1200px)]:hidden fixed w-[22.5rem] mx-[2%] bottom-[7%] flex flex-col gap-[1.5rem]">
     <div class="win_percentage_container  relative w-full !p-0">
         <div class="win_percentage_wrapper  ">
-
             <div
                 class="progress_bar_container !flex-col !rounded-[15px] !bg-[linear-gradient(135deg,rgba(31,31,51,.9),rgba(31,37,51,.9))]">
                 <div class="flex justify-between w-full text-white text-[0.875rem] font-medium font-[Rubik,sans-serif]">

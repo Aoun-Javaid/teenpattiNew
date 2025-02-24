@@ -719,7 +719,7 @@
   justify-content: space-between;
   align-items: flex-end;
   padding: 0px 19px;
-  height: 10rem;
+  height: 6rem;
 }
 /* .teen_patti_conatiner::before {
 } */
@@ -2667,7 +2667,8 @@ p {
     left: 75px;
   }
   .teen_patti_conatiner {
-    margin-top: 7px;
+    /* margin-top: 7px; */
+    margin-top: 13%;
   }
 
   /* .win_percentage_container {
@@ -2705,6 +2706,21 @@ p {
   }
   .player_A_pair h4 {
     padding-left: 10px;
+  }
+}
+
+@media screen and (min-width: 412px) {
+  .betcoin-wrapper {
+    top: unset !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .betStyle {
+    height: 85.58px;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
   }
 }
 
