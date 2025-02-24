@@ -126,7 +126,7 @@ export const routes: Routes = [
         component:LiveBaccaratComponent
       },
       {
-        path:'Vdt',
+        path:'Vdt/:id',
         component:VirtualDtComponent
       },
       {
