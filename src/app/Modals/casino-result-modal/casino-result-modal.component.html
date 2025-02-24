@@ -41,7 +41,11 @@
                         <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER_A']?.card_3+'.png']">
                       </div>
 
-                      <button *ngIf="selectedResult?.winner=='A'" [ngClass]="{'winner-team btn': selectedResult?.winner != 'B', 'winner-team-A': selectedResult?.winner == 'A'}">Winner</button>
+                      <button *ngIf="selectedResult?.winner == 'A'"
+                              class="winner-team btn"
+                              [ngClass]="darkTheme ? 'winner-team-A' : 'custom-winner-green'">
+                        Winner
+                      </button>
                     </div>
                   </div>
 
@@ -53,7 +57,11 @@
                       <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER_B']?.card_2+'.png']">
                       <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER_B']?.card_3+'.png']">
                       </div>
-                      <button *ngIf="selectedResult?.winner=='B'"  [ngClass]="{'winner-team btn': selectedResult?.winner != 'A', 'winner-team-B': selectedResult?.winner == 'B'}">Winner</button>
+                      <button *ngIf="selectedResult?.winner == 'B'"
+                              class="winner-team btn"
+                              [ngClass]="darkTheme ? 'winner-team-B' : 'custom-winner-green'">
+                        Winner
+                      </button>
                     </div>
                   </div>
                   <div class="w-full md:w-1/2 xs:w-full paati_boxs" *ngIf="selectedResult?.cards['JOKER']">
@@ -74,8 +82,9 @@
                           <img [src]="['assets/cards/'+selectedResult?.cards['DRAGON']?.card_1+'.png']">
                         </div>
 
-                        <button *ngIf="selectedResult?.winner=='DRAGON'"
-                                [ngClass]="{'winner-team btn': selectedResult?.winner != 'TIGER', 'winner-team-dragon': selectedResult?.winner == 'DRAGON'}">
+                        <button *ngIf="selectedResult?.winner == 'DRAGON'"
+                                class="winner-team btn"
+                                [ngClass]="darkTheme ? 'winner-team-dragon' : 'custom-winner-green'">
                           Winner
                         </button>
 
@@ -88,8 +97,9 @@
                         <div class="flex justify-center items-center" [ngClass]="darkTheme?'darkPlayerB':''">
                           <img [src]="['assets/cards/'+selectedResult?.cards['TIGER']?.card_1+'.png']">
                         </div>
-                        <button *ngIf="selectedResult?.winner=='TIGER'"
-                                [ngClass]="{'winner-team btn': selectedResult?.winner != 'DRAGON', 'winner-team-tiger': selectedResult?.winner == 'TIGER'}">
+                        <button *ngIf="selectedResult?.winner == 'TIGER'"
+                                class="winner-team btn"
+                                [ngClass]="darkTheme ? 'winner-team-tiger' : 'custom-winner-green'">
                           Winner
                         </button>
 
@@ -108,7 +118,11 @@
                           <img [src]="['assets/cards/'+selectedResult?.cards['BANKER']?.card_3+'.png']">
                         </div>
 
-                        <button *ngIf="selectedResult?.winner=='B'" [ngClass]="{'winner-team btn': selectedResult?.winner != 'P', 'winner-banker': selectedResult?.winner == 'B'}">Winner</button>
+                        <button *ngIf="selectedResult?.winner == 'B'"
+                                class="winner-team btn"
+                                [ngClass]="darkTheme ? 'winner-banker' : 'custom-winner-green'">
+                          Winner
+                        </button>
                       </div>
                     </div>
 
@@ -120,7 +134,11 @@
                           <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER']?.card_2+'.png']">
                           <img [src]="['assets/cards/'+selectedResult?.cards['PLAYER']?.card_3+'.png']">
                         </div>
-                        <button *ngIf="selectedResult?.winner=='P'"  [ngClass]="{'winner-team btn': selectedResult?.winner != 'B', 'winner-player': selectedResult?.winner == 'P'}">Winner</button>
+                        <button *ngIf="selectedResult?.winner == 'P'"
+                                class="winner-team btn"
+                                [ngClass]="darkTheme ? 'winner-player' : 'custom-winner-green'">
+                          Winner
+                        </button>
                       </div>
                     </div>
                     <div class="w-full md:w-1/2 xs:w-full paati_boxs" *ngIf="selectedResult?.cards['JOKER']">
