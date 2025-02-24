@@ -68,16 +68,12 @@
 
 @media (orientation: landscape) {
   .dragonTiger__rngTable-TzLSaF {
-    top: 60%;
+    top: 3.75rem;
     width: 100%;
   }
 }
 
 @media (min-width: 1200px) {
-  .dragonTiger__rngTable-TzLSaF {
-    max-width: 453px !important;
-  }
-
   .rngTableImage-k19Eso {
     scale: 1 !important;
   }
@@ -168,6 +164,40 @@
   object-fit: cover;
   transition: opacity 300msease, visibility 300msease;
   width: 100%;
+}
+
+.videoShadow_horizontal-noollA {
+  --horizontal: 0;
+}
+
+.videoShadow-lCnYY4 {
+  --gradient-size: 3.0625rem;
+  --horizontal: -1;
+  --vertical: -1;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: var(--video-shadow-z-index, 1);
+}
+
+.videoShadow-lCnYY4:before {
+  background-image: linear-gradient(
+      90deg,
+      rgb(rgb(10, 10, 26)) 0%,
+      transparent 100%
+    ),
+    linear-gradient(90deg, transparent 0%, rgb(rgb(10, 10, 26)) 100%),
+    linear-gradient(180deg, rgb(rgb(10, 10, 26)) 0%, transparent 100%);
+  background-position: calc(3.0625rem * var(--horizontal)) 50%,
+    calc(100% - 3.0625rem * var(--horizontal)) 50%,
+    50% calc(3.0625rem * var(--vertical));
+  background-repeat: no-repeat;
+  background-size: 3.0625rem 100%, 3.0625rem 100%, 100% 3.0625rem;
+  content: "";
+  inset: -0.0625rem;
+  position: absolute;
+  transition: background-position 150msease;
+  z-index: 1;
 }
 
 /* ========================== */
