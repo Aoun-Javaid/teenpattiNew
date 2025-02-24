@@ -1,5 +1,5 @@
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
-    <app-top-results class="min-[1200px]:!hidden"></app-top-results>
+    <app-top-results class="[@media(min-width:1200px)]:hidden"></app-top-results>
     <div #target>
         <app-video-player [cardsActive]="false" [displayResult]="false" [fancyTimer]="true"
             [resultDeclared]="RoundWinner" [unityTimer]="false"></app-video-player>
@@ -7,12 +7,12 @@
     <div [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'" id="marketScroll" style="overflow-y: auto;">
         <div class="gradientDiv">
             <div
-                class="absolute min-[1312px]:fixed min-[1312px]:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] min-[1312px]:bottom-[60px] max-[375px]:bottom-[25px] min-[1312px]:!max-w-[473px]  left-0 w-full ">
-                <div class="relative z-[1] h-full min-[1312px]:max-w-[473px] ">
+                class="absolute  [@media(min-width:1312px)]:fixed  [@media(min-width:1312px)]:z-[1]    md:left-[50%] md:translate-x-[-50%] bottom-[64px]  [@media(min-width:1312px)]:bottom-[60px]  [@media(min-width:375px)]:bottom-[25px]   [@media(min-width:1312px)]:!max-w-[473px]   left-0 w-full ">
+                <div class="relative z-[1] h-full [@media(min-width:1312px)]:max-w-[473px] ">
                     <div class="relative !mx-[2%] md:!mx-0">
                         <!-- main content -->
-                        <div class=" mb-[0.3rem] md:mb-[5px] relative p-[18.9048%_0px_29.5048%] min-[1312px]:!p-0">
-                            <div class="h-[7.75rem] w-[21rem] min-[1312px]:w-[473px] lg:max-h-[168px] absolute left-[50%] min-[1312px]:!scale-[1] min-[1312px]:static min-[1312px]:h-[118.25px]"
+                        <div class=" mb-[0.3rem] md:mb-[5px] relative p-[18.9048%_0px_29.5048%]   [@media(min-width:1312px)]:!p-0 ">
+                            <div class="h-[7.75rem] w-[21rem]  [@media(min-width:1312px)]:w-[473px]   lg:max-h-[168px] absolute left-[50%] [@media(min-width:1312px)]:!scale-[1]  [@media(min-width:1312px)]:static  [@media(min-width:1312px)]:h-[118.25px]    "
                                 style="transform: translate(-50%, -50%) scale(var(--boardScale, 1));">
 
                                 <svg class="mobileSvg table__svg-uuecxW" xmlns="http://www.w3.org/2000/svg"
@@ -1033,9 +1033,9 @@
                                 </svg></button>
                         </div>
                     </div>
-                    <app-top-results class="max-[1200px]:hidden"></app-top-results>
+                    <app-top-results class="[@media(max-width:1200px)]:hidden "></app-top-results>
                 </div>
-                <div class="w-full min-[1312px]:mt-[-2.7rem]">
+                <div class="w-full  [@media(min-width:1312px)]:mt-[-2.7rem]">
                     <app-bet-coin (eventBetValue)="getCoinValue($event)"></app-bet-coin>
                 </div>
             </div>
