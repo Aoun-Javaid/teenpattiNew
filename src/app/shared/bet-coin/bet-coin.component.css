@@ -509,7 +509,7 @@
   text-align: left;
   color: white;
   margin: 0;
-  @apply min-[500px]:top-[6px] max-[500px]:top-[0px] max-[500px]:right-[-6px] min-[500px]:right-[13px];
+  @apply [@media(min-width:500px)]:top-[6px] [@media(max-width:500px)]:top-[0px] [@media(max-width:500px)]:right-[-6px] [@media(min-width:500px)]:right-[13px];
 }
 
 .player-b-details {
@@ -529,11 +529,11 @@
   color: white;
   padding-left: 59px;
   margin: 0;
-  @apply min-[500px]:top-[25px] max-[500px]:top-[22px] max-[500px]:right-[-6px] min-[500px]:right-[13px];
+  @apply [@media(min-width:500px)]:top-[25px] [@media(max-width:500px)]:top-[22px] [@media(max-width:500px)]:right-[-6px] [@media(min-width:500px)]:right-[13px];
 }
 
 .fix-position {
-  @apply min-[500px]:top-[0px] max-[500px]:top-[0px] text-end flex justify-end flex-col max-[500px]:right-[13px] min-[500px]:right-[24px] absolute;
+  @apply [@media(min-width:500px)]:top-[0px] [@media(max-width:500px)]:top-[0px] text-end flex justify-end flex-col [@media(max-width:500px)]:right-[13px] [@media(min-width:500px)]:right-[24px] absolute;
 }
 
 .player_B_img {
