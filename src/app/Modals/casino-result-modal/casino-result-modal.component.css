@@ -337,7 +337,6 @@ background: black;
 }
 
 .winner-team {
-  background: #28a745;
   padding: 5px 10px;
   color: #fff;
   font-size: 20px;
@@ -345,6 +344,9 @@ background: black;
   display: block;
   margin: 10px auto;
   border-radius: 4px;
+}
+.custom-winner-green{
+  background: #28a745;
 }
 .winner-team-tiger {
   background: linear-gradient(90deg, transparent 0%, rgb(225, 157, 25) 50%, transparent 100%);
