@@ -93,7 +93,7 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
   rulesBox: any;
   selectedResult: any;
   betplaceObj: any;
-  resultArray: any;
+  resultArray: any =[];
   totalMatchedBets: any;
   game: any;
   betSlip: string = "game";
@@ -436,6 +436,12 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
                 this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
               }
             }
+            this.resultArray =objMarket.data.resultsArr;
+
+
+
+            console.warn('resultss test',this.resultArray[1].runners[this.marketArray[1]?.runners[0]?.selectionId])
+            console.warn('resultss',objMarket.data.resultsArr)
             // for video results
             for (let key in objMarket.data.resultsArr[0].runners) {
               if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
