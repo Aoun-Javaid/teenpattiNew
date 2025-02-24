@@ -1,5 +1,5 @@
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
-    <app-top-results class="min-[1200px]:!hidden"></app-top-results>
+    <app-top-results class="[@media(min-width:1200px)]:hidden"></app-top-results>
     <div #target>
       <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
                         [displayResult]="false" [unityTimer]="false"></app-video-player>
@@ -32,7 +32,7 @@
     <div [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'" id="marketScroll" style="overflow-y: auto;">
         <div class="gradientDiv" *ngIf="this.game">
             <div *ngIf="marketArray"
-                 class="absolute lg:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] lg:bottom-[60px] max-[375px]:bottom-[25px] lg:!max-w-[473px]  left-0 w-full ">
+                 class="absolute lg:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] lg:bottom-[60px] [@media(max-width:375px)]:bottom-[25px]   lg:!max-w-[473px]  left-0 w-full ">
                 <div class="relative z-[1] h-full lg:max-w-[473px] ">
                     <div class="relative !mx-[2%] md:!mx-0 !bg-[black] rounded-[17px]">
                         <!-- main content -->
@@ -838,7 +838,7 @@
     </div>
 </div>
 
-<div class="max-[1200px]:hidden fixed w-[20.5rem] mx-[2%] bottom-[20%] flex flex-col gap-[1.5rem]">
+<div class="[@media(max-width:1023px)]:hidden  fixed w-[20.5rem] mx-[2%] bottom-[20%] flex flex-col gap-[1.5rem]">
   <div class="dragonTiger__history-jQwWbi">
     <div class="scoreBoardInfo-USWOxa">
       <div class="scoreBoardInfo__total-b3bUj3" ><div class="scoreBoardInfo__totalItem-KhIYhz" >#1</div><div class="scoreBoardInfo__totalItem-KhIYhz" ><svg class="scoreBoardInfo__totalItemSvg-eW0Cnx" viewBox="0 0 9 9"><g><circle cx="4.5" cy="4.5" r="4.5" fill="#c62808"></circle><path d="M3.1319999999999997,6.5
