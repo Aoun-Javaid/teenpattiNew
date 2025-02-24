@@ -1,20 +1,20 @@
-import {Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {TopResultsComponent} from "../shared/top-results/top-results.component";
-import {VideoPlayerComponent} from "../../shared/video-player/video-player.component";
-import {CommonModule} from "@angular/common";
-import {BetCoinComponent} from "../../shared/bet-coin/bet-coin.component";
-import {ShortNumberPipe} from "../../pipes/short-number.pipe";
-import {first, retry, RetryConfig, Subscription} from "rxjs";
-import {CONFIG, STACK_VALUE} from "../../../../config";
-import {ActivatedRoute} from "@angular/router";
-import {NetworkService} from "../../services/network.service";
-import {EncryptDecryptService} from "../../services/encrypt-decrypt.service";
-import {ToggleService} from "../../services/toggle.service";
-import {DeviceDetectorService} from "ngx-device-detector";
-import {IndexedDbService} from "../../services/indexed-db.service";
-import {ToastrService} from "ngx-toastr";
-import {CasinoSocketService} from "../../services/casino-socket.service";
-import {BetsChipsComponent} from "../shared/bets-chips/bets-chips.component";
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { TopResultsComponent } from "../shared/top-results/top-results.component";
+import { VideoPlayerComponent } from "../../shared/video-player/video-player.component";
+import { CommonModule } from "@angular/common";
+import { BetCoinComponent } from "../../shared/bet-coin/bet-coin.component";
+import { ShortNumberPipe } from "../../pipes/short-number.pipe";
+import { first, retry, RetryConfig, Subscription } from "rxjs";
+import { CONFIG, STACK_VALUE } from "../../../../config";
+import { ActivatedRoute } from "@angular/router";
+import { NetworkService } from "../../services/network.service";
+import { EncryptDecryptService } from "../../services/encrypt-decrypt.service";
+import { ToggleService } from "../../services/toggle.service";
+import { DeviceDetectorService } from "ngx-device-detector";
+import { IndexedDbService } from "../../services/indexed-db.service";
+import { ToastrService } from "ngx-toastr";
+import { CasinoSocketService } from "../../services/casino-socket.service";
+import { BetsChipsComponent } from "../shared/bets-chips/bets-chips.component";
 import { QuickStakesEditComponent } from "../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component";
 
 declare var $: any;
@@ -25,12 +25,13 @@ declare var $: any;
   imports: [
     TopResultsComponent,
     VideoPlayerComponent, CommonModule, BetCoinComponent, ShortNumberPipe,
-    QuickStakesEditComponent
-],
+    QuickStakesEditComponent,
+    BetsChipsComponent
+  ],
   templateUrl: './dragon-tiger.component.html',
   styleUrl: './dragon-tiger.component.css'
 })
-export class DragonTigerComponent implements OnInit,OnDestroy {
+export class DragonTigerComponent implements OnInit, OnDestroy {
 
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
 
@@ -61,7 +62,7 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
   showHamburger: boolean = true;
   btnIcon = false
   btnCheck = 1
-  BetPlaced:any={};
+  BetPlaced: any = {};
 
   animationClass = '';
 
@@ -131,13 +132,13 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
   ties: number = 0;
 
   constructor(private route: ActivatedRoute,
-              private networkService: NetworkService,
-              private encyDecy: EncryptDecryptService,
-              private toggleService: ToggleService,
-              private deviceService: DeviceDetectorService,
-              private indexedDb: IndexedDbService,
-              private toaster: ToastrService,
-              private socket: CasinoSocketService) {
+    private networkService: NetworkService,
+    private encyDecy: EncryptDecryptService,
+    private toggleService: ToggleService,
+    private deviceService: DeviceDetectorService,
+    private indexedDb: IndexedDbService,
+    private toaster: ToastrService,
+    private socket: CasinoSocketService) {
 
     this.eventid = this.route.snapshot.params['id'];
     localStorage.setItem('eventId', this.eventid)
@@ -161,10 +162,10 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
 
-    this.networkService.getBetPlace().subscribe((betObj:any)=>{
+    this.networkService.getBetPlace().subscribe((betObj: any) => {
       // this.getAllMarketProfitLoss();
-      this.isbetInProcess=false;
-      if(betObj.betSuccess){
+      this.isbetInProcess = false;
+      if (betObj.betSuccess) {
         this.handleIncomingBetObject(betObj);
 
       }
@@ -339,7 +340,7 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
   openQuickStakes() {
     this.toggleService.setQuickStakeEditSidebarState(true)
   }
-  handleIncomingBetObject(incomingObj:any) {
+  handleIncomingBetObject(incomingObj: any) {
     const { marketId, selectionId, stake } = incomingObj;
 
     if (!this.BetPlaced[marketId]) {
@@ -352,7 +353,7 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
 
       this.BetPlaced[marketId][selectionId] = stake;
     }
-    console.log('bet placed',this.BetPlaced);
+    console.log('bet placed', this.BetPlaced);
     this.betsChipsComponent?.CalculateIndex();
 
     this.game.betAccepted = true;
@@ -437,7 +438,7 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
 
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
                 // console.log(this.RoundWinner)
-                this.BetPlaced=[];
+                this.BetPlaced = [];
               }
               if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
                 setTimeout(() => {
@@ -486,13 +487,13 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
 
               this.marketArray[marketIndex].runners[runnersIndex].price.back[
                 backIndex
-                ].size = this.changeValue;
+              ].size = this.changeValue;
 
             }
             if (this.split_arr[7] == 'price') {
               this.marketArray[marketIndex].runners[runnersIndex].price.back[
                 backIndex
-                ].price = this.changeValue;
+              ].price = this.changeValue;
             }
             if (this.split_arr[4] === 'status') {
               this.marketArray[marketIndex].runners[runnersIndex].status =
@@ -534,14 +535,14 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
 
   openBetslip(marketId: any, selectionId: any, betType: any, price: any, min: any, max: any) {
 
-    if(this.game.status=='SUSPEND'){
+    if (this.game.status == 'SUSPEND') {
       this.waitRound = true
       setTimeout(() => {
         this.waitRound = false
       }, 1000);
     }
 
-    console.log('method clicked ',price)
+    console.log('method clicked ', price)
     return
     if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
       if (this.selectedBetAmount > 0) {
@@ -559,7 +560,7 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
           roomId: this._roomId,
           minValue: min,
           maxValue: max,
-          stake:this.selectedBetAmount
+          stake: this.selectedBetAmount
         }
 
         // this.placeCasinoBet();
@@ -805,12 +806,12 @@ export class DragonTigerComponent implements OnInit,OnDestroy {
             } else if (round.winner === 'TIGER') {
               tigerWins++;
             } else if (round.winner === 'TIE') {
-             ties++;
+              ties++;
             }
           });
-          this.dragonWins= dragonWins;
-          this.tigerWins= tigerWins;
-          this.ties= ties;
+          this.dragonWins = dragonWins;
+          this.tigerWins = tigerWins;
+          this.ties = ties;
           // this.aPlayerChances = (this.dragonWins / data?.data?.length) * 100
           // this.bPlayerChances = (this.tigerWins / data?.data?.length) * 100
           // this.TPlayerChances = (100 - this.aPlayerChances - this.bPlayerChances);
