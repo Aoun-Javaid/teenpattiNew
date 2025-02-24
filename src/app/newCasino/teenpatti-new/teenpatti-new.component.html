@@ -1,5 +1,5 @@
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
-    <app-top-results class="min-[1200px]:!hidden"></app-top-results>
+    <app-top-results class="[@media(min-width:1200px)]:hidden "></app-top-results>
 
     <div #target>
         <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
@@ -42,7 +42,7 @@
 
 
             <div *ngIf="marketArray"
-                class="absolute md:fixed  md:left-[50%] md:translate-x-[-50%] bottom-[64px] max-[375px]:bottom-[25px] md:!max-w-[473px]  left-0 w-full ">
+                class="absolute md:fixed  md:left-[50%] md:translate-x-[-50%] bottom-[64px]  [@media(max-width:375px)]:bottom-[25px]  md:!max-w-[473px]  left-0 w-full ">
 
 
 
@@ -91,7 +91,7 @@
 
 
                 <div class="relative   z-[1] h-full lg:max-w-[473px] ">
-                    <div class="win_percentage_container relative min-[1200px]:!hidden">
+                    <div class="win_percentage_container relative [@media(min-width:1200px)]:hidden">
                         <div class="win_percentage_wrapper  ">
                             <div class="progress_bar_container">
                                 <div class="progress-bar bg-danger !bg-[#CC493E]" [style.width]="aPlayerChances+'%'">
@@ -572,7 +572,7 @@
 
 
 
-<div class="max-[1200px]:hidden fixed w-[22.5rem] mx-[2%] bottom-[7%] flex flex-col gap-[1.5rem]">
+<div class=" [@media(max-width:1200px)]:hidden fixed w-[22.5rem] mx-[2%] bottom-[7%] flex flex-col gap-[1.5rem]">
     <div class="win_percentage_container  relative w-full !p-0">
         <div class="win_percentage_wrapper  ">
 
