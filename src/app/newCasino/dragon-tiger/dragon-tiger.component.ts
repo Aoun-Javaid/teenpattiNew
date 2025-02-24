@@ -113,8 +113,10 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
   changeValue: any;
   sizeRunner1: any;
   sizeRunner2: any;
+  sizeRunner3:any;
   firstBoxWidth: string = '';
   secndBoxWidth: string = '';
+  tieBoxWidth: string = '';
   split_arr: any;
   getRoundId: any;
   resultcounter = 0;
@@ -209,7 +211,8 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
               this.game = objMarket?.data[0];
               this.game.marketArr = this.marketArray ? this.marketArray : objMarket?.data[0]?.marketArr;
               this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
-              this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
+              this.sizeRunner2 = this.marketArray[0].runners[2].price.back[0].size;
+              this.sizeRunner3=this.marketArray[0].runners[1].price.back[0].size;
               this.winnerMarketArray = this.game?.marketArr ? this.game?.marketArr[0] : '';
               this.getRoundId = this.game.roundId
               this.handleEventResponse(objMarket, 0)
@@ -388,7 +391,8 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
         if ('data' in objMarket && this.counter == 0 && objMarket.data.marketArr && objMarket.data._id) {
           this.marketArray = objMarket.data.marketArr;
           this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
-          this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
+              this.sizeRunner2 = this.marketArray[0].runners[2].price.back[0].size;
+              this.sizeRunner3=this.marketArray[0].runners[1].price.back[0].size;
           this.game = this.marketArray ? this.marketArray : objMarket.data;
           this.game = objMarket.data;
           this.counter = 1;
@@ -478,6 +482,14 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
                 // console.log('player A', this.firstBoxWidth)
               }
               if (runnersIndex == 1 && marketIndex == 0) {
+                // tie
+                // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
+                let percnt = ((this.changeValue / this.sizeRunner3) * 100);
+                this.tieBoxWidth = -1 * (percnt - 100) + '';
+                // console.log('player B', this.secndBoxWidth)
+
+              }
+              if (runnersIndex == 2 && marketIndex == 0) {
                 // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
                 let percnt = ((this.changeValue / this.sizeRunner2) * 100);
                 this.secndBoxWidth = -1 * (percnt - 100) + '';
