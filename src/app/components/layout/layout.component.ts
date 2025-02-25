@@ -11,7 +11,7 @@ import { MobSidebarComponent } from '../../shared/mob-sidebar/mob-sidebar.compon
 import { BrowseComponent } from "../../shared/mob-navigation/browse/browse.component";
 import { ChatComponent } from "../../shared/chat/chat.component";
 import { ProfileComponent } from "../../shared/mob-navigation/profile/profile.component";
-declare var $:any;
+declare var $: any;
 @Component({
   selector: 'app-layout',
   standalone: true,
@@ -24,12 +24,13 @@ declare var $:any;
     BrowseComponent,
     ChatComponent,
     ProfileComponent
-],
+  ],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],
 })
 export class LayoutComponent implements OnInit {
   currentRoute: string = '';
+  modalsState: boolean = false;
   showBetslip: boolean = false;
   sidebarOpen: boolean = true;
   vaultModal: boolean = false;
@@ -55,5 +56,9 @@ export class LayoutComponent implements OnInit {
 
       });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.modalsState = true;
+    }, 1000);
+  }
 }
