@@ -675,10 +675,13 @@
                                                 <div class="tableMainStatic__title-VDxh9o" data-locator="tie-title" [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':this.RoundWinner=='TIE'}">
                                                   {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}
                                                 </div>
-                                                <div class="absolute" *ngIf="BetPlaced[marketArray[0]?.marketId]">
-                                                  <app-bets-chip  *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[1]?.selectionId]"
+                                                <div class="absolute " *ngIf="BetPlaced[marketArray[0]?.marketId]">
+
+                                                    <app-bets-chips
+                                                        *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[1]?.selectionId]"
                                                         [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
                                                         [runnerId]="marketArray[0].runners[1].selectionId"></app-bets-chips>
+
                                                 </div>
                                             </div>
                                             <div class="tableMainStatic__dragon-AzpGwn">
