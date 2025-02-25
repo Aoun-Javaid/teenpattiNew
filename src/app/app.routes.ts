@@ -110,7 +110,7 @@ export const routes: Routes = [
         component:TeenpattiComponent
       },
       {
-        path:'Nteenpatti/:id',
+        path:'Nteenpatti',
         component:TeenpattiNewComponent
       },
       {
