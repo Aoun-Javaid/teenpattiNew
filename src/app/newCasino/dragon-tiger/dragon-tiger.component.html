@@ -49,7 +49,7 @@
                                         <path
                                                 d="M12,0c-6.627,0 -12,5.373 -12,12l0,88c0,6.627 5.373,12 12,12l155,0c2.209,0 4,-1.791 4,-4l0,-0.009c-28.257,-0.533 -51,-23.606 -51,-51.991c0,-28.385 22.743,-51.458 51,-51.991l0,-0.009c0,-2.209 -1.791,-4 -4,-4l-155,0Z"
                                                 fill="url(#DT_table_main_Dragon__background)"></path>
-                                        <path class="svg__ctaBackground-pE1PGC"
+                                        <path class=""
                                               [ngClass]="{'svg__winBackground-AgT0Cm':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
                                               d="M12,0c-6.627,0 -12,5.373 -12,12l0,88c0,6.627 5.373,12 12,12l155,0c2.209,0 4,-1.791 4,-4l0,-0.009c-28.257,-0.533 -51,-23.606 -51,-51.991c0,-28.385 22.743,-51.458 51,-51.991l0,-0.009c0,-2.209 -1.791,-4 -4,-4l-155,0Z"
                                               fill="url(#DT_table_main_Dragon__ctaBackground)"></path>
@@ -167,7 +167,8 @@
                                                    xlink:href="https://client.petros04.com/js/../img/dragon.b382fa60.jpg"></image>
                                         </defs>
                                     </g>
-                                    <g class="svg-kKAHVZ   svg_win-qJa6ey"   data-locator="tiger-button"
+                                    <g class="svg-kKAHVZ   "   data-locator="tiger-button"
+                                    [ngClass]="{'svg_win-qJa6ey':game?.status === 'ONLINE'}"
                                       >
                                         <path
                                                 d="M177,0c-2.209,0 -4,1.791 -4,4l0,0.009c28.257,0.533 51,23.606 51,51.991c0,28.385 -22.743,51.458 -51,51.991l0,0.009c0,2.209 1.791,4 4,4l155,0c6.627,0 12,-5.373 12,-12l0,-88c0,-6.627 -5.373,-12 -12,-12l-155,0Z"
@@ -176,7 +177,7 @@
                                               [ngClass]="{'':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}"
                                               d="M177,0c-2.209,0 -4,1.791 -4,4l0,0.009c28.257,0.533 51,23.606 51,51.991c0,28.385 -22.743,51.458 -51,51.991l0,0.009c0,2.209 1.791,4 4,4l155,0c6.627,0 12,-5.373 12,-12l0,-88c0,-6.627 -5.373,-12 -12,-12l-155,0Z"
                                               fill="url(#DT_table_main_Tiger__ctaBackground)"></path>
-                                        <path class="svg__winBackground-AgT0Cm"
+                                        <path class="" [ngClass]="{'svg__winBackground-AgT0Cm':game.status === 'ONLINE'}"
                                               d="M173,3.522c0.233,-1.707 1.697,-3.022 3.468,-3.022l155,0c6.351,0 11.5,5.149 11.5,11.5l0,88c0,6.351 -5.149,11.5 -11.5,11.5l-155,0c-1.771,0 -3.235,-1.315 -3.468,-3.022c28.287,-0.811 50.968,-23.996 50.968,-52.478c0,-28.482 -22.681,-51.667 -50.968,-52.478Z"
                                               fill="url(#DT_table_main_Tiger__winBackground)"
                                               filter="url(#DT_table_main_Tiger__winShadow)"
@@ -201,7 +202,7 @@
                                         <path
                                                 d="M177,0c-2.209,0 -4,1.791 -4,4l0,0.009c28.257,0.533 51,23.606 51,51.991c0,28.385 -22.743,51.458 -51,51.991l0,0.009c0,2.209 1.791,4 4,4l155,0c6.627,0 12,-5.373 12,-12l0,-88c0,-6.627 -5.373,-12 -12,-12l-155,0Z"
                                                 fill="url(#DT_table_main_Tiger__topBackground)"></path>
-                                        <path class="svg__winTopBackground-bNOeP6"
+                                        <path class="" [ngClass]="{'svg__winTopBackground-bNOeP6':game?.status === 'SUSPEND'}"
                                               d="M177,0c-2.209,0 -4,1.791 -4,4l0,0.009c28.257,0.533 51,23.606 51,51.991c0,28.385 -22.743,51.458 -51,51.991l0,0.009c0,2.209 1.791,4 4,4l155,0c6.627,0 12,-5.373 12,-12l0,-88c0,-6.627 -5.373,-12 -12,-12l-155,0Z"
                                               fill="url(#DT_table_main_Tiger__winTopBackground)"></path>
                                         <path style="pointer-events: all;"
@@ -288,15 +289,15 @@
                                                    xlink:href="https://client.petros04.com/js/../img/tiger.5eda9490.jpg"></image>
                                         </defs>
                                     </g>
-                                    <g class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4" data-locator="tie-button"
+                                    <g class="svg-kKAHVZ svg_lose-OH55q4" data-locator="tie-button"
                                     (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[1].selectionId,'back',marketArray[0].runners[1].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)">
                                         <path
                                                 d="M122.092,52.961c-0.068,1.118 0.838,2.039 1.958,2.039l32.121,0c1.05,0 1.906,-0.817 2.119,-1.846c1.314,-6.367 6.953,-11.154 13.71,-11.154c6.757,0 12.396,4.787 13.711,11.154c0.212,1.029 1.068,1.846 2.118,1.846l32.121,0c1.12,0 2.026,-0.921 1.958,-2.039c-0.74,-12.152 -5.895,-23.658 -14.553,-32.316c-9.376,-9.377 -22.094,-14.645 -35.355,-14.645c-13.261,0 -25.978,5.268 -35.355,14.645c-8.658,8.658 -13.813,20.164 -14.553,32.316Z"
                                                 fill="url(#DT_table_main_Tie__background)"></path>
-                                        <path class="svg__ctaBackground-pE1PGC"
+                                        <path class="opacity-0 invisible" [ngClass]="{'':game.status === 'ONLINE'}"
                                               d="M122.092,52.961c-0.068,1.118 0.838,2.039 1.958,2.039l32.121,0c1.05,0 1.906,-0.817 2.119,-1.846c1.314,-6.367 6.953,-11.154 13.71,-11.154c6.757,0 12.396,4.787 13.711,11.154c0.212,1.029 1.068,1.846 2.118,1.846l32.121,0c1.12,0 2.026,-0.921 1.958,-2.039c-0.74,-12.152 -5.895,-23.658 -14.553,-32.316c-9.376,-9.377 -22.094,-14.645 -35.355,-14.645c-13.261,0 -25.978,5.268 -35.355,14.645c-8.658,8.658 -13.813,20.164 -14.553,32.316Z"
                                               fill="url(#DT_table_main_Tie__ctaBackground)"></path>
-                                        <path class="svg__winBackground-AgT0Cm"
+                                        <path class="opacity-0 invisible "  [ngClass]="{'svg__winBackground-AgT0Cm':game.status === 'ONLINE'}"
                                               d="M122.092,52.961c-0.068,1.118 0.838,2.039 1.958,2.039l32.121,0c1.05,0 1.906,-0.817 2.119,-1.846c1.314,-6.367 6.953,-11.154 13.71,-11.154c6.757,0 12.396,4.787 13.711,11.154c0.212,1.029 1.068,1.846 2.118,1.846l32.121,0c1.12,0 2.026,-0.921 1.958,-2.039c-0.74,-12.152 -5.895,-23.658 -14.553,-32.316c-9.376,-9.377 -22.094,-14.645 -35.355,-14.645c-13.261,0 -25.978,5.268 -35.355,14.645c-8.658,8.658 -13.813,20.164 -14.553,32.316Z"
                                               fill="url(#DT_table_main_Tie__winBackground)"
                                               filter="url(#DT_table_main_Tie__winShadow)"
@@ -334,15 +335,15 @@
                                             </filter>
                                         </defs>
                                     </g>
-                                    <g class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
+                                    <g class="svg-kKAHVZ  svg_lose-OH55q4"
                                        data-locator="suited-tie-button">
                                         <path
                                                 d="M122.092,59.039c-0.068,-1.118 0.838,-2.039 1.958,-2.039l32.121,0c1.05,0 1.906,0.817 2.119,1.846c1.314,6.367 6.953,11.154 13.71,11.154c6.757,0 12.396,-4.787 13.711,-11.154c0.212,-1.029 1.068,-1.846 2.118,-1.846l32.121,0c1.12,0 2.026,0.921 1.958,2.039c-0.74,12.152 -5.895,23.658 -14.553,32.316c-9.376,9.377 -22.094,14.645 -35.355,14.645c-13.261,0 -25.978,-5.268 -35.355,-14.645c-8.658,-8.658 -13.813,-20.164 -14.553,-32.316Z"
                                                 fill="url(#DT_table_main_suitedTie__background)"></path>
-                                        <path class="svg__ctaBackground-pE1PGC"
+                                        <path class="opacity-0 invisible" [ngClass]="{'':game.status === 'ONLINE'}"
                                               d="M122.092,59.039c-0.068,-1.118 0.838,-2.039 1.958,-2.039l32.121,0c1.05,0 1.906,0.817 2.119,1.846c1.314,6.367 6.953,11.154 13.71,11.154c6.757,0 12.396,-4.787 13.711,-11.154c0.212,-1.029 1.068,-1.846 2.118,-1.846l32.121,0c1.12,0 2.026,0.921 1.958,2.039c-0.74,12.152 -5.895,23.658 -14.553,32.316c-9.376,9.377 -22.094,14.645 -35.355,14.645c-13.261,0 -25.978,-5.268 -35.355,-14.645c-8.658,-8.658 -13.813,-20.164 -14.553,-32.316Z"
                                               fill="url(#DT_table_main_suitedTie__ctaBackground)"></path>
-                                        <path class="svg__winBackground-AgT0Cm"
+                                        <path class="opacity-0 invisible" [ngClass]="{'svg__winBackground-AgT0Cm':game.status === 'ONLINE'}"
                                               d="M122.092,59.039c-0.068,-1.118 0.838,-2.039 1.958,-2.039l32.121,0c1.05,0 1.906,0.817 2.119,1.846c1.314,6.367 6.953,11.154 13.71,11.154c6.757,0 12.396,-4.787 13.711,-11.154c0.212,-1.029 1.068,-1.846 2.118,-1.846l32.121,0c1.12,0 2.026,0.921 1.958,2.039c-0.74,12.152 -5.895,23.658 -14.553,32.316c-9.376,9.377 -22.094,14.645 -35.355,14.645c-13.261,0 -25.978,-5.268 -35.355,-14.645c-8.658,-8.658 -13.813,-20.164 -14.553,-32.316Z"
                                               fill="url(#DT_table_main_suitedTie__winBackground)"
                                               filter="url(#DT_table_main_Tie__winShadow)" stroke="#00d6df"
@@ -379,7 +380,7 @@
                                             </filter>
                                         </defs>
                                     </g>
-                                    <g  (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[1].selectionId,'back',marketArray[1].runners[1].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)" class="svg-kKAHVZ svg_cta-fTTgEw svg_lose-OH55q4"
+                                    <g  (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[1].selectionId,'back',marketArray[1].runners[1].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)" class="svg-kKAHVZ svg_lose-OH55q4"
                                        data-locator="dragon-even-button">
                                         <path
                                                 d="M2.21,109.827c-0.715,-0.717 -2.21,-0.243 -2.21,0.77l0,27.403c0,6.627 5.373,12 12,12l28,0c1.105,0 2,-0.896 2,-2l0,-32c0,-1.105 -0.895,-2 -2,-2l-28,0c-3.81,0 -7.265,-1.643 -9.79,-4.173Z"
@@ -402,7 +403,7 @@
                                         <path
                                                 d="M44,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                                 fill="url(#DT_table_sideBet_isDragon:true__background)"></path>
-                                        <path class="svg__ctaBackground-pE1PGC"
+                                        <path class=""
                                               d="M44,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:true__ctaBackground)"></path>
                                         <path class="svg__winBackground-AgT0Cm"
@@ -417,7 +418,7 @@
                                         <path
                                                 d="M87,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                                 fill="url(#DT_table_sideBet_isDragon:true__background)"></path>
-                                        <path class="svg__ctaBackground-pE1PGC"
+                                        <path class=""
                                               d="M87,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:true__ctaBackground)"></path>
                                         <path class="svg__winBackground-AgT0Cm"
@@ -433,7 +434,7 @@
                                         <path
                                                 d="M130,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                                 fill="url(#DT_table_sideBet_isDragon:true__background)"></path>
-                                        <path class="svg__ctaBackground-pE1PGC"
+                                        <path class=""
                                               d="M130,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:true__ctaBackground)"></path>
                                         <path class="svg__winBackground-AgT0Cm blinking_animation"
@@ -477,7 +478,7 @@
                                         <path
                                                 d="M173,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                                 fill="url(#DT_table_sideBet_isDragon:false__background)"></path>
-                                        <path class="svg__ctaBackground-pE1PGC"
+                                        <path class=""
                                               d="M173,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:false__ctaBackground)"></path>
                                         <path class="opacity-0" 
@@ -521,7 +522,7 @@
                                         <path
                                                 d="M216,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                                 fill="url(#DT_table_sideBet_isDragon:false__background)"></path>
-                                        <path class="svg__ctaBackground-pE1PGC"
+                                        <path class=""
                                               d="M216,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:false__ctaBackground)"></path>
                                         <path class="svg__winBackground-AgT0Cm blinking_animation"
@@ -538,7 +539,7 @@
                                         <path
                                                 d="M259,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                                 fill="url(#DT_table_sideBet_isDragon:false__background)"></path>
-                                        <path class="svg__ctaBackground-pE1PGC"
+                                        <path class=""
                                               d="M259,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:false__ctaBackground)"></path>
                                         <path class="opacity-0"
@@ -554,7 +555,7 @@
                                         <path
                                                 d="M341.79,109.827c0.715,-0.717 2.21,-0.243 2.21,0.77l0,27.403c0,6.627 -5.373,12 -12,12l-28,0c-1.105,0 -2,-0.896 -2,-2l0,-32c0,-1.105 0.895,-2 2,-2l28,0c3.81,0 7.265,-1.643 9.79,-4.173Z"
                                                 fill="url(#DT_table_sideBet_isDragon:false__background)"></path>
-                                        <path class="svg__ctaBackground-pE1PGC"
+                                        <path class=""
                                               d="M341.79,109.827c0.715,-0.717 2.21,-0.243 2.21,0.77l0,27.403c0,6.627 -5.373,12 -12,12l-28,0c-1.105,0 -2,-0.896 -2,-2l0,-32c0,-1.105 0.895,-2 2,-2l28,0c3.81,0 7.265,-1.643 9.79,-4.173Z"
                                               fill="url(#DT_table_sideBet_isDragon:false__ctaBackground)"></path>
                                         <path class="svg__winBackground-AgT0Cm"
@@ -669,10 +670,18 @@
                                             </div>
                                         </div>
                                         <div class="tableMainStatic-R4ES6P">
-                                            <div class="tableMainStatic__tie-fDeGvN">
+                                            <div class="tableMainStatic__tie-fDeGvN relative">
                                                 <div class="tableMainStatic__payout-cdrdZV">  {{marketArray[0]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                                 <div class="tableMainStatic__title-VDxh9o" data-locator="tie-title" [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':this.RoundWinner=='TIE'}">
                                                   {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}
+                                                </div>
+                                                <div class="absolute " *ngIf="BetPlaced[marketArray[0]?.marketId]">
+
+                                                    <app-bets-chips
+                                                        *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[1]?.selectionId]"
+                                                        [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
+                                                        [runnerId]="marketArray[0].runners[1].selectionId"></app-bets-chips>
+
                                                 </div>
                                             </div>
                                             <div class="tableMainStatic__dragon-AzpGwn">
@@ -681,11 +690,16 @@
                                                 </div>
                                                 <div class="tableMainStatic__payout-cdrdZV">  {{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
-                                            <div class="tableMainStatic__suitedTie-M9pbef">
+                                            <div class="tableMainStatic__suitedTie-M9pbef relative">
                                                 <div class="tableMainStatic__title-VDxh9o"
                                                      data-locator="suited-tie-title"  [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':this.RoundWinner=='SUITED TIE'}">Suited Tie
                                                 </div>
                                                 <div class="tableMainStatic__payout-cdrdZV">50:1</div>
+
+                                                <!-- <div class="absolute">
+                                                  <app-bets-chips></app-bets-chips>
+                                                </div> -->
+                                                
                                             </div>
                                             <div class="tableMainStatic__tiger-Y7P6nk">
                                                 <div class="tableMainStatic__payout-cdrdZV">  {{marketArray[0]?.runners[2]?.price?.back[0]?.price | number : '1.0-2'}}</div>
