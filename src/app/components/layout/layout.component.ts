@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { ContentComponent } from '../content/content.component';
 
@@ -28,7 +28,7 @@ declare var $: any;
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit, AfterViewInit {
   currentRoute: string = '';
   modalsState: boolean = false;
   showBetslip: boolean = false;
@@ -57,6 +57,9 @@ export class LayoutComponent implements OnInit {
       });
   }
   ngOnInit(): void {
+   
+  }
+  ngAfterViewInit(): void {
     setTimeout(() => {
       this.modalsState = true;
     }, 1000);
