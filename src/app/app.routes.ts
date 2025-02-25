@@ -98,15 +98,15 @@ export const routes: Routes = [
         component:TransactionsComponent
       },
       {
-        path:'teenpatti/:id',
+        path:'teenpatti',
         component:TeenpattiComponent
       },
       {
-        path: 'baccarat/:id',
+        path: 'baccarat',
         component: BaccaratComponent
       },
       {
-        path:'dt/:id',
+        path:'dt',
         component:TeenpattiComponent
       },
       {
@@ -114,7 +114,7 @@ export const routes: Routes = [
         component:TeenpattiNewComponent
       },
       {
-        path:'Ndt/:id',
+        path:'Ndt',
         component:DragonTigerComponent
       },
       {
@@ -122,15 +122,15 @@ export const routes: Routes = [
         component: SicBoComponent
       },
       {
-        path:'live-baccarat/:id',
+        path:'live-baccarat',
         component:LiveBaccaratComponent
       },
       {
-        path:'Vdt/:id',
+        path:'Vdt',
         component:VirtualDtComponent
       },
       {
-        path:'Vteenpatti/:id',
+        path:'Vteenpatti',
         component:VirtualTeenpattiComponent
       },
       {
