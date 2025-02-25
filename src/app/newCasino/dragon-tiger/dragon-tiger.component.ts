@@ -459,6 +459,7 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
             }
             setTimeout(() => {
               this.RoundWinner = null;
+              this.resultArray = JSON.parse(JSON.stringify([]))
             }, 5000)
             // }
           }
