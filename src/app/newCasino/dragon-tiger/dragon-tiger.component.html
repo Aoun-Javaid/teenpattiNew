@@ -386,11 +386,12 @@
                                                 fill="url(#DT_table_sideBet_isDragon:true__background)"></path>
                                         <path
 
-                                        class="blinking_animation"
+                                        class="" [ngClass]="{'blinking_animation':resultArray[1]?.runners[marketArray[1]?.runners[1]?.selectionId] === 'WINNER'}"
                                               d="M2.21,109.827c-0.715,-0.717 -2.21,-0.243 -2.21,0.77l0,27.403c0,6.627 5.373,12 12,12l28,0c1.105,0 2,-0.896 2,-2l0,-32c0,-1.105 -0.895,-2 -2,-2l-28,0c-3.81,0 -7.265,-1.643 -9.79,-4.173Z"
                                               fill="url(#DT_table_sideBet_isDragon:true__ctaBackground)"></path>
 
-                                        <path class="svg__winBackground-AgT0Cm blinking_animation"
+                                        <path class="svg__winBackground-AgT0Cm " 
+                                        [ngClass]="{'blinking_animation':resultArray[1]?.runners[marketArray[1]?.runners[1]?.selectionId] === 'WINNER'}"
                                               d="M2.21,109.827c-0.715,-0.717 -2.21,-0.243 -2.21,0.77l0,27.403c0,6.627 5.373,12 12,12l28,0c1.105,0 2,-0.896 2,-2l0,-32c0,-1.105 -0.895,-2 -2,-2l-28,0c-3.81,0 -7.265,-1.643 -9.79,-4.173Z"
                                               fill="url(#DT_table_sideBet_isDragon:true__winBackground)"
                                               filter="url(#DT_table_sideBet_isDragon:true__winShadow)"></path>
@@ -404,7 +405,8 @@
                                         <path class="svg__ctaBackground-pE1PGC"
                                               d="M44,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:true__ctaBackground)"></path>
-                                        <path class="svg__winBackground-AgT0Cm blinking_animation "
+                                        <path class="svg__winBackground-AgT0Cm"
+                                        [ngClass]="{'blinking_animation':resultArray[1]?.runners[marketArray[1]?.runners[0]?.selectionId] === 'WINNER'}"
                                               d="M44,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:true__winBackground)"
                                               filter="url(#DT_table_sideBet_isDragon:true__winShadow)"></path>
@@ -418,7 +420,8 @@
                                         <path class="svg__ctaBackground-pE1PGC"
                                               d="M87,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:true__ctaBackground)"></path>
-                                        <path class="svg__winBackground-AgT0Cm blinking_animation"
+                                        <path class="svg__winBackground-AgT0Cm"
+                                        [ngClass]="{'blinking_animation':resultArray[3]?.runners[marketArray[3]?.runners[0]?.selectionId] === 'WINNER'}"
                                               d="M87,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:true__winBackground)"
                                               filter="url(#DT_table_sideBet_isDragon:true__winShadow)"></path>
@@ -434,6 +437,7 @@
                                               d="M130,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:true__ctaBackground)"></path>
                                         <path class="svg__winBackground-AgT0Cm blinking_animation"
+                                         [ngClass]="{'blinking_animation':resultArray[3]?.runners[marketArray[3]?.runners[1]?.selectionId] === 'WINNER'}"
                                               d="M130,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:true__winBackground)"
                                               filter="url(#DT_table_sideBet_isDragon:true__winShadow)"></path>
@@ -476,7 +480,8 @@
                                         <path class="svg__ctaBackground-pE1PGC"
                                               d="M173,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:false__ctaBackground)"></path>
-                                        <path class="svg__winBackground-AgT0Cm "
+                                        <path class="opacity-0" 
+                                           [ngClass]="{'svg__winBackground-AgT0Cm':resultArray[4]?.runners[marketArray[4]?.runners[1]?.selectionId] === 'WINNER'}"
                                               d="M173,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:false__winBackground)"
                                               filter="url(#DT_table_sideBet_isDragon:false__winShadow)"></path>
@@ -520,6 +525,7 @@
                                               d="M216,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:false__ctaBackground)"></path>
                                         <path class="svg__winBackground-AgT0Cm blinking_animation"
+                                          [ngClass]="{'blinking_animation':resultArray[4]?.runners[marketArray[4]?.runners[0]?.selectionId] === 'WINNER'}"
                                               d="M216,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:false__winBackground)"
                                               filter="url(#DT_table_sideBet_isDragon:false__winShadow)"></path>
@@ -535,7 +541,8 @@
                                         <path class="svg__ctaBackground-pE1PGC"
                                               d="M259,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:false__ctaBackground)"></path>
-                                        <path class="svg__winBackground-AgT0Cm"
+                                        <path class="opacity-0"
+                                         [ngClass]="{'svg__winBackground-AgT0Cm':resultArray[2]?.runners[marketArray[2]?.runners[0]?.selectionId] === 'WINNER'}"
                                               d="M259,116c0,-1.105 0.895,-2 2,-2l37,0c1.105,0 2,0.895 2,2l0,32c0,1.105 -0.895,2 -2,2l-37,0c-1.105,0 -2,-0.895 -2,-2l0,-32Z"
                                               fill="url(#DT_table_sideBet_isDragon:false__winBackground)"
                                               filter="url(#DT_table_sideBet_isDragon:false__winShadow)"></path>
@@ -550,7 +557,8 @@
                                         <path class="svg__ctaBackground-pE1PGC"
                                               d="M341.79,109.827c0.715,-0.717 2.21,-0.243 2.21,0.77l0,27.403c0,6.627 -5.373,12 -12,12l-28,0c-1.105,0 -2,-0.896 -2,-2l0,-32c0,-1.105 0.895,-2 2,-2l28,0c3.81,0 7.265,-1.643 9.79,-4.173Z"
                                               fill="url(#DT_table_sideBet_isDragon:false__ctaBackground)"></path>
-                                        <path class="svg__winBackground-AgT0Cm blinking_animation"
+                                        <path class="svg__winBackground-AgT0Cm"
+                                           [ngClass]="{'blinking_animation':resultArray[2]?.runners[marketArray[2]?.runners[1]?.selectionId] === 'WINNER'}"
                                               d="M341.79,109.827c0.715,-0.717 2.21,-0.243 2.21,0.77l0,27.403c0,6.627 -5.373,12 -12,12l-28,0c-1.105,0 -2,-0.896 -2,-2l0,-32c0,-1.105 0.895,-2 2,-2l28,0c3.81,0 7.265,-1.643 9.79,-4.173Z"
                                               fill="url(#DT_table_sideBet_isDragon:false__winBackground)"
                                               filter="url(#DT_table_sideBet_isDragon:false__winShadow)"></path>
@@ -663,25 +671,25 @@
                                         <div class="tableMainStatic-R4ES6P">
                                             <div class="tableMainStatic__tie-fDeGvN">
                                                 <div class="tableMainStatic__payout-cdrdZV">  {{marketArray[0]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
-                                                <div class="tableMainStatic__title-VDxh9o" data-locator="tie-title">
+                                                <div class="tableMainStatic__title-VDxh9o" data-locator="tie-title" [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':this.RoundWinner=='TIE'}">
                                                   {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}
                                                 </div>
                                             </div>
                                             <div class="tableMainStatic__dragon-AzpGwn">
-                                                <div class="tableMainStatic__title-VDxh9o" data-locator="dragon-title">
+                                                <div class="tableMainStatic__title-VDxh9o" [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':this.RoundWinner=='DRAGON'}" data-locator="dragon-title">
                                                   {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}
                                                 </div>
                                                 <div class="tableMainStatic__payout-cdrdZV">  {{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                             </div>
                                             <div class="tableMainStatic__suitedTie-M9pbef">
                                                 <div class="tableMainStatic__title-VDxh9o"
-                                                     data-locator="suited-tie-title">Suited Tie
+                                                     data-locator="suited-tie-title"  [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':this.RoundWinner=='SUITED TIE'}">Suited Tie
                                                 </div>
                                                 <div class="tableMainStatic__payout-cdrdZV">50:1</div>
                                             </div>
                                             <div class="tableMainStatic__tiger-Y7P6nk">
                                                 <div class="tableMainStatic__payout-cdrdZV">  {{marketArray[0]?.runners[2]?.price?.back[0]?.price | number : '1.0-2'}}</div>
-                                                <div class="tableMainStatic__title-VDxh9o" data-locator="tiger-title">
+                                                <div class="tableMainStatic__title-VDxh9o " [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':this.RoundWinner=='TIGER'}" data-locator="tiger-title">
                                                   {{marketArray[0]?.runnersName[marketArray[0]?.runners[2]?.selectionId]}}
                                                 </div>
                                             </div>
@@ -710,7 +718,7 @@
                                         <div class="tableSideStatic-Hgozqb">
                                           <!-- dragon -->
                                             <div class="tableSideStatic__dragonEven-QFtUYx relative" >
-                                                <div class="tableSideStatic__title-gncnfi"
+                                                <div class="tableSideStatic__title-gncnfi" [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':resultArray[1]?.runners[marketArray[1]?.runners[1]?.selectionId] === 'WINNER'}"
                                                      data-locator="dragon-even-title">{{(marketArray[1]?.runnersName[marketArray[1]?.runners[1]?.selectionId] | slice:7) }}
                                                 </div>
                                                 <div class="tableSideStatic__payout-fnrtY7">{{marketArray[1]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
@@ -725,7 +733,7 @@
                                                 </div>
                                             </div>
                                             <div class="tableSideStatic__dragonOdd-N1tw0w relative">
-                                                <div class="tableSideStatic__title-gncnfi"
+                                                <div class="tableSideStatic__title-gncnfi" [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':resultArray[1]?.runners[marketArray[1]?.runners[0]?.selectionId] === 'WINNER'}"
                                                      data-locator="dragon-odd-title">{{(marketArray[1]?.runnersName[marketArray[1]?.runners[0]?.selectionId] | slice:7) }}
                                                 </div>
                                                 <div class="tableSideStatic__payout-fnrtY7">
@@ -740,7 +748,7 @@
                                                 </div>
                                             </div>
                                             <div class="tableSideStatic__dragonSmall-g5iN2q relative">
-                                                <div class="tableSideStatic__title-gncnfi"
+                                                <div class="tableSideStatic__title-gncnfi" [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':resultArray[3]?.runners[marketArray[3]?.runners[0]?.selectionId] === 'WINNER'}"
                                                      data-locator="dragon-small-title">{{marketArray[3]?.runnersName[marketArray[3]?.runners[0]?.selectionId] }}
                                                 </div>
                                                 <div class="tableSideStatic__payout-fnrtY7"> {{marketArray[3]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
@@ -755,6 +763,7 @@
                                             </div>
                                             <div class="tableSideStatic__dragonBig-TlYCrs relative">
                                                 <div class="tableSideStatic__title-gncnfi"
+                                                [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':resultArray[3]?.runners[marketArray[3]?.runners[1]?.selectionId] === 'WINNER'}"
                                                      data-locator="dragon-big-title">{{marketArray[3]?.runnersName[marketArray[3]?.runners[1]?.selectionId] }}
                                                 </div>
                                                 <div class="tableSideStatic__payout-fnrtY7">{{marketArray[3]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
@@ -770,7 +779,10 @@
                                             <!-- tiger -->
                                             <div class="tableSideStatic__tigerBig-dpKtTP relatice">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="tiger-big-title">{{marketArray[4]?.runnersName[marketArray[4]?.runners[1]?.selectionId] }}
+                                                     data-locator="tiger-big-title"
+                                                      [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':resultArray[4]?.runners[marketArray[4]?.runners[1]?.selectionId] === 'WINNER'}"
+                                                     >
+                                                     {{marketArray[4]?.runnersName[marketArray[4]?.runners[1]?.selectionId] }}
                                                 </div>
                                                 <div class="tableSideStatic__payout-fnrtY7">{{marketArray[4]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
                                                 <div class="absolute " *ngIf="BetPlaced[marketArray[4]?.marketId]">
@@ -784,7 +796,9 @@
                                             </div>
                                             <div class="tableSideStatic__tigerSmall-rf_rnt relative">
                                                 <div class="tableSideStatic__title-gncnfi"
-                                                     data-locator="tiger-small-title">{{marketArray[4]?.runnersName[marketArray[4]?.runners[0]?.selectionId] }}
+                                                     data-locator="tiger-small-title"
+                                                      [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':resultArray[4]?.runners[marketArray[4]?.runners[0]?.selectionId] === 'WINNER'}"
+                                                     >{{marketArray[4]?.runnersName[marketArray[4]?.runners[0]?.selectionId] }}
                                                 </div>
                                                 <div class="tableSideStatic__payout-fnrtY7">{{marketArray[4]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
 
@@ -802,6 +816,7 @@
 
                                             <div class="tableSideStatic__tigerOdd-Z4H_SB relative">
                                                 <div class="tableSideStatic__title-gncnfi"
+                                                 [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':resultArray[2]?.runners[marketArray[2]?.runners[0]?.selectionId] === 'WINNER'}"
                                                      data-locator="tiger-odd-title">{{(marketArray[2]?.runnersName[marketArray[2]?.runners[0]?.selectionId] | slice:6) }}
                                                 </div>
                                                 <div class="tableSideStatic__payout-fnrtY7">{{marketArray[2]?.runners[0]?.price?.back[0]?.price | number : '1.0-2'}}</div>
@@ -817,6 +832,7 @@
                                             </div>
                                             <div class="tableSideStatic__tigerEven-dzn5KK relative">
                                                 <div class="tableSideStatic__title-gncnfi"
+                                                [ngClass]="{'opacity-[.5]':game?.status == 'SUSPEND', '!opacity-[1]':resultArray[2]?.runners[marketArray[2]?.runners[18]?.selectionId] === 'WINNER'}"
                                                      data-locator="tiger-even-title">{{(marketArray[2]?.runnersName[marketArray[2]?.runners[1]?.selectionId] | slice:6) }}
                                                 </div>
                                                 <div class="tableSideStatic__payout-fnrtY7">{{marketArray[2]?.runners[1]?.price?.back[0]?.price | number : '1.0-2'}}</div>
