@@ -88,7 +88,6 @@ export class vdtScene extends Scene {
 
   create() {
     this.updateWidthHeight();
-
     if (this.input.keyboard) {
       this.input.keyboard.on('keydown-G', () => {
         this.showCardWithAnimationLeft('C5_.png');
@@ -103,16 +102,8 @@ export class vdtScene extends Scene {
         this.animateCardUpDown(this.rightCard, this.cardScaleRight);
       });
       this.input.keyboard.on('keydown-D', () => {
-        this.moveAndRemoveCard(
-          this.leftCard,
-          this.width * 0.07,
-          this.height * 0.3
-        );
-        this.moveAndRemoveCard(
-          this.rightCard,
-          this.width * 0.07,
-          this.height * 0.3
-        );
+        this.moveAndRemoveCard(this.leftCard, this.width * 0.5);
+        this.moveAndRemoveCard(this.rightCard, this.width * 0.5);
       });
     }
   }
@@ -142,24 +133,24 @@ export class vdtScene extends Scene {
       .setScale(scale)
       .setAngle(1);
   }
-  private createStackedCard(x: number, y: number) {
-    const hiddenCardTexture = this.textures
-      .get('single')
-      .getSourceImage() as HTMLImageElement;
+  //   private createStackedCard(x: number, y: number) {
+  //     const hiddenCardTexture = this.textures
+  //       .get('single')
+  //       .getSourceImage() as HTMLImageElement;
 
-    const originalWidth = hiddenCardTexture.width;
-    const originalHeight = hiddenCardTexture.height;
+  //     const originalWidth = hiddenCardTexture.width;
+  //     const originalHeight = hiddenCardTexture.height;
 
-    const desiredWidth = 45;
+  //     const desiredWidth = 45;
 
-    const scale = desiredWidth / originalWidth;
+  //     const scale = desiredWidth / originalWidth;
 
-    const hiddenCard = this.add
-      .image(x, y, 'single')
-      .setOrigin(0.5, 0.5)
-      .setScale(scale)
-      .setAngle(1);
-  }
+  //     const hiddenCard = this.add
+  //       .image(x, y, 'single')
+  //       .setOrigin(0.5, 0.5)
+  //       .setScale(scale)
+  //       .setAngle(1);
+  //   }
   private showCardWithAnimationLeft(cardName: string): void {
     const startX = this.width * 0.5;
     const startY = this.height * 0.3;
@@ -259,13 +250,12 @@ export class vdtScene extends Scene {
 
   private moveAndRemoveCard(
     card: Phaser.GameObjects.Image,
-    endX: number,
-    endY: number
+    endX: number
   ): void {
     this.tweens.add({
       targets: card,
       x: endX,
-      y: endY,
+      //   y: endY,
       alpha: 0,
       duration: 1000,
       ease: 'Cubic.easeInOut',
@@ -293,11 +283,7 @@ export class vdtScene extends Scene {
   }
 
   clearRound() {
-    this.moveAndRemoveCard(this.leftCard, this.width * 0.07, this.height * 0.3);
-    this.moveAndRemoveCard(
-      this.rightCard,
-      this.width * 0.07,
-      this.height * 0.3
-    );
+    this.moveAndRemoveCard(this.leftCard, this.width * 0.5);
+    this.moveAndRemoveCard(this.rightCard, this.width * 0.5);
   }
 }
