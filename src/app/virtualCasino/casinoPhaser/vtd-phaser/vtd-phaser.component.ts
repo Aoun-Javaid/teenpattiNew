@@ -50,6 +50,10 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
         screenWidth = width * 0.88;
         screenHeight = 173.23;
         break;
+      case width < 900:
+        screenWidth = 641.699;
+        screenHeight = 294.109;
+        break;
 
       default:
         screenWidth = 950;
