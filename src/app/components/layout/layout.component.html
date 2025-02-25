@@ -1,15 +1,17 @@
 <div class="main-container ">
   <div class="content-container">
     <app-header></app-header>
-    <main  class="page-wrapper">
+    <main class="page-wrapper">
 
       <app-content></app-content>
       <!-- <app-mob-sidebar></app-mob-sidebar> -->
+      @if(modalsState){
       <app-browse></app-browse>
       <app-chat></app-chat>
       <app-profile></app-profile>
 
       <app-mob-navigation></app-mob-navigation>
+      }
     </main>
   </div>
 
