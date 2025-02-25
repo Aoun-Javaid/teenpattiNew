@@ -104,6 +104,9 @@ export class vdtScene extends Scene {
       this.input.keyboard.on('keydown-D', () => {
         this.moveAndRemoveCard(this.leftCard, this.width * 0.5);
         this.moveAndRemoveCard(this.rightCard, this.width * 0.5);
+        setTimeout(() => {
+          this.createHiddenCard(this.width * 0.5, this.height * 0.3 + 80);
+        }, 600);
       });
     }
   }
@@ -123,7 +126,7 @@ export class vdtScene extends Scene {
     const originalWidth = hiddenCardTexture.width;
     const originalHeight = hiddenCardTexture.height;
 
-    const desiredWidth = 45;
+    const desiredWidth = 40;
 
     const scale = desiredWidth / originalWidth;
 
@@ -132,6 +135,18 @@ export class vdtScene extends Scene {
       .setOrigin(0.5, 0.5)
       .setScale(scale)
       .setAngle(1);
+
+    this.tweens.add({
+      targets: hiddenCard,
+      x: this.width * 0.07,
+      y: this.height * 0.3,
+      alpha: 0,
+      duration: 800,
+      ease: 'Cubic.easeInOut',
+      onComplete: () => {
+        hiddenCard.destroy();
+      },
+    });
   }
   //   private createStackedCard(x: number, y: number) {
   //     const hiddenCardTexture = this.textures
