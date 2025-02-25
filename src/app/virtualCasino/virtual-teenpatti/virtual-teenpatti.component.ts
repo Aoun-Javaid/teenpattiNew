@@ -149,8 +149,9 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     private toaster: ToastrService,
     private socket: CasinoSocketService
   ) {
-    this.eventid = this.route.snapshot.params['id'];
-    localStorage.setItem('eventId', this.eventid);
+    // this.eventid = this.route.snapshot.params['id'];
+    // localStorage.setItem('eventId', this.eventid);
+    this.eventid = localStorage.getItem('eventId');
     this.message.id = this.eventid;
     this.messageResult.id = this.eventid;
     this.isDesktop = this.deviceService.isDesktop();
@@ -427,7 +428,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
             ) {
               if (
                 this.casinoPl[this.winnerMarketArray?.marketId][
-                  this.winnerMarketArray.runners[0].selectionId
+                this.winnerMarketArray.runners[0].selectionId
                 ] > 0
               ) {
                 this.betSelectedPlayer =
@@ -435,7 +436,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
               }
               if (
                 this.casinoPl[this.winnerMarketArray?.marketId][
-                  this.winnerMarketArray.runners[1].selectionId
+                this.winnerMarketArray.runners[1].selectionId
                 ] > 0
               ) {
                 this.betSelectedPlayer =

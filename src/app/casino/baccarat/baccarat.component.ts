@@ -110,9 +110,9 @@ export class BaccaratComponent {
     private deviceService: DeviceDetectorService,
     private networkService: NetworkService,
     private mainService: MainService) {
-
-    this.eventid = this.route.snapshot.params['id'];
-    localStorage.setItem('eventId', this.eventid)
+    this.eventid = localStorage.getItem('eventId');
+    // this.eventid = this.route.snapshot.params['id'];
+    // localStorage.setItem('eventId', this.eventid)
     this.message.id = this.eventid;
     this.messageResult.id = this.eventid;
     // this.sendMsg();

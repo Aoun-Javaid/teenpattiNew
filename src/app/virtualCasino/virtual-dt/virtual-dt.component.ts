@@ -14,16 +14,21 @@ import {IndexedDbService} from "../../services/indexed-db.service";
 import {ToastrService} from "ngx-toastr";
 import {CasinoSocketService} from "../../services/casino-socket.service";
 import {CommonModule} from "@angular/common";
+import {BetCoinComponent} from "../../shared/bet-coin/bet-coin.component";
+import {ShortNumberPipe} from "../../pipes/short-number.pipe";
+import {QuickStakesEditComponent} from "../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component";
+import { VtdPhaserComponent } from "../casinoPhaser/vtd-phaser/vtd-phaser.component";
 
 declare var $: any;
 
 @Component({
   selector: 'app-virtual-dt',
   standalone: true,
-    imports: [
-        TimerComponent,
-      TopResultsComponent, CommonModule,
-    ],
+  imports: [
+    TimerComponent,
+    TopResultsComponent, CommonModule, BetCoinComponent, BetsChipsComponent, ShortNumberPipe, QuickStakesEditComponent,
+    VtdPhaserComponent
+],
   templateUrl: './virtual-dt.component.html',
   styleUrl: './virtual-dt.component.css'
 })
@@ -57,7 +62,7 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
   showHamburger: boolean = true;
   btnIcon = false
   btnCheck = 1
-  BetPlaced:any={};
+  BetPlaced: any = {};
 
   animationClass = '';
 
@@ -88,7 +93,7 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
   rulesBox: any;
   selectedResult: any;
   betplaceObj: any;
-  resultArray: any;
+  resultArray: any =[];
   totalMatchedBets: any;
   game: any;
   betSlip: string = "game";
@@ -108,8 +113,10 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
   changeValue: any;
   sizeRunner1: any;
   sizeRunner2: any;
+  sizeRunner3:any;
   firstBoxWidth: string = '';
   secndBoxWidth: string = '';
+  tieBoxWidth: string = '';
   split_arr: any;
   getRoundId: any;
   resultcounter = 0;
@@ -135,8 +142,9 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
               private toaster: ToastrService,
               private socket: CasinoSocketService) {
 
-    this.eventid = this.route.snapshot.params['id'];
-    localStorage.setItem('eventId', this.eventid)
+    // this.eventid = this.route.snapshot.params['id'];
+    // localStorage.setItem('eventId', this.eventid)
+    this.eventid = localStorage.getItem('eventId');
     this.message.id = this.eventid;
     this.messageResult.id = this.eventid;
     this.isDesktop = this.deviceService.isDesktop();
@@ -157,10 +165,10 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
 
-    this.networkService.getBetPlace().subscribe((betObj:any)=>{
+    this.networkService.getBetPlace().subscribe((betObj: any) => {
       // this.getAllMarketProfitLoss();
-      this.isbetInProcess=false;
-      if(betObj.betSuccess){
+      this.isbetInProcess = false;
+      if (betObj.betSuccess) {
         this.handleIncomingBetObject(betObj);
 
       }
@@ -190,7 +198,7 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
         // this.getRoundId = localStorage.getItem('roundID')
 
         let objMarket = JSON.parse(marketData);
-        console.log('market data', objMarket)
+        // console.log('market data', objMarket)
         // let objMarket = marketData;
         if (this.eventid == '99.0046') {
           // console.log(objMarket)
@@ -204,7 +212,8 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
               this.game = objMarket?.data[0];
               this.game.marketArr = this.marketArray ? this.marketArray : objMarket?.data[0]?.marketArr;
               this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
-              this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
+              this.sizeRunner2 = this.marketArray[0].runners[2].price.back[0].size;
+              this.sizeRunner3=this.marketArray[0].runners[1].price.back[0].size;
               this.winnerMarketArray = this.game?.marketArr ? this.game?.marketArr[0] : '';
               this.getRoundId = this.game.roundId
               this.handleEventResponse(objMarket, 0)
@@ -335,7 +344,7 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
   openQuickStakes() {
     this.toggleService.setQuickStakeEditSidebarState(true)
   }
-  handleIncomingBetObject(incomingObj:any) {
+  handleIncomingBetObject(incomingObj: any) {
     const { marketId, selectionId, stake } = incomingObj;
 
     if (!this.BetPlaced[marketId]) {
@@ -348,7 +357,7 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
 
       this.BetPlaced[marketId][selectionId] = stake;
     }
-    console.log('bet placed',this.BetPlaced);
+    console.log('bet placed', this.BetPlaced);
     this.betsChipsComponent?.CalculateIndex();
 
     this.game.betAccepted = true;
@@ -383,7 +392,8 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
         if ('data' in objMarket && this.counter == 0 && objMarket.data.marketArr && objMarket.data._id) {
           this.marketArray = objMarket.data.marketArr;
           this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
-          this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
+          this.sizeRunner2 = this.marketArray[0].runners[2].price.back[0].size;
+          this.sizeRunner3=this.marketArray[0].runners[1].price.back[0].size;
           this.game = this.marketArray ? this.marketArray : objMarket.data;
           this.game = objMarket.data;
           this.counter = 1;
@@ -427,13 +437,19 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
                 this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
               }
             }
+            this.resultArray =objMarket.data.resultsArr;
+
+
+
+            console.warn('resultss test',this.resultArray[1].runners[this.marketArray[1]?.runners[0]?.selectionId])
+            console.warn('resultss',objMarket.data.resultsArr)
             // for video results
             for (let key in objMarket.data.resultsArr[0].runners) {
               if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
 
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
                 // console.log(this.RoundWinner)
-                this.BetPlaced=[];
+                this.BetPlaced = [];
               }
               if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
                 setTimeout(() => {
@@ -444,6 +460,7 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
             }
             setTimeout(() => {
               this.RoundWinner = null;
+              this.resultArray = JSON.parse(JSON.stringify([]))
             }, 5000)
             // }
           }
@@ -473,6 +490,14 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
                 // console.log('player A', this.firstBoxWidth)
               }
               if (runnersIndex == 1 && marketIndex == 0) {
+                // tie
+                // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
+                let percnt = ((this.changeValue / this.sizeRunner3) * 100);
+                this.tieBoxWidth = -1 * (percnt - 100) + '';
+                // console.log('player B', this.secndBoxWidth)
+
+              }
+              if (runnersIndex == 2 && marketIndex == 0) {
                 // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
                 let percnt = ((this.changeValue / this.sizeRunner2) * 100);
                 this.secndBoxWidth = -1 * (percnt - 100) + '';
@@ -530,14 +555,14 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
 
   openBetslip(marketId: any, selectionId: any, betType: any, price: any, min: any, max: any) {
 
-    if(this.game.status=='SUSPEND'){
+    if (this.game.status == 'SUSPEND') {
       this.waitRound = true
       setTimeout(() => {
         this.waitRound = false
       }, 1000);
     }
 
-    console.log('method clicked ',price)
+    console.log('method clicked ', price)
     return
     if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
       if (this.selectedBetAmount > 0) {
@@ -555,7 +580,7 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
           roomId: this._roomId,
           minValue: min,
           maxValue: max,
-          stake:this.selectedBetAmount
+          stake: this.selectedBetAmount
         }
 
         // this.placeCasinoBet();
@@ -804,9 +829,9 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
               ties++;
             }
           });
-          this.dragonWins= dragonWins;
-          this.tigerWins= tigerWins;
-          this.ties= ties;
+          this.dragonWins = dragonWins;
+          this.tigerWins = tigerWins;
+          this.ties = ties;
           // this.aPlayerChances = (this.dragonWins / data?.data?.length) * 100
           // this.bPlayerChances = (this.tigerWins / data?.data?.length) * 100
           // this.TPlayerChances = (100 - this.aPlayerChances - this.bPlayerChances);
@@ -1080,5 +1105,4 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
     }
     // console.log('onclick', this.selectedBetAmount);
   }
-
 }

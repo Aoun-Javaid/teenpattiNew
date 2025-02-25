@@ -23,7 +23,7 @@ declare var $: any;
   templateUrl: './teenpatti.component.html',
   styleUrl: './teenpatti.component.css'
 })
-export class TeenpattiComponent implements OnInit,OnDestroy{
+export class TeenpattiComponent implements OnInit, OnDestroy {
   @ViewChild('dropdownContainer', { static: true }) dropdownContainer!: ElementRef;
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;
@@ -34,8 +34,8 @@ export class TeenpattiComponent implements OnInit,OnDestroy{
     id: ""
   };
 
-  openMobileMinMax:any=[];
-  marketCollapsed:any=[];
+  openMobileMinMax: any = [];
+  marketCollapsed: any = [];
   public messageResult = {
     type: "3",
     id: ""
@@ -91,9 +91,12 @@ export class TeenpattiComponent implements OnInit,OnDestroy{
     private deviceService: DeviceDetectorService,
     private socket: CasinoSocketService) {
 
-    this.eventid = this.route.snapshot.params['id'];
-    localStorage.setItem('eventId', this.eventid)
-    this.message.id = this.eventid;
+    // this.eventid = this.route.snapshot.params['id'];
+    // localStorage.setItem('eventId', this.eventid)
+    // this.eventid = localStorage.getItem('eventId');
+    // this.message.id = this.eventid;
+
+    this.eventid = localStorage.getItem('eventId');
     this.messageResult.id = this.eventid;
     this.isDesktop = this.deviceService.isDesktop();
     this.isMobile = this.deviceService.isMobile();
@@ -654,12 +657,12 @@ export class TeenpattiComponent implements OnInit,OnDestroy{
     const elements = document.querySelectorAll('.minMaxMobile');
     let clickedInside = false;
 
-    elements.forEach((element:any) => {
-      if(element){
-      if (element.contains(event.target)) {
-        clickedInside = true;
+    elements.forEach((element: any) => {
+      if (element) {
+        if (element.contains(event.target)) {
+          clickedInside = true;
+        }
       }
-    }
     });
 
     if (!clickedInside) {
