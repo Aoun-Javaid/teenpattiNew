@@ -17,6 +17,7 @@ import {CommonModule} from "@angular/common";
 import {BetCoinComponent} from "../../shared/bet-coin/bet-coin.component";
 import {ShortNumberPipe} from "../../pipes/short-number.pipe";
 import {QuickStakesEditComponent} from "../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component";
+import { VtdPhaserComponent } from "../casinoPhaser/vtd-phaser/vtd-phaser.component";
 
 declare var $: any;
 
@@ -26,7 +27,8 @@ declare var $: any;
   imports: [
     TimerComponent,
     TopResultsComponent, CommonModule, BetCoinComponent, BetsChipsComponent, ShortNumberPipe, QuickStakesEditComponent,
-  ],
+    VtdPhaserComponent
+],
   templateUrl: './virtual-dt.component.html',
   styleUrl: './virtual-dt.component.css'
 })
