@@ -1,6 +1,31 @@
 <div class="newGameWrapper">
   <div class="main__wrapper">
-    <app-top-results class="[@media(min-width:1200px)]:hidden"></app-top-results>
+    <app-top-results class="[@media(min-width:1200px)]:hidden hidden"></app-top-results>
+
+    <div class="playerA-win-point-virtual" *ngIf="this.RoundWinner">
+      <div class="player-content-wrapper">
+        <div class="player-text animation-player-scale"
+             [ngClass]="{'playerA-winnerText':this.RoundWinner=='DRAGON'}">{{this.RoundWinner}}</div>
+      </div>
+    </div>
+
+<!--    <div class="playerA-win-point">-->
+<!--      <div class="player-content-wrapper">-->
+<!--        <div-->
+<!--          class="player-text border-y-[#FFA400] border-y  ![background:linear-gradient(90deg,transparent_0%,#000_50%,transparent_100%)] animation-player-scale">-->
+<!--          <div class="text-white text-sm">You win </div>-->
+<!--          <div class="text-[#FFA400] font-[Rubik] font-medium text-[18px]">-->
+<!--            $ 1.98</div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <!-- no bet more  -->
+    <div class="no-more-bets z-[100000] relative" *ngIf="this.game?.noMoreBets && this.game?.status == 'SUSPEND'">
+      <div class="relative z-10">No more bets</div>
+      <div class="roundStatus__decor-DDvAQJ"></div>
+    </div>
+    <!-- no bet more  -->
 
     <!--  Game Background Video-->
     <div class="game__substrateLayer">
@@ -14,7 +39,7 @@
             </video>
           </div>
         </div>
-        <div class="gradient-_9dd5n gradient_mobile-cBpe4n"></div>
+<!--        <div class="gradient-_9dd5n gradient_mobile-cBpe4n"></div>-->
       </div>
     </div>
     <!--  Game Body Table -->
@@ -29,9 +54,9 @@
             <img class="rngTableImage" src="/assets/virtual-table-cards/virtual-table.png" alt="table">
             <div class="rngTable__cards relative">
               <img src="/assets/virtual-table-cards/cardStack.svg" alt="card-stack"
-                class="h-[3rem] w-[2.125rem] absolute left-[50%] rounded -translate-x-2/4 top-[20%]">
+                class="h-[3rem] w-[2.125rem] lg:h-[4rem] lg:w-[3.125rem] absolute left-[50%] rounded -translate-x-2/4 top-[15%]">
               <img src="/assets/virtual-table-cards/singleCard.svg" alt="single-card"
-                class="h-[3rem] w-[2.125rem] absolute top-[20%] left-[20%] skew-x-[-15deg]">
+                class="h-[3rem] w-[2.125rem] lg:h-[4rem] lg:w-[3.125rem] absolute top-[17%] left-[20%] skew-x-[-15deg]">
               <div class="canvasBase">
                 <app-vtd-phaser></app-vtd-phaser>
               </div>
@@ -40,7 +65,7 @@
         </div>
 
 
-        <div class="dragonTiger__winningPlayers">
+        <div class="dragonTiger__winningPlayers hidden">
           <div class="winningPlayersMessage">
             <div class="winningPlayersMessage__message"><strong>1 player(s)</strong> won</div>
             <div class="winningPlayersMessage__totalWin">€ 2.21</div>
