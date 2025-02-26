@@ -51,6 +51,7 @@ declare var $: any;
 })
 export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
+  @ViewChild(VtdPhaserComponent) VtdPhaserComponent!: VtdPhaserComponent;
 
   reverseAnimate: boolean = false;
   coinsState: boolean = false; // Coin bar is hidden by default
@@ -69,6 +70,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   animateCoinVal: any;
   waitRound: any;
   animate = false;
+  cards:any={}
   public message = {
     type: '1',
     id: '',
@@ -205,7 +207,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           // this.getRoundId = localStorage.getItem('roundID')
 
           let objMarket = JSON.parse(marketData);
-          // console.log('market data', objMarket)
+          console.log('market data', objMarket)
           // let objMarket = marketData;
           if (this.eventid == '99.0046') {
             // console.log(objMarket)
@@ -255,6 +257,8 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
               this.betSelectedPlayer = '';
               this.secndBoxWidth = '';
               this.firstBoxWidth = '';
+              this.cards = {};
+              this.VtdPhaserComponent.clearRoundTeenpatti();
             }
 
             // this.networkService.updateRoundId(this.game);
@@ -269,13 +273,41 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
             this.playerBCards = this.game?.cardsArr?.PLAYER_B;
 
             if (this.playerACards) {
+              if(this.playerACards.card_1!=0 && !this.cards.card_11){
+                this.cards.card_11=true
+                this.VtdPhaserComponent.showPlayerACard1(this.playerACards.card_1);
+              }
+              if(this.playerACards.card_2!=0 && !this.cards.card_12){
+                this.cards.card_12=true
+                this.VtdPhaserComponent.showPlayerACard2(this.playerACards.card_2)
+              }
+              if(this.playerACards.card_3!=0 && !this.cards.card_13){
+                this.cards.card_13=true
+                this.VtdPhaserComponent.showPlayerACard3(this.playerACards.card_3)
+              }
+
               if (
                 this.playerACards?.card_1 == 0 &&
                 this.game.status == 'SUSPEND'
               ) {
                 this.game.noMoreBets = true;
+
               } else {
                 this.game.noMoreBets = false;
+              }
+            }
+            if(this.playerBCards){
+              if(this.playerBCards.card_1!=0 && !this.cards.card_21){
+                this.cards.card_21=true
+                this.VtdPhaserComponent.showPlayerBCard1(this.playerBCards.card_1)
+              }
+              if(this.playerBCards.card_2!=0 && !this.cards.card_22){
+                this.cards.card_22=true
+                this.VtdPhaserComponent.showPlayerBCard2(this.playerBCards.card_2)
+              }
+              if(this.playerBCards.card_3!=0 && !this.cards.card_23){
+                this.cards.card_23=true
+                this.VtdPhaserComponent.showPlayerBCard3(this.playerBCards.card_3)
               }
             }
             this.winnerMarketArray = this.game.marketArr
@@ -414,6 +446,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
               this.game.cardsArr = objMarket?.data?.cardsArr;
               this.game.roundId = objMarket?.roundId;
             }
+
           }
           if ('roundId' in objMarket?.data) {
             this.game.roundId = objMarket?.data?.roundId;
@@ -451,6 +484,10 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
                 this.RoundWinner =
                   objMarket.data.resultsArr[0]?.runnersName[key];
                 // console.log(this.RoundWinner)
+                setTimeout(() => {
+                  this.VtdPhaserComponent.winnerCardTeenpatti(this.RoundWinner=='PLAYER A'?1:2)
+                }, 500);
+
                 this.BetPlaced = [];
               }
               if (

@@ -33,7 +33,7 @@
             </span>
             <div class="rngTable__cards-jXjS2o">
                 <div class="canvasBase-rsnbXU">
-                    <app-vtd-phaser [GameType]="'teenpatti'"></app-vtd-phaser>
+                    <app-vtd-phaser [GameType]="'teenpatti'" ></app-vtd-phaser>
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
                         </div>
                     </div> -->
                     <!-- Player cards -->
-                    <!-- <div class="custom_flex gap-2 player_A_cards">
+                    <div class="custom_flex gap-2 player_A_cards">
 
                         <img [ngClass]="playerACards?.card_1!='0' && playerACards?.card_1 ?'card-animation':'opacity-0'"
                             [src]="['assets/cards/'+playerACards?.card_1+'.png']" class="card-img" alt="card1">
@@ -90,7 +90,7 @@
                             [src]="['assets/cards/'+playerBCards?.card_2+'.png']" class="card-img" alt="card2">
                         <img [ngClass]="playerBCards?.card_3!='0' && playerBCards?.card_3 ?'card-animation':'opacity-0'"
                             [src]="['assets/cards/'+playerBCards?.card_3+'.png']" class="card-img" alt="card3">
-                    </div> -->
+                    </div>
 
                 </div>
 
@@ -557,7 +557,7 @@
                 </div>
             </div>
         </div>
-        <div class="time-container">
+        <div class="time-container" *ngIf="this.game">
             <div class="last-win">{{this.game.eventName}}
                 <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold"> {{winnerMarketArray.min}}</span>
                 -

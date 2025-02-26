@@ -21,6 +21,7 @@ import { teenpattiScene } from '../Scenes/teenpattiScene';
 export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('phaserContainer', { static: false }) phaserContainer!: ElementRef;
   @Input() GameType: string = 'vdt';
+
   game!: Phaser.Game;
   ipadProState: boolean = false;
   nestHubState: boolean = false;
@@ -74,17 +75,18 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     const config: Phaser.Types.Core.GameConfig = {
-      type: Phaser.WEBGL,
+      type: Phaser.AUTO,
       width: screenWidth,
       height: screenHeight,
       parent: phaserGameContainer,
       transparent: true,
       banner: false,
-      // render: {
-      //   pixelArt: false,
-      //   antialias: true,
-      //   antialiasGL: true,
-      // },
+      render: {
+        pixelArt: false,
+        antialias: true,
+        antialiasGL: true,
+        
+      },
       // scene: [vdtScene, teenpattiScene],
       scene: gameScene,
       physics: {
@@ -120,25 +122,25 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
 
   winnerCardVdt(key: number) {
     // for dragon card key is 1 , for player card key is 2 , for both card add 3
-    const vdtScene = this.game?.scene?.getScene('backgroundScene') as vdtScene;
+    const vdtScene = this.game?.scene?.getScene('vdtScene') as vdtScene;
     if (vdtScene && typeof vdtScene.animateUpOrDown === 'function') {
       vdtScene.animateUpOrDown(1);
     }
   }
   showDragonCardVdt(card: string) {
-    const vdtScene = this.game?.scene?.getScene('backgroundScene') as vdtScene;
+    const vdtScene = this.game?.scene?.getScene('vdtScene') as vdtScene;
     if (vdtScene && typeof vdtScene.showCardDragon === 'function') {
       vdtScene.showCardDragon(card);
     }
   }
   showPlayerCardVdt(card: string) {
-    const vdtScene = this.game?.scene?.getScene('backgroundScene') as vdtScene;
+    const vdtScene = this.game?.scene?.getScene('vdtScene') as vdtScene;
     if (vdtScene && typeof vdtScene.showCardPlayer === 'function') {
       vdtScene.showCardPlayer(card);
     }
   }
   clearRoundVdt() {
-    const vdtScene = this.game?.scene?.getScene('backgroundScene') as vdtScene;
+    const vdtScene = this.game?.scene?.getScene('vdtScene') as vdtScene;
     if (vdtScene && typeof vdtScene.clearRound === 'function') {
       vdtScene.clearRound();
     }
@@ -146,7 +148,7 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
 
   clearRoundTeenpatti() {
     const teenpattiScene = this.game?.scene?.getScene(
-      'backgroundScene'
+      'teenpattiScene'
     ) as teenpattiScene;
     if (teenpattiScene && typeof teenpattiScene.clearRound === 'function') {
       teenpattiScene.clearRound();
@@ -154,9 +156,9 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   winnerCardTeenpatti(key: number) {
-    // for dragon card key is 1 , for player card key is 2 , for both card add 3
+    // for PlayerA key is 1 , for player B card key is 2 , for both card add 3
     const teenpattiScene = this.game?.scene?.getScene(
-      'backgroundScene'
+      'teenpattiScene'
     ) as teenpattiScene;
     if (
       teenpattiScene &&
@@ -165,9 +167,10 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
       teenpattiScene.animateUpOrDown(key);
     }
   }
-  showDragonCard1Teenpatti(card: string) {
+  showPlayerACard1(card: string) {
+
     const teenpattiScene = this.game?.scene?.getScene(
-      'backgroundScene'
+      'teenpattiScene'
     ) as teenpattiScene;
     if (
       teenpattiScene &&
@@ -176,9 +179,9 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
       teenpattiScene.showCardDragon1(card);
     }
   }
-  showDragonCard2Teenpatti(card: string) {
+  showPlayerACard2(card: string) {
     const teenpattiScene = this.game?.scene?.getScene(
-      'backgroundScene'
+      'teenpattiScene'
     ) as teenpattiScene;
     if (
       teenpattiScene &&
@@ -187,9 +190,10 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
       teenpattiScene.showCardDragon2(card);
     }
   }
-  showDragonCard3Teenpatti(card: string) {
+  showPlayerACard3(card: string) {
+
     const teenpattiScene = this.game?.scene?.getScene(
-      'backgroundScene'
+      'teenpattiScene'
     ) as teenpattiScene;
     if (
       teenpattiScene &&
@@ -198,9 +202,9 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
       teenpattiScene.showCardDragon3(card);
     }
   }
-  showPlayerCard1Teenpatti(card: string) {
+  showPlayerBCard1(card: string) {
     const teenpattiScene = this.game?.scene?.getScene(
-      'backgroundScene'
+      'teenpattiScene'
     ) as teenpattiScene;
     if (
       teenpattiScene &&
@@ -209,9 +213,9 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
       teenpattiScene.showCardPlayer1(card);
     }
   }
-  showPlayerCard2Teenpatti(card: string) {
+  showPlayerBCard2(card: string) {
     const teenpattiScene = this.game?.scene?.getScene(
-      'backgroundScene'
+      'teenpattiScene'
     ) as teenpattiScene;
     if (
       teenpattiScene &&
@@ -220,9 +224,9 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
       teenpattiScene.showCardPlayer2(card);
     }
   }
-  showPlayerCard3Teenpatti(card: string) {
+  showPlayerBCard3(card: string) {
     const teenpattiScene = this.game?.scene?.getScene(
-      'backgroundScene'
+      'teenpattiScene'
     ) as teenpattiScene;
     if (
       teenpattiScene &&
