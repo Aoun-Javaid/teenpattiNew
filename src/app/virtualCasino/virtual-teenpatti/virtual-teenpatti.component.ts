@@ -27,6 +27,7 @@ import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
 import { TopResultsComponent } from '../../newCasino/shared/top-results/top-results.component';
 import { BetsChipsComponent } from '../../newCasino/shared/bets-chips/bets-chips.component';
 import { TimerComponent } from '../shared/timer/timer.component';
+import { VtdPhaserComponent } from "../casinoPhaser/vtd-phaser/vtd-phaser.component";
 
 export let browserRefresh = false;
 declare var $: any;
@@ -43,7 +44,8 @@ declare var $: any;
     BetCoinComponent,
     BetsChipsComponent,
     TimerComponent,
-  ],
+    VtdPhaserComponent
+],
   templateUrl: './virtual-teenpatti.component.html',
   styleUrl: './virtual-teenpatti.component.css',
 })
