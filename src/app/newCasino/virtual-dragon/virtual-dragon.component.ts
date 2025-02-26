@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { BetsChipsComponent } from '../shared/bets-chips/bets-chips.component';
 import { VideoPlayerComponent } from '../../shared/video-player/video-player.component';
 import { first, retry, RetryConfig, Subscription } from 'rxjs';
@@ -25,15 +25,15 @@ declare var $: any;
 @Component({
   selector: 'app-virtual-dragon',
   standalone: true,
-  imports: [  TimerComponent,
-      TopResultsComponent, CommonModule, BetCoinComponent, BetsChipsComponent, ShortNumberPipe, QuickStakesEditComponent,
-      VtdPhaserComponent],
+  imports: [TimerComponent,
+    TopResultsComponent, CommonModule, BetCoinComponent, BetsChipsComponent, ShortNumberPipe, QuickStakesEditComponent,
+    VtdPhaserComponent],
   templateUrl: './virtual-dragon.component.html',
   styleUrl: './virtual-dragon.component.css'
 })
-export class VirtualDragonComponent {
- @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
-
+export class VirtualDragonComponent implements AfterViewInit {
+  @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
+  @ViewChild('playVideo') bgVideo !: ElementRef;
   reverseAnimate: boolean = false
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
@@ -92,7 +92,7 @@ export class VirtualDragonComponent {
   rulesBox: any;
   selectedResult: any;
   betplaceObj: any;
-  resultArray: any =[];
+  resultArray: any = [];
   totalMatchedBets: any;
   game: any;
   betSlip: string = "game";
@@ -112,7 +112,7 @@ export class VirtualDragonComponent {
   changeValue: any;
   sizeRunner1: any;
   sizeRunner2: any;
-  sizeRunner3:any;
+  sizeRunner3: any;
   firstBoxWidth: string = '';
   secndBoxWidth: string = '';
   tieBoxWidth: string = '';
@@ -133,13 +133,13 @@ export class VirtualDragonComponent {
   ties: number = 0;
 
   constructor(private route: ActivatedRoute,
-              private networkService: NetworkService,
-              private encyDecy: EncryptDecryptService,
-              private toggleService: ToggleService,
-              private deviceService: DeviceDetectorService,
-              private indexedDb: IndexedDbService,
-              private toaster: ToastrService,
-              private socket: CasinoSocketService) {
+    private networkService: NetworkService,
+    private encyDecy: EncryptDecryptService,
+    private toggleService: ToggleService,
+    private deviceService: DeviceDetectorService,
+    private indexedDb: IndexedDbService,
+    private toaster: ToastrService,
+    private socket: CasinoSocketService) {
 
     // this.eventid = this.route.snapshot.params['id'];
     // localStorage.setItem('eventId', this.eventid)
@@ -159,6 +159,12 @@ export class VirtualDragonComponent {
     //   }
     // });
 
+  }
+
+
+  onVideoLoaded(event: Event) {
+    // console.log('Video loaded successfully');
+    this.bgVideo.nativeElement.play();
   }
 
 
@@ -212,7 +218,7 @@ export class VirtualDragonComponent {
               this.game.marketArr = this.marketArray ? this.marketArray : objMarket?.data[0]?.marketArr;
               this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
               this.sizeRunner2 = this.marketArray[0].runners[2].price.back[0].size;
-              this.sizeRunner3=this.marketArray[0].runners[1].price.back[0].size;
+              this.sizeRunner3 = this.marketArray[0].runners[1].price.back[0].size;
               this.winnerMarketArray = this.game?.marketArr ? this.game?.marketArr[0] : '';
               this.getRoundId = this.game.roundId
               this.handleEventResponse(objMarket, 0)
@@ -321,6 +327,17 @@ export class VirtualDragonComponent {
     this.getResults();
   }
 
+  ngAfterViewInit(): void {
+    const videoElement = this.bgVideo.nativeElement;
+    const playPromise = videoElement.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((error: any) => {
+        videoElement.muted = true;
+        videoElement.play();
+      });
+    }
+  }
+
 
 
 
@@ -392,7 +409,7 @@ export class VirtualDragonComponent {
           this.marketArray = objMarket.data.marketArr;
           this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
           this.sizeRunner2 = this.marketArray[0].runners[2].price.back[0].size;
-          this.sizeRunner3=this.marketArray[0].runners[1].price.back[0].size;
+          this.sizeRunner3 = this.marketArray[0].runners[1].price.back[0].size;
           this.game = this.marketArray ? this.marketArray : objMarket.data;
           this.game = objMarket.data;
           this.counter = 1;
@@ -436,12 +453,12 @@ export class VirtualDragonComponent {
                 this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
               }
             }
-            this.resultArray =objMarket.data.resultsArr;
+            this.resultArray = objMarket.data.resultsArr;
 
 
 
-            console.warn('resultss test',this.resultArray[1].runners[this.marketArray[1]?.runners[0]?.selectionId])
-            console.warn('resultss',objMarket.data.resultsArr)
+            console.warn('resultss test', this.resultArray[1].runners[this.marketArray[1]?.runners[0]?.selectionId])
+            console.warn('resultss', objMarket.data.resultsArr)
             // for video results
             for (let key in objMarket.data.resultsArr[0].runners) {
               if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
@@ -506,13 +523,13 @@ export class VirtualDragonComponent {
 
               this.marketArray[marketIndex].runners[runnersIndex].price.back[
                 backIndex
-                ].size = this.changeValue;
+              ].size = this.changeValue;
 
             }
             if (this.split_arr[7] == 'price') {
               this.marketArray[marketIndex].runners[runnersIndex].price.back[
                 backIndex
-                ].price = this.changeValue;
+              ].price = this.changeValue;
             }
             if (this.split_arr[4] === 'status') {
               this.marketArray[marketIndex].runners[runnersIndex].status =
