@@ -684,8 +684,21 @@
     </div>
     <!--  timer ends -->
 
-  
 
+    <!-- no bet more  -->
+    <div class="no-more-bets" *ngIf="this.game?.noMoreBets && this.game?.status == 'SUSPEND'">
+      <div class="relative z-10">No more bets</div>
+      <div class="roundStatus__decor-DDvAQJ"></div>
+    </div>
+    <!-- no bet more  -->
+
+    <!-- bet-confirm  -->
+    <div *ngIf="this.game?.betAccepted" class="no-more-bets">
+      <div class="relative z-10">Bet confirmed</div>
+
+      <div class="roundStatus__decor-DDvAQJ"></div>
+    </div>
+    <!-- bet-confirm  -->
 
 
 
