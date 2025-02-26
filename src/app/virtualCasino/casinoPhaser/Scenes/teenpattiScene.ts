@@ -33,70 +33,68 @@ export class teenpattiScene extends Scene {
   preload(): void {
     this.dpr = window.devicePixelRatio || 1;
     this.load.image('dt', '/dt.png');
-    // this.load.image('0.png', '/assets/cards/newCards/0.png');
-    // this.load.image('C2_.png', '/assets/cards/newCards/C2_.svg');
-    this.load.image('C2_.png', '/assets/cards/C2_.png');
-    this.load.image('C3_.png', '/assets/cards/C3_.png');
-    this.load.image('C4_.png', '/assets/cards/C4_.png');
-    this.load.image('C5_.png', '/assets/cards/C5_.png');
-    this.load.image('C6_.png', '/assets/cards/C6_.png');
-    this.load.image('C7_.png', '/assets/cards/C7_.png');
-    this.load.image('C8_.png', '/assets/cards/C8_.png');
-    this.load.image('C9_.png', '/assets/cards/C9_.png');
-    this.load.image('C10_.png', '/assets/cards/C10_.png');
-    this.load.image('CA_.png', '/assets/cards/CA_.png');
-    this.load.image('CJ_.png', '/assets/cards/CJ_.png');
-    this.load.image('CK_.png', '/assets/cards/CK_.png');
-    // this.load.image('CLUB KING.png', '/assets/cards/CL.spngING.png');
-    // this.load.image('CLUBS.png', '/assets/cards/CLUBpngng');
-    this.load.image('CQ_.png', '/assets/cards/CQ_.png');
-    this.load.image('D2_.png', '/assets/cards/D2_.png');
-    this.load.image('D3_.png', '/assets/cards/D3_.png');
-    this.load.image('D4_.png', '/assets/cards/D4_.png');
-    this.load.image('D5_.png', '/assets/cards/D5_.png');
-    this.load.image('D6_.png', '/assets/cards/D6_.png');
-    this.load.image('D7_.png', '/assets/cards/D7_.png');
-    this.load.image('D8_.png', '/assets/cards/D8_.png');
-    this.load.image('D9_.png', '/assets/cards/D9_.png');
-    this.load.image('D10_.png', '/assets/cards/D10_.png');
-    this.load.image('DA_.png', '/assets/cards/DA_.png');
-    // this.load.image('DIAMOND KING.png', '/assets/cards/DI.spngD KING.png');
-    // this.load.image('DIAMONDS.png', '/assets/cards/DI.spngDS.png');
-    this.load.image('DJ_.png', '/assets/cards/DJ_.png');
-    this.load.image('DK_.png', '/assets/cards/DK_.png');
-    this.load.image('DQ_.png', '/assets/cards/DQ_.png');
-    this.load.image('H2_.png', '/assets/cards/H2_.png');
-    // this.load.image('H2_.png', '/assets/cards/H2_.png');
-    this.load.image('H3_.png', '/assets/cards/H3_.png');
-    this.load.image('H4_.png', '/assets/cards/H4_.png');
-    this.load.image('H5_.png', '/assets/cards/H5_.png');
-    this.load.image('H6_.png', '/assets/cards/H6_.png');
-    this.load.image('H7_.png', '/assets/cards/H7_.png');
-    this.load.image('H8_.png', '/assets/cards/H8_.png');
-    this.load.image('H9_.png', '/assets/cards/H9_.png');
-    // this.load.image('H10_.png', '/assets/cards/H1.spngng');
-    this.load.image('HA_.png', '/assets/cards/HA_.png');
-    // this.load.image('HEART KING.png', '/assets/cards/HE.spngKING.png');
-    // this.load.image('HEARTS.png', '/assets/cards/HE.spng.png');
-    this.load.image('HJ_.png', '/assets/cards/HJ_.png');
-    this.load.image('HK_.png', '/assets/cards/HK_.png');
-    this.load.image('HQ_.png', '/assets/cards/HQ_.png');
-    // this.load.image('null.png', '/assets/cards/nullpngg');
-    this.load.image('S2_.png', '/assets/cards/S2_.png');
-    this.load.image('S3_.png', '/assets/cards/S3_.png');
-    this.load.image('S4_.png', '/assets/cards/S4_.png');
-    this.load.image('S5_.png', '/assets/cards/S5_.png');
-    this.load.image('S6_.png', '/assets/cards/S6_.png');
-    this.load.image('S7_.png', '/assets/cards/S7_.png');
-    this.load.image('S8_.png', '/assets/cards/S8_.png');
-    this.load.image('S9_.png', '/assets/cards/S9_.png');
-    this.load.image('S10_.png', '/assets/cards/S10_.png');
-    this.load.image('SA_.png', '/assets/cards/SA_.png');
-    this.load.image('SJ_.png', '/assets/cards/SJ_.png');
-    this.load.image('SK_.png', '/assets/cards/SK_.png');
-    // this.load.image('SPADE KING.png', '/assets/cards/SP.spngKING.png');
-    // this.load.image('SPADES.png', '/assets/cards/SP.ppng);
-    this.load.image('SQ_.png', '/assets/cards/SQ_.png');
+    this.load.image('0', '/assets/cards/newCards/0.png');
+    this.load.image('C2_', '/assets/cards/C2_.png');
+    this.load.image('C3_', '/assets/cards/C3_.png');
+    this.load.image('C4_', '/assets/cards/C4_.png');
+    this.load.image('C5_', '/assets/cards/C5_.png');
+    this.load.image('C6_', '/assets/cards/C6_.png');
+    this.load.image('C7_', '/assets/cards/C7_.png');
+    this.load.image('C8_', '/assets/cards/C8_.png');
+    this.load.image('C9_', '/assets/cards/C9_.png');
+    this.load.image('C10_', '/assets/cards/C10_.png');
+    this.load.image('CA_', '/assets/cards/CA_.png');
+    this.load.image('CJ_', '/assets/cards/CJ_.png');
+    this.load.image('CK_', '/assets/cards/CK_.png');
+    this.load.image('CLUB KING', '/assets/cards/CLUB KING.png');
+    this.load.image('CLUBS', '/assets/cards/CLUBS.png');
+    this.load.image('CQ_', '/assets/cards/CQ_.png');
+    this.load.image('D2_', '/assets/cards/D2_.png');
+    this.load.image('D3_', '/assets/cards/D3_.png');
+    this.load.image('D4_', '/assets/cards/D4_.png');
+    this.load.image('D5_', '/assets/cards/D5_.png');
+    this.load.image('D6_', '/assets/cards/D6_.png');
+    this.load.image('D7_', '/assets/cards/D7_.png');
+    this.load.image('D8_', '/assets/cards/D8_.png');
+    this.load.image('D9_', '/assets/cards/D9_.png');
+    this.load.image('D10_', '/assets/cards/D10_.png');
+    this.load.image('DA_', '/assets/cards/DA_.png');
+    this.load.image('DIAMOND KING', '/assets/cards/DIAMOND KING.png');
+    this.load.image('DIAMONDS', '/assets/cards/DIAMONDS.png');
+    this.load.image('DJ_', '/assets/cards/DJ_.png');
+    this.load.image('DK_', '/assets/cards/DK_.png');
+    this.load.image('DQ_', '/assets/cards/DQ_.png');
+    this.load.image('H2_', '/assets/cards/H2_.png');
+    this.load.image('H3_', '/assets/cards/H3_.png');
+    this.load.image('H4_', '/assets/cards/H4_.png');
+    this.load.image('H5_', '/assets/cards/H5_.png');
+    this.load.image('H6_', '/assets/cards/H6_.png');
+    this.load.image('H7_', '/assets/cards/H7_.png');
+    this.load.image('H8_', '/assets/cards/H8_.png');
+    this.load.image('H9_', '/assets/cards/H9_.png');
+    this.load.image('H10_', '/assets/cards/H10_.png');
+    this.load.image('HA_', '/assets/cards/HA_.png');
+    this.load.image('HEART KING', '/assets/cards/HEART KING.png');
+    this.load.image('HEARTS', '/assets/cards/HEARTS.png');
+    this.load.image('HJ_', '/assets/cards/HJ_.png');
+    this.load.image('HK_', '/assets/cards/HK_.png');
+    this.load.image('HQ_', '/assets/cards/HQ_.png');
+    this.load.image('null', '/assets/cards/null.png');
+    this.load.image('S2_', '/assets/cards/S2_.png');
+    this.load.image('S3_', '/assets/cards/S3_.png');
+    this.load.image('S4_', '/assets/cards/S4_.png');
+    this.load.image('S5_', '/assets/cards/S5_.png');
+    this.load.image('S6_', '/assets/cards/S6_.png');
+    this.load.image('S7_', '/assets/cards/S7_.png');
+    this.load.image('S8_', '/assets/cards/S8_.png');
+    this.load.image('S9_', '/assets/cards/S9_.png');
+    this.load.image('S10_', '/assets/cards/S10_.png');
+    this.load.image('SA_', '/assets/cards/SA_.png');
+    this.load.image('SJ_', '/assets/cards/SJ_.png');
+    this.load.image('SK_', '/assets/cards/SK_.png');
+    this.load.image('SPADE KING', '/assets/cards/SPADE KING.png');
+    this.load.image('SPADES', '/assets/cards/SPADES.png');
+    this.load.image('SQ_', '/assets/cards/SQ_.png');
     this.load.image('h1', '/assets/cards/h1.svg');
     // this.load.image('hiddenCard', '/assets/cards/Ca.svg');
     this.load.image('single', '/assets/cards/Broder.svg');
@@ -113,22 +111,22 @@ export class teenpattiScene extends Scene {
     this.updateWidthHeight();
     if (this.input.keyboard) {
       this.input.keyboard.on('keydown-ONE', () => {
-        this.showCardWithAnimationLeft1('C5_.png');
+        this.showCardWithAnimationLeft1('C5_');
       });
       this.input.keyboard.on('keydown-TWO', () => {
-        this.showCardWithAnimationLeft2('C6_.png');
+        this.showCardWithAnimationLeft2('C6_');
       });
       this.input.keyboard.on('keydown-THREE', () => {
-        this.showCardWithAnimationLeft3('C7_.png');
+        this.showCardWithAnimationLeft3('C7_');
       });
       this.input.keyboard.on('keydown-FOUR', () => {
-        this.showCardWithAnimationRight1('H4_.png');
+        this.showCardWithAnimationRight1('H4_');
       });
       this.input.keyboard.on('keydown-FIVE', () => {
-        this.showCardWithAnimationRight2('H5_.png');
+        this.showCardWithAnimationRight2('H5_');
       });
       this.input.keyboard.on('keydown-SIX', () => {
-        this.showCardWithAnimationRight3('H6_.png');
+        this.showCardWithAnimationRight3('H6_');
       });
       this.input.keyboard.on('keydown-L', () => {
         this.animateCardUpDown(this.leftCard1, this.cardScaleLeft);
@@ -425,23 +423,25 @@ export class teenpattiScene extends Scene {
   }
 
   showCardDragon1(card: string) {
-    this.showCardWithAnimationLeft1(card);
+      this.showCardWithAnimationLeft1(card);
+
   }
   showCardPlayer1(card: string) {
-    this.showCardWithAnimationRight1(card);
+      this.showCardWithAnimationRight1(card);
+
   }
   showCardDragon2(card: string) {
-    this.showCardWithAnimationLeft2(card);
+      this.showCardWithAnimationLeft2(card);
   }
   showCardPlayer2(card: string) {
-    this.showCardWithAnimationRight2(card);
+      this.showCardWithAnimationRight2(card);
   }
   showCardDragon3(card: string) {
     this.showCardWithAnimationLeft3(card);
   }
   showCardPlayer3(card: string) {
     this.showCardWithAnimationRight3(card);
-  }
+}
   animateUpOrDown(key: number) {
     if (key === 1) {
       this.animateCardUpDown(this.leftCard1, this.cardScaleLeft);
@@ -468,6 +468,12 @@ export class teenpattiScene extends Scene {
     this.moveAndRemoveCard(this.rightCard1, this.cardStartPointX);
     this.moveAndRemoveCard(this.rightCard2, this.cardStartPointX);
     this.moveAndRemoveCard(this.rightCard3, this.cardStartPointX);
+    setTimeout(() => {
+      this.createHiddenCard(this.cardStartPointX, this.cardEndPointY);
+    }, 600);
+    setTimeout(() => {this.scene.restart()
+    }, 1500);
+
   }
   private updateWidthHeight() {
     const camera = this.cameras.main;
