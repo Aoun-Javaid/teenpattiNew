@@ -38,7 +38,8 @@ export class ResultsComponent implements OnInit{
     private deviceService: DeviceDetectorService,
     private modalsService:ModalService,
     private route: ActivatedRoute) {
-    this.eventid = this.route.snapshot.params['id'];
+
+    this.eventid = localStorage.getItem('eventId');
     this.isDesktop = this.deviceService.isDesktop();
   }
 
