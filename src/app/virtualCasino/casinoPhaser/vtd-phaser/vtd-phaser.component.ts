@@ -2,12 +2,14 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Input,
   OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
 import Phaser from 'phaser';
 import { vdtScene } from '../Scenes/vtdScene';
+import { teenpattiScene } from '../Scenes/teenpattiScene';
 
 @Component({
   selector: 'app-vtd-phaser',
@@ -18,6 +20,7 @@ import { vdtScene } from '../Scenes/vtdScene';
 })
 export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('phaserContainer', { static: false }) phaserContainer!: ElementRef;
+  @Input() GameType: string = 'vdt';
   game!: Phaser.Game;
   ipadProState: boolean = false;
   nestHubState: boolean = false;
@@ -25,7 +28,9 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor() {}
 
   ngOnInit(): void {}
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    this.game.destroy(true);
+  }
 
   ngAfterViewInit(): void {
     this.initializeGame();
@@ -50,20 +55,23 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
         screenWidth = width * 0.88;
         screenHeight = 173.23;
         break;
-      case width < 900:
-        screenWidth = 641.699;
-        screenHeight = 294.109;
-        break;
 
       default:
-        screenWidth = 950;
-        screenHeight = 520;
+        screenWidth = 641.699;
+        screenHeight = 294.109;
         break;
     }
 
     const phaserGameContainer =
       this.phaserContainer.nativeElement.querySelector('.phaser-game');
     const dpr = window.devicePixelRatio || 1;
+
+    let gameScene = [];
+    if (this.GameType === 'vdt') {
+      gameScene = [vdtScene];
+    } else {
+      gameScene = [teenpattiScene];
+    }
 
     const config: Phaser.Types.Core.GameConfig = {
       type: Phaser.WEBGL,
@@ -72,20 +80,13 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
       parent: phaserGameContainer,
       transparent: true,
       banner: false,
-      render: {
-        pixelArt: false,
-        antialias: true,
-        antialiasGL: true,
-      },
-      scene: [vdtScene],
-      // physics: {
-      //   default: 'matter',
-      //   matter: {
-      //     debug: false,
-      //     // gravity: { x: 0, y: 0.7 },
-      //   },
+      // render: {
+      //   pixelArt: false,
+      //   antialias: true,
+      //   antialiasGL: true,
       // },
-
+      // scene: [vdtScene, teenpattiScene],
+      scene: gameScene,
       physics: {
         default: 'arcade',
         arcade: {
@@ -96,7 +97,11 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
     };
 
     this.game = new Phaser.Game(config);
-    this.game.scene?.start('vdtScene');
+    if (this.GameType === 'vdt') {
+      this.game.scene?.start('vdtScene');
+    } else {
+      this.game.scene?.start('teenpattiScene');
+    }
 
     this.applyCanvasStyles();
   }
@@ -113,29 +118,117 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
     }, 100);
   }
 
-  winnerCard(key: number) {
+  winnerCardVdt(key: number) {
     // for dragon card key is 1 , for player card key is 2 , for both card add 3
     const vdtScene = this.game?.scene?.getScene('backgroundScene') as vdtScene;
     if (vdtScene && typeof vdtScene.animateUpOrDown === 'function') {
       vdtScene.animateUpOrDown(1);
     }
   }
-  showDragonCard(card: string) {
+  showDragonCardVdt(card: string) {
     const vdtScene = this.game?.scene?.getScene('backgroundScene') as vdtScene;
-    if (vdtScene && typeof vdtScene.clearRound === 'function') {
+    if (vdtScene && typeof vdtScene.showCardDragon === 'function') {
       vdtScene.showCardDragon(card);
     }
   }
-  showPlayerCard(card: string) {
+  showPlayerCardVdt(card: string) {
     const vdtScene = this.game?.scene?.getScene('backgroundScene') as vdtScene;
-    if (vdtScene && typeof vdtScene.showCardDragon === 'function') {
+    if (vdtScene && typeof vdtScene.showCardPlayer === 'function') {
       vdtScene.showCardPlayer(card);
     }
   }
-  clearRound() {
+  clearRoundVdt() {
     const vdtScene = this.game?.scene?.getScene('backgroundScene') as vdtScene;
     if (vdtScene && typeof vdtScene.clearRound === 'function') {
       vdtScene.clearRound();
+    }
+  }
+
+  clearRoundTeenpatti() {
+    const teenpattiScene = this.game?.scene?.getScene(
+      'backgroundScene'
+    ) as teenpattiScene;
+    if (teenpattiScene && typeof teenpattiScene.clearRound === 'function') {
+      teenpattiScene.clearRound();
+    }
+  }
+
+  winnerCardTeenpatti(key: number) {
+    // for dragon card key is 1 , for player card key is 2 , for both card add 3
+    const teenpattiScene = this.game?.scene?.getScene(
+      'backgroundScene'
+    ) as teenpattiScene;
+    if (
+      teenpattiScene &&
+      typeof teenpattiScene.animateUpOrDown === 'function'
+    ) {
+      teenpattiScene.animateUpOrDown(key);
+    }
+  }
+  showDragonCard1Teenpatti(card: string) {
+    const teenpattiScene = this.game?.scene?.getScene(
+      'backgroundScene'
+    ) as teenpattiScene;
+    if (
+      teenpattiScene &&
+      typeof teenpattiScene.showCardDragon1 === 'function'
+    ) {
+      teenpattiScene.showCardDragon1(card);
+    }
+  }
+  showDragonCard2Teenpatti(card: string) {
+    const teenpattiScene = this.game?.scene?.getScene(
+      'backgroundScene'
+    ) as teenpattiScene;
+    if (
+      teenpattiScene &&
+      typeof teenpattiScene.showCardDragon2 === 'function'
+    ) {
+      teenpattiScene.showCardDragon2(card);
+    }
+  }
+  showDragonCard3Teenpatti(card: string) {
+    const teenpattiScene = this.game?.scene?.getScene(
+      'backgroundScene'
+    ) as teenpattiScene;
+    if (
+      teenpattiScene &&
+      typeof teenpattiScene.showCardDragon3 === 'function'
+    ) {
+      teenpattiScene.showCardDragon3(card);
+    }
+  }
+  showPlayerCard1Teenpatti(card: string) {
+    const teenpattiScene = this.game?.scene?.getScene(
+      'backgroundScene'
+    ) as teenpattiScene;
+    if (
+      teenpattiScene &&
+      typeof teenpattiScene.showCardPlayer1 === 'function'
+    ) {
+      teenpattiScene.showCardPlayer1(card);
+    }
+  }
+  showPlayerCard2Teenpatti(card: string) {
+    const teenpattiScene = this.game?.scene?.getScene(
+      'backgroundScene'
+    ) as teenpattiScene;
+    if (
+      teenpattiScene &&
+      typeof teenpattiScene.showCardPlayer2 === 'function'
+    ) {
+      teenpattiScene.showCardPlayer2(card);
+    }
+  }
+  showPlayerCard3Teenpatti(card: string) {
+    const teenpattiScene = this.game?.scene?.getScene(
+      'backgroundScene'
+    ) as teenpattiScene;
+    if (
+      teenpattiScene &&
+      typeof teenpattiScene.showCardPlayer3 === 'function'
+    ) {
+      teenpattiScene.showCardPlayer3(card);
     }
   }
 }
