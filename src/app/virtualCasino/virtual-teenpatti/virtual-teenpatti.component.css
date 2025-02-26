@@ -14,19 +14,18 @@
 
 /* table ================= */
 
-.game__substrateLayer-LGkRLq,
-.game__video-YzLt9h {
-  overflow: hidden;
-  z-index: 0;
-}
-
-.game__drawerLayer-KdhoNp,
-.game__substrateLayer-LGkRLq {
+.game__drawerLayer,
+.game__substrateLayer {
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
+}
+.game__substrateLayer,
+.game__video {
+  overflow: hidden;
+  z-index: 0;
 }
 
 .gradient_mobile-cBpe4n {
@@ -82,7 +81,7 @@
   width: 100%;
 }
 
-.game__staticVideo-y5rXT0 {
+.game__staticVideo {
   align-items: center;
   display: flex;
   height: 100%;
@@ -110,7 +109,7 @@
 .staticVideo__player,
 .staticVideo__poster {
   height: 100%;
-  -o-object-fit: cover;
+  object-fit: cover;
   transition: opacity 300ms ease, visibility 300ms ease;
   width: 100%;
 }
@@ -150,26 +149,25 @@
 }
 
 @media (orientation: landscape) {
-  .game__video-YzLt9h {
+  .game__video {
     height: 100%;
   }
 }
 
 @media (orientation: portrait) {
-  .dragonTiger__staticVideoWrap-Pnti_t {
-    height: 30.2%;
+  .game__video {
+    height: 34.2%;
   }
 }
-
 @media (orientation: portrait) {
-  .game__video-YzLt9h {
-    height: 48.2%;
+  .dragonTiger__staticVideoWrap {
+    height: 30.5%;
   }
 }
 
 @media (orientation: portrait) {
   .dragonTiger__rngTable-TzLSaF {
-    top: 32%;
+    top: 25%;
     width: 130%;
   }
 }
