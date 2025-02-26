@@ -75,17 +75,18 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     const config: Phaser.Types.Core.GameConfig = {
-      type: Phaser.WEBGL,
+      type: Phaser.AUTO,
       width: screenWidth,
       height: screenHeight,
       parent: phaserGameContainer,
       transparent: true,
       banner: false,
-      // render: {
-      //   pixelArt: false,
-      //   antialias: true,
-      //   antialiasGL: true,
-      // },
+      render: {
+        pixelArt: false,
+        antialias: true,
+        antialiasGL: true,
+        
+      },
       // scene: [vdtScene, teenpattiScene],
       scene: gameScene,
       physics: {
