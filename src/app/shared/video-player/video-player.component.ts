@@ -236,7 +236,7 @@ export class VideoPlayerComponent implements OnChanges {
     private casinoService: CasinoSocketService,
     private deviceService: DeviceDetectorService
   ) {
-    this.eventid = this.route.snapshot.params['id'];
+    this.eventid = localStorage.getItem('eventId');
     this.isDesktop = this.deviceService.isDesktop();
 
   }
