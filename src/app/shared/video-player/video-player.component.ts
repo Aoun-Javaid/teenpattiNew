@@ -8,7 +8,7 @@ import { NetworkService } from '../../services/network.service';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { CountdownConfig } from 'ngx-countdown';
 import * as confetti from 'canvas-confetti';
-import { TimerComponent } from "../timer/timer.component";
+
 
 declare var T20RTCPlayer: any;
 declare var $: any;
@@ -16,7 +16,7 @@ declare var $: any;
 @Component({
   selector: 'app-video-player',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, NgClass, NgIf, NgFor, CarouselModule, NgStyle, TimerComponent],
+  imports: [ReactiveFormsModule, FormsModule, NgClass, NgIf, NgFor, CarouselModule, NgStyle, ],
   templateUrl: './video-player.component.html',
   styleUrl: './video-player.component.css',
 })

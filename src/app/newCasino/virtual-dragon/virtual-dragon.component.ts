@@ -12,12 +12,13 @@ import { IndexedDbService } from '../../services/indexed-db.service';
 import { ToastrService } from 'ngx-toastr';
 import { CasinoSocketService } from '../../services/casino-socket.service';
 import { ShortNumberPipe } from '../../pipes/short-number.pipe';
-import { TimerComponent } from '../../shared/timer/timer.component';
+
 import { TopResultsComponent } from '../shared/top-results/top-results.component';
 import { CommonModule } from '@angular/common';
 import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
 import { QuickStakesEditComponent } from '../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component';
 import { VtdPhaserComponent } from '../../virtualCasino/casinoPhaser/vtd-phaser/vtd-phaser.component';
+import { TimerComponent } from '../../virtualCasino/shared/timer/timer.component';
 
 
 declare var $: any;
@@ -25,9 +26,9 @@ declare var $: any;
 @Component({
   selector: 'app-virtual-dragon',
   standalone: true,
-  imports: [TimerComponent,
+  imports: [
     TopResultsComponent, CommonModule, BetCoinComponent, BetsChipsComponent, ShortNumberPipe, QuickStakesEditComponent,
-    VtdPhaserComponent],
+    VtdPhaserComponent, TimerComponent],
   templateUrl: './virtual-dragon.component.html',
   styleUrl: './virtual-dragon.component.css'
 })
