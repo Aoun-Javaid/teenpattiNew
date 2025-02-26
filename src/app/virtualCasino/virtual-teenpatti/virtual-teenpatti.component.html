@@ -129,7 +129,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="relative !mx-[2%]    lg:!mx-0 rounded-b-[17px]">
+                    <div class="relative !mx-[2%] [@media(max-width:1200px)]:!bg-black lg:!mx-0 rounded-b-[17px]">
                         <!-- main contnet -->
                         <div
                             class=" [@media(max-width:375px)]:!mb-0 mb-[1.5rem] lg:mb-[5px] relative p-[17.9048%]  lg:!p-0">
@@ -550,7 +550,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="betcoin-wrapper relative min-h-full w-full">
+                <div [ngClass]="{'[@media(min-width:500px)]:hidden': game.status === 'SUSPEND'}"
+                    class="betcoin-wrapper relative min-h-full w-full">
                     <app-bet-coin class="betStyle" (eventBetValue)="getCoinValue($event)"
                         [status]="this.game.status"></app-bet-coin>
                 </div>
