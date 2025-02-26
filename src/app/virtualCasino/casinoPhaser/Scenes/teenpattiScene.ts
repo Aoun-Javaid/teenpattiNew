@@ -109,47 +109,47 @@ export class teenpattiScene extends Scene {
 
     this.setBreakPoints();
     this.updateWidthHeight();
-    if (this.input.keyboard) {
-      this.input.keyboard.on('keydown-ONE', () => {
-        this.showCardWithAnimationLeft1('C5_');
-      });
-      this.input.keyboard.on('keydown-TWO', () => {
-        this.showCardWithAnimationLeft2('C6_');
-      });
-      this.input.keyboard.on('keydown-THREE', () => {
-        this.showCardWithAnimationLeft3('C7_');
-      });
-      this.input.keyboard.on('keydown-FOUR', () => {
-        this.showCardWithAnimationRight1('H4_');
-      });
-      this.input.keyboard.on('keydown-FIVE', () => {
-        this.showCardWithAnimationRight2('H5_');
-      });
-      this.input.keyboard.on('keydown-SIX', () => {
-        this.showCardWithAnimationRight3('H6_');
-      });
-      this.input.keyboard.on('keydown-L', () => {
-        this.animateCardUpDown(this.leftCard1, this.cardScaleLeft);
-        this.animateCardUpDown(this.leftCard2, this.cardScaleLeft);
-        this.animateCardUpDown(this.leftCard3, this.cardScaleLeft);
-      });
-      this.input.keyboard.on('keydown-R', () => {
-        this.animateCardUpDown(this.rightCard1, this.cardScaleRight);
-        this.animateCardUpDown(this.rightCard2, this.cardScaleRight);
-        this.animateCardUpDown(this.rightCard3, this.cardScaleRight);
-      });
-      this.input.keyboard.on('keydown-D', () => {
-        this.moveAndRemoveCard(this.leftCard1, this.cardStartPointX);
-        this.moveAndRemoveCard(this.leftCard2, this.cardStartPointX);
-        this.moveAndRemoveCard(this.leftCard3, this.cardStartPointX);
-        this.moveAndRemoveCard(this.rightCard1, this.cardStartPointX);
-        this.moveAndRemoveCard(this.rightCard2, this.cardStartPointX);
-        this.moveAndRemoveCard(this.rightCard3, this.cardStartPointX);
-        setTimeout(() => {
-          this.createHiddenCard(this.cardStartPointX, this.cardEndPointY);
-        }, 600);
-      });
-    }
+    // if (this.input.keyboard) {
+    //   this.input.keyboard.on('keydown-ONE', () => {
+    //     this.showCardWithAnimationLeft1('C5_');
+    //   });
+    //   this.input.keyboard.on('keydown-TWO', () => {
+    //     this.showCardWithAnimationLeft2('C6_');
+    //   });
+    //   this.input.keyboard.on('keydown-THREE', () => {
+    //     this.showCardWithAnimationLeft3('C7_');
+    //   });
+    //   this.input.keyboard.on('keydown-FOUR', () => {
+    //     this.showCardWithAnimationRight1('H4_');
+    //   });
+    //   this.input.keyboard.on('keydown-FIVE', () => {
+    //     this.showCardWithAnimationRight2('H5_');
+    //   });
+    //   this.input.keyboard.on('keydown-SIX', () => {
+    //     this.showCardWithAnimationRight3('H6_');
+    //   });
+    //   this.input.keyboard.on('keydown-L', () => {
+    //     this.animateCardUpDown(this.leftCard1, this.cardScaleLeft);
+    //     this.animateCardUpDown(this.leftCard2, this.cardScaleLeft);
+    //     this.animateCardUpDown(this.leftCard3, this.cardScaleLeft);
+    //   });
+    //   this.input.keyboard.on('keydown-R', () => {
+    //     this.animateCardUpDown(this.rightCard1, this.cardScaleRight);
+    //     this.animateCardUpDown(this.rightCard2, this.cardScaleRight);
+    //     this.animateCardUpDown(this.rightCard3, this.cardScaleRight);
+    //   });
+    //   this.input.keyboard.on('keydown-D', () => {
+    //     this.moveAndRemoveCard(this.leftCard1, this.cardStartPointX);
+    //     this.moveAndRemoveCard(this.leftCard2, this.cardStartPointX);
+    //     this.moveAndRemoveCard(this.leftCard3, this.cardStartPointX);
+    //     this.moveAndRemoveCard(this.rightCard1, this.cardStartPointX);
+    //     this.moveAndRemoveCard(this.rightCard2, this.cardStartPointX);
+    //     this.moveAndRemoveCard(this.rightCard3, this.cardStartPointX);
+    //     setTimeout(() => {
+    //       this.createHiddenCard(this.cardStartPointX, this.cardEndPointY);
+    //     }, 600);
+    //   });
+    // }
   }
   override update(time: number, delta: number): void {}
 
@@ -489,121 +489,120 @@ export class teenpattiScene extends Scene {
     this.height = height;
     switch (true) {
       case width < 285:
-        this.cardSize = 20;
-        this.hiddenCardSize = 25;
+        this.cardSize = 30;
+        this.hiddenCardSize = 35;
         this.cardStartPointX = this.width * 0.5;
         this.cardStartPointY = this.height * 0.3;
-        this.cardEndPointY = this.cardStartPointY + 60;
-        this.leftCard1EndPositionX = 90;
-        this.leftCard2EndPositionX = 55;
-        this.leftCard3EndPositionX = 25;
-        this.rightCard1EndPositionX = 25;
-        this.rightCard2EndPositionX = 55;
-        this.rightCard3EndPositionX = 90;
+        this.cardEndPointY = this.cardStartPointY + 70;
+        this.leftCard1EndPositionX = 105;
+        this.leftCard2EndPositionX = 65;
+        this.leftCard3EndPositionX = 27;
+        this.rightCard1EndPositionX = 27;
+        this.rightCard2EndPositionX = 65;
+        this.rightCard3EndPositionX = 105;
         this.hiddenCardEndPointX = this.width * 0.22;
-        this.hiddenCardEndPointY = this.height * 0.43;
+        this.hiddenCardEndPointY = this.height * 0.45;
 
         break;
       case width < 310:
-        this.cardSize = 25;
-        this.hiddenCardSize = 30;
+        this.cardSize = 35;
+        this.hiddenCardSize = 40;
         this.cardStartPointX = this.width * 0.5;
         this.cardStartPointY = this.height * 0.3;
         this.cardEndPointY = this.cardStartPointY + 70;
-        this.leftCard1EndPositionX = 85;
-        this.leftCard2EndPositionX = 55;
-        this.leftCard3EndPositionX = 25;
-        this.rightCard1EndPositionX = 25;
-        this.rightCard2EndPositionX = 55;
-        this.rightCard3EndPositionX = 85;
+        this.leftCard1EndPositionX = 113;
+        this.leftCard2EndPositionX = 70;
+        this.leftCard3EndPositionX = 27;
+        this.rightCard1EndPositionX = 27;
+        this.rightCard2EndPositionX = 70;
+        this.rightCard3EndPositionX = 113;
         this.hiddenCardEndPointX = this.width * 0.22;
-        this.hiddenCardEndPointY = this.height * 0.43;
-
+        this.hiddenCardEndPointY = this.height * 0.45;
         break;
 
       case width < 340:
-        this.cardSize = 25;
-        this.hiddenCardSize = 30;
-        this.cardStartPointX = this.width * 0.48;
-        this.cardStartPointY = this.height * 0.3;
+        this.cardSize = 35;
+        this.hiddenCardSize = 40;
+        this.cardStartPointX = this.width * 0.5;
+        this.cardStartPointY = this.height * 0.35;
         this.cardEndPointY = this.cardStartPointY + 70;
-        this.leftCard1EndPositionX = 85;
-        this.leftCard2EndPositionX = 55;
-        this.leftCard3EndPositionX = 25;
-        this.rightCard1EndPositionX = 25;
-        this.rightCard2EndPositionX = 55;
-        this.rightCard3EndPositionX = 85;
+        this.leftCard1EndPositionX = 113;
+        this.leftCard2EndPositionX = 70;
+        this.leftCard3EndPositionX = 27;
+        this.rightCard1EndPositionX = 27;
+        this.rightCard2EndPositionX = 70;
+        this.rightCard3EndPositionX = 113;
         this.hiddenCardEndPointX = this.width * 0.22;
-        this.hiddenCardEndPointY = this.height * 0.43;
+        this.hiddenCardEndPointY = this.height * 0.45;
 
         break;
       case width < 350:
-        this.cardSize = 28;
-        this.hiddenCardSize = 33;
+        this.cardSize = 35;
+        this.hiddenCardSize = 40;
         this.cardStartPointX = this.width * 0.5;
-        this.cardStartPointY = this.height * 0.3;
+        this.cardStartPointY = this.height * 0.35;
         this.cardEndPointY = this.cardStartPointY + 70;
-        this.leftCard1EndPositionX = 110;
+        this.leftCard1EndPositionX = 113;
         this.leftCard2EndPositionX = 70;
-        this.leftCard3EndPositionX = 30;
-        this.rightCard1EndPositionX = 30;
+        this.leftCard3EndPositionX = 27;
+        this.rightCard1EndPositionX = 27;
         this.rightCard2EndPositionX = 70;
-        this.rightCard3EndPositionX = 110;
+        this.rightCard3EndPositionX = 113;
         this.hiddenCardEndPointX = this.width * 0.22;
-        this.hiddenCardEndPointY = this.height * 0.43;
+        this.hiddenCardEndPointY = this.height * 0.45;
 
         break;
       case width < 363:
-        this.cardSize = 30;
-        this.hiddenCardSize = 35;
+        this.cardSize = 35;
+        this.hiddenCardSize = 40;
         this.cardStartPointX = this.width * 0.5;
-        this.cardStartPointY = this.height * 0.3;
+        this.cardStartPointY = this.height * 0.35;
         this.cardEndPointY = this.cardStartPointY + 70;
-        this.leftCard1EndPositionX = 110;
-        this.leftCard2EndPositionX = 70;
-        this.leftCard3EndPositionX = 30;
-        this.rightCard1EndPositionX = 30;
-        this.rightCard2EndPositionX = 70;
-        this.rightCard3EndPositionX = 110;
+        this.leftCard1EndPositionX = 123;
+        this.leftCard2EndPositionX = 80;
+        this.leftCard3EndPositionX = 37;
+        this.rightCard1EndPositionX = 37;
+        this.rightCard2EndPositionX = 80;
+        this.rightCard3EndPositionX = 123;
         this.hiddenCardEndPointX = this.width * 0.22;
-        this.hiddenCardEndPointY = this.height * 0.43;
+        this.hiddenCardEndPointY = this.height * 0.45;
 
         break;
       case width < 377:
-        this.cardSize = 30;
-        this.hiddenCardSize = 35;
-        this.cardStartPointX = this.width * 0.49;
-        this.cardStartPointY = this.height * 0.3;
+        this.cardSize = 35;
+        this.hiddenCardSize = 40;
+        this.cardStartPointX = this.width * 0.5;
+        this.cardStartPointY = this.height * 0.35;
         this.cardEndPointY = this.cardStartPointY + 70;
-        this.leftCard1EndPositionX = 110;
-        this.leftCard2EndPositionX = 70;
-        this.leftCard3EndPositionX = 30;
-        this.rightCard1EndPositionX = 30;
-        this.rightCard2EndPositionX = 70;
-        this.rightCard3EndPositionX = 110;
+        this.leftCard1EndPositionX = 123;
+        this.leftCard2EndPositionX = 80;
+        this.leftCard3EndPositionX = 37;
+        this.rightCard1EndPositionX = 37;
+        this.rightCard2EndPositionX = 80;
+        this.rightCard3EndPositionX = 123;
         this.hiddenCardEndPointX = this.width * 0.22;
-        this.hiddenCardEndPointY = this.height * 0.43;
+        this.hiddenCardEndPointY = this.height * 0.45;
 
         break;
       case width < 500:
-        this.cardSize = 30;
-        this.hiddenCardSize = 35;
+        this.cardSize = 40;
+        this.hiddenCardSize = 45;
         this.cardStartPointX = this.width * 0.5;
         this.cardStartPointY = this.height * 0.3;
         this.cardEndPointY = this.cardStartPointY + 80;
-        this.leftCard1EndPositionX = 110;
-        this.leftCard2EndPositionX = 70;
+        this.leftCard1EndPositionX = 130;
+        this.leftCard2EndPositionX = 80;
         this.leftCard3EndPositionX = 30;
         this.rightCard1EndPositionX = 30;
-        this.rightCard2EndPositionX = 70;
-        this.rightCard3EndPositionX = 110;
+        this.rightCard2EndPositionX = 80;
+        this.rightCard3EndPositionX = 130;
         this.hiddenCardEndPointX = this.width * 0.22;
         this.hiddenCardEndPointY = this.height * 0.43;
 
         break;
       case width < 700:
-        this.cardSize = 50;
-        this.hiddenCardSize = 55;
+        this.cardSize = 60;
+        this.hiddenCardSize = 65;
         this.cardStartPointX = this.width * 0.49;
         this.cardStartPointY = this.height * 0.3;
         this.cardEndPointY = this.cardStartPointY + 120;
@@ -618,19 +617,19 @@ export class teenpattiScene extends Scene {
 
         break;
       default:
-        this.cardSize = 30;
-        this.hiddenCardSize = 50;
-        this.cardStartPointX = this.width * 0.5;
+        this.cardSize = 50;
+        this.hiddenCardSize = 55;
+        this.cardStartPointX = this.width * 0.49;
         this.cardStartPointY = this.height * 0.3;
-        this.cardEndPointY = this.cardStartPointY + 80;
-        this.leftCard1EndPositionX = 100;
-        this.leftCard2EndPositionX = 65;
-        this.leftCard3EndPositionX = 27;
-        this.rightCard1EndPositionX = 100;
-        this.rightCard2EndPositionX = 65;
-        this.rightCard3EndPositionX = 27;
-        this.hiddenCardEndPointX = this.width * 0.1;
-        this.hiddenCardEndPointY = this.height * 0.3;
+        this.cardEndPointY = this.cardStartPointY + 120;
+        this.leftCard1EndPositionX = 200;
+        this.leftCard2EndPositionX = 130;
+        this.leftCard3EndPositionX = 60;
+        this.rightCard1EndPositionX = 60;
+        this.rightCard2EndPositionX = 130;
+        this.rightCard3EndPositionX = 200;
+        this.hiddenCardEndPointX = this.width * 0.22;
+        this.hiddenCardEndPointY = this.height * 0.43;
 
         break;
     }
