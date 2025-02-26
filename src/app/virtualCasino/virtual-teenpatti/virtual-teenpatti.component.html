@@ -33,7 +33,7 @@
             </span>
             <div class="rngTable__cards-jXjS2o">
                 <div class="canvasBase-rsnbXU">
-                    <app-vtd-phaser [GameType]="'teenpatti'"></app-vtd-phaser>
+                    <app-vtd-phaser [GameType]="'teenpatti'" ></app-vtd-phaser>
                 </div>
             </div>
         </div>
@@ -556,7 +556,7 @@
                 </div>
             </div>
         </div>
-        <div class="time-container">
+        <div class="time-container" *ngIf="this.game">
             <div class="last-win">{{this.game.eventName}}
                 <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold"> {{winnerMarketArray.min}}</span>
                 -
