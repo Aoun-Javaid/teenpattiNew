@@ -13,6 +13,8 @@ export class vdtScene extends Scene {
   }
 
   preload(): void {
+    console.log('hiVdt');
+
     this.load.image('dt', '/dt.png');
     // this.load.image('0.png', '/assets/cards/newCards/0.png');
     // this.load.image('C2_.png', '/assets/cards/newCards/C2_.svg');
