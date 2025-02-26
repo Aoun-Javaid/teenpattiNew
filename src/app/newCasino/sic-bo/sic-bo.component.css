@@ -932,7 +932,7 @@
 }
 
 .chip_size_48-odjDTm {
-  @apply h-[48px] w-[48px] md:h-[93px] md:w-[93px] md:rotate-[93deg];
+  @apply h-[48px] w-[48px] md:rotate-[93deg];
 }
 
 .chip__1st {
