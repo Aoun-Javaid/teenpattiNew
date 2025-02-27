@@ -25,7 +25,6 @@ import { SicBoComponent } from './newCasino/sic-bo/sic-bo.component';
 import { BaccaratComponent } from './casino/baccarat/baccarat.component';
 import {VirtualDtComponent} from "./virtualCasino/virtual-dt/virtual-dt.component";
 import { VirtualTeenpattiComponent } from './virtualCasino/virtual-teenpatti/virtual-teenpatti.component';
-import { VirtualDragonComponent } from './newCasino/virtual-dragon/virtual-dragon.component';
 import {TopCardComponent} from "./newCasino/top-card/top-card.component";
 import { VirtualDragonComponent } from './virtualCasino/virtual-dragon/virtual-dragon.component';
 import { VirtualTopcardsComponent } from './virtualCasino/virtual-topcards/virtual-topcards.component';
