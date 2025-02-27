@@ -370,6 +370,12 @@ background: black;
 .winner-banker{
   background: linear-gradient(90deg, transparent 0%, rgb(229,38,0) 50%, transparent 100%)
 }
+.winner-defense{
+  background: linear-gradient(90deg, transparent 0%, rgb(1,200,188) 50%, transparent 100%);
+}
+.winner-offense{
+  background: linear-gradient(90deg, transparent 0%, rgb(206,37,50) 50%, transparent 100%);
+}
 
 
 @media only screen and (max-width: 767px) {
