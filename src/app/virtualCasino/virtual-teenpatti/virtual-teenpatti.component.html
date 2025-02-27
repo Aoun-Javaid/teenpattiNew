@@ -20,6 +20,22 @@
     </div>
 
 
+    <!-- no bet more  -->
+    <div class="no-more-bets" *ngIf="this.game?.noMoreBets && this.game?.status == 'SUSPEND'">
+        <div class="relative z-10">No more bets</div>
+        <div class="roundStatus__decor-DDvAQJ"></div>
+    </div>
+    <!-- no bet more  -->
+
+    <!-- bet-confirm  -->
+    <div *ngIf="this.game?.betAccepted" class="no-more-bets">
+        <div class="relative z-10">Bet confirmed</div>
+
+        <div class="roundStatus__decor-DDvAQJ"></div>
+    </div>
+    <!-- bet-confirm  -->
+
+
     <div class="dragonTiger__rngTable-TzLSaF">
         <div class="rngTable-R7R9il rngTable_ready-FD53Fj">
             <img class="rngTableImage-k19Eso relative" src="assets/table.png" alt="table">
@@ -33,7 +49,7 @@
             </span>
             <div class="rngTable__cards-jXjS2o">
                 <div class="canvasBase-rsnbXU">
-                    <app-vtd-phaser [GameType]="'teenpatti'" ></app-vtd-phaser>
+                    <app-vtd-phaser [GameType]="'teenpatti'"></app-vtd-phaser>
                 </div>
             </div>
         </div>
