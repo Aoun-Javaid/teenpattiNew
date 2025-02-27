@@ -6,6 +6,7 @@
   width: 100%;
   /* height: ; */
   overflow-y: scroll;
+   @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
 }
 .dashboard_wrapper {
   width: 100%;
