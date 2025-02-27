@@ -5,6 +5,7 @@
   width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+   @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
 }
 .main__wrapper {
   display: flex;
