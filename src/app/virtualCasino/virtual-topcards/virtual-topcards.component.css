@@ -1,0 +1,333 @@
+#root {
+  @apply overflow-hidden bg-[rgb(10,_10,_26)] text-[16px] h-full w-full flex items-center justify-center;
+}
+
+.wrapper {
+  @apply flex flex-col relative w-full h-full transition-[height_.15s_ease,margin-top_.15s_ease];
+}
+
+.game__substrateLayer-LGkRLq,
+.game__video-YzLt9h {
+  overflow: hidden;
+  z-index: 0;
+}
+
+.game__drawerLayer-KdhoNp,
+.game__substrateLayer-LGkRLq {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.game__video-YzLt9h {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.gradient_mobile-cBpe4n {
+  inset: 0;
+}
+.gradient-_9dd5n {
+  pointer-events: none;
+  position: absolute;
+  z-index: 5;
+}
+
+.game__staticVideo-y5rXT0 {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.staticVideo-PcRqrm {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.staticVideo__loader-uTtE6w,
+.staticVideo__player_withPoster-vt9rL5 {
+  inset: 0;
+  position: absolute;
+}
+
+.staticVideo__poster_hidden-yMci7o {
+  transition-delay: 300ms;
+  visibility: hidden;
+}
+
+.staticVideo__player_hidden-Nzfc5r,
+.staticVideo__poster_hidden-yMci7o {
+  opacity: 0;
+}
+
+.staticVideo__player-oLgBsz,
+.staticVideo__poster-hdUGdJ {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transition: opacity 300msease, visibility 300msease;
+  width: 100%;
+}
+
+@media (orientation: landscape) {
+  .game__video-YzLt9h {
+    height: 100%;
+  }
+}
+
+@media (orientation: portrait) {
+  .game__video-YzLt9h {
+    height: 48.2%;
+  }
+}
+
+@media (orientation: portrait) {
+  .topCard__staticVideoWrap-FiHDJy {
+    height: 30%;
+  }
+}
+
+@media (orientation: portrait) {
+  .game_shiftedDown-rzul1J {
+    height: calc(100% - 1.5rem);
+    margin-top: 1.5rem;
+  }
+}
+
+@media (orientation: portrait) {
+  .gradient_mobile-cBpe4n {
+    --video-height: var(--video-size, 48.2%);
+    background-image: linear-gradient(
+        180deg,
+        rgba(10, 10, 26, 0) 84.62285995483398%,
+        #0a0a1a 100%
+      ),
+      linear-gradient(180deg, #0a0a1a 0%, #0a0a1a 100%);
+    background-position: top, bottom;
+    background-repeat: no-repeat;
+    background-size: 100% calc(var(--video-height) + 0.0625rem),
+      100% calc(100% - var(--video-height));
+  }
+}
+
+.game__body {
+  display: flex;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.chatPreview-THFBrz {
+  opacity: 1;
+  pointer-events: auto;
+  position: absolute;
+  visibility: visible;
+}
+
+.chatPreview_hidden-GXvWSw {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.chatPreview_mobile-zB9URg {
+  left: 0;
+  max-width: 8.375rem;
+  top: 0;
+  width: 100%;
+}
+
+.messagePreview-qrVrW0 {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.6) 60.13%,
+    transparent
+  );
+  color: rgb(255 255 255);
+  font-size: 0.625rem;
+  line-height: 1.2;
+  min-height: 2.75rem;
+  opacity: 0;
+  padding: 0.625rem 0.75rem 0.625rem 0.5rem;
+  transform: translateX(-0.75rem);
+  transition: opacity 300msease, visibility 300msease, transform 300msease;
+  visibility: hidden;
+}
+
+.promoWidget-MC5DKE {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  position: absolute;
+  right: 0;
+  top: 0.25rem;
+  transition: all 0.1sease;
+  z-index: 7;
+}
+
+.topCard-c1emFi {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.topCard__rngTable-POdQ39 {
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+@media (orientation: portrait) {
+  .topCard__rngTable-POdQ39 {
+    top: 28%;
+    width: 132%;
+  }
+}
+
+.rngTable-m9dIQZ {
+  opacity: 0;
+  position: relative;
+  transition: opacity 0.3sease;
+}
+
+.rngTable_ready-h53afX {
+  opacity: 1;
+}
+
+.rngTable-U4qMWx {
+  color: #fff;
+  position: relative;
+  width: 100%;
+}
+
+.rngTable__image-qO0cK5 {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+}
+
+.rngTable__svg-p8L0DQ {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.rngTable__svgWinPath-PkAVLR {
+  animation-direction: alternate;
+  animation-duration: 600ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  opacity: 0;
+}
+
+.rngTable__cards-CIQw_j {
+  height: 43%;
+  position: absolute;
+  top: -6%;
+  width: 100%;
+}
+
+.canvasBase-rsnbXU {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (orientation: landscape) {
+  .topCard-c1emFi {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (orientation: landscape) {
+  .topCard__rngTable-POdQ39 {
+    top: 3.75rem;
+    width: 100%;
+  }
+}
+
+.game__playLive-jjimr6 {
+  @apply [@media(min-width:1200px)]:!left-[48px];
+  left: 0.5rem;
+  position: absolute;
+  top: 3.125rem;
+}
+
+.liveButton_size_small-bvNeeX {
+  padding: 0.1875rem 0.4375rem 0.1875rem 0.1875rem;
+}
+
+.liveButton-y8QTk5 {
+  align-items: center;
+  background-color: rgb(0 0 0 / 70%);
+  border: 0.0625rem solid rgb(31, 153, 153);
+  border-radius: 0.75rem;
+  color: white;
+  display: inline-flex;
+  font-weight: 500;
+  gap: 0.125rem;
+  max-width: 100%;
+  transition: background-color 300ms ease;
+}
+
+.liveButton__icon-rEVAEv,
+.liveButton__label-eDGo99 {
+  position: relative;
+  z-index: 1;
+}
+
+.liveButton__icon-rEVAEv {
+  color: rgb(31, 153, 153);
+  display: inline-flex;
+  height: 1rem;
+  max-width: 1rem;
+  transition: color 300ms ease;
+}
+
+.svgIcon-JpUo7O {
+  fill: currentColor;
+  aspect-ratio: 1;
+  overflow: visible;
+}
+
+.svgIcon_auto-zs7WXn {
+  aspect-ratio: auto;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.liveButton__label-eDGo99 {
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 300ms ease;
+  white-space: nowrap;
+}
+
+.liveButton_size_small-bvNeeX .liveButton__label-eDGo99 {
+  font-size: 0.625rem;
+}
+
+@media (orientation: landscape) {
+  .game__playLive-jjimr6 {
+    top: 3.375rem;
+  }
+}
