@@ -33,6 +33,8 @@ declare var $: any;
   styleUrl: './virtual-dragon.component.css'
 })
 export class VirtualDragonComponent implements AfterViewInit {
+  @ViewChild(VtdPhaserComponent) VtdPhaserComponent!: VtdPhaserComponent;
+
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
   @ViewChild('playVideo') bgVideo !: ElementRef;
   reverseAnimate: boolean = false
@@ -55,6 +57,7 @@ export class VirtualDragonComponent implements AfterViewInit {
     type: "1",
     id: ""
   };
+  cards:any={};
   selectedBetAmount: any;
   aPlayerChances: any;
   bPlayerChances: any;
@@ -253,6 +256,9 @@ export class VirtualDragonComponent implements AfterViewInit {
             this.secndBoxWidth = '';
             this.firstBoxWidth = '';
 
+            this.cards = {};
+            this.VtdPhaserComponent.clearRoundVdt();
+
           }
 
           // this.networkService.updateRoundId(this.game);
@@ -268,6 +274,10 @@ export class VirtualDragonComponent implements AfterViewInit {
           this.tigerCards = this.game?.cardsArr?.TIGER;
 
           if (this.dragonCards) {
+            if(this.dragonCards.card_1!=0 && !this.cards.card_11){
+              this.cards.card_11=true
+              this.VtdPhaserComponent.showDragonCardVdt(this.dragonCards.card_1);
+            }
             if (this.dragonCards?.card_1 == 0 && this.game.status == 'SUSPEND') {
               this.game.noMoreBets = true;
             }
@@ -275,6 +285,13 @@ export class VirtualDragonComponent implements AfterViewInit {
               this.game.noMoreBets = false;
             }
           }
+          if (this.tigerCards) {
+            if(this.tigerCards.card_1!=0 && !this.cards.card_21){
+              this.cards.card_21=true
+              this.VtdPhaserComponent.showTigerCardVdt(this.tigerCards.card_1);
+            }
+          }
+
           this.winnerMarketArray = this.game.marketArr ? this.game.marketArr[0] : ''
           this.runnersName = this.winnerMarketArray.runnersName;
         }
@@ -458,8 +475,6 @@ export class VirtualDragonComponent implements AfterViewInit {
 
 
 
-            console.warn('resultss test', this.resultArray[1].runners[this.marketArray[1]?.runners[0]?.selectionId])
-            console.warn('resultss', objMarket.data.resultsArr)
             // for video results
             for (let key in objMarket.data.resultsArr[0].runners) {
               if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
@@ -467,6 +482,9 @@ export class VirtualDragonComponent implements AfterViewInit {
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
                 // console.log(this.RoundWinner)
                 this.BetPlaced = [];
+                setTimeout(() => {
+                  this.VtdPhaserComponent.winnerCardVdt(this.RoundWinner=='DRAGON'?1:2)
+                }, 500);
               }
               if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
                 setTimeout(() => {
