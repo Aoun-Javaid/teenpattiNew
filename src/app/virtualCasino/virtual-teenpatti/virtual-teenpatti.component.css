@@ -6,6 +6,7 @@
   width: 100%;
   /* height: ; */
   overflow-y: scroll;
+   @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
 }
 .dashboard_wrapper {
   width: 100%;
@@ -196,6 +197,14 @@
   .rngTableImage-k19Eso {
     scale: 1 !important;
   }
+}
+
+.no-more-bets {
+  @apply absolute left-[50%] translate-x-[-50%] text-nowrap top-[35%] text-[#fff] text-[0.875rem] !bg-none px-3 py-1  max-w-fit z-[999];
+}
+
+.roundStatus__decor-DDvAQJ {
+  @apply absolute bg-[rgba(0,0,0,.6)] [filter:blur(0.375rem)] inset-0 rounded-[0.75rem];
 }
 
 /* ========================== */

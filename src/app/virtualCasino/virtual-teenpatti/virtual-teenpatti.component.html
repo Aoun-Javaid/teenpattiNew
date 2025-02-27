@@ -9,7 +9,7 @@
             <div class="game__staticVideo">
                 <div class="h-full w-full relative">
                     <!-- <img class="staticVideo__poster staticVideo__poster_hidden staticVideo__player_withPoster" src="https://client.petros04.com/js/../img/dragon-tiger.60ab225c.png" alt="poster"> -->
-                    <video class="staticVideo__player staticVideo__player_withPoster" autoplay loop muted>
+                    <video class="staticVideo__player staticVideo__player_withPoster" autoplay loop muted #playVideo>
                         <source src="/assets/virtual-table-cards/virtual-dt-video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -18,6 +18,24 @@
             <div class="gradient-_9dd5n gradient_mobile-cBpe4n"></div>
         </div>
     </div>
+
+    <app-timer [fancyTimer]="true"></app-timer>
+
+
+    <!-- no bet more  -->
+    <div class="no-more-bets" *ngIf="this.game?.noMoreBets && this.game?.status == 'SUSPEND'">
+        <div class="relative z-10">No more bets</div>
+        <div class="roundStatus__decor-DDvAQJ"></div>
+    </div>
+    <!-- no bet more  -->
+
+    <!-- bet-confirm  -->
+    <div *ngIf="this.game?.betAccepted" class="no-more-bets">
+        <div class="relative z-10">Bet confirmed</div>
+
+        <div class="roundStatus__decor-DDvAQJ"></div>
+    </div>
+    <!-- bet-confirm  -->
 
 
     <div class="dragonTiger__rngTable-TzLSaF">
@@ -33,7 +51,7 @@
             </span>
             <div class="rngTable__cards-jXjS2o">
                 <div class="canvasBase-rsnbXU">
-                    <app-vtd-phaser [GameType]="'teenpatti'" ></app-vtd-phaser>
+                    <app-vtd-phaser [GameType]="'teenpatti'"></app-vtd-phaser>
                 </div>
             </div>
         </div>
@@ -648,5 +666,5 @@
     [runnerId]="winnerMarketArray.runners[1].selectionId"></app-bets-chips> -->
 
 <!-- <div class="mt-10 relative w-full"> -->
-<app-timer [fancyTimer]="true"></app-timer>
+
 <!-- </div> -->

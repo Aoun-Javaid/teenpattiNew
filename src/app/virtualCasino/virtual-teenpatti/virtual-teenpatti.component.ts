@@ -52,7 +52,7 @@ declare var $: any;
 export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
   @ViewChild(VtdPhaserComponent) VtdPhaserComponent!: VtdPhaserComponent;
-
+  @ViewChild('playVideo') bgVideo !: ElementRef;
   reverseAnimate: boolean = false;
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
@@ -621,6 +621,17 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
       }
     } else {
       return;
+    }
+  }
+
+  ngAfterViewInit(): void {
+    const videoElement = this.bgVideo.nativeElement;
+    const playPromise = videoElement.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((error: any) => {
+        videoElement.muted = true;
+        videoElement.play();
+      });
     }
   }
 

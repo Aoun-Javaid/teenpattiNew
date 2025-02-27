@@ -27,6 +27,8 @@ import {VirtualDtComponent} from "./virtualCasino/virtual-dt/virtual-dt.componen
 import { VirtualTeenpattiComponent } from './virtualCasino/virtual-teenpatti/virtual-teenpatti.component';
 import { VirtualDragonComponent } from './newCasino/virtual-dragon/virtual-dragon.component';
 import {TopCardComponent} from "./newCasino/top-card/top-card.component";
+import { VirtualDragonComponent } from './virtualCasino/virtual-dragon/virtual-dragon.component';
+import { VirtualTopcardsComponent } from './virtualCasino/virtual-topcards/virtual-topcards.component';
 
 
 
@@ -137,6 +139,10 @@ export const routes: Routes = [
       {
         path: 'virtual-dragon',
         component: VirtualDragonComponent
+      },
+      {
+        path: 'Vtopcards',
+        component: VirtualTopcardsComponent
       },
       {
         path: '**',
