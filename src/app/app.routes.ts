@@ -17,7 +17,6 @@ import { NotFoundError } from 'rxjs';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { TeenpattiComponent } from './casino/teenpatti/teenpatti.component';
 import { TeenpattiNewComponent } from './newCasino/teenpatti-new/teenpatti-new.component';
-import { TimerComponent } from './shared/timer/timer.component';
 import {DragonTigerComponent} from "./newCasino/dragon-tiger/dragon-tiger.component";
 
 import { LiveBaccaratComponent } from './newCasino/live-baccarat/live-baccarat.component';
@@ -26,7 +25,7 @@ import { SicBoComponent } from './newCasino/sic-bo/sic-bo.component';
 import { BaccaratComponent } from './casino/baccarat/baccarat.component';
 import {VirtualDtComponent} from "./virtualCasino/virtual-dt/virtual-dt.component";
 import { VirtualTeenpattiComponent } from './virtualCasino/virtual-teenpatti/virtual-teenpatti.component';
-import { VirtualDragonComponent } from './newCasino/virtual-dragon/virtual-dragon.component';
+import { VirtualDragonComponent } from './virtualCasino/virtual-dragon/virtual-dragon.component';
 
 
 
@@ -63,10 +62,6 @@ export const routes: Routes = [
           {
             path: 'lobby',
             component: LobbyComponent,
-          },
-          {
-            path: 'timer',
-            component: TimerComponent,
           },
           {
             path: 'universe-originals/:name',

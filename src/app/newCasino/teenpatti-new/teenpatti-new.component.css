@@ -6,6 +6,7 @@
   width: 100%;
   /* height: ; */
   overflow-y: scroll;
+  @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
 }
 .dashboard_wrapper {
   width: 100%;
@@ -373,10 +374,6 @@
   padding: 0px 20px;
 }
 
-
-
-
-
 .high_card_primary {
   background-color: white;
   color: #ee1600;
@@ -411,17 +408,14 @@
   transform: translateY(1.625rem) scaleX(0);
   text-align: center;
 }
-.playerA-winnerText{
+.playerA-winnerText {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgb(204 73 62 ) 50%,
+    rgb(204 73 62) 50%,
     transparent 100%
   ) !important;
 }
-
-
-
 
 .high_card_secondary {
   background-color: #b2b2b2;
@@ -733,8 +727,8 @@
   text-align: left;
   color: white;
   margin: 0;
-  @apply   [@media(min-width:500px)]:top-[6px]  [@media(max-width:500px)]:top-[0px]  [@media(max-width:500px)]:right-[-6px]  [@media(min-width:500px)]:right-[13px] ;
-}  
+  @apply [@media(min-width:500px)]:top-[6px]  [@media(max-width:500px)]:top-[0px]  [@media(max-width:500px)]:right-[-6px]  [@media(min-width:500px)]:right-[13px];
+}
 
 .player-b-details {
   position: absolute;
@@ -753,11 +747,11 @@
   color: white;
   padding-left: 59px;
   margin: 0;
-  @apply  [@media(min-width:500px)]:top-[25px]  [@media(max-width:500px)]:top-[22px]  [@media(min-width:500px)]:right-[13px]  [@media(max-width:500px)]:right-[-6px] ;
+  @apply [@media(min-width:500px)]:top-[25px]  [@media(max-width:500px)]:top-[22px]  [@media(min-width:500px)]:right-[13px]  [@media(max-width:500px)]:right-[-6px];
 }
 
 .fix-position {
-  @apply  [@media(min-width:500px)]:top-[0px] [@media(max-width:500px)]:top-[0px]    text-end flex justify-end flex-col [@media(min-width:500px)]:right-[24px] [@media(max-width:500px)]:right-[13px]   absolute;
+  @apply [@media(min-width:500px)]:top-[0px] [@media(max-width:500px)]:top-[0px]    text-end flex justify-end flex-col [@media(min-width:500px)]:right-[24px] [@media(max-width:500px)]:right-[13px]   absolute;
 }
 
 .player_B_img {
@@ -1287,8 +1281,6 @@
 .chip_size_48-odjDTm {
   @apply h-[48px] w-[48px] md:h-[93px] md:w-[93px] md:rotate-[93deg];
 }
-
-
 
 .chip-kcN8LW:before {
   border: 0.125rem solid #fa0;
