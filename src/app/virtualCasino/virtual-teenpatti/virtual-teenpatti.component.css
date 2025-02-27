@@ -200,7 +200,7 @@
 }
 
 .no-more-bets {
-  @apply absolute left-[50%] translate-x-[-50%] text-nowrap top-[35%] text-[#fff] text-[0.875rem] !bg-none px-2  max-w-fit z-50;
+  @apply absolute left-[50%] translate-x-[-50%] text-nowrap top-[35%] text-[#fff] text-[0.875rem] !bg-none px-3 py-1  max-w-fit z-[999];
 }
 
 .roundStatus__decor-DDvAQJ {
