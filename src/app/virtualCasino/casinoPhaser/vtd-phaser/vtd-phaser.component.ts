@@ -85,7 +85,7 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
         pixelArt: false,
         antialias: true,
         antialiasGL: true,
-        
+
       },
       // scene: [vdtScene, teenpattiScene],
       scene: gameScene,
@@ -133,7 +133,7 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
       vdtScene.showCardDragon(card);
     }
   }
-  showPlayerCardVdt(card: string) {
+  showTigerCardVdt(card: string) {
     const vdtScene = this.game?.scene?.getScene('vdtScene') as vdtScene;
     if (vdtScene && typeof vdtScene.showCardPlayer === 'function') {
       vdtScene.showCardPlayer(card);
