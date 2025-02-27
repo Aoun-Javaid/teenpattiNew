@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { BetsChipsComponent } from '../shared/bets-chips/bets-chips.component';
+import { BetsChipsComponent } from '../../newCasino/shared/bets-chips/bets-chips.component';
 import { VideoPlayerComponent } from '../../shared/video-player/video-player.component';
 import { first, retry, RetryConfig, Subscription } from 'rxjs';
 import { CONFIG, STACK_VALUE } from '../../../../config';
@@ -13,12 +13,12 @@ import { ToastrService } from 'ngx-toastr';
 import { CasinoSocketService } from '../../services/casino-socket.service';
 import { ShortNumberPipe } from '../../pipes/short-number.pipe';
 
-import { TopResultsComponent } from '../shared/top-results/top-results.component';
+import { TopResultsComponent } from '../../newCasino/shared/top-results/top-results.component';
 import { CommonModule } from '@angular/common';
 import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
 import { QuickStakesEditComponent } from '../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component';
-import { VtdPhaserComponent } from '../../virtualCasino/casinoPhaser/vtd-phaser/vtd-phaser.component';
-import { TimerComponent } from '../../virtualCasino/shared/timer/timer.component';
+import { VtdPhaserComponent } from '../casinoPhaser/vtd-phaser/vtd-phaser.component';
+import { TimerComponent } from '../shared/timer/timer.component';
 
 
 declare var $: any;
