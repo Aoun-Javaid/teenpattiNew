@@ -25,7 +25,7 @@ declare var $: any;
 @Component({
   selector: 'app-teenpatti-new',
   standalone: true,
-  imports: [TopResultsComponent, ShortNumberPipe, CommonModule, VideoPlayerComponent, QuickStakesEditComponent, BetCoinComponent, BetsChipsComponent],
+  imports: [TopResultsComponent, ShortNumberPipe, CommonModule, VideoPlayerComponent, QuickStakesEditComponent, BetCoinComponent, BetsChipsComponent, VideoPlayerUnrealComponent],
   templateUrl: './teenpatti-new.component.html',
   styleUrl: './teenpatti-new.component.css'
 })

@@ -2,16 +2,16 @@
     <app-top-results class="[@media(min-width:1200px)]:hidden "></app-top-results>
 
     <div #target>
-        <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
-            [displayResult]="false" [unityTimer]="false"></app-video-player>
-        <!-- <ng-container *ngIf="isMobileInfo == 'iOS'">
+        <!-- <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
+            [displayResult]="false" [unityTimer]="false"></app-video-player> -->
+        <ng-container *ngIf="isMobileInfo == 'iOS'">
             <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
-                [unityTimer]="false"></app-video-player>
+            [displayResult]="false" [unityTimer]="false"></app-video-player>
         </ng-container>
         <ng-container *ngIf="isMobileInfo !== 'iOS'">
             <app-video-player-unreal [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
-                [unityTimer]="false"></app-video-player-unreal>
-        </ng-container> -->
+            [displayResult]="false" [unityTimer]="false"></app-video-player-unreal>
+        </ng-container>
     </div>
 
     <div class="playerA-win-point" *ngIf="this.RoundWinner">

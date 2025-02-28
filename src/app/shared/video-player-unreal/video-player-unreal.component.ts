@@ -28,7 +28,7 @@ export class VideoPlayerUnrealComponent implements OnDestroy,OnInit{
   @Input() cardsActive:boolean=true;
   @Input() fancyTimer:boolean=false;
   @Input() unityTimer:boolean=true;
-  @Input() displayResult:boolean=true;
+  @Input() displayResult:boolean=false;
 
   currentState: boolean = false;
   raceCards: any = [];
@@ -493,7 +493,52 @@ export class VideoPlayerUnrealComponent implements OnDestroy,OnInit{
 
         this.streamingName = res?.data?.streamingName;
         this.streamingURl = res?.data?.url;
+        setTimeout(() => {
+          if ("MediaSource" in window && "WebSocket" in window) {
+            RunPlayer(
+              "UnrealPlayer1",
+              '100%',
+              '100%',
+              "ltve.live",
+              443,
+              true,
+              "ltve9",
+              "",
+              true,
+              true,
+              1,
+              "/public/video/bg.png",
+              false
+            );
+            // RunPlayer(
+            //   "UnrealPlayer1",
+            //   '100%',
+            //   '100%',
+            //   'this.streamingURl',
+            //   'realgame1.live',
+            //   443,
+            //   true,
+            //   this.streamingName,
+            //   "",
+            //   true,
+            //   true,
+            //   1,
+            //   "/assets/video/bg.png",
+            //   false
+            // );
+            this.initializeVolumeControls();
+            this.currentState=true;
+          }
+
+          if (!("MediaSource" in window && "WebSocket" in window)) {
+            const playerElement = document.getElementById("UnrealPlayer1");
+            if (playerElement) {
+              playerElement.innerHTML = "Media Source Extensions or WebSockets are not supported in your browser.";
+            }
+          }
+        }, 100);
         if (this.streamingName && this.streamingURl && this.streamingName != 'lowbalance') {
+
           setTimeout(() => {
             if ("MediaSource" in window && "WebSocket" in window) {
               RunPlayer(
@@ -503,7 +548,7 @@ export class VideoPlayerUnrealComponent implements OnDestroy,OnInit{
                 "ltve.live",
                 443,
                 true,
-                "“ltve3",
+                "ltve9",
                 "",
                 true,
                 true,
