@@ -660,7 +660,7 @@
     <!-- timer -->
      <!-- <app-timer></app-timer> -->
     <div class="timerPortrait" *ngIf="!unityTimer">
-      <div
+      <div *ngIf="TIME_LIMIT !== 0"
         class=""
         data-locator="betting-timer"
 

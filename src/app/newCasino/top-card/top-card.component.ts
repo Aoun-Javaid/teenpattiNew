@@ -1,36 +1,38 @@
-import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { DeviceDetectorService } from 'ngx-device-detector';
-import { first, retry, RetryConfig, Subscription } from 'rxjs';
-import { CONFIG, STACK_VALUE } from '../../../../config';
-import { CasinoSocketService } from '../../services/casino-socket.service';
-import { EncryptDecryptService } from '../../services/encrypt-decrypt.service';
-import { NetworkService } from '../../services/network.service';
-import { VideoPlayerComponent } from '../../shared/video-player/video-player.component';
-import { VideoPlayerUnrealComponent } from "../../shared/video-player-unreal/video-player-unreal.component";
-import { TopResultsComponent } from '../shared/top-results/top-results.component';
-import { QuickStakesEditComponent } from "../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component";
-import { ToggleService } from '../../services/toggle.service';
-import { IndexedDbService } from '../../services/indexed-db.service';
-import { ShortNumberPipe } from '../../pipes/short-number.pipe';
-import { ToastrService } from 'ngx-toastr';
-import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
-import { BetsChipsComponent } from '../shared/bets-chips/bets-chips.component';
+import {Component, ElementRef, HostListener, Renderer2, ViewChild} from '@angular/core';
+import {TopResultsComponent} from "../shared/top-results/top-results.component";
+import {VideoPlayerComponent} from "../../shared/video-player/video-player.component";
+import {BetsChipsComponent} from "../shared/bets-chips/bets-chips.component";
+import {first, retry, RetryConfig, Subscription} from "rxjs";
+import {CONFIG, STACK_VALUE} from "../../../../config";
+import {ActivatedRoute} from "@angular/router";
+import {NetworkService} from "../../services/network.service";
+import {EncryptDecryptService} from "../../services/encrypt-decrypt.service";
+import {ToggleService} from "../../services/toggle.service";
+import {DeviceDetectorService} from "ngx-device-detector";
+import {IndexedDbService} from "../../services/indexed-db.service";
+import {ToastrService} from "ngx-toastr";
+import {CasinoSocketService} from "../../services/casino-socket.service";
+import {CommonModule} from "@angular/common";
+import {BetCoinComponent} from "../../shared/bet-coin/bet-coin.component";
+import {ShortNumberPipe} from "../../pipes/short-number.pipe";
 
-export let browserRefresh = false;
 declare var $: any;
 
 @Component({
-  selector: 'app-teenpatti-new',
+  selector: 'app-top-card',
   standalone: true,
-  imports: [TopResultsComponent, ShortNumberPipe, CommonModule, VideoPlayerComponent, QuickStakesEditComponent, BetCoinComponent, BetsChipsComponent, VideoPlayerUnrealComponent],
-  templateUrl: './teenpatti-new.component.html',
-  styleUrl: './teenpatti-new.component.css'
+  imports: [
+    TopResultsComponent,
+    VideoPlayerComponent,
+    CommonModule,
+    BetCoinComponent,
+    BetsChipsComponent,
+    ShortNumberPipe
+  ],
+  templateUrl: './top-card.component.html',
+  styleUrl: './top-card.component.css'
 })
-export class TeenpattiNewComponent implements OnInit, OnDestroy {
-
+export class TopCardComponent {
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
 
   reverseAnimate: boolean = false
@@ -60,7 +62,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   showHamburger: boolean = true;
   btnIcon = false
   btnCheck = 1
-  BetPlaced:any={};
+  BetPlaced: any = {};
 
   animationClass = '';
 
@@ -91,14 +93,14 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   rulesBox: any;
   selectedResult: any;
   betplaceObj: any;
-  resultArray: any;
+  resultArray: any =[];
   totalMatchedBets: any;
   game: any;
   betSlip: string = "game";
   timer: any;
   winnerMarketArray: any;
-  playerACards: any;
-  playerBCards: any;
+  dragonCards: any;
+  tigerCards: any;
   gameroundId: any;
   placeBetValue: any;
   private _roomId: any;
@@ -111,8 +113,10 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   changeValue: any;
   sizeRunner1: any;
   sizeRunner2: any;
+  sizeRunner3:any;
   firstBoxWidth: string = '';
   secndBoxWidth: string = '';
+  tieBoxWidth: string = '';
   split_arr: any;
   getRoundId: any;
   resultcounter = 0;
@@ -124,18 +128,23 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   isMobileInfo: string;
   // isTeNteenPatti:any;
   stackButtonArry: any = STACK_VALUE;
+  totalResults: number = 0;
+  dragonWins: number = 0;
+  tigerWins: number = 0;
+  ties: number = 0;
 
   constructor(private route: ActivatedRoute,
-    private networkService: NetworkService,
-    private encyDecy: EncryptDecryptService,
-    private toggleService: ToggleService,
-    private deviceService: DeviceDetectorService,
-    private indexedDb: IndexedDbService,
-    private toaster: ToastrService,
-    private socket: CasinoSocketService) {
+              private networkService: NetworkService,
+              private encyDecy: EncryptDecryptService,
+              private toggleService: ToggleService,
+              private deviceService: DeviceDetectorService,
+              private indexedDb: IndexedDbService,
+              private toaster: ToastrService,
+              private socket: CasinoSocketService,
+              private renderer: Renderer2,
+              private el: ElementRef) {
 
     // this.eventid = this.route.snapshot.params['id'];
-    // this.eventid = '99.0018';
     // localStorage.setItem('eventId', this.eventid)
     this.eventid = localStorage.getItem('eventId');
     this.message.id = this.eventid;
@@ -158,20 +167,17 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    this.networkService.getBetPlace().subscribe((betObj:any)=>{
+    this.networkService.getBetPlace().subscribe((betObj: any) => {
       // this.getAllMarketProfitLoss();
-      this.isbetInProcess=false;
-      if(betObj.betSuccess){
+      this.isbetInProcess = false;
+      if (betObj.betSuccess) {
         this.handleIncomingBetObject(betObj);
 
       }
-
-
-
     })
-
     this.getStackData();
     this.getWindowSize()
+
 
     if (!this.isDesktop) {
 
@@ -208,7 +214,8 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
               this.game = objMarket?.data[0];
               this.game.marketArr = this.marketArray ? this.marketArray : objMarket?.data[0]?.marketArr;
               this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
-              this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
+              this.sizeRunner2 = this.marketArray[0].runners[2].price.back[0].size;
+              this.sizeRunner3=this.marketArray[0].runners[1].price.back[0].size;
               this.winnerMarketArray = this.game?.marketArr ? this.game?.marketArr[0] : '';
               this.getRoundId = this.game.roundId
               this.handleEventResponse(objMarket, 0)
@@ -253,11 +260,11 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
           if (this.game.status == 'ONLINE') {
 
           }
-          this.playerACards = this.game?.cardsArr?.PLAYER_A;
-          this.playerBCards = this.game?.cardsArr?.PLAYER_B;
+          this.dragonCards = this.game?.cardsArr?.DRAGON;
+          this.tigerCards = this.game?.cardsArr?.TIGER;
 
-          if (this.playerACards) {
-            if (this.playerACards?.card_1 == 0 && this.game.status == 'SUSPEND') {
+          if (this.dragonCards) {
+            if (this.dragonCards?.card_1 == 0 && this.game.status == 'SUSPEND') {
               this.game.noMoreBets = true;
             }
             else {
@@ -339,7 +346,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   openQuickStakes() {
     this.toggleService.setQuickStakeEditSidebarState(true)
   }
-  handleIncomingBetObject(incomingObj:any) {
+  handleIncomingBetObject(incomingObj: any) {
     const { marketId, selectionId, stake } = incomingObj;
 
     if (!this.BetPlaced[marketId]) {
@@ -352,15 +359,15 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
       this.BetPlaced[marketId][selectionId] = stake;
     }
-    console.log('bet placed',this.BetPlaced);
-      this.betsChipsComponent?.CalculateIndex();
+    console.log('bet placed', this.BetPlaced);
+    this.betsChipsComponent?.CalculateIndex();
 
-      this.game.betAccepted = true;
+    this.game.betAccepted = true;
+    this.networkService.updateRoundId(this.game);
+    setTimeout(() => {
+      this.game.betAccepted = false;
       this.networkService.updateRoundId(this.game);
-      setTimeout(() => {
-        this.game.betAccepted = false;
-        this.networkService.updateRoundId(this.game);
-      }, 1500);
+    }, 1500);
   }
   handleEventResponse(objMarket: any, index: any) {
     // console.log(objMarket,'<=============== objMarket with out index')
@@ -387,7 +394,8 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
         if ('data' in objMarket && this.counter == 0 && objMarket.data.marketArr && objMarket.data._id) {
           this.marketArray = objMarket.data.marketArr;
           this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
-          this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
+          this.sizeRunner2 = this.marketArray[0].runners[2].price.back[0].size;
+          this.sizeRunner3=this.marketArray[0].runners[1].price.back[0].size;
           this.game = this.marketArray ? this.marketArray : objMarket.data;
           this.game = objMarket.data;
           this.counter = 1;
@@ -431,13 +439,19 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
                 this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
               }
             }
+            this.resultArray =objMarket.data.resultsArr;
+
+
+
+            console.warn('resultss test',this.resultArray[1].runners[this.marketArray[1]?.runners[0]?.selectionId])
+            console.warn('resultss',objMarket.data.resultsArr)
             // for video results
             for (let key in objMarket.data.resultsArr[0].runners) {
               if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
 
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
                 // console.log(this.RoundWinner)
-                this.BetPlaced=[];
+                this.BetPlaced = [];
               }
               if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
                 setTimeout(() => {
@@ -448,6 +462,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
             }
             setTimeout(() => {
               this.RoundWinner = null;
+              this.resultArray = JSON.parse(JSON.stringify([]))
             }, 5000)
             // }
           }
@@ -477,6 +492,14 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
                 // console.log('player A', this.firstBoxWidth)
               }
               if (runnersIndex == 1 && marketIndex == 0) {
+                // tie
+                // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
+                let percnt = ((this.changeValue / this.sizeRunner3) * 100);
+                this.tieBoxWidth = -1 * (percnt - 100) + '';
+                // console.log('player B', this.secndBoxWidth)
+
+              }
+              if (runnersIndex == 2 && marketIndex == 0) {
                 // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
                 let percnt = ((this.changeValue / this.sizeRunner2) * 100);
                 this.secndBoxWidth = -1 * (percnt - 100) + '';
@@ -486,13 +509,13 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
               this.marketArray[marketIndex].runners[runnersIndex].price.back[
                 backIndex
-              ].size = this.changeValue;
+                ].size = this.changeValue;
 
             }
             if (this.split_arr[7] == 'price') {
               this.marketArray[marketIndex].runners[runnersIndex].price.back[
                 backIndex
-              ].price = this.changeValue;
+                ].price = this.changeValue;
             }
             if (this.split_arr[4] === 'status') {
               this.marketArray[marketIndex].runners[runnersIndex].status =
@@ -534,13 +557,15 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
   openBetslip(marketId: any, selectionId: any, betType: any, price: any, min: any, max: any) {
 
-    if(this.game.status=='SUSPEND'){
+    if (this.game.status == 'SUSPEND') {
       this.waitRound = true
       setTimeout(() => {
         this.waitRound = false
       }, 1000);
     }
 
+    console.log('method clicked ', price)
+    return
     if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
       if (this.selectedBetAmount > 0) {
         this.isBetsSlipOpened = selectionId;
@@ -557,7 +582,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
           roomId: this._roomId,
           minValue: min,
           maxValue: max,
-          stake:this.selectedBetAmount
+          stake: this.selectedBetAmount
         }
 
         // this.placeCasinoBet();
@@ -792,19 +817,26 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
       .subscribe(
         (data: any) => {
           this.networkService.updateResultstream(data.data)
-          let playerAWins = 0
-          let playerBWins = 0
+          let dragonWins = 0;
+          let tigerWins = 0;
+          let ties = 0;
           // debugger
+          this.totalResults = data.data.length;
           data.data.forEach((round: any) => {
-            if (round.winner === 'A') {
-              playerAWins++;
-            } else if (round.winner === 'B') {
-              playerBWins++;
+            if (round.winner === 'DRAGON') {
+              dragonWins++;
+            } else if (round.winner === 'TIGER') {
+              tigerWins++;
+            } else if (round.winner === 'TIE') {
+              ties++;
             }
           });
-          this.aPlayerChances = (playerAWins / data?.data?.length) * 100
-          this.bPlayerChances = (playerBWins / data?.data?.length) * 100
-          this.TPlayerChances = (100 - this.aPlayerChances - this.bPlayerChances);
+          this.dragonWins = dragonWins;
+          this.tigerWins = tigerWins;
+          this.ties = ties;
+          // this.aPlayerChances = (this.dragonWins / data?.data?.length) * 100
+          // this.bPlayerChances = (this.tigerWins / data?.data?.length) * 100
+          // this.TPlayerChances = (100 - this.aPlayerChances - this.bPlayerChances);
         },
         error => {
           let responseData = error;
@@ -1077,13 +1109,4 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   }
 
 
-
-
-
-
-
 }
-
-
-
-

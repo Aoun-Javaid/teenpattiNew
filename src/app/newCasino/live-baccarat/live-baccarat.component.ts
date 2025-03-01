@@ -1,9 +1,9 @@
-import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
-import {TopResultsComponent} from "../shared/top-results/top-results.component";
-import {VideoPlayerComponent} from "../../shared/video-player/video-player.component";
-import {CommonModule} from "@angular/common";
-import {BetCoinComponent} from "../../shared/bet-coin/bet-coin.component";
-import {ShortNumberPipe} from "../../pipes/short-number.pipe";
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { TopResultsComponent } from "../shared/top-results/top-results.component";
+import { VideoPlayerComponent } from "../../shared/video-player/video-player.component";
+import { CommonModule } from "@angular/common";
+import { BetCoinComponent } from "../../shared/bet-coin/bet-coin.component";
+import { ShortNumberPipe } from "../../pipes/short-number.pipe";
 import { first, retry, RetryConfig, Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { MainService } from '../../services/main.service';
@@ -55,7 +55,7 @@ export class LiveBaccaratComponent implements OnInit {
   rulesBox: any;
   selectedResult: any;
   betplaceObj: any;
-  resultArray: any;
+  resultArray: any = [];
   totalMatchedBets: any;
   game: any;
   betSlip: string = "game";
@@ -128,15 +128,15 @@ export class LiveBaccaratComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-onResize(event?: Event) {
-  console.log(this.checkWindowSize());
-  this.getWindowSize()
-}
+  onResize(event?: Event) {
+    console.log(this.checkWindowSize());
+    this.getWindowSize()
+  }
 
-checkWindowSize() {
-  this.isMobile = window.innerWidth <= 1312;
-  return this.isMobile;
-}
+  checkWindowSize() {
+    this.isMobile = window.innerWidth <= 1312;
+    return this.isMobile;
+  }
 
 
   ngOnDestroy(): void {
@@ -149,6 +149,8 @@ checkWindowSize() {
   }
 
   ngOnInit(): void {
+
+
 
     setTimeout(() => {
       this.getBetStake();
@@ -173,6 +175,7 @@ checkWindowSize() {
 
           if (objMarket.type == "1") {
             this.marketArray = objMarket?.data[0]?.marketArr;
+            console.log(this.marketArray, 'marketArray');
             this.game = objMarket?.data[0];
             this.game.marketArr = this.marketArray ? this.marketArray : objMarket?.data[0]?.marketArr;
             this.playerMarketSize = this.marketArray[0]?.runners[0]?.price?.back[0]?.size;
@@ -219,6 +222,7 @@ checkWindowSize() {
           this.tieMarketArray = this.game.marketArr ? this.game.marketArr[1] : ''
           this.pairMarketArray = this.game.marketArr ? this.game.marketArr[2] : ''
           this.runnersName = this.winnerMarketArray.runnersName;
+
         }
 
 
@@ -270,6 +274,8 @@ checkWindowSize() {
     this.getResults();
     this.checkWindowSize();
     this.getWindowSize();
+
+
   }
 
   handleEventResponse(objMarket: any, index: any) {
@@ -362,7 +368,15 @@ checkWindowSize() {
               this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
             }
           }
+
+
+          this.resultArray = objMarket.data.resultsArr;
+          console.warn('resultss test', this.resultArray[1].runners[this.marketArray[1]?.runners[0]?.selectionId])
+          console.warn('resultss', objMarket.data.resultsArr)
           // for video results
+          // for video results
+
+        
 
           for (let key in objMarket.data.resultsArr[0].runners) {
             if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
@@ -385,6 +399,7 @@ checkWindowSize() {
           }
           setTimeout(() => {
             this.RoundWinner = null;
+            this.resultArray = JSON.parse(JSON.stringify([]))
           }, 5000)
           // }
         }
@@ -788,7 +803,7 @@ checkWindowSize() {
     console.log('event', event);
   }
 
-  getClickedItem(blockName: string){
+  getClickedItem(blockName: string) {
     console.log(blockName + " Method Clicked");
   }
 

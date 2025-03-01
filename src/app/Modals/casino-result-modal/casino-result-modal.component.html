@@ -31,7 +31,7 @@
                   </div>
 
                   <!-- for teenpatti result -->
-                  <ng-container *ngIf="selectedResult?.eventId=='99.0010'">
+                  <ng-container *ngIf="selectedResult?.eventId=='99.0010' || selectedResult?.eventId=='88.0011'">
                   <div class="w-full md:w-1/2 xs:w-full paati_boxs">
                     <h6>Player A</h6>
                     <div class="card-Img-box">
@@ -148,6 +148,37 @@
                         <button *ngIf="selectedResult?.winner=='B'" class="btn winner-team Winnerb">Winner</button>
                       </div>
                     </div>
+                  </ng-container>
+
+<!--                  For top card results-->
+                  <ng-container *ngIf="selectedResult?.eventId=='99.0051'">
+                    <div class="w-full md:w-1/2 xs:w-full paati_boxs">
+                      <h6>Offense</h6>
+                      <div class="card-Img-box">
+                        <div class="flex justify-center items-center" [ngClass]="darkTheme?'darkPlayerA':''">
+                          <img [src]="['assets/cards/'+selectedResult?.cards['FIGHTER_A']?.card_1+'.png']">
+                        </div>
+                        <button *ngIf="selectedResult?.winner == 'A'"
+                                class="winner-team btn"
+                                [ngClass]="darkTheme ? 'winner-offense' : 'custom-winner-green'">
+                          Winner
+                        </button>
+                      </div>
+                    </div>
+                    <div class="w-full md:w-1/2 xs:w-full paati_boxs">
+                      <h6>Defense</h6>
+                      <div class="card-Img-box">
+                        <div class="flex justify-center items-center" [ngClass]="darkTheme?'darkPlayerB':''">
+                          <img [src]="['assets/cards/'+selectedResult?.cards['FIGHTER_B']?.card_1+'.png']">
+                        </div>
+                        <button *ngIf="selectedResult?.winner == 'B'"
+                                class="winner-team btn"
+                                [ngClass]="darkTheme ? 'winner-defense' : 'custom-winner-green'">
+                          Winner
+                        </button>
+                      </div>
+                    </div>
+
                   </ng-container>
 
                   <ng-container *ngIf="extraMarkets">
