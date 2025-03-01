@@ -60,7 +60,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   showHamburger: boolean = true;
   btnIcon = false
   btnCheck = 1
-  BetPlaced:any={};
+  BetPlaced: any = {};
 
   animationClass = '';
 
@@ -158,10 +158,10 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    this.networkService.getBetPlace().subscribe((betObj:any)=>{
+    this.networkService.getBetPlace().subscribe((betObj: any) => {
       // this.getAllMarketProfitLoss();
-      this.isbetInProcess=false;
-      if(betObj.betSuccess){
+      this.isbetInProcess = false;
+      if (betObj.betSuccess) {
         this.handleIncomingBetObject(betObj);
 
       }
@@ -339,7 +339,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   openQuickStakes() {
     this.toggleService.setQuickStakeEditSidebarState(true)
   }
-  handleIncomingBetObject(incomingObj:any) {
+  handleIncomingBetObject(incomingObj: any) {
     const { marketId, selectionId, stake } = incomingObj;
 
     if (!this.BetPlaced[marketId]) {
@@ -352,15 +352,15 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
       this.BetPlaced[marketId][selectionId] = stake;
     }
-    console.log('bet placed',this.BetPlaced);
-      this.betsChipsComponent?.CalculateIndex();
+    console.log('bet placed', this.BetPlaced);
+    this.betsChipsComponent?.CalculateIndex();
 
-      this.game.betAccepted = true;
+    this.game.betAccepted = true;
+    this.networkService.updateRoundId(this.game);
+    setTimeout(() => {
+      this.game.betAccepted = false;
       this.networkService.updateRoundId(this.game);
-      setTimeout(() => {
-        this.game.betAccepted = false;
-        this.networkService.updateRoundId(this.game);
-      }, 1500);
+    }, 1500);
   }
   handleEventResponse(objMarket: any, index: any) {
     // console.log(objMarket,'<=============== objMarket with out index')
@@ -437,7 +437,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
                 // console.log(this.RoundWinner)
-                this.BetPlaced=[];
+                this.BetPlaced = [];
               }
               if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
                 setTimeout(() => {
@@ -534,7 +534,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
   openBetslip(marketId: any, selectionId: any, betType: any, price: any, min: any, max: any) {
 
-    if(this.game.status=='SUSPEND'){
+    if (this.game.status == 'SUSPEND') {
       this.waitRound = true
       setTimeout(() => {
         this.waitRound = false
@@ -557,7 +557,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
           roomId: this._roomId,
           minValue: min,
           maxValue: max,
-          stake:this.selectedBetAmount
+          stake: this.selectedBetAmount
         }
 
         // this.placeCasinoBet();
@@ -912,7 +912,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
 
   getCoinValue(event: any) {
-    console.log('event', event);
+    this.selectedBetAmount = event;
   }
 
 
