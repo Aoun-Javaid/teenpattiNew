@@ -21,19 +21,20 @@
                                     <path
                                         d="M2,106.635c2.15,3.233 5.826,5.364 10,5.364l155,-0c2.209,-0 4,-1.791 4,-4l0,-0.009c-28.257,-0.533 -51,-23.606 -51,-51.991c0,-28.385 22.743,-51.457 51,-51.99l0,-0.01c0,-0.728 -0.195,-1.411 -0.535,-1.999l3.07,-0c-0.34,0.588 -0.535,1.271 -0.535,1.999l0,0.01c28.257,0.533 51,23.605 51,51.99c0,28.385 -22.743,51.458 -51,51.991l0,0.009c0,2.209 1.791,4 4,4l155,-0c4.174,-0 7.85,-2.131 10,-5.364l0,3.027c-0.075,0.046 -0.146,0.101 -0.21,0.165c-2.525,2.53 -5.98,4.173 -9.79,4.173l-99,-0c-1.105,-0 -2,0.895 -2,2l0,32c0,1.105 0.895,2 2,2l109,0l0,2l-109,0c-1.105,0 -2,0.896 -2,2l0,32l-2,0l0,-32c0,-1.104 -0.895,-2 -2,-2l-110,0c-1.105,0 -2,0.896 -2,2l0,32l-2,0l0,-32c0,-1.104 -0.895,-2 -2,-2l-109,0l0,-2l109,0c1.105,0 2,-0.896 2,-2l0,-32c0,-1.105 -0.895,-2 -2,-2l-99,0c-3.81,0 -7.265,-1.643 -9.79,-4.173c-0.064,-0.064 -0.135,-0.119 -0.21,-0.165l0,-3.027Zm113,9.365c0,-1.104 0.895,-2 2,-2l110,0c1.105,0 2,0.896 2,2l0,32c0,1.105 -0.895,2 -2,2l-110,0c-1.105,0 -2,-0.895 -2,-2l0,-32Zm107,-60c0,27.614 -22.386,50 -50,50c-27.614,0 -50,-22.386 -50,-50c0,-27.614 22.386,-50 50,-50c27.614,0 50,22.386 50,50Z"
                                         fill-rule="evenodd" fill="#0009"></path>
-                                    <g (click)="getClickedItem('Player')"
-                                        class="svgBetPlace-sylXGS " [ngClass]="{'svgBetPlace_cta-ULmy2Z':game?.status === 'ONLINE'}" data-locator="player-button">
+                                    <g (click)="getClickedItem('Player')" class="svgBetPlace-sylXGS "
+                                        [ngClass]="{'svgBetPlace_cta-ULmy2Z':game?.status === 'ONLINE'}"
+                                        data-locator="player-button">
                                         <path fill="url(#BC_table_betPlace_Player)"
                                             d="M12,0 c-6.627,0 -12,5.373 -12,12l0,88c0,6.627 5.373,12 12,12l155,0c2.209,0 4,-1.791 4,-4l0,-0.009c-28.257,-0.533 -51,-23.606 -51,-51.991c0,-28.385 22.743,-51.458 51,-51.991l0,-0.009c0,-2.209 -1.791,-4 -4,-4l-155,0Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M12,0 c-6.627,0 -12,5.373 -12,12l0,88c0,6.627 5.373,12 12,12l155,0c2.209,0 4,-1.791 4,-4l0,-0.009c-28.257,-0.533 -51,-23.606 -51,-51.991c0,-28.385 22.743,-51.458 51,-51.991l0,-0.009c0,-2.209 -1.791,-4 -4,-4l-155,0Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
                                             d="M12,0 c-6.627,0 -12,5.373 -12,12l0,88c0,6.627 5.373,12 12,12l155,0c2.209,0 4,-1.791 4,-4l0,-0.009c-28.257,-0.533 -51,-23.606 -51,-51.991c0,-28.385 22.743,-51.458 51,-51.991l0,-0.009c0,-2.209 -1.791,-4 -4,-4l-155,0Z">
                                         </path>
-                                        <g class="svgBetPlace__winGroup-BgAOli" [ngClass]="{'svgBetPlace__ctaPath-kMdMxM': resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER'}" >
+                                        <g class="svgBetPlace__winGroup-BgAOli"
+                                            [ngClass]="{'svgBetPlace__ctaPath-kMdMxM': resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER'}">
                                             <path fill="url(#BC_table_betPlace_Player__winnerShadow_fill)"
                                                 filter="url(#BC_table_betPlace_Player__winnerShadow_filter)"
                                                 stroke="none"
@@ -93,19 +94,20 @@
                                             </linearGradient>
                                         </defs>
                                     </g>
-                                    <g (click)="getClickedItem('Banker')"
-                                        class="svgBetPlace-sylXGS " [ngClass]="{'svgBetPlace_cta-ULmy2Z':game?.status === 'ONLINE'}" data-locator="banker-button">
+                                    <g (click)="getClickedItem('Banker')" class="svgBetPlace-sylXGS "
+                                        [ngClass]="{'svgBetPlace_cta-ULmy2Z':game?.status === 'ONLINE'}"
+                                        data-locator="banker-button">
                                         <path fill="url(#BC_table_betPlace_Banker)"
                                             d="M177,0c-2.209,0 -4,1.791 -4,4l0,0.009c28.257,0.533 51,23.606 51,51.991c0,28.385 -22.743,51.458 -51,51.991l0,0.009c0,2.209 1.791,4 4,4l155,0c6.627,0 12,-5.373 12,-12l0,-88c0,-6.627 -5.373,-12 -12,-12l-155,0Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M177,0c-2.209,0 -4,1.791 -4,4l0,0.009c28.257,0.533 51,23.606 51,51.991c0,28.385 -22.743,51.458 -51,51.991l0,0.009c0,2.209 1.791,4 4,4l155,0c6.627,0 12,-5.373 12,-12l0,-88c0,-6.627 -5.373,-12 -12,-12l-155,0Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
                                             d="M177,0c-2.209,0 -4,1.791 -4,4l0,0.009c28.257,0.533 51,23.606 51,51.991c0,28.385 -22.743,51.458 -51,51.991l0,0.009c0,2.209 1.791,4 4,4l155,0c6.627,0 12,-5.373 12,-12l0,-88c0,-6.627 -5.373,-12 -12,-12l-155,0Z">
                                         </path>
-                                        <g class="svgBetPlace__winGroup-BgAOli" [ngClass]="{'svgBetPlace__ctaPath-kMdMxM': resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'}">
+                                        <g class="svgBetPlace__winGroup-BgAOli"
+                                            [ngClass]="{'svgBetPlace__ctaPath-kMdMxM': resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'}">
                                             <path fill="url(#BC_table_betPlace_Banker__winnerShadow_fill)"
                                                 filter="url(#BC_table_betPlace_Banker__winnerShadow_filter)"
                                                 stroke="none"
@@ -165,19 +167,20 @@
                                             </linearGradient>
                                         </defs>
                                     </g>
-                                    <g (click)="getClickedItem('Tie')" class="svgBetPlace-sylXGS " [ngClass]="{'svgBetPlace_cta-ULmy2Z':game?.status === 'ONLINE'}"
+                                    <g (click)="getClickedItem('Tie')" class="svgBetPlace-sylXGS "
+                                        [ngClass]="{'svgBetPlace_cta-ULmy2Z':game?.status === 'ONLINE'}"
                                         data-locator="tie-button">
                                         <path fill="url(#BC_table_betPlace_Tie)"
                                             d="M122,56c0,-27.614 22.386,-50 50,-50c27.614,0 50,22.386 50,50c0,27.614 -22.386,50 -50,50c-27.614,0 -50,-22.386 -50,-50Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M122,56c0,-27.614 22.386,-50 50,-50c27.614,0 50,22.386 50,50c0,27.614 -22.386,50 -50,50c-27.614,0 -50,-22.386 -50,-50Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
                                             d="M122,56c0,-27.614 22.386,-50 50,-50c27.614,0 50,22.386 50,50c0,27.614 -22.386,50 -50,50c-27.614,0 -50,-22.386 -50,-50Z">
                                         </path>
-                                        <g class="svgBetPlace__winGroup-BgAOli winner" [ngClass]="{'svgBetPlace__ctaPath-kMdMxM': resultArray[1]?.runners[marketArray[1]?.runners[0]?.selectionId] === 'WINNER'}" >
+                                        <g class="svgBetPlace__winGroup-BgAOli winner"
+                                            [ngClass]="{'svgBetPlace__ctaPath-kMdMxM': resultArray[1]?.runners[marketArray[1]?.runners[0]?.selectionId] === 'WINNER'}">
                                             <path fill="url(#BC_table_betPlace_Tie__winnerShadow_fill)"
                                                 filter="url(#BC_table_betPlace_Tie__winnerShadow_filter)" stroke="none"
                                                 d="M122,56c0,-27.614 22.386,-50 50,-50c27.614,0 50,22.386 50,50c0,27.614 -22.386,50 -50,50c-27.614,0 -50,-22.386 -50,-50Z">
@@ -249,14 +252,15 @@
                                         <path fill="#33312e" fill-opacity="0.9"
                                             d="M12.03,188l98.949,-0l0.01,0c1.11,0 2.011,-0.901 2.011,-2.011l-0,-31.978c-0,-1.11 -0.901,-2.011 -2.011,-2.011l-0.01,0l-108.959,0l-0.02,0c-1.105,0.006 -2,0.905 -2,2.011l0,21.968c0,6.635 5.386,12.021 12.021,12.021l0.009,-0Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M12.03,188l98.949,-0l0.01,0c1.11,0 2.011,-0.901 2.011,-2.011l-0,-31.978c-0,-1.11 -0.901,-2.011 -2.011,-2.011l-0.01,0l-108.959,0l-0.02,0c-1.105,0.006 -2,0.905 -2,2.011l0,21.968c0,6.635 5.386,12.021 12.021,12.021l0.009,-0Z">
                                         </path>
-                                        <path class="svgBetPlace__losePath-ls3X5l"   fill="rgba(0, 0, 0, 0.2)"
+                                        <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
                                             d="M12.03,188l98.949,-0l0.01,0c1.11,0 2.011,-0.901 2.011,-2.011l-0,-31.978c-0,-1.11 -0.901,-2.011 -2.011,-2.011l-0.01,0l-108.959,0l-0.02,0c-1.105,0.006 -2,0.905 -2,2.011l0,21.968c0,6.635 5.386,12.021 12.021,12.021l0.009,-0Z">
                                         </path>
-                                        <path class="svgBetPlace__winGroup-BgAOli" [ngClass]="{'svgBetPlace__ctaPath-kMdMxM': resultArray[2]?.runners[marketArray[2]?.runners[0]?.selectionId] === 'WINNER'}" fill="#fff"
+                                        <path class="svgBetPlace__winGroup-BgAOli"
+                                            [ngClass]="{'svgBetPlace__ctaPath-kMdMxM': resultArray[2]?.runners[marketArray[2]?.runners[0]?.selectionId] === 'WINNER'}"
+                                            fill="#fff"
                                             d="M12.03,188l98.949,-0l0.01,0c1.11,0 2.011,-0.901 2.011,-2.011l-0,-31.978c-0,-1.11 -0.901,-2.011 -2.011,-2.011l-0.01,0l-108.959,0l-0.02,0c-1.105,0.006 -2,0.905 -2,2.011l0,21.968c0,6.635 5.386,12.021 12.021,12.021l0.009,-0Z"
                                             filter="url(#BaccaratAllSideBetsWinFilter)" fill-opacity="0.05"></path>
                                     </g>
@@ -265,14 +269,15 @@
                                         <path fill="#33312e" fill-opacity="0.9"
                                             d="M331.969,188l-98.949,-0l-0.009,0c-1.11,0 -2.011,-0.901 -2.011,-2.011l0,-31.978c0,-1.11 0.901,-2.011 2.011,-2.011l0.009,0l108.959,0l0.021,0c1.105,0.006 2,0.905 2,2.011l-0,21.968c-0,6.635 -5.387,12.021 -12.021,12.021l-0.01,-0Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M331.969,188l-98.949,-0l-0.009,0c-1.11,0 -2.011,-0.901 -2.011,-2.011l0,-31.978c0,-1.11 0.901,-2.011 2.011,-2.011l0.009,0l108.959,0l0.021,0c1.105,0.006 2,0.905 2,2.011l-0,21.968c-0,6.635 -5.387,12.021 -12.021,12.021l-0.01,-0Z">
                                         </path>
-                                        <path class="svgBetPlace__losePath-ls3X5l"  fill="rgba(0, 0, 0, 0.2)"
+                                        <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
                                             d="M331.969,188l-98.949,-0l-0.009,0c-1.11,0 -2.011,-0.901 -2.011,-2.011l0,-31.978c0,-1.11 0.901,-2.011 2.011,-2.011l0.009,0l108.959,0l0.021,0c1.105,0.006 2,0.905 2,2.011l-0,21.968c-0,6.635 -5.387,12.021 -12.021,12.021l-0.01,-0Z">
                                         </path>
-                                        <path class="svgBetPlace__winGroup-BgAOli" [ngClass]="{'svgBetPlace__ctaPath-kMdMxM': resultArray[2]?.runners[marketArray[2]?.runners[1]?.selectionId] === 'WINNER'}"  fill="#fff"
+                                        <path class="svgBetPlace__winGroup-BgAOli"
+                                            [ngClass]="{'svgBetPlace__ctaPath-kMdMxM': resultArray[2]?.runners[marketArray[2]?.runners[1]?.selectionId] === 'WINNER'}"
+                                            fill="#fff"
                                             d="M331.969,188l-98.949,-0l-0.009,0c-1.11,0 -2.011,-0.901 -2.011,-2.011l0,-31.978c0,-1.11 0.901,-2.011 2.011,-2.011l0.009,0l108.959,0l0.021,0c1.105,0.006 2,0.905 2,2.011l-0,21.968c-0,6.635 -5.387,12.021 -12.021,12.021l-0.01,-0Z"
                                             filter="url(#BaccaratAllSideBetsWinFilter)" fill-opacity="0.05"></path>
                                     </g>
@@ -281,8 +286,7 @@
                                         <path fill="#33312e" fill-opacity="0.9"
                                             d="M2.21,109.827c-0.715,-0.717 -2.21,-0.243 -2.21,0.77l0,37.403c0,1.104 0.895,2 2,2l109,0c1.105,0 2,-0.896 2,-2l0,-32c0,-1.105 -0.895,-2 -2,-2l-99,0c-3.81,0 -7.265,-1.643 -9.79,-4.173Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M2.21,109.827c-0.715,-0.717 -2.21,-0.243 -2.21,0.77l0,37.403c0,1.104 0.895,2 2,2l109,0c1.105,0 2,-0.896 2,-2l0,-32c0,-1.105 -0.895,-2 -2,-2l-99,0c-3.81,0 -7.265,-1.643 -9.79,-4.173Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -319,8 +323,7 @@
                                         <path fill="#33312e" fill-opacity="0.9"
                                             d="M341.79,109.827c0.715,-0.717 2.21,-0.243 2.21,0.77l0,37.403c0,1.104 -0.895,2 -2,2l-109,0c-1.105,0 -2,-0.896 -2,-2l0,-32c0,-1.105 0.895,-2 2,-2l99,0c3.81,0 7.265,-1.643 9.79,-4.173Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M341.79,109.827c0.715,-0.717 2.21,-0.243 2.21,0.77l0,37.403c0,1.104 -0.895,2 -2,2l-109,0c-1.105,0 -2,-0.896 -2,-2l0,-32c0,-1.105 0.895,-2 2,-2l99,0c3.81,0 7.265,-1.643 9.79,-4.173Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -335,8 +338,7 @@
                                         <path fill="#33312e" fill-opacity="0.9"
                                             d="M226.98,114l0.02,0l0,0c1.105,0.006 2,0.905 2,2.011l-0,31.978c-0,1.106 -0.895,2.005 -2,2.011l0,-0l-109.98,-0l-0.009,0c-1.11,0 -2.011,-0.901 -2.011,-2.011l-0,-31.978c-0,-1.11 0.901,-2.011 2.011,-2.011l0.009,0l109.96,0Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M226.98,114l0.02,0l0,0c1.105,0.006 2,0.905 2,2.011l-0,31.978c-0,1.106 -0.895,2.005 -2,2.011l0,-0l-109.98,-0l-0.009,0c-1.11,0 -2.011,-0.901 -2.011,-2.011l-0,-31.978c-0,-1.11 0.901,-2.011 2.011,-2.011l0.009,0l109.96,0Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -351,8 +353,7 @@
                                         <path fill="#33312e" fill-opacity="0.9"
                                             d="M226.98,152l0.02,0l0,0c1.105,0.006 2,0.905 2,2.011l0,31.978c0,1.106 -0.895,2.005 -2,2.011l0,-0l-109.98,-0l-0.009,0c-1.11,0 -2.011,-0.901 -2.011,-2.011l0,-31.978c0,-1.11 0.901,-2.011 2.011,-2.011l0.009,0l109.96,0Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M226.98,152l0.02,0l0,0c1.105,0.006 2,0.905 2,2.011l0,31.978c0,1.106 -0.895,2.005 -2,2.011l0,-0l-109.98,-0l-0.009,0c-1.11,0 -2.011,-0.901 -2.011,-2.011l0,-31.978c0,-1.11 0.901,-2.011 2.011,-2.011l0.009,0l109.96,0Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -372,13 +373,13 @@
                                     <path
                                         d="M222.465,110l3.07,0c-0.34,-0.588 -0.535,-1.271 -0.535,-2l0,-0.009c28.257,-0.533 51,-23.606 51,-51.991c0,-28.385 -22.743,-51.458 -51,-51.991l0,-0.009c0,-0.729 0.195,-1.412 0.535,-2l-3.07,0c0.34,0.588 0.535,1.271 0.535,2l0,0.009c-28.257,0.533 -51,23.606 -51,51.991c0,28.385 22.743,51.458 51,51.991l0,0.009c0,0.729 -0.195,1.412 -0.535,2Zm1.535,-104c-27.614,0 -50,22.386 -50,50c0,27.614 22.386,50 50,50c27.614,0 50,-22.386 50,-50c0,-27.614 -22.386,-50 -50,-50Z"
                                         fill-rule="evenodd" fill="#0009"></path>
-                                    <g (click)="getClickedItem('Player')"
-                                        class="svgBetPlace-sylXGS " [ngClass]="{'svgBetPlace_cta-ULmy2Z':game?.status === 'ONLINE'}" data-locator="player-button">
+                                    <g (click)="getClickedItem('Player')" class="svgBetPlace-sylXGS "
+                                        [ngClass]="{'svgBetPlace_cta-ULmy2Z':game?.status === 'ONLINE'}"
+                                        data-locator="player-button">
                                         <path fill="url(#BC_table_betPlace_Player)"
                                             d="M74,0 c-6.627,0 -12,5.373 -12,12l0,88c0,6.627 5.373,12 12,12l145,0c2.209,0 4,-1.791 4,-4l0,-0.009c-28.257,-0.533 -51,-23.606 -51,-51.991c0,-28.385 22.743,-51.458 51,-51.991l0,-0.009c0,-2.209 -1.791,-4 -4,-4l-145,0Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M74,0 c-6.627,0 -12,5.373 -12,12l0,88c0,6.627 5.373,12 12,12l145,0c2.209,0 4,-1.791 4,-4l0,-0.009c-28.257,-0.533 -51,-23.606 -51,-51.991c0,-28.385 22.743,-51.458 51,-51.991l0,-0.009c0,-2.209 -1.791,-4 -4,-4l-145,0Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -444,13 +445,13 @@
                                             </linearGradient>
                                         </defs>
                                     </g>
-                                    <g (click)="getClickedItem('Banker')"
-                                        class="svgBetPlace-sylXGS" [ngClass]="{'svgBetPlace_cta-ULmy2Z':game?.status === 'ONLINE'}" data-locator="banker-button">
+                                    <g (click)="getClickedItem('Banker')" class="svgBetPlace-sylXGS"
+                                        [ngClass]="{'svgBetPlace_cta-ULmy2Z':game?.status === 'ONLINE'}"
+                                        data-locator="banker-button">
                                         <path fill="url(#BC_table_betPlace_Banker)"
                                             d="M229,0c-2.209,0 -4,1.791 -4,4l0,0.009c28.257,0.533 51,23.606 51,51.991c0,28.385 -22.743,51.458 -51,51.991l0,0.009c0,2.209 1.791,4 4,4l145,0c6.627,0 12,-5.373 12,-12l0,-88c0,-6.627 -5.373,-12 -12,-12l-145,0Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M229,0c-2.209,0 -4,1.791 -4,4l0,0.009c28.257,0.533 51,23.606 51,51.991c0,28.385 -22.743,51.458 -51,51.991l0,0.009c0,2.209 1.791,4 4,4l145,0c6.627,0 12,-5.373 12,-12l0,-88c0,-6.627 -5.373,-12 -12,-12l-145,0Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -516,13 +517,13 @@
                                             </linearGradient>
                                         </defs>
                                     </g>
-                                    <g (click)="getClickedItem('Tie')" class="svgBetPlace-sylXGS" [ngClass]="{'svgBetPlace_cta-ULmy2Z':game?.status === 'ONLINE'}"
+                                    <g (click)="getClickedItem('Tie')" class="svgBetPlace-sylXGS"
+                                        [ngClass]="{'svgBetPlace_cta-ULmy2Z':game?.status === 'ONLINE'}"
                                         data-locator="tie-button">
                                         <path fill="url(#BC_table_betPlace_Tie)"
                                             d="M174,56c0,-27.614 22.386,-50 50,-50c27.614,0 50,22.386 50,50c0,27.614 -22.386,50 -50,50c-27.614,0 -50,-22.386 -50,-50Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M174,56c0,-27.614 22.386,-50 50,-50c27.614,0 50,22.386 50,50c0,27.614 -22.386,50 -50,50c-27.614,0 -50,-22.386 -50,-50Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -598,8 +599,7 @@
                                         <path fill="#33312e" fill-opacity="0.9"
                                             d="M60,77.999c0,-1.105 -0.895,-2 -2,-2l-56,0c-1.105,0 -2,0.895 -2,2l0,22c0,6.627 5.373,12 12,12l50.69,0c0.99,0 1.461,-1.405 0.776,-2.12c-2.021,-2.108 -3.466,-4.864 -3.466,-7.88l0,-24Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M60,77.999c0,-1.105 -0.895,-2 -2,-2l-56,0c-1.105,0 -2,0.895 -2,2l0,22c0,6.627 5.373,12 12,12l50.69,0c0.99,0 1.461,-1.405 0.776,-2.12c-2.021,-2.108 -3.466,-4.864 -3.466,-7.88l0,-24Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -614,8 +614,7 @@
                                         <path fill="#33312e" fill-opacity="0.9"
                                             d="M388,77.999c0,-1.105 0.895,-2 2,-2l56,0c1.105,0 2,0.895 2,2l0,22c0,6.627 -5.373,12 -12,12l-50.69,0c-0.99,0 -1.461,-1.405 -0.776,-2.12c2.021,-2.108 3.466,-4.864 3.466,-7.88l0,-24Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M388,77.999c0,-1.105 0.895,-2 2,-2l56,0c1.105,0 2,0.895 2,2l0,22c0,6.627 -5.373,12 -12,12l-50.69,0c-0.99,0 -1.461,-1.405 -0.776,-2.12c2.021,-2.108 3.466,-4.864 3.466,-7.88l0,-24Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -630,8 +629,7 @@
                                         <path fill="#33312e" fill-opacity="0.9"
                                             d="M60,33.999c0,1.105 -0.895,2 -2,2l-56,0c-1.105,0 -2,-0.895 -2,-2l0,-22c0,-6.627 5.373,-12 12,-12l50.69,0c0.99,0 1.461,1.405 0.776,2.12c-2.021,2.108 -3.466,4.864 -3.466,7.88l0,24Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M60,33.999c0,1.105 -0.895,2 -2,2l-56,0c-1.105,0 -2,-0.895 -2,-2l0,-22c0,-6.627 5.373,-12 12,-12l50.69,0c0.99,0 1.461,1.405 0.776,2.12c-2.021,2.108 -3.466,4.864 -3.466,7.88l0,24Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -665,8 +663,7 @@
                                         <path fill="#33312e" fill-opacity="0.9"
                                             d="M388,33.999c0,1.105 0.895,2 2,2l56,0c1.105,0 2,-0.895 2,-2l0,-22c0,-6.627 -5.373,-12 -12,-12l-50.69,0c-0.99,0 -1.461,1.405 -0.776,2.12c2.021,2.108 3.466,4.864 3.466,7.88l0,24Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M388,33.999c0,1.105 0.895,2 2,2l56,0c1.105,0 2,-0.895 2,-2l0,-22c0,-6.627 -5.373,-12 -12,-12l-50.69,0c-0.99,0 -1.461,1.405 -0.776,2.12c2.021,2.108 3.466,4.864 3.466,7.88l0,24Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -681,8 +678,7 @@
                                         <path fill="#33312e" fill-opacity="0.9"
                                             d="M58,37.999l-56,-0c-1.105,-0 -2,0.895 -2,2l-0,32c-0,1.105 0.895,2 2,2l56,0c1.105,0 2,-0.895 2,-2l-0,-32c-0,-1.105 -0.895,-2 -2,-2Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M58,37.999l-56,-0c-1.105,-0 -2,0.895 -2,2l-0,32c-0,1.105 0.895,2 2,2l56,0c1.105,0 2,-0.895 2,-2l-0,-32c-0,-1.105 -0.895,-2 -2,-2Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -697,8 +693,7 @@
                                         <path fill="#33312e" fill-opacity="0.9"
                                             d="M446,37.999l-56,0c-1.105,0 -2,0.895 -2,2l0,32c0,1.105 0.895,2 2,2l56,0c1.105,0 2,-0.895 2,-2l0,-32c0,-1.105 -0.895,-2 -2,-2Z">
                                         </path>
-                                        <path class=" noAnimate"
-                                            fill="rgba(255, 255, 255, 0.05)"
+                                        <path class=" noAnimate" fill="rgba(255, 255, 255, 0.05)"
                                             d="M446,37.999l-56,0c-1.105,0 -2,0.895 -2,2l0,32c0,1.105 0.895,2 2,2l56,0c1.105,0 2,-0.895 2,-2l0,-32c0,-1.105 -0.895,-2 -2,-2Z">
                                         </path>
                                         <path class="svgBetPlace__losePath-ls3X5l" fill="rgba(0, 0, 0, 0.2)"
@@ -824,36 +819,46 @@
                                     </div>
                                     <div class="table__playerScore-pzJbwP" data-locator="cardsScore-player"></div>
                                     <div class="table__bankerScore-LBpRzc" data-locator="cardsScore-banker"></div>
-                                    <div class="table__playerTitle-IDg1Sx blurText" data-locator="player-title">
+                                    <div class="table__playerTitle-IDg1Sx blurText" data-locator="player-title"
+                                        [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND', '!opacity-[1]': resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER'}">
                                         {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}
                                     </div>
-                                    <div class="table__bankerTitle-xysbeW blurText" data-locator="banker-title">
+                                    <div class="table__bankerTitle-xysbeW blurText" data-locator="banker-title"
+                                        [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND', '!opacity-[1]': resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'}">
                                         {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}
                                     </div>
-                                    <div class="table__tieTitle-uPf3Aa blurText" data-locator="tie-title">
+                                    <div class="table__tieTitle-uPf3Aa blurText" data-locator="tie-title"
+                                        [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND', '!opacity-[1]': resultArray[0]?.runners[marketArray[1]?.runners[0]?.selectionId] === 'WINNER'}">
                                         {{marketArray[1]?.runnersName[marketArray[1]?.runners[0]?.selectionId]}}
                                         {{marketArray[1]?.runners[0]?.price?.back[0].price}}</div>
                                     <div class="table__playerPairTitle-zjbgYU blurText pPair"
+                                        [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND', '!opacity-[1]': resultArray[2]?.runners[marketArray[2]?.runners[0]?.selectionId] === 'WINNER'}"
                                         data-locator="playerPair-title">
                                         @if(!isMobile){
-                                        {{marketArray[2]?.runnersName[marketArray[2]?.runners[0]?.selectionId].replace("PLAYER", "P")}}
+                                        {{marketArray[2]?.runnersName[marketArray[2]?.runners[0]?.selectionId].replace("PLAYER",
+                                        "P")}}
                                         }
                                         @if(isMobile){
                                         {{marketArray[2]?.runnersName[marketArray[2]?.runners[0]?.selectionId]}}
                                         }
                                     </div>
-                                    <div class="table__playerPairPayout-b4Lfsu hide">{{marketArray[2]?.runners[0]?.price?.back[0].price}}</div>
+                                    <div class="table__playerPairPayout-b4Lfsu hide">
+                                        {{marketArray[2]?.runners[0]?.price?.back[0].price}}</div>
                                     <div class="table__bankerPairTitle-jKSnQU blurText bPair"
+                                    [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND', '!opacity-[1]': resultArray[2]?.runners[marketArray[2]?.runners[1]?.selectionId] === 'WINNER'}"
                                         data-locator="bankerPair-title">
                                         @if(!isMobile){
-                                       {{marketArray[2]?.runnersName[marketArray[2]?.runners[1]?.selectionId].replace("BANKER", "B")}}
+                                        {{marketArray[2]?.runnersName[marketArray[2]?.runners[1]?.selectionId].replace("BANKER",
+                                        "B")}}
                                         }
                                         @if(isMobile){
                                         {{marketArray[2]?.runnersName[marketArray[2]?.runners[1]?.selectionId]}}
                                         }
                                     </div>
-                                    <div class="table__bankerPairPayout-DTrMfa hide">{{marketArray[2]?.runners[1]?.price?.back[0].price}}</div>
+                                    <div class="table__bankerPairPayout-DTrMfa hide">
+                                        {{marketArray[2]?.runners[1]?.price?.back[0].price}}</div>
                                     <div class="table__playerBonusTitle-ayiQYv blurText"
+                                     [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND'}"
                                         data-locator="playerBonus-title">
                                         @if(!isMobile){
                                         P Bonus
@@ -863,6 +868,7 @@
                                         }
                                     </div>
                                     <div class="table__bankerBonusTitle-ct9ndo blurText"
+                                     [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND'}"
                                         data-locator="bankerBonus-title">
                                         @if(!isMobile){
                                         B Bonus
@@ -872,11 +878,13 @@
                                         }
                                     </div>
                                     <div class="table__perfectPairTitle-bR3biK blurText sPair"
+                                     [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND'}"
                                         data-locator="perfectPair-title">Suited
                                         Pair</div>
                                     <div class="table__perfectPairPayout-jEF5WI hide">Double 200:1</div>
                                     <div class="table__perfectPairSecondPayout-OP50cA hide">Single 25:1</div>
                                     <div class="table__eitherPairTitle-P2DiF2 blurText ePair"
+                                     [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND'}"
                                         data-locator="eitherPair-title">
                                         Either
                                         Pair</div>
