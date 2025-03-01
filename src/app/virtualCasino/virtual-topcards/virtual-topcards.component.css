@@ -783,3 +783,63 @@
 .sideBetPlace_alignment_right-lxfKXH .sideBetPlace__title-fRWK_S {
   right: 0.75rem;
 }
+
+/* ================== Highlight Classes ================== */
+
+/* .table__rightBetPlace-hTe6gz .sideButton__borderWin-qJIxv_,
+.table__rightBetPlace-hTe6gz .sideButton__glowShadow-sSqbCK {
+  opacity: 1 !important;
+  visibility: visible !important;
+} */
+
+.table__drawBetPlace-EhK1WT .drawButton__glowBorder-w79A3E,
+.table__drawBetPlace-EhK1WT .drawButton__glowShadow-X2elC3 {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.table__drawBetPlace-EhK1WT .drawButton__innerCircle-uHjRNX {
+  stroke: #fff;
+  fill: #a6aa24;
+}
+
+/* .table__leftBetPlace-kP8Mj4 .sideButton__borderWin-qJIxv_,
+.table__leftBetPlace-kP8Mj4 .sideButton__glowShadow-sSqbCK {
+  opacity: 1 !important;
+  visibility: visible !important;
+} */
+
+.backgroundWinLine__path-nnmXl_ {
+  animation-name: shadowLineAppear-eKTfBq;
+}
+
+.backgroundWinLine_winner_rightSide-uKPYf8 {
+  /* color: rgb(41, 204, 204) !important;  for right side */
+  /* color: rgb(255, 65, 0) !important; for left side */
+  color: rgb(248, 255, 19) !important;
+}
+
+.rngTable_winner_rightSide-K5NcPf {
+  /* color: rgb(41, 204, 204) !important;  for right side */
+  /* color: rgb(255, 65, 0) !important; for left side */
+  color: rgb(248, 255, 19) !important;
+}
+
+.rngTable__svgWinPath-PkAVLR {
+  animation-name: winAnimation-uB2yrP;
+}
+
+@keyframes winAnimation-uB2yrP {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes shadowLineAppear-eKTfBq {
+  0% {
+    stroke-dashoffset: 374;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
