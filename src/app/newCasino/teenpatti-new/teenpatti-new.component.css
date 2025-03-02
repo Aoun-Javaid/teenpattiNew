@@ -477,7 +477,7 @@
 .gradientDiv {
   height: 55%;
   /* background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%); */
-  background: linear-gradient(to right, #eb2300 0%, #f82601e6 2%, #ff2900 10%, #fe2e02 50%, #ea1b01 73%, #dc1401 86%, #b80600 98%,#ba0800 92%);
+  background: var(--NteenpattiVideoBottomBg);
 }
 .time-container {
   @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
@@ -593,6 +593,8 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
   width: 34px;
   border-radius: 2px;
+  width: 40px;
+  height: 57px;
 }
 
 .progress_bar_container {
