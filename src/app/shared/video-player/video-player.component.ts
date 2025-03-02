@@ -255,7 +255,10 @@ export class VideoPlayerComponent implements OnChanges {
     if (this.eventId != '99.0062') {
 
       this.getStreaming();
-      this.autoRun();
+      setTimeout(() => {
+        this.autoRun();
+      }, 1000);
+      // this.autoRun();
     }
     this.networkService.getResultData().subscribe(data => {
 
@@ -498,18 +501,22 @@ export class VideoPlayerComponent implements OnChanges {
         this.streamingName = res?.data?.streamingName;
         this.streamingURl = res?.data?.url;
 
-        if (this.streamingName && this.streamingURl && this.streamingName != 'lowbalance') {
-          webrtcPlayer = new T20RTCPlayer("remoteVideo", this.streamingName, "", this.streamingURl, "", true, true, "tcp");
-          webrtcPlayer.Play();
-        }
-        else {
-          return
-        }
 
-        // webrtcPlayer = new T20RTCPlayer("remoteVideo", this.streamingName, "", this.streamingURl, "", true, true, "tcp");
+        this.streamingName = 'game-1';
+        this.streamingURl = '185.185.51.139';
+
+        // if (this.streamingName && this.streamingURl && this.streamingName != 'lowbalance') {
+        //   webrtcPlayer = new T20RTCPlayer("remoteVideo", this.streamingName, "", this.streamingURl, "", true, true, "tcp");
+        //   webrtcPlayer.Play();
+        // }
+        // else {
+        //   return
+        // }
+
+        webrtcPlayer = new T20RTCPlayer("remoteVideo", 'GAME-1', "", '185.185.51.139', "80", false, true, "udp");
         // // webrtcPlayer = new T20RTCPlayer("remoteVideo", this.streamingName, "","strikexch.live", "", true, true, "tcp");
         // // webrtcPlayer = new T20RTCPlayer("remoteVideo", "2020teenpatti-1", "", "strikexch.live", "", true, true, "tcp");
-        // webrtcPlayer?.Play();
+        webrtcPlayer?.Play();
       });
     }, 100);
   }

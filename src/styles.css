@@ -398,8 +398,18 @@
   --market-details-cmp-odd-row-back-1-active-color: #fff;
   --market-details-cmp-odd-row-lay-1-active-background: #f4496d;
   --market-details-cmp-odd-row-lay-1-active-color: #fff;
+
+
+  /* new casino variables */
+
+
+  --NteenpattiVideoBottomBg:linear-gradient(to right, #eb2300 0%, #f82601e6 2%, #ff2900 10%, #fe2e02 50%, #ea1b01 73%, #dc1401 86%, #b80600 98%,#ba0800 92%);
 }
 /* You can add global styles to this file, and also import other style files */
+
+
+
+
 body {
   background: #1a2c38;
   color: #fff;

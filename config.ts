@@ -31,7 +31,7 @@ export const CONFIG = {
   myBets: BASE_URL + "/v2/casino/myBets",
   allBets: BASE_URL + "/v2/casino/allBets",
   highRollers: BASE_URL + "/v2/casino/highRollers",
-  providersNavigations: BASE_URL + "/api/exchange/provider/providersNavigations",
+  providersNavigations: BASE_URL + "/v2/operator/navigation/providersNavigations",
   providersNavigationsTime:120,
 
   // casino urls

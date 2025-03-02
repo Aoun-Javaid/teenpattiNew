@@ -376,7 +376,7 @@ export class LiveBaccaratComponent implements OnInit {
           // for video results
           // for video results
 
-        
+
 
           for (let key in objMarket.data.resultsArr[0].runners) {
             if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
@@ -775,7 +775,7 @@ export class LiveBaccaratComponent implements OnInit {
         data => {
 
           if (data.meta.status == true) {
-            let availBalance = (data.data.bankBalance - data.data.exposure).toFixed(2)
+            let availBalance = (data.data.balance - data.data.exposure).toFixed(2)
             $('.userTotalBalance').text(availBalance);
             $('.userTotalExposure').text(data.data.exposure);
             let ex = data.data.exposure.toLocaleString('en-US', { style: 'currency', currency: 'USD', symbol: '' });
@@ -800,11 +800,16 @@ export class LiveBaccaratComponent implements OnInit {
   }
 
   getCoinValue(event: any) {
-    console.log('event', event);
+    this.selectedBetAmount = event;
   }
 
   getClickedItem(blockName: string) {
     console.log(blockName + " Method Clicked");
+  }
+
+
+  test() {
+    console.log('test')
   }
 
 }
