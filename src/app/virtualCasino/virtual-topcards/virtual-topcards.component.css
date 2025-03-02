@@ -232,6 +232,7 @@
   animation-iteration-count: infinite;
   animation-timing-function: ease;
   opacity: 0;
+  display: block !important;
 }
 
 .rngTable__cards-CIQw_j {
@@ -782,4 +783,199 @@
 .sideBetPlace_alignment_right-lxfKXH .sideBetPlace__coefficient-rLhU1g,
 .sideBetPlace_alignment_right-lxfKXH .sideBetPlace__title-fRWK_S {
   right: 0.75rem;
+}
+
+.sideBetPlace__card-uKttcd {
+  animation: cardAnimationAppearance-CVqii4 300ms ease forwards;
+  bottom: 2rem;
+  position: absolute;
+}
+
+.sideBetPlace_alignment_left-j7KLQf .sideBetPlace__card-uKttcd {
+  left: 4.5rem;
+}
+
+.sideBetPlace_flattenMode-LlQvR6 .sideBetPlace__card-uKttcd {
+  bottom: 2.375rem;
+}
+
+.sideBetPlace_flattenMode-LlQvR6.sideBetPlace_alignment_left-j7KLQf
+  .sideBetPlace__card-uKttcd {
+  left: 3.5rem;
+}
+
+.card-img {
+  border-radius: 0.125rem;
+  height: 3rem;
+  width: 2.125rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+.right-side {
+  right: 3.5rem !important;
+}
+
+::ng-deep app-bet-coin div:nth-child(3) {
+  @apply lg:!mt-0;
+}
+
+.dragonTigerHistoryPortrait__scoreInfo-jDmarn {
+  padding: 0 0.5rem 0.25rem;
+  margin-top: 5px;
+}
+
+.scoreBoardInfo-USWOxa,
+.scoreBoardInfo__total-b3bUj3,
+.scoreBoardInfo__totalItem-KhIYhz {
+  align-items: center;
+  display: flex;
+  font-family: Rubik, sans-serif;
+}
+
+.scoreBoardInfo-USWOxa {
+  --leftColor: #0000e5;
+  --rightColor: #c00;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+  justify-content: space-between;
+}
+
+.scoreBoardInfo-USWOxa,
+.scoreBoardInfo__total-b3bUj3,
+.scoreBoardInfo__totalItem-KhIYhz {
+  align-items: center;
+  display: flex;
+}
+
+.scoreBoardInfo__buttons-nUvY7g {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  justify-content: space-between;
+}
+
+.scoreBoardInfo__totalItem-KhIYhz {
+  color: #fff;
+  cursor: default;
+  font-size: 0.625rem;
+  margin: 0 0.25rem;
+  min-width: 1.875rem;
+}
+
+.scoreBoardInfo-USWOxa,
+.scoreBoardInfo__total-b3bUj3,
+.scoreBoardInfo__totalItem-KhIYhz {
+  align-items: center;
+  display: flex;
+}
+
+.scoreBoardInfo__totalItemSvg-eW0Cnx {
+  aspect-ratio: 1;
+  display: block;
+  margin-right: 0.125rem;
+  width: 0.5625rem;
+}
+
+.scoreBoardInfo__button_left-cIMRsf {
+  border: 0.0625rem solid #c62808;
+  border-radius: 0.5rem 0.125rem 0.125rem 0.5rem;
+}
+
+.scoreBoardInfo__button-wmBupa {
+  box-sizing: content-box;
+  cursor: pointer;
+  max-width: 3rem;
+  padding: 0.1875rem 0.25rem 0.1875rem 0.4375rem;
+  position: relative;
+  transition: background-color 300ms ease;
+}
+
+.scoreBoardInfo__button-wmBupa:before {
+  background-color: transparent;
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  transition: background-color 300ms ease;
+  width: 100%;
+  z-index: -1;
+}
+
+.scoreBoardInfo__button-wmBupa > svg {
+  height: 0.5rem;
+  width: 2rem;
+}
+
+.scoreBoardInfo__button_right-ZSwl6f {
+  border: 0.0625rem solid #e19d19;
+  border-radius: 0.125rem 0.5rem 0.5rem 0.125rem;
+}
+
+.no-more-bets {
+  @apply absolute left-[50%] translate-x-[-50%] text-nowrap top-[20%] lg:top-[50%] z-[999] text-[#fff] text-[0.875rem] !bg-none px-3 py-1  max-w-fit;
+}
+
+.roundStatus__decor-DDvAQJ {
+  @apply absolute bg-[rgba(0,0,0,.6)] [filter:blur(0.375rem)] inset-0 rounded-[0.75rem];
+}
+
+/* ================== Highlight Classes ================== */
+
+.backgroundWinLine__path-nnmXl_ {
+  animation-name: shadowLineAppear-eKTfBq;
+  display: block !important;
+}
+
+.tableLine {
+  animation-name: winAnimation-uB2yrP;
+}
+
+.dragonWins {
+  color: rgb(255, 65, 0) !important;
+}
+
+.tigerWins {
+  color: rgb(41, 204, 204) !important;
+}
+
+.tieWins {
+  color: rgb(248, 255, 19) !important;
+}
+
+.dragonBox {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.tigerBox {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.tieInnerBox {
+  stroke: #fff !important;
+  fill: #a6aa24 !important;
+}
+
+.tieBox {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+@keyframes winAnimation-uB2yrP {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes shadowLineAppear-eKTfBq {
+  0% {
+    stroke-dashoffset: 374;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }

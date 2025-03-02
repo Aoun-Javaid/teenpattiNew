@@ -1,18 +1,44 @@
 <main id="root">
-    <!-- <app-top-results class="[@media(min-width:1200px)]:hidden"></app-top-results> -->
+    <app-top-results
+        class="[@media(min-width:1200px)]:hidden inline-blocks absolute top-[62px] w-full h-auto z-50"></app-top-results>
+
+    <div class="playerA-win-point" *ngIf="this.RoundWinner">
+        <div class="player-content-wrapper">
+            <div class="player-text animation-player-scale"
+                [ngClass]="{ 'playerA-winnerText': this.RoundWinner == 'DRAGON' }">
+                {{ this.RoundWinner }}
+            </div>
+        </div>
+    </div>
+
+    <!-- no bet more  -->
+    <div class="no-more-bets" *ngIf="this.game?.noMoreBets && this.game?.status == 'SUSPEND'">
+        <div class="relative z-10">No more bets</div>
+        <div class="roundStatus__decor-DDvAQJ"></div>
+    </div>
+    <!-- no bet more  -->
+
+    <!-- bet-confirm  -->
+    <div *ngIf="this.game?.betAccepted" class="no-more-bets">
+        <div class="relative z-10">Bet confirmed</div>
+
+        <div class="roundStatus__decor-DDvAQJ"></div>
+    </div>
+    <!-- bet-confirm  -->
+
     <div class="wrapper game_shiftedDown-rzul1J">
         <div class="game__substrateLayer-LGkRLq">
             <div class="game__video-YzLt9h topCard__staticVideoWrap-FiHDJy">
                 <div class="game__staticVideo-y5rXT0">
                     <div class="staticVideo-PcRqrm">
                         <img class="staticVideo__poster-hdUGdJ staticVideo__poster_hidden-yMci7o staticVideo__player_withPoster-vt9rL5"
-                            src="https://client.petros04.com/js/../img/rng-tc-poster-m.e7c0fe18.png" alt="poster">
+                            src="https://client.petros04.com/js/../img/rng-tc-poster-m.e7c0fe18.png" alt="poster" />
                         <video class="staticVideo__player-oLgBsz staticVideo__player_withPoster-vt9rL5" playsinline=""
                             loop="">
                             <source src="https://client.petros04.com/js/../img/TopCard_RNG_BG_portrait.13dd0c39.mp4"
-                                type="video/mp4; codecs=avc1.4D401E,mp4a.40.2">
+                                type="video/mp4; codecs=avc1.4D401E,mp4a.40.2" />
                             <source src="https://client.petros04.com/js/../img/TopCard_RNG_BG_portrait.51d51315.webm"
-                                type="video/webm">
+                                type="video/webm" />
                         </video>
                     </div>
                 </div>
@@ -24,15 +50,21 @@
             <div class="chatPreview-THFBrz chatPreview_mobile-zB9URg chatPreview_hidden-GXvWSw">
                 <div class="messagePreview-qrVrW0"></div>
             </div>
+            
             <div class="promoWidget-MC5DKE"></div>
+            
             <div class="topCard-c1emFi topCard_rngGame-ftIaEw">
                 <div class="topCard__rngTable-POdQ39">
                     <div class="rngTable-m9dIQZ rngTable_ready-h53afX">
                         <div class="rngTable-U4qMWx">
                             <img class="rngTable__image-qO0cK5"
-                                src="https://client.petros04.com/js/../img/rng-table.286655c6.png" alt="table">
-                            <svg class="rngTable__svg-p8L0DQ" viewBox="0 0 940 684" xmlns="http://www.w3.org/2000/svg"
-                                stroke-linecap="round">
+                                src="https://client.petros04.com/js/../img/rng-table.286655c6.png" alt="table" />
+                            <svg [ngClass]="{ 
+                                  'tableLine dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
+                                  'tableLine tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
+                                  'tableLine tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
+                                }" class="rngTable__svg-p8L0DQ" viewBox="0 0 940 684"
+                                xmlns="http://www.w3.org/2000/svg" stroke-linecap="round">
                                 <path
                                     d="M66.721,91.239l180.463,-0c7.758,-0 9.142,1.11 12.174,4.336c4.656,4.954 16.34,17.916 21.705,23.064c3.79,3.636 5.323,4.357 13.482,4.359c193.074,0.039 158.675,0.039 351.75,0c8.159,-0.002 9.691,-0.723 13.481,-4.359c5.365,-5.148 17.049,-18.11 21.705,-23.064c3.032,-3.226 4.417,-4.336 12.174,-4.336l180.464,-0"
                                     filter="url(#rngTopCardLineFilter)" fill="none" stroke="currentColor"
@@ -52,21 +84,35 @@
                         </div>
                         <div class="rngTable__cards-CIQw_j relative">
                             <img class="h-[3rem] w-[3.5rem] lg:h-[4.8rem] lg:w-[7rem] absolute left-[50%] rounded -translate-x-2/4 top-[17%]"
-                                src="/assets/virtual-table-cards/cardStack.svg" alt="card-stack">
-                            <img class="h-[3rem] w-[2rem]  lg:h-[3.5rem] lg:w-[4.4rem]  absolute top-[16%] lg:top-[22%] left-[17%] skew-x-[-22deg]"
-                                src="/assets/virtual-table-cards/singleCard.svg" alt="single-card">
+                                src="/assets/virtual-table-cards/cardStack.svg" alt="card-stack" />
+                            <img class="h-[2.5rem] w-[2rem] lg:h-[3.5rem] lg:w-[4.4rem] absolute top-[16%] lg:top-[22%] left-[17%] skew-x-[-22deg]"
+                                src="/assets/virtual-table-cards/singleCard.svg" alt="single-card" />
                             <div class="canvasBase-rsnbXU">
-                                <div class="konvajs-content" role="presentation"
-                                    style="position: relative; user-select: none; width: 337.909px; height: 154.875px;">
-                                    <canvas width="675" height="309"
-                                        style="padding: 0px; margin: 0px; border: 0px; background: transparent; position: absolute; top: 0px; left: 0px; width: 337.909px; height: 154.875px; display: block;">
+                                <div class="konvajs-content" role="presentation" style="
+                    position: relative;
+                    user-select: none;
+                    width: 337.909px;
+                    height: 154.875px;
+                  ">
+                                    <canvas width="675" height="309" style="
+                      padding: 0px;
+                      margin: 0px;
+                      border: 0px;
+                      background: transparent;
+                      position: absolute;
+                      top: 0px;
+                      left: 0px;
+                      width: 337.909px;
+                      height: 154.875px;
+                      display: block;
+                    ">
                                     </canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="topCard__mainArea-BPe8Po">
+                <div class="topCard__mainArea-BPe8Po mb-4">
                     <div class="topCard__substrateIllumination-Fgc6XC">
                         <div class="substrateIllumination-QERXre substrateIllumination_filledMode-RrfQJ9">
                             <div class="substrateIllumination__left-EhuQx_"></div>
@@ -77,17 +123,26 @@
                     <div class="topCard__table-dHIFjS">
                         <div class="topCard__betsTable-RPVYMP">
                             <div data-locator="bets-table" class="betsTable-O_8TCE">
-                                <div class="gameTableScaleWrap-d6JpbW" style="padding-top: 41.8605%;">
-                                    <div class="gameTableScaleWrap__item-K34egi lg:!scale-[1] lg:!static lg:flex lg:justify-center"
-                                        style="transform: translate(-50%, -50%) scale(var(--boardScale, 1));">
+                                <div class="gameTableScaleWrap-d6JpbW" style="padding-top: 41.8605%">
+                                    <div class="gameTableScaleWrap__item-K34egi lg:mb-4 lg:!scale-[1] lg:!static lg:flex lg:justify-center"
+                                        style="
+                      transform: translate(-50%, -50%)
+                        scale(var(--boardScale, 1));
+                    ">
                                         <div class="tableTooltip-YTZM32">
-                                            <div class="betsTable__winLine-Hy_5JI betsTable__winLine_top-O31Eeh"><svg
-                                                    class="backgroundWinLine_mirroredY-_eX8IJ" viewBox="0 0 374 19"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <div
+                                                class="lg:!hidden betsTable__winLine-Hy_5JI betsTable__winLine_top-O31Eeh">
+                                                <svg class="backgroundWinLine_mirroredY-_eX8IJ" [ngClass]="{
+                            'dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
+                            'tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
+                            'tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
+                          }" viewBox="0 0 374 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g filter="url(#BackgroundWinLineFilter)">
-                                                        <path class="backgroundWinLine__path-nnmXl_" fill="none"
-                                                            stroke-width="1" stroke="currentColor" fill-rule="evenodd"
-                                                            clip-rule="evenodd" d="M 0 8 Q 187 16 374 8"></path>
+                                                        <path class="!hidden"
+                                                            [ngClass]="{'backgroundWinLine__path-nnmXl_': resultArray.length > 0}"
+                                                            fill="none" stroke-width="1" stroke="currentColor"
+                                                            fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M 0 8 Q 187 16 374 8"></path>
                                                     </g>
                                                     <defs>
                                                         <filter id="BackgroundWinLineFilter" x="0" y="0" width="100%"
@@ -99,14 +154,22 @@
                                                                 flood-color="currentColor"></feDropShadow>
                                                         </filter>
                                                     </defs>
-                                                </svg></div>
-                                            <div class="betsTable__winLine-Hy_5JI betsTable__winLine_bottom-yhJg7N"><svg
-                                                    class="" viewBox="0 0 374 19" fill="none"
+                                                </svg>
+                                            </div>
+                                            <div
+                                                class="lg:!hidden betsTable__winLine-Hy_5JI betsTable__winLine_bottom-yhJg7N">
+                                                <svg [ngClass]="{
+                                                    'dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
+                                                    'tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
+                                                    'tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
+                                                  }" viewBox="0 0 374 19" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <g filter="url(#BackgroundWinLineFilter)">
-                                                        <path class="backgroundWinLine__path-nnmXl_" fill="none"
-                                                            stroke-width="1" stroke="currentColor" fill-rule="evenodd"
-                                                            clip-rule="evenodd" d="M 0 8 Q 187 16 374 8"></path>
+                                                        <path class="!hidden"
+                                                            [ngClass]="{'backgroundWinLine__path-nnmXl_': resultArray.length > 0}"
+                                                            fill="none" stroke-width="1" stroke="currentColor"
+                                                            fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M 0 8 Q 187 16 374 8"></path>
                                                     </g>
                                                     <defs>
                                                         <filter id="BackgroundWinLineFilter" x="0" y="0" width="100%"
@@ -118,18 +181,24 @@
                                                                 flood-color="currentColor"></feDropShadow>
                                                         </filter>
                                                     </defs>
-                                                </svg></div>
+                                                </svg>
+                                            </div>
                                             <div class="table-mGfpj2 table_flattenMode-mAvamp">
                                                 <div class="table__leftBetPlace-kP8Mj4">
                                                     <div
                                                         class="sideBetPlace-yaTQLm sideBetPlace_variant_classic-sXwkw_ sideBetPlace_flattenMode-LlQvR6 sideBetPlace_roundState_betting-HoZEfk sideBetPlace_alignment_left-j7KLQf">
                                                         <div data-locator="side-bet-Contender"
-                                                            class="sideBetPlace__button-ECqlcw"><svg
-                                                                class="sideButton-hG99dd" viewBox="0 0 179 144"
+                                                            class="sideBetPlace__button-ECqlcw">
+                                                            <svg class="sideButton-hG99dd" viewBox="0 0 179 144"
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <g>
-                                                                    <path class="sideButton__glowShadow-sSqbCK"
-                                                                        fill="#ff4100"
+                                                                    <path [ngClass]="{
+                                      dragonBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[0]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" class="sideButton__glowShadow-sSqbCK" fill="#ff4100"
                                                                         filter="url(#topCardBetPlaceAnimationGlowShadow_mirrorMode:false)"
                                                                         d="M23.4392 4.42861L23.4394 4.42861L158.902 1.10096C160.715 1.05642 162.261 2.40617 162.461 4.20864C162.671 6.09071 161.32 7.84259 159.375 8.2255C129.519 14.1029 107 40.4205 107 72C107 107.899 136.101 137 172 137C172.759 137 173.514 136.987 174.266 136.961C175.921 136.905 177.337 138.087 177.511 139.658C177.706 141.414 176.31 142.94 174.543 142.9L23.4892 139.522C17.9195 139.398 13.8419 139.305 10.7246 138.819C7.63598 138.337 5.63584 137.489 4.1359 135.955C2.63596 134.421 1.8318 132.403 1.41886 129.304C1.00208 126.177 1 122.098 1 116.527V27.4218C1 21.8619 1.00208 17.7915 1.41774 14.6698C1.82957 11.5768 2.63157 9.56105 4.12757 8.02812C5.62357 6.49519 7.61917 5.64428 10.7012 5.15716C13.8118 4.66551 17.881 4.56418 23.4392 4.42861Z">
                                                                     </path>
@@ -141,8 +210,13 @@
                                                                         stroke="#3f1001" stroke-width="2"
                                                                         d="M23.4392 4.42861L23.4394 4.42861L158.902 1.10096C160.715 1.05642 162.261 2.40617 162.461 4.20864C162.671 6.09071 161.32 7.84259 159.375 8.2255C129.519 14.1029 107 40.4205 107 72C107 107.899 136.101 137 172 137C172.759 137 173.514 136.987 174.266 136.961C175.921 136.905 177.337 138.087 177.511 139.658C177.706 141.414 176.31 142.94 174.543 142.9L23.4892 139.522C17.9195 139.398 13.8419 139.305 10.7246 138.819C7.63598 138.337 5.63584 137.489 4.1359 135.955C2.63596 134.421 1.8318 132.403 1.41886 129.304C1.00208 126.177 1 122.098 1 116.527V27.4218C1 21.8619 1.00208 17.7915 1.41774 14.6698C1.82957 11.5768 2.63157 9.56105 4.12757 8.02812C5.62357 6.49519 7.61917 5.64428 10.7012 5.15716C13.8118 4.66551 17.881 4.56418 23.4392 4.42861Z">
                                                                     </path>
-                                                                    <path class="sideButton__borderWin-qJIxv_"
-                                                                        stroke="#ff4100" stroke-width="2"
+                                                                    <path [ngClass]="{
+                                      dragonBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[0]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" class="sideButton__borderWin-qJIxv_" stroke="#ff4100" stroke-width="2"
                                                                         d="M23.4392 4.42861L23.4394 4.42861L158.902 1.10096C160.715 1.05642 162.261 2.40617 162.461 4.20864C162.671 6.09071 161.32 7.84259 159.375 8.2255C129.519 14.1029 107 40.4205 107 72C107 107.899 136.101 137 172 137C172.759 137 173.514 136.987 174.266 136.961C175.921 136.905 177.337 138.087 177.511 139.658C177.706 141.414 176.31 142.94 174.543 142.9L23.4892 139.522C17.9195 139.398 13.8419 139.305 10.7246 138.819C7.63598 138.337 5.63584 137.489 4.1359 135.955C2.63596 134.421 1.8318 132.403 1.41886 129.304C1.00208 126.177 1 122.098 1 116.527V27.4218C1 21.8619 1.00208 17.7915 1.41774 14.6698C1.82957 11.5768 2.63157 9.56105 4.12757 8.02812C5.62357 6.49519 7.61917 5.64428 10.7012 5.15716C13.8118 4.66551 17.881 4.56418 23.4392 4.42861Z">
                                                                     </path>
                                                                 </g>
@@ -162,15 +236,41 @@
                                                                         <stop offset="1" stop-color="#230900"></stop>
                                                                     </linearGradient>
                                                                 </defs>
-                                                            </svg></div>
+                                                            </svg>
+                                                        </div>
                                                         <div class="sideBetPlace__content-j1EBj7">
                                                             <div data-locator="bet-title-Contender"
-                                                                class="sideBetPlace__title-fRWK_S">Contender</div>
+                                                                class="sideBetPlace__title-fRWK_S">
+                                                                {{
+                                                                marketArray[0]?.runnersName[
+                                                                marketArray[0]?.runners[0]?.selectionId
+                                                                ]
+                                                                }}
+                                                            </div>
                                                             <div data-locator="side-bet-coefficient-Contender"
-                                                                class="sideBetPlace__coefficient-rLhU1g">1:1</div>
+                                                                class="sideBetPlace__coefficient-rLhU1g">
+                                                                {{
+                                                                marketArray[0]?.runners[0]?.price?.back[0]
+                                                                ?.price
+                                                                }}
+                                                            </div>
+                                                            <div class="sideBetPlace__card-uKttcd">
+                                                                <img [ngClass]="
+                                    dragonCards?.card_1 != '0' &&
+                                    dragonCards?.card_1
+                                      ? 'tableMainCards__card__animation'
+                                      : 'opacity-0'
+                                  " [src]="[
+                                    'assets/cards/' +
+                                      dragonCards?.card_1 +
+                                      '.png'
+                                  ]" class="card-img rounded-[0.125rem]" alt="card1" />
+                                                            </div>
                                                             <div class="sideBetPlace__betStat-IC2sez">
                                                                 <div class="topCardBetStat-PngAzO topCardBetStat_size_medium-hGKde_"
-                                                                    data-locator="side-bet-stat-Contender">0%</div>
+                                                                    data-locator="side-bet-stat-Contender">
+                                                                    0%
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -179,12 +279,21 @@
                                                     <div
                                                         class="drawBetPlace-rGh1m_ drawBetPlace_flatten-O0riqv drawBetPlace_roundState_betting-nZl6GO">
                                                         <div data-locator="draw-bet"
-                                                            class="drawBetPlace__button-k5DXi_"><svg
-                                                                class="drawButton-TOg_3P" viewBox="0 0 124 124"
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                style="--drawInnerCircleFill: #7e7e7e; --drawInnerCircleFillWin: #a6aa24; --drawImageCircleStroke: #abb024;">
+                                                            class="drawBetPlace__button-k5DXi_">
+                                                            <svg class="drawButton-TOg_3P" viewBox="0 0 124 124"
+                                                                xmlns="http://www.w3.org/2000/svg" style="
+                                  --drawInnerCircleFill: #7e7e7e;
+                                  --drawInnerCircleFillWin: #a6aa24;
+                                  --drawImageCircleStroke: #abb024;
+                                ">
                                                                 <g class="drawButton__g-csP2zO">
-                                                                    <path class="drawButton__glowShadow-X2elC3"
+                                                                    <path [ngClass]="{
+                                      tieBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[1]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" class="drawButton__glowShadow-X2elC3"
                                                                         d="M1,62a61,61 0 1,0 122,0a61,61 0 1,0 -122,0"
                                                                         fill="#f8ff13"
                                                                         filter="url(#top-card-bet-place-animation-glow-shadow-draw)">
@@ -194,12 +303,23 @@
                                                                         fill="url(#top-card-bet-place-draw-background)"
                                                                         stroke="url(#top-card-bet-place-draw-border-light)">
                                                                     </path>
-                                                                    <path class="drawButton__glowBorder-w79A3E"
-                                                                        stroke="#f8ff13" stroke-width="2"
+                                                                    <path [ngClass]="{
+                                      tieBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[1]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" class="drawButton__glowBorder-w79A3E" stroke="#f8ff13" stroke-width="2"
                                                                         fill="url(#top-card-bet-place-animation-glow-background-draw)"
                                                                         d="M1,62a61,61 0 1,0 122,0a61,61 0 1,0 -122,0">
                                                                     </path>
-                                                                    <path class="drawButton__innerCircle-uHjRNX"
+                                                                    <path [ngClass]="{
+                                      tieInnerBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[1]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" class="drawButton__innerCircle-uHjRNX"
                                                                         d="M46,62a16,16 0 1,0 32,0a16,16 0 1,0 -32,0">
                                                                     </path>
                                                                     <defs>
@@ -246,17 +366,30 @@
                                                                         </radialGradient>
                                                                     </defs>
                                                                 </g>
-                                                            </svg></div>
+                                                            </svg>
+                                                        </div>
                                                         <div class="drawBetPlace__content-qi07bj">
                                                             <div data-locator="bet-title-Draw"
-                                                                class="drawBetPlace__title-uB5e9_">Draw</div>
+                                                                class="drawBetPlace__title-uB5e9_">
+                                                                {{
+                                                                marketArray[0]?.runnersName[
+                                                                marketArray[0]?.runners[1]?.selectionId
+                                                                ]
+                                                                }}
+                                                            </div>
                                                             <div data-locator="draw-coefficient"
-                                                                class="drawBetPlace__coefficient-EGyWtF">11:1</div>
+                                                                class="drawBetPlace__coefficient-EGyWtF">
+                                                                {{
+                                                                marketArray[0]?.runners[1]?.price?.back[0]
+                                                                ?.price
+                                                                }}
+                                                            </div>
                                                             <div data-locator="draw-stats"
                                                                 class="drawBetPlace__betStat-LmQIe6">
                                                                 <div
                                                                     class="topCardBetStat-PngAzO topCardBetStat_size_small-MQKzgR">
-                                                                    100%</div>
+                                                                    100%
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -265,12 +398,17 @@
                                                     <div
                                                         class="sideBetPlace-yaTQLm sideBetPlace_variant_classic-sXwkw_ sideBetPlace_flattenMode-LlQvR6 sideBetPlace_roundState_betting-HoZEfk sideBetPlace_alignment_right-lxfKXH">
                                                         <div data-locator="side-bet-Champion"
-                                                            class="sideBetPlace__button-ECqlcw"><svg
-                                                                class="sideButton-hG99dd" viewBox="0 0 179 144"
+                                                            class="sideBetPlace__button-ECqlcw">
+                                                            <svg class="sideButton-hG99dd" viewBox="0 0 179 144"
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <g>
-                                                                    <path class="sideButton__glowShadow-sSqbCK"
-                                                                        fill="#74d8e3"
+                                                                    <path [ngClass]="{
+                                      tigerBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[2]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" class="sideButton__glowShadow-sSqbCK" fill="#74d8e3"
                                                                         filter="url(#topCardBetPlaceAnimationGlowShadow_mirrorMode:true)"
                                                                         d="M155.561 139.571L155.561 139.571L20.0976 142.899C18.2846 142.944 16.7388 141.594 16.5385 139.791C16.3294 137.909 17.6801 136.157 19.6252 135.775C49.4808 129.897 72 103.579 72 72C72 36.1015 42.8985 7 7 7C6.24144 7 5.48589 7.013 4.73355 7.03877C3.07947 7.09547 1.66312 5.91278 1.48863 4.34241C1.2935 2.58627 2.69026 1.06041 4.45676 1.09993L155.511 4.47827C161.081 4.60204 165.158 4.69473 168.275 5.18088C171.364 5.66257 173.364 6.51137 174.864 8.045C176.364 9.57864 177.168 11.5972 177.581 14.6958C177.998 17.8231 178 21.9017 178 27.4726V116.578C178 122.138 177.998 126.209 177.582 129.33C177.17 132.423 176.368 134.439 174.872 135.972C173.376 137.505 171.381 138.356 168.299 138.843C165.188 139.334 161.119 139.436 155.561 139.571Z">
                                                                     </path>
@@ -282,8 +420,13 @@
                                                                         stroke="#0c3939" stroke-width="2"
                                                                         d="M155.561 139.571L155.561 139.571L20.0976 142.899C18.2846 142.944 16.7388 141.594 16.5385 139.791C16.3294 137.909 17.6801 136.157 19.6252 135.775C49.4808 129.897 72 103.579 72 72C72 36.1015 42.8985 7 7 7C6.24144 7 5.48589 7.013 4.73355 7.03877C3.07947 7.09547 1.66312 5.91278 1.48863 4.34241C1.2935 2.58627 2.69026 1.06041 4.45676 1.09993L155.511 4.47827C161.081 4.60204 165.158 4.69473 168.275 5.18088C171.364 5.66257 173.364 6.51137 174.864 8.045C176.364 9.57864 177.168 11.5972 177.581 14.6958C177.998 17.8231 178 21.9017 178 27.4726V116.578C178 122.138 177.998 126.209 177.582 129.33C177.17 132.423 176.368 134.439 174.872 135.972C173.376 137.505 171.381 138.356 168.299 138.843C165.188 139.334 161.119 139.436 155.561 139.571Z">
                                                                     </path>
-                                                                    <path class="sideButton__borderWin-qJIxv_"
-                                                                        stroke="#74d8e3" stroke-width="2"
+                                                                    <path [ngClass]="{
+                                      tigerBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[2]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" class="sideButton__borderWin-qJIxv_" stroke="#74d8e3" stroke-width="2"
                                                                         d="M155.561 139.571L155.561 139.571L20.0976 142.899C18.2846 142.944 16.7388 141.594 16.5385 139.791C16.3294 137.909 17.6801 136.157 19.6252 135.775C49.4808 129.897 72 103.579 72 72C72 36.1015 42.8985 7 7 7C6.24144 7 5.48589 7.013 4.73355 7.03877C3.07947 7.09547 1.66312 5.91278 1.48863 4.34241C1.2935 2.58627 2.69026 1.06041 4.45676 1.09993L155.511 4.47827C161.081 4.60204 165.158 4.69473 168.275 5.18088C171.364 5.66257 173.364 6.51137 174.864 8.045C176.364 9.57864 177.168 11.5972 177.581 14.6958C177.998 17.8231 178 21.9017 178 27.4726V116.578C178 122.138 177.998 126.209 177.582 129.33C177.17 132.423 176.368 134.439 174.872 135.972C173.376 137.505 171.381 138.356 168.299 138.843C165.188 139.334 161.119 139.436 155.561 139.571Z">
                                                                     </path>
                                                                 </g>
@@ -303,15 +446,41 @@
                                                                         <stop offset="1" stop-color="#29cccc"></stop>
                                                                     </linearGradient>
                                                                 </defs>
-                                                            </svg></div>
+                                                            </svg>
+                                                        </div>
                                                         <div class="sideBetPlace__content-j1EBj7">
                                                             <div data-locator="bet-title-Champion"
-                                                                class="sideBetPlace__title-fRWK_S">Champion</div>
+                                                                class="sideBetPlace__title-fRWK_S">
+                                                                {{
+                                                                marketArray[0]?.runnersName[
+                                                                marketArray[0]?.runners[2]?.selectionId
+                                                                ]
+                                                                }}
+                                                            </div>
                                                             <div data-locator="side-bet-coefficient-Champion"
-                                                                class="sideBetPlace__coefficient-rLhU1g">1:1</div>
+                                                                class="sideBetPlace__coefficient-rLhU1g">
+                                                                {{
+                                                                marketArray[0]?.runners[2]?.price?.back[0]
+                                                                ?.price
+                                                                }}
+                                                            </div>
+                                                            <div class="sideBetPlace__card-uKttcd right-side">
+                                                                <img [ngClass]="
+                                    tigerCards?.card_1 != '0' &&
+                                    tigerCards?.card_1
+                                      ? 'tableMainCards__card__animation'
+                                      : 'opacity-0'
+                                  " [src]="[
+                                    '../assets/cards/' +
+                                      tigerCards?.card_1 +
+                                      '.png'
+                                  ]" class="card-img rounded-[0.125rem]" alt="card1" />
+                                                            </div>
                                                             <div class="sideBetPlace__betStat-IC2sez">
                                                                 <div class="topCardBetStat-PngAzO topCardBetStat_size_medium-hGKde_"
-                                                                    data-locator="side-bet-stat-Champion">0%</div>
+                                                                    data-locator="side-bet-stat-Champion">
+                                                                    0%
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -327,8 +496,8 @@
                         [status]="this.game.status"></app-bet-coin>
                 </div>
             </div>
-
-
+            
+            <app-timer [fancyTimer]="true"></app-timer>
         </div>
 
         <div class="game__playLive-jjimr6">
@@ -352,3 +521,70 @@
         </div>
     </div>
 </main>
+
+<div class="[@media(max-width:1023px)]:hidden z-10 fixed w-[20.5rem] mx-[2%] bottom-[20%] flex flex-col gap-[1.5rem]">
+    <div class="dragonTiger__history-jQwWbi">
+        <div class="scoreBoardInfo-USWOxa">
+            <div class="scoreBoardInfo__total-b3bUj3">
+                <div class="scoreBoardInfo__totalItem-KhIYhz">#1</div>
+                <div class="scoreBoardInfo__totalItem-KhIYhz"><svg class="scoreBoardInfo__totalItemSvg-eW0Cnx"
+                        viewBox="0 0 9 9">
+                        <g>
+                            <circle cx="4.5" cy="4.5" r="4.5" fill="#c62808"></circle>
+                            <path
+                                d="M3.1319999999999997,6.5
+              c-0.037,-0 -0.068,-0.014 -0.093,-0.04c-0.026,-0.027 -0.039,-0.059 -0.039,-0.097l0,-3.72c0,-0.042 0.013,-0.077 0.039,-0.103c0.025,-0.027 0.056,-0.04 0.093,-0.04l1.344,-0c0.371,-0 0.676,0.059 0.915,0.177c0.242,0.118 0.424,0.293 0.545,0.526c0.125,0.232 0.189,0.516 0.193,0.851c0.007,0.168 0.011,0.316 0.011,0.446c0,0.129 -0.004,0.276 -0.011,0.44c-0.007,0.354 -0.07,0.647 -0.187,0.88c-0.118,0.228 -0.296,0.4 -0.535,0.514c-0.235,0.111 -0.536,0.166 -0.903,0.166l-1.372,-0Zm0.634,-0.657l0.71,-0c0.206,-0 0.373,-0.031 0.502,-0.092c0.128,-0.061 0.222,-0.158 0.281,-0.291c0.062,-0.137 0.095,-0.316 0.099,-0.537c0.003,-0.115 0.005,-0.214 0.005,-0.298c0.004,-0.087 0.004,-0.173 0,-0.257c0,-0.087 -0.002,-0.186 -0.005,-0.297c-0.008,-0.312 -0.083,-0.543 -0.226,-0.691c-0.143,-0.149 -0.371,-0.223 -0.683,-0.223l-0.683,-0l-0,2.686Z"
+                                fill="#fff"></path>
+                        </g>
+                    </svg>1</div>
+                <div class="scoreBoardInfo__totalItem-KhIYhz"><svg class="scoreBoardInfo__totalItemSvg-eW0Cnx"
+                        viewBox="0 0 9 9">
+                        <g>
+                            <circle cx="4.5" cy="4.5" r="4.5" fill="#e19d19"></circle>
+                            <path
+                                d="M4.234,6.5
+            c-0.038,0 -0.07,-0.013 -0.097,-0.04c-0.026,-0.027 -0.04,-0.059 -0.04,-0.097l0,-3.16l-1.057,-0c-0.038,-0 -0.07,-0.013 -0.097,-0.04c-0.027,-0.027 -0.04,-0.059 -0.04,-0.097l-0,-0.423c-0,-0.042 0.013,-0.076 0.04,-0.103c0.027,-0.027 0.059,-0.04 0.097,-0.04l2.914,0c0.042,0 0.077,0.013 0.103,0.04c0.027,0.027 0.04,0.061 0.04,0.103l0,0.423c0,0.038 -0.013,0.07 -0.04,0.097c-0.026,0.027 -0.061,0.04 -0.103,0.04l-1.051,-0l-0,3.16c-0,0.038 -0.013,0.07 -0.04,0.097c-0.027,0.027 -0.061,0.04 -0.103,0.04l-0.526,0Z"
+                                fill="#fff"></path>
+                        </g>
+                    </svg>0</div>
+                <div class="scoreBoardInfo__totalItem-KhIYhz"><svg class="scoreBoardInfo__totalItemSvg-eW0Cnx"
+                        viewBox="0 0 9 9">
+                        <g>
+                            <circle cx="4.5" cy="4.5" r="4.5" fill="#29cccc"></circle>
+                            <path
+                                d="M4.234,6.5
+            c-0.038,0 -0.07,-0.013 -0.097,-0.04c-0.026,-0.027 -0.04,-0.059 -0.04,-0.097l0,-3.16l-1.057,-0c-0.038,-0 -0.07,-0.013 -0.097,-0.04c-0.027,-0.027 -0.04,-0.059 -0.04,-0.097l-0,-0.423c-0,-0.042 0.013,-0.076 0.04,-0.103c0.027,-0.027 0.059,-0.04 0.097,-0.04l2.914,0c0.042,0 0.077,0.013 0.103,0.04c0.027,0.027 0.04,0.061 0.04,0.103l0,0.423c0,0.038 -0.013,0.07 -0.04,0.097c-0.026,0.027 -0.061,0.04 -0.103,0.04l-1.051,-0l-0,3.16c-0,0.038 -0.013,0.07 -0.04,0.097c-0.027,0.027 -0.061,0.04 -0.103,0.04l-0.526,0Z"
+                                fill="#fff"></path>
+                        </g>
+                    </svg>0</div>
+            </div>
+            <div class="scoreBoardInfo__buttons-nUvY7g"><button
+                    class="scoreBoardInfo__button-wmBupa scoreBoardInfo__button_left-cIMRsf" type="button"><svg
+                        viewBox="0 0 19 4.5" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+                        <path
+                            d="M0.1319999999999999,4.2
+              c-0.037,-0 -0.068,-0.014 -0.093,-0.04c-0.026,-0.027 -0.039,-0.059 -0.039,-0.097l0,-3.72c0,-0.042 0.013,-0.077 0.039,-0.103c0.025,-0.027 0.056,-0.04 0.093,-0.04l1.344,-0c0.371,-0 0.676,0.059 0.915,0.177c0.242,0.118 0.424,0.293 0.545,0.526c0.125,0.232 0.189,0.516 0.193,0.851c0.007,0.168 0.011,0.316 0.011,0.446c0,0.129 -0.004,0.276 -0.011,0.44c-0.007,0.354 -0.07,0.647 -0.187,0.88c-0.118,0.228 -0.296,0.4 -0.535,0.514c-0.235,0.111 -0.536,0.166 -0.903,0.166l-1.372,-0Zm0.634,-0.657l0.71,-0c0.206,-0 0.373,-0.031 0.502,-0.092c0.128,-0.061 0.222,-0.158 0.281,-0.291c0.062,-0.137 0.095,-0.316 0.099,-0.537c0.003,-0.115 0.005,-0.214 0.005,-0.298c0.004,-0.087 0.004,-0.173 0,-0.257c0,-0.087 -0.002,-0.186 -0.005,-0.297c-0.008,-0.312 -0.083,-0.543 -0.226,-0.691c-0.143,-0.149 -0.371,-0.223 -0.683,-0.223l-0.683,-0l-0,2.686Z"
+                            fill="#c62808"></path>
+                        <circle cx="7.5" cy="2.3" r="1" fill="none" stroke-width="0.5" stroke="#c62808"></circle>
+                        <circle cx="12.2" cy="2.3" r="1.225" fill="#c62808"></circle>
+                        <path d="M17.7,1.45 l-1.8,1.8" fill="none" stroke-width="0.5" stroke="#c62808"
+                            stroke-linecap="round">
+                        </path>
+                    </svg></button><button class="scoreBoardInfo__button-wmBupa scoreBoardInfo__button_right-ZSwl6f"
+                    type="button"><svg viewBox="0 0 19 4.5" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+                        <path
+                            d="M1.234,4.2
+            c-0.038,0 -0.07,-0.013 -0.097,-0.04c-0.026,-0.027 -0.04,-0.059 -0.04,-0.097l0,-3.16l-1.057,-0c-0.038,-0 -0.07,-0.013 -0.097,-0.04c-0.027,-0.027 -0.04,-0.059 -0.04,-0.097l-0,-0.423c-0,-0.042 0.013,-0.076 0.04,-0.103c0.027,-0.027 0.059,-0.04 0.097,-0.04l2.914,0c0.042,0 0.077,0.013 0.103,0.04c0.027,0.027 0.04,0.061 0.04,0.103l0,0.423c0,0.038 -0.013,0.07 -0.04,0.097c-0.026,0.027 -0.061,0.04 -0.103,0.04l-1.051,-0l-0,3.16c-0,0.038 -0.013,0.07 -0.04,0.097c-0.027,0.027 -0.061,0.04 -0.103,0.04l-0.526,0Z"
+                            fill="#e19d19"></path>
+                        <circle cx="7.5" cy="2.3" r="1" fill="none" stroke-width="0.5" stroke="#e19d19"></circle>
+                        <circle cx="12.2" cy="2.3" r="1.225" fill="#e19d19"></circle>
+                        <path d="M17.7,1.45 l-1.8,1.8" fill="none" stroke-width="0.5" stroke="#e19d19"
+                            stroke-linecap="round">
+                        </path>
+                    </svg></button></div>
+        </div>
+        <app-top-results></app-top-results>
+    </div>
+</div>
+
+<app-quick-stakes-edit></app-quick-stakes-edit>

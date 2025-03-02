@@ -93,14 +93,14 @@ export class TopCardComponent {
   rulesBox: any;
   selectedResult: any;
   betplaceObj: any;
-  resultArray: any =[];
+  resultArray: any;
   totalMatchedBets: any;
   game: any;
   betSlip: string = "game";
   timer: any;
   winnerMarketArray: any;
-  dragonCards: any;
-  tigerCards: any;
+  playerACards: any;
+  playerBCards: any;
   gameroundId: any;
   placeBetValue: any;
   private _roomId: any;
@@ -113,10 +113,8 @@ export class TopCardComponent {
   changeValue: any;
   sizeRunner1: any;
   sizeRunner2: any;
-  sizeRunner3:any;
   firstBoxWidth: string = '';
   secndBoxWidth: string = '';
-  tieBoxWidth: string = '';
   split_arr: any;
   getRoundId: any;
   resultcounter = 0;
@@ -128,10 +126,6 @@ export class TopCardComponent {
   isMobileInfo: string;
   // isTeNteenPatti:any;
   stackButtonArry: any = STACK_VALUE;
-  totalResults: number = 0;
-  dragonWins: number = 0;
-  tigerWins: number = 0;
-  ties: number = 0;
 
   constructor(private route: ActivatedRoute,
               private networkService: NetworkService,
@@ -140,11 +134,10 @@ export class TopCardComponent {
               private deviceService: DeviceDetectorService,
               private indexedDb: IndexedDbService,
               private toaster: ToastrService,
-              private socket: CasinoSocketService,
-              private renderer: Renderer2,
-              private el: ElementRef) {
+              private socket: CasinoSocketService) {
 
     // this.eventid = this.route.snapshot.params['id'];
+    // this.eventid = '99.0018';
     // localStorage.setItem('eventId', this.eventid)
     this.eventid = localStorage.getItem('eventId');
     this.message.id = this.eventid;
@@ -174,10 +167,13 @@ export class TopCardComponent {
         this.handleIncomingBetObject(betObj);
 
       }
+
+
+
     })
+
     this.getStackData();
     this.getWindowSize()
-
 
     if (!this.isDesktop) {
 
@@ -214,8 +210,7 @@ export class TopCardComponent {
               this.game = objMarket?.data[0];
               this.game.marketArr = this.marketArray ? this.marketArray : objMarket?.data[0]?.marketArr;
               this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
-              this.sizeRunner2 = this.marketArray[0].runners[2].price.back[0].size;
-              this.sizeRunner3=this.marketArray[0].runners[1].price.back[0].size;
+              this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
               this.winnerMarketArray = this.game?.marketArr ? this.game?.marketArr[0] : '';
               this.getRoundId = this.game.roundId
               this.handleEventResponse(objMarket, 0)
@@ -260,11 +255,11 @@ export class TopCardComponent {
           if (this.game.status == 'ONLINE') {
 
           }
-          this.dragonCards = this.game?.cardsArr?.DRAGON;
-          this.tigerCards = this.game?.cardsArr?.TIGER;
+          this.playerACards = this.game?.cardsArr?.FIGHTER_A;
+          this.playerBCards = this.game?.cardsArr?.FIGHTER_B;
 
-          if (this.dragonCards) {
-            if (this.dragonCards?.card_1 == 0 && this.game.status == 'SUSPEND') {
+          if (this.playerACards) {
+            if (this.playerACards?.card_1 == 0 && this.game.status == 'SUSPEND') {
               this.game.noMoreBets = true;
             }
             else {
@@ -394,8 +389,7 @@ export class TopCardComponent {
         if ('data' in objMarket && this.counter == 0 && objMarket.data.marketArr && objMarket.data._id) {
           this.marketArray = objMarket.data.marketArr;
           this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
-          this.sizeRunner2 = this.marketArray[0].runners[2].price.back[0].size;
-          this.sizeRunner3=this.marketArray[0].runners[1].price.back[0].size;
+          this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
           this.game = this.marketArray ? this.marketArray : objMarket.data;
           this.game = objMarket.data;
           this.counter = 1;
@@ -439,18 +433,12 @@ export class TopCardComponent {
                 this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
               }
             }
-            this.resultArray =objMarket.data.resultsArr;
-
-
-
-            console.warn('resultss test',this.resultArray[1].runners[this.marketArray[1]?.runners[0]?.selectionId])
-            console.warn('resultss',objMarket.data.resultsArr)
             // for video results
             for (let key in objMarket.data.resultsArr[0].runners) {
               if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
 
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
-                // console.log(this.RoundWinner)
+                console.log(this.RoundWinner)
                 this.BetPlaced = [];
               }
               if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
@@ -462,7 +450,6 @@ export class TopCardComponent {
             }
             setTimeout(() => {
               this.RoundWinner = null;
-              this.resultArray = JSON.parse(JSON.stringify([]))
             }, 5000)
             // }
           }
@@ -492,14 +479,6 @@ export class TopCardComponent {
                 // console.log('player A', this.firstBoxWidth)
               }
               if (runnersIndex == 1 && marketIndex == 0) {
-                // tie
-                // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-                let percnt = ((this.changeValue / this.sizeRunner3) * 100);
-                this.tieBoxWidth = -1 * (percnt - 100) + '';
-                // console.log('player B', this.secndBoxWidth)
-
-              }
-              if (runnersIndex == 2 && marketIndex == 0) {
                 // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
                 let percnt = ((this.changeValue / this.sizeRunner2) * 100);
                 this.secndBoxWidth = -1 * (percnt - 100) + '';
@@ -564,8 +543,6 @@ export class TopCardComponent {
       }, 1000);
     }
 
-    console.log('method clicked ', price)
-    return
     if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
       if (this.selectedBetAmount > 0) {
         this.isBetsSlipOpened = selectionId;
@@ -817,26 +794,19 @@ export class TopCardComponent {
       .subscribe(
         (data: any) => {
           this.networkService.updateResultstream(data.data)
-          let dragonWins = 0;
-          let tigerWins = 0;
-          let ties = 0;
+          let playerAWins = 0
+          let playerBWins = 0
           // debugger
-          this.totalResults = data.data.length;
           data.data.forEach((round: any) => {
-            if (round.winner === 'DRAGON') {
-              dragonWins++;
-            } else if (round.winner === 'TIGER') {
-              tigerWins++;
-            } else if (round.winner === 'TIE') {
-              ties++;
+            if (round.winner === 'A') {
+              playerAWins++;
+            } else if (round.winner === 'B') {
+              playerBWins++;
             }
           });
-          this.dragonWins = dragonWins;
-          this.tigerWins = tigerWins;
-          this.ties = ties;
-          // this.aPlayerChances = (this.dragonWins / data?.data?.length) * 100
-          // this.bPlayerChances = (this.tigerWins / data?.data?.length) * 100
-          // this.TPlayerChances = (100 - this.aPlayerChances - this.bPlayerChances);
+          this.aPlayerChances = (playerAWins / data?.data?.length) * 100
+          this.bPlayerChances = (playerBWins / data?.data?.length) * 100
+          this.TPlayerChances = (100 - this.aPlayerChances - this.bPlayerChances);
         },
         error => {
           let responseData = error;
@@ -944,7 +914,7 @@ export class TopCardComponent {
 
 
   getCoinValue(event: any) {
-    console.log('event', event);
+    this.selectedBetAmount = event;
   }
 
 
@@ -1107,6 +1077,5 @@ export class TopCardComponent {
     }
     // console.log('onclick', this.selectedBetAmount);
   }
-
 
 }
