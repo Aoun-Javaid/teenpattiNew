@@ -477,23 +477,24 @@
 .gradientDiv {
   height: 55%;
   /* background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%); */
-  background: linear-gradient(
-      to right,
-      #eb2300 0%,
-      #f82601e6 2%,
-      #ff2900 10%,
-      #fe2e02 50%,
-      #ea1b01 73%,
-      #dc1401 86%,
-      #b80600 98%,
-      #ba0800 92%
-    ),
-    linear-gradient(to bottom,  
-            rgba(0, 0, 0, 0) 85%,  /* 80% تک کوئی بلیک نہ ہو */
-            rgba(0, 0, 0, 0.5) 95%, /* 80%-90% پر بلیک شروع ہو */
-            rgba(0, 0, 0, 1) 100%  /* 100% پر مکمل بلیک ہو */
-        ); 
-  background-blend-mode: multiply;
+  /* background: linear-gradient(
+    to right,
+    #eb2300 0%,
+    #f82601e6 2%,
+    #ff2900 10%,
+    #fe2e02 50%,
+    #ea1b01 73%,
+    #dc1401 86%,
+    #b80600 98%,
+    #ba0800 92%
+  ),
+  linear-gradient(to bottom,
+          rgba(0, 0, 0, 0) 85%,
+          rgba(0, 0, 0, 0.5) 95%,
+          rgba(0, 0, 0, 1) 100%
+      ); */
+background-blend-mode: multiply;
+  background: var(--NteenpattiVideoBottomBg);
 }
 .time-container {
   @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
@@ -596,13 +597,13 @@
 }
 
 .player_B_cards::before {
-  background-image: linear-gradient(0deg, #fa0 0%, rgba(255, 270, 0, 0) 100%);
-  opacity: 0.3;
+  /* background-image: linear-gradient(0deg, #fa0 0%, rgba(255, 270, 0, 0) 100%);
+  opacity: 0.3; */
 }
 
 .player_A_cards::before {
-  background-image: linear-gradient(0deg, #ff2b00 0%, rgba(255, 43, 0, 0) 100%);
-  opacity: 0.3;
+  /* background-image: linear-gradient(0deg, #ff2b00 0%, rgba(255, 43, 0, 0) 100%);
+  opacity: 0.3; */
 }
 
 .card-img {
