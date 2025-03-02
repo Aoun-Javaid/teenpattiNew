@@ -202,3 +202,169 @@
   height: auto;
   width: 100%;
 }
+
+/*top-card-results*/
+.topCard__historyLine {
+  position: absolute;
+  z-index: 3;
+}
+.topCard__historyLine {
+  left: 0;
+  padding: 0 0.25rem;
+  top: -1.5rem;
+  width: 100%;
+}
+.topCard__historyLine {
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 19.5rem;
+}
+.topCardHistoryLineScrollable {
+  height: 1.5rem;
+  position: relative;
+}
+.topCardHistoryLineScrollable_withBackground:before {
+  background: linear-gradient(90deg,rgba(10,10,26,0),rgba(10,10,26,.6) 2.44%,rgba(10,10,26,.6) 97.55%,rgba(10,10,26,0));
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+.topCardHistoryLineScrollable__list {
+  overflow: hidden;
+}
+.topCardHistoryLineScrollable_withBackground .topCardHistoryLineScrollable__list {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.abstractHistoryLine, .abstractHistoryLine__inner {
+  height: 100%;
+  position: relative;
+}
+.abstractHistoryLine__inner {
+  align-items: center;
+  column-gap: var(--history-line-column-gap,0);
+  display: flex;
+  row-gap: var(--history-line-row-gap,0);
+  will-change: transform;
+}
+.abstractHistoryLine__inner_stretch {
+  justify-content: space-between;
+  overflow: hidden;
+}
+.abstractHistoryLine__inner.animated1, .abstractHistoryLine__inner.animated2 {
+  animation-delay: var(--animation-delay,0s);
+  animation-duration: var(--animation-duration,300ms);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  transform: translateX(var(--shift-horizontally,-1.5rem));
+}
+.abstractHistoryLine__inner.animated1{
+  animation-name: newNumber1;
+}
+.abstractHistoryLine__inner.animated2 {
+  animation-name: newNumber2;
+}
+@keyframes newNumber1 {
+  0% {
+    transform: translateX(var(--shift-horizontally, -1.5rem));
+  }
+  100% {
+    transform: translateX(0);
+  }
+
+}
+@keyframes newNumber2 {
+  0% {
+    transform: translateX(var(--shift-horizontally, -1.5rem));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.topCardHistoryItem {
+  color: rgb(0,0,0);
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+}
+.topCardHistoryItem_size_medium {
+  height: 1.125rem;
+  margin: 0 0.375rem;
+  width: 2rem;
+}
+.topCardHistoryItem_withoutIndents {
+  margin: 0;
+}
+.topCardHistoryItem_theme_contender {
+  --history-item-accent-color: rgb(235,0,56);
+}
+.topCardHistoryItem_theme_draw-YL5XCr {
+  --history-item-accent-color: rgb(248,255,19);
+}
+.topCardHistoryItem_theme_champion {
+  --history-item-accent-color: rgb(1,202,190);
+}
+.topCardHistoryItem:after, .topCardHistoryItem:before, .topCardHistoryItem>* {
+  grid-area: 1/1;
+}
+.topCardHistoryItem:before {
+  background-color: var(--history-item-accent-color,transparent);
+  content: "";
+  height: 100%;
+  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 32 18%27%3E%3Cpath d=%27M0 8.107C0 4.509 0 2.71 1.12 1.549S4.016.32 7.57.19C10.368.087 13.47 0 16 0c2.53 0 5.632.087 8.43.19 3.554.131 5.33.197 6.45 1.359S32 4.509 32 8.107v1.786c0 3.598 0 5.396-1.12 6.558s-2.896 1.228-6.45 1.36c-2.797.102-5.9.189-8.43.189-2.53 0-5.633-.087-8.43-.19-3.554-.131-5.33-.197-6.45-1.359S0 13.491 0 9.893V8.107Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  width: 100%;
+  z-index: -1;
+}
+.topCardHistoryItem__label {
+  font-weight: 500;
+  line-height: 0;
+  text-transform: uppercase;
+  z-index: 0;
+}
+.topCardHistoryItem_size_medium .topCardHistoryItem__label {
+  font-size: 0.875rem;
+}
+.topCardHistoryItem_shadow:after {
+  border-radius: 50%/30%;
+  box-shadow: 0 0 0.875rem var(--history-item-accent-color);
+  content: "";
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.abstractHistoryLine__inner_animateFirstItem>div:first-of-type:after {
+  opacity: 0;
+}
+.abstractHistoryLine__inner_animateFirstItem.animated1>div:first-of-type:after {
+  animation: firstItemShadowShow1 .4s ease .44s 1,firstItemShadowPulse1 1.54s ease .84s 3 forwards,firstItemShadowHide1 .7s ease 5.46s reverse forwards;
+}
+@keyframes firstItemShadowShow1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes firstItemShadowPulse1 {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  45%, 73% {
+    opacity: .75;
+  }
+}
+@keyframes firstItemShadowHide1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

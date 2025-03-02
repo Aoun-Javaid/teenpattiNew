@@ -1477,7 +1477,7 @@ body {
 }
 
 .playerA-win-point {
-  @apply left-[50%] cursor-none absolute translate-x-[-50%] z-[4] top-[9.125rem];
+  @apply left-[50%] cursor-none absolute translate-x-[-50%] z-[4] top-[10.125rem];
 }
 
 .player-content-wrapper {
