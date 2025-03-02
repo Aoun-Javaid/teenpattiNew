@@ -403,7 +403,7 @@
   /* new casino variables */
 
 
-  --NteenpattiVideoBottomBg:linear-gradient(315deg, #7d433c69 0%, #2700004f 100%);
+  --NteenpattiVideoBottomBg:linear-gradient(to right, #eb2300 0%, #f82601e6 2%, #ff2900 10%, #fe2e02 50%, #ea1b01 73%, #dc1401 86%, #b80600 98%,#ba0800 92%);
 }
 /* You can add global styles to this file, and also import other style files */
 
