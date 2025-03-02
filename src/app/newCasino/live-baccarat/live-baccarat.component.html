@@ -822,19 +822,36 @@
                                     </div>
                                     <div class="table__playerScore-pzJbwP" data-locator="cardsScore-player"></div>
                                     <div class="table__bankerScore-LBpRzc" data-locator="cardsScore-banker"></div>
-                                    <div class="table__playerTitle-IDg1Sx blurText" data-locator="player-title"
+                                    <div class="table__playerTitle-IDg1Sx blurText relative" data-locator="player-title"
                                         [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND', '!opacity-[1]': resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER'}">
                                         {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}
+                                      <div class="absolute -top-2 left-[30%]"  *ngIf="BetPlaced[marketArray[0]?.marketId]">
+                            
+                                        <app-bets-chips   *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[0]?.selectionId]"
+                                              [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
+                                              [runnerId]="marketArray[0].runners[0].selectionId"></app-bets-chips>
+                                      </div>
                                     </div>
-                                    <div class="table__bankerTitle-xysbeW blurText" data-locator="banker-title"
+                                    <div class="table__bankerTitle-xysbeW blurText relative" data-locator="banker-title"
                                         [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND', '!opacity-[1]': resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'}">
                                         {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}
+                                        <div class="absolute -top-2 left-[30%]" *ngIf="BetPlaced[marketArray[0]?.marketId]">
+                                            <app-bets-chips  *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[1]?.selectionId]"
+                                              [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
+                                              [runnerId]="marketArray[0].runners[1].selectionId"></app-bets-chips>
+                                        </div>
                                     </div>
-                                    <div class="table__tieTitle-uPf3Aa blurText" data-locator="tie-title"
+                                    <div class="table__tieTitle-uPf3Aa blurText relative" data-locator="tie-title"
                                         [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND', '!opacity-[1]': resultArray[0]?.runners[marketArray[1]?.runners[0]?.selectionId] === 'WINNER'}">
                                         {{marketArray[1]?.runnersName[marketArray[1]?.runners[0]?.selectionId]}}
-                                        {{marketArray[1]?.runners[0]?.price?.back[0].price}}</div>
-                                    <div class="table__playerPairTitle-zjbgYU blurText pPair"
+                                        {{marketArray[1]?.runners[0]?.price?.back[0].price}}
+                                        <div class="absolute "  *ngIf="BetPlaced[marketArray[1]?.marketId]">
+                                            <app-bets-chips *ngIf="BetPlaced[marketArray[1]?.marketId][marketArray[1]?.runners[0]?.selectionId]"
+                                              [BetPlaced]="BetPlaced" [marketId]="marketArray[1]?.marketId"
+                                              [runnerId]="marketArray[1].runners[0].selectionId"></app-bets-chips>
+                                        </div>
+                                    </div>
+                                    <div class="table__playerPairTitle-zjbgYU blurText pPair relative"
                                         [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND', '!opacity-[1]': resultArray[2]?.runners[marketArray[2]?.runners[0]?.selectionId] === 'WINNER'}"
                                         data-locator="playerPair-title">
                                         @if(!isMobile){
@@ -844,10 +861,15 @@
                                         @if(isMobile){
                                         {{marketArray[2]?.runnersName[marketArray[2]?.runners[0]?.selectionId]}}
                                         }
+                                        <div class="absolute top-[18%] left-[18%]" *ngIf="BetPlaced[marketArray[2]?.marketId]">
+                                            <app-bets-chips *ngIf="BetPlaced[marketArray[2]?.marketId][marketArray[2]?.runners[0]?.selectionId]"
+                                              [BetPlaced]="BetPlaced" [marketId]="marketArray[2]?.marketId"
+                                              [runnerId]="marketArray[2].runners[0].selectionId"></app-bets-chips>
+                                        </div>
                                     </div>
                                     <div class="table__playerPairPayout-b4Lfsu hide">
                                         {{marketArray[2]?.runners[0]?.price?.back[0].price}}</div>
-                                    <div class="table__bankerPairTitle-jKSnQU blurText bPair"
+                                    <div class="table__bankerPairTitle-jKSnQU blurText bPair relative"
                                     [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND', '!opacity-[1]': resultArray[2]?.runners[marketArray[2]?.runners[1]?.selectionId] === 'WINNER'}"
                                         data-locator="bankerPair-title">
                                         @if(!isMobile){
@@ -857,6 +879,11 @@
                                         @if(isMobile){
                                         {{marketArray[2]?.runnersName[marketArray[2]?.runners[1]?.selectionId]}}
                                         }
+                                        <div class="absolute top-[18%] left-[48%]" *ngIf="BetPlaced[marketArray[2]?.marketId]">
+                                            <app-bets-chips *ngIf="BetPlaced[marketArray[2]?.marketId][marketArray[2]?.runners[1]?.selectionId]"
+                                              [BetPlaced]="BetPlaced" [marketId]="marketArray[2]?.marketId"
+                                              [runnerId]="marketArray[2].runners[1].selectionId"></app-bets-chips>
+                                        </div>
                                     </div>
                                     <div class="table__bankerPairPayout-DTrMfa hide">
                                         {{marketArray[2]?.runners[1]?.price?.back[0].price}}</div>

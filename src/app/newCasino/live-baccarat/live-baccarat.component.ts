@@ -13,13 +13,14 @@ import { EncryptDecryptService } from '../../services/encrypt-decrypt.service';
 import { ToastrService } from 'ngx-toastr';
 import { CONFIG } from '../../../../config';
 import { CasinoSocketService } from '../../services/casino-socket.service';
+import { BetsChipsComponent } from '../shared/bets-chips/bets-chips.component';
 
 declare var $: any;
 
 @Component({
   selector: 'app-live-baccarat',
   standalone: true,
-  imports: [TopResultsComponent, VideoPlayerComponent, CommonModule, BetCoinComponent],
+  imports: [TopResultsComponent, VideoPlayerComponent, CommonModule, BetCoinComponent, BetsChipsComponent ],
   templateUrl: './live-baccarat.component.html',
   styleUrl: './live-baccarat.component.css'
 })
@@ -27,7 +28,7 @@ export class LiveBaccaratComponent implements OnInit {
   isMobile: boolean = false;
   firstBoxWidth: string = '';
   secndBoxWidth: string = '';
-
+  @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;
   subscription!: Subscription
@@ -94,6 +95,7 @@ export class LiveBaccaratComponent implements OnInit {
   pairBanker = '0%';
   pairBankerSize: any;
   isDesktop: any;
+  BetPlaced: any = {};
 
   // playerMarket = '0%';
   // tieMarket = '0%';
@@ -205,6 +207,7 @@ export class LiveBaccaratComponent implements OnInit {
             this.getBalance();
             this.casinoPl = [];
             this.getResults();
+            this.BetPlaced = {};
             this.betSelectedPlayer = '';
             this.secndBoxWidth = '';
             this.firstBoxWidth = '';
@@ -299,6 +302,30 @@ export class LiveBaccaratComponent implements OnInit {
     }
   }
 
+  handleIncomingBetObject(incomingObj: any) {
+    const { marketId, selectionId, stake } = incomingObj;
+
+    if (!this.BetPlaced[marketId]) {
+      this.BetPlaced[marketId] = {};
+    }
+    if (this.BetPlaced[marketId][selectionId] !== undefined) {
+
+      this.BetPlaced[marketId][selectionId] += stake;
+    } else {
+
+      this.BetPlaced[marketId][selectionId] = stake;
+    }
+    console.log('bet placed', this.BetPlaced);
+    this.betsChipsComponent?.CalculateIndex();
+
+    this.game.betAccepted = true;
+    this.networkService.updateRoundId(this.game);
+    setTimeout(() => {
+      this.game.betAccepted = false;
+      this.networkService.updateRoundId(this.game);
+    }, 1500);
+  }
+
   marketObhManager(res: any) {
     let objMarket = res;
     if (objMarket && objMarket.type == "1") {
@@ -382,6 +409,7 @@ export class LiveBaccaratComponent implements OnInit {
             if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
 
               this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
+              this.BetPlaced = [];
               // console.log(this.RoundWinner)
             }
 

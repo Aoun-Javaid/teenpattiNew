@@ -362,6 +362,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
       this.networkService.updateRoundId(this.game);
     }, 1500);
   }
+  
   handleEventResponse(objMarket: any, index: any) {
     // console.log(objMarket,'<=============== objMarket with out index')
     if (Array.isArray(objMarket)) {
