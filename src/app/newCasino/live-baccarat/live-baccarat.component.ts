@@ -11,15 +11,17 @@ import { NetworkService } from '../../services/network.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { EncryptDecryptService } from '../../services/encrypt-decrypt.service';
 import { ToastrService } from 'ngx-toastr';
-import { CONFIG } from '../../../../config';
+import { CONFIG, STACK_VALUE } from '../../../../config';
 import { CasinoSocketService } from '../../services/casino-socket.service';
+import { BetsChipsComponent } from '../shared/bets-chips/bets-chips.component';
+import { IndexedDbService } from '../../services/indexed-db.service';
 
 declare var $: any;
 
 @Component({
   selector: 'app-live-baccarat',
   standalone: true,
-  imports: [TopResultsComponent, VideoPlayerComponent, CommonModule, BetCoinComponent],
+  imports: [TopResultsComponent, VideoPlayerComponent, CommonModule, BetCoinComponent, BetsChipsComponent ],
   templateUrl: './live-baccarat.component.html',
   styleUrl: './live-baccarat.component.css'
 })
@@ -27,11 +29,11 @@ export class LiveBaccaratComponent implements OnInit {
   isMobile: boolean = false;
   firstBoxWidth: string = '';
   secndBoxWidth: string = '';
-
+  @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;
   subscription!: Subscription
-
+  isbetInProcess: boolean = false;
   liveData$: any;
   public message = {
     type: "1",
@@ -45,6 +47,7 @@ export class LiveBaccaratComponent implements OnInit {
   };
 
   selectedBetAmount = 0;
+
   eventid: any;
   myVideo: any = null;
   placedbet = true;
@@ -75,6 +78,7 @@ export class LiveBaccaratComponent implements OnInit {
   getRoundId: any;
   counter: number = 0;
   split_arr: any;
+  stackButtonArry: any = STACK_VALUE;
   changeValue: any;
   resultcounter = 0;
   RoundWinner: any;
@@ -94,6 +98,7 @@ export class LiveBaccaratComponent implements OnInit {
   pairBanker = '0%';
   pairBankerSize: any;
   isDesktop: any;
+  BetPlaced: any = {};
 
   // playerMarket = '0%';
   // tieMarket = '0%';
@@ -109,6 +114,7 @@ export class LiveBaccaratComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private socket: CasinoSocketService,
+     private indexedDb: IndexedDbService,
     private toaster: ToastrService,
     private encyDecy: EncryptDecryptService,
     private deviceService: DeviceDetectorService,
@@ -150,7 +156,17 @@ export class LiveBaccaratComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.networkService.getBetPlace().subscribe((betObj: any) => {
+      // this.getAllMarketProfitLoss();
+      this.isbetInProcess = false;
+      if (betObj.betSuccess) {
+        this.handleIncomingBetObject(betObj);
 
+      }
+
+
+
+    })
 
     setTimeout(() => {
       this.getBetStake();
@@ -205,6 +221,7 @@ export class LiveBaccaratComponent implements OnInit {
             this.getBalance();
             this.casinoPl = [];
             this.getResults();
+            this.BetPlaced = {};
             this.betSelectedPlayer = '';
             this.secndBoxWidth = '';
             this.firstBoxWidth = '';
@@ -269,6 +286,8 @@ export class LiveBaccaratComponent implements OnInit {
 
     });
 
+    this.getStackData();
+
     this.getAllMarketProfitLoss();
     this.getBetStake();
     this.getResults();
@@ -297,6 +316,30 @@ export class LiveBaccaratComponent implements OnInit {
       return
 
     }
+  }
+
+  handleIncomingBetObject(incomingObj: any) {
+    const { marketId, selectionId, stake } = incomingObj;
+
+    if (!this.BetPlaced[marketId]) {
+      this.BetPlaced[marketId] = {};
+    }
+    if (this.BetPlaced[marketId][selectionId] !== undefined) {
+
+      this.BetPlaced[marketId][selectionId] += stake;
+    } else {
+
+      this.BetPlaced[marketId][selectionId] = stake;
+    }
+    console.log('bet placed', this.BetPlaced);
+    this.betsChipsComponent?.CalculateIndex();
+
+    this.game.betAccepted = true;
+    this.networkService.updateRoundId(this.game);
+    setTimeout(() => {
+      this.game.betAccepted = false;
+      this.networkService.updateRoundId(this.game);
+    }, 1500);
   }
 
   marketObhManager(res: any) {
@@ -382,6 +425,7 @@ export class LiveBaccaratComponent implements OnInit {
             if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
 
               this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
+              this.BetPlaced = [];
               // console.log(this.RoundWinner)
             }
 
@@ -787,6 +831,22 @@ export class LiveBaccaratComponent implements OnInit {
           let responseData = error;
         });
   }
+
+   getStackData() {
+      const path = CONFIG.userGetStackURL.split('/').filter(Boolean).pop();
+      this.indexedDb.getRecord(path).subscribe((res: any) => {
+        if (res?.data?.stake) {
+          this.stackButtonArry = res.data.stake;
+          this.selectedBetAmount = this.stackButtonArry[0].stakeAmount
+        } else {
+          this.stackButtonArry = STACK_VALUE;
+          // this.selectedBetAmount = STACK_VALUE[0].stakeAmount
+        }
+        // console.log('default value', this.selectedBetAmount);
+  
+        // console.log('stakc', this.stackButtonArry);
+      })
+    }
 
   getWindowSize() {
     const baseWidth = 352; // Base resolution width
