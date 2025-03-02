@@ -11,9 +11,10 @@ import { NetworkService } from '../../services/network.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { EncryptDecryptService } from '../../services/encrypt-decrypt.service';
 import { ToastrService } from 'ngx-toastr';
-import { CONFIG } from '../../../../config';
+import { CONFIG, STACK_VALUE } from '../../../../config';
 import { CasinoSocketService } from '../../services/casino-socket.service';
 import { BetsChipsComponent } from '../shared/bets-chips/bets-chips.component';
+import { IndexedDbService } from '../../services/indexed-db.service';
 
 declare var $: any;
 
@@ -32,7 +33,7 @@ export class LiveBaccaratComponent implements OnInit {
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;
   subscription!: Subscription
-
+  isbetInProcess: boolean = false;
   liveData$: any;
   public message = {
     type: "1",
@@ -46,6 +47,7 @@ export class LiveBaccaratComponent implements OnInit {
   };
 
   selectedBetAmount = 0;
+
   eventid: any;
   myVideo: any = null;
   placedbet = true;
@@ -76,6 +78,7 @@ export class LiveBaccaratComponent implements OnInit {
   getRoundId: any;
   counter: number = 0;
   split_arr: any;
+  stackButtonArry: any = STACK_VALUE;
   changeValue: any;
   resultcounter = 0;
   RoundWinner: any;
@@ -111,6 +114,7 @@ export class LiveBaccaratComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private socket: CasinoSocketService,
+     private indexedDb: IndexedDbService,
     private toaster: ToastrService,
     private encyDecy: EncryptDecryptService,
     private deviceService: DeviceDetectorService,
@@ -152,7 +156,17 @@ export class LiveBaccaratComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.networkService.getBetPlace().subscribe((betObj: any) => {
+      // this.getAllMarketProfitLoss();
+      this.isbetInProcess = false;
+      if (betObj.betSuccess) {
+        this.handleIncomingBetObject(betObj);
 
+      }
+
+
+
+    })
 
     setTimeout(() => {
       this.getBetStake();
@@ -271,6 +285,8 @@ export class LiveBaccaratComponent implements OnInit {
       }
 
     });
+
+    this.getStackData();
 
     this.getAllMarketProfitLoss();
     this.getBetStake();
@@ -815,6 +831,22 @@ export class LiveBaccaratComponent implements OnInit {
           let responseData = error;
         });
   }
+
+   getStackData() {
+      const path = CONFIG.userGetStackURL.split('/').filter(Boolean).pop();
+      this.indexedDb.getRecord(path).subscribe((res: any) => {
+        if (res?.data?.stake) {
+          this.stackButtonArry = res.data.stake;
+          this.selectedBetAmount = this.stackButtonArry[0].stakeAmount
+        } else {
+          this.stackButtonArry = STACK_VALUE;
+          // this.selectedBetAmount = STACK_VALUE[0].stakeAmount
+        }
+        // console.log('default value', this.selectedBetAmount);
+  
+        // console.log('stakc', this.stackButtonArry);
+      })
+    }
 
   getWindowSize() {
     const baseWidth = 352; // Base resolution width

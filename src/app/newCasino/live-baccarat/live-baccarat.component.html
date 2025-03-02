@@ -826,7 +826,6 @@
                                         [ngClass]="{'opacity-[.5]': game.status === 'SUSPEND', '!opacity-[1]': resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER'}">
                                         {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}
                                       <div class="absolute -top-2 left-[30%]"  *ngIf="BetPlaced[marketArray[0]?.marketId]">
-                            
                                         <app-bets-chips   *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[0]?.selectionId]"
                                               [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
                                               [runnerId]="marketArray[0].runners[0].selectionId"></app-bets-chips>
@@ -1079,7 +1078,7 @@
                     <app-top-results class="[@media(max-width:1200px)]:hidden "></app-top-results>
                 </div>
                 <div class="w-full  [@media(min-width:1312px)]:mt-[-2.7rem]">
-                    <app-bet-coin (eventBetValue)="getCoinValue($event)"></app-bet-coin>
+                    <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game.status"></app-bet-coin>
                 </div>
             </div>
         </div>
