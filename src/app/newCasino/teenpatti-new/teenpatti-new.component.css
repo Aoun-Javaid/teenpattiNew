@@ -477,7 +477,23 @@
 .gradientDiv {
   height: 55%;
   /* background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%); */
-  background: var(--NteenpattiVideoBottomBg);
+  background: linear-gradient(
+      to right,
+      #eb2300 0%,
+      #f82601e6 2%,
+      #ff2900 10%,
+      #fe2e02 50%,
+      #ea1b01 73%,
+      #dc1401 86%,
+      #b80600 98%,
+      #ba0800 92%
+    ),
+    linear-gradient(to bottom,  
+            rgba(0, 0, 0, 0) 85%,  /* 80% تک کوئی بلیک نہ ہو */
+            rgba(0, 0, 0, 0.5) 95%, /* 80%-90% پر بلیک شروع ہو */
+            rgba(0, 0, 0, 1) 100%  /* 100% پر مکمل بلیک ہو */
+        ); 
+  background-blend-mode: multiply;
 }
 .time-container {
   @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
@@ -485,8 +501,8 @@
   bottom: 2px;
 }
 
-.dicbg{
-    background: linear-gradient(to right, #EC2401, #FF3400, #EC2401);
+.dicbg {
+  background: linear-gradient(to right, #ec2401, #ff3400, #ec2401);
 }
 
 .roundInfo-date {
@@ -548,7 +564,7 @@
   /* background-color: black; */
   width: 100%;
   /* margin-top: 15px; */
-  @apply [@media(max-width:768px)]:!px-[2%]
+  @apply [@media(max-width:768px)]:!px-[2%];
 }
 
 .win_percentage_wrapper {
