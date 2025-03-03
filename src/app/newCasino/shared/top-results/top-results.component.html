@@ -57,23 +57,25 @@
       </div>
     </div>
   </div>
+</div>
 
-  <!--  live top-card results-->
-  <div class="result" *ngIf="eventid=='99.0051'">
-    <div class="resultItem-R4uUuB resultItem_size_small-dt">
-      <div class="resultItem__list-J7YJ2v">
-        <div class="abResultLine-eMgxz_">
-          <div class="abstractHistoryLine__inner abstractHistoryLine__inner_animateFirstItem abstractHistoryLine__inner_stretch animated2" style="--animation-duration: 700ms; --shift-horizontally: -2.75rem;">
-            @for (item of resultArray; track $index){
-              <div (click)="setResults(item)" class="topCardHistoryItem topCardHistoryItem_size_medium topCardHistoryItem_withoutIndents"
-              [ngClass]="{'topCardHistoryItem_theme_champion': item.winner === 'B', 'topCardHistoryItem_theme_contender': item.winner === 'A', 'topCardHistoryItem_theme_tie': item.winner === 'T'}">
-                <span class="topCardHistoryItem__label">{{item.winner}}</span></div>
-            }
-          </div>
+<!--  live top-card results-->
+<div class="relative w-full z-[1000000000]">
+<div class="topCard__historyLine" *ngIf="eventid=='99.0051'">
+  <div class="topCardHistoryLineScrollable topCardHistoryLineScrollable_withBackground">
+    <div class="topCardHistoryLineScrollable__list">
+      <div class="abstractHistoryLine">
+        <div class="abstractHistoryLine__inner abstractHistoryLine__inner_animateFirstItem abstractHistoryLine__inner_stretch animated2" style="--animation-duration: 700ms; --shift-horizontally: -2.75rem;">
+          @for (item of resultArray; track $index) {
+            <div (click)="setResults(item)" class="topCardHistoryItem topCardHistoryItem_size_medium topCardHistoryItem_withoutIndents topCardHistoryItem_shadow"
+                 [ngClass]="{'topCardHistoryItem_theme_champion': item.winner === 'B', 'topCardHistoryItem_theme_contender': item.winner === 'A', 'topCardHistoryItem_theme_draw': item.winner === 'T'}">
+              <span class="topCardHistoryItem__label">{{item.winner}}</span></div>
+          }
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
