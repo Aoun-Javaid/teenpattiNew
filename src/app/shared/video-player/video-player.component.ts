@@ -1,5 +1,5 @@
 import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
-import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -16,7 +16,7 @@ declare var $: any;
 @Component({
   selector: 'app-video-player',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, NgClass, NgIf, NgFor, CarouselModule, NgStyle, ],
+  imports: [ReactiveFormsModule, FormsModule, NgClass, NgIf, NgFor, CarouselModule, NgStyle,],
   templateUrl: './video-player.component.html',
   styleUrl: './video-player.component.css',
 })
@@ -27,7 +27,7 @@ export class VideoPlayerComponent implements OnChanges {
   @Input() unityTimer: boolean = true;
   @Input() displayResult: boolean = true;
 
-  myPosterUrl='/teenpattiVideoBg.jpeg';
+  myPosterUrl = '/teenpattiVideoBg.jpeg';
   raceCards: any = [];
   ballbyBallStream: any;
   showBanner: any = false;
@@ -234,6 +234,7 @@ export class VideoPlayerComponent implements OnChanges {
 
   constructor(private networkService: NetworkService,
     private route: ActivatedRoute,
+    private renderer: Renderer2,
     private casinoService: CasinoSocketService,
     private deviceService: DeviceDetectorService
   ) {
@@ -271,8 +272,8 @@ export class VideoPlayerComponent implements OnChanges {
     });
     this.networkService.getRoundId().subscribe(data => {
 
-      if(this.game.eventId=='99.0010'){
-        this.myPosterUrl='/teenpattiVideoBg.jpeg'
+      if (this.game.eventId == '99.0010') {
+        this.myPosterUrl = '/teenpattiVideoBg.jpeg'
       }
       this.game = data;
 
@@ -478,12 +479,14 @@ export class VideoPlayerComponent implements OnChanges {
   }
 
   onVideoPlaying(): void {
-    return
+    return;
     const blurElements = document.querySelectorAll('.videoBlurArea');
-  blurElements.forEach((el) => {
-    (el as HTMLElement).style.filter = 'none';
-  });
-  console.log('Video is playing, blur removed from all elements with class videoBlurArea.');
+    document.documentElement.style.setProperty('--blur', `0px`);
+
+    blurElements.forEach((el) => {
+      (el as HTMLElement).style.filter = 'none';
+    });
+    console.log('Video is playing, blur removed from all elements with class videoBlurArea.');
   }
   getMaxLengthArray(arrayOfArrays: any) {
     let currentMaxLength = 0;
