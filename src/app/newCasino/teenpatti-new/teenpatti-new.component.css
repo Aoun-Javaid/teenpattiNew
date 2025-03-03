@@ -473,9 +473,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.videoBlurArea{
-  filter: blur(3px);
-}
+
 .gradientDiv {
   height: 55%;
   /* background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%); */

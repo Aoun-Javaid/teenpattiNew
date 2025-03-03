@@ -292,9 +292,15 @@ export class VideoPlayerComponent implements OnChanges {
         if (this.game && this.casinoFlag == 1) {
           this.casinoFlag = 2;
           this.TIME_LIMIT = this.game?.seconds;
+          if(this.game.leftSec){
+          this.timeLeft = this.game.leftSec;
+        }
           this.casinoService.setTimelimit(this.TIME_LIMIT);
           if (this.TIME_LIMIT) {
-            this.timeLeft = this.TIME_LIMIT;
+            if(!this.game.leftSec){
+              this.timeLeft = this.TIME_LIMIT;
+            }
+            //
             this.timerInterval = setInterval(() => {
 
               this.timeLeft = this.timeLeft - 1;
@@ -479,14 +485,14 @@ export class VideoPlayerComponent implements OnChanges {
   }
 
   onVideoPlaying(): void {
-    return;
+    // return;
     const blurElements = document.querySelectorAll('.videoBlurArea');
     document.documentElement.style.setProperty('--blur', `0px`);
 
     blurElements.forEach((el) => {
       (el as HTMLElement).style.filter = 'none';
     });
-    console.log('Video is playing, blur removed from all elements with class videoBlurArea.');
+
   }
   getMaxLengthArray(arrayOfArrays: any) {
     let currentMaxLength = 0;

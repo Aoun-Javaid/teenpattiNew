@@ -445,7 +445,9 @@
   border-right-color: green;
   border-width: 26px;
 }
-
+.videoBlurArea{
+  filter: blur(3px);
+}
 .spanColorRed {
   border-top-color: red !important;
   border-right-color: red !important;
