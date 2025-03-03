@@ -362,7 +362,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
       this.networkService.updateRoundId(this.game);
     }, 1500);
   }
-  
+
   handleEventResponse(objMarket: any, index: any) {
     // console.log(objMarket,'<=============== objMarket with out index')
     if (Array.isArray(objMarket)) {
@@ -419,6 +419,10 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
           }
           if ('status' in objMarket?.data) {
             this.game.status = objMarket?.data?.status;
+          }
+          if ('leftSec' in objMarket?.data) {
+            this.game.leftSec = objMarket?.data?.leftSec;
+            // console.log('this',objMarket?.data?.leftSec)
           }
           if ('resultsArr' in objMarket?.data) {
 
