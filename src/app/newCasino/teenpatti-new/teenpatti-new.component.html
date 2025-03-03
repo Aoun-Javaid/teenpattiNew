@@ -1,7 +1,7 @@
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
     <app-top-results class="[@media(min-width:1200px)]:hidden "></app-top-results>
 
-    <div #target class="">
+    <div #target class="videoBlurArea">
         <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
             [displayResult]="false" [unityTimer]="false"></app-video-player>
         <!-- <ng-container *ngIf="isMobileInfo == 'iOS'">
@@ -40,7 +40,7 @@
 
 
     <div id="marketScroll" style="overflow-y: auto;" [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
-        <div class="gradientDiv">
+        <div class="gradientDiv videoBlurArea">
 
 
             <div *ngIf="marketArray"

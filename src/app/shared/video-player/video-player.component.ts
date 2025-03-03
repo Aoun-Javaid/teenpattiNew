@@ -27,6 +27,7 @@ export class VideoPlayerComponent implements OnChanges {
   @Input() unityTimer: boolean = true;
   @Input() displayResult: boolean = true;
 
+  myPosterUrl='/teenpattiVideoBg.jpeg';
   raceCards: any = [];
   ballbyBallStream: any;
   showBanner: any = false;
@@ -260,6 +261,7 @@ export class VideoPlayerComponent implements OnChanges {
       }, 1000);
       // this.autoRun();
     }
+
     this.networkService.getResultData().subscribe(data => {
 
       this.resultDeclared = data;
@@ -269,6 +271,9 @@ export class VideoPlayerComponent implements OnChanges {
     });
     this.networkService.getRoundId().subscribe(data => {
 
+      if(this.game.eventId=='99.0010'){
+        this.myPosterUrl='/teenpattiVideoBg.jpeg'
+      }
       this.game = data;
 
 
@@ -472,7 +477,14 @@ export class VideoPlayerComponent implements OnChanges {
 
   }
 
-
+  onVideoPlaying(): void {
+    return
+    const blurElements = document.querySelectorAll('.videoBlurArea');
+  blurElements.forEach((el) => {
+    (el as HTMLElement).style.filter = 'none';
+  });
+  console.log('Video is playing, blur removed from all elements with class videoBlurArea.');
+  }
   getMaxLengthArray(arrayOfArrays: any) {
     let currentMaxLength = 0;
     let maxLengthArray = [];
