@@ -206,20 +206,12 @@
 /*top-card-results*/
 .topCard__historyLine {
   position: absolute;
-  z-index: 3;
-}
-.topCard__historyLine {
   left: 0;
   padding: 0 0.25rem;
-  top: -1.5rem;
+  top: -0.5rem;
   width: 100%;
 }
-.topCard__historyLine {
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  width: 19.5rem;
-}
+
 .topCardHistoryLineScrollable {
   height: 1.5rem;
   position: relative;
@@ -300,7 +292,7 @@
 .topCardHistoryItem_theme_contender {
   --history-item-accent-color: rgb(235,0,56);
 }
-.topCardHistoryItem_theme_draw-YL5XCr {
+.topCardHistoryItem_theme_draw {
   --history-item-accent-color: rgb(248,255,19);
 }
 .topCardHistoryItem_theme_champion {
@@ -325,13 +317,13 @@
   line-height: 0;
   text-transform: uppercase;
   z-index: 0;
+  font-family: 'Rubik', sans-serif;
 }
 .topCardHistoryItem_size_medium .topCardHistoryItem__label {
   font-size: 0.875rem;
 }
 .topCardHistoryItem_shadow:after {
-  border-radius: 50%/30%;
-  box-shadow: 0 0 0.875rem var(--history-item-accent-color);
+  border-radius: 50% / 30%;
   content: "";
   height: 100%;
   width: 100%;
