@@ -35,6 +35,7 @@ export class LiveBaccaratComponent implements OnInit {
   subscription!: Subscription
   isbetInProcess: boolean = false;
   liveData$: any;
+  waitRound: any
   public message = {
     type: "1",
     id: ""
@@ -592,13 +593,21 @@ export class LiveBaccaratComponent implements OnInit {
   }
 
   openBetslip(marketId: any, selectionId: any, betType: any, price: any, min: any, max: any) {
-    if (this.game.status !== 'SUSPEND' && !this.isBetPlaceProccess) {
+
+    if (this.game.status == 'SUSPEND') {
+      this.waitRound = true
+      setTimeout(() => {
+        this.waitRound = false
+      }, 1000);
+    }
+
+    if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
       if (this.selectedBetAmount > 0) {
         this.isBetsSlipOpened = selectionId;
         this.marketId = marketId;
         this.betType = betType
         this.isValueBetsSlip = 0;
-        //  this.selectedCell = selectionId;
+
         this.betplaceObj = {
           marketId: marketId,
           selectionId: selectionId,
@@ -607,18 +616,24 @@ export class LiveBaccaratComponent implements OnInit {
           eventId: this.eventid,
           roomId: this._roomId,
           minValue: min,
-          maxValue: max
-
+          maxValue: max,
+          stake: this.selectedBetAmount
         }
 
-        this.placeCasinoBet();
+        // this.placeCasinoBet();
+        this.isbetInProcess = true;
+        this.networkService.placeBet(this.betplaceObj);
 
       }
       else {
-        this.toaster.error("please select chips for Bet")
+        this.toaster.error("please select chips for Bet", '', {
+          positionClass: 'toast-top-right',
+        })
       }
     }
-
+    else {
+      return
+    }
 
   }
 
@@ -843,7 +858,7 @@ export class LiveBaccaratComponent implements OnInit {
           // this.selectedBetAmount = STACK_VALUE[0].stakeAmount
         }
         // console.log('default value', this.selectedBetAmount);
-  
+
         // console.log('stakc', this.stackButtonArry);
       })
     }
