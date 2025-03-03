@@ -91,7 +91,8 @@
 
 @media (orientation: portrait) {
   .topCard__staticVideoWrap-FiHDJy {
-    height: 30%;
+    /* height: 30%; */
+    height: 22%;
   }
 }
 
@@ -519,6 +520,13 @@
   width: 21.5rem;
 }
 
+.table__backgroundShadow-CDVpmk {
+  height: 100%;
+  overflow: visible;
+  width: 100%;
+  z-index: 1;
+}
+
 .table__backgroundShadow-CDVpmk,
 .table__drawBetPlace-EhK1WT,
 .table__leftBetPlace-kP8Mj4,
@@ -935,14 +943,17 @@
 
 .dragonWins {
   color: rgb(255, 65, 0) !important;
+  display: block !important;
 }
 
 .tigerWins {
   color: rgb(41, 204, 204) !important;
+  display: block !important;
 }
 
 .tieWins {
   color: rgb(248, 255, 19) !important;
+  display: block !important;
 }
 
 .dragonBox {

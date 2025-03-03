@@ -133,10 +133,10 @@
                                         <div class="tableTooltip-YTZM32">
                                             <div
                                                 class="lg:!hidden betsTable__winLine-Hy_5JI betsTable__winLine_top-O31Eeh">
-                                                <svg class="backgroundWinLine_mirroredY-_eX8IJ" [ngClass]="{
-                            'dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
-                            'tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
-                            'tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
+                                                <svg class="backgroundWinLine_mirroredY-_eX8IJ !hidden" [ngClass]="{
+                            '!block dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
+                            '!block tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
+                            '!block tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
                           }" viewBox="0 0 374 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g filter="url(#BackgroundWinLineFilter)">
                                                         <path class="!hidden"
@@ -159,10 +159,10 @@
                                             </div>
                                             <div
                                                 class="lg:!hidden betsTable__winLine-Hy_5JI betsTable__winLine_bottom-yhJg7N">
-                                                <svg [ngClass]="{
-                                                    'dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
-                                                    'tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
-                                                    'tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
+                                                <svg class="!hidden" [ngClass]="{
+                                                    '!block dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
+                                                    '!block tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
+                                                    '!block tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
                                                   }" viewBox="0 0 374 19" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <g filter="url(#BackgroundWinLineFilter)">
@@ -184,13 +184,29 @@
                                                     </defs>
                                                 </svg>
                                             </div>
-                                            <div class="table-mGfpj2 table_flattenMode-mAvamp">
+                                            <div [ngClass]="{'table_flattenMode-mAvamp': mobileView}"
+                                                class="table-mGfpj2">
+                                                <svg class="table__backgroundShadow-CDVpmk"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 408 136">
+                                                    <path fill="#000"
+                                                        d="M196 1c-1.201 0-2.319-.841-3.52-.82C160.692.75 72.476 2.53 27.351 3.444c-12.9.262-19.35.392-23.35 4.475C0 12.002 0 18.479 0 31.434v73.132c0 12.955 0 19.432 4 23.515 4.001 4.083 10.451 4.213 23.351 4.475C81.541 133.655 197.875 136 204 136c.562 0 2.05-.02 4.332-.056 1.244-.02 2.424-.944 3.668-.944 1.201 0 2.319.841 3.52.82 31.788-.57 120.004-2.349 165.129-3.264 12.9-.262 19.35-.392 23.35-4.475C408 123.998 408 117.521 408 104.566V31.434c0-12.955 0-19.432-4.001-23.515-4-4.083-10.45-4.213-23.35-4.475C326.459 2.344 210.125 0 204 0c-.562 0-2.05.02-4.332.056C198.424.076 197.244 1 196 1Z"
+                                                        opacity=".9" filter="url(#top-card-bet-table-substrate)"></path>
+                                                    <defs>
+                                                        <filter id="top-card-bet-table-substrate" x="-20%" y="-20%"
+                                                            width="200%" height="200%">
+                                                            <feDropShadow dx="0" dy="0" stdDeviation="5"
+                                                                flood-color="#000"></feDropShadow>
+                                                        </filter>
+                                                    </defs>
+                                                </svg>
                                                 <div class="table__leftBetPlace-kP8Mj4">
                                                     <div
                                                         class="sideBetPlace-yaTQLm sideBetPlace_variant_classic-sXwkw_ sideBetPlace_flattenMode-LlQvR6 sideBetPlace_roundState_betting-HoZEfk sideBetPlace_alignment_left-j7KLQf">
                                                         <div data-locator="side-bet-Contender"
                                                             class="sideBetPlace__button-ECqlcw">
-                                                            <svg class="sideButton-hG99dd" viewBox="0 0 179 144"
+                                                            <svg [ngClass]="{'scale-x-[1.27]': !mobileView}"
+                                                                class="sideButton-hG99dd" viewBox="0 0 179 144"
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <g>
                                                                     <path [ngClass]="{
@@ -281,7 +297,8 @@
                                                         class="drawBetPlace-rGh1m_ drawBetPlace_flatten-O0riqv drawBetPlace_roundState_betting-nZl6GO">
                                                         <div data-locator="draw-bet"
                                                             class="drawBetPlace__button-k5DXi_">
-                                                            <svg class="drawButton-TOg_3P" viewBox="0 0 124 124"
+                                                            <svg [ngClass]="{'scale-x-[1.27]': !mobileView}"
+                                                                class="drawButton-TOg_3P" viewBox="0 0 124 124"
                                                                 xmlns="http://www.w3.org/2000/svg" style="
                                   --drawInnerCircleFill: #7e7e7e;
                                   --drawInnerCircleFillWin: #a6aa24;
@@ -400,7 +417,8 @@
                                                         class="sideBetPlace-yaTQLm sideBetPlace_variant_classic-sXwkw_ sideBetPlace_flattenMode-LlQvR6 sideBetPlace_roundState_betting-HoZEfk sideBetPlace_alignment_right-lxfKXH">
                                                         <div data-locator="side-bet-Champion"
                                                             class="sideBetPlace__button-ECqlcw">
-                                                            <svg class="sideButton-hG99dd" viewBox="0 0 179 144"
+                                                            <svg [ngClass]="{'scale-x-[1.27]': !mobileView}"
+                                                                class="sideButton-hG99dd" viewBox="0 0 179 144"
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <g>
                                                                     <path [ngClass]="{

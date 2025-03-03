@@ -136,6 +136,7 @@ export class VirtualTopcardsComponent implements AfterViewInit {
   betSelectedPlayer: any;
   isDesktop: boolean;
   currentUrl: any;
+  mobileView: boolean = false;
   isMobile: boolean;
   isMobileInfo: string;
   // isTeNteenPatti:any;
@@ -190,6 +191,7 @@ export class VirtualTopcardsComponent implements AfterViewInit {
 
     this.getStackData();
     this.getWindowSize();
+    this.checkIfMobile();
 
     if (!this.isDesktop) {
       this.setMarketScrollHeight();
@@ -972,6 +974,7 @@ export class VirtualTopcardsComponent implements AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize(event?: Event) {
     this.getWindowSize();
+    this.checkIfMobile();
   }
 
   getWindowSize() {
@@ -988,6 +991,10 @@ export class VirtualTopcardsComponent implements AfterViewInit {
       '--boardScaleY',
       scaleY.toString()
     );
+  }
+
+  checkIfMobile() {
+    this.mobileView = window.innerWidth <= 768; // Mobile screen size threshold
   }
 
   getCoinValue(event: any) {
