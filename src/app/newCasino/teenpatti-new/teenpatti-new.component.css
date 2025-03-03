@@ -495,9 +495,19 @@
           rgba(0, 0, 0, 0.5) 95%,
           rgba(0, 0, 0, 1) 100%
       ); */
-background-blend-mode: multiply;
+  background-blend-mode: multiply;
   background: var(--NteenpattiVideoBottomBg);
+  /* backdrop-filter: blur(10px); */
 }
+
+.gradientDiv::before {
+ content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(var(--blur));
+}
+
 .time-container {
   @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
   position: absolute;
