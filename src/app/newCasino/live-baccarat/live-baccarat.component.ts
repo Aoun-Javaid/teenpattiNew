@@ -21,7 +21,7 @@ declare var $: any;
 @Component({
   selector: 'app-live-baccarat',
   standalone: true,
-  imports: [TopResultsComponent, VideoPlayerComponent, CommonModule, BetCoinComponent, BetsChipsComponent ],
+  imports: [TopResultsComponent, VideoPlayerComponent, CommonModule, BetCoinComponent, BetsChipsComponent, ShortNumberPipe, ],
   templateUrl: './live-baccarat.component.html',
   styleUrl: './live-baccarat.component.css'
 })
@@ -54,7 +54,7 @@ export class LiveBaccaratComponent implements OnInit {
   placedbet = true;
   runnersName: any = {};
   casinoPl = [];
-  marketArray: any;
+  marketArray: any = [];
   isBetsSlipOpened = "";
   rulesBox: any;
   selectedResult: any;
