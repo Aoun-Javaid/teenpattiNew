@@ -91,7 +91,8 @@
 
 @media (orientation: portrait) {
   .topCard__staticVideoWrap-FiHDJy {
-    height: 30%;
+    /* height: 30%; */
+    height: 22%;
   }
 }
 
@@ -935,14 +936,17 @@
 
 .dragonWins {
   color: rgb(255, 65, 0) !important;
+  display: block !important;
 }
 
 .tigerWins {
   color: rgb(41, 204, 204) !important;
+  display: block !important;
 }
 
 .tieWins {
   color: rgb(248, 255, 19) !important;
+  display: block !important;
 }
 
 .dragonBox {
