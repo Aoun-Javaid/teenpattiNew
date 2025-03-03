@@ -133,10 +133,10 @@
                                         <div class="tableTooltip-YTZM32">
                                             <div
                                                 class="lg:!hidden betsTable__winLine-Hy_5JI betsTable__winLine_top-O31Eeh">
-                                                <svg class="backgroundWinLine_mirroredY-_eX8IJ" [ngClass]="{
-                            'dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
-                            'tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
-                            'tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
+                                                <svg class="backgroundWinLine_mirroredY-_eX8IJ !hidden" [ngClass]="{
+                            '!block dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
+                            '!block tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
+                            '!block tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
                           }" viewBox="0 0 374 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g filter="url(#BackgroundWinLineFilter)">
                                                         <path class="!hidden"
@@ -159,10 +159,10 @@
                                             </div>
                                             <div
                                                 class="lg:!hidden betsTable__winLine-Hy_5JI betsTable__winLine_bottom-yhJg7N">
-                                                <svg [ngClass]="{
-                                                    'dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
-                                                    'tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
-                                                    'tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
+                                                <svg class="!hidden" [ngClass]="{
+                                                    '!block dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
+                                                    '!block tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
+                                                    '!block tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
                                                   }" viewBox="0 0 374 19" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <g filter="url(#BackgroundWinLineFilter)">
