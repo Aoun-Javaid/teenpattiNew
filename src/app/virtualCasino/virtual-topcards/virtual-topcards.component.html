@@ -31,14 +31,12 @@
             <div class="game__video-YzLt9h topCard__staticVideoWrap-FiHDJy">
                 <div class="game__staticVideo-y5rXT0">
                     <div class="staticVideo-PcRqrm">
-                        <img class="staticVideo__poster-hdUGdJ staticVideo__poster_hidden-yMci7o staticVideo__player_withPoster-vt9rL5"
-                            src="https://client.petros04.com/js/../img/rng-tc-poster-m.e7c0fe18.png" alt="poster" />
-                        <video class="staticVideo__player-oLgBsz staticVideo__player_withPoster-vt9rL5" playsinline=""
-                            loop="">
-                            <source src="https://client.petros04.com/js/../img/TopCard_RNG_BG_portrait.13dd0c39.mp4"
-                                type="video/mp4; codecs=avc1.4D401E,mp4a.40.2" />
-                            <source src="https://client.petros04.com/js/../img/TopCard_RNG_BG_portrait.51d51315.webm"
-                                type="video/webm" />
+                        <!-- <img class="staticVideo__poster-hdUGdJ staticVideo__poster_hidden-yMci7o staticVideo__player_withPoster-vt9rL5"
+                            src="https://client.petros04.com/js/../img/rng-tc-poster-m.e7c0fe18.png" alt="poster" /> -->
+                        <video class="staticVideo__player-oLgBsz staticVideo__player_withPoster-vt9rL5" autoplay loop
+                            muted #playVideo (loadeddata)="onVideoLoaded($event)">
+                            <source src="/assets/topVideo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
                         </video>
                     </div>
                 </div>
@@ -50,9 +48,9 @@
             <div class="chatPreview-THFBrz chatPreview_mobile-zB9URg chatPreview_hidden-GXvWSw">
                 <div class="messagePreview-qrVrW0"></div>
             </div>
-            
+
             <div class="promoWidget-MC5DKE"></div>
-            
+
             <div class="topCard-c1emFi topCard_rngGame-ftIaEw">
                 <div class="topCard__rngTable-POdQ39">
                     <div class="rngTable-m9dIQZ rngTable_ready-h53afX">
@@ -115,9 +113,12 @@
                 <div class="topCard__mainArea-BPe8Po mb-4">
                     <div class="topCard__substrateIllumination-Fgc6XC">
                         <div class="substrateIllumination-QERXre substrateIllumination_filledMode-RrfQJ9">
-                            <div class="substrateIllumination__left-EhuQx_"></div>
-                            <div class="substrateIllumination__center-OOyono"></div>
-                            <div class="substrateIllumination__right-Qgonl_"></div>
+                            <div [ngClass]="{'dragonBox': resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER'}"
+                                class="substrateIllumination__left-EhuQx_"></div>
+                            <div [ngClass]="{'tieBox': resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'}"
+                                class="substrateIllumination__center-OOyono"></div>
+                            <div [ngClass]="{'tigerBox': resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER'}"
+                                class="substrateIllumination__right-Qgonl_"></div>
                         </div>
                     </div>
                     <div class="topCard__table-dHIFjS">
@@ -261,7 +262,7 @@
                                       ? 'tableMainCards__card__animation'
                                       : 'opacity-0'
                                   " [src]="[
-                                    'assets/cards/' +
+                                    'assets/52-cards/' +
                                       dragonCards?.card_1 +
                                       '.png'
                                   ]" class="card-img rounded-[0.125rem]" alt="card1" />
@@ -471,7 +472,7 @@
                                       ? 'tableMainCards__card__animation'
                                       : 'opacity-0'
                                   " [src]="[
-                                    '../assets/cards/' +
+                                    '../assets/52-cards/' +
                                       tigerCards?.card_1 +
                                       '.png'
                                   ]" class="card-img rounded-[0.125rem]" alt="card1" />
@@ -496,7 +497,7 @@
                         [status]="this.game.status"></app-bet-coin>
                 </div>
             </div>
-            
+
             <app-timer [fancyTimer]="true"></app-timer>
         </div>
 
