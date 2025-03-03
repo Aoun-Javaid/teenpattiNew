@@ -1077,12 +1077,6 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
     // console.log('onclick', this.selectedBetAmount);
   }
 
-
-
-
-
-
-
 }
 
 
