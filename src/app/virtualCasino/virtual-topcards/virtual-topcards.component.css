@@ -520,6 +520,13 @@
   width: 21.5rem;
 }
 
+.table__backgroundShadow-CDVpmk {
+  height: 100%;
+  overflow: visible;
+  width: 100%;
+  z-index: 1;
+}
+
 .table__backgroundShadow-CDVpmk,
 .table__drawBetPlace-EhK1WT,
 .table__leftBetPlace-kP8Mj4,
