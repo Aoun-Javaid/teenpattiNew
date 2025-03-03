@@ -30,9 +30,9 @@
             <div class="mb-[0.3rem] md:mb-[5px] relative p-[18.9048%_0px_29.5048%] lg:!p-0">
               <div class="topCard__substrateIllumination">
                 <div class="substrateIllumination substrateIllumination_winner_left  substrateIllumination_filledMode"
-                     [ngClass]="{'substrateIllumination_winner_left ':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId],
-                       'substrateIllumination_winner_center ':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId],
-                        'substrateIllumination_winner_right ':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[2]?.selectionId]}">
+                     [ngClass]="{'substrateIllumination_winner_left': resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
+                       'substrateIllumination_winner_center': resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER',
+                        'substrateIllumination_winner_right': resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER'}">
                   <div class="substrateIllumination__left"></div>
                   <div class="substrateIllumination__center"></div>
                   <div class="substrateIllumination__right"></div>
