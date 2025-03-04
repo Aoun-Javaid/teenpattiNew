@@ -27,10 +27,44 @@ import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
 import { TopResultsComponent } from '../../newCasino/shared/top-results/top-results.component';
 import { BetsChipsComponent } from '../../newCasino/shared/bets-chips/bets-chips.component';
 import { TimerComponent } from '../shared/timer/timer.component';
-import { VtdPhaserComponent } from "../casinoPhaser/vtd-phaser/vtd-phaser.component";
+import { VtdPhaserComponent } from '../casinoPhaser/vtd-phaser/vtd-phaser.component';
 
 export let browserRefresh = false;
 declare var $: any;
+interface Card {
+  img: HTMLImageElement;
+  // Current drawing properties
+  x: number;
+  y: number;
+  alpha: number;
+  scale: number;
+  // Starting and target positions for initial animation
+  initialX: number;
+  initialY: number;
+  targetX: number;
+  targetY: number;
+  // Animation phase/state:
+  // 'initial' = animating into view,
+  // 'displayed' = shown and static,
+  // 'upDown' = performing up/down animation,
+  // 'disappearing' = fading/moving out,
+  // 'completed' = finished and should no longer be drawn.
+  phase: 'initial' | 'displayed' | 'upDown' | 'disappearing' | 'completed';
+  // For initial animation:
+  animationStartTime: number;
+  animationDuration: number;
+  upDownCycles?: number;
+  // For up/down animation:
+  upDownStartTime?: number;
+  upDownDuration?: number;
+  upDownOffset?: number;
+  originalY?: number;
+  // For disappearing animation:
+  disappearTargetX?: number;
+  disappearTargetY?: number;
+  disappearStartTime?: number;
+  disappearDuration?: number;
+}
 
 @Component({
   selector: 'app-virtual-teenpatti',
@@ -44,15 +78,15 @@ declare var $: any;
     BetCoinComponent,
     BetsChipsComponent,
     TimerComponent,
-    VtdPhaserComponent
-],
+    VtdPhaserComponent,
+  ],
   templateUrl: './virtual-teenpatti.component.html',
   styleUrl: './virtual-teenpatti.component.css',
 })
 export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
   @ViewChild(VtdPhaserComponent) VtdPhaserComponent!: VtdPhaserComponent;
-  @ViewChild('playVideo') bgVideo !: ElementRef;
+  @ViewChild('playVideo') bgVideo!: ElementRef;
   reverseAnimate: boolean = false;
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
@@ -70,7 +104,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   animateCoinVal: any;
   waitRound: any;
   animate = false;
-  cards:any={}
+  cards: any = {};
   public message = {
     type: '1',
     id: '',
@@ -173,190 +207,179 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.networkService.getBetPlace().subscribe((betObj: any) => {
-      // this.getAllMarketProfitLoss();
-      this.isbetInProcess = false;
-      if (betObj.betSuccess) {
-        this.handleIncomingBetObject(betObj);
-      }
+    // this.networkService.getBetPlace().subscribe((betObj: any) => {
+    //   // this.getAllMarketProfitLoss();
+    //   this.isbetInProcess = false;
+    //   if (betObj.betSuccess) {
+    //     this.handleIncomingBetObject(betObj);
+    //   }
+    // });
+    // this.getStackData();
+    // this.getWindowSize();
+    // if (!this.isDesktop) {
+    //   this.setMarketScrollHeight();
+    //   if (this.isMobileInfo !== 'iOS') {
+    //     $('html').css('overflow', 'hidden');
+    //   }
+    // }
+    // // if(this.game == undefined || this.game === null){
+    // this.resultcounter = 0;
+    // // this.socket.connect();
+    // // this.sendMsg();
+    // this.encyDecy.generateEncryptionKey('', this.message);
+    // this.subscription = this.encyDecy
+    //   .getMarketData()
+    //   .pipe(retry(this.retryConfig))
+    //   .subscribe((marketData: any) => {
+    //     this.socket = marketData; // Update the receivedMessage variable with the received message
+    //     if (marketData) {
+    //       // this.getRoundId = localStorage.getItem('roundID')
+    //       let objMarket = JSON.parse(marketData);
+    //       console.log('market data', objMarket)
+    //       // let objMarket = marketData;
+    //       if (this.eventid == '99.0046') {
+    //         // console.log(objMarket)
+    //       }
+    //       //First time get responce in array
+    //       if (Array.isArray(objMarket?.data)) {
+    //         if (objMarket?.data[0]) {
+    //           if (objMarket?.type == '1') {
+    //             this.marketArray = objMarket?.data[0]?.marketArr;
+    //             this.game = objMarket?.data[0];
+    //             this.game.marketArr = this.marketArray
+    //               ? this.marketArray
+    //               : objMarket?.data[0]?.marketArr;
+    //             this.sizeRunner1 =
+    //               this.marketArray[0].runners[0].price.back[0].size;
+    //             this.sizeRunner2 =
+    //               this.marketArray[0].runners[1].price.back[0].size;
+    //             this.winnerMarketArray = this.game?.marketArr
+    //               ? this.game?.marketArr[0]
+    //               : '';
+    //             this.getRoundId = this.game.roundId;
+    //             this.handleEventResponse(objMarket, 0);
+    //           }
+    //         }
+    //       } else {
+    //         this.handleEventResponse(objMarket, 0);
+    //       }
+    //       if (this.game) {
+    //         this.winnerMarketArray = this.game?.marketArr
+    //           ? this.game?.marketArr[0]
+    //           : '';
+    //         this.marketArray = this.game.marketArr;
+    //         this.gameroundId = this.game.roundId;
+    //         //  get result balance on round Id change
+    //         // console.log('roundId',this.getRoundId)
+    //         // console.log('game ',this.game.roundId)
+    //         if (this.getRoundId != this.game.roundId || this.getRoundId == '') {
+    //           this.getRoundId = this.game.roundId;
+    //           // localStorage.setItem('roundID', this.game.roundId);
+    //           this.getBalance();
+    //           this.casinoPl = [];
+    //           this.getResults();
+    //           this.BetPlaced = {};
+    //           this.betSelectedPlayer = '';
+    //           this.secndBoxWidth = '';
+    //           this.firstBoxWidth = '';
+    //           this.cards = {};
+    //           this.VtdPhaserComponent.clearRoundTeenpatti();
+    //         }
+    //         // this.networkService.updateRoundId(this.game);
+    //         if (this.game.status == 'SUSPEND') {
+    //           this.isBetsSlipOpened = '';
+    //           this.isValueBetsSlip = 0;
+    //         }
+    //         if (this.game.status == 'ONLINE') {
+    //         }
+    //         this.playerACards = this.game?.cardsArr?.PLAYER_A;
+    //         this.playerBCards = this.game?.cardsArr?.PLAYER_B;
+    //         if (this.playerACards) {
+    //           if(this.playerACards.card_1!=0 && !this.cards.card_11){
+    //             this.cards.card_11=true
+    //             this.VtdPhaserComponent.showPlayerACard1(this.playerACards.card_1);
+    //           }
+    //           if(this.playerACards.card_2!=0 && !this.cards.card_12){
+    //             this.cards.card_12=true
+    //             this.VtdPhaserComponent.showPlayerACard2(this.playerACards.card_2)
+    //           }
+    //           if(this.playerACards.card_3!=0 && !this.cards.card_13){
+    //             this.cards.card_13=true
+    //             this.VtdPhaserComponent.showPlayerACard3(this.playerACards.card_3)
+    //           }
+    //           if (
+    //             this.playerACards?.card_1 == 0 &&
+    //             this.game.status == 'SUSPEND'
+    //           ) {
+    //             this.game.noMoreBets = true;
+    //           } else {
+    //             this.game.noMoreBets = false;
+    //           }
+    //         }
+    //         if(this.playerBCards){
+    //           if(this.playerBCards.card_1!=0 && !this.cards.card_21){
+    //             this.cards.card_21=true
+    //             this.VtdPhaserComponent.showPlayerBCard1(this.playerBCards.card_1)
+    //           }
+    //           if(this.playerBCards.card_2!=0 && !this.cards.card_22){
+    //             this.cards.card_22=true
+    //             this.VtdPhaserComponent.showPlayerBCard2(this.playerBCards.card_2)
+    //           }
+    //           if(this.playerBCards.card_3!=0 && !this.cards.card_23){
+    //             this.cards.card_23=true
+    //             this.VtdPhaserComponent.showPlayerBCard3(this.playerBCards.card_3)
+    //           }
+    //         }
+    //         this.winnerMarketArray = this.game.marketArr
+    //           ? this.game.marketArr[0]
+    //           : '';
+    //         this.runnersName = this.winnerMarketArray.runnersName;
+    //       }
+    //       this.networkService.updateRoundId(this.game);
+    //       // Get result Array
+    //       // if (objMarket.type == "3") {
+    //       //   this.RoundWinner = null;
+    //       //   //  Check user's bet player
+    //       //   if (this.casinoPl && this.casinoPl[this.winnerMarketArray?.marketId]) {
+    //       //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[0].selectionId] > 0) {
+    //       //       this.betSelectedPlayer = this.winnerMarketArray.runners[0].selectionId
+    //       //     }
+    //       //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[1].selectionId] > 0) {
+    //       //       this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
+    //       //     }
+    //       //   }
+    //       //   if (this.resultcounter > 0) {
+    //       //     this.RoundWinner = objMarket.data[0].winner;
+    //       //     setTimeout(() => {
+    //       //       this.RoundWinner = null;
+    //       //     }, 5000)
+    //       //     objMarket.data[0].results[0].runners.forEach((runner: any) => {
+    //       //       if (runner.selectionId == this.betSelectedPlayer && runner.result == "WINNER") {
+    //       //         setTimeout(() => {
+    //       //           this.videoComponent.surpriseFireWork();
+    //       //         }, 1000);
+    //       //       }
+    //       //     })
+    //       //   }
+    //       //   this.networkService.updateResultstream(objMarket.data)
+    //       //   this.resultcounter++;
+    //       // }
+    //     }
+    //   });
+    // this.getAllMarketProfitLoss();
+    // this.getResults();
+    const canvasEl = this.canvas.nativeElement;
+    canvasEl.width = this.width;
+    canvasEl.height = this.height;
+    this.ctx = canvasEl.getContext('2d')!;
+
+    // Set breakpoints (you can extend this logic as needed)
+    this.setBreakPoints();
+
+    // Preload images then start the render loop
+    this.preloadImages().then(() => {
+      this.render();
     });
-
-    this.getStackData();
-    this.getWindowSize();
-
-    if (!this.isDesktop) {
-      this.setMarketScrollHeight();
-      if (this.isMobileInfo !== 'iOS') {
-        $('html').css('overflow', 'hidden');
-      }
-    }
-    // if(this.game == undefined || this.game === null){
-    this.resultcounter = 0;
-    // this.socket.connect();
-    // this.sendMsg();
-
-    this.encyDecy.generateEncryptionKey('', this.message);
-
-    this.subscription = this.encyDecy
-      .getMarketData()
-      .pipe(retry(this.retryConfig))
-      .subscribe((marketData: any) => {
-        this.socket = marketData; // Update the receivedMessage variable with the received message
-
-        if (marketData) {
-          // this.getRoundId = localStorage.getItem('roundID')
-
-          let objMarket = JSON.parse(marketData);
-          console.log('market data', objMarket)
-          // let objMarket = marketData;
-          if (this.eventid == '99.0046') {
-            // console.log(objMarket)
-          }
-
-          //First time get responce in array
-          if (Array.isArray(objMarket?.data)) {
-            if (objMarket?.data[0]) {
-              if (objMarket?.type == '1') {
-                this.marketArray = objMarket?.data[0]?.marketArr;
-                this.game = objMarket?.data[0];
-                this.game.marketArr = this.marketArray
-                  ? this.marketArray
-                  : objMarket?.data[0]?.marketArr;
-                this.sizeRunner1 =
-                  this.marketArray[0].runners[0].price.back[0].size;
-                this.sizeRunner2 =
-                  this.marketArray[0].runners[1].price.back[0].size;
-                this.winnerMarketArray = this.game?.marketArr
-                  ? this.game?.marketArr[0]
-                  : '';
-                this.getRoundId = this.game.roundId;
-                this.handleEventResponse(objMarket, 0);
-              }
-            }
-          } else {
-            this.handleEventResponse(objMarket, 0);
-          }
-
-          if (this.game) {
-            this.winnerMarketArray = this.game?.marketArr
-              ? this.game?.marketArr[0]
-              : '';
-            this.marketArray = this.game.marketArr;
-            this.gameroundId = this.game.roundId;
-
-            //  get result balance on round Id change
-            // console.log('roundId',this.getRoundId)
-            // console.log('game ',this.game.roundId)
-            if (this.getRoundId != this.game.roundId || this.getRoundId == '') {
-              this.getRoundId = this.game.roundId;
-              // localStorage.setItem('roundID', this.game.roundId);
-              this.getBalance();
-              this.casinoPl = [];
-              this.getResults();
-              this.BetPlaced = {};
-              this.betSelectedPlayer = '';
-              this.secndBoxWidth = '';
-              this.firstBoxWidth = '';
-              this.cards = {};
-              this.VtdPhaserComponent.clearRoundTeenpatti();
-            }
-
-            // this.networkService.updateRoundId(this.game);
-
-            if (this.game.status == 'SUSPEND') {
-              this.isBetsSlipOpened = '';
-              this.isValueBetsSlip = 0;
-            }
-            if (this.game.status == 'ONLINE') {
-            }
-            this.playerACards = this.game?.cardsArr?.PLAYER_A;
-            this.playerBCards = this.game?.cardsArr?.PLAYER_B;
-
-            if (this.playerACards) {
-              if(this.playerACards.card_1!=0 && !this.cards.card_11){
-                this.cards.card_11=true
-                this.VtdPhaserComponent.showPlayerACard1(this.playerACards.card_1);
-              }
-              if(this.playerACards.card_2!=0 && !this.cards.card_12){
-                this.cards.card_12=true
-                this.VtdPhaserComponent.showPlayerACard2(this.playerACards.card_2)
-              }
-              if(this.playerACards.card_3!=0 && !this.cards.card_13){
-                this.cards.card_13=true
-                this.VtdPhaserComponent.showPlayerACard3(this.playerACards.card_3)
-              }
-
-              if (
-                this.playerACards?.card_1 == 0 &&
-                this.game.status == 'SUSPEND'
-              ) {
-                this.game.noMoreBets = true;
-
-              } else {
-                this.game.noMoreBets = false;
-              }
-            }
-            if(this.playerBCards){
-              if(this.playerBCards.card_1!=0 && !this.cards.card_21){
-                this.cards.card_21=true
-                this.VtdPhaserComponent.showPlayerBCard1(this.playerBCards.card_1)
-              }
-              if(this.playerBCards.card_2!=0 && !this.cards.card_22){
-                this.cards.card_22=true
-                this.VtdPhaserComponent.showPlayerBCard2(this.playerBCards.card_2)
-              }
-              if(this.playerBCards.card_3!=0 && !this.cards.card_23){
-                this.cards.card_23=true
-                this.VtdPhaserComponent.showPlayerBCard3(this.playerBCards.card_3)
-              }
-            }
-            this.winnerMarketArray = this.game.marketArr
-              ? this.game.marketArr[0]
-              : '';
-            this.runnersName = this.winnerMarketArray.runnersName;
-          }
-
-          this.networkService.updateRoundId(this.game);
-
-          // Get result Array
-
-          // if (objMarket.type == "3") {
-          //   this.RoundWinner = null;
-          //   //  Check user's bet player
-          //   if (this.casinoPl && this.casinoPl[this.winnerMarketArray?.marketId]) {
-          //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[0].selectionId] > 0) {
-          //       this.betSelectedPlayer = this.winnerMarketArray.runners[0].selectionId
-          //     }
-          //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[1].selectionId] > 0) {
-          //       this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
-          //     }
-          //   }
-
-          //   if (this.resultcounter > 0) {
-          //     this.RoundWinner = objMarket.data[0].winner;
-          //     setTimeout(() => {
-          //       this.RoundWinner = null;
-          //     }, 5000)
-
-          //     objMarket.data[0].results[0].runners.forEach((runner: any) => {
-          //       if (runner.selectionId == this.betSelectedPlayer && runner.result == "WINNER") {
-
-          //         setTimeout(() => {
-          //           this.videoComponent.surpriseFireWork();
-          //         }, 1000);
-          //       }
-          //     })
-
-          //   }
-
-          //   this.networkService.updateResultstream(objMarket.data)
-          //   this.resultcounter++;
-          // }
-        }
-      });
-
-    this.getAllMarketProfitLoss();
-    this.getResults();
   }
 
   getStackData() {
@@ -446,7 +469,6 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
               this.game.cardsArr = objMarket?.data?.cardsArr;
               this.game.roundId = objMarket?.roundId;
             }
-
           }
           if ('roundId' in objMarket?.data) {
             this.game.roundId = objMarket?.data?.roundId;
@@ -463,7 +485,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
             ) {
               if (
                 this.casinoPl[this.winnerMarketArray?.marketId][
-                this.winnerMarketArray.runners[0].selectionId
+                  this.winnerMarketArray.runners[0].selectionId
                 ] > 0
               ) {
                 this.betSelectedPlayer =
@@ -471,7 +493,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
               }
               if (
                 this.casinoPl[this.winnerMarketArray?.marketId][
-                this.winnerMarketArray.runners[1].selectionId
+                  this.winnerMarketArray.runners[1].selectionId
                 ] > 0
               ) {
                 this.betSelectedPlayer =
@@ -485,7 +507,9 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
                   objMarket.data.resultsArr[0]?.runnersName[key];
                 // console.log(this.RoundWinner)
                 setTimeout(() => {
-                  this.VtdPhaserComponent.winnerCardTeenpatti(this.RoundWinner=='PLAYER A'?1:2)
+                  this.VtdPhaserComponent.winnerCardTeenpatti(
+                    this.RoundWinner == 'PLAYER A' ? 1 : 2
+                  );
                 }, 500);
 
                 this.BetPlaced = [];
@@ -924,6 +948,8 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    cancelAnimationFrame(this.animationFrameId);
+
     let message = {
       type: '2',
       id: '',
@@ -1129,5 +1155,524 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         break;
     }
     // console.log('onclick', this.selectedBetAmount);
+  }
+
+  @ViewChild('canvas', { static: true })
+  canvas!: ElementRef<HTMLCanvasElement>;
+  private ctx!: CanvasRenderingContext2D;
+  private animationFrameId!: number;
+
+  // Canvas dimensions
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  // Game parameters (simplified; adjust as needed)
+  cardSize = 15;
+  hiddenCardSize = 15;
+  cardStartPointX = this.width * 0.5;
+  cardStartPointY = this.height * 0.3;
+  cardEndPointY = this.cardStartPointY + 70;
+  // End positions for left/right animations (using sample offsets)
+  leftCard1EndPositionX = 105;
+  leftCard2EndPositionX = 65;
+  leftCard3EndPositionX = 27;
+  rightCard1EndPositionX = 27;
+  rightCard2EndPositionX = 65;
+  rightCard3EndPositionX = 105;
+
+  // Store active cards (only one per slot for demo)
+  private leftCard1: Card | null = null;
+  private leftCard2: Card | null = null;
+  private leftCard3: Card | null = null;
+  private rightCard1: Card | null = null;
+  private rightCard2: Card | null = null;
+  private rightCard3: Card | null = null;
+  private hiddenCard: Card | null = null;
+
+  // Dictionary for loaded images
+  private images: { [key: string]: HTMLImageElement } = {};
+
+  // Adjust game parameters based on canvas size
+  private setBreakPoints() {
+    switch (true) {
+      case this.width < 285:
+        this.cardSize = 40;
+        this.hiddenCardSize = 45;
+        this.cardStartPointX = this.width * 0.5;
+        this.cardStartPointY = this.height * 0.3;
+        this.cardEndPointY = this.cardStartPointY + 70;
+        this.leftCard1EndPositionX = 105;
+        this.leftCard2EndPositionX = 65;
+        this.leftCard3EndPositionX = 27;
+        this.rightCard1EndPositionX = 27;
+        this.rightCard2EndPositionX = 65;
+        this.rightCard3EndPositionX = 105;
+        // this.hiddenCardEndPointX = this.width * 0.22;
+        // this.hiddenCardEndPointY = this.height * 0.45;
+
+        break;
+      case this.width < 310:
+        this.cardSize = 35;
+        this.hiddenCardSize = 40;
+        this.cardStartPointX = this.width * 0.5;
+        this.cardStartPointY = this.height * 0.3;
+        this.cardEndPointY = this.cardStartPointY + 70;
+        this.leftCard1EndPositionX = 113;
+        this.leftCard2EndPositionX = 70;
+        this.leftCard3EndPositionX = 27;
+        this.rightCard1EndPositionX = 27;
+        this.rightCard2EndPositionX = 70;
+        this.rightCard3EndPositionX = 113;
+        // this.hiddenCardEndPointX = this.width * 0.22;
+        // this.hiddenCardEndPointY = this.height * 0.45;
+        break;
+
+      case this.width < 340:
+        this.cardSize = 35;
+        this.hiddenCardSize = 40;
+        this.cardStartPointX = this.width * 0.5;
+        this.cardStartPointY = this.height * 0.35;
+        this.cardEndPointY = this.cardStartPointY + 70;
+        this.leftCard1EndPositionX = 113;
+        this.leftCard2EndPositionX = 70;
+        this.leftCard3EndPositionX = 27;
+        this.rightCard1EndPositionX = 27;
+        this.rightCard2EndPositionX = 70;
+        this.rightCard3EndPositionX = 113;
+        // this.hiddenCardEndPointX = this.width * 0.22;
+        // this.hiddenCardEndPointY = this.height * 0.45;
+
+        break;
+      case this.width < 350:
+        this.cardSize = 35;
+        this.hiddenCardSize = 40;
+        this.cardStartPointX = this.width * 0.5;
+        this.cardStartPointY = this.height * 0.35;
+        this.cardEndPointY = this.cardStartPointY + 70;
+        this.leftCard1EndPositionX = 113;
+        this.leftCard2EndPositionX = 70;
+        this.leftCard3EndPositionX = 27;
+        this.rightCard1EndPositionX = 27;
+        this.rightCard2EndPositionX = 70;
+        this.rightCard3EndPositionX = 113;
+        // this.hiddenCardEndPointX = this.width * 0.22;
+        // this.hiddenCardEndPointY = this.height * 0.45;
+
+        break;
+      case this.width < 363:
+        this.cardSize = 35;
+        this.hiddenCardSize = 40;
+        this.cardStartPointX = this.width * 0.5;
+        this.cardStartPointY = this.height * 0.35;
+        this.cardEndPointY = this.cardStartPointY + 70;
+        this.leftCard1EndPositionX = 123;
+        this.leftCard2EndPositionX = 80;
+        this.leftCard3EndPositionX = 37;
+        this.rightCard1EndPositionX = 37;
+        this.rightCard2EndPositionX = 80;
+        this.rightCard3EndPositionX = 123;
+        // this.hiddenCardEndPointX = this.width * 0.22;
+        // this.hiddenCardEndPointY = this.height * 0.45;
+
+        break;
+      case this.width < 377:
+        this.cardSize = 35;
+        this.hiddenCardSize = 40;
+        this.cardStartPointX = this.width * 0.5;
+        this.cardStartPointY = this.height * 0.35;
+        this.cardEndPointY = this.cardStartPointY + 70;
+        this.leftCard1EndPositionX = 123;
+        this.leftCard2EndPositionX = 80;
+        this.leftCard3EndPositionX = 37;
+        this.rightCard1EndPositionX = 37;
+        this.rightCard2EndPositionX = 80;
+        this.rightCard3EndPositionX = 123;
+        // this.hiddenCardEndPointX = this.width * 0.22;
+        // this.hiddenCardEndPointY = this.height * 0.45;
+
+        break;
+      case this.width < 500:
+        this.cardSize = 15;
+        this.hiddenCardSize = 45;
+        this.cardStartPointX = this.width * 0.5;
+        this.cardStartPointY = this.height * 0.3;
+        this.cardEndPointY = this.cardStartPointY + 300;
+        this.leftCard1EndPositionX = 130;
+        this.leftCard2EndPositionX = 80;
+        this.leftCard3EndPositionX = 30;
+        this.rightCard1EndPositionX = 30;
+        this.rightCard2EndPositionX = 80;
+        this.rightCard3EndPositionX = 130;
+        // this.hiddenCardEndPointX = this.width * 0.22;
+        // this.hiddenCardEndPointY = this.height * 0.43;
+
+        break;
+      case this.width < 700:
+        this.cardSize = 45;
+        this.hiddenCardSize = 80;
+        this.cardStartPointX = this.width * 0.49;
+        this.cardStartPointY = this.height * 0.3;
+        this.cardEndPointY = this.cardStartPointY + 120;
+        this.leftCard1EndPositionX = 220;
+        this.leftCard2EndPositionX = 140;
+        this.leftCard3EndPositionX = 60;
+        this.rightCard1EndPositionX = 60;
+        this.rightCard2EndPositionX = 140;
+        this.rightCard3EndPositionX = 220;
+        // this.hiddenCardEndPointX = this.width * 0.22;
+        // this.hiddenCardEndPointY = this.height * 0.43;
+
+        break;
+      default:
+        this.cardSize = 15;
+        this.hiddenCardSize = 80;
+        this.cardStartPointX = this.width * 0.49;
+        this.cardStartPointY = this.height * 0.35;
+        this.cardEndPointY = this.cardStartPointY + 180;
+        this.leftCard1EndPositionX = 260;
+        this.leftCard2EndPositionX = 160;
+        this.leftCard3EndPositionX = 60;
+        this.rightCard1EndPositionX = 60;
+        this.rightCard2EndPositionX = 160;
+        this.rightCard3EndPositionX = 260;
+        // this.hiddenCardEndPointX = this.width * 0.22;
+        // this.hiddenCardEndPointY = this.height * 0.43;
+
+        break;
+    }
+  }
+
+  // Preload a set of card images (adjust or add more as needed)
+  private preloadImages(): Promise<void> {
+    const cardNames = ['C5_', 'C6_', 'C7_', 'H4_', 'H5_', 'H6_', 'Broder'];
+    const promises = cardNames.map((name) => {
+      return new Promise<void>((resolve, reject) => {
+        const img = new Image();
+        img.src = `/assets/52 Cards skew/${name}.svg`;
+        img.onload = () => {
+          this.images[name] = img;
+          resolve();
+        };
+        img.onerror = () => reject(`Error loading image: ${name}`);
+      });
+    });
+    return Promise.all(promises).then(() => {});
+  }
+
+  // Create a new card with initial animation properties.
+  private createCard(
+    cardName: string,
+    startX: number,
+    startY: number,
+    targetX: number,
+    targetY: number,
+    duration = 600
+  ): Card {
+    const img = this.images[cardName];
+    return {
+      img,
+      x: startX,
+      y: startY,
+      initialX: startX,
+      initialY: startY,
+      targetX,
+      targetY,
+      alpha: 0,
+      scale: this.cardSize / img.width,
+      phase: 'initial',
+      animationStartTime: performance.now(),
+      animationDuration: duration,
+    };
+  }
+
+  // Listen for key presses to trigger card animations.
+  // Keys '1'-'6' create cards.
+  // 'L' or 'l' animate left cards up/down.
+  // 'R' or 'r' animate right cards up/down.
+  // 'D' or 'd' trigger the disappearing animation.
+  @HostListener('window:keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent): void {
+    switch (event.key) {
+      case '1': {
+        const targetX = this.cardStartPointX - this.leftCard1EndPositionX;
+        this.leftCard1 = this.createCard(
+          'C5_',
+          this.cardStartPointX,
+          this.cardStartPointY,
+          targetX,
+          this.cardEndPointY
+        );
+        break;
+      }
+      case '2': {
+        const targetX = this.cardStartPointX - this.leftCard2EndPositionX;
+        this.leftCard2 = this.createCard(
+          'C6_',
+          this.cardStartPointX,
+          this.cardStartPointY,
+          targetX,
+          this.cardEndPointY
+        );
+        break;
+      }
+      case '3': {
+        const targetX = this.cardStartPointX - this.leftCard3EndPositionX;
+        this.leftCard3 = this.createCard(
+          'C7_',
+          this.cardStartPointX,
+          this.cardStartPointY,
+          targetX,
+          this.cardEndPointY
+        );
+        break;
+      }
+      case '4': {
+        const targetX = this.cardStartPointX + this.rightCard1EndPositionX;
+        this.rightCard1 = this.createCard(
+          'H4_',
+          this.cardStartPointX,
+          this.cardStartPointY,
+          targetX,
+          this.cardEndPointY
+        );
+        break;
+      }
+      case '5': {
+        const targetX = this.cardStartPointX + this.rightCard2EndPositionX;
+        this.rightCard2 = this.createCard(
+          'H5_',
+          this.cardStartPointX,
+          this.cardStartPointY,
+          targetX,
+          this.cardEndPointY
+        );
+        break;
+      }
+      case '6': {
+        const targetX = this.cardStartPointX + this.rightCard3EndPositionX;
+        this.rightCard3 = this.createCard(
+          'H6_',
+          this.cardStartPointX,
+          this.cardStartPointY,
+          targetX,
+          this.cardEndPointY
+        );
+        break;
+      }
+      case 'l':
+      case 'L': {
+        if (this.leftCard1) this.animateUpDown(this.leftCard1);
+        if (this.leftCard2) this.animateUpDown(this.leftCard2);
+        if (this.leftCard3) this.animateUpDown(this.leftCard3);
+        break;
+      }
+      case 'r':
+      case 'R': {
+        if (this.rightCard1) this.animateUpDown(this.rightCard1);
+        if (this.rightCard2) this.animateUpDown(this.rightCard2);
+        if (this.rightCard3) this.animateUpDown(this.rightCard3);
+        break;
+      }
+      case 'd':
+      case 'D': {
+        if (this.leftCard1)
+          this.moveAndRemoveCard(
+            this.leftCard1,
+            this.cardStartPointX,
+            this.leftCard1.y
+          );
+        if (this.leftCard2)
+          this.moveAndRemoveCard(
+            this.leftCard2,
+            this.cardStartPointX,
+            this.leftCard2.y
+          );
+        if (this.leftCard3)
+          this.moveAndRemoveCard(
+            this.leftCard3,
+            this.cardStartPointX,
+            this.leftCard3.y
+          );
+        if (this.rightCard1)
+          this.moveAndRemoveCard(
+            this.rightCard1,
+            this.cardStartPointX,
+            this.rightCard1.y
+          );
+        if (this.rightCard2)
+          this.moveAndRemoveCard(
+            this.rightCard2,
+            this.cardStartPointX,
+            this.rightCard2.y
+          );
+        if (this.rightCard3)
+          this.moveAndRemoveCard(
+            this.rightCard3,
+            this.cardStartPointX,
+            this.rightCard3.y
+          );
+        setTimeout(() => {
+          this.createHiddenCard();
+        }, 600);
+        break;
+      }
+      default:
+        break;
+    }
+  }
+
+  // Initiate an up/down (yoyo) animation on the given card.
+  private animateUpDown(card: Card): void {
+    if (card.phase === 'displayed') {
+      card.phase = 'upDown';
+      card.upDownStartTime = performance.now();
+      card.upDownDuration = 600; // total duration (up + down)
+      card.upDownOffset = 15; // move 15 pixels up
+      card.originalY = card.y;
+      card.upDownCycles = 0;
+    }
+  }
+
+  // Initiate a disappearing animation on the card (moves it to target X and fades out).
+  private moveAndRemoveCard(
+    card: Card,
+    endX: number,
+    endY: number,
+    duration = 1000
+  ): void {
+    card.phase = 'disappearing';
+    card.disappearStartTime = performance.now();
+    card.disappearDuration = duration;
+    card.disappearTargetX = endX;
+    card.disappearTargetY = endY;
+    // Save starting position for interpolation.
+    card.initialX = card.x;
+    card.initialY = card.y;
+  }
+
+  // Main render loop.
+  private render = (): void => {
+    this.ctx.clearRect(0, 0, this.width, this.height);
+    const now = performance.now();
+
+    // Update & draw each card if present.
+    this.updateAndDrawCard(this.leftCard1, now);
+    this.updateAndDrawCard(this.leftCard2, now);
+    this.updateAndDrawCard(this.leftCard3, now);
+    this.updateAndDrawCard(this.rightCard1, now);
+    this.updateAndDrawCard(this.rightCard2, now);
+    this.updateAndDrawCard(this.rightCard3, now);
+    this.updateAndDrawCard(this.hiddenCard, now);
+    this.animationFrameId = requestAnimationFrame(this.render);
+  };
+
+  // Update each card’s state based on its current phase and then draw it.
+  private updateAndDrawCard(card: Card | null, now: number): void {
+    if (!card || card.phase === 'completed') {
+      return;
+    }
+    switch (card.phase) {
+      case 'initial': {
+        const elapsed = now - card.animationStartTime;
+        const progress = Math.min(elapsed / card.animationDuration, 1);
+        card.x = card.initialX + (card.targetX - card.initialX) * progress;
+        card.y = card.initialY + (card.targetY - card.initialY) * progress;
+        card.alpha = progress;
+        if (progress >= 1) {
+          card.phase = 'displayed';
+          card.x = card.targetX;
+          card.y = card.targetY;
+          card.alpha = 1;
+        }
+        break;
+      }
+      case 'upDown': {
+        const elapsed = now - (card.upDownStartTime || now);
+        const progress = Math.min(elapsed / (card.upDownDuration || 600), 1);
+        if (progress < 0.5) {
+          // Move upward.
+          card.y =
+            (card.originalY || card.y) -
+            (card.upDownOffset || 15) * (progress / 0.5);
+        } else {
+          // Move back downward.
+          card.y =
+            (card.originalY || card.y) -
+            (card.upDownOffset || 15) * (1 - (progress - 0.5) / 0.5);
+        }
+        if (progress >= 1) {
+          // Increase the cycle count.
+          card.upDownCycles = (card.upDownCycles || 0) + 1;
+          if (card.upDownCycles < 2) {
+            // Start another cycle: reset start time.
+            card.upDownStartTime = now;
+          } else {
+            // Completed two cycles – return to 'displayed' state.
+            card.phase = 'displayed';
+            card.y = card.originalY || card.y;
+          }
+        }
+        break;
+      }
+
+      case 'disappearing': {
+        const elapsed = now - (card.disappearStartTime || now);
+        const progress = Math.min(
+          elapsed / (card.disappearDuration || 1000),
+          1
+        );
+        card.x =
+          card.initialX +
+          ((card.disappearTargetX || card.x) - card.initialX) * progress;
+        card.y =
+          card.initialY +
+          ((card.disappearTargetY || card.y) - card.initialY) * progress;
+        card.alpha = 1 - progress;
+        if (progress >= 1) {
+          card.phase = 'completed';
+          return; // Do not draw if completed.
+        }
+        break;
+      }
+      // 'displayed' means no further changes.
+    }
+    // Draw the card on the canvas.
+    this.ctx.save();
+    this.ctx.globalAlpha = card.alpha;
+    this.ctx.translate(card.x, card.y);
+    this.ctx.scale(card.scale, card.scale);
+    this.ctx.drawImage(card.img, -card.img.width / 2, -card.img.height / 2);
+    this.ctx.restore();
+  }
+
+  // Function to create a C5 card and animate it disappearing to the target coordinates.
+  public createHiddenCard(): void {
+    const startX = this.cardStartPointX;
+    const startY = this.cardEndPointY;
+    // Create the C5 card using the existing createCard function.
+    // Here we pass startX and startY as both the initial and target positions,
+    // and a duration of 0 so that it appears immediately.
+    this.hiddenCard = this.createCard(
+      'Broder',
+      startX,
+      startY,
+      startX,
+      startY,
+      0
+    );
+
+    // Immediately set its phase to 'displayed'
+    if (this.hiddenCard) {
+      this.hiddenCard.phase = 'displayed';
+      this.hiddenCard.scale = this.hiddenCardSize / this.images['Broder'].width;
+      // Now trigger the disappearing animation:
+      // This will move the card from its current position to x = this.width*0.22, y = this.height*0.43 over 1000 ms.
+      this.moveAndRemoveCard(
+        this.hiddenCard,
+        this.width * 0.35,
+        this.height * 0.43,
+        1000
+      );
+    }
   }
 }

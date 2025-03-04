@@ -842,8 +842,8 @@
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  height: 3rem;
-  width: 3rem;
+  height: 57px;
+  width: 57px;
   position: relative;
   transition: opacity 300ms ease;
   @apply md:h-[93px] md:w-[93px];
@@ -879,7 +879,7 @@
 }
 
 .svgIcon_large-z8G1_Q {
-  width: 3rem;
+  width: 57px;
 }
 
 .svgIcon-JpUo7O {
@@ -960,8 +960,8 @@
   border-radius: 50%;
 }
 .iconButton_size_medium-YQpLaw {
-  height: 3rem;
-  width: 3rem;
+  height: 57px;
+  width: 57px;
 }
 .iconButton-by3moV {
   align-items: center;
@@ -1030,7 +1030,7 @@
 }
 
 .tab-slider {
-  @apply bg-[#0f212e] flex rounded-[3rem] p-[5px] flex-shrink-0;
+  @apply bg-[rgba(138,_138,_153,0.1)] flex rounded-[3rem] p-[5px] flex-shrink-0;
 }
 
 .tab-item {
@@ -1062,7 +1062,7 @@
   transition: opacity 300ms ease;
 }
 .chip_size_48-odjDTm {
-  @apply h-[48px] w-[48px] md:h-[93px] md:w-[93px] md:rotate-[93deg];
+  @apply h-[57px] w-[57px] md:h-[93px] md:w-[93px] md:rotate-[93deg];
 }
 
 .active-shadow {
@@ -1070,7 +1070,7 @@
   box-shadow: 0 0 0.25rem rgba(255, 221, 51, 0.225), 0 0 0.59375rem #fb3,
     inset 0 0 0.59375rem #fb3, inset 0 0 0.25rem rgba(255, 187, 51, 0.225);
   inset: -0.1875rem;
-  border-radius: 23px;
+  border-radius: 50%;
   transition-property: opacity, visibility;
   /* visibility: hidden;
   z-index: 1; */

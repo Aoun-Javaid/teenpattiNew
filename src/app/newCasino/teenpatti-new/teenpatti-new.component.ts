@@ -32,7 +32,7 @@ declare var $: any;
 export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
-
+  coinAnimationBg = false
   reverseAnimate: boolean = false
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
@@ -985,6 +985,8 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   }
 
   showAnimateCoinBar() {
+
+    this.coinAnimationBg = !this.coinAnimationBg
 
     setTimeout(() => {
       this.reverseAnimate = false

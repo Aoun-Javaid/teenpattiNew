@@ -66,12 +66,12 @@
 
                     <!-- Player A cards start here -->
                     <div class="custom_flex gap-2 player_A_cards">
-
-                        <img [ngClass]="playerACards?.card_1!='0' && playerACards?.card_1 ?'card-animation':'opacity-0'"
+ 
+                        <img [ngClass]="{ 'card-animation': playerACards?.card_1 && playerACards?.card_1 !== '0', 'opacity-0': !(playerACards?.card_1 && playerACards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
                             [src]="['/assets/52-cards/'+playerACards?.card_1+'.svg']" class="card-img" alt="card1">
-                        <img [ngClass]="playerACards?.card_2!='0' && playerACards?.card_2 ?'card-animation':'opacity-0'"
+                        <img [ngClass]="{ 'card-animation': playerACards?.card_2 && playerACards?.card_2 !== '0', 'opacity-0': !(playerACards?.card_2 && playerACards?.card_2 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId] }"
                             [src]="['/assets/52-cards/'+playerACards?.card_2+'.svg']" class="card-img" alt="card2">
-                        <img [ngClass]="playerACards?.card_3!='0' && playerACards?.card_3 ?'card-animation':'opacity-0'"
+                        <img [ngClass]="{ 'card-animation': playerACards?.card_3 && playerACards?.card_3 !== '0', 'opacity-0': !(playerACards?.card_3 && playerACards?.card_3 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId] }"
                             [src]="['/assets/52-cards/'+playerACards?.card_3+'.svg']" class="card-img" alt="card3">
                     </div>
                     <!-- Player A cards ends here -->
@@ -79,12 +79,15 @@
                     <!-- Player B cards start here -->
                     <div class="custom_flex gap-2 player_B_cards">
 
-                        <img [ngClass]="playerBCards?.card_1!='0' && playerBCards?.card_1 ?'card-animation':'opacity-0'"
-                            [src]="['/assets/52-cards/'+playerBCards?.card_1+'.svg']" class="card-img" alt="card1">
-                        <img [ngClass]="playerBCards?.card_2!='0' && playerBCards?.card_2 ?'card-animation':'opacity-0'"
-                            [src]="['/assets/52-cards/'+playerBCards?.card_2+'.svg']" class="card-img" alt="card2">
-                        <img [ngClass]="playerBCards?.card_3!='0' && playerBCards?.card_3 ?'card-animation':'opacity-0'"
-                            [src]="['/assets/52-cards/'+playerBCards?.card_3+'.svg']" class="card-img" alt="card3">
+                        <img [ngClass]="{ 'card-animation': playerBCards?.card_1 && playerBCards?.card_1 !== '0', 'opacity-0': !(playerBCards?.card_1 && playerBCards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
+                            [src]="'/assets/52-cards/' + playerBCards?.card_1 + '.svg'" class="card-img" alt="card1">
+
+                        <img [ngClass]="{ 'card-animation': playerBCards?.card_2 && playerBCards?.card_2 !== '0', 'opacity-0': !(playerBCards?.card_2 && playerBCards?.card_2 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
+                            [src]="'/assets/52-cards/' + playerBCards?.card_2 + '.svg'" class="card-img" alt="card2">
+
+                        <img [ngClass]="{ 'card-animation': playerBCards?.card_3 && playerBCards?.card_3 !== '0', 'opacity-0': !(playerBCards?.card_3 && playerBCards?.card_3 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
+                            [src]="'/assets/52-cards/' + playerBCards?.card_3 + '.svg'" class="card-img" alt="card3">
+
                     </div>
                     <!-- Player B cards ends here -->
 
@@ -456,8 +459,9 @@
                                     <div class="betPlaceInfo_pairPlus_playerA betPlaceInfo">
                                         <div class="flex justify-between w-full items-center">
                                             <div>
-                                                <div class="pair-plus">Pair Plus</div>
                                                 <div class="down-player">Player A</div>
+                                                <div class="pair-plus">Pair Plus</div>
+
                                             </div>
 
                                             <!--  -->
@@ -486,9 +490,8 @@
                                             </div>
 
                                             <div>
-                                                <div class="pair-plus">Pair Plus</div>
                                                 <div class="down-player">Player B</div>
-
+                                                <div class="pair-plus">Pair Plus</div>
                                             </div>
 
                                         </div>
@@ -547,7 +550,7 @@
                     </div>
                 </div>
                 <!-- Teen patti Cards Section ends here -->
-                <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game.status"></app-bet-coin>
+                <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="game.status"></app-bet-coin>
             </div>
         </div>
         <div class="time-container" *ngIf="this.game">

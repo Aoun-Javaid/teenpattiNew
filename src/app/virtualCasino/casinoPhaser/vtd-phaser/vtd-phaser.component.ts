@@ -80,12 +80,13 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
       height: screenHeight,
       parent: phaserGameContainer,
       transparent: true,
+      mode: Phaser.Scale.FIT,
       banner: false,
       render: {
         pixelArt: false,
         antialias: true,
         antialiasGL: true,
-
+        roundPixels: true,
       },
       // scene: [vdtScene, teenpattiScene],
       scene: gameScene,
@@ -168,7 +169,6 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
   showPlayerACard1(card: string) {
-
     const teenpattiScene = this.game?.scene?.getScene(
       'teenpattiScene'
     ) as teenpattiScene;
@@ -191,7 +191,6 @@ export class VtdPhaserComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
   showPlayerACard3(card: string) {
-
     const teenpattiScene = this.game?.scene?.getScene(
       'teenpattiScene'
     ) as teenpattiScene;
