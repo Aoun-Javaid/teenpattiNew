@@ -994,7 +994,7 @@ export class VirtualTopcardsComponent implements AfterViewInit {
   }
 
   checkIfMobile() {
-    this.mobileView = window.innerWidth <= 768; // Mobile screen size threshold
+    this.mobileView = window.innerWidth <= 1024;
   }
 
   getCoinValue(event: any) {
