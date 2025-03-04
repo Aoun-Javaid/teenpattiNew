@@ -366,6 +366,7 @@ export class TopCardComponent {
       this.networkService.updateRoundId(this.game);
     }, 1500);
   }
+
   handleEventResponse(objMarket: any, index: any) {
     // console.log(objMarket,'<=============== objMarket with out index')
     if (Array.isArray(objMarket)) {
@@ -423,6 +424,10 @@ export class TopCardComponent {
           if ('status' in objMarket?.data) {
             this.game.status = objMarket?.data?.status;
           }
+          if ('leftSec' in objMarket?.data) {
+            this.game.leftSec = objMarket?.data?.leftSec;
+            // console.log('this',objMarket?.data?.leftSec)
+          }
           if ('resultsArr' in objMarket?.data) {
 
             // if (objMarket?.data?.roundStatus == 'RESULT_DECLARED') {
@@ -440,7 +445,7 @@ export class TopCardComponent {
               if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
 
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
-                console.log(this.RoundWinner)
+                // console.log(this.RoundWinner)
                 this.BetPlaced = [];
               }
               if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
@@ -1087,5 +1092,4 @@ export class TopCardComponent {
     }
     // console.log('onclick', this.selectedBetAmount);
   }
-
 }
