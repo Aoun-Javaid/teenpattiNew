@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {NetworkService} from "../../../services/network.service";
 import {CasinoSocketService} from "../../../services/casino-socket.service";
@@ -12,7 +12,7 @@ import {CasinoSocketService} from "../../../services/casino-socket.service";
   templateUrl: './timer.component.html',
   styleUrl: './timer.component.css'
 })
-export class TimerComponent implements OnChanges {
+export class TimerComponent implements OnChanges,OnInit {
 
   @Input() fancyTimer: boolean = false;
   TIME_LIMIT = 0;
@@ -50,9 +50,15 @@ export class TimerComponent implements OnChanges {
         if (this.game && this.casinoFlag == 1) {
           this.casinoFlag = 2;
           this.TIME_LIMIT = this.game?.seconds;
+          if(this.game.leftSec){
+          this.timeLeft = this.game.leftSec;
+        }
           this.casinoService.setTimelimit(this.TIME_LIMIT);
           if (this.TIME_LIMIT) {
-            this.timeLeft = this.TIME_LIMIT;
+            if(!this.game.leftSec){
+              this.timeLeft = this.TIME_LIMIT;
+            }
+            //
             this.timerInterval = setInterval(() => {
 
               this.timeLeft = this.timeLeft - 1;
