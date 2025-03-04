@@ -13,12 +13,14 @@ import { IndexedDbService } from '../../services/indexed-db.service';
   styleUrl: './bet-coin.component.css'
 })
 export class BetCoinComponent implements OnInit {
+  coinAnimationBg = false
   coinAnimateState = false;
   animateCoinVal: any
   btnCheck = 1
   reverseAnimate: boolean = false
   btnIcon = false
   animate = false
+  localCoinValue: any
   selectedBetAmount: any
   stackButtonArry: any = [];
   @Output() eventBetValue = new EventEmitter<string>();
@@ -34,10 +36,12 @@ export class BetCoinComponent implements OnInit {
   animatecoinValue(value: any) {
     this.animateCoinVal = value
     this.btnCheck = value
+    this.localCoinValue = localStorage.setItem('coinIndex', this.animateCoinVal.toString())
   }
 
   ngOnInit(): void {
     this.getStackData();
+    this.localCoinValue = localStorage.setItem('coinIndex', '')
   }
 
   getStackData() {
@@ -56,6 +60,7 @@ export class BetCoinComponent implements OnInit {
 
 
   showAnimateCoinBar() {
+    this.coinAnimationBg = !this.coinAnimationBg
     setTimeout(() => {
       this.reverseAnimate = false
     }, 500);
@@ -80,7 +85,7 @@ export class BetCoinComponent implements OnInit {
     }
 
     let translateX = '212px';
-    switch (this.animateCoinVal) {
+    switch (this.btnCheck) {
       case 1:
         translateX = '212px';
         break;

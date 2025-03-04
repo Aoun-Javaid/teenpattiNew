@@ -1030,7 +1030,7 @@
 }
 
 .tab-slider {
-  @apply bg-[#0f212e] flex rounded-[3rem] p-[5px] flex-shrink-0;
+  @apply bg-[rgba(138,_138,_153,0.1)] flex rounded-[3rem] p-[5px] flex-shrink-0;
 }
 
 .tab-item {
