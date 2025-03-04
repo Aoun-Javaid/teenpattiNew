@@ -316,7 +316,7 @@
   opacity: 1;
   visibility: visible;
 }
-.topCard__substrateIllumination-Fgc6XC {
+.topCard__substrateIllumination {
   --substrate-illumination-filled-left: radial-gradient(58.02% 77.05% at 0% 100%,rgba(235, 0, 56,0.6) 0%,transparent 100%);
   --substrate-illumination-filled-right: radial-gradient(58.02% 77.05% at 100% 100%,rgba(1, 202, 190,0.6) 0%,transparent 100%);
   --substrate-illumination-filled-center: radial-gradient(58.02% 58.02% at 50% 100%,rgba(248, 255, 19,0.6) 0%,transparent 100%);
@@ -332,15 +332,17 @@
 @media (orientation: portrait) {
   .topCard__substrateIllumination{
     position: absolute;
-    bottom: -3.28125rem;
     height: 100%;
+    inset: 0;
+    visibility: visible!important;
+    opacity: 1!important;
   }
 }
 @media (orientation: landscape) {
   .topCard__substrateIllumination {
     position: absolute;
-    bottom: -3.03125rem;
     height: 10.25rem;
+    inset: 0;
   }
 }
 .substrateIllumination {
