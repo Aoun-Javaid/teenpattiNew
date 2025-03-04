@@ -26,7 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* right: 1.1rem; */
+  right: 1.2rem;
 }
 .timerTextWrapper {
   position: relative;
