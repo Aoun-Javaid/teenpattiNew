@@ -22,7 +22,7 @@ export class BetCoinComponent implements OnInit {
   selectedBetAmount: any
   stackButtonArry: any = [];
   @Output() eventBetValue = new EventEmitter<string>();
-  @Input() status:any;
+  @Input() status: any;
   constructor(private toggleService: ToggleService, private indexedDb: IndexedDbService) { }
 
 
@@ -79,49 +79,49 @@ export class BetCoinComponent implements OnInit {
       }, 500);
     }
 
-    let translateX = '187px';
+    let translateX = '212px';
     switch (this.animateCoinVal) {
       case 1:
-        translateX = '187px';
+        translateX = '212px';
         break;
       case 2:
-        translateX = '130px';
+        translateX = '148px';
         break;
       case 3:
-        translateX = '70px';
+        translateX = '83px';
         break;
       case 4:
         translateX = '17px';
         break;
       case 5:
-        translateX = '-40.2px';
+        translateX = '-47.2px';
         break;
       case 6:
-        translateX = '-97.8px';
+        translateX = '-112px';
         break;
     }
     document.documentElement.style.setProperty('--translateX', translateX);
 
 
-    let translateXRevers = '187px';
+    let translateXRevers = '212px';
     switch (this.btnCheck) {
       case 1:
-        translateXRevers = '187px';
+        translateXRevers = '212px';
         break;
       case 2:
-        translateXRevers = '130px';
+        translateXRevers = '148px';
         break;
       case 3:
-        translateXRevers = '70px';
+        translateXRevers = '83px';
         break;
       case 4:
         translateXRevers = '17px';
         break;
       case 5:
-        translateXRevers = '-40.2px';
+        translateXRevers = '-47.2px';
         break;
       case 6:
-        translateXRevers = '-97.8px';
+        translateXRevers = '-112px';
         break;
     }
     document.documentElement.style.setProperty('--translateXReverse', translateXRevers);
@@ -150,4 +150,5 @@ export class BetCoinComponent implements OnInit {
     }
     this.eventBetValue.emit(this.selectedBetAmount);
   }
+
 }
