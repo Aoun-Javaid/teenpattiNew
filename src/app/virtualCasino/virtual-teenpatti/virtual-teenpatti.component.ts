@@ -53,6 +53,7 @@ interface Card {
   // For initial animation:
   animationStartTime: number;
   animationDuration: number;
+  upDownCycles?: number;
   // For up/down animation:
   upDownStartTime?: number;
   upDownDuration?: number;
@@ -1166,7 +1167,8 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   height = window.innerHeight;
 
   // Game parameters (simplified; adjust as needed)
-  cardSize = 60;
+  cardSize = 15;
+  hiddenCardSize = 15;
   cardStartPointX = this.width * 0.5;
   cardStartPointY = this.height * 0.3;
   cardEndPointY = this.cardStartPointY + 70;
@@ -1185,6 +1187,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   private rightCard1: Card | null = null;
   private rightCard2: Card | null = null;
   private rightCard3: Card | null = null;
+  private hiddenCard: Card | null = null;
 
   // Dictionary for loaded images
   private images: { [key: string]: HTMLImageElement } = {};
@@ -1194,7 +1197,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     switch (true) {
       case this.width < 285:
         this.cardSize = 40;
-        // this.hiddenCardSize = 45;
+        this.hiddenCardSize = 45;
         this.cardStartPointX = this.width * 0.5;
         this.cardStartPointY = this.height * 0.3;
         this.cardEndPointY = this.cardStartPointY + 70;
@@ -1210,7 +1213,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         break;
       case this.width < 310:
         this.cardSize = 35;
-        // this.hiddenCardSize = 40;
+        this.hiddenCardSize = 40;
         this.cardStartPointX = this.width * 0.5;
         this.cardStartPointY = this.height * 0.3;
         this.cardEndPointY = this.cardStartPointY + 70;
@@ -1226,7 +1229,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
       case this.width < 340:
         this.cardSize = 35;
-        // this.hiddenCardSize = 40;
+        this.hiddenCardSize = 40;
         this.cardStartPointX = this.width * 0.5;
         this.cardStartPointY = this.height * 0.35;
         this.cardEndPointY = this.cardStartPointY + 70;
@@ -1242,7 +1245,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         break;
       case this.width < 350:
         this.cardSize = 35;
-        // this.hiddenCardSize = 40;
+        this.hiddenCardSize = 40;
         this.cardStartPointX = this.width * 0.5;
         this.cardStartPointY = this.height * 0.35;
         this.cardEndPointY = this.cardStartPointY + 70;
@@ -1258,7 +1261,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         break;
       case this.width < 363:
         this.cardSize = 35;
-        // this.hiddenCardSize = 40;
+        this.hiddenCardSize = 40;
         this.cardStartPointX = this.width * 0.5;
         this.cardStartPointY = this.height * 0.35;
         this.cardEndPointY = this.cardStartPointY + 70;
@@ -1274,7 +1277,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         break;
       case this.width < 377:
         this.cardSize = 35;
-        // this.hiddenCardSize = 40;
+        this.hiddenCardSize = 40;
         this.cardStartPointX = this.width * 0.5;
         this.cardStartPointY = this.height * 0.35;
         this.cardEndPointY = this.cardStartPointY + 70;
@@ -1290,7 +1293,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         break;
       case this.width < 500:
         this.cardSize = 15;
-        // this.hiddenCardSize = 45;
+        this.hiddenCardSize = 45;
         this.cardStartPointX = this.width * 0.5;
         this.cardStartPointY = this.height * 0.3;
         this.cardEndPointY = this.cardStartPointY + 300;
@@ -1306,7 +1309,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         break;
       case this.width < 700:
         this.cardSize = 45;
-        // this.hiddenCardSize = 80;
+        this.hiddenCardSize = 80;
         this.cardStartPointX = this.width * 0.49;
         this.cardStartPointY = this.height * 0.3;
         this.cardEndPointY = this.cardStartPointY + 120;
@@ -1322,7 +1325,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         break;
       default:
         this.cardSize = 15;
-        // this.hiddenCardSize = 65;
+        this.hiddenCardSize = 80;
         this.cardStartPointX = this.width * 0.49;
         this.cardStartPointY = this.height * 0.35;
         this.cardEndPointY = this.cardStartPointY + 180;
@@ -1341,7 +1344,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
   // Preload a set of card images (adjust or add more as needed)
   private preloadImages(): Promise<void> {
-    const cardNames = ['C5_', 'C6_', 'C7_', 'H4_', 'H5_', 'H6_'];
+    const cardNames = ['C5_', 'C6_', 'C7_', 'H4_', 'H5_', 'H6_', 'Broder'];
     const promises = cardNames.map((name) => {
       return new Promise<void>((resolve, reject) => {
         const img = new Image();
@@ -1508,6 +1511,9 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
             this.cardStartPointX,
             this.rightCard3.y
           );
+        setTimeout(() => {
+          this.createHiddenCard();
+        }, 600);
         break;
       }
       default:
@@ -1523,6 +1529,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
       card.upDownDuration = 600; // total duration (up + down)
       card.upDownOffset = 15; // move 15 pixels up
       card.originalY = card.y;
+      card.upDownCycles = 0;
     }
   }
 
@@ -1555,7 +1562,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     this.updateAndDrawCard(this.rightCard1, now);
     this.updateAndDrawCard(this.rightCard2, now);
     this.updateAndDrawCard(this.rightCard3, now);
-
+    this.updateAndDrawCard(this.hiddenCard, now);
     this.animationFrameId = requestAnimationFrame(this.render);
   };
 
@@ -1594,11 +1601,20 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
             (card.upDownOffset || 15) * (1 - (progress - 0.5) / 0.5);
         }
         if (progress >= 1) {
-          card.phase = 'displayed';
-          card.y = card.originalY || card.y;
+          // Increase the cycle count.
+          card.upDownCycles = (card.upDownCycles || 0) + 1;
+          if (card.upDownCycles < 2) {
+            // Start another cycle: reset start time.
+            card.upDownStartTime = now;
+          } else {
+            // Completed two cycles – return to 'displayed' state.
+            card.phase = 'displayed';
+            card.y = card.originalY || card.y;
+          }
         }
         break;
       }
+
       case 'disappearing': {
         const elapsed = now - (card.disappearStartTime || now);
         const progress = Math.min(
@@ -1627,5 +1643,36 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     this.ctx.scale(card.scale, card.scale);
     this.ctx.drawImage(card.img, -card.img.width / 2, -card.img.height / 2);
     this.ctx.restore();
+  }
+
+  // Function to create a C5 card and animate it disappearing to the target coordinates.
+  public createHiddenCard(): void {
+    const startX = this.cardStartPointX;
+    const startY = this.cardEndPointY;
+    // Create the C5 card using the existing createCard function.
+    // Here we pass startX and startY as both the initial and target positions,
+    // and a duration of 0 so that it appears immediately.
+    this.hiddenCard = this.createCard(
+      'Broder',
+      startX,
+      startY,
+      startX,
+      startY,
+      0
+    );
+
+    // Immediately set its phase to 'displayed'
+    if (this.hiddenCard) {
+      this.hiddenCard.phase = 'displayed';
+      this.hiddenCard.scale = this.hiddenCardSize / this.images['Broder'].width;
+      // Now trigger the disappearing animation:
+      // This will move the card from its current position to x = this.width*0.22, y = this.height*0.43 over 1000 ms.
+      this.moveAndRemoveCard(
+        this.hiddenCard,
+        this.width * 0.35,
+        this.height * 0.43,
+        1000
+      );
+    }
   }
 }
