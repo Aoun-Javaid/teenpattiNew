@@ -1,12 +1,12 @@
 <div class="relative md:max-w-[22rem] md:hidden" >
     <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM">
         <div class="overflow-visible animation-container" [ngClass]="{'open-coin-bar':coinAnimateState}">
-            <div class="tab-slider min-w-full" *ngIf="status !== 'SUSPEND'">
+            <div class="tab-slider min-w-full" *ngIf="status !== 'SUSPEND'" [ngClass]="{'!bg-transparent':!coinAnimationBg}">
 
                 <div class="flex">
                     <!-- Tab item 4 -->
                     <div class="chipTrayWithToggle__item-nLy9Sn"
-                        [ngClass]="{'move_right':animate && animateCoinVal === 1, 'move_back':reverseAnimate && btnCheck === 1, 'move_center-1':animate && animateCoinVal !== 1, 'move_center-back-1':reverseAnimate && btnCheck !== 1,}"
+                        [ngClass]="{'move_right':animate && btnCheck === 1, 'move_back':reverseAnimate && btnCheck === 1, 'move_center-1':animate && btnCheck !== 1, 'move_center-back-1':reverseAnimate && btnCheck !== 1,}"
                         (click)="animatecoinValue(1)">
                         <div class="chips-rzbOIK ">
                             <div class="chip-kcN8LW chip_size_48-odjDTm "
@@ -35,7 +35,7 @@
                     </div>
                     <!-- Tab item 4 -->
                     <div class="chipTrayWithToggle__item-nLy9Sn "
-                        [ngClass]="{'move_right':animate && animateCoinVal === 2, 'move_back':reverseAnimate && btnCheck === 2, 'move_center-2':animate && animateCoinVal !== 2,  'move_center-back-2':reverseAnimate && btnCheck !== 2,}"
+                        [ngClass]="{'move_right':animate && btnCheck === 2, 'move_back':reverseAnimate && btnCheck === 2, 'move_center-2':animate && btnCheck !== 2,  'move_center-back-2':reverseAnimate && btnCheck !== 2,}"
                         (click)="animatecoinValue(2)">
                         <div class="chips-rzbOIK ">
                             <div class="chip-kcN8LW chip_size_48-odjDTm"
@@ -65,7 +65,7 @@
                     </div>
                     <!-- Tab item 4 -->
                     <div class="chipTrayWithToggle__item-nLy9Sn"
-                        [ngClass]="{'move_right':animate && animateCoinVal === 3, 'move_back':reverseAnimate && btnCheck === 3, 'move_center-3':animate && animateCoinVal !== 3, 'move_center-back-3':reverseAnimate && btnCheck !== 3,}"
+                        [ngClass]="{'move_right':animate && btnCheck === 3, 'move_back':reverseAnimate && btnCheck === 3, 'move_center-3':animate && btnCheck !== 3, 'move_center-back-3':reverseAnimate && btnCheck !== 3,}"
                         (click)="animatecoinValue(3)">
                         <div class="chips-rzbOIK ">
                             <div class="chip-kcN8LW chip_size_48-odjDTm "
@@ -95,7 +95,7 @@
                     </div>
                     <!-- Tab item 4 -->
                     <div class="chipTrayWithToggle__item-nLy9Sn"
-                        [ngClass]="{'move_right':animate && animateCoinVal === 4, 'move_back':reverseAnimate && btnCheck === 4, 'move_center-4':animate && animateCoinVal !== 4 , 'move_center-back-4':reverseAnimate && btnCheck !== 4,}"
+                        [ngClass]="{'move_right':animate && btnCheck === 4, 'move_back':reverseAnimate && btnCheck === 4, 'move_center-4':animate && btnCheck !== 4 , 'move_center-back-4':reverseAnimate && btnCheck !== 4,}"
                         (click)="animatecoinValue(4)">
                         <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
                             <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250"
@@ -124,7 +124,7 @@
                     </div>
                     <!-- Tab item 4 -->
                     <div class="chipTrayWithToggle__item-nLy9Sn"
-                        [ngClass]="{'move_right':animate && animateCoinVal === 5, 'move_back':reverseAnimate && btnCheck === 5, 'move_center-5':animate && animateCoinVal !== 5, 'move_center-back-5':reverseAnimate && btnCheck !== 5,}"
+                        [ngClass]="{'move_right':animate && btnCheck === 5, 'move_back':reverseAnimate && btnCheck === 5, 'move_center-5':animate && btnCheck !== 5, 'move_center-back-5':reverseAnimate && btnCheck !== 5,}"
                         (click)="animatecoinValue(5)">
                         <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
                             <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250"
@@ -153,7 +153,7 @@
                     </div>
                     <!-- Tab item 4 -->
                     <div class="chipTrayWithToggle__item-nLy9Sn"
-                        [ngClass]="{'move_right':animate && animateCoinVal === 6, 'move_back':reverseAnimate && btnCheck === 6, 'move_center-6':animate && animateCoinVal !== 6, 'move_center-back-6':reverseAnimate && btnCheck !== 6,}"
+                        [ngClass]="{'move_right':animate && btnCheck === 6, 'move_back':reverseAnimate && btnCheck === 6, 'move_center-6':animate && btnCheck !== 6, 'move_center-back-6':reverseAnimate && btnCheck !== 6,}"
                         (click)="animatecoinValue(6)">
                         <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
                             <div class="chip-kcN8LW chip_size_48-odjDTm " data-locator="chip-250"
