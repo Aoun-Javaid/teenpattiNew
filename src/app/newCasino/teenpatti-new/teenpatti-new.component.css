@@ -528,6 +528,9 @@
 
 .dicbg {
   background: linear-gradient(to right, #ec2401, #ff3400, #ec2401);
+  width: 120%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .roundInfo-date {

@@ -493,6 +493,10 @@ export class VideoPlayerComponent implements OnChanges {
     blurElements.forEach((el) => {
       (el as HTMLElement).style.filter = 'none';
     });
+    const elements = document.querySelectorAll('.dicbg');
+  elements.forEach((el) => {
+    (el as HTMLElement).style.setProperty('margin-top', '-1px', 'important');
+  });
 
   }
   getMaxLengthArray(arrayOfArrays: any) {

@@ -14,7 +14,7 @@
       </ng-container> -->
     </div>
 
-    <div class="absolute h-5 w-full dicbg blur-[7px] mt-[1px]"></div>
+    <div class="absolute h-5 w-full dicbg blur-[7px] -mt-[10px] "></div>
 
     <div class="playerA-win-point" *ngIf="this.RoundWinner">
         <div class="player-content-wrapper">
@@ -42,7 +42,6 @@
     <div id="marketScroll" style="overflow-y: auto;" [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
         <div class="gradientDiv ">
 
-
             <div *ngIf="marketArray"
                 class="absolute md:fixed  md:left-[50%] md:translate-x-[-50%] bottom-[64px]  [@media(max-width:375px)]:bottom-[25px]  md:!max-w-[473px]  left-0 w-full ">
 
@@ -66,7 +65,7 @@
 
                     <!-- Player A cards start here -->
                     <div class="custom_flex gap-2 player_A_cards">
- 
+
                         <img [ngClass]="{ 'card-animation': playerACards?.card_1 && playerACards?.card_1 !== '0', 'opacity-0': !(playerACards?.card_1 && playerACards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
                             [src]="['/assets/52-cards/'+playerACards?.card_1+'.svg']" class="card-img" alt="card1">
                         <img [ngClass]="{ 'card-animation': playerACards?.card_2 && playerACards?.card_2 !== '0', 'opacity-0': !(playerACards?.card_2 && playerACards?.card_2 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId] }"
@@ -553,6 +552,7 @@
                 <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="game.status"></app-bet-coin>
             </div>
         </div>
+
         <div class="time-container" *ngIf="this.game">
             <div class="last-win">{{this.game.eventName}}
                 <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold"> {{winnerMarketArray.min}}</span>
