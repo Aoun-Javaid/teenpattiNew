@@ -10,8 +10,7 @@
   /* top: 7.5rem; */
   top: 6.5rem;
   transform: translateX(50%);
-  transition: transform 0.2s ease 0.2s, opacity 0.25s ease 0.75s,
-    visibility 0.25s 0.75s;
+  transition: transform 0.2s ease 0.2s, opacity 0.25s ease 0.75s, visibility 0.25s 0.75s !important;
   width: 4rem;
   z-index: 998 !important;
 }
@@ -37,7 +36,11 @@
   width: 2rem;
   text-align: center;
 }
-
+.roll-up {
+  animation: roll-up 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  z-index: 1;
+  opacity: 1;
+}
 .timerText {
   position: absolute;
   font-size: 1.76rem;
@@ -46,11 +49,7 @@
   font-family: Rubik, sans-serif;
   animation: roll-up 1s ease-in-out infinite;
 }
-.roll-up {
-  animation: roll-up 1s cubic-bezier(0.25, 0.1, 0.25, 1);
-  z-index: 1;
-  opacity: 1;
-}
+
 
 .cd-number {
   position: absolute;
