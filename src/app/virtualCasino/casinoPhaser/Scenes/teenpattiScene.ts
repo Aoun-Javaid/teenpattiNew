@@ -3,12 +3,12 @@ import { Scene } from 'phaser';
 export class teenpattiScene extends Scene {
   private width!: number;
   private height!: number;
-  private leftCard1!: Phaser.GameObjects.Image;
-  private leftCard2!: Phaser.GameObjects.Image;
-  private leftCard3!: Phaser.GameObjects.Image;
-  private rightCard1!: Phaser.GameObjects.Image;
-  private rightCard2!: Phaser.GameObjects.Image;
-  private rightCard3!: Phaser.GameObjects.Image;
+  private leftCard1!: any;
+  private leftCard2!: any;
+  private leftCard3!: any;
+  private rightCard1!: any;
+  private rightCard2!: any;
+  private rightCard3!: any;
   private cardScaleLeft!: number;
   private cardScaleRight!: number;
   private cardSize!: number;
@@ -32,69 +32,60 @@ export class teenpattiScene extends Scene {
 
   preload(): void {
     this.dpr = window.devicePixelRatio || 1;
-    this.load.image('dt', '/dt.png');
-    this.load.image('0', '/assets/cards/newCards/0.png');
-    this.load.image('C2_', '/assets/cards/C2_.png');
-    this.load.image('C3_', '/assets/cards/C3_.png');
-    this.load.image('C4_', '/assets/cards/C4_.png');
-    this.load.image('C5_', '/assets/cards/C5_.png');
-    this.load.image('C6_', '/assets/cards/C6_.png');
-    this.load.image('C7_', '/assets/cards/C7_.png');
-    this.load.image('C8_', '/assets/cards/C8_.png');
-    this.load.image('C9_', '/assets/cards/C9_.png');
-    this.load.image('C10_', '/assets/cards/C10_.png');
-    this.load.image('CA_', '/assets/cards/CA_.png');
-    this.load.image('CJ_', '/assets/cards/CJ_.png');
-    this.load.image('CK_', '/assets/cards/CK_.png');
-    this.load.image('CLUB KING', '/assets/cards/CLUB KING.png');
-    this.load.image('CLUBS', '/assets/cards/CLUBS.png');
-    this.load.image('CQ_', '/assets/cards/CQ_.png');
-    this.load.image('D2_', '/assets/cards/D2_.png');
-    this.load.image('D3_', '/assets/cards/D3_.png');
-    this.load.image('D4_', '/assets/cards/D4_.png');
-    this.load.image('D5_', '/assets/cards/D5_.png');
-    this.load.image('D6_', '/assets/cards/D6_.png');
-    this.load.image('D7_', '/assets/cards/D7_.png');
-    this.load.image('D8_', '/assets/cards/D8_.png');
-    this.load.image('D9_', '/assets/cards/D9_.png');
-    this.load.image('D10_', '/assets/cards/D10_.png');
-    this.load.image('DA_', '/assets/cards/DA_.png');
-    this.load.image('DIAMOND KING', '/assets/cards/DIAMOND KING.png');
-    this.load.image('DIAMONDS', '/assets/cards/DIAMONDS.png');
-    this.load.image('DJ_', '/assets/cards/DJ_.png');
-    this.load.image('DK_', '/assets/cards/DK_.png');
-    this.load.image('DQ_', '/assets/cards/DQ_.png');
-    this.load.image('H2_', '/assets/cards/H2_.png');
-    this.load.image('H3_', '/assets/cards/H3_.png');
-    this.load.image('H4_', '/assets/cards/H4_.png');
-    this.load.image('H5_', '/assets/cards/H5_.png');
-    this.load.image('H6_', '/assets/cards/H6_.png');
-    this.load.image('H7_', '/assets/cards/H7_.png');
-    this.load.image('H8_', '/assets/cards/H8_.png');
-    this.load.image('H9_', '/assets/cards/H9_.png');
-    this.load.image('H10_', '/assets/cards/H10_.png');
-    this.load.image('HA_', '/assets/cards/HA_.png');
-    this.load.image('HEART KING', '/assets/cards/HEART KING.png');
-    this.load.image('HEARTS', '/assets/cards/HEARTS.png');
-    this.load.image('HJ_', '/assets/cards/HJ_.png');
-    this.load.image('HK_', '/assets/cards/HK_.png');
-    this.load.image('HQ_', '/assets/cards/HQ_.png');
-    this.load.image('null', '/assets/cards/null.png');
-    this.load.image('S2_', '/assets/cards/S2_.png');
-    this.load.image('S3_', '/assets/cards/S3_.png');
-    this.load.image('S4_', '/assets/cards/S4_.png');
-    this.load.image('S5_', '/assets/cards/S5_.png');
-    this.load.image('S6_', '/assets/cards/S6_.png');
-    this.load.image('S7_', '/assets/cards/S7_.png');
-    this.load.image('S8_', '/assets/cards/S8_.png');
-    this.load.image('S9_', '/assets/cards/S9_.png');
-    this.load.image('S10_', '/assets/cards/S10_.png');
-    this.load.image('SA_', '/assets/cards/SA_.png');
-    this.load.image('SJ_', '/assets/cards/SJ_.png');
-    this.load.image('SK_', '/assets/cards/SK_.png');
-    this.load.image('SPADE KING', '/assets/cards/SPADE KING.png');
-    this.load.image('SPADES', '/assets/cards/SPADES.png');
-    this.load.image('SQ_', '/assets/cards/SQ_.png');
+    this.load.image('C2_', '/assets/52 Cards skew/C2_.svg');
+    this.load.image('C3_', '/assets/52 Cards skew/C3_.svg');
+    this.load.image('C4_', '/assets/52 Cards skew/C4_.svg');
+    this.load.image('C5_', '/assets/52 Cards skew/C5_.svg');
+    this.load.image('C51_', '/assets/52 Cards skew/C5_1.svg');
+    this.load.image('C6_', '/assets/52 Cards skew/C6_.svg');
+    this.load.image('C7_', '/assets/52 Cards skew/C7_.svg');
+    this.load.image('C8_', '/assets/52 Cards skew/C8_.svg');
+    this.load.image('C9_', '/assets/52 Cards skew/C9_.svg');
+    this.load.image('C10_', '/assets/52 Cards skew/C10_.svg');
+    this.load.image('CA_', '/assets/52 Cards skew/CA_.svg');
+    this.load.image('CJ_', '/assets/52 Cards skew/CJ_.svg');
+    this.load.image('CK_', '/assets/52 Cards skew/CK_.svg');
+    this.load.image('CQ_', '/assets/52 Cards skew/CQ_.svg');
+    this.load.image('D2_', '/assets/52 Cards skew/D2_.svg');
+    this.load.image('D3_', '/assets/52 Cards skew/D3_.svg');
+    this.load.image('D4_', '/assets/52 Cards skew/D4_.svg');
+    this.load.image('D5_', '/assets/52 Cards skew/D5_.svg');
+    this.load.image('D6_', '/assets/52 Cards skew/D6_.svg');
+    this.load.image('D7_', '/assets/52 Cards skew/D7_.svg');
+    this.load.image('D8_', '/assets/52 Cards skew/D8_.svg');
+    this.load.image('D9_', '/assets/52 Cards skew/D9_.svg');
+    this.load.image('D10_', '/assets/52 Cards skew/D10_.svg');
+    this.load.image('DA_', '/assets/52 Cards skew/DA_.svg');
+    this.load.image('DJ_', '/assets/52 Cards skew/DJ_.svg');
+    this.load.image('DK_', '/assets/52 Cards skew/DK_.svg');
+    this.load.image('DQ_', '/assets/52 Cards skew/DQ_.svg');
+    this.load.image('H2_', '/assets/52 Cards skew/H2_.svg');
+    this.load.image('H3_', '/assets/52 Cards skew/H3_.svg');
+    this.load.image('H4_', '/assets/52 Cards skew/H4_.svg');
+    this.load.image('H5_', '/assets/52 Cards skew/H5_.svg');
+    this.load.image('H6_', '/assets/52 Cards skew/H6_.svg');
+    this.load.image('H7_', '/assets/52 Cards skew/H7_.svg');
+    this.load.image('H8_', '/assets/52 Cards skew/H8_.svg');
+    this.load.image('H9_', '/assets/52 Cards skew/H9_.svg');
+    this.load.image('H10_', '/assets/52 Cards skew/H10_.svg');
+    this.load.image('HA_', '/assets/52 Cards skew/HA_.svg');
+    this.load.image('HJ_', '/assets/52 Cards skew/HJ_.svg');
+    this.load.image('HK_', '/assets/52 Cards skew/HK_.svg');
+    this.load.image('HQ_', '/assets/52 Cards skew/HQ_.svg');
+    this.load.image('null', '/assets/52 Cards skew/null.svg');
+    this.load.image('S2_', '/assets/52 Cards skew/S2_.svg');
+    this.load.image('S3_', '/assets/52 Cards skew/S3_.svg');
+    this.load.image('S4_', '/assets/52 Cards skew/S4_.svg');
+    this.load.image('S5_', '/assets/52 Cards skew/S5_.svg');
+    this.load.image('S6_', '/assets/52 Cards skew/S6_.svg');
+    this.load.image('S7_', '/assets/52 Cards skew/S7_.svg');
+    this.load.image('S8_', '/assets/52 Cards skew/S8_.svg');
+    this.load.image('S9_', '/assets/52 Cards skew/S9_.svg');
+    this.load.image('S10_', '/assets/52 Cards skew/S10_.svg');
+    this.load.image('SA_', '/assets/52 Cards skew/SA_.svg');
+    this.load.image('SJ_', '/assets/52 Cards skew/SJ_.svg');
+    this.load.image('SK_', '/assets/52 Cards skew/SK_.svg');
+    this.load.image('SQ_', '/assets/52 Cards skew/SQ_.svg');
     this.load.image('h1', '/assets/cards/h1.svg');
     // this.load.image('hiddenCard', '/assets/cards/Ca.svg');
     this.load.image('single', '/assets/cards/Broder.svg');
@@ -109,47 +100,47 @@ export class teenpattiScene extends Scene {
 
     this.setBreakPoints();
     this.updateWidthHeight();
-    // if (this.input.keyboard) {
-    //   this.input.keyboard.on('keydown-ONE', () => {
-    //     this.showCardWithAnimationLeft1('C5_');
-    //   });
-    //   this.input.keyboard.on('keydown-TWO', () => {
-    //     this.showCardWithAnimationLeft2('C6_');
-    //   });
-    //   this.input.keyboard.on('keydown-THREE', () => {
-    //     this.showCardWithAnimationLeft3('C7_');
-    //   });
-    //   this.input.keyboard.on('keydown-FOUR', () => {
-    //     this.showCardWithAnimationRight1('H4_');
-    //   });
-    //   this.input.keyboard.on('keydown-FIVE', () => {
-    //     this.showCardWithAnimationRight2('H5_');
-    //   });
-    //   this.input.keyboard.on('keydown-SIX', () => {
-    //     this.showCardWithAnimationRight3('H6_');
-    //   });
-    //   this.input.keyboard.on('keydown-L', () => {
-    //     this.animateCardUpDown(this.leftCard1, this.cardScaleLeft);
-    //     this.animateCardUpDown(this.leftCard2, this.cardScaleLeft);
-    //     this.animateCardUpDown(this.leftCard3, this.cardScaleLeft);
-    //   });
-    //   this.input.keyboard.on('keydown-R', () => {
-    //     this.animateCardUpDown(this.rightCard1, this.cardScaleRight);
-    //     this.animateCardUpDown(this.rightCard2, this.cardScaleRight);
-    //     this.animateCardUpDown(this.rightCard3, this.cardScaleRight);
-    //   });
-    //   this.input.keyboard.on('keydown-D', () => {
-    //     this.moveAndRemoveCard(this.leftCard1, this.cardStartPointX);
-    //     this.moveAndRemoveCard(this.leftCard2, this.cardStartPointX);
-    //     this.moveAndRemoveCard(this.leftCard3, this.cardStartPointX);
-    //     this.moveAndRemoveCard(this.rightCard1, this.cardStartPointX);
-    //     this.moveAndRemoveCard(this.rightCard2, this.cardStartPointX);
-    //     this.moveAndRemoveCard(this.rightCard3, this.cardStartPointX);
-    //     setTimeout(() => {
-    //       this.createHiddenCard(this.cardStartPointX, this.cardEndPointY);
-    //     }, 600);
-    //   });
-    // }
+    if (this.input.keyboard) {
+      this.input.keyboard.on('keydown-ONE', () => {
+        this.showCardWithAnimationLeft1('C5_');
+      });
+      this.input.keyboard.on('keydown-TWO', () => {
+        this.showCardWithAnimationLeft2('C6_');
+      });
+      this.input.keyboard.on('keydown-THREE', () => {
+        this.showCardWithAnimationLeft3('C7_');
+      });
+      this.input.keyboard.on('keydown-FOUR', () => {
+        this.showCardWithAnimationRight1('H4_');
+      });
+      this.input.keyboard.on('keydown-FIVE', () => {
+        this.showCardWithAnimationRight2('H5_');
+      });
+      this.input.keyboard.on('keydown-SIX', () => {
+        this.showCardWithAnimationRight3('H6_');
+      });
+      this.input.keyboard.on('keydown-L', () => {
+        this.animateCardUpDown(this.leftCard1, this.cardScaleLeft);
+        this.animateCardUpDown(this.leftCard2, this.cardScaleLeft);
+        this.animateCardUpDown(this.leftCard3, this.cardScaleLeft);
+      });
+      this.input.keyboard.on('keydown-R', () => {
+        this.animateCardUpDown(this.rightCard1, this.cardScaleRight);
+        this.animateCardUpDown(this.rightCard2, this.cardScaleRight);
+        this.animateCardUpDown(this.rightCard3, this.cardScaleRight);
+      });
+      this.input.keyboard.on('keydown-D', () => {
+        this.moveAndRemoveCard(this.leftCard1, this.cardStartPointX);
+        this.moveAndRemoveCard(this.leftCard2, this.cardStartPointX);
+        this.moveAndRemoveCard(this.leftCard3, this.cardStartPointX);
+        this.moveAndRemoveCard(this.rightCard1, this.cardStartPointX);
+        this.moveAndRemoveCard(this.rightCard2, this.cardStartPointX);
+        this.moveAndRemoveCard(this.rightCard3, this.cardStartPointX);
+        setTimeout(() => {
+          this.createHiddenCard(this.cardStartPointX, this.cardEndPointY);
+        }, 600);
+      });
+    }
   }
   override update(time: number, delta: number): void {}
 
@@ -214,6 +205,7 @@ export class teenpattiScene extends Scene {
       .setScale(this.cardScaleLeft)
       .setOrigin(0.5, 0.5);
     this.leftCard1.setAlpha(0);
+  
 
     const targetX = this.cardStartPointX - this.leftCard1EndPositionX;
     const targetY = this.cardEndPointY;
@@ -242,6 +234,7 @@ export class teenpattiScene extends Scene {
       .image(this.cardStartPointX, this.cardStartPointY, cardName)
       .setScale(this.cardScaleLeft)
       .setOrigin(0.5, 0.5);
+
     this.leftCard2.setAlpha(0);
 
     const targetX = this.cardStartPointX - this.leftCard2EndPositionX;
@@ -299,7 +292,6 @@ export class teenpattiScene extends Scene {
     this.rightCard1 = this.add
       .image(this.cardStartPointX, this.cardStartPointY, cardName)
       .setScale(this.cardScaleRight)
-
       .setOrigin(0.5, 0.5);
     this.rightCard1.setAlpha(0);
 
@@ -329,7 +321,6 @@ export class teenpattiScene extends Scene {
     this.rightCard2 = this.add
       .image(this.cardStartPointX, this.cardStartPointY, cardName)
       .setScale(this.cardScaleRight)
-
       .setOrigin(0.5, 0.5);
     this.rightCard2.setAlpha(0);
 
@@ -359,7 +350,6 @@ export class teenpattiScene extends Scene {
     this.rightCard3 = this.add
       .image(this.cardStartPointX, this.cardStartPointY, cardName)
       .setScale(this.cardScaleRight)
-
       .setOrigin(0.5, 0.5);
     this.rightCard3.setAlpha(0);
 
@@ -423,25 +413,23 @@ export class teenpattiScene extends Scene {
   }
 
   showCardDragon1(card: string) {
-      this.showCardWithAnimationLeft1(card);
-
+    this.showCardWithAnimationLeft1(card);
   }
   showCardPlayer1(card: string) {
-      this.showCardWithAnimationRight1(card);
-
+    this.showCardWithAnimationRight1(card);
   }
   showCardDragon2(card: string) {
-      this.showCardWithAnimationLeft2(card);
+    this.showCardWithAnimationLeft2(card);
   }
   showCardPlayer2(card: string) {
-      this.showCardWithAnimationRight2(card);
+    this.showCardWithAnimationRight2(card);
   }
   showCardDragon3(card: string) {
     this.showCardWithAnimationLeft3(card);
   }
   showCardPlayer3(card: string) {
     this.showCardWithAnimationRight3(card);
-}
+  }
   animateUpOrDown(key: number) {
     if (key === 1) {
       this.animateCardUpDown(this.leftCard1, this.cardScaleLeft);
@@ -471,9 +459,9 @@ export class teenpattiScene extends Scene {
     setTimeout(() => {
       this.createHiddenCard(this.cardStartPointX, this.cardEndPointY);
     }, 600);
-    setTimeout(() => {this.scene.restart()
+    setTimeout(() => {
+      this.scene.restart();
     }, 1500);
-
   }
   private updateWidthHeight() {
     const camera = this.cameras.main;
@@ -489,8 +477,8 @@ export class teenpattiScene extends Scene {
     this.height = height;
     switch (true) {
       case width < 285:
-        this.cardSize = 30;
-        this.hiddenCardSize = 35;
+        this.cardSize = 40;
+        this.hiddenCardSize = 45;
         this.cardStartPointX = this.width * 0.5;
         this.cardStartPointY = this.height * 0.3;
         this.cardEndPointY = this.cardStartPointY + 70;
@@ -601,24 +589,24 @@ export class teenpattiScene extends Scene {
 
         break;
       case width < 700:
-        this.cardSize = 60;
-        this.hiddenCardSize = 65;
+        this.cardSize = 75;
+        this.hiddenCardSize = 80;
         this.cardStartPointX = this.width * 0.49;
         this.cardStartPointY = this.height * 0.3;
         this.cardEndPointY = this.cardStartPointY + 120;
-        this.leftCard1EndPositionX = 200;
-        this.leftCard2EndPositionX = 130;
+        this.leftCard1EndPositionX = 220;
+        this.leftCard2EndPositionX = 140;
         this.leftCard3EndPositionX = 60;
         this.rightCard1EndPositionX = 60;
-        this.rightCard2EndPositionX = 130;
-        this.rightCard3EndPositionX = 200;
+        this.rightCard2EndPositionX = 140;
+        this.rightCard3EndPositionX = 220;
         this.hiddenCardEndPointX = this.width * 0.22;
         this.hiddenCardEndPointY = this.height * 0.43;
 
         break;
       default:
-        this.cardSize = 50;
-        this.hiddenCardSize = 55;
+        this.cardSize = 60;
+        this.hiddenCardSize = 65;
         this.cardStartPointX = this.width * 0.49;
         this.cardStartPointY = this.height * 0.3;
         this.cardEndPointY = this.cardStartPointY + 120;
