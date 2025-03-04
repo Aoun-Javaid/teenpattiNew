@@ -541,6 +541,29 @@ export class VideoPlayerComponent implements OnChanges {
         webrtcPlayer?.Play();
       });
     }, 100);
+    setTimeout(() => {
+
+
+
+
+
+        this.streamingName = 'game-1';
+        this.streamingURl = '185.185.51.139';
+
+        // if (this.streamingName && this.streamingURl && this.streamingName != 'lowbalance') {
+        //   webrtcPlayer = new T20RTCPlayer("remoteVideo", this.streamingName, "", this.streamingURl, "", true, true, "tcp");
+        //   webrtcPlayer.Play();
+        // }
+        // else {
+        //   return
+        // }
+
+        webrtcPlayer = new T20RTCPlayer("remoteVideo", 'GAME-1', "", '185.185.51.139', "80", false, true, "udp");
+        // // webrtcPlayer = new T20RTCPlayer("remoteVideo", this.streamingName, "","strikexch.live", "", true, true, "tcp");
+        // // webrtcPlayer = new T20RTCPlayer("remoteVideo", "2020teenpatti-1", "", "strikexch.live", "", true, true, "tcp");
+        webrtcPlayer?.Play();
+
+    }, 100);
   }
 
   autoRun() {
