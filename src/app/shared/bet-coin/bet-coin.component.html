@@ -208,7 +208,7 @@
                 <div data-locator="chip-tray-button" *ngIf="coinAnimateState"
                     class=" chipTrayButtonWithToggle_open-LlvgMl chipTrayButtonWithToggle_horizontal-CwZaXB">
                     <div class="chipTrayButtonWithToggle__bg-zQXxFd ">
-                        <button (click)="showAnimateCoinBar()"
+                        <button (click)="showAnimateCoinBar()"  [disabled]="coinParentBtn"
                             class="iconButton-by3moV iconButton_theme_default-G6tVtR iconButton_size_medium-YQpLaw iconButton_borderRadiusSize_default-SAVSQu"
                             type="button">
                             <span class="iconButton__icon-k1NKdw">

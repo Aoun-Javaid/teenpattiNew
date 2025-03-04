@@ -17,6 +17,7 @@ export class BetCoinComponent implements OnInit {
   coinAnimateState = false;
   animateCoinVal: any
   btnCheck = 1
+  coinParentBtn = false
   reverseAnimate: boolean = false
   btnIcon = false
   animate = false
@@ -60,29 +61,35 @@ export class BetCoinComponent implements OnInit {
 
 
   showAnimateCoinBar() {
-    this.coinAnimationBg = !this.coinAnimationBg
-    setTimeout(() => {
-      this.reverseAnimate = false
-    }, 500);
-    this.btnIcon = false
+
+    this.coinAnimationBg = !this.coinAnimationBg;
+
     if (!this.coinAnimateState) {
       this.coinAnimateState = true;
-      this.reverseAnimate = true
+      this.reverseAnimate = true;
+
       if (this.animateCoinVal) {
         this.animate = true;
+      }
 
-      }
-    } else {
-      if (this.coinAnimateState) {
-        this.animate = true;
-      }
       setTimeout(() => {
-        this.animate = false
+        this.reverseAnimate = false;
+      }, 500);
+
+    } else {
+      this.coinParentBtn = true;
+      this.animate = true;
+
+      setTimeout(() => {
+        this.animate = false;
         this.animateCoinVal = null;
-        this.btnIcon = true
+        this.btnIcon = true;
         this.coinAnimateState = false;
+        this.coinParentBtn = false;
       }, 500);
     }
+
+    this.btnIcon = false;
 
     let translateX = '212px';
     switch (this.btnCheck) {
@@ -107,7 +114,6 @@ export class BetCoinComponent implements OnInit {
     }
     document.documentElement.style.setProperty('--translateX', translateX);
 
-
     let translateXRevers = '212px';
     switch (this.btnCheck) {
       case 1:
@@ -130,30 +136,32 @@ export class BetCoinComponent implements OnInit {
         break;
     }
     document.documentElement.style.setProperty('--translateXReverse', translateXRevers);
+
     switch (this.btnCheck) {
       case 1:
-        this.selectedBetAmount = this.stackButtonArry[0].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[0].stakeAmount;
         break;
       case 2:
-        this.selectedBetAmount = this.stackButtonArry[1].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[1].stakeAmount;
         break;
       case 3:
-        this.selectedBetAmount = this.stackButtonArry[2].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[2].stakeAmount;
         break;
       case 4:
-        this.selectedBetAmount = this.stackButtonArry[3].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[3].stakeAmount;
         break;
       case 5:
-        this.selectedBetAmount = this.stackButtonArry[4].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[4].stakeAmount;
         break;
       case 6:
-        this.selectedBetAmount = this.stackButtonArry[5].stakeAmount
+        this.selectedBetAmount = this.stackButtonArry[5].stakeAmount;
         break;
       default:
-        this.selectedBetAmount = this.stackButtonArry[5].stakeAmount
-        break
+        this.selectedBetAmount = this.stackButtonArry[5].stakeAmount;
+        break;
     }
     this.eventBetValue.emit(this.selectedBetAmount);
   }
+
 
 }
