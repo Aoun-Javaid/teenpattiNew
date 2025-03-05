@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap");
 
 /* .hide{
   opacity: 0 !important;
@@ -30,7 +30,7 @@
 } */
 
 .player_score,
-.banker_score{
+.banker_score {
   display: none !important;
 }
 
@@ -46,7 +46,7 @@
   position: relative;
   width: 100%;
   overflow-y: scroll;
-   @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
+  @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
 }
 
 .gradientDiv {
@@ -63,7 +63,9 @@
   transition: opacity 300ms ease;
 }
 
-.svgBetPlace__ctaPath-kMdMxM, .svgBetPlace__losePath-ls3X5l, .svgBetPlace__winGroup-BgAOli {
+.svgBetPlace__ctaPath-kMdMxM,
+.svgBetPlace__losePath-ls3X5l,
+.svgBetPlace__winGroup-BgAOli {
   opacity: 0;
   transition-duration: 300ms;
   transition-property: opacity, visibility;
@@ -71,7 +73,7 @@
   visibility: hidden;
 }
 
-.svgBetPlace__ctaPath-kMdMxM{
+.svgBetPlace__ctaPath-kMdMxM {
   animation: highlightAnimationBackground-XRfTxu 600ms ease infinite alternate;
   visibility: visible;
 }
@@ -86,8 +88,8 @@
   transition: opacity 300ms ease;
 }
 
-
-.svgBetPlace_cta-ULmy2Z .svgBetPlace__ctaPath-kMdMxM, .svgBetPlace_win-AzyqtL .svgBetPlace__winGroup-BgAOli {
+.svgBetPlace_cta-ULmy2Z .svgBetPlace__ctaPath-kMdMxM,
+.svgBetPlace_win-AzyqtL .svgBetPlace__winGroup-BgAOli {
   animation: highlightAnimationBackground-XRfTxu 600ms ease infinite alternate;
   visibility: visible;
 }
@@ -101,7 +103,8 @@
   overflow: visible;
 }
 
-.betStat_align_left-oq1Q2K, .betStat_align_left-oq1Q2K .betStat__info-iGat4V {
+.betStat_align_left-oq1Q2K,
+.betStat_align_left-oq1Q2K .betStat__info-iGat4V {
   flex-direction: row-reverse;
 }
 
@@ -110,7 +113,17 @@
   font-family: Rubik, sans-serif;
 }
 
-.table_roundStatusBetting-C_wBcs .table__bankerBetStat-TsrOF4, .table_roundStatusBetting-C_wBcs .table__bankerPairPayout-DTrMfa, .table_roundStatusBetting-C_wBcs .table__eitherPairPayout-Mz8nuW, .table_roundStatusBetting-C_wBcs .table__perfectPairPayout-jEF5WI, .table_roundStatusBetting-C_wBcs .table__perfectPairSecondPayout-OP50cA, .table_roundStatusBetting-C_wBcs .table__playerBetStat-SIKZO5, .table_roundStatusBetting-C_wBcs .table__playerPairPayout-b4Lfsu, .table_roundStatusBetting-C_wBcs .table__superSixPayout-wYHWoo, .table_roundStatusBetting-C_wBcs .table__tieBetStat-WGzf9d, .table_roundStatusFinished-ND_ckx .table__bankerScore-LBpRzc, .table_roundStatusFinished-ND_ckx .table__playerScore-pzJbwP {
+.table_roundStatusBetting-C_wBcs .table__bankerBetStat-TsrOF4,
+.table_roundStatusBetting-C_wBcs .table__bankerPairPayout-DTrMfa,
+.table_roundStatusBetting-C_wBcs .table__eitherPairPayout-Mz8nuW,
+.table_roundStatusBetting-C_wBcs .table__perfectPairPayout-jEF5WI,
+.table_roundStatusBetting-C_wBcs .table__perfectPairSecondPayout-OP50cA,
+.table_roundStatusBetting-C_wBcs .table__playerBetStat-SIKZO5,
+.table_roundStatusBetting-C_wBcs .table__playerPairPayout-b4Lfsu,
+.table_roundStatusBetting-C_wBcs .table__superSixPayout-wYHWoo,
+.table_roundStatusBetting-C_wBcs .table__tieBetStat-WGzf9d,
+.table_roundStatusFinished-ND_ckx .table__bankerScore-LBpRzc,
+.table_roundStatusFinished-ND_ckx .table__playerScore-pzJbwP {
   opacity: 1;
   visibility: visible;
 }
@@ -121,7 +134,9 @@
   @apply [@media(min-width:1312px)]:!left-[4.4375rem] [@media(min-width:1312px)]:!top-[0.4375rem];
 }
 
-.table__bankerBetStat-TsrOF4, .table__playerBetStat-SIKZO5, .table__tieBetStat-WGzf9d {
+.table__bankerBetStat-TsrOF4,
+.table__playerBetStat-SIKZO5,
+.table__tieBetStat-WGzf9d {
   /* opacity: 0; */
   position: absolute;
   transition: opacity 300ms ease, visibility 300ms ease;
@@ -134,12 +149,11 @@
 }
 .betStat-ms3aoF {
   align-items: center;
-  color: hsla(0, 0%, 100%, .6);
+  color: hsla(0, 0%, 100%, 0.6);
   display: flex;
   font-weight: 500;
   gap: 0.25rem;
 }
-
 
 .betStat_size_small-kxmCJ5 {
   font-size: 0.5rem;
@@ -162,7 +176,12 @@
   overflow: hidden;
   transition: background-position-y 0.35s ease;
   width: 1.5rem;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 100%);
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
 }
 
 .betStat__info-iGat4V {
@@ -203,7 +222,8 @@
 .table__playerScore-pzJbwP {
   left: 0.5625rem;
 }
-.table__bankerScore-LBpRzc, .table__playerScore-pzJbwP {
+.table__bankerScore-LBpRzc,
+.table__playerScore-pzJbwP {
   color: rgb(255 255 255);
   font-size: 1.5rem;
   font-weight: 500;
@@ -223,9 +243,11 @@
   left: 0.5rem;
   @apply [@media(min-width:1312px)]:!left-[4.4375rem];
 }
-.table__bankerTitle-xysbeW, .table__playerTitle-IDg1Sx, .table__tieTitle-uPf3Aa {
+.table__bankerTitle-xysbeW,
+.table__playerTitle-IDg1Sx,
+.table__tieTitle-uPf3Aa {
   color: rgb(255 255 255);
-  font-family: Baloo\ 2, sans-serif;
+  font-family: Baloo\2, sans-serif;
   font-size: 1rem;
   font-size-adjust: var(--main-bets-font-size-adjust-ratio, none);
   font-weight: 800;
@@ -252,7 +274,7 @@
   width: 0;
 }
 
-.table__playerPairTitle-zjbgYU{
+.table__playerPairTitle-zjbgYU {
   @apply [@media(min-width:1312px)]:!translate-y-[0rem] [@media(min-width:1312px)]:!bottom-[1.125rem] [@media(min-width:1312px)]:!top-auto [@media(min-width:1312px)]:!text-[0.625rem];
   transform: translateY(-0.3125rem);
   left: 1.57rem;
@@ -262,7 +284,7 @@
   white-space: nowrap;
 }
 
-.table__playerPairPayout-b4Lfsu{
+.table__playerPairPayout-b4Lfsu {
   @apply [@media(min-width:1312px)]:!bottom-[1.3rem] [@media(min-width:1312px)]:!left-[1.5rem] [@media(min-width:1312px)]:!text-[0.5rem];
   left: 2.88rem;
   top: 9.7rem;
@@ -273,7 +295,7 @@
   position: absolute;
 }
 
-.table__bankerPairTitle-jKSnQU{
+.table__bankerPairTitle-jKSnQU {
   @apply [@media(min-width:1312px)]:!translate-y-[0rem] [@media(min-width:1312px)]:!bottom-[1.125rem] [@media(min-width:1312px)]:!right-[1.2rem] [@media(min-width:1312px)]:!top-auto [@media(min-width:1312px)]:!text-[0.625rem];
   transform: translateY(-0.3125rem);
   right: 1.57rem;
@@ -283,7 +305,7 @@
   white-space: nowrap;
 }
 
-.table__bankerPairPayout-DTrMfa{
+.table__bankerPairPayout-DTrMfa {
   @apply [@media(min-width:1312px)]:!bottom-[1.3rem] [@media(min-width:1312px)]:!right-[1.67rem] [@media(min-width:1312px)]:!text-[0.5rem];
   right: 3rem;
   top: 9.7rem;
@@ -294,7 +316,7 @@
   position: absolute;
 }
 
-.table__playerBonusTitle-ayiQYv{
+.table__playerBonusTitle-ayiQYv {
   @apply [@media(min-width:1312px)]:!left-[0.8rem] [@media(min-width:1312px)]:!top-[0.8rem] [@media(min-width:1312px)]:!text-[0.625rem];
   left: 1.1rem;
   top: 7.5rem;
@@ -307,7 +329,7 @@
   color: white;
 }
 
-.table__bankerBonusTitle-ct9ndo{
+.table__bankerBonusTitle-ct9ndo {
   @apply [@media(min-width:1312px)]:!right-[0.8rem] [@media(min-width:1312px)]:!top-[0.8rem] [@media(min-width:1312px)]:!text-[0.625rem];
   right: 1.1rem;
   top: 7.5rem;
@@ -320,7 +342,7 @@
   color: white;
 }
 
-.table__perfectPairTitle-bR3biK{
+.table__perfectPairTitle-bR3biK {
   @apply [@media(min-width:1312px)]:!translate-y-[-0rem] [@media(min-width:1312px)]:!left-[0.4rem] [@media(min-width:1312px)]:!top-[39%] [@media(min-width:1312px)]:!text-[0.625rem];
   transform: translateY(-0.3125rem);
   left: 41%;
@@ -333,7 +355,7 @@
   white-space: nowrap;
 }
 
-.table__perfectPairPayout-jEF5WI{
+.table__perfectPairPayout-jEF5WI {
   @apply [@media(min-width:1312px)]:!translate-y-[0.4375rem] [@media(min-width:1312px)]:!left-[0.45rem] [@media(min-width:1312px)]:!text-[0.5rem];
   right: 40.35%;
   top: 7.2rem;
@@ -344,7 +366,7 @@
   position: absolute;
 }
 
-.table__perfectPairSecondPayout-OP50cA{
+.table__perfectPairSecondPayout-OP50cA {
   @apply [@media(min-width:1312px)]:!translate-y-[0.4375rem] [@media(min-width:1312px)]:!left-[0.7rem] [@media(min-width:1312px)]:!text-[0.5rem];
   right: 41.9%;
   top: 7.2rem;
@@ -355,7 +377,7 @@
   position: absolute;
 }
 
-.table__eitherPairTitle-P2DiF2{
+.table__eitherPairTitle-P2DiF2 {
   @apply [@media(min-width:1312px)]:!translate-y-[-0rem] [@media(min-width:1312px)]:!right-[0.55rem] [@media(min-width:1312px)]:!top-[39%] [@media(min-width:1312px)]:!text-[0.625rem] [@media(min-width:1312px)]:text-end;
   transform: translateY(-0.3125rem);
   left: 42%;
@@ -387,13 +409,16 @@
   animation-direction: alternate;
 }
 
-.table__perfectPairPayout-jEF5WI, .table__perfectPairSecondPayout-OP50cA {
+.table__perfectPairPayout-jEF5WI,
+.table__perfectPairSecondPayout-OP50cA {
   animation-duration: 6s;
   animation-iteration-count: infinite;
   animation-name: payoutToggleVisibilityAnimation-peh7oz;
 }
 
-.table_sizeSmall-JYYIuA .table__eitherPairChip-XAXAXr, .table_sizeSmall-JYYIuA .table__eitherPairPayout-Mz8nuW, .table_sizeSmall-JYYIuA .table__eitherPairTitle-P2DiF2 {
+.table_sizeSmall-JYYIuA .table__eitherPairChip-XAXAXr,
+.table_sizeSmall-JYYIuA .table__eitherPairPayout-Mz8nuW,
+.table_sizeSmall-JYYIuA .table__eitherPairTitle-P2DiF2 {
   left: 50%;
   top: 10.5625rem;
 }
@@ -402,7 +427,8 @@
   left: 0.5rem;
   @apply [@media(min-width:1312px)]:!left-[4.4375rem];
 }
-.table__bankerCards-i5f6OJ, .table__playerCards-o5vD_n {
+.table__bankerCards-i5f6OJ,
+.table__playerCards-o5vD_n {
   position: absolute;
   top: 2.5rem;
   transition: opacity 300ms ease;
@@ -424,15 +450,18 @@
   grid-template-columns: 1fr 1fr auto;
 }
 
-.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:first-of-type {
+.baccaratCardsStack_align_left-vV4OO8
+  .baccaratCardsStack__cardWrap-g60f5P:first-of-type {
   grid-area: 1 / 3;
 }
 
-.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(2) {
+.baccaratCardsStack_align_left-vV4OO8
+  .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(2) {
   grid-area: 1 / 2;
 }
 
-.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(3) {
+.baccaratCardsStack_align_left-vV4OO8
+  .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(3) {
   grid-area: 1 / 1;
 }
 
@@ -486,7 +515,7 @@
 }
 
 .card-wi2ADp {
-  --box-shadow-color: rgba(0, 0, 0, .4);
+  --box-shadow-color: rgba(0, 0, 0, 0.4);
   border-radius: 0.125rem;
   position: relative;
 }
@@ -516,7 +545,8 @@
   width: 100%;
 }
 
-.card__backSide-eZ4pXs, .card__frontSide-tJBKcu {
+.card__backSide-eZ4pXs,
+.card__frontSide-tJBKcu {
   backface-visibility: hidden;
   background-color: #fff;
   border-radius: inherit;
@@ -533,51 +563,61 @@
   color: #000;
 }
 .card-wi2ADp {
-  --box-shadow-color: rgba(0, 0, 0, .4);
+  --box-shadow-color: rgba(0, 0, 0, 0.4);
   border-radius: 0.125rem;
   position: relative;
 }
 
-.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) {
+.baccaratCardsStack_size_medium-jfc47n
+  .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) {
   width: 2.375rem;
 }
 
-.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) .baccaratCardsStack__card-NpnM09 {
-  box-shadow: -0.5rem 0 0.75rem rgba(0, 0, 0, .4);
+.baccaratCardsStack_size_medium-jfc47n
+  .baccaratCardsStack__cardWrap-g60f5P:nth-child(3)
+  .baccaratCardsStack__card-NpnM09 {
+  box-shadow: -0.5rem 0 0.75rem rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
 
-.baccaratCardsStack_align_right-zQbAAZ .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) .baccaratCardsStack__card-NpnM09 {
+.baccaratCardsStack_align_right-zQbAAZ
+  .baccaratCardsStack__cardWrap-g60f5P:nth-child(3)
+  .baccaratCardsStack__card-NpnM09 {
   transform: rotate(-90deg) translateY(100%);
   transform-origin: left bottom;
 }
 
-.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) {
+.baccaratCardsStack_size_medium-jfc47n
+  .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) {
   width: 2.375rem;
 }
 
-.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(3) {
+.baccaratCardsStack_align_left-vV4OO8
+  .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(3) {
   grid-area: 1 / 1;
   justify-content: flex-end;
 }
 
-.baccaratCardsStack_size_medium-jfc47n .baccaratCardsStack__cardWrap-g60f5P:nth-child(3) .baccaratCardsStack__card-NpnM09 {
-  box-shadow: -0.5rem 0 0.75rem rgba(0, 0, 0, .4);
+.baccaratCardsStack_size_medium-jfc47n
+  .baccaratCardsStack__cardWrap-g60f5P:nth-child(3)
+  .baccaratCardsStack__card-NpnM09 {
+  box-shadow: -0.5rem 0 0.75rem rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
 
-.baccaratCardsStack_align_left-vV4OO8 .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(3) .baccaratCardsStack__card-NpnM09 {
+.baccaratCardsStack_align_left-vV4OO8
+  .baccaratCardsStack__cardWrap-g60f5P:nth-of-type(3)
+  .baccaratCardsStack__card-NpnM09 {
   transform: rotate(-90deg) translateX(100%);
   transform-origin: right bottom;
 }
-
 
 .baccaratHistoryPortrait__scoreInfo-hQjSei {
   padding: 6% 0.9rem 0.25rem;
   @apply [@media(min-width:1312px)]:!pt-0;
 }
 
-.scoreBoardInfo-USWOxa{
+.scoreBoardInfo-USWOxa {
   display: flex;
   align-items: center;
   background: rgba(0 0 0 / 0.4);
@@ -585,12 +625,12 @@
   justify-content: space-between;
 }
 
-.scoreBoardInfo__total-b3bUj3{
+.scoreBoardInfo__total-b3bUj3 {
   display: flex;
   align-items: center;
 }
 
-.scoreBoardInfo__totalItem-KhIYhz{
+.scoreBoardInfo__totalItem-KhIYhz {
   color: #fff;
   cursor: default;
   font-size: 0.625rem;
@@ -598,7 +638,6 @@
   min-width: 1.875rem;
   display: flex;
   align-items: center;
-
 }
 
 .scoreBoardInfo__totalItemSvg-eW0Cnx {
@@ -628,7 +667,7 @@
   transition: background-color 300ms ease;
 }
 
-.scoreBoardInfo__button-wmBupa>svg {
+.scoreBoardInfo__button-wmBupa > svg {
   height: 0.5rem;
   width: 2rem;
 }
@@ -639,7 +678,7 @@
   content: "";
   height: 100%;
   left: 0;
-  opacity: .2;
+  opacity: 0.2;
   position: absolute;
   top: 0;
   transition: background-color 300ms ease;
@@ -652,23 +691,23 @@
   border-radius: 0.125rem 0.5rem 0.5rem 0.125rem;
 }
 
-.mobileSvg{
+.mobileSvg {
   visibility: visible !important;
   height: auto !important;
 }
 
-.desktopSvg{
+.desktopSvg {
   visibility: hidden !important;
   height: 0 !important;
 }
 
-@media screen and (min-width:1312px) {
-  .mobileSvg{
+@media screen and (min-width: 1312px) {
+  .mobileSvg {
     visibility: hidden !important;
     height: 0 !important;
   }
 
-  .desktopSvg{
+  .desktopSvg {
     visibility: visible !important;
     position: absolute;
     height: 100% !important;
@@ -677,43 +716,43 @@
 
   .table__playerTitle-IDg1Sx,
   .table__bankerTitle-xysbeW,
-  .table__tieTitle-uPf3Aa{
+  .table__tieTitle-uPf3Aa {
     top: 6.15rem !important;
   }
 
-  .baccaratHistoryPortrait__scoreInfo-hQjSei{
+  .baccaratHistoryPortrait__scoreInfo-hQjSei {
     left: -26.5rem !important;
     top: 0;
     position: absolute;
   }
 
-  .scoreBoardInfo-USWOxa{
+  .scoreBoardInfo-USWOxa {
     width: 20.5rem;
   }
 
-  .table__playerPairTitle-zjbgYU{
+  .table__playerPairTitle-zjbgYU {
     left: 1.1rem !important;
   }
 
   .table__playerPairPayout-b4Lfsu,
-  .table__bankerPairPayout-DTrMfa{
+  .table__bankerPairPayout-DTrMfa {
     top: 5.3rem !important;
   }
 
   .table__perfectPairPayout-jEF5WI,
-  .table__perfectPairSecondPayout-OP50cA{
+  .table__perfectPairSecondPayout-OP50cA {
     top: 44.5% !important;
   }
 
-  .table__eitherPairPayout-Mz8nuW{
+  .table__eitherPairPayout-Mz8nuW {
     top: 44.5% !important;
   }
 
-  .baccaratHistoryPortrait__scoreInfo-hQjSei{
+  .baccaratHistoryPortrait__scoreInfo-hQjSei {
     max-width: 22.5rem !important;
   }
 
-/*
+  /*
   .pPair{
     top: 5.7rem !important;
   }
@@ -729,7 +768,6 @@
   .sPair{
     top: 3.2rem !important;
   } */
-
 }
 
 .card-animation {
@@ -748,13 +786,18 @@
   }
 }
 
+::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
+  top: 2rem !important;
+}
 
 /* key frame ====================== */
 @keyframes payoutToggleVisibilityAnimation-peh7oz {
-  0%, 44% {
+  0%,
+  44% {
     opacity: 1;
   }
-  50%, 100% {
+  50%,
+  100% {
     opacity: 0;
   }
 }
@@ -773,5 +816,3 @@
     fill: #fff;
   }
 }
-
-
