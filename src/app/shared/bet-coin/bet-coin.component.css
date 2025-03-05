@@ -846,7 +846,7 @@
   width: 57px;
   position: relative;
   transition: opacity 300ms ease;
-  @apply md:h-[93px] md:w-[93px];
+  @apply md:h-[93px] md:w-[93px]  [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px];
 }
 
 .bettingButton-i5MaZV:disabled {
@@ -880,6 +880,7 @@
 
 .svgIcon_large-z8G1_Q {
   width: 57px;
+  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px]
 }
 
 .svgIcon-JpUo7O {
@@ -962,6 +963,7 @@
 .iconButton_size_medium-YQpLaw {
   height: 57px;
   width: 57px;
+  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px]
 }
 .iconButton-by3moV {
   align-items: center;
@@ -1062,7 +1064,7 @@
   transition: opacity 300ms ease;
 }
 .chip_size_48-odjDTm {
-  @apply h-[57px] w-[57px] md:h-[93px] md:w-[93px] md:rotate-[93deg];
+  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px] h-[57px] w-[57px] md:h-[93px] md:w-[93px] md:rotate-[93deg];
 }
 
 .active-shadow {
