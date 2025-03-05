@@ -1266,22 +1266,6 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         break;
 
 
-      case this.width >= 700:
-        this.cardSize = 45;
-        this.hiddenCardSize = 80;
-        this.cardStartPointX = this.width * 0.49;
-        this.cardStartPointY = this.height * 0.3;
-        this.cardEndPointY = this.cardStartPointY + 120;
-        this.leftCard1EndPositionX = 220;
-        this.leftCard2EndPositionX = 140;
-        this.leftCard3EndPositionX = 60;
-        this.rightCard1EndPositionX = 60;
-        this.rightCard2EndPositionX = 140;
-        this.rightCard3EndPositionX = 220;
-        // this.hiddenCardEndPointX = this.width * 0.22;
-        // this.hiddenCardEndPointY = this.height * 0.43;
-
-        break;
       default:
         this.cardSize = 15;
         this.hiddenCardSize = 80;
