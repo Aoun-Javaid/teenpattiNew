@@ -4,8 +4,9 @@
 
 
     <ng-container *ngIf="eventid!='99.0062'; else ballbyball">
-      <video #videoElement style="background-color:black;background-size: contain; " class="videoBlurArea" id="remoteVideo" width="100%"
-        height="100%" autoplay playsinline muted  [poster]="myPosterUrl" (playing)="onVideoPlaying()" ></video>
+      <video #videoElement style="background-color:black;background-size: contain; " class="videoBlurArea"
+        id="remoteVideo" width="100%" height="100%" autoplay playsinline muted [poster]="myPosterUrl"
+        (playing)="onVideoPlaying()"></video>
     </ng-container>
 
     <ng-template #ballbyball>
