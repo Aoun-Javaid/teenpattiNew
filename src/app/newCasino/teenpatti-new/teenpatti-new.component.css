@@ -651,6 +651,8 @@
   border-radius: 2px;
   width: 40px;
   height: 57px;
+
+  @apply   [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px]
 }
 
 .progress_bar_container {
