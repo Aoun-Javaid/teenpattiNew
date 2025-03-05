@@ -580,6 +580,7 @@
   align-items: flex-start;
   padding: 20px;
   flex-direction: row;
+ 
 }
 
 /* High Card section ends here */
@@ -592,6 +593,7 @@
   align-items: flex-end;
   padding: 0px 19px;
   height: 10rem;
+  @apply [@media(min-width:1200px)]:p-0;
 }
 .teen_patti_conatiner::before {
 }
@@ -651,7 +653,7 @@
   width: 40px;
   height: 57px;
 
-  @apply   [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px]
+  @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px] [@media(min-width:1200px)]:w-[36px] [@media(min-width:1200px)]:h-[51px];
 }
 
 .progress_bar_container {
