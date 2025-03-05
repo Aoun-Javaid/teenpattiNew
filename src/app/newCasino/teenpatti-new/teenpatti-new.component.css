@@ -534,7 +534,7 @@
 .time-container {
   @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
   position: absolute;
-  bottom: 50px;
+  bottom: 2px;
 }
 
 .dicbg {
