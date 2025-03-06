@@ -5,7 +5,6 @@ const BASE_URL = 'https://universestudio.online';
 
 // const BASE_URL = '';
 
-
 export const BASE_URL_WS = "https://universestudio.online";
 
 export const CONFIG = {
