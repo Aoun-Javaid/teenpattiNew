@@ -215,8 +215,6 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
       }
 
-
-
     })
 
     this.getStackData();
@@ -231,7 +229,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     }
     // if(this.game == undefined || this.game === null){
     this.resultcounter = 0;
-    // this.socket.connect();
+    this.socket.connect();
     // this.sendMsg();
 
     this.encyDecy.generateEncryptionKey('', this.message);
@@ -293,8 +291,6 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
           }
 
-          // this.networkService.updateRoundId(this.game);
-
           if (this.game.status == 'SUSPEND') {
             this.isBetsSlipOpened = '';
             this.isValueBetsSlip = 0;
@@ -306,11 +302,81 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           this.playerBCards = this.game?.cardsArr?.PLAYER_B;
 
           if (this.playerACards) {
-            if (this.playerACards?.card_1 == 0 && this.game.status == 'SUSPEND') {
-              this.game.noMoreBets = true;
+            if(this.playerACards.card_1!=0 && !this.cards.card_11){
+              this.cards.card_11=true
+              const targetX = this.cardStartPointX - this.leftCard1EndPositionX;
+              this.leftCard1 = this.createCard(
+                this.playerACards.card_1,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
             }
-            else {
+            if(this.playerACards.card_2!=0 && !this.cards.card_12){
+              this.cards.card_12=true
+              const targetX = this.cardStartPointX - this.leftCard2EndPositionX;
+              this.leftCard2 = this.createCard(
+                this.playerACards.card_2,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
+            }
+            if(this.playerACards.card_3!=0 && !this.cards.card_13){
+              this.cards.card_13=true
+              const targetX = this.cardStartPointX - this.leftCard3EndPositionX;
+              this.leftCard3 = this.createCard(
+                this.playerACards.card_3,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
+            }
+            if (
+              this.playerACards?.card_1 == 0 &&
+              this.game.status == 'SUSPEND'
+            ) {
+              this.game.noMoreBets = true;
+            } else {
               this.game.noMoreBets = false;
+            }
+          }
+          if(this.playerBCards){
+            if(this.playerBCards.card_1!=0 && !this.cards.card_21){
+              this.cards.card_21=true
+              const targetX = this.cardStartPointX + this.rightCard1EndPositionX;
+              this.rightCard1 = this.createCard(
+                this.playerBCards.card_1,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
+            }
+            if(this.playerBCards.card_2!=0 && !this.cards.card_22){
+              this.cards.card_22=true
+              const targetX = this.cardStartPointX + this.rightCard2EndPositionX;
+              this.rightCard2 = this.createCard(
+                this.playerBCards.card_2,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
+            }
+            if(this.playerBCards.card_3!=0 && !this.cards.card_23){
+              this.cards.card_23=true
+              const targetX = this.cardStartPointX + this.rightCard3EndPositionX;
+              this.rightCard3 = this.createCard(
+                this.playerBCards.card_3,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
             }
           }
           this.winnerMarketArray = this.game.marketArr ? this.game.marketArr[0] : ''
@@ -323,39 +389,39 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
         // Get result Array
 
-        // if (objMarket.type == "3") {
-        //   this.RoundWinner = null;
-        //   //  Check user's bet player
-        //   if (this.casinoPl && this.casinoPl[this.winnerMarketArray?.marketId]) {
-        //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[0].selectionId] > 0) {
-        //       this.betSelectedPlayer = this.winnerMarketArray.runners[0].selectionId
-        //     }
-        //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[1].selectionId] > 0) {
-        //       this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
-        //     }
-        //   }
+        if (objMarket.type == "3") {
+          this.RoundWinner = null;
+          //  Check user's bet player
+          if (this.casinoPl && this.casinoPl[this.winnerMarketArray?.marketId]) {
+            if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[0].selectionId] > 0) {
+              this.betSelectedPlayer = this.winnerMarketArray.runners[0].selectionId
+            }
+            if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[1].selectionId] > 0) {
+              this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
+            }
+          }
 
-        //   if (this.resultcounter > 0) {
-        //     this.RoundWinner = objMarket.data[0].winner;
-        //     setTimeout(() => {
-        //       this.RoundWinner = null;
-        //     }, 5000)
+          if (this.resultcounter > 0) {
+            this.RoundWinner = objMarket.data[0].winner;
+            setTimeout(() => {
+              this.RoundWinner = null;
+            }, 5000)
 
-        //     objMarket.data[0].results[0].runners.forEach((runner: any) => {
-        //       if (runner.selectionId == this.betSelectedPlayer && runner.result == "WINNER") {
+            objMarket.data[0].results[0].runners.forEach((runner: any) => {
+              if (runner.selectionId == this.betSelectedPlayer && runner.result == "WINNER") {
 
-        //         setTimeout(() => {
-        //           this.videoComponent.surpriseFireWork();
-        //         }, 1000);
-        //       }
-        //     })
+                setTimeout(() => {
+                  this.videoComponent.surpriseFireWork();
+                }, 1000);
+              }
+            })
 
 
-        //   }
+          }
 
-        //   this.networkService.updateResultstream(objMarket.data)
-        //   this.resultcounter++;
-        // }
+          this.networkService.updateResultstream(objMarket.data)
+          this.resultcounter++;
+        }
 
 
       }
@@ -502,7 +568,20 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
               if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
 
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
-                // console.log(this.RoundWinner)
+                setTimeout(() => {
+                  this.RoundWinner = this.RoundWinner === 'PLAYER A' ? 1 : 2;
+
+                  if (this.RoundWinner === 1) {
+                    if (this.leftCard1) this.animateUpDown(this.leftCard1);
+                    if (this.leftCard2) this.animateUpDown(this.leftCard2);
+                    if (this.leftCard3) this.animateUpDown(this.leftCard3);
+                  } else if (this.RoundWinner === 2) {
+                    if (this.rightCard1) this.animateUpDown(this.rightCard1);
+                    if (this.rightCard2) this.animateUpDown(this.rightCard2);
+                    if (this.rightCard3) this.animateUpDown(this.rightCard3);
+                  }
+
+                }, 500);
                 this.BetPlaced = [];
               }
               if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
