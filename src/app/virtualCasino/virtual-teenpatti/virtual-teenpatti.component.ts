@@ -1200,7 +1200,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
       case this.width >= 850:
         this.cardSize = 15;
-        this.hiddenCardSize = 60;
+        this.hiddenCardSize = 65;
         this.cardStartPointX = this.width * 0.45;
         this.cardStartPointY = this.height * 0.45;
         this.cardEndPointY = this.cardStartPointY + 80;
@@ -1210,14 +1210,14 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         this.rightCard1EndPositionX = 80;
         this.rightCard2EndPositionX = 170;
         this.rightCard3EndPositionX = 260;
-        this.hiddenCardEndPointX = this.width * 0.10;
-        this.hiddenCardEndPointY = this.height * 0.31;
+        this.hiddenCardEndPointX = this.width * 0.27;
+        this.hiddenCardEndPointY = this.height * 0.41;
 
         break;
 
       case this.width >= 820:
         this.cardSize = 15;
-        this.hiddenCardSize = 60;
+        this.hiddenCardSize = 65;
         this.cardStartPointX = this.width * 0.45;
         this.cardStartPointY = this.height * 0.45;
         this.cardEndPointY = this.cardStartPointY + 80;
@@ -1227,14 +1227,14 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         this.rightCard1EndPositionX = 80;
         this.rightCard2EndPositionX = 170;
         this.rightCard3EndPositionX = 260;
-        this.hiddenCardEndPointX = this.width * 0.10;
-        this.hiddenCardEndPointY = this.height * 0.41;
+        this.hiddenCardEndPointX = this.width * 0.16;
+        this.hiddenCardEndPointY = this.height * 0.43;
 
         break;
 
       case this.width >= 768:
         this.cardSize = 15;
-        this.hiddenCardSize = 50;
+        this.hiddenCardSize = 60;
         this.cardStartPointX = this.width * 0.45;
         this.cardStartPointY = this.height * 0.45;
         this.cardEndPointY = this.cardStartPointY + 80;
@@ -1244,7 +1244,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         this.rightCard1EndPositionX = 60;
         this.rightCard2EndPositionX = 145;
         this.rightCard3EndPositionX = 230;
-        this.hiddenCardEndPointX = this.width * 0.10;
+        this.hiddenCardEndPointX = this.width * 0.11;
         this.hiddenCardEndPointY = this.height * 0.41;
 
         break;
@@ -1481,7 +1481,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           );
         setTimeout(() => {
           this.createHiddenCard();
-        }, 600);
+        }, 700);
         break;
       }
       default:
