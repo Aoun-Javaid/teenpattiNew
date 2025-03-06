@@ -6,6 +6,47 @@
   @apply flex flex-col relative w-full h-full transition-[height_.15s_ease,margin-top_.15s_ease];
 }
 
+.playerA-win-point {
+  @apply [@media(min-width:1024px)]:!top-[55%];
+}
+
+.winner-toastr {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(41, 204, 204) 50%,
+    transparent 100%
+  );
+  font-family: Baloo\2, sans-serif;
+  font-weight: 800;
+  padding: 0.125rem 0;
+  text-shadow: 0 0.0625rem 0 rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  transform: translateY(1.625rem) scaleX(0);
+  text-align: center;
+  color: white;
+}
+
+.dragon-winner-bg {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(255, 65, 0) 50%,
+    transparent 100%
+  ) !important;
+  color: white;
+}
+
+.tie-bg {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(248, 255, 19) 50%,
+    transparent 100%
+  ) !important;
+  color: white;
+}
+
 .game__substrateLayer-LGkRLq,
 .game__video-YzLt9h {
   overflow: hidden;
@@ -449,6 +490,7 @@
 @media (orientation: portrait) {
   .topCard__betsTable-RPVYMP {
     padding: 0.5rem 0.75rem 1.5rem;
+    padding-bottom: 0;
   }
 }
 
@@ -938,6 +980,45 @@
 .leftCards {
   left: 4.5rem !important;
   bottom: 2rem !important;
+}
+
+.time-container {
+  margin-top: 0.25rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+.time-container {
+  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end lg:mb-2;
+  position: absolute;
+  bottom: 2px;
+}
+.last-win {
+  @apply text-[0.625rem] text-white;
+}
+.roundInfo-date {
+  color: #8a8a99;
+  display: flex;
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 10px;
+}
+
+.drawBetPlace__betStat-LmQIe6,
+.drawBetPlace__button-k5DXi_,
+.drawBetPlace__coefficient-EGyWtF,
+.drawBetPlace__title-uB5e9_ {
+  opacity: 1;
+}
+
+.sideBetPlace__betStat-IC2sez,
+.sideBetPlace__button-ECqlcw,
+.sideBetPlace__coefficient-rLhU1g,
+.sideBetPlace__title-fRWK_S {
+  opacity: 1;
 }
 
 /* ================== Highlight Classes ================== */
