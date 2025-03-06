@@ -9,7 +9,7 @@
 
 .gradientDiv {
   height: 55%;
-  background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
+  /* background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%); */
 }
 
 .table__html-CXMssa {
@@ -580,4 +580,9 @@
     rgb(198, 40, 8) 50%,
     transparent 100%
   ) !important;
+}
+
+
+::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
+  @apply [@media(min-width:1200px)]:top-[50vh] !important;
 }
