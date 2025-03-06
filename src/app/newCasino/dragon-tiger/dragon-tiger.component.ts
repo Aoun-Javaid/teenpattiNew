@@ -563,7 +563,6 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
     }
 
     console.log('method clicked ', price)
-    return
     if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
       if (this.selectedBetAmount > 0) {
         this.isBetsSlipOpened = selectionId;
