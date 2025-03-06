@@ -77,12 +77,12 @@
     <div class="gradientDiv mt-[13.5rem]">
       <div class="absolute h-4 w-full bg-[#0A0A1A] blur-[11px]"></div>
       <div *ngIf="marketArray"
-           class="absolute md:fixed  md:left-[50%] md:translate-x-[-50%] bottom-[64px]  [@media(max-width:375px)]:bottom-[25px]  md:!max-w-[473px]  left-0 w-full ">
+           class="absolute md:fixed md:left-[50%] md:translate-x-[-50%] bottom-[64px]  [@media(max-width:375px)]:bottom-[25px]  md:!max-w-[473px]  left-0 w-full ">
 
 
 
         <!-- Teen patti Cards Section starts here -->
-        <div class="teen_patti_conatiner absolute top-[-5.375rem] w-full md:!max-w-[473px]"
+        <div class="teen_patti_conatiner absolute top-[-5.375rem] [@media(min-width:1200px)]:top-[1.625rem]   w-full md:!max-w-[473px]" [ngClass]="{'[@media(min-width:1200px)]:z-[20]':game.status === 'SUSPEND'}"
              [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
 
           <!-- <div class="flex items-center w-full absolute  top-[-15px] pe-[9%] z-[99]">
@@ -98,7 +98,7 @@
 
 
           <!-- Player A cards start here -->
-          <div class="custom_flex gap-2 player_A_cards">
+          <div class="custom_flex  gap-2  [@media(min-width:1200px)]:!gap-1 player_A_cards [@media(min-width:1200px)]:!p-[10px_55px_10px_10px] [@media(min-width:1200px)]:!justify-end">
 
             <img [ngClass]="{ 'card-animation': playerACards?.card_1 && playerACards?.card_1 !== '0', 'opacity-0': !(playerACards?.card_1 && playerACards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
                  [src]="['/assets/52-cards/'+playerACards?.card_1+'.svg']" class="card-img" alt="card1">
@@ -110,7 +110,7 @@
           <!-- Player A cards ends here -->
 
           <!-- Player B cards start here -->
-          <div class="custom_flex gap-2 player_B_cards">
+          <div class="custom_flex gap-2 player_B_cards [@media(min-width:1200px)]:!gap-1 [@media(min-width:1200px)]:!p-[10px_10px_10px_55px] [@media(min-width:1200px)]:!justify-start">
 
             <img [ngClass]="{ 'card-animation': playerBCards?.card_1 && playerBCards?.card_1 !== '0', 'opacity-0': !(playerBCards?.card_1 && playerBCards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
                  [src]="'/assets/52-cards/' + playerBCards?.card_1 + '.svg'" class="card-img" alt="card1">
@@ -238,7 +238,7 @@
                           fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:true)">
                     </path>
 
-                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p" class="opacity-0 "
+                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p opacity-0"
                           [ngClass]="{'win-animation-player-a':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
                           d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
                           fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true)">
