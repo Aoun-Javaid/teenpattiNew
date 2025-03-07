@@ -721,7 +721,7 @@
   }
 
   .baccaratHistoryPortrait__scoreInfo-hQjSei {
-    left: -26.5rem !important;
+    left: -26.5rem;
     top: 0;
     position: absolute;
   }
@@ -815,4 +815,8 @@
   100% {
     fill: #fff;
   }
+}
+
+::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
+  @apply [@media(min-width:1200px)]:top-[50vh] !important;
 }

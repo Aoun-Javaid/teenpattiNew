@@ -29,6 +29,10 @@ export class LiveBaccaratComponent implements OnInit {
   isMobile: boolean = false;
   firstBoxWidth: string = '';
   secndBoxWidth: string = '';
+  totalResults: any
+  playerWins: any
+  bankWins: any
+  ties: any
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;
@@ -647,6 +651,24 @@ export class LiveBaccaratComponent implements OnInit {
       .subscribe(
         data => {
           this.networkService.updateResultstream(data.data);
+          let playerWins = 0;
+          let bankWins = 0;
+          let ties = 0;
+          // debugger
+          this.totalResults = data.data.length;
+          data.data.forEach((round: any) => {
+            if (round.winner === 'P') {
+              playerWins++;
+            } else if (round.winner === 'B') {
+              bankWins++;
+            } else if (round.winner === 'T') {
+              ties++;
+            }
+          });
+
+          this.playerWins = playerWins;
+          this.bankWins = bankWins;
+          this.ties = ties;
         },
         error => {
           let responseData = error;
