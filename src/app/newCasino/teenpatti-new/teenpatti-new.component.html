@@ -49,7 +49,7 @@
 
 
                 <!-- Teen patti Cards Section starts here -->
-                <div class="teen_patti_conatiner absolute top-[-5.375rem] w-full md:!max-w-[473px]"
+                <div class="teen_patti_conatiner absolute top-[-5.375rem] [@media(min-width:1200px)]:top-[1.625rem]   w-full md:!max-w-[473px]" [ngClass]="{'[@media(min-width:1200px)]:z-[20]':game.status === 'SUSPEND'}"
                     [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
 
                     <!-- <div class="flex items-center w-full absolute  top-[-15px] pe-[9%] z-[99]">
@@ -65,7 +65,7 @@
 
 
                     <!-- Player A cards start here -->
-                    <div class="custom_flex gap-2 player_A_cards">
+                    <div class="custom_flex  gap-2  [@media(min-width:1200px)]:!gap-1 player_A_cards [@media(min-width:1200px)]:!p-[10px_55px_10px_10px] [@media(min-width:1200px)]:!justify-end">
 
                         <img [ngClass]="{ 'card-animation': playerACards?.card_1 && playerACards?.card_1 !== '0', 'opacity-0': !(playerACards?.card_1 && playerACards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
                             [src]="['/assets/52-cards/'+playerACards?.card_1+'.svg']" class="card-img" alt="card1">
@@ -77,7 +77,7 @@
                     <!-- Player A cards ends here -->
 
                     <!-- Player B cards start here -->
-                    <div class="custom_flex gap-2 player_B_cards">
+                    <div class="custom_flex gap-2 player_B_cards [@media(min-width:1200px)]:!gap-1 [@media(min-width:1200px)]:!p-[10px_10px_10px_55px] [@media(min-width:1200px)]:!justify-start">
 
                         <img [ngClass]="{ 'card-animation': playerBCards?.card_1 && playerBCards?.card_1 !== '0', 'opacity-0': !(playerBCards?.card_1 && playerBCards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
                             [src]="'/assets/52-cards/' + playerBCards?.card_1 + '.svg'" class="card-img" alt="card1">
@@ -629,6 +629,7 @@
 
 
 
+
 <!-- position: fixed;
   right: -370px;
   z-index: 99;
@@ -644,3 +645,4 @@
 <!-- <app-bets-chips *ngIf="BetPlaced[winnerMarketArray?.marketId][winnerMarketArray.runners[1].selectionId]"
   [BetPlaced]="BetPlaced" [marketId]="winnerMarketArray?.marketId"
   [runnerId]="winnerMarketArray.runners[1].selectionId"></app-bets-chips> -->
+

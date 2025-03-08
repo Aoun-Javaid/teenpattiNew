@@ -6,7 +6,7 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
-  ViewEncapsulation,
+
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -17,7 +17,6 @@ import { CasinoSocketService } from '../../services/casino-socket.service';
 import { EncryptDecryptService } from '../../services/encrypt-decrypt.service';
 import { NetworkService } from '../../services/network.service';
 import { VideoPlayerComponent } from '../../shared/video-player/video-player.component';
-import { VideoPlayerUnrealComponent } from '../../shared/video-player-unreal/video-player-unreal.component';
 import { QuickStakesEditComponent } from '../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component';
 import { ToggleService } from '../../services/toggle.service';
 import { IndexedDbService } from '../../services/indexed-db.service';
@@ -27,7 +26,6 @@ import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
 import { TopResultsComponent } from '../../newCasino/shared/top-results/top-results.component';
 import { BetsChipsComponent } from '../../newCasino/shared/bets-chips/bets-chips.component';
 import { TimerComponent } from '../shared/timer/timer.component';
-import { VtdPhaserComponent } from '../casinoPhaser/vtd-phaser/vtd-phaser.component';
 
 export let browserRefresh = false;
 declare var $: any;
@@ -73,49 +71,46 @@ interface Card {
     TopResultsComponent,
     ShortNumberPipe,
     CommonModule,
-    VideoPlayerComponent,
     QuickStakesEditComponent,
     BetCoinComponent,
     BetsChipsComponent,
     TimerComponent,
-    VtdPhaserComponent,
   ],
   templateUrl: './virtual-teenpatti.component.html',
   styleUrl: './virtual-teenpatti.component.css',
 })
 export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
-  @ViewChild(VtdPhaserComponent) VtdPhaserComponent!: VtdPhaserComponent;
   @ViewChild('playVideo') bgVideo!: ElementRef;
-  reverseAnimate: boolean = false;
+  coinAnimationBg = false
+  reverseAnimate: boolean = false
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
   animateIcon: boolean = false;
   coinAnimateState = false;
-  animationContainer: boolean = false;
+  animationContainer: boolean = false
   betState: boolean = false;
   selectedCoin: string = '/NteenPatti/Icons/green-coin.svg.svg';
-  @ViewChild('dropdownContainer', { static: true })
-  dropdownContainer!: ElementRef;
+  @ViewChild('dropdownContainer', { static: true }) dropdownContainer!: ElementRef;
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;
   subscription!: Subscription;
   liveData$: any;
-  animateCoinVal: any;
-  waitRound: any;
-  animate = false;
+  animateCoinVal: any
+  waitRound: any
+  animate = false
   cards: any = {};
   public message = {
-    type: '1',
-    id: '',
+    type: "1",
+    id: ""
   };
   selectedBetAmount: any;
   aPlayerChances: any;
   bPlayerChances: any;
   TPlayerChances: any;
   showHamburger: boolean = true;
-  btnIcon = false;
-  btnCheck = 1;
+  btnIcon = false
+  btnCheck = 1
   BetPlaced: any = {};
 
   animationClass = '';
@@ -124,13 +119,14 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   openMobileMinMax: any = [];
   marketCollapsed: any = [];
   public messageResult = {
-    type: '3',
-    id: '',
+    type: "3",
+    id: ""
   };
   isbetInProcess: boolean = false;
 
   retryConfig: RetryConfig = {
-    count: 1000,
+    count: 1000
+
   };
 
   eventid: any;
@@ -139,7 +135,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   runnersName: any = {};
   casinoPl = [];
   marketArray: any;
-  isBetsSlipOpened = '';
+  isBetsSlipOpened = "";
   rulesBox: any;
   selectedResult: any;
   betplaceObj: any;
@@ -177,19 +173,20 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   // isTeNteenPatti:any;
   stackButtonArry: any = STACK_VALUE;
 
-  constructor(
-    private route: ActivatedRoute,
-    private networkService: NetworkService,
-    private encyDecy: EncryptDecryptService,
-    private toggleService: ToggleService,
-    private deviceService: DeviceDetectorService,
-    private indexedDb: IndexedDbService,
-    private toaster: ToastrService,
-    private socket: CasinoSocketService
-  ) {
+  constructor(private route: ActivatedRoute,
+              private networkService: NetworkService,
+              private encyDecy: EncryptDecryptService,
+              private toggleService: ToggleService,
+              private deviceService: DeviceDetectorService,
+              private indexedDb: IndexedDbService,
+              private toaster: ToastrService,
+              private socket: CasinoSocketService) {
+
     // this.eventid = this.route.snapshot.params['id'];
-    // localStorage.setItem('eventId', this.eventid);
-    this.eventid = localStorage.getItem('eventId');
+    // this.eventid = '99.0018';
+    // localStorage.setItem('eventId', this.eventid)
+    // this.eventid = localStorage.getItem('eventId');
+    this.eventid = '88.0011'
     this.message.id = this.eventid;
     this.messageResult.id = this.eventid;
     this.isDesktop = this.deviceService.isDesktop();
@@ -204,170 +201,237 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     //     this.isTeNteenPatti = this.currentUrl.includes('99.0011');
     //   }
     // });
+
   }
 
+
   ngOnInit(): void {
-    // this.networkService.getBetPlace().subscribe((betObj: any) => {
-    //   // this.getAllMarketProfitLoss();
-    //   this.isbetInProcess = false;
-    //   if (betObj.betSuccess) {
-    //     this.handleIncomingBetObject(betObj);
-    //   }
-    // });
-    // this.getStackData();
-    // this.getWindowSize();
-    // if (!this.isDesktop) {
-    //   this.setMarketScrollHeight();
-    //   if (this.isMobileInfo !== 'iOS') {
-    //     $('html').css('overflow', 'hidden');
-    //   }
-    // }
-    // // if(this.game == undefined || this.game === null){
-    // this.resultcounter = 0;
-    // // this.socket.connect();
-    // // this.sendMsg();
-    // this.encyDecy.generateEncryptionKey('', this.message);
-    // this.subscription = this.encyDecy
-    //   .getMarketData()
-    //   .pipe(retry(this.retryConfig))
-    //   .subscribe((marketData: any) => {
-    //     this.socket = marketData; // Update the receivedMessage variable with the received message
-    //     if (marketData) {
-    //       // this.getRoundId = localStorage.getItem('roundID')
-    //       let objMarket = JSON.parse(marketData);
-    //       console.log('market data', objMarket)
-    //       // let objMarket = marketData;
-    //       if (this.eventid == '99.0046') {
-    //         // console.log(objMarket)
-    //       }
-    //       //First time get responce in array
-    //       if (Array.isArray(objMarket?.data)) {
-    //         if (objMarket?.data[0]) {
-    //           if (objMarket?.type == '1') {
-    //             this.marketArray = objMarket?.data[0]?.marketArr;
-    //             this.game = objMarket?.data[0];
-    //             this.game.marketArr = this.marketArray
-    //               ? this.marketArray
-    //               : objMarket?.data[0]?.marketArr;
-    //             this.sizeRunner1 =
-    //               this.marketArray[0].runners[0].price.back[0].size;
-    //             this.sizeRunner2 =
-    //               this.marketArray[0].runners[1].price.back[0].size;
-    //             this.winnerMarketArray = this.game?.marketArr
-    //               ? this.game?.marketArr[0]
-    //               : '';
-    //             this.getRoundId = this.game.roundId;
-    //             this.handleEventResponse(objMarket, 0);
-    //           }
-    //         }
-    //       } else {
-    //         this.handleEventResponse(objMarket, 0);
-    //       }
-    //       if (this.game) {
-    //         this.winnerMarketArray = this.game?.marketArr
-    //           ? this.game?.marketArr[0]
-    //           : '';
-    //         this.marketArray = this.game.marketArr;
-    //         this.gameroundId = this.game.roundId;
-    //         //  get result balance on round Id change
-    //         // console.log('roundId',this.getRoundId)
-    //         // console.log('game ',this.game.roundId)
-    //         if (this.getRoundId != this.game.roundId || this.getRoundId == '') {
-    //           this.getRoundId = this.game.roundId;
-    //           // localStorage.setItem('roundID', this.game.roundId);
-    //           this.getBalance();
-    //           this.casinoPl = [];
-    //           this.getResults();
-    //           this.BetPlaced = {};
-    //           this.betSelectedPlayer = '';
-    //           this.secndBoxWidth = '';
-    //           this.firstBoxWidth = '';
-    //           this.cards = {};
-    //           this.VtdPhaserComponent.clearRoundTeenpatti();
-    //         }
-    //         // this.networkService.updateRoundId(this.game);
-    //         if (this.game.status == 'SUSPEND') {
-    //           this.isBetsSlipOpened = '';
-    //           this.isValueBetsSlip = 0;
-    //         }
-    //         if (this.game.status == 'ONLINE') {
-    //         }
-    //         this.playerACards = this.game?.cardsArr?.PLAYER_A;
-    //         this.playerBCards = this.game?.cardsArr?.PLAYER_B;
-    //         if (this.playerACards) {
-    //           if(this.playerACards.card_1!=0 && !this.cards.card_11){
-    //             this.cards.card_11=true
-    //             this.VtdPhaserComponent.showPlayerACard1(this.playerACards.card_1);
-    //           }
-    //           if(this.playerACards.card_2!=0 && !this.cards.card_12){
-    //             this.cards.card_12=true
-    //             this.VtdPhaserComponent.showPlayerACard2(this.playerACards.card_2)
-    //           }
-    //           if(this.playerACards.card_3!=0 && !this.cards.card_13){
-    //             this.cards.card_13=true
-    //             this.VtdPhaserComponent.showPlayerACard3(this.playerACards.card_3)
-    //           }
-    //           if (
-    //             this.playerACards?.card_1 == 0 &&
-    //             this.game.status == 'SUSPEND'
-    //           ) {
-    //             this.game.noMoreBets = true;
-    //           } else {
-    //             this.game.noMoreBets = false;
-    //           }
-    //         }
-    //         if(this.playerBCards){
-    //           if(this.playerBCards.card_1!=0 && !this.cards.card_21){
-    //             this.cards.card_21=true
-    //             this.VtdPhaserComponent.showPlayerBCard1(this.playerBCards.card_1)
-    //           }
-    //           if(this.playerBCards.card_2!=0 && !this.cards.card_22){
-    //             this.cards.card_22=true
-    //             this.VtdPhaserComponent.showPlayerBCard2(this.playerBCards.card_2)
-    //           }
-    //           if(this.playerBCards.card_3!=0 && !this.cards.card_23){
-    //             this.cards.card_23=true
-    //             this.VtdPhaserComponent.showPlayerBCard3(this.playerBCards.card_3)
-    //           }
-    //         }
-    //         this.winnerMarketArray = this.game.marketArr
-    //           ? this.game.marketArr[0]
-    //           : '';
-    //         this.runnersName = this.winnerMarketArray.runnersName;
-    //       }
-    //       this.networkService.updateRoundId(this.game);
-    //       // Get result Array
-    //       // if (objMarket.type == "3") {
-    //       //   this.RoundWinner = null;
-    //       //   //  Check user's bet player
-    //       //   if (this.casinoPl && this.casinoPl[this.winnerMarketArray?.marketId]) {
-    //       //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[0].selectionId] > 0) {
-    //       //       this.betSelectedPlayer = this.winnerMarketArray.runners[0].selectionId
-    //       //     }
-    //       //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[1].selectionId] > 0) {
-    //       //       this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
-    //       //     }
-    //       //   }
-    //       //   if (this.resultcounter > 0) {
-    //       //     this.RoundWinner = objMarket.data[0].winner;
-    //       //     setTimeout(() => {
-    //       //       this.RoundWinner = null;
-    //       //     }, 5000)
-    //       //     objMarket.data[0].results[0].runners.forEach((runner: any) => {
-    //       //       if (runner.selectionId == this.betSelectedPlayer && runner.result == "WINNER") {
-    //       //         setTimeout(() => {
-    //       //           this.videoComponent.surpriseFireWork();
-    //       //         }, 1000);
-    //       //       }
-    //       //     })
-    //       //   }
-    //       //   this.networkService.updateResultstream(objMarket.data)
-    //       //   this.resultcounter++;
-    //       // }
-    //     }
-    //   });
-    // this.getAllMarketProfitLoss();
-    // this.getResults();
+
+    this.networkService.getBetPlace().subscribe((betObj: any) => {
+      // this.getAllMarketProfitLoss();
+      this.isbetInProcess = false;
+      if (betObj.betSuccess) {
+        this.handleIncomingBetObject(betObj);
+
+      }
+
+    })
+
+    this.getStackData();
+    this.getWindowSize()
+
+    if (!this.isDesktop) {
+
+      this.setMarketScrollHeight();
+      if (this.isMobileInfo !== 'iOS') {
+        $('html').css('overflow', 'hidden');
+      }
+    }
+    // if(this.game == undefined || this.game === null){
+    this.resultcounter = 0;
+    this.socket.connect();
+    // this.sendMsg();
+
+    this.encyDecy.generateEncryptionKey('', this.message);
+
+    this.subscription = this.encyDecy.getMarketData().pipe(retry(this.retryConfig)).subscribe((marketData: any) => {
+      this.socket = marketData; // Update the receivedMessage variable with the received message
+
+      if (marketData) {
+        // this.getRoundId = localStorage.getItem('roundID')
+
+        let objMarket = JSON.parse(marketData);
+        // console.log('market data', objMarket)
+        // let objMarket = marketData;
+        if (this.eventid == '99.0046') {
+          // console.log(objMarket)
+        }
+
+        //First time get responce in array
+        if (Array.isArray(objMarket?.data)) {
+          if (objMarket?.data[0]) {
+            if (objMarket?.type == "1") {
+              this.marketArray = objMarket?.data[0]?.marketArr;
+              this.game = objMarket?.data[0];
+              this.game.marketArr = this.marketArray ? this.marketArray : objMarket?.data[0]?.marketArr;
+              this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
+              this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
+              this.winnerMarketArray = this.game?.marketArr ? this.game?.marketArr[0] : '';
+              this.getRoundId = this.game.roundId
+              this.handleEventResponse(objMarket, 0)
+
+            }
+          }
+
+        }
+        else {
+          this.handleEventResponse(objMarket, 0)
+
+        }
+
+
+        if (this.game) {
+          this.winnerMarketArray = this.game?.marketArr ? this.game?.marketArr[0] : '';
+          this.marketArray = this.game.marketArr
+          this.gameroundId = this.game.roundId;
+
+          //  get result balance on round Id change
+          // console.log('roundId',this.getRoundId)
+          // console.log('game ',this.game.roundId)
+          if (this.getRoundId != this.game.roundId || this.getRoundId == '') {
+            this.getRoundId = this.game.roundId;
+            // localStorage.setItem('roundID', this.game.roundId);
+            this.getBalance();
+            this.casinoPl = [];
+            this.getResults();
+            this.BetPlaced = {}
+            this.betSelectedPlayer = '';
+            this.secndBoxWidth = '';
+            this.firstBoxWidth = '';
+            this.clearRound();
+            this.cards={};
+
+          }
+
+          if (this.game.status == 'SUSPEND') {
+            this.isBetsSlipOpened = '';
+            this.isValueBetsSlip = 0;
+          }
+          if (this.game.status == 'ONLINE') {
+
+          }
+          this.playerACards = this.game?.cardsArr?.PLAYER_A;
+          this.playerBCards = this.game?.cardsArr?.PLAYER_B;
+
+          if (this.playerACards) {
+            if(this.playerACards.card_1!=0 && !this.cards.card_11){
+              this.cards.card_11=true
+              const targetX = this.cardStartPointX - this.leftCard1EndPositionX;
+              this.leftCard1 = this.createCard(
+                this.playerACards.card_1,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
+            }
+            if(this.playerACards.card_2!=0 && !this.cards.card_12){
+              this.cards.card_12=true
+              const targetX = this.cardStartPointX - this.leftCard2EndPositionX;
+              this.leftCard2 = this.createCard(
+                this.playerACards.card_2,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
+            }
+            if(this.playerACards.card_3!=0 && !this.cards.card_13){
+              this.cards.card_13=true
+              const targetX = this.cardStartPointX - this.leftCard3EndPositionX;
+              this.leftCard3 = this.createCard(
+                this.playerACards.card_3,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
+            }
+            if (
+              this.playerACards?.card_1 == 0 &&
+              this.game.status == 'SUSPEND'
+            ) {
+              this.game.noMoreBets = true;
+            } else {
+              this.game.noMoreBets = false;
+            }
+          }
+          if(this.playerBCards){
+            if(this.playerBCards.card_1!=0 && !this.cards.card_21){
+              this.cards.card_21=true
+              const targetX = this.cardStartPointX + this.rightCard1EndPositionX;
+              this.rightCard1 = this.createCard(
+                this.playerBCards.card_1,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
+            }
+            if(this.playerBCards.card_2!=0 && !this.cards.card_22){
+              this.cards.card_22=true
+              const targetX = this.cardStartPointX + this.rightCard2EndPositionX;
+              this.rightCard2 = this.createCard(
+                this.playerBCards.card_2,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
+            }
+            if(this.playerBCards.card_3!=0 && !this.cards.card_23){
+              this.cards.card_23=true
+              const targetX = this.cardStartPointX + this.rightCard3EndPositionX;
+              this.rightCard3 = this.createCard(
+                this.playerBCards.card_3,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
+            }
+          }
+          this.winnerMarketArray = this.game.marketArr ? this.game.marketArr[0] : ''
+          this.runnersName = this.winnerMarketArray.runnersName;
+        }
+
+        this.networkService.updateRoundId(this.game);
+
+
+
+        // Get result Array
+
+        // if (objMarket.type == "3") {
+        //   this.RoundWinner = null;
+        //   //  Check user's bet player
+        //   if (this.casinoPl && this.casinoPl[this.winnerMarketArray?.marketId]) {
+        //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[0].selectionId] > 0) {
+        //       this.betSelectedPlayer = this.winnerMarketArray.runners[0].selectionId
+        //     }
+        //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[1].selectionId] > 0) {
+        //       this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
+        //     }
+        //   }
+
+        //   if (this.resultcounter > 0) {
+        //     this.RoundWinner = objMarket.data[0].winner;
+        //     setTimeout(() => {
+        //       this.RoundWinner = null;
+        //     }, 5000)
+
+        //     objMarket.data[0].results[0].runners.forEach((runner: any) => {
+        //       if (runner.selectionId == this.betSelectedPlayer && runner.result == "WINNER") {
+
+        //         setTimeout(() => {
+        //           this.videoComponent.surpriseFireWork();
+        //         }, 1000);
+        //       }
+        //     })
+
+
+        //   }
+
+        //   this.networkService.updateResultstream(objMarket.data)
+        //   this.resultcounter++;
+        // }
+
+
+      }
+    });
+
+
+    this.getAllMarketProfitLoss();
+    this.getResults();
     const canvasEl = this.canvas.nativeElement;
     canvasEl.width = this.width;
     canvasEl.height = this.height;
@@ -382,23 +446,27 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     });
   }
 
+
+
+
+
   getStackData() {
     const path = CONFIG.userGetStackURL.split('/').filter(Boolean).pop();
     this.indexedDb.getRecord(path).subscribe((res: any) => {
       if (res?.data?.stake) {
         this.stackButtonArry = res.data.stake;
-        this.selectedBetAmount = this.stackButtonArry[0].stakeAmount;
+        this.selectedBetAmount = this.stackButtonArry[0].stakeAmount
       } else {
         this.stackButtonArry = STACK_VALUE;
-        this.selectedBetAmount = STACK_VALUE[0].stakeAmount;
+        this.selectedBetAmount = STACK_VALUE[0].stakeAmount
       }
       // console.log('default value', this.selectedBetAmount);
 
       // console.log('stakc', this.stackButtonArry);
-    });
+    })
   }
   openQuickStakes() {
-    this.toggleService.setQuickStakeEditSidebarState(true);
+    this.toggleService.setQuickStakeEditSidebarState(true)
   }
   handleIncomingBetObject(incomingObj: any) {
     const { marketId, selectionId, stake } = incomingObj;
@@ -407,8 +475,10 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
       this.BetPlaced[marketId] = {};
     }
     if (this.BetPlaced[marketId][selectionId] !== undefined) {
+
       this.BetPlaced[marketId][selectionId] += stake;
     } else {
+
       this.BetPlaced[marketId][selectionId] = stake;
     }
     console.log('bet placed', this.BetPlaced);
@@ -421,6 +491,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
       this.networkService.updateRoundId(this.game);
     }, 1500);
   }
+
   handleEventResponse(objMarket: any, index: any) {
     // console.log(objMarket,'<=============== objMarket with out index')
     if (Array.isArray(objMarket)) {
@@ -428,39 +499,41 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         // console.log('loop indesx', objMarketRes)
         // console.log(objMarketRes,'asal data',index,'objMarket?.data[0]===>')
         this.marketObhManager(objMarketRes);
-        return;
-      });
+        return
+
+      })
     } else {
       let objMarketRes = objMarket;
-      this.marketObhManager(objMarketRes);
-      return;
+      this.marketObhManager(objMarketRes)
+      return
+
     }
   }
 
   marketObhManager(objMarket: any) {
     if (objMarket) {
-      if (objMarket.type == '1') {
-        if (
-          'data' in objMarket &&
-          this.counter == 0 &&
-          objMarket.data.marketArr &&
-          objMarket.data._id
-        ) {
+
+      if (objMarket.type == "1") {
+        if ('data' in objMarket && this.counter == 0 && objMarket.data.marketArr && objMarket.data._id) {
           this.marketArray = objMarket.data.marketArr;
           this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
           this.sizeRunner2 = this.marketArray[0].runners[1].price.back[0].size;
           this.game = this.marketArray ? this.marketArray : objMarket.data;
           this.game = objMarket.data;
           this.counter = 1;
-        } else {
+        }
+        else {
           if ('roundId' in objMarket) {
             this.game.roundId = objMarket?.roundId;
+
           }
           if ('marketArr' in objMarket?.data) {
             if (Array.isArray(objMarket?.data?.marketArr)) {
               // this.marketArray = objMarket.updatedData.marketArr;
               this.game.marketArr = objMarket?.data?.marketArr;
             }
+
+
           }
           // for single market change
 
@@ -476,48 +549,44 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           if ('status' in objMarket?.data) {
             this.game.status = objMarket?.data?.status;
           }
+          if ('leftSec' in objMarket?.data) {
+            this.game.leftSec = objMarket?.data?.leftSec;
+            // console.log('this',objMarket?.data?.leftSec)
+          }
           if ('resultsArr' in objMarket?.data) {
+
             // if (objMarket?.data?.roundStatus == 'RESULT_DECLARED') {
 
-            if (
-              this.casinoPl &&
-              this.casinoPl[this.winnerMarketArray?.marketId]
-            ) {
-              if (
-                this.casinoPl[this.winnerMarketArray?.marketId][
-                  this.winnerMarketArray.runners[0].selectionId
-                ] > 0
-              ) {
-                this.betSelectedPlayer =
-                  this.winnerMarketArray.runners[0].selectionId;
+            if (this.casinoPl && this.casinoPl[this.winnerMarketArray?.marketId]) {
+              if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[0].selectionId] > 0) {
+                this.betSelectedPlayer = this.winnerMarketArray.runners[0].selectionId
               }
-              if (
-                this.casinoPl[this.winnerMarketArray?.marketId][
-                  this.winnerMarketArray.runners[1].selectionId
-                ] > 0
-              ) {
-                this.betSelectedPlayer =
-                  this.winnerMarketArray.runners[1].selectionId;
+              if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[1].selectionId] > 0) {
+                this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
               }
             }
             // for video results
             for (let key in objMarket.data.resultsArr[0].runners) {
               if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
-                this.RoundWinner =
-                  objMarket.data.resultsArr[0]?.runnersName[key];
-                // console.log(this.RoundWinner)
-                setTimeout(() => {
-                  this.VtdPhaserComponent.winnerCardTeenpatti(
-                    this.RoundWinner == 'PLAYER A' ? 1 : 2
-                  );
-                }, 500);
 
+                this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
+                setTimeout(() => {
+
+
+                  if (this.RoundWinner === 'PLAYER A') {
+                    if (this.leftCard1) this.animateUpDown(this.leftCard1);
+                    if (this.leftCard2) this.animateUpDown(this.leftCard2);
+                    if (this.leftCard3) this.animateUpDown(this.leftCard3);
+                  } else if (this.RoundWinner === 'PLAYER B') {
+                    if (this.rightCard1) this.animateUpDown(this.rightCard1);
+                    if (this.rightCard2) this.animateUpDown(this.rightCard2);
+                    if (this.rightCard3) this.animateUpDown(this.rightCard3);
+                  }
+
+                }, 500);
                 this.BetPlaced = [];
               }
-              if (
-                key == this.betSelectedPlayer &&
-                objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER'
-              ) {
+              if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
                 setTimeout(() => {
                   // console.log(this.RoundWinner,'fireworksd')
                   this.videoComponent.surpriseFireWork();
@@ -526,7 +595,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
             }
             setTimeout(() => {
               this.RoundWinner = null;
-            }, 5000);
+            }, 5000)
             // }
           }
           //One linner change from socket
@@ -537,7 +606,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
             this.split_arr = key_str.split('.');
             // console.log(this.split_arr);
             Object.entries(objMarket.data).forEach(
-              ([, value]) => (this.changeValue = value)
+              ([, value]) => (this.changeValue = value),
             );
 
             let marketIndex = parseInt(this.split_arr[1]);
@@ -547,39 +616,46 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
             // this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].price  = this.changeValue;
 
             if (this.split_arr[7] == 'size') {
+
               if (runnersIndex == 0 && marketIndex == 0) {
                 // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-                let percnt1 = (this.changeValue / this.sizeRunner1) * 100;
+                let percnt1 = ((this.changeValue / this.sizeRunner1) * 100);
                 this.firstBoxWidth = -1 * (percnt1 - 100) + '';
                 // console.log('player A', this.firstBoxWidth)
               }
               if (runnersIndex == 1 && marketIndex == 0) {
                 // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-                let percnt = (this.changeValue / this.sizeRunner2) * 100;
+                let percnt = ((this.changeValue / this.sizeRunner2) * 100);
                 this.secndBoxWidth = -1 * (percnt - 100) + '';
                 // console.log('player B', this.secndBoxWidth)
+
               }
 
               this.marketArray[marketIndex].runners[runnersIndex].price.back[
                 backIndex
-              ].size = this.changeValue;
+                ].size = this.changeValue;
+
             }
             if (this.split_arr[7] == 'price') {
               this.marketArray[marketIndex].runners[runnersIndex].price.back[
                 backIndex
-              ].price = this.changeValue;
+                ].price = this.changeValue;
             }
             if (this.split_arr[4] === 'status') {
               this.marketArray[marketIndex].runners[runnersIndex].status =
                 this.changeValue;
             }
           }
+
         }
       }
     }
+
   }
 
+
   setMarketScrollHeight() {
+
     const marketScrollElement = document.getElementById('marketScroll');
     const windowHeight = window.innerHeight;
     // Adjust the percentage or calculation based on your specific needs.
@@ -591,7 +667,8 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     if (this.isMobileInfo == 'iOS') {
       //  targetHeight = Math.floor(windowHeight * 0.52); //done
       targetHeight = Math.floor(windowHeight * 0.62);
-    } else {
+    }
+    else {
       targetHeight = Math.floor(windowHeight * 0.63);
     }
 
@@ -601,18 +678,13 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     }
   }
 
-  openBetslip(
-    marketId: any,
-    selectionId: any,
-    betType: any,
-    price: any,
-    min: any,
-    max: any
-  ) {
+
+  openBetslip(marketId: any, selectionId: any, betType: any, price: any, min: any, max: any) {
+
     if (this.game.status == 'SUSPEND') {
-      this.waitRound = true;
+      this.waitRound = true
       setTimeout(() => {
-        this.waitRound = false;
+        this.waitRound = false
       }, 1000);
     }
 
@@ -620,7 +692,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
       if (this.selectedBetAmount > 0) {
         this.isBetsSlipOpened = selectionId;
         this.marketId = marketId;
-        this.betType = betType;
+        this.betType = betType
         this.isValueBetsSlip = 0;
 
         this.betplaceObj = {
@@ -632,31 +704,24 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           roomId: this._roomId,
           minValue: min,
           maxValue: max,
-          stake: this.selectedBetAmount,
-        };
+          stake: this.selectedBetAmount
+        }
 
         // this.placeCasinoBet();
         this.isbetInProcess = true;
         this.networkService.placeBet(this.betplaceObj);
-      } else {
-        this.toaster.error('please select chips for Bet', '', {
-          positionClass: 'toast-top-right',
-        });
-      }
-    } else {
-      return;
-    }
-  }
 
-  ngAfterViewInit(): void {
-    const videoElement = this.bgVideo.nativeElement;
-    const playPromise = videoElement.play();
-    if (playPromise !== undefined) {
-      playPromise.catch((error: any) => {
-        videoElement.muted = true;
-        videoElement.play();
-      });
+      }
+      else {
+        this.toaster.error("please select chips for Bet", '', {
+          positionClass: 'toast-top-right',
+        })
+      }
     }
+    else {
+      return
+    }
+
   }
 
   placeCasinoBet() {
@@ -667,7 +732,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
       selectionId: this.betplaceObj.selectionId,
       stake: this.selectedBetAmount,
       eventId: this.betplaceObj.eventId,
-      flag: this.betplaceObj.betType,
+      flag: this.betplaceObj.betType
     };
 
     $('.btn-placebet').prop('disabled', true);
@@ -681,11 +746,10 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     //   apiURL = CONFIG.asianCasinoPlacebetURL;
     // }
 
-    this.networkService
-      .getAllRecordsByPost(apiURL, data)
+    this.networkService.getAllRecordsByPost(apiURL, data)
       .pipe(first())
       .subscribe(
-        (res) => {
+        res => {
           // console.log(res , "betslip")
           if (res?.meta?.status == true) {
             //this.toastr.successToastr(data.meta.message);
@@ -697,7 +761,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
             let placeBetObj = {
               profitlossCall: true,
               loader: false,
-            };
+            }
             this.networkService.setBetPlace(placeBetObj);
             this.game.betAccepted = true;
             this.networkService.updateRoundId(this.game);
@@ -705,8 +769,9 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
               this.game.betAccepted = false;
               this.networkService.updateRoundId(this.game);
             }, 1500);
-            this.handleIncomingBetObject(res.data);
-          } else {
+            this.handleIncomingBetObject(res.data)
+          }
+          else {
             // $('.btn-placebet').prop('disabled', false);
             // this.afterPlaceBet();
             if (res?.meta.status == false) {
@@ -715,7 +780,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
               });
               // this.cancelBet();
             } else {
-              this.toaster.error('Something went wrong please try again.', '', {
+              this.toaster.error("Something went wrong please try again.", '', {
                 positionClass: 'toast-top-right',
               });
             }
@@ -723,8 +788,10 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           }
 
           var pl = res.pl;
+
+
         },
-        (error) => {
+        error => {
           //let statusError = error;
           $('.btn-placebet').prop('disabled', false);
           //this.afterPlaceBet();
@@ -734,19 +801,15 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
             });
             // this.cancelBet();
           } else {
-            this.toaster.error('Something went wrong please try again.', '', {
+            this.toaster.error("Something went wrong please try again.", '', {
               positionClass: 'toast-top-right',
             });
           }
           this.isbetInProcess = false;
-        }
-      );
+        });
   }
-  callFunctionOnClickNearBottom(
-    thresholdFromBottom: number,
-    callback: () => void
-  ) {
-    window.addEventListener('click', (event) => {
+  callFunctionOnClickNearBottom(thresholdFromBottom: number, callback: () => void) {
+    window.addEventListener("click", (event) => {
       const viewportHeight = window.innerHeight;
       const clickY = event.clientY;
 
@@ -757,7 +820,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   }
 
   scrollToBetslip() {
-    const element = document.getElementById('betslip');
+    const element = document.getElementById("betslip");
     if (element) {
       // element.scrollIntoView({
       //   behavior: "smooth",
@@ -765,6 +828,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
       //   inline: "end"
       // });
       // this.centerScrollableDiv('betslip')
+
 
       const container = document.getElementById('marketScroll');
       const listItem = document.getElementById('betslip');
@@ -781,31 +845,29 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           // console.log('ListItem is at the top');
           container.scrollTo({
             behavior: 'smooth',
-            top: container.scrollTop + listItemTop - containerHeight / 3, // Scroll to the top
+            top: container.scrollTop + listItemTop - (containerHeight / 3), // Scroll to the top
           });
         } else if (listItemBottom > (2 * containerHeight) / 3) {
           // ListItem is in the bottom third of the container
           // console.log('ListItem is at the bottom');
           container.scrollTo({
             behavior: 'smooth',
-            top:
-              container.scrollTop + listItemBottom - (2 * containerHeight) / 3, // Scroll to the bottom
+            top: container.scrollTop + listItemBottom - (2 * containerHeight / 3), // Scroll to the bottom
           });
         } else {
           // ListItem is in the middle third of the container
           // console.log('ListItem is in the middle');
           container.scrollTo({
             behavior: 'smooth',
-            top:
-              container.scrollTop +
-              listItemTop -
-              containerHeight / 2 +
-              listItemRect.height / 2, // Scroll to the middle
+            top: container.scrollTop + listItemTop - (containerHeight / 2) + (listItemRect.height / 2), // Scroll to the middle
           });
         }
       }
     }
   }
+
+
+
 
   // centerScrollableDiv(betslip: any) {
   //   const centeredDiv = document.getElementById(betslip);
@@ -820,13 +882,16 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   //   //   if (centeredDivRect.top > 854) {
   //   //     centerY = centeredDivRect.top - containerRect.top + centeredDivRect.height / 2;
 
+
   //   //   }
   //   //   if (centeredDivRect.top < 816) {
   //   //     centerY = centeredDivRect.top - containerRect.top + centeredDivRect.height + 100;
 
+
   //   //   }
   //   //   else {
   //   //     centerY = centeredDivRect.top - containerRect.top + centeredDivRect.height / 1;
+
 
   //   //   }
 
@@ -865,15 +930,17 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
   // }
 
+
+
   getResults() {
-    this.networkService
-      .getAllRecordsByPost(CONFIG.getCasinoResultURL, { eventId: this.eventid })
+
+    this.networkService.getAllRecordsByPost(CONFIG.getCasinoResultURL, { eventId: this.eventid })
       .pipe(first())
       .subscribe(
         (data: any) => {
-          this.networkService.updateResultstream(data.data);
-          let playerAWins = 0;
-          let playerBWins = 0;
+          this.networkService.updateResultstream(data.data)
+          let playerAWins = 0
+          let playerBWins = 0
           // debugger
           data.data.forEach((round: any) => {
             if (round.winner === 'A') {
@@ -882,18 +949,22 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
               playerBWins++;
             }
           });
-          this.aPlayerChances = (playerAWins / data?.data?.length) * 100;
-          this.bPlayerChances = (playerBWins / data?.data?.length) * 100;
-          this.TPlayerChances = 100 - this.aPlayerChances - this.bPlayerChances;
+          this.aPlayerChances = (playerAWins / data?.data?.length) * 100
+          this.bPlayerChances = (playerBWins / data?.data?.length) * 100
+          this.TPlayerChances = (100 - this.aPlayerChances - this.bPlayerChances);
         },
-        (error) => {
+        error => {
           let responseData = error;
-        }
-      );
+        });
   }
 
+
   getValueBetSlip(isValueBetsSlip: any) {
+
     this.isValueBetsSlip = isValueBetsSlip;
+
+
+
   }
 
   sendMsg() {
@@ -903,15 +974,17 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   }
 
   ProfitLossBalance() {
-    this.getAllMarketProfitLoss();
+    this.getAllMarketProfitLoss()
     this.getBalance();
   }
 
   getAllMarketProfitLoss() {
+
     this.isValueBetsSlip = 0;
     this.networkService.getCasinoPLURL(this.eventid).subscribe((res: any) => {
       if (res.meta.status == true) {
         this.casinoPl = res.pl;
+
       }
     });
   }
@@ -921,38 +994,30 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   }
 
   getBalance() {
-    this.networkService
-      .getAllRecordsByPost(CONFIG.getUserBalanceURL, {})
+    this.networkService.getAllRecordsByPost(CONFIG.getUserBalanceURL, {})
       .pipe(first())
       .subscribe(
-        (data) => {
+        data => {
+
           if (data.meta.status == true) {
-            let availBalance = (data.data.balance - data.data.exposure).toFixed(
-              2
-            );
+            let availBalance = (data.data.balance - data.data.exposure).toFixed(2)
             $('.userTotalBalance').text(availBalance);
             $('.userTotalExposure').text(data.data.exposure);
-            let ex = data.data.exposure.toLocaleString('en-US', {
-              style: 'currency',
-              currency: 'USD',
-              symbol: '',
-            });
-            ex = ex.substring(1);
+            let ex = data.data.exposure.toLocaleString('en-US', { style: 'currency', currency: 'USD', symbol: '' });
+            ex = ex.substring(1)
             $('.userTotalExposure').text(ex);
           }
         },
-        (error) => {
+        error => {
           let responseData = error;
-        }
-      );
+        });
   }
 
   ngOnDestroy(): void {
     cancelAnimationFrame(this.animationFrameId);
-
     let message = {
-      type: '2',
-      id: '',
+      type: "2",
+      id: ""
     };
     this.encyDecy.sendMessageToSocket(message);
     this.subscription.unsubscribe();
@@ -976,42 +1041,41 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
       this.openMobileMinMax = [];
     }
   }
-  screenWidth = window.innerWidth;
+
   @HostListener('window:resize', ['$event'])
   onResize(event?: Event) {
-    this.getWindowSize();
-    this.screenWidth = window.innerWidth;
+    this.getWindowSize()
   }
 
   getWindowSize() {
     const baseWidth = 352; // Base resolution width
-    const scale = window.innerWidth / baseWidth;
-    document.documentElement.style.setProperty(
-      '--boardScale',
-      scale.toString()
-    );
+    const scale = window.innerWidth / baseWidth
+    document.documentElement.style.setProperty('--boardScale', scale.toString());
+
 
     const baseHeight = 716; // Base resolution height
-    const scaleY = window.innerHeight / baseWidth;
-    document.documentElement.style.setProperty(
-      '--boardScaleY',
-      scaleY.toString()
-    );
+    const scaleY = window.innerHeight / baseWidth
+    document.documentElement.style.setProperty('--boardScaleY', scaleY.toString());
   }
+
 
   getCoinValue(event: any) {
-    console.log('event', event);
+    this.selectedBetAmount = event;
   }
 
+
+
+
   replaceHamburgerImage(coinSrc: string) {
-    let timer = 0;
+    let timer = 0
     if (this.animationContainer === true) {
-      timer = 1000;
-    } else {
-      timer = 0;
+      timer = 1000
+    }
+    else {
+      timer = 0
     }
     setTimeout(() => {
-      this.animationContainer = !this.animationContainer;
+      this.animationContainer = !this.animationContainer
     }, timer);
     this.selectedCoin = coinSrc;
     this.betState = false;
@@ -1022,18 +1086,20 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     }, 900);
   }
 
+
   toggleCoinState() {
     if (!this.coinStateActive) {
       this.coinStateActive = true;
       this.animateIcon = true;
-      let timer = 0;
+      let timer = 0
       if (this.animationContainer === true) {
-        timer = 1000;
-      } else {
-        timer = 0;
+        timer = 1000
+      }
+      else {
+        timer = 0
       }
       setTimeout(() => {
-        this.animationContainer = !this.animationContainer;
+        this.animationContainer = !this.animationContainer
       }, timer);
 
       setTimeout(() => {
@@ -1041,6 +1107,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         this.coinsState = true;
       }, 500);
     } else {
+
       this.selectedCoin = '/NteenPatti/Icons/green-coin.svg.svg';
       this.betState = false;
       this.coinsState = false;
@@ -1056,29 +1123,33 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   }
 
   animatecoinValue(value: any) {
-    this.animateCoinVal = value;
-    this.btnCheck = value;
+    this.animateCoinVal = value
+    this.btnCheck = value
   }
 
   showAnimateCoinBar() {
+
+    this.coinAnimationBg = !this.coinAnimationBg
+
     setTimeout(() => {
-      this.reverseAnimate = false;
+      this.reverseAnimate = false
     }, 500);
-    this.btnIcon = false;
+    this.btnIcon = false
     if (!this.coinAnimateState) {
       this.coinAnimateState = true;
-      this.reverseAnimate = true;
+      this.reverseAnimate = true
       if (this.animateCoinVal) {
         this.animate = true;
+
       }
     } else {
       if (this.coinAnimateState) {
         this.animate = true;
       }
       setTimeout(() => {
-        this.animate = false;
+        this.animate = false
         this.animateCoinVal = null;
-        this.btnIcon = true;
+        this.btnIcon = true
         this.coinAnimateState = false;
       }, 500);
     }
@@ -1106,6 +1177,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     }
     document.documentElement.style.setProperty('--translateX', translateX);
 
+
     let translateXRevers = '187px';
     switch (this.btnCheck) {
       case 1:
@@ -1127,32 +1199,29 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         translateXRevers = '-97.8px';
         break;
     }
-    document.documentElement.style.setProperty(
-      '--translateXReverse',
-      translateXRevers
-    );
+    document.documentElement.style.setProperty('--translateXReverse', translateXRevers);
     switch (this.btnCheck) {
       case 1:
-        this.selectedBetAmount = this.stackButtonArry[0].stakeAmount;
+        this.selectedBetAmount = this.stackButtonArry[0].stakeAmount
         break;
       case 2:
-        this.selectedBetAmount = this.stackButtonArry[1].stakeAmount;
+        this.selectedBetAmount = this.stackButtonArry[1].stakeAmount
         break;
       case 3:
-        this.selectedBetAmount = this.stackButtonArry[2].stakeAmount;
+        this.selectedBetAmount = this.stackButtonArry[2].stakeAmount
         break;
       case 4:
-        this.selectedBetAmount = this.stackButtonArry[3].stakeAmount;
+        this.selectedBetAmount = this.stackButtonArry[3].stakeAmount
         break;
       case 5:
-        this.selectedBetAmount = this.stackButtonArry[4].stakeAmount;
+        this.selectedBetAmount = this.stackButtonArry[4].stakeAmount
         break;
       case 6:
-        this.selectedBetAmount = this.stackButtonArry[5].stakeAmount;
+        this.selectedBetAmount = this.stackButtonArry[5].stakeAmount
         break;
       default:
-        this.selectedBetAmount = this.stackButtonArry[5].stakeAmount;
-        break;
+        this.selectedBetAmount = this.stackButtonArry[5].stakeAmount
+        break
     }
     // console.log('onclick', this.selectedBetAmount);
   }
@@ -1200,7 +1269,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
       case this.width >= 850:
         this.cardSize = 15;
-        this.hiddenCardSize = 60;
+        this.hiddenCardSize = 65;
         this.cardStartPointX = this.width * 0.45;
         this.cardStartPointY = this.height * 0.45;
         this.cardEndPointY = this.cardStartPointY + 80;
@@ -1210,14 +1279,14 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         this.rightCard1EndPositionX = 80;
         this.rightCard2EndPositionX = 170;
         this.rightCard3EndPositionX = 260;
-        this.hiddenCardEndPointX = this.width * 0.10;
-        this.hiddenCardEndPointY = this.height * 0.31;
+        this.hiddenCardEndPointX = this.width * 0.27;
+        this.hiddenCardEndPointY = this.height * 0.41;
 
         break;
 
       case this.width >= 820:
         this.cardSize = 15;
-        this.hiddenCardSize = 60;
+        this.hiddenCardSize = 65;
         this.cardStartPointX = this.width * 0.45;
         this.cardStartPointY = this.height * 0.45;
         this.cardEndPointY = this.cardStartPointY + 80;
@@ -1227,14 +1296,14 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         this.rightCard1EndPositionX = 80;
         this.rightCard2EndPositionX = 170;
         this.rightCard3EndPositionX = 260;
-        this.hiddenCardEndPointX = this.width * 0.10;
-        this.hiddenCardEndPointY = this.height * 0.41;
+        this.hiddenCardEndPointX = this.width * 0.16;
+        this.hiddenCardEndPointY = this.height * 0.43;
 
         break;
 
       case this.width >= 768:
         this.cardSize = 15;
-        this.hiddenCardSize = 50;
+        this.hiddenCardSize = 60;
         this.cardStartPointX = this.width * 0.45;
         this.cardStartPointY = this.height * 0.45;
         this.cardEndPointY = this.cardStartPointY + 80;
@@ -1244,7 +1313,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         this.rightCard1EndPositionX = 60;
         this.rightCard2EndPositionX = 145;
         this.rightCard3EndPositionX = 230;
-        this.hiddenCardEndPointX = this.width * 0.10;
+        this.hiddenCardEndPointX = this.width * 0.11;
         this.hiddenCardEndPointY = this.height * 0.41;
 
         break;
@@ -1481,7 +1550,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           );
         setTimeout(() => {
           this.createHiddenCard();
-        }, 600);
+        }, 700);
         break;
       }
       default:
@@ -1643,4 +1712,46 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
       );
     }
   }
+  clearRound(){
+    if (this.leftCard1)
+          this.moveAndRemoveCard(
+            this.leftCard1,
+            this.cardStartPointX,
+            this.leftCard1.y
+          );
+        if (this.leftCard2)
+          this.moveAndRemoveCard(
+            this.leftCard2,
+            this.cardStartPointX,
+            this.leftCard2.y
+          );
+        if (this.leftCard3)
+          this.moveAndRemoveCard(
+            this.leftCard3,
+            this.cardStartPointX,
+            this.leftCard3.y
+          );
+        if (this.rightCard1)
+          this.moveAndRemoveCard(
+            this.rightCard1,
+            this.cardStartPointX,
+            this.rightCard1.y
+          );
+        if (this.rightCard2)
+          this.moveAndRemoveCard(
+            this.rightCard2,
+            this.cardStartPointX,
+            this.rightCard2.y
+          );
+        if (this.rightCard3)
+          this.moveAndRemoveCard(
+            this.rightCard3,
+            this.cardStartPointX,
+            this.rightCard3.y
+          );
+        setTimeout(() => {
+          this.createHiddenCard();
+        }, 600);
+
+      }
 }

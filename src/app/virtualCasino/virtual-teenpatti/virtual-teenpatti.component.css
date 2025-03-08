@@ -6,7 +6,7 @@
   width: 100%;
   /* height: ; */
   overflow-y: scroll;
-   @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
+  @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
 }
 .dashboard_wrapper {
   width: 100%;
@@ -311,9 +311,23 @@
   }
 }
 
+.win-card-animation {
+  animation: win-card-animation 500ms;
+  transform: translateY(-10px);
+}
+
+@keyframes win-card-animation {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
 /* use{
-    opacity: 0;
-  } */
+  opacity: 0;
+} */
 
 .win-animation {
   animation: ctaAnimation-Nm6A8V 500ms ease infinite forwards;
@@ -553,8 +567,8 @@
   height: 150px;
 }
 /* .games_container img {
-  
-  } */
+
+} */
 
 /* Game Screen ends here */
 
@@ -671,12 +685,34 @@
 
 .gradientDiv {
   height: 55%;
-  background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
+  background-blend-mode: multiply;
+  background: var(--NteenpattiVideoBottomBg);
 }
+
+.gradientDiv::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  /*backdrop-filter: blur(var(--blur));*/
+}
+
+.bg-mixer {
+  background: linear-gradient(to bottom, #000 3%, #0a0a1a 50%);
+}
+
 .time-container {
   @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
   position: absolute;
   bottom: 2px;
+}
+
+.dicbg {
+  /* background: linear-gradient(to right, #ec2401, #ff3400, #ec2401); */
+  background: linear-gradient(to right, #f02909, #f74315, #e92b0a);
+  width: 120%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .roundInfo-date {
@@ -715,6 +751,7 @@
   align-items: flex-start;
   padding: 20px;
   flex-direction: row;
+
 }
 
 /* High Card section ends here */
@@ -726,22 +763,24 @@
   justify-content: space-between;
   align-items: flex-end;
   padding: 0px 19px;
-  height: 6rem;
+  height: 10rem;
+  @apply [@media(min-width:1200px)]:p-0;
 }
-/* .teen_patti_conatiner::before {
-} */
+.teen_patti_conatiner::before {
+}
 /* Teen patti Cards Section ends here  */
 
 /* Winning Percentage Chances Section starts here */
 .win_percentage_container {
-  padding: 0px 2%;
+  /* padding: 0px 2%; */
   /* background-color: black; */
   width: 100%;
   /* margin-top: 15px; */
+  @apply [@media(max-width:768px)]:!px-[2%];
 }
 
 .win_percentage_wrapper {
-  height: 32px;
+  height: 35px;
   /* padding: 8px; */
 }
 
@@ -782,6 +821,10 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
   width: 34px;
   border-radius: 2px;
+  width: 40px;
+  height: 57px;
+
+  @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px] [@media(min-width:1200px)]:w-[36px] [@media(min-width:1200px)]:h-[51px];
 }
 
 .progress_bar_container {
@@ -811,7 +854,7 @@
   color: white;
   font-size: 10px;
   /* font-family: "Poppins", sans-serif; */
-  height: 16px;
+  height: 19px;
 }
 
 /* Winning Percentage Chances Section ends here */
@@ -922,7 +965,7 @@
   text-align: left;
   color: white;
   margin: 0;
-  /* @apply min-[500px]:top-[6px] max-[500px]:top-[0px] max-[500px]:right-[-6px] min-[500px]:right-[13px]; */
+  @apply [@media(min-width:500px)]:top-[6px]  [@media(max-width:500px)]:top-[0px]  [@media(max-width:500px)]:right-[-6px]  [@media(min-width:500px)]:right-[13px];
 }
 
 .player-b-details {
@@ -942,12 +985,12 @@
   color: white;
   padding-left: 59px;
   margin: 0;
-  /* @apply min-[500px]:top-[25px] max-[500px]:top-[22px] max-[500px]:right-[-6px] min-[500px]:right-[13px]; */
+  @apply [@media(min-width:500px)]:top-[25px]  [@media(max-width:500px)]:top-[22px]  [@media(min-width:500px)]:right-[13px]  [@media(max-width:500px)]:right-[-6px];
 }
 
-/* .fix-position {
-  @apply min-[500px]:top-[0px] max-[500px]:top-[0px] text-end flex justify-end flex-col max-[500px]:right-[13px] min-[500px]:right-[24px] absolute;
-} */
+.fix-position {
+  @apply [@media(min-width:500px)]:top-[0px] [@media(max-width:500px)]:top-[0px]    text-end flex justify-end flex-col [@media(min-width:500px)]:right-[24px] [@media(max-width:500px)]:right-[13px]   absolute;
+}
 
 .player_B_img {
   position: absolute;
@@ -1318,7 +1361,7 @@
   position: absolute;
   inset: 0.125rem;
   box-shadow: 0 0 0.25rem rgba(255, 221, 51, 0.2), 0 0 0.5rem #fa0,
-    inset 0 0 0.75rem rgba(255, 187, 51, 0.8);
+  inset 0 0 0.75rem rgba(255, 187, 51, 0.8);
   transition: opacity 300ms ease, visibility 300ms ease;
   z-index: 1;
 }
@@ -1362,7 +1405,7 @@
 }
 
 .chipTrayButtonWithToggle_open-LlvgMl
-  .chipTrayButtonWithToggle__triangle-nHc70D {
+.chipTrayButtonWithToggle__triangle-nHc70D {
   opacity: 1;
   visibility: visible;
 }
@@ -1412,11 +1455,11 @@
 }
 
 .chipTrayButtonWithToggle_horizontal-CwZaXB
-  .chipTrayButtonWithToggle__triangle_theme_light-gcTnl3 {
+.chipTrayButtonWithToggle__triangle_theme_light-gcTnl3 {
   border-color: rgba(var(--color-ui-1), 0.1) transparent transparent transparent;
 }
 .chipTrayButtonWithToggle_horizontal-CwZaXB
-  .chipTrayButtonWithToggle__triangle-nHc70D {
+.chipTrayButtonWithToggle__triangle-nHc70D {
   height: 0;
   left: 50%;
   top: -1rem;
@@ -1424,7 +1467,7 @@
   width: 0;
 }
 .chipTrayButtonWithToggle_open-LlvgMl
-  .chipTrayButtonWithToggle__triangle-nHc70D {
+.chipTrayButtonWithToggle__triangle-nHc70D {
   opacity: 1;
   transition: opacity 0.2s ease 0.3s, visibility 0.2s ease 0.3s;
   visibility: visible;
@@ -1437,13 +1480,18 @@
   transition: opacity 0.2s ease 0s, visibility 0.2s ease 0s;
   visibility: hidden;
 }
+
+::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
+  @apply [@media(min-width:1200px)]:top-[10rem] !important;
+}
+
 /* Tabs */
 .tabs-wrapper {
   @apply flex mt-[12px];
 }
 
 .tab-slider {
-  @apply bg-[#0f212e] flex rounded-[3rem] p-[5px] flex-shrink-0;
+  @apply bg-[rgba(138,_138,_153,0.1)] flex rounded-[3rem] p-[5px] flex-shrink-0;
 }
 
 .tab-item {
@@ -1480,7 +1528,7 @@
 .chip-kcN8LW:before {
   border: 0.125rem solid #fa0;
   box-shadow: 0 0 0.25rem rgba(255, 221, 51, 0.225), 0 0 0.59375rem #fb3,
-    inset 0 0 0.59375rem #fb3, inset 0 0 0.25rem rgba(255, 187, 51, 0.225);
+  inset 0 0 0.59375rem #fb3, inset 0 0 0.25rem rgba(255, 187, 51, 0.225);
   inset: -0.1875rem;
   transition-property: opacity, visibility;
   visibility: hidden;
@@ -1535,52 +1583,6 @@
   background-color: #fff;
   z-index: 1;
 }
-/* .chip_style_default-zHvD8j .chip__borderDecor_medium-mF_aBv:before {
-  
-      mask-image: url(/assets/coin-radius.svg);
-  }
-  .chip_style_default-zHvD8j .chip__borderDecor_medium-mF_aBv:before {
-    background-image: url(/assets/coin-radius.svg);
-  }
-  .chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:before {
-      content: "";
-      inset: 0;
-  
-      mask-position: center;
-  
-      mask-repeat: no-repeat;
-  
-    mask-size: 100% 100%;
-    position: absolute !important;
-  }
-  .chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:after {
-    background-color: #000;
-    opacity: 0.1;
-    z-index: 0;
-  }
-  .chip_style_default-zHvD8j .chip__borderDecor_medium-mF_aBv:after {
-  
-      background-image: url(/assets/coin-radius.svg);
-  }
-  .chip_style_default-zHvD8j .chip_borderDecor-8XR0Vn:after,
-  .chip_style_default-zHvD8j .chip_borderDecor-8XR0Vn:before {
-    content: "";
-    inset: 0;
-    -webkit-mask-position: center;
-    mask-position: center;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    position: absolute;
-  }
-  .chip__svg-nFRcEL {
-    position: relative;
-    z-index: 1;
-  }
-  /* .chip_borderDecor-8XR0Vn, .chip_svg-nFRcEL {
-      grid-area: 1 / 1;
-  } */
 
 .high-card {
   background: white;
@@ -1647,7 +1649,7 @@
 .chipTrayWithToggle_open-aWURNM {
   opacity: 1;
   transition: opacity 0s ease 0.2s, visibility 0s ease 0.2s,
-    transform 0.2s ease 0.2s;
+  transform 0.2s ease 0.2s;
   visibility: visible;
 }
 
@@ -2674,13 +2676,12 @@ p {
     left: 75px;
   }
   .teen_patti_conatiner {
-    /* margin-top: 7px; */
-    margin-top: 13%;
+    margin-top: 7px;
   }
 
-  /* .win_percentage_container {
-    margin-top: 5px;
-  } */
+  .win_percentage_container {
+    /* margin-top: 5px; */
+  }
 }
 
 @media screen and (max-width: 412px) {
@@ -2713,21 +2714,6 @@ p {
   }
   .player_A_pair h4 {
     padding-left: 10px;
-  }
-}
-
-@media screen and (min-width: 412px) {
-  .betcoin-wrapper {
-    top: unset !important;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .betStyle {
-    height: 85.58px;
-    display: inline-flex;
-    width: 100%;
-    justify-content: center;
   }
 }
 
@@ -3043,9 +3029,9 @@ p {
   .main_table_container {
     height: 100px;
   }
-  /* .win_percentage_container {
-    margin-top: 2px;
-  } */
+  .win_percentage_container {
+    /* margin-top: 2px; */
+  }
   .teen_patti_conatiner {
     margin-top: 5px;
   }
@@ -3120,18 +3106,18 @@ p {
 }
 
 /* @keyframes inplayAnimation {
-    0% {
-      width: 15px;
-      height: 15px;
-    }
-    50% {
-      width: 30px;
-      height: 30px;
-    }
-    100% {
-      color: green;
-    }
-  } */
+  0% {
+    width: 15px;
+    height: 15px;
+  }
+  50% {
+    width: 30px;
+    height: 30px;
+  }
+  100% {
+    color: green;
+  }
+} */
 
 .move_right {
   animation: move_right 500ms;

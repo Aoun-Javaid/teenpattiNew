@@ -124,7 +124,7 @@ export const routes: Routes = [
         component:LiveBaccaratComponent
       },
       {
-        path:'N-top-card',
+        path:'Ntopcards',
         component:TopCardComponent
       },
       {
@@ -146,7 +146,7 @@ export const routes: Routes = [
       {
         path: '**',
         component:PageNotFoundComponent
-      },  
+      },
     ],
   },
 

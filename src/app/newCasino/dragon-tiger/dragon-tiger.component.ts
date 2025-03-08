@@ -357,7 +357,6 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
 
       this.BetPlaced[marketId][selectionId] = stake;
     }
-    console.log('bet placed', this.BetPlaced);
     this.betsChipsComponent?.CalculateIndex();
 
     this.game.betAccepted = true;
@@ -441,8 +440,7 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
 
 
 
-            console.warn('resultss test',this.resultArray[1].runners[this.marketArray[1]?.runners[0]?.selectionId])
-            console.warn('resultss',objMarket.data.resultsArr)
+          
             // for video results
             for (let key in objMarket.data.resultsArr[0].runners) {
               if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
@@ -562,8 +560,7 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
       }, 1000);
     }
 
-    console.log('method clicked ', price)
-    return
+
     if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
       if (this.selectedBetAmount > 0) {
         this.isBetsSlipOpened = selectionId;
@@ -942,7 +939,8 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
 
 
   getCoinValue(event: any) {
-    console.log('event', event);
+    this.selectedBetAmount = event;
+
   }
 
 

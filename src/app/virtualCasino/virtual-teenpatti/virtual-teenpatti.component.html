@@ -1,6 +1,6 @@
 <div class="newGameWrapper relative" style="overflow: hidden;">
     <app-top-results
-        class="[@media(min-width:1200px)]:hidden inline-block w-full relative z-10 bottom-[1px]"></app-top-results>
+        class="[@media(min-width:1200px)]:hidden"></app-top-results>
 
 
     <!--  Game Background Video-->
@@ -8,7 +8,6 @@
         <div class="game__video dragonTiger__staticVideoWrap">
             <div class="game__staticVideo">
                 <div class="h-full w-full relative">
-                    <!-- <img class="staticVideo__poster staticVideo__poster_hidden staticVideo__player_withPoster" src="https://client.petros04.com/js/../img/dragon-tiger.60ab225c.png" alt="poster"> -->
                     <video class="staticVideo__player staticVideo__player_withPoster" autoplay loop muted #playVideo>
                         <source src="/assets/virtual-table-cards/virtual-dt-video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
@@ -74,520 +73,533 @@
         </div>
     </div>
 
-    <div id="marketScroll" style="overflow-y: auto;" [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
-        <div class="gradientDiv mt-[13.5rem]">
-            <div *ngIf="marketArray"
-                class="absolute lg:fixed  lg:left-[50%] lg:translate-x-[-50%] bottom-[64px] max-[375px]:bottom-[25px] lg:!max-w-[473px]  left-0 w-full ">
-                <!-- Teen patti Cards Section starts here -->
-                <div class="teen_patti_conatiner absolute top-[-5.375rem] w-full lg:!max-w-[473px]"
-                    [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
-                    <!-- <div class="flex items-center w-full absolute  top-[-15px] pe-[9%] z-[99]">
-                        <div class="flex justify-center w-[50%]">
-                            <div class="high-card text-[rgb(204,73,62)]">High Card</div>
-                        </div>
-
-                        <div class="flex justify-center w-[50%]">
-                            <div class="high-card text-[rgb(230,144,57)]">High Card</div>
-                        </div>
-                    </div> -->
-                    <!-- Player cards -->
-                    <div class="custom_flex gap-2 player_A_cards">
-
-                        <img [ngClass]="playerACards?.card_1!='0' && playerACards?.card_1 ?'card-animation':'opacity-0'"
-                            [src]="['assets/52-cards/'+playerACards?.card_1+'.svg']" class="card-img" alt="card1">
-                        <img [ngClass]="playerACards?.card_2!='0' && playerACards?.card_2 ?'card-animation':'opacity-0'"
-                            [src]="['assets/52-cards/'+playerACards?.card_2+'.svg']" class="card-img" alt="card2">
-                        <img [ngClass]="playerACards?.card_3!='0' && playerACards?.card_3 ?'card-animation':'opacity-0'"
-                            [src]="['assets/52-cards/'+playerACards?.card_3+'.svg']" class="card-img" alt="card3">
-                    </div>
-                    <div class="custom_flex gap-2 player_B_cards">
-
-                        <img [ngClass]="playerBCards?.card_1!='0' && playerBCards?.card_1 ?'card-animation':'opacity-0'"
-                            [src]="['assets/52-cards/'+playerBCards?.card_1+'.svg']" class="card-img" alt="card1">
-                        <img [ngClass]="playerBCards?.card_2!='0' && playerBCards?.card_2 ?'card-animation':'opacity-0'"
-                            [src]="['assets/52-cards/'+playerBCards?.card_2+'.svg']" class="card-img" alt="card2">
-                        <img [ngClass]="playerBCards?.card_3!='0' && playerBCards?.card_3 ?'card-animation':'opacity-0'"
-                            [src]="['assets/52-cards/'+playerBCards?.card_3+'.svg']" class="card-img" alt="card3">
-                    </div>
-
-                </div>
+  <div id="marketScroll" style="overflow-y: auto;" [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
+    <div class="gradientDiv mt-[13.5rem]">
+      <div class="absolute h-4 w-full bg-[#0A0A1A] blur-[11px]"></div>
+      <div *ngIf="marketArray"
+           class="absolute md:fixed md:left-[50%] md:translate-x-[-50%] bottom-[64px]  [@media(max-width:375px)]:bottom-[25px]  md:!max-w-[473px]  left-0 w-full ">
 
 
 
-                <div class="relative z-[1] h-full lg:max-w-[473px]">
-                    <div class="win_percentage_container relative min-[1200px]:!hidden">
-                        <div class="win_percentage_wrapper  ">
-                            <div class="progress_bar_container">
-                                <div class="progress-bar bg-danger !bg-[#CC493E]" [style.width]="aPlayerChances+'%'">
-                                    <div class="progress-bar_data">
-                                        A
-                                    </div>
-                                    <div class="progress-bar_data">
-                                        {{aPlayerChances}}%
-                                    </div>
-                                </div>
-                                <div *ngIf="TPlayerChances" class="progress-bar bg-Tie"
-                                    [style.width]="TPlayerChances+'%'">
-                                    <div class="progress-bar_data">
-                                        T
-                                    </div>
-                                    <div class="progress-bar_data">
-                                        {{TPlayerChances}}%
-                                    </div>
-                                </div>
-                                <div class="progress-bar yellow_bg  !flex-row-reverse"
-                                    [style.width]="bPlayerChances+'%'">
-                                    <div class="progress-bar_data">
-                                        B
-                                    </div>
-                                    <div class="progress-bar_data">
-                                        {{bPlayerChances}}%
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="relative !mx-[2%] [@media(max-width:1200px)]:!bg-black lg:!mx-0 rounded-b-[17px]">
-                        <!-- main contnet -->
-                        <div
-                            class=" [@media(max-width:375px)]:!mb-0 mb-[1.5rem] lg:mb-[5px] relative p-[17.9048%]  lg:!p-0">
-                            <div class="h-[7.75rem] w-[21rem] lg:w-[473px] lg:max-h-[168px] absolute left-[50%] z-[1] lg:!scale-[1] lg:static"
-                                style="transform: translate(-50%, -50%) scale(var(--boardScale, 1));">
-                                <svg class="betPlacesGridSvg lg:w-[473px] lg:max-h-[168px]" viewBox="0 0 336 124"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <defs>
-                                        <mask id="teenPatti_MainBetPlaceSvg_BackgroundMaskPlayerA" width="167"
-                                            height="78" x="0" y="0" maskUnits="userSpaceOnUse">
-                                            <path fill="#fff"
-                                                d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z">
-                                            </path>
-                                        </mask>
-                                        <mask id="teenPatti_MainBetPlaceSvg_BackgroundMaskPlayerB" width="167"
-                                            height="78" x="167" y="0" maskUnits="userSpaceOnUse">
-                                            <path fill="#fff"
-                                                d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z">
-                                            </path>
-                                        </mask>
-                                        <mask width="130" height="49" x="0" y="75"
-                                            id="teenPattiTableSecondaryBackgroundMaskPlayerA"
-                                            maskUnits="userSpaceOnUse">
-                                            <path fill="#fff"
-                                                d="M2.229 76.026C1.503 75.319 0 75.799 0 76.812V112c0 6.627 5.373 12 12 12h106c6.627 0 12-5.373 12-12V82a2 2 0 0 0-2-2H12a13.954 13.954 0 0 1-9.771-3.974Z">
-                                            </path>
-                                        </mask>
-                                        <mask width="130" height="49" x="204" y="75"
-                                            id="teenPattiTableSecondaryBackgroundMaskPlayerB"
-                                            maskUnits="userSpaceOnUse">
-                                            <path fill="#fff"
-                                                d="M208 79.9997C206.895 79.9997 206 80.8951 206 81.9997V112C206 118.627 211.373 124 218 124H324C330.627 124 336 118.627 336 112V76.812C336 75.7988 334.497 75.3187 333.771 76.0259C331.248 78.4848 327.801 79.9997 324 79.9997H208Z">
-                                            </path>
-                                        </mask>
-                                        <path id="teenPattyTable_FlowerDecoration" fill="currentColor"
-                                            d="M142.599 20.505c1.823 1.064 3.65 2.132 5.667 2.887-3.453-6.518-8.005-12.153-13.335-17.18-.381-.36-.595-.2-.9.028a5.065 5.065 0 0 0-.051.038c-.961.712-1.783 1.569-2.551 2.466-6.479 7.576-11.011 16.166-13.582 25.811-1.528 5.74-1.8 11.47-.74 17.326.763 4.206 2.625 7.89 4.57 11.621 3.219 6.18 7.797 11.136 13.162 15.433.235.188.468.378.702.57 1.185.969 2.39 1.955 3.881 2.62.004-.567-.274-.907-.532-1.222-.054-.066-.108-.132-.157-.198-.464-.612-.95-1.21-1.435-1.808-.878-1.08-1.755-2.16-2.502-3.324-1.349-2.103-2.805-4.126-4.261-6.15-.718-.998-1.437-1.996-2.142-3.004-5.902-8.433-7.677-17.661-4.588-27.51 2.226-7.098 5.982-13.43 11.184-18.836 1.472-1.529 1.947-2.222 2.497-2.288.558-.066 1.193.514 3.024 1.523.703.387 1.396.791 2.089 1.197Zm54.063 61.802a1.47 1.47 0 0 0 .338-.17c9.379-5.77 16.557-13.513 20.982-23.657 2.068-4.74 3.26-9.722 3.138-14.927-.091-3.904-.694-7.746-1.587-11.558-1.447-6.187-4.272-11.759-7.504-17.143-1.663-2.775-4.181-4.688-6.695-6.596a94.558 94.558 0 0 1-1.969-1.523c-.59-.473-1.134-.402-1.749.203-3.09 3.044-5.648 6.513-8.148 10.027l-.285.398v.001h-.001c-1.277 1.786-2.576 3.603-3.335 6.037 3.056-2.021 5.996-3.697 8.989-5.274 2.239-1.181 2.268-1.15 3.925.682l.014.015.316.347h.001c.437.477.875.955 1.262 1.471 2.986 3.977 5.473 8.257 7.561 12.764 1.897 4.094 2.962 8.43 2.558 12.936a45.405 45.405 0 0 1-3.469 13.737c-2.39 5.615-5.917 10.54-9.627 15.341-1.183 1.529-2.348 3.069-3.532 4.632-.54.714-1.083 1.432-1.633 2.156.115.027.199.051.262.07.099.028.147.042.188.031Zm-72.564-6.277c.036.053.079.115.134.187-1.617-.17-3.054-.685-4.476-1.196h-.002c-.268-.097-.535-.193-.804-.287-5.525-1.93-10.911-4.142-15.804-7.443-5.701-3.845-10.213-8.763-13.364-14.848-4-7.731-5.853-15.93-4.78-24.667.038-.295.068-.588.091-.883.11-1.467.59-1.884 2.037-1.645 2.342.387 4.651.895 6.876 1.765 4.794 1.877 9.341 4.208 13.346 7.476a23.184 23.184 0 0 1 3.814 3.95c-.721-.3-1.408-.589-2.071-.867h-.001a251.733 251.733 0 0 0-3.944-1.63c-3.947-1.58-8.049-2.582-12.237-3.273-.944-.156-1.264.025-1.228 1.047.33 9.905 3.735 18.612 10.344 25.966 5.147 5.73 11.609 9.819 18.099 13.834.688.426 1.379.845 2.07 1.263h.001v.001h.001l.001.001h.001v.001h.002v.001h.001c.574.348 1.148.696 1.719 1.047.063.038.108.104.174.2Zm-21.092-4.291c.036.02.05.077.065.14.008.03.016.061.026.091-.276.264-.618.25-.946.235a4.366 4.366 0 0 0-.244-.006c-5.307.081-10.581-.173-15.751-1.505-6.871-1.768-12.303-7.912-11.82-15.82l.072-1.203c.154-2.64.308-5.274.762-7.886.016-.09.023-.184.03-.279.024-.333.047-.666.461-.781.501-.14.745.205.984.544l.102.142a256.358 256.358 0 0 0 13.62 16.908c3.354 3.82 7.311 6.783 11.863 8.99.265.127.524.275.776.43Zm-1.423 46.731a4.4 4.4 0 0 0-.604-.081c-5.646-.243-11.169-1.343-16.684-2.441v-.001l-.392-.078c-8.499-1.691-15.873-5.724-22.597-11.074-.664-.527-.323-.802.105-1.146l.004-.004 1.337-1.076.002-.001.004-.003v-.001c1.466-1.18 2.932-2.359 4.39-3.55.05-.041.11-.081.172-.122.23-.153.481-.32.341-.64-.15-.341-.49-.268-.8-.201l-.067.014-.043.009c-4.888.956-9.526 2.632-14.007 4.796-.946.455-.895.857-.374 1.576 2.001 2.762 4.28 5.229 7.065 7.233 3.824 2.756 7.69 5.424 12.221 6.911 9.297 3.052 18.714 2.472 28.156.88.722-.119 1.464-.31 2.204-.928-.164-.025-.306-.05-.433-.072Zm55.088-14.926c-.731 0-1.155-.313-1.541-.598l-.001-.001-.106-.078c-4.137-3.013-8.704-5.264-13.384-7.245-4.582-1.938-9.442-2.97-14.378-3.585-6.062-.756-12.152-1.175-18.242-1.595h-.001a889.907 889.907 0 0 1-6.823-.488c-4.816-.369-9.332-1.933-13.788-3.748-3.552-1.45-6.866-3.283-10.054-5.381-.082-.054-.167-.126-.255-.2-.29-.242-.609-.51-.928-.256-.405.326-.178.785.019 1.184.037.075.073.148.103.218 1.438 3.282 3.45 6.209 5.462 9.138.554.806 1.108 1.613 1.65 2.427 5.517 8.277 13.077 13.864 22.397 17.137 4.066 1.429 8.308 1.979 12.59 2.268l.534.037c3.283.226 6.563.451 9.849.21-8.766 2.408-17.516 3.092-26.511 1.172-9.093-1.942-16.648-6.433-23.052-12.895-8.386-8.463-12.575-18.823-12.925-30.734l-.01-.341c-.045-1.41-.088-2.822.083-4.229.02-.16.067-.317.133-.536.035-.117.075-.251.119-.412 1.432 1.492 2.825 2.81 4.231 4.111 4.713 4.362 10.315 6.503 16.662 6.925l2.012.132c7.358.481 14.719.963 22.012 2.126l1.126.18c5.814.923 11.629 1.846 17.292 3.533 3.728 1.109 6.897 3.27 9.915 5.574 5.341 4.076 9.852 9.035 14.269 14.068.335.38.653.777 1.008 1.22.167.209.343.429.533.662Zm2.043 5.321c.606-.419 1.25-.866 1.861-1.667l-.533.24c-.242.108-.407.182-.571.258-6.683 3.123-13.513 5.867-20.542 8.123-6.596 2.118-13.282 3.771-20.252 3.954-2.415.063-4.829.066-7.241.069h-.004c-.979 0-1.231.343-.771 1.233.388.75.763 1.507 1.139 2.264.621 1.253 1.242 2.506 1.921 3.727 1.363 2.452 3.27 4.448 5.683 5.874 6.731 3.983 13.864 6.35 21.804 4.878 3.702-.689 7.354-1.559 10.665-3.53 4.671-2.782 8.127-6.739 11.09-11.176 2.22-3.326 3.13-6.993 2.405-11.271l-.123.162-.18.234a15.37 15.37 0 0 0-.383.51c-2.831 4.035-5.821 7.962-9.669 11.072-5.528 4.465-11.573 7.168-18.927 4.89-3.291-1.022-6.258-2.558-8.946-4.679-.036-.028-.075-.055-.115-.083-.178-.122-.371-.255-.317-.489.066-.299.328-.315.573-.33h.001c.055-.004.109-.007.16-.014a51.256 51.256 0 0 1 1.709-.182l.188-.019c3.66-.353 7.141-1.274 10.447-2.952 5.521-2.802 10.836-5.956 16.122-9.16a29.772 29.772 0 0 0 2.304-1.579c.163-.121.331-.238.502-.357Zm66.744 10.641c.392.538-.078 1.159-.458 1.664-.064.085-.126.166-.18.243l-.602.852c-3.102 4.393-6.223 8.814-10.852 11.759-4.816 3.066-10.139 4.643-15.921 4.404-.577-.024-1.155-.038-1.732-.053h-.001c-1.837-.048-3.674-.095-5.487-.428-5.963-1.09-10.68-4.335-14.729-8.676-2.583-2.769-4.43-5.981-5.391-9.663-.694-2.665-.236-5.295.295-8.039.646.239 1.111.6 1.32 1.089 1.206 2.802 3.265 4.905 5.328 7.013.599.612 1.198 1.224 1.777 1.854 4.382 4.771 9.765 6.691 16.183 6.337 4.031-.221 7.934-.676 11.512-2.678a2.64 2.64 0 0 1 .292-.13c.318-.128.652-.262.596-.63-.058-.389-.493-.453-.87-.509l-.09-.013-.047-.008-.056-.009c-7.901-1.445-14.899-4.898-21.44-9.452-2.929-2.04-5.729-4.214-8.328-6.653-.03-.028-.063-.056-.095-.084-.192-.163-.402-.342-.375-.844.449.162.895.317 1.336.471.959.335 1.897.662 2.816 1.034 2.272.918 4.524 1.883 6.777 2.848v.001h.002c4.054 1.738 8.108 3.475 12.273 4.933 7.835 2.741 15.84 4.366 24.207 3.204.087-.012.18-.027.275-.042.619-.099 1.357-.216 1.665.205Zm8.953-.691c.158.061.315.12.474.17 6.785 2.085 13.793 2.372 20.771 2.011 7.184-.371 13.875-2.533 19.553-7.27 3.231-2.698 5.863-5.919 8.503-9.15l.202-.247c.623-.762.249-1.113-.432-1.421-1.214-.551-2.415-1.129-3.616-1.707-3.225-1.553-6.45-3.105-9.905-4.124l-.047-.014-.09-.028c-.374-.114-.738-.226-1.15-.062.165.432.453.65.73.859.06.045.12.09.178.138.504.41 1.007.822 1.511 1.234 1.43 1.169 2.861 2.339 4.307 3.488.788.623.829 1.154.064 1.836a77.1 77.1 0 0 0-.736.662c-1.042.942-2.083 1.884-3.277 2.646-.755.482-1.5.98-2.245 1.48-2.567 1.718-5.137 3.439-8.092 4.448-7.052 2.408-14.302 3.855-21.753 4.264-1.202.066-2.403.158-3.605.25l-.005.001-1.54.116a13.34 13.34 0 0 1-.012.34l.212.08Zm37.464-55.664c.464.169.395.68.333 1.14-.017.122-.033.24-.038.348-.468 9.81-2.82 19.047-8.165 27.423-4.351 6.82-9.755 12.606-16.619 16.873-6.428 4-13.437 6.268-21.109 6.561-4.694.18-9.302-.003-13.877-1.048a5.586 5.586 0 0 1-.613-.163c-.041-.014-.073-.053-.125-.118-.032-.039-.072-.088-.126-.146.802-.088 1.597-.18 2.386-.272 1.655-.192 3.285-.381 4.919-.522 8.545-.735 16.189-3.862 23.129-8.768 2.842-2.01 5.028-4.728 7.197-7.426l.03-.037c2.852-3.547 5.053-7.496 7.254-11.446l.51-.913c.142-.256.298-.505.454-.753.385-.613.769-1.225.952-1.943l.02-.073c.062-.222.128-.457-.119-.608-.176-.11-.301.005-.422.115-.039.036-.078.071-.117.098-6.701 4.511-14.251 6.698-22.061 8.318-7.71 1.6-15.507 2.096-23.339 2.4-10.281.403-19.817 3.342-28.672 8.545-.676.398-1.358.784-2.04 1.17l-.003.002-.002.001-.003.002c-.367.208-.734.416-1.1.626l-.219-.255c2.062-2.667 4.214-5.25 6.632-7.623 5.417-5.31 12.036-8.723 18.732-12.008 4.974-2.44 10.367-3.253 15.784-4.061 4.514-.674 9.058-.953 13.602-1.231 3.485-.214 6.97-.427 10.442-.82 4.318-.485 8.585-1.263 12.531-3.069 4.888-2.232 9.229-5.314 12.817-9.378.09-.102.172-.238.255-.376.206-.345.42-.701.79-.565Zm-7.434-15.405a58.609 58.609 0 0 1-.119-2.65v-.047c-.005-.353-.01-.827-.412-.927-.35-.087-.482.192-.608.46-.044.095-.087.187-.139.262-3.589 5.239-7.39 10.302-11.757 14.935-3.982 4.224-8.783 7.242-13.841 9.956-.427.229-.878.422-1.332.617-1.116.477-2.244.96-3.047 1.997.325.244.651.215.963.188.101-.01.201-.018.298-.018.877.006 1.754.003 2.63 0 1.534-.004 3.069-.008 4.603.03 4.938.123 9.795-.05 14.342-2.395 4.219-2.174 7.237-5.175 7.896-10.12.126-.948.142-1.903.158-2.855.02-1.124.039-2.245.239-3.345.37-2.04.248-4.064.126-6.088Zm-52.732 28.931c1.251-.802 2.571-1.443 3.886-2.082 1.315-.638 2.625-1.274 3.852-2.065.869-.56 1.743-1.114 2.616-1.668h.001v-.001h.001c4.591-2.912 9.187-5.828 13.141-9.604 4.646-4.438 7.975-9.788 9.745-15.97a35.883 35.883 0 0 0 1.398-10.037c-.005-1.002-.338-1.236-1.319-1.29-5.201-.284-10.055 1.086-14.831 2.91a2.957 2.957 0 0 0-.254.114c-.287.14-.591.289-1.012.13 2.014-2.22 4.562-3.535 7.145-4.763 4.738-2.25 9.486-4.481 14.419-6.287l.239-.088.004-.002c.354-.132.709-.264 1.072-.37 2.026-.602 2.042-.6 2.37 1.59 1.764 11.768-1.073 22.141-9.351 30.876-5.076 5.358-11.125 9.318-17.694 12.598-4.862 2.429-9.922 4.316-15.077 5.984-.072.024-.154.023-.236.023h-.04a2.055 2.055 0 0 0-.075.002Zm-10.425-25.2c1.162 7.059.063 13.96-3.22 20.371-3.756 7.337-8.277 14.185-13.742 20.385-1.622 1.843-3.486 3.425-5.386 4.989.456-.821 1.051-1.533 1.646-2.244.329-.392.657-.784.961-1.194 1.66-2.242 2.889-4.713 4.117-7.183V86.6c.464-.934.929-1.868 1.416-2.79 3.644-6.891 4.771-14.322 4.598-22.004-.082-3.59-.994-7.019-2.462-10.3-2.484-5.545-6.001-10.403-10.011-14.919-2.785-3.135-5.737-6.113-8.797-8.982-.709-.668-1.218-.686-1.919-.048a290.305 290.305 0 0 1-3.832 3.414c-3.451 3.039-6.903 6.078-9.944 9.527-6.306 7.151-10.139 15.439-10.001 25.138.104 7.306 2.06 14.151 5.655 20.598 2.67 4.783 5.923 9.053 9.628 13.03.057.063.108.131.158.2l.043.058a.843.843 0 0 0 .028.037c-4.951-3.385-8.949-7.7-12.29-12.636-.615-.909-1.256-1.802-1.896-2.695-1.557-2.173-3.114-4.346-4.309-6.737-.434-.868-.9-1.724-1.366-2.58-1.458-2.681-2.92-5.368-3.41-8.441-.803-5.063-1.393-10.167-.475-15.276.595-3.326 1.97-6.424 3.728-9.264 3.071-4.966 6.39-9.798 10.672-13.834 4.217-3.974 8.791-7.532 13.371-11.077.51-.394 1.026-.78 1.541-1.167.939-.703 1.879-1.407 2.78-2.157.577-.48.987-.445 1.569-.096 3.313 1.983 6.462 4.193 9.406 6.69.552.468 1.105.932 1.659 1.398 3.925 3.296 7.857 6.597 10.934 10.74 4.272 5.745 7.97 11.886 9.15 19.05Z">
-                                        </path>
-                                        <filter id="buttonShadowPlayerA" x="-10%" y="-10%" width="120%" height="120%"
-                                            filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse"
-                                            color-interpolation-filters="sRGB">
-                                            <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#f50"
-                                                flood-opacity="0.6">
-                                            </feDropShadow>
-                                            <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#ff2b00">
-                                            </feDropShadow>
-                                        </filter>
-                                        <filter id="buttonShadowPlayerB" x="-10%" y="-10%" width="120%" height="120%"
-                                            filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse"
-                                            color-interpolation-filters="sRGB">
-                                            <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#fa0"
-                                                flood-opacity="0.6">
-                                            </feDropShadow>
-                                            <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#ff8000">
-                                            </feDropShadow>
-                                        </filter>
-                                        <filter id="buttonShadowBonus" x="-10%" y="-10%" width="120%" height="120%"
-                                            filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse"
-                                            color-interpolation-filters="sRGB">
-                                            <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00ffd4"
-                                                flood-opacity="0.6">
-                                            </feDropShadow>
-                                            <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#0ff">
-                                            </feDropShadow>
-                                        </filter>
-                                    </defs>
-                                    <path class="betPlacesGridSvg__overlayPath-tsnUE8"
-                                        d="M12 0A12 12 0 0 0 0 12v100a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h48a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12H181a12 12 0 0 0-11.96 11h-2.08A12 12 0 0 0 155 0H12Z">
-                                    </path>
-                                    <g class="mainBetPlaceSvg_roundResult_lose-EwvTF6">
-                                        <path id="PlayerA" style="pointer-events: all;"
-                                            (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[0].selectionId,'back',marketArray[0].runners[0].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
-                                            d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
-                                            class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
-                                            fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:true)">
-                                        </path>
+        <!-- Teen patti Cards Section starts here -->
+        <div class="teen_patti_conatiner absolute top-[-5.375rem] [@media(min-width:1200px)]:top-[1.625rem]   w-full md:!max-w-[473px]" [ngClass]="{'[@media(min-width:1200px)]:z-[20]':game.status === 'SUSPEND'}"
+             [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
 
-                                        <path class="mainBetPlaceSvg__ctaBackground-_0sk4p" class="opacity-0 "
-                                            [ngClass]="{'win-animation-player-a':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
-                                            d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
-                                            fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true)">
-                                        </path>
-                                        <g id="PlayerADecoration"
-                                            mask="url(#teenPatti_MainBetPlaceSvg_BackgroundMaskPlayerA">
-                                            <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
-                                        </g>
-                                        <defs>
-                                            <radialGradient
-                                                id="teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:true" cx="0"
-                                                cy="0" r="1" gradientTransform="matrix(166.9 80 -146.4 305.7 0 -2)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#e56545"></stop>
-                                                <stop offset="1" stop-color="#cc2929"></stop>
-                                            </radialGradient>
-                                            <radialGradient
-                                                id="teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true"
-                                                cx="0" cy="0" r="1"
-                                                gradientTransform="matrix(166.9 80 -146.4 305.7 0 -2)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#ff5c33"></stop>
-                                                <stop offset="1" stop-color="#e52e2e"></stop>
-                                            </radialGradient>
-                                        </defs>
-                                    </g>
-                                    <g class="">
-                                        <path id="PlayerB" style="pointer-events: all;"
-                                            (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[1].selectionId,'back',marketArray[0].runners[1].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
-                                            d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z"
-                                            class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
-                                            fill="url(#teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:false)">
-                                        </path>
-                                        <path class="mainBetPlaceSvg__ctaBackground-_0sk4p opacity-0"
-                                            [ngClass]="{'win-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}"
-                                            d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z"
-                                            fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:false)">
-                                        </path>
-                                        <g id="PlayerBDecoration"
-                                            mask="url(#teenPatti_MainBetPlaceSvg_BackgroundMaskPlayerB">
-                                            <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
-                                        </g>
-                                        <defs>
-                                            <radialGradient
-                                                id="teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:false" cx="0"
-                                                cy="0" r="1"
-                                                gradientTransform="translate(336 -1.99996) rotate(154.403) scale(185.173 338.995)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#ffb21a"></stop>
-                                                <stop offset="1" stop-color="#e54d00"></stop>
-                                            </radialGradient>
-                                            <radialGradient
-                                                id="teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:false"
-                                                cx="0" cy="0" r="1"
-                                                gradientTransform="translate(336 -1.99996) rotate(154.403) scale(185.173 338.995)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#fb3"></stop>
-                                                <stop offset="1" stop-color="#f50"></stop>
-                                            </radialGradient>
-                                        </defs>
-                                    </g>
-                                    <g class="">
-                                        <path id="PairPlusPlayerA" style="pointer-events: all;"
-                                            (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[0].selectionId,'back',marketArray[1].runners[0].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)"
-                                            fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:true)"
-                                            class="secondaryBetPlaceSvg__backgroundClickZone-dEesVC"
-                                            d="M2.229 76.026C1.503 75.319 0 75.799 0 76.812V112c0 6.627 5.373 12 12 12h106c6.627 0 12-5.373 12-12V82a2 2 0 0 0-2-2H12a13.954 13.954 0 0 1-9.771-3.974Z">
-                                        </path>
-                                        <path class="secondaryBetPlaceSvg__ctaBackground-WNhcu8 opacity-0"
-                                            d="M2.229 76.026C1.503 75.319 0 75.799 0 76.812V112c0 6.627 5.373 12 12 12h106c6.627 0 12-5.373 12-12V82a2 2 0 0 0-2-2H12a13.954 13.954 0 0 1-9.771-3.974Z"
-                                            fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true)">
-                                        </path>
-                                        <g id="PairPlusPlayerADecoration">
-                                            <g mask="url(#teenPattiTableSecondaryBackgroundMaskPlayerA">
-                                                <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
-                                            </g>
-                                        </g>
-                                        <defs>
-                                            <radialGradient id="teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:true"
-                                                cx="0" cy="0" r="1"
-                                                gradientTransform="rotate(21.3 -194.3 36.6) scale(139.5 222.2)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#e55c17"></stop>
-                                                <stop offset="1" stop-color="#cc1414"></stop>
-                                            </radialGradient>
-                                            <radialGradient
-                                                id="teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true"
-                                                cx="0" cy="0" r="1"
-                                                gradientTransform="rotate(21.3 -194.3 36.6) scale(139.5 222.2)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#ff5c33"></stop>
-                                                <stop offset="1" stop-color="#e52e2e"></stop>
-                                            </radialGradient>
-                                        </defs>
-                                    </g>
-                                    <g class="">
-                                        <path id="PairPlusPlayerB" style="pointer-events: all;"
-                                            (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[1].selectionId,'back',marketArray[1].runners[1].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)"
-                                            fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:false)"
-                                            class="secondaryBetPlaceSvg__backgroundClickZone-dEesVC"
-                                            d="M208 79.9997C206.895 79.9997 206 80.8951 206 81.9997V112C206 118.627 211.373 124 218 124H324C330.627 124 336 118.627 336 112V76.812C336 75.7988 334.497 75.3187 333.771 76.0259C331.248 78.4848 327.801 79.9997 324 79.9997H208Z">
-                                        </path>
-                                        <path class="secondaryBetPlaceSvg__ctaBackground-WNhcu8 opacity-0"
-                                            d="M208 79.9997C206.895 79.9997 206 80.8951 206 81.9997V112C206 118.627 211.373 124 218 124H324C330.627 124 336 118.627 336 112V76.812C336 75.7988 334.497 75.3187 333.771 76.0259C331.248 78.4848 327.801 79.9997 324 79.9997H208Z"
-                                            fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:false)">
-                                        </path>
-                                        <g id="PairPlusPlayerBDecoration">
-                                            <g mask="url(#teenPattiTableSecondaryBackgroundMaskPlayerB">
-                                                <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
-                                            </g>
-                                        </g>
-                                        <defs>
-                                            <radialGradient id="teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:false"
-                                                cx="0" cy="0" r="1"
-                                                gradientTransform="translate(336 73.2148) rotate(158.662) scale(139.568 222.258)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#ffb21a"></stop>
-                                                <stop offset="1" stop-color="#e54d00"></stop>
-                                            </radialGradient>
-                                            <radialGradient
-                                                id="teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:false"
-                                                cx="0" cy="0" r="1"
-                                                gradientTransform="translate(336 73.2148) rotate(158.662) scale(139.568 222.258)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#fb3"></stop>
-                                                <stop offset="1" stop-color="#f50"></stop>
-                                            </radialGradient>
-                                        </defs>
-                                    </g>
-                                    <g class="bonusBetPlaceSvg_roundResult_lose-iymbKS">
-                                        <path id="Bonus" style="pointer-events: all;"
-                                            fill="url(#teenPatti_BonusBetPlaceSvg_backgroundGradient)"
-                                            d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12"
-                                            class="bonusBetPlaceSvg__backgroundClickZone-Qybilv"></path>
-                                        <path class="bonusBetPlaceSvg__ctaBackground-ATQPoe opacity-0"
-                                            d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12"
-                                            fill="url(#teenPatti_BonusBetPlaceSvg_cta_backgroundGradient)"></path>
-                                        <g id="BonusDecoration">
-                                            <mask width="36" height="82" x="132" y="42"
-                                                id="teenPatti_BonusBetPlaceSvg_decorationFlower_left"
-                                                maskUnits="userSpaceOnUse">
-                                                <path fill="#fff"
-                                                    d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12">
-                                                </path>
-                                            </mask>
-                                            <g mask="url(#teenPatti_BonusBetPlaceSvg_decorationFlower_left)">
-                                                <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
-                                            </g>
-                                            <mask width="36" height="82" x="168" y="42"
-                                                id="teenPatti_BonusBetPlaceSvg_decorationFlower_right"
-                                                maskUnits="userSpaceOnUse">
-                                                <path fill="#fff"
-                                                    d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12">
-                                                </path>
-                                            </mask>
-                                            <g mask="url(#teenPatti_BonusBetPlaceSvg_decorationFlower_right)">
-                                                <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
-                                            </g>
-                                        </g>
-                                        <defs>
-                                            <radialGradient id="teenPatti_BonusBetPlaceSvg_backgroundGradient" cx="0"
-                                                cy="0" r="1" gradientTransform="matrix(0 41 -58.3 0 168 83)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#39bfbf"></stop>
-                                                <stop offset="1" stop-color="#36b2a8"></stop>
-                                            </radialGradient>
-                                            <radialGradient id="teenPatti_BonusBetPlaceSvg_cta_backgroundGradient"
-                                                cx="0" cy="0" r="1" gradientTransform="matrix(0 41 -58.3 0 168 83)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#2bd9d9"></stop>
-                                                <stop offset="1" stop-color="#29ccbe"></stop>
-                                            </radialGradient>
-                                        </defs>
-                                    </g>
-                                    <g filter="url(#buttonShadowPlayerB)"
-                                        class="betPlacesGridSvg_winBet-ymPuYs betPlacesGridSvg_winBet_playerB-Yl_SpB">
-                                        <use xlink:href="#PlayerB" class="opacity-0"
-                                            [ngClass]="{'win-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}">
-                                        </use>
-                                        <g class="betPlacesGridSvg__flower-oJthYK">
-                                            <use xlink:href="#PlayerBDecoration"></use>
-                                        </g>
-                                    </g>
-                                    <g filter="url(#buttonShadowPlayerA)" class="betPlacesGridSvg_winBet-ymPuYs">
-                                        <use xlink:href="#PairPlusPlayerA" class="opacity-0"
-                                            [ngClass]="{'win-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}">
-                                        </use>
-                                        <g class="betPlacesGridSvg__flower-oJthYK">
-                                            <use xlink:href="#PairPlusPlayerADecoration"></use>
-                                        </g>
-                                    </g>
-                                    <g filter="url(#buttonShadowPlayerB)"
-                                        class="betPlacesGridSvg_winBet-ymPuYs betPlacesGridSvg_winBet_playerB-Yl_SpB">
-                                        <use xlink:href="#PairPlusPlayerB" class="opacity-0 "
-                                            [ngClass]="{'win-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}">
-                                        </use>
-                                        <g class="betPlacesGridSvg__flower-oJthYK">
-                                            <use xlink:href="#PairPlusPlayerBDecoration"></use>
-                                        </g>
-                                    </g>
-                                </svg>
-                                <div class="win_A_size" *ngIf="firstBoxWidth">
-                                    <div class="percentageBetStat"
-                                        [ngStyle]="{ 'background-position-y': firstBoxWidth + '%' }">
-                                        {{firstBoxWidth | number :'1.0-1'}}%
-                                    </div>
-                                </div>
-                                <div class="win_B_size" *ngIf="secndBoxWidth">
-                                    <div class="percentageBetStat"
-                                        [ngStyle]="{ 'background-position-y': secndBoxWidth + '%' }">
-                                        {{secndBoxWidth | number :'1.0-1'}}%
-                                    </div>
-                                </div>
-                                <div class="table__betInfoGrid lg:h-[168px] lg:px-[15px] lg:w-[473px]">
-                                    <div class="betPlaceInfo "
-                                        [ngClass]="this.game.status=='SUSPEND'?'player_A_player_B_opacity':''">
-                                        <div class="betPlayer_A ">
-                                            {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}
-                                        </div>
-                                        <div class="betPlaceInfo__roundInfo">
-                                            {{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.2-2'}}
-                                        </div>
-                                        <div *ngIf="BetPlaced[marketArray[0]?.marketId]">
-                                            <app-bets-chips
-                                                *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[0]?.selectionId]"
-                                                [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
-                                                [runnerId]="marketArray[0].runners[0].selectionId"></app-bets-chips>
-                                        </div>
-
-
-                                    </div>
-
-                                    <div class="betPlaceInfo betPlaceInfo_main_playerB "
-                                        [ngClass]="this.game.status=='SUSPEND'?'player_A_player_B_opacity':''">
-                                        <div class="betPlayer_A ">
-                                            {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}
-                                        </div>
-                                        <div class="betPlaceInfo__roundInfo">
-                                            {{marketArray[0]?.runners[1]?.price?.back[0]?.price | number : '1.2-2'}}
-                                        </div>
-
-                                        <div *ngIf="BetPlaced[marketArray[0]?.marketId]">
-                                            <app-bets-chips
-                                                *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[1]?.selectionId]"
-                                                [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
-                                                [runnerId]="marketArray[0].runners[1].selectionId"></app-bets-chips>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="betPlaceInfo_pairPlus_playerA betPlaceInfo">
-                                        <div class="flex justify-between w-full items-center">
-                                            <div>
-                                                <div class="pair-plus">Pair Plus</div>
-                                                <div class="down-player">Player A</div>
-                                            </div>
-
-                                            <!--  -->
-                                            <div class="h-[25px] w-[25px]">
-                                                <div *ngIf="BetPlaced[marketArray[1]?.marketId]">
-                                                    <app-bets-chips
-                                                        *ngIf="BetPlaced[marketArray[1]?.marketId][marketArray[1]?.runners[0]?.selectionId]"
-                                                        [BetPlaced]="BetPlaced" [marketId]="marketArray[1]?.marketId"
-                                                        [runnerId]="marketArray[1].runners[0].selectionId"></app-bets-chips>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="betPlaceInfo_pairPlus_playerB betPlaceInfo ">
-                                        <div class="flex justify-between w-full items-center">
-
-                                            <div class="h-[25px] w-[25px]">
-                                                <div *ngIf="BetPlaced[marketArray[1]?.marketId]">
-                                                    <app-bets-chips
-                                                        *ngIf="BetPlaced[marketArray[1]?.marketId][marketArray[1]?.runners[1]?.selectionId]"
-                                                        [BetPlaced]="BetPlaced" [marketId]="marketArray[1]?.marketId"
-                                                        [runnerId]="marketArray[1].runners[1].selectionId"></app-bets-chips>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <div class="pair-plus">Pair Plus</div>
-                                                <div class="down-player">Player B</div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="betPlaceInfo_bonus betPlaceInfo font-[Rubik,sans-serif]">
-
-                                        <div class="bounus ">Bonus</div>
-
-                                        <div class="bonus_value ">3+3</div>
-
-                                        <div class="chipTrayWithToggle__item-nLy9Sn">
-                                            <div class="chips-rzbOIK ">
-                                                <div class="chip-kcN8LW chip_size_48-odjDTm !w-[25px]  !h-[25px] !rotate-0 "
-                                                    data-locator="chip-250">
-                                                    <div class="chip__1st">
-                                                        <div
-                                                            class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
-                                                        </div>
-                                                        <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <text x="50%" text-anchor="middle" y="50%"
-                                                                transform="translate(0, 1.25)"
-                                                                class="chip__valueShadow-apDxWQ"
-                                                                text-rendering="geometricPrecision"
-                                                                dominant-baseline="central"
-                                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
-                                                                {{this.stackButtonArry[0].stakeAmount | shortNumber}}
-                                                            </text>
-                                                            <text x="50%" text-anchor="middle" y="50%"
-                                                                transform="translate(0, 0)" class="chip__value-B48ghL"
-                                                                text-rendering="geometricPrecision"
-                                                                data-locator="chip-value" dominant-baseline="central"
-                                                                style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
-                                                                {{this.stackButtonArry[0].stakeAmount | shortNumber}}
-                                                            </text>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                                <!-- wait for next round -->
-                                <div class="wait-next-round !duration-500 opacity-0"
-                                    [ngClass]="{'!opacity-[1] !duration-500':waitRound}">
-                                    Wait for
-                                    the next round</div>
-                                <!-- wait for next round -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div [ngClass]="{'[@media(min-width:500px)]:hidden': game.status === 'SUSPEND'}"
-                    class="betcoin-wrapper relative min-h-full w-full">
-                    <app-bet-coin class="betStyle" (eventBetValue)="getCoinValue($event)"
-                        [status]="this.game.status"></app-bet-coin>
-                </div>
+          <!-- <div class="flex items-center w-full absolute  top-[-15px] pe-[9%] z-[99]">
+            <div class="flex justify-center w-[50%]">
+                <div class="high-card text-[rgb(204,73,62)]">High Card</div>
             </div>
+
+            <div class="flex justify-center w-[50%]">
+                <div class="high-card text-[rgb(230,144,57)]">High Card</div>
+            </div>
+        </div> -->
+
+
+
+          <!-- Player A cards start here -->
+          <div class="custom_flex  gap-2  [@media(min-width:1200px)]:!gap-1 player_A_cards [@media(min-width:1200px)]:!p-[10px_55px_10px_10px] [@media(min-width:1200px)]:!justify-end">
+
+            <img [ngClass]="{ 'card-animation': playerACards?.card_1 && playerACards?.card_1 !== '0', 'opacity-0': !(playerACards?.card_1 && playerACards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
+                 [src]="['/assets/52-cards/'+playerACards?.card_1+'.svg']" class="card-img" alt="card1">
+            <img [ngClass]="{ 'card-animation': playerACards?.card_2 && playerACards?.card_2 !== '0', 'opacity-0': !(playerACards?.card_2 && playerACards?.card_2 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId] }"
+                 [src]="['/assets/52-cards/'+playerACards?.card_2+'.svg']" class="card-img" alt="card2">
+            <img [ngClass]="{ 'card-animation': playerACards?.card_3 && playerACards?.card_3 !== '0', 'opacity-0': !(playerACards?.card_3 && playerACards?.card_3 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId] }"
+                 [src]="['/assets/52-cards/'+playerACards?.card_3+'.svg']" class="card-img" alt="card3">
+          </div>
+          <!-- Player A cards ends here -->
+
+          <!-- Player B cards start here -->
+          <div class="custom_flex gap-2 player_B_cards [@media(min-width:1200px)]:!gap-1 [@media(min-width:1200px)]:!p-[10px_10px_10px_55px] [@media(min-width:1200px)]:!justify-start">
+
+            <img [ngClass]="{ 'card-animation': playerBCards?.card_1 && playerBCards?.card_1 !== '0', 'opacity-0': !(playerBCards?.card_1 && playerBCards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
+                 [src]="'/assets/52-cards/' + playerBCards?.card_1 + '.svg'" class="card-img" alt="card1">
+
+            <img [ngClass]="{ 'card-animation': playerBCards?.card_2 && playerBCards?.card_2 !== '0', 'opacity-0': !(playerBCards?.card_2 && playerBCards?.card_2 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
+                 [src]="'/assets/52-cards/' + playerBCards?.card_2 + '.svg'" class="card-img" alt="card2">
+
+            <img [ngClass]="{ 'card-animation': playerBCards?.card_3 && playerBCards?.card_3 !== '0', 'opacity-0': !(playerBCards?.card_3 && playerBCards?.card_3 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
+                 [src]="'/assets/52-cards/' + playerBCards?.card_3 + '.svg'" class="card-img" alt="card3">
+
+          </div>
+          <!-- Player B cards ends here -->
+
         </div>
-        <div class="time-container" *ngIf="this.game">
-            <div class="last-win">{{this.game.eventName}}
-                <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold"> {{winnerMarketArray.min}}</span>
-                -
-                <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold"> {{winnerMarketArray.max |
-                    shortNumber}}</span>
+
+
+
+        <div class="relative   z-[1] h-full [@media(min-width:1200px)]:max-w-[473px] ">
+          <div class="win_percentage_container relative [@media(min-width:1200px)]:hidden ">
+            <div class="win_percentage_wrapper  ">
+              <div class="progress_bar_container">
+                <div class="progress-bar bg-danger !bg-[#CC493E]" [style.width]="aPlayerChances+'%'">
+                  <div class="progress-bar_data">
+                    A
+                  </div>
+                  <div class="progress-bar_data">
+                    {{aPlayerChances}}%
+                  </div>
+                </div>
+                <div *ngIf="TPlayerChances" class="progress-bar bg-Tie"
+                     [style.width]="TPlayerChances+'%'">
+                  <div class="progress-bar_data">
+                    T
+                  </div>
+                  <div class="progress-bar_data">
+                    {{TPlayerChances}}%
+                  </div>
+                </div>
+                <div class="progress-bar yellow_bg  !flex-row-reverse"
+                     [style.width]="bPlayerChances+'%'">
+                  <div class="progress-bar_data">
+                    B
+                  </div>
+                  <div class="progress-bar_data">
+                    {{bPlayerChances}}%
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="roundInfo-date">
-                <!-- <span class="inline-block">.</span>  -->
-                {{this.game.roundId}}
+          </div>
+          <div
+            class="relative !mx-[2%]    md:!mx-0 !bg-[black] [@media(min-width:1200px)]:!bg-transparent rounded-b-[17px]">
+            <!-- main contnet -->
+            <div class=" mb-[1.5rem] md:mb-[5px] relative p-[17.9048%]  md:!p-0">
+              <div class="h-[7.75rem] w-[21rem] [@media(min-width:1200px)]:w-[473px] [@media(min-width:1200px)]:max-h-[168px] absolute left-[50%] z-[1] md:!scale-[1] md:static"
+                   style="transform: translate(-50%, -50%) scale(var(--boardScale, 1));">
+                <svg class="betPlacesGridSvg md:w-[473px] [@media(min-width:1200px)]:max-h-[168px]"
+                     viewBox="0 0 336 124" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <mask id="teenPatti_MainBetPlaceSvg_BackgroundMaskPlayerA" width="167"
+                          height="78" x="0" y="0" maskUnits="userSpaceOnUse">
+                      <path fill="#fff"
+                            d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z">
+                      </path>
+                    </mask>
+                    <mask id="teenPatti_MainBetPlaceSvg_BackgroundMaskPlayerB" width="167"
+                          height="78" x="167" y="0" maskUnits="userSpaceOnUse">
+                      <path fill="#fff"
+                            d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z">
+                      </path>
+                    </mask>
+                    <mask width="130" height="49" x="0" y="75"
+                          id="teenPattiTableSecondaryBackgroundMaskPlayerA"
+                          maskUnits="userSpaceOnUse">
+                      <path fill="#fff"
+                            d="M2.229 76.026C1.503 75.319 0 75.799 0 76.812V112c0 6.627 5.373 12 12 12h106c6.627 0 12-5.373 12-12V82a2 2 0 0 0-2-2H12a13.954 13.954 0 0 1-9.771-3.974Z">
+                      </path>
+                    </mask>
+                    <mask width="130" height="49" x="204" y="75"
+                          id="teenPattiTableSecondaryBackgroundMaskPlayerB"
+                          maskUnits="userSpaceOnUse">
+                      <path fill="#fff"
+                            d="M208 79.9997C206.895 79.9997 206 80.8951 206 81.9997V112C206 118.627 211.373 124 218 124H324C330.627 124 336 118.627 336 112V76.812C336 75.7988 334.497 75.3187 333.771 76.0259C331.248 78.4848 327.801 79.9997 324 79.9997H208Z">
+                      </path>
+                    </mask>
+                    <path id="teenPattyTable_FlowerDecoration" fill="currentColor"
+                          d="M142.599 20.505c1.823 1.064 3.65 2.132 5.667 2.887-3.453-6.518-8.005-12.153-13.335-17.18-.381-.36-.595-.2-.9.028a5.065 5.065 0 0 0-.051.038c-.961.712-1.783 1.569-2.551 2.466-6.479 7.576-11.011 16.166-13.582 25.811-1.528 5.74-1.8 11.47-.74 17.326.763 4.206 2.625 7.89 4.57 11.621 3.219 6.18 7.797 11.136 13.162 15.433.235.188.468.378.702.57 1.185.969 2.39 1.955 3.881 2.62.004-.567-.274-.907-.532-1.222-.054-.066-.108-.132-.157-.198-.464-.612-.95-1.21-1.435-1.808-.878-1.08-1.755-2.16-2.502-3.324-1.349-2.103-2.805-4.126-4.261-6.15-.718-.998-1.437-1.996-2.142-3.004-5.902-8.433-7.677-17.661-4.588-27.51 2.226-7.098 5.982-13.43 11.184-18.836 1.472-1.529 1.947-2.222 2.497-2.288.558-.066 1.193.514 3.024 1.523.703.387 1.396.791 2.089 1.197Zm54.063 61.802a1.47 1.47 0 0 0 .338-.17c9.379-5.77 16.557-13.513 20.982-23.657 2.068-4.74 3.26-9.722 3.138-14.927-.091-3.904-.694-7.746-1.587-11.558-1.447-6.187-4.272-11.759-7.504-17.143-1.663-2.775-4.181-4.688-6.695-6.596a94.558 94.558 0 0 1-1.969-1.523c-.59-.473-1.134-.402-1.749.203-3.09 3.044-5.648 6.513-8.148 10.027l-.285.398v.001h-.001c-1.277 1.786-2.576 3.603-3.335 6.037 3.056-2.021 5.996-3.697 8.989-5.274 2.239-1.181 2.268-1.15 3.925.682l.014.015.316.347h.001c.437.477.875.955 1.262 1.471 2.986 3.977 5.473 8.257 7.561 12.764 1.897 4.094 2.962 8.43 2.558 12.936a45.405 45.405 0 0 1-3.469 13.737c-2.39 5.615-5.917 10.54-9.627 15.341-1.183 1.529-2.348 3.069-3.532 4.632-.54.714-1.083 1.432-1.633 2.156.115.027.199.051.262.07.099.028.147.042.188.031Zm-72.564-6.277c.036.053.079.115.134.187-1.617-.17-3.054-.685-4.476-1.196h-.002c-.268-.097-.535-.193-.804-.287-5.525-1.93-10.911-4.142-15.804-7.443-5.701-3.845-10.213-8.763-13.364-14.848-4-7.731-5.853-15.93-4.78-24.667.038-.295.068-.588.091-.883.11-1.467.59-1.884 2.037-1.645 2.342.387 4.651.895 6.876 1.765 4.794 1.877 9.341 4.208 13.346 7.476a23.184 23.184 0 0 1 3.814 3.95c-.721-.3-1.408-.589-2.071-.867h-.001a251.733 251.733 0 0 0-3.944-1.63c-3.947-1.58-8.049-2.582-12.237-3.273-.944-.156-1.264.025-1.228 1.047.33 9.905 3.735 18.612 10.344 25.966 5.147 5.73 11.609 9.819 18.099 13.834.688.426 1.379.845 2.07 1.263h.001v.001h.001l.001.001h.001v.001h.002v.001h.001c.574.348 1.148.696 1.719 1.047.063.038.108.104.174.2Zm-21.092-4.291c.036.02.05.077.065.14.008.03.016.061.026.091-.276.264-.618.25-.946.235a4.366 4.366 0 0 0-.244-.006c-5.307.081-10.581-.173-15.751-1.505-6.871-1.768-12.303-7.912-11.82-15.82l.072-1.203c.154-2.64.308-5.274.762-7.886.016-.09.023-.184.03-.279.024-.333.047-.666.461-.781.501-.14.745.205.984.544l.102.142a256.358 256.358 0 0 0 13.62 16.908c3.354 3.82 7.311 6.783 11.863 8.99.265.127.524.275.776.43Zm-1.423 46.731a4.4 4.4 0 0 0-.604-.081c-5.646-.243-11.169-1.343-16.684-2.441v-.001l-.392-.078c-8.499-1.691-15.873-5.724-22.597-11.074-.664-.527-.323-.802.105-1.146l.004-.004 1.337-1.076.002-.001.004-.003v-.001c1.466-1.18 2.932-2.359 4.39-3.55.05-.041.11-.081.172-.122.23-.153.481-.32.341-.64-.15-.341-.49-.268-.8-.201l-.067.014-.043.009c-4.888.956-9.526 2.632-14.007 4.796-.946.455-.895.857-.374 1.576 2.001 2.762 4.28 5.229 7.065 7.233 3.824 2.756 7.69 5.424 12.221 6.911 9.297 3.052 18.714 2.472 28.156.88.722-.119 1.464-.31 2.204-.928-.164-.025-.306-.05-.433-.072Zm55.088-14.926c-.731 0-1.155-.313-1.541-.598l-.001-.001-.106-.078c-4.137-3.013-8.704-5.264-13.384-7.245-4.582-1.938-9.442-2.97-14.378-3.585-6.062-.756-12.152-1.175-18.242-1.595h-.001a889.907 889.907 0 0 1-6.823-.488c-4.816-.369-9.332-1.933-13.788-3.748-3.552-1.45-6.866-3.283-10.054-5.381-.082-.054-.167-.126-.255-.2-.29-.242-.609-.51-.928-.256-.405.326-.178.785.019 1.184.037.075.073.148.103.218 1.438 3.282 3.45 6.209 5.462 9.138.554.806 1.108 1.613 1.65 2.427 5.517 8.277 13.077 13.864 22.397 17.137 4.066 1.429 8.308 1.979 12.59 2.268l.534.037c3.283.226 6.563.451 9.849.21-8.766 2.408-17.516 3.092-26.511 1.172-9.093-1.942-16.648-6.433-23.052-12.895-8.386-8.463-12.575-18.823-12.925-30.734l-.01-.341c-.045-1.41-.088-2.822.083-4.229.02-.16.067-.317.133-.536.035-.117.075-.251.119-.412 1.432 1.492 2.825 2.81 4.231 4.111 4.713 4.362 10.315 6.503 16.662 6.925l2.012.132c7.358.481 14.719.963 22.012 2.126l1.126.18c5.814.923 11.629 1.846 17.292 3.533 3.728 1.109 6.897 3.27 9.915 5.574 5.341 4.076 9.852 9.035 14.269 14.068.335.38.653.777 1.008 1.22.167.209.343.429.533.662Zm2.043 5.321c.606-.419 1.25-.866 1.861-1.667l-.533.24c-.242.108-.407.182-.571.258-6.683 3.123-13.513 5.867-20.542 8.123-6.596 2.118-13.282 3.771-20.252 3.954-2.415.063-4.829.066-7.241.069h-.004c-.979 0-1.231.343-.771 1.233.388.75.763 1.507 1.139 2.264.621 1.253 1.242 2.506 1.921 3.727 1.363 2.452 3.27 4.448 5.683 5.874 6.731 3.983 13.864 6.35 21.804 4.878 3.702-.689 7.354-1.559 10.665-3.53 4.671-2.782 8.127-6.739 11.09-11.176 2.22-3.326 3.13-6.993 2.405-11.271l-.123.162-.18.234a15.37 15.37 0 0 0-.383.51c-2.831 4.035-5.821 7.962-9.669 11.072-5.528 4.465-11.573 7.168-18.927 4.89-3.291-1.022-6.258-2.558-8.946-4.679-.036-.028-.075-.055-.115-.083-.178-.122-.371-.255-.317-.489.066-.299.328-.315.573-.33h.001c.055-.004.109-.007.16-.014a51.256 51.256 0 0 1 1.709-.182l.188-.019c3.66-.353 7.141-1.274 10.447-2.952 5.521-2.802 10.836-5.956 16.122-9.16a29.772 29.772 0 0 0 2.304-1.579c.163-.121.331-.238.502-.357Zm66.744 10.641c.392.538-.078 1.159-.458 1.664-.064.085-.126.166-.18.243l-.602.852c-3.102 4.393-6.223 8.814-10.852 11.759-4.816 3.066-10.139 4.643-15.921 4.404-.577-.024-1.155-.038-1.732-.053h-.001c-1.837-.048-3.674-.095-5.487-.428-5.963-1.09-10.68-4.335-14.729-8.676-2.583-2.769-4.43-5.981-5.391-9.663-.694-2.665-.236-5.295.295-8.039.646.239 1.111.6 1.32 1.089 1.206 2.802 3.265 4.905 5.328 7.013.599.612 1.198 1.224 1.777 1.854 4.382 4.771 9.765 6.691 16.183 6.337 4.031-.221 7.934-.676 11.512-2.678a2.64 2.64 0 0 1 .292-.13c.318-.128.652-.262.596-.63-.058-.389-.493-.453-.87-.509l-.09-.013-.047-.008-.056-.009c-7.901-1.445-14.899-4.898-21.44-9.452-2.929-2.04-5.729-4.214-8.328-6.653-.03-.028-.063-.056-.095-.084-.192-.163-.402-.342-.375-.844.449.162.895.317 1.336.471.959.335 1.897.662 2.816 1.034 2.272.918 4.524 1.883 6.777 2.848v.001h.002c4.054 1.738 8.108 3.475 12.273 4.933 7.835 2.741 15.84 4.366 24.207 3.204.087-.012.18-.027.275-.042.619-.099 1.357-.216 1.665.205Zm8.953-.691c.158.061.315.12.474.17 6.785 2.085 13.793 2.372 20.771 2.011 7.184-.371 13.875-2.533 19.553-7.27 3.231-2.698 5.863-5.919 8.503-9.15l.202-.247c.623-.762.249-1.113-.432-1.421-1.214-.551-2.415-1.129-3.616-1.707-3.225-1.553-6.45-3.105-9.905-4.124l-.047-.014-.09-.028c-.374-.114-.738-.226-1.15-.062.165.432.453.65.73.859.06.045.12.09.178.138.504.41 1.007.822 1.511 1.234 1.43 1.169 2.861 2.339 4.307 3.488.788.623.829 1.154.064 1.836a77.1 77.1 0 0 0-.736.662c-1.042.942-2.083 1.884-3.277 2.646-.755.482-1.5.98-2.245 1.48-2.567 1.718-5.137 3.439-8.092 4.448-7.052 2.408-14.302 3.855-21.753 4.264-1.202.066-2.403.158-3.605.25l-.005.001-1.54.116a13.34 13.34 0 0 1-.012.34l.212.08Zm37.464-55.664c.464.169.395.68.333 1.14-.017.122-.033.24-.038.348-.468 9.81-2.82 19.047-8.165 27.423-4.351 6.82-9.755 12.606-16.619 16.873-6.428 4-13.437 6.268-21.109 6.561-4.694.18-9.302-.003-13.877-1.048a5.586 5.586 0 0 1-.613-.163c-.041-.014-.073-.053-.125-.118-.032-.039-.072-.088-.126-.146.802-.088 1.597-.18 2.386-.272 1.655-.192 3.285-.381 4.919-.522 8.545-.735 16.189-3.862 23.129-8.768 2.842-2.01 5.028-4.728 7.197-7.426l.03-.037c2.852-3.547 5.053-7.496 7.254-11.446l.51-.913c.142-.256.298-.505.454-.753.385-.613.769-1.225.952-1.943l.02-.073c.062-.222.128-.457-.119-.608-.176-.11-.301.005-.422.115-.039.036-.078.071-.117.098-6.701 4.511-14.251 6.698-22.061 8.318-7.71 1.6-15.507 2.096-23.339 2.4-10.281.403-19.817 3.342-28.672 8.545-.676.398-1.358.784-2.04 1.17l-.003.002-.002.001-.003.002c-.367.208-.734.416-1.1.626l-.219-.255c2.062-2.667 4.214-5.25 6.632-7.623 5.417-5.31 12.036-8.723 18.732-12.008 4.974-2.44 10.367-3.253 15.784-4.061 4.514-.674 9.058-.953 13.602-1.231 3.485-.214 6.97-.427 10.442-.82 4.318-.485 8.585-1.263 12.531-3.069 4.888-2.232 9.229-5.314 12.817-9.378.09-.102.172-.238.255-.376.206-.345.42-.701.79-.565Zm-7.434-15.405a58.609 58.609 0 0 1-.119-2.65v-.047c-.005-.353-.01-.827-.412-.927-.35-.087-.482.192-.608.46-.044.095-.087.187-.139.262-3.589 5.239-7.39 10.302-11.757 14.935-3.982 4.224-8.783 7.242-13.841 9.956-.427.229-.878.422-1.332.617-1.116.477-2.244.96-3.047 1.997.325.244.651.215.963.188.101-.01.201-.018.298-.018.877.006 1.754.003 2.63 0 1.534-.004 3.069-.008 4.603.03 4.938.123 9.795-.05 14.342-2.395 4.219-2.174 7.237-5.175 7.896-10.12.126-.948.142-1.903.158-2.855.02-1.124.039-2.245.239-3.345.37-2.04.248-4.064.126-6.088Zm-52.732 28.931c1.251-.802 2.571-1.443 3.886-2.082 1.315-.638 2.625-1.274 3.852-2.065.869-.56 1.743-1.114 2.616-1.668h.001v-.001h.001c4.591-2.912 9.187-5.828 13.141-9.604 4.646-4.438 7.975-9.788 9.745-15.97a35.883 35.883 0 0 0 1.398-10.037c-.005-1.002-.338-1.236-1.319-1.29-5.201-.284-10.055 1.086-14.831 2.91a2.957 2.957 0 0 0-.254.114c-.287.14-.591.289-1.012.13 2.014-2.22 4.562-3.535 7.145-4.763 4.738-2.25 9.486-4.481 14.419-6.287l.239-.088.004-.002c.354-.132.709-.264 1.072-.37 2.026-.602 2.042-.6 2.37 1.59 1.764 11.768-1.073 22.141-9.351 30.876-5.076 5.358-11.125 9.318-17.694 12.598-4.862 2.429-9.922 4.316-15.077 5.984-.072.024-.154.023-.236.023h-.04a2.055 2.055 0 0 0-.075.002Zm-10.425-25.2c1.162 7.059.063 13.96-3.22 20.371-3.756 7.337-8.277 14.185-13.742 20.385-1.622 1.843-3.486 3.425-5.386 4.989.456-.821 1.051-1.533 1.646-2.244.329-.392.657-.784.961-1.194 1.66-2.242 2.889-4.713 4.117-7.183V86.6c.464-.934.929-1.868 1.416-2.79 3.644-6.891 4.771-14.322 4.598-22.004-.082-3.59-.994-7.019-2.462-10.3-2.484-5.545-6.001-10.403-10.011-14.919-2.785-3.135-5.737-6.113-8.797-8.982-.709-.668-1.218-.686-1.919-.048a290.305 290.305 0 0 1-3.832 3.414c-3.451 3.039-6.903 6.078-9.944 9.527-6.306 7.151-10.139 15.439-10.001 25.138.104 7.306 2.06 14.151 5.655 20.598 2.67 4.783 5.923 9.053 9.628 13.03.057.063.108.131.158.2l.043.058a.843.843 0 0 0 .028.037c-4.951-3.385-8.949-7.7-12.29-12.636-.615-.909-1.256-1.802-1.896-2.695-1.557-2.173-3.114-4.346-4.309-6.737-.434-.868-.9-1.724-1.366-2.58-1.458-2.681-2.92-5.368-3.41-8.441-.803-5.063-1.393-10.167-.475-15.276.595-3.326 1.97-6.424 3.728-9.264 3.071-4.966 6.39-9.798 10.672-13.834 4.217-3.974 8.791-7.532 13.371-11.077.51-.394 1.026-.78 1.541-1.167.939-.703 1.879-1.407 2.78-2.157.577-.48.987-.445 1.569-.096 3.313 1.983 6.462 4.193 9.406 6.69.552.468 1.105.932 1.659 1.398 3.925 3.296 7.857 6.597 10.934 10.74 4.272 5.745 7.97 11.886 9.15 19.05Z">
+                    </path>
+                    <filter id="buttonShadowPlayerA" x="-10%" y="-10%" width="120%" height="120%"
+                            filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB">
+                      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#f50"
+                                    flood-opacity="0.6">
+                      </feDropShadow>
+                      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#ff2b00">
+                      </feDropShadow>
+                    </filter>
+                    <filter id="buttonShadowPlayerB" x="-10%" y="-10%" width="120%" height="120%"
+                            filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB">
+                      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#fa0"
+                                    flood-opacity="0.6">
+                      </feDropShadow>
+                      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#ff8000">
+                      </feDropShadow>
+                    </filter>
+                    <filter id="buttonShadowBonus" x="-10%" y="-10%" width="120%" height="120%"
+                            filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB">
+                      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00ffd4"
+                                    flood-opacity="0.6">
+                      </feDropShadow>
+                      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#0ff">
+                      </feDropShadow>
+                    </filter>
+                  </defs>
+                  <path class="betPlacesGridSvg__overlayPath-tsnUE8"
+                        d="M12 0A12 12 0 0 0 0 12v100a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h48a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12H181a12 12 0 0 0-11.96 11h-2.08A12 12 0 0 0 155 0H12Z">
+                  </path>
+                  <g class="mainBetPlaceSvg_roundResult_lose-EwvTF6">
+                    <path id="PlayerA" style="pointer-events: all;"
+                          (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[0].selectionId,'back',marketArray[0].runners[0].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
+                          d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
+                          class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
+                          fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:true)">
+                    </path>
+
+                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p opacity-0"
+                          [ngClass]="{'win-animation-player-a':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
+                          d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
+                          fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true)">
+                    </path>
+                    <g id="PlayerADecoration"
+                       mask="url(#teenPatti_MainBetPlaceSvg_BackgroundMaskPlayerA">
+                      <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
+                    </g>
+                    <defs>
+                      <radialGradient
+                        id="teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:true" cx="0"
+                        cy="0" r="1" gradientTransform="matrix(166.9 80 -146.4 305.7 0 -2)"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#e56545"></stop>
+                        <stop offset="1" stop-color="#cc2929"></stop>
+                      </radialGradient>
+                      <radialGradient
+                        id="teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true"
+                        cx="0" cy="0" r="1"
+                        gradientTransform="matrix(166.9 80 -146.4 305.7 0 -2)"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ff5c33"></stop>
+                        <stop offset="1" stop-color="#e52e2e"></stop>
+                      </radialGradient>
+                    </defs>
+                  </g>
+                  <g class="">
+                    <path id="PlayerB" style="pointer-events: all;"
+                          (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[1].selectionId,'back',marketArray[0].runners[1].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
+                          d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z"
+                          class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
+                          fill="url(#teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:false)">
+                    </path>
+                    <path class="mainBetPlaceSvg__ctaBackground-_0sk4p opacity-0"
+                          [ngClass]="{'win-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}"
+                          d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z"
+                          fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:false)">
+                    </path>
+                    <g id="PlayerBDecoration"
+                       mask="url(#teenPatti_MainBetPlaceSvg_BackgroundMaskPlayerB">
+                      <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
+                    </g>
+                    <defs>
+                      <radialGradient
+                        id="teenPatti_MainBetPlaceSvg_BackgroundGradient_isPlayerA:false" cx="0"
+                        cy="0" r="1"
+                        gradientTransform="translate(336 -1.99996) rotate(154.403) scale(185.173 338.995)"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ffb21a"></stop>
+                        <stop offset="1" stop-color="#e54d00"></stop>
+                      </radialGradient>
+                      <radialGradient
+                        id="teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:false"
+                        cx="0" cy="0" r="1"
+                        gradientTransform="translate(336 -1.99996) rotate(154.403) scale(185.173 338.995)"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#fb3"></stop>
+                        <stop offset="1" stop-color="#f50"></stop>
+                      </radialGradient>
+                    </defs>
+                  </g>
+                  <g class="">
+                    <path id="PairPlusPlayerA" style="pointer-events: all;"
+                          (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[0].selectionId,'back',marketArray[1].runners[0].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)"
+                          fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:true)"
+                          class="secondaryBetPlaceSvg__backgroundClickZone-dEesVC"
+                          d="M2.229 76.026C1.503 75.319 0 75.799 0 76.812V112c0 6.627 5.373 12 12 12h106c6.627 0 12-5.373 12-12V82a2 2 0 0 0-2-2H12a13.954 13.954 0 0 1-9.771-3.974Z">
+                    </path>
+                    <path class="secondaryBetPlaceSvg__ctaBackground-WNhcu8 opacity-0"
+                          d="M2.229 76.026C1.503 75.319 0 75.799 0 76.812V112c0 6.627 5.373 12 12 12h106c6.627 0 12-5.373 12-12V82a2 2 0 0 0-2-2H12a13.954 13.954 0 0 1-9.771-3.974Z"
+                          fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true)">
+                    </path>
+                    <g id="PairPlusPlayerADecoration">
+                      <g mask="url(#teenPattiTableSecondaryBackgroundMaskPlayerA">
+                        <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
+                      </g>
+                    </g>
+                    <defs>
+                      <radialGradient id="teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:true"
+                                      cx="0" cy="0" r="1"
+                                      gradientTransform="rotate(21.3 -194.3 36.6) scale(139.5 222.2)"
+                                      gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#e55c17"></stop>
+                        <stop offset="1" stop-color="#cc1414"></stop>
+                      </radialGradient>
+                      <radialGradient
+                        id="teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:true"
+                        cx="0" cy="0" r="1"
+                        gradientTransform="rotate(21.3 -194.3 36.6) scale(139.5 222.2)"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ff5c33"></stop>
+                        <stop offset="1" stop-color="#e52e2e"></stop>
+                      </radialGradient>
+                    </defs>
+                  </g>
+                  <g class="">
+                    <path id="PairPlusPlayerB" style="pointer-events: all;"
+                          (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[1].selectionId,'back',marketArray[1].runners[1].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)"
+                          fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:false)"
+                          class="secondaryBetPlaceSvg__backgroundClickZone-dEesVC"
+                          d="M208 79.9997C206.895 79.9997 206 80.8951 206 81.9997V112C206 118.627 211.373 124 218 124H324C330.627 124 336 118.627 336 112V76.812C336 75.7988 334.497 75.3187 333.771 76.0259C331.248 78.4848 327.801 79.9997 324 79.9997H208Z">
+                    </path>
+                    <path class="secondaryBetPlaceSvg__ctaBackground-WNhcu8 opacity-0"
+                          d="M208 79.9997C206.895 79.9997 206 80.8951 206 81.9997V112C206 118.627 211.373 124 218 124H324C330.627 124 336 118.627 336 112V76.812C336 75.7988 334.497 75.3187 333.771 76.0259C331.248 78.4848 327.801 79.9997 324 79.9997H208Z"
+                          fill="url(#teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:false)">
+                    </path>
+                    <g id="PairPlusPlayerBDecoration">
+                      <g mask="url(#teenPattiTableSecondaryBackgroundMaskPlayerB">
+                        <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
+                      </g>
+                    </g>
+                    <defs>
+                      <radialGradient id="teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:false"
+                                      cx="0" cy="0" r="1"
+                                      gradientTransform="translate(336 73.2148) rotate(158.662) scale(139.568 222.258)"
+                                      gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ffb21a"></stop>
+                        <stop offset="1" stop-color="#e54d00"></stop>
+                      </radialGradient>
+                      <radialGradient
+                        id="teenPatti_MainBetPlaceSvg_CTA_BackgroundGradient_isPlayerA:false"
+                        cx="0" cy="0" r="1"
+                        gradientTransform="translate(336 73.2148) rotate(158.662) scale(139.568 222.258)"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#fb3"></stop>
+                        <stop offset="1" stop-color="#f50"></stop>
+                      </radialGradient>
+                    </defs>
+                  </g>
+                  <g class="bonusBetPlaceSvg_roundResult_lose-iymbKS">
+                    <path id="Bonus" style="pointer-events: all;"
+                          fill="url(#teenPatti_BonusBetPlaceSvg_backgroundGradient)"
+                          d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12"
+                          class="bonusBetPlaceSvg__backgroundClickZone-Qybilv"></path>
+                    <path class="bonusBetPlaceSvg__ctaBackground-ATQPoe opacity-0"
+                          d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12"
+                          fill="url(#teenPatti_BonusBetPlaceSvg_cta_backgroundGradient)"></path>
+                    <g id="BonusDecoration">
+                      <mask width="36" height="82" x="132" y="42"
+                            id="teenPatti_BonusBetPlaceSvg_decorationFlower_left"
+                            maskUnits="userSpaceOnUse">
+                        <path fill="#fff"
+                              d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12">
+                        </path>
+                      </mask>
+                      <g mask="url(#teenPatti_BonusBetPlaceSvg_decorationFlower_left)">
+                        <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
+                      </g>
+                      <mask width="36" height="82" x="168" y="42"
+                            id="teenPatti_BonusBetPlaceSvg_decorationFlower_right"
+                            maskUnits="userSpaceOnUse">
+                        <path fill="#fff"
+                              d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12">
+                        </path>
+                      </mask>
+                      <g mask="url(#teenPatti_BonusBetPlaceSvg_decorationFlower_right)">
+                        <use xlink:href="#teenPattyTable_FlowerDecoration"></use>
+                      </g>
+                    </g>
+                    <defs>
+                      <radialGradient id="teenPatti_BonusBetPlaceSvg_backgroundGradient" cx="0"
+                                      cy="0" r="1" gradientTransform="matrix(0 41 -58.3 0 168 83)"
+                                      gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#39bfbf"></stop>
+                        <stop offset="1" stop-color="#36b2a8"></stop>
+                      </radialGradient>
+                      <radialGradient id="teenPatti_BonusBetPlaceSvg_cta_backgroundGradient"
+                                      cx="0" cy="0" r="1" gradientTransform="matrix(0 41 -58.3 0 168 83)"
+                                      gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#2bd9d9"></stop>
+                        <stop offset="1" stop-color="#29ccbe"></stop>
+                      </radialGradient>
+                    </defs>
+                  </g>
+                  <g filter="url(#buttonShadowPlayerB)"
+                     class="betPlacesGridSvg_winBet-ymPuYs betPlacesGridSvg_winBet_playerB-Yl_SpB">
+                    <use xlink:href="#PlayerB" class="opacity-0"
+                         [ngClass]="{'win-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}">
+                    </use>
+                    <g class="betPlacesGridSvg__flower-oJthYK">
+                      <use xlink:href="#PlayerBDecoration"></use>
+                    </g>
+                  </g>
+                  <g filter="url(#buttonShadowPlayerA)" class="betPlacesGridSvg_winBet-ymPuYs">
+                    <use xlink:href="#PairPlusPlayerA" class="opacity-0"
+                         [ngClass]="{'win-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}">
+                    </use>
+                    <g class="betPlacesGridSvg__flower-oJthYK">
+                      <use xlink:href="#PairPlusPlayerADecoration"></use>
+                    </g>
+                  </g>
+                  <g filter="url(#buttonShadowPlayerB)"
+                     class="betPlacesGridSvg_winBet-ymPuYs betPlacesGridSvg_winBet_playerB-Yl_SpB">
+                    <use xlink:href="#PairPlusPlayerB" class="opacity-0 "
+                         [ngClass]="{'win-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}">
+                    </use>
+                    <g class="betPlacesGridSvg__flower-oJthYK">
+                      <use xlink:href="#PairPlusPlayerBDecoration"></use>
+                    </g>
+                  </g>
+                </svg>
+                <div class="win_A_size" *ngIf="firstBoxWidth">
+                  <div class="percentageBetStat"
+                       [ngStyle]="{ 'background-position-y': firstBoxWidth + '%' }">
+                    {{firstBoxWidth | number :'1.0-1'}}%
+                  </div>
+                </div>
+                <div class="win_B_size" *ngIf="secndBoxWidth">
+                  <div class="percentageBetStat"
+                       [ngStyle]="{ 'background-position-y': secndBoxWidth + '%' }">
+                    {{secndBoxWidth | number :'1.0-1'}}%
+                  </div>
+                </div>
+                <div class="table__betInfoGrid md:h-[168px] md:px-[15px] md:w-[473px]">
+                  <div class="betPlaceInfo "
+                       [ngClass]="this.game.status=='SUSPEND'?'player_A_player_B_opacity':''">
+                    <div class="betPlayer_A ">
+                      {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}
+                    </div>
+                    <div class="betPlaceInfo__roundInfo">
+                      {{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.2-2'}}
+                    </div>
+                    <div *ngIf="BetPlaced[marketArray[0]?.marketId]">
+                      <app-bets-chips
+                        *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[0]?.selectionId]"
+                        [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
+                        [runnerId]="marketArray[0].runners[0].selectionId"></app-bets-chips>
+                    </div>
+
+
+                  </div>
+
+                  <div class="betPlaceInfo betPlaceInfo_main_playerB "
+                       [ngClass]="this.game.status=='SUSPEND'?'player_A_player_B_opacity':''">
+                    <div class="betPlayer_A ">
+                      {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}
+                    </div>
+                    <div class="betPlaceInfo__roundInfo">
+                      {{marketArray[0]?.runners[1]?.price?.back[0]?.price | number : '1.2-2'}}
+                    </div>
+
+                    <div *ngIf="BetPlaced[marketArray[0]?.marketId]">
+                      <app-bets-chips
+                        *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[1]?.selectionId]"
+                        [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
+                        [runnerId]="marketArray[0].runners[1].selectionId"></app-bets-chips>
+                    </div>
+
+                  </div>
+
+                  <div class="betPlaceInfo_pairPlus_playerA betPlaceInfo">
+                    <div class="flex justify-between w-full items-center">
+                      <div>
+                        <div class="down-player">Player A</div>
+                        <div class="pair-plus">Pair Plus</div>
+
+                      </div>
+
+                      <!--  -->
+                      <div class="h-[25px] w-[25px]">
+                        <div *ngIf="BetPlaced[marketArray[1]?.marketId]">
+                          <app-bets-chips
+                            *ngIf="BetPlaced[marketArray[1]?.marketId][marketArray[1]?.runners[0]?.selectionId]"
+                            [BetPlaced]="BetPlaced" [marketId]="marketArray[1]?.marketId"
+                            [runnerId]="marketArray[1].runners[0].selectionId"></app-bets-chips>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="betPlaceInfo_pairPlus_playerB betPlaceInfo ">
+                    <div class="flex justify-between w-full items-center">
+
+                      <div class="h-[25px] w-[25px]">
+                        <div *ngIf="BetPlaced[marketArray[1]?.marketId]">
+                          <app-bets-chips
+                            *ngIf="BetPlaced[marketArray[1]?.marketId][marketArray[1]?.runners[1]?.selectionId]"
+                            [BetPlaced]="BetPlaced" [marketId]="marketArray[1]?.marketId"
+                            [runnerId]="marketArray[1].runners[1].selectionId"></app-bets-chips>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div class="down-player">Player B</div>
+                        <div class="pair-plus">Pair Plus</div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="betPlaceInfo_bonus betPlaceInfo font-[Rubik,sans-serif]">
+
+                    <div class="bounus ">Bonus</div>
+
+                    <div class="bonus_value ">3+3</div>
+
+                    <div class="chipTrayWithToggle__item-nLy9Sn">
+                      <div class="chips-rzbOIK ">
+                        <div class="chip-kcN8LW chip_size_48-odjDTm !w-[25px]  !h-[25px] !rotate-0 "
+                             data-locator="chip-250">
+                          <div class="chip__1st">
+                            <div
+                              class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
+                            </div>
+                            <svg class="chip__svg-nFRcEL" viewBox="0 0 48 48"
+                                 xmlns="http://www.w3.org/2000/svg">
+                              <text x="50%" text-anchor="middle" y="50%"
+                                    transform="translate(0, 1.25)"
+                                    class="chip__valueShadow-apDxWQ"
+                                    text-rendering="geometricPrecision"
+                                    dominant-baseline="central"
+                                    style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                {{this.stackButtonArry[0].stakeAmount | shortNumber}}
+                              </text>
+                              <text x="50%" text-anchor="middle" y="50%"
+                                    transform="translate(0, 0)" class="chip__value-B48ghL"
+                                    text-rendering="geometricPrecision"
+                                    data-locator="chip-value" dominant-baseline="central"
+                                    style="font-size: 18px; font-family: 'Rubik';   font-weight: 500;">
+                                {{this.stackButtonArry[0].stakeAmount | shortNumber}}
+                              </text>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+                <!-- wait for next round -->
+                <div class="wait-next-round !duration-500 opacity-0"
+                     [ngClass]="{'!opacity-[1] !duration-500':waitRound}">
+                  Wait for
+                  the next round</div>
+                <!-- wait for next round -->
+              </div>
             </div>
+          </div>
         </div>
+        <!-- Teen patti Cards Section ends here -->
+        <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="game.status"></app-bet-coin>
+      </div>
     </div>
+
+    <div class="time-container" *ngIf="this.game">
+      <div class="last-win">{{this.game.eventName}}
+        <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold"> {{winnerMarketArray.min}}</span>
+        -
+        <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold"> {{winnerMarketArray.max |
+          shortNumber}}</span>
+      </div>
+      <div class="roundInfo-date">
+        <!-- <span class="inline-block">.</span>  -->
+        {{this.game.roundId}}
+      </div>
+    </div>
+  </div>
 </div>
 <!-- <div class="h-[50px] w-full bg-[#161a2b]"></div> -->
 
@@ -642,29 +654,3 @@
     <app-top-results class="inline-block w-full relative z-10 bottom-[4px]"></app-top-results>
 
 </div>
-
-
-
-
-
-
-
-<!-- position: fixed;
-    right: -370px;
-    z-index: 99;
-    top: -100%;
-    transform: rotate(-90deg);
-    height: 122px;
-    display: flex
-    ;
-    flex-direction: column;
-    justify-content: end; -->
-
-
-<!-- <app-bets-chips *ngIf="BetPlaced[winnerMarketArray?.marketId][winnerMarketArray.runners[1].selectionId]"
-    [BetPlaced]="BetPlaced" [marketId]="winnerMarketArray?.marketId"
-    [runnerId]="winnerMarketArray.runners[1].selectionId"></app-bets-chips> -->
-
-<!-- <div class="mt-10 relative w-full"> -->
-
-<!-- </div> -->
