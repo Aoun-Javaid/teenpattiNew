@@ -13,6 +13,25 @@
   background-color: black;
 }
 
+.gradient-_9dd5n {
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.gradient_desktop-UoLq1h {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgb(10, 10, 26) 75%,
+    rgb(10, 10, 26) 100%
+  );
+  bottom: -0.0625rem;
+  height: 13rem;
+  left: 0;
+  width: 100%;
+}
+
 .table__betInfoGrid {
   font-family: "Baloo", sans-serif;
   display: grid;
@@ -176,17 +195,19 @@
 }
 
 .pair-plus {
-  font-size: 0.875rem;
-  font-weight: 500;
+  @apply [@media(max-width:1024px)]:!text-[0.875rem] [@media(max-width:1024px)]:!font-medium;
+  font-size: 1.25rem;
+  font-weight: 600;
   line-height: 0.75rem;
   font-family: "Rubik";
 }
 
 .down-player {
+  @apply [@media(max-width:1024px)]:!text-[0.75rem] [@media(max-width:1024px)]:!m-[0.25rem_0];
   font-weight: 500;
   line-height: 0.75rem;
-  font-size: 0.75rem;
-  margin: 0.25rem 0;
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
   font-weight: 500;
   font-family: "Rubik";
 }
@@ -207,13 +228,15 @@
 }
 
 .betPlayer_A {
-  font-size: 1.125rem;
+  @apply [@media(max-width:1024)]:!text-[1.125rem];
+  font-size: 1.5rem;
   font-weight: 800;
 }
 
 .betPlaceInfo__roundInfo {
-  font-size: 0.625rem;
-  margin: 0.25rem 0;
+  @apply [@media(max-width:1024)]:!text-[0.625rem] [@media(max-width:1024)]:!m-[0.25rem_0];
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
   position: relative;
 }
 
@@ -653,7 +676,11 @@
   width: 40px;
   height: 57px;
 
+
+  @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px];
+
   @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px] [@media(min-width:1200px)]:w-[36px] [@media(min-width:1200px)]:h-[51px];
+
 }
 
 .progress_bar_container {
