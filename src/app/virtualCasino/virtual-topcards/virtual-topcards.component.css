@@ -72,6 +72,20 @@
 .gradient_mobile-cBpe4n {
   inset: 0;
 }
+
+.gradient_desktop-UoLq1h {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgb(10, 10, 26) 75%,
+    rgb(10, 10, 26) 100%
+  );
+  bottom: -0.0625rem;
+  height: 13rem;
+  left: 0;
+  width: 100%;
+}
+
 .gradient-_9dd5n {
   pointer-events: none;
   position: absolute;
@@ -302,6 +316,7 @@
 
 @media (orientation: landscape) {
   .topCard__rngTable-POdQ39 {
+    @apply [@media(min-width:1412px)]:!top-[15.8125rem] [@media(min-width:1412px)]:!left-[0] [@media(min-width:1412px)]:!scale-[1.2];
     top: 3.75rem;
     width: 100%;
   }
