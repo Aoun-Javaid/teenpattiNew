@@ -138,7 +138,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
     // this.eventid = '99.0018';
     // localStorage.setItem('eventId', this.eventid)
     // this.eventid = localStorage.getItem('eventId');
-    this.eventid = '88.0011'
+    this.eventid = '99.0010'
     this.message.id = this.eventid;
     this.messageResult.id = this.eventid;
     this.isDesktop = this.deviceService.isDesktop();
