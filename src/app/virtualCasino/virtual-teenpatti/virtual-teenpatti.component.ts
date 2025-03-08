@@ -288,6 +288,8 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
             this.betSelectedPlayer = '';
             this.secndBoxWidth = '';
             this.firstBoxWidth = '';
+            this.clearRound();
+            this.cards={};
 
           }
 
@@ -389,39 +391,39 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
         // Get result Array
 
-        if (objMarket.type == "3") {
-          this.RoundWinner = null;
-          //  Check user's bet player
-          if (this.casinoPl && this.casinoPl[this.winnerMarketArray?.marketId]) {
-            if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[0].selectionId] > 0) {
-              this.betSelectedPlayer = this.winnerMarketArray.runners[0].selectionId
-            }
-            if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[1].selectionId] > 0) {
-              this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
-            }
-          }
+        // if (objMarket.type == "3") {
+        //   this.RoundWinner = null;
+        //   //  Check user's bet player
+        //   if (this.casinoPl && this.casinoPl[this.winnerMarketArray?.marketId]) {
+        //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[0].selectionId] > 0) {
+        //       this.betSelectedPlayer = this.winnerMarketArray.runners[0].selectionId
+        //     }
+        //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[1].selectionId] > 0) {
+        //       this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
+        //     }
+        //   }
 
-          if (this.resultcounter > 0) {
-            this.RoundWinner = objMarket.data[0].winner;
-            setTimeout(() => {
-              this.RoundWinner = null;
-            }, 5000)
+        //   if (this.resultcounter > 0) {
+        //     this.RoundWinner = objMarket.data[0].winner;
+        //     setTimeout(() => {
+        //       this.RoundWinner = null;
+        //     }, 5000)
 
-            objMarket.data[0].results[0].runners.forEach((runner: any) => {
-              if (runner.selectionId == this.betSelectedPlayer && runner.result == "WINNER") {
+        //     objMarket.data[0].results[0].runners.forEach((runner: any) => {
+        //       if (runner.selectionId == this.betSelectedPlayer && runner.result == "WINNER") {
 
-                setTimeout(() => {
-                  this.videoComponent.surpriseFireWork();
-                }, 1000);
-              }
-            })
+        //         setTimeout(() => {
+        //           this.videoComponent.surpriseFireWork();
+        //         }, 1000);
+        //       }
+        //     })
 
 
-          }
+        //   }
 
-          this.networkService.updateResultstream(objMarket.data)
-          this.resultcounter++;
-        }
+        //   this.networkService.updateResultstream(objMarket.data)
+        //   this.resultcounter++;
+        // }
 
 
       }
@@ -569,13 +571,13 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
                 setTimeout(() => {
-                  this.RoundWinner = this.RoundWinner === 'PLAYER A' ? 1 : 2;
 
-                  if (this.RoundWinner === 1) {
+
+                  if (this.RoundWinner === 'PLAYER A') {
                     if (this.leftCard1) this.animateUpDown(this.leftCard1);
                     if (this.leftCard2) this.animateUpDown(this.leftCard2);
                     if (this.leftCard3) this.animateUpDown(this.leftCard3);
-                  } else if (this.RoundWinner === 2) {
+                  } else if (this.RoundWinner === 'PLAYER B') {
                     if (this.rightCard1) this.animateUpDown(this.rightCard1);
                     if (this.rightCard2) this.animateUpDown(this.rightCard2);
                     if (this.rightCard3) this.animateUpDown(this.rightCard3);
@@ -1710,4 +1712,46 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
       );
     }
   }
+  clearRound(){
+    if (this.leftCard1)
+          this.moveAndRemoveCard(
+            this.leftCard1,
+            this.cardStartPointX,
+            this.leftCard1.y
+          );
+        if (this.leftCard2)
+          this.moveAndRemoveCard(
+            this.leftCard2,
+            this.cardStartPointX,
+            this.leftCard2.y
+          );
+        if (this.leftCard3)
+          this.moveAndRemoveCard(
+            this.leftCard3,
+            this.cardStartPointX,
+            this.leftCard3.y
+          );
+        if (this.rightCard1)
+          this.moveAndRemoveCard(
+            this.rightCard1,
+            this.cardStartPointX,
+            this.rightCard1.y
+          );
+        if (this.rightCard2)
+          this.moveAndRemoveCard(
+            this.rightCard2,
+            this.cardStartPointX,
+            this.rightCard2.y
+          );
+        if (this.rightCard3)
+          this.moveAndRemoveCard(
+            this.rightCard3,
+            this.cardStartPointX,
+            this.rightCard3.y
+          );
+        setTimeout(() => {
+          this.createHiddenCard();
+        }, 600);
+
+      }
 }
