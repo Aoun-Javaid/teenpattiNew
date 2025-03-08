@@ -181,6 +181,9 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
         $('html').css('overflow', 'hidden');
       }
     }
+    else{
+      $('html').css('overflow', 'hidden');
+    }
     // if(this.game == undefined || this.game === null){
     this.resultcounter = 0;
     // this.socket.connect();

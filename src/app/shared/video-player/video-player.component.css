@@ -786,3 +786,8 @@ video {
   width: 4rem;
   z-index: 998 !important;
 }
+@media only screen and (min-width:1024px) {
+  .videoPlayer{
+    height: calc(100vh - 99px);
+  }
+}
