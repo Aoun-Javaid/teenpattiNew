@@ -4,16 +4,7 @@
   position: relative;
   width: 100%;
   overflow-y: scroll;
-  overflow-x: hidden;
-   @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
-}
-.main__wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  position: relative;
-  transition: height .15s ease,margin-top .15s ease;
-  width: 100%;
+  @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
 }
 .game__drawerLayer, .game__substrateLayer {
   height: 100%;
