@@ -1,7 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
-  <app-top-results class="[@media(min-width:1200px)]:hidden"></app-top-results>
+  <app-top-results class="xl:hidden"></app-top-results>
   <div #target>
-    <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true" [displayResult]="false"
+    <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true" 
+    [displayResult]="false"
       [unityTimer]="false"></app-video-player>
     <!-- <ng-container *ngIf="isMobileInfo == 'iOS'">
             <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
@@ -37,13 +51,13 @@
   <div [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'" id="marketScroll" style="overflow-y: auto;">
     <div class="gradientDiv" *ngIf="this.game">
       <div *ngIf="marketArray"
-        class="absolute lg:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] lg:bottom-[12px] [@media(max-width:375px)]:bottom-[25px] [@media(max-width:620px)]:bottom-[30px] lg:!max-w-[473px]  left-0 w-full ">
-        <div class="relative z-[1] h-full lg:max-w-[473px] ">
+        class="absolute xl:fixed xl:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] xl:bottom-[12px] [@media(max-width:375px)]:bottom-[25px] [@media(max-width:620px)]:bottom-[30px] xl:!max-w-[473px]  left-0 w-full ">
+        <div class="relative z-[1] h-full xl:max-w-[473px] ">
           <div class="relative !mx-[2%] md:!mx-0 !bg-[black] rounded-[17px]">
             <!-- main content -->
-            <div class="lg:!bottom-[35px] mb-[0.3rem] md:mb-[5px] relative p-[18.9048%_0px_29.5048%] lg:!p-0">
+            <div class="xl:!bottom-[35px] mb-[0.3rem] md:mb-[5px] relative p-[18.9048%_0px_29.5048%] xl:!p-0">
               <div
-                class="h-[7.75rem] w-[21rem] lg:w-[473px] lg:max-h-[168px] absolute left-[50%] lg:!scale-[1.35] lg:static"
+                class="h-[7.75rem] w-[21rem] xl:w-[473px] xl:max-h-[168px] absolute left-[50%] xl:!scale-[1.35] xl:static"
                 style="transform: translate(-50%, -50%) scale(var(--boardScale, 1));">
                 <svg class="table__svg-Qpr3tH" viewBox="0 0 344 150">
                   <path clip-rule="evenodd"
@@ -784,7 +798,7 @@
                     <div class="tableSideChips-BtyLLs"></div>
                   </div>
                 </div>
-                <div class="dragonTigerHistoryPortrait__scoreInfo-jDmarn block lg:hidden">
+                <div class="dragonTigerHistoryPortrait__scoreInfo-jDmarn !block xl:!hidden">
                   <div class="scoreBoardInfo-USWOxa">
                     <div class="scoreBoardInfo__total-b3bUj3">
                       <div class="scoreBoardInfo__totalItem-KhIYhz">#{{tigerWins+dragonWins+ties}}</div>
@@ -860,12 +874,12 @@
           </div>
         </div>
 
-        <div class="w-full  lg:mt-[110px]">
+        <div class="w-full  xl:mt-[110px]">
           <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game.status"></app-bet-coin>
         </div>
       </div>
 
-      <div class="time-container lg:!mb-3">
+      <div class="time-container xl:!mb-3">
         <div class="roundInfo-date">
           <!-- <span class="inline-block">.</span>  -->
           {{this.game?.roundId}}
@@ -881,7 +895,7 @@
   </div>
 </div>
 
-<div class="[@media(max-width:1200px)]:hidden fixed w-[20.5rem] mx-[2%] bottom-[20%] flex flex-col gap-[1.5rem]">
+<div class="xl:!flex fixed w-[20.5rem] mx-[2%] bottom-[20%] !hidden flex-col gap-[1.5rem]">
   <div class="dragonTiger__history-jQwWbi">
     <div class="scoreBoardInfo-USWOxa">
       <div class="scoreBoardInfo__total-b3bUj3">
@@ -917,8 +931,10 @@
             </g>
           </svg> {{ties}}</div>
       </div>
-      <div class="scoreBoardInfo__buttons-nUvY7g"><button
-          class="scoreBoardInfo__button-wmBupa scoreBoardInfo__button_left-cIMRsf" type="button"><svg
+      <div class="scoreBoardInfo__buttons-nUvY7g">
+        <button
+          class="scoreBoardInfo__button-wmBupa scoreBoardInfo__button_left-cIMRsf" type="button">
+          <svg
             viewBox="0 0 19 4.5" xmlns="http://www.w3.org/2000/svg" style="display: block;">
             <path
               d="M0.1319999999999999,4.2
