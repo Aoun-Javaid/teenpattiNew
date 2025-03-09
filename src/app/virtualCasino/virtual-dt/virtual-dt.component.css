@@ -231,7 +231,7 @@
 }
 .gradientDiv {
   height: 55%;
-  background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
+  /*background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);*/
 }
 
 .table__html-CXMssa {
@@ -806,9 +806,14 @@
 .no-more-bets {
   @apply absolute left-[50%] translate-x-[-50%] text-nowrap top-[50%] text-[#fff] text-[0.875rem] !bg-none px-3 py-1  max-w-fit font-[550] font-[Rubik,_sans-serif] leading-[1.14] tracking-[-0.2px];
 }
+
 .roundStatus__decor-DDvAQJ {
   @apply absolute bg-[rgba(0,0,0,.6)] [filter:blur(0.375rem)] inset-0 rounded-[0.75rem];
 }
 .playerA-win-point-virtual {
   @apply left-[50%] cursor-none absolute translate-x-[-50%] z-[4] top-[7rem];
+}
+
+::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
+  @apply [@media(min-width:1200px)]:top-[50vh] !important;
 }
