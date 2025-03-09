@@ -628,7 +628,7 @@
   /* background-color: black; */
   width: 100%;
   /* margin-top: 15px; */
-  @apply [@media(max-width:768px)]:!px-[2%];
+  @apply [@media(max-width:1024px)]:!px-[2%];
 }
 
 .win_percentage_wrapper {
