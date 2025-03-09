@@ -603,7 +603,6 @@
   align-items: flex-start;
   padding: 20px;
   flex-direction: row;
- 
 }
 
 /* High Card section ends here */
@@ -634,6 +633,7 @@
 .win_percentage_wrapper {
   height: 35px;
   /* padding: 8px; */
+  @apply [@media(max-width:767px)]:h-[35px] [@media(max-width:1024px)]:h-[51px];
 }
 
 .player_B_cards,
@@ -676,11 +676,9 @@
   width: 40px;
   height: 57px;
 
-
   @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px];
 
   @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px] [@media(min-width:1200px)]:w-[36px] [@media(min-width:1200px)]:h-[51px];
-
 }
 
 .progress_bar_container {
@@ -694,6 +692,7 @@
   flex-direction: row;
   gap: 4px;
   font-family: "Baloo", sans-serif;
+  @apply [@media(max-width:767px)]:!py-2  [@media(max-width:1024px)]:py-[9px] [@media(max-width:767px)]:!px-2  [@media(max-width:1024px)]:px-[9px];
 }
 .bg-Tie {
   background: #18862e;
@@ -711,6 +710,7 @@
   font-size: 10px;
   /* font-family: "Poppins", sans-serif; */
   height: 19px;
+  @apply [@media(max-width:767px)]:!h-[19px]  [@media(max-width:1024px)]:h-[33px] [@media(max-width:767px)]:!text-[10px]  [@media(max-width:1024px)]:text-[18px];
 }
 
 /* Winning Percentage Chances Section ends here */
