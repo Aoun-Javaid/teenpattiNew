@@ -18,6 +18,7 @@ import {BetCoinComponent} from "../../shared/bet-coin/bet-coin.component";
 import {ShortNumberPipe} from "../../pipes/short-number.pipe";
 import {QuickStakesEditComponent} from "../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component";
 
+export let browserRefresh = false;
 declare var $: any;
 interface Card {
   img: HTMLImageElement;
@@ -66,7 +67,7 @@ interface Card {
 })
 export class VirtualDtComponent implements OnInit,OnDestroy {
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
-
+  @ViewChild('playVideo') bgVideo!: ElementRef;
   reverseAnimate: boolean = false
   coinsState: boolean = false; // Coin bar is hidden by default
   coinStateActive: boolean = false;
@@ -246,8 +247,8 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
               this.game = objMarket?.data[0];
               this.game.marketArr = this.marketArray ? this.marketArray : objMarket?.data[0]?.marketArr;
               this.sizeRunner1 = this.marketArray[0].runners[0].price.back[0].size;
-              this.sizeRunner2 = this.marketArray[0].runners[2].price.back[0].size;
               this.sizeRunner3=this.marketArray[0].runners[1].price.back[0].size;
+              this.sizeRunner2 = this.marketArray[0].runners[2].price.back[0].size;
               this.winnerMarketArray = this.game?.marketArr ? this.game?.marketArr[0] : '';
               this.getRoundId = this.game.roundId
               this.handleEventResponse(objMarket, 0)
@@ -498,6 +499,10 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
           if ('status' in objMarket?.data) {
             this.game.status = objMarket?.data?.status;
           }
+          if ('leftSec' in objMarket?.data) {
+            this.game.leftSec = objMarket?.data?.leftSec;
+            // console.log('this',objMarket?.data?.leftSec)
+          }
           if ('resultsArr' in objMarket?.data) {
 
             // if (objMarket?.data?.roundStatus == 'RESULT_DECLARED') {
@@ -509,10 +514,10 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
               if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[1].selectionId] > 0) {
                 this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
               }
+              if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[2].selectionId] > 0) {
+                this.betSelectedPlayer = this.winnerMarketArray.runners[2].selectionId
+              }
             }
-            this.resultArray =objMarket.data.resultsArr;
-
-
 
 
             // for video results
@@ -521,10 +526,12 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
 
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
                 setTimeout(() => {
-
                   if (this.RoundWinner === 'DRAGON') {
                     if (this.leftCard1) this.animateUpDown(this.leftCard1);
                   } else if (this.RoundWinner === 'TIGER') {
+                    if (this.rightCard1) this.animateUpDown(this.rightCard1);
+                  } else if(this.RoundWinner === 'TIE'){
+                    if (this.leftCard1) this.animateUpDown(this.leftCard1);
                     if (this.rightCard1) this.animateUpDown(this.rightCard1);
                   }
 
@@ -540,7 +547,6 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
             }
             setTimeout(() => {
               this.RoundWinner = null;
-              this.resultArray = JSON.parse(JSON.stringify([]))
             }, 5000)
             // }
           }
@@ -975,6 +981,7 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(): void {
+    cancelAnimationFrame(this.animationFrameId);
     let message = {
       type: "2",
       id: ""
@@ -1184,24 +1191,6 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
     }
     // console.log('onclick', this.selectedBetAmount);
   }
-  clearRound(){
-    if (this.leftCard1)
-      this.moveAndRemoveCard(
-        this.leftCard1,
-        this.cardStartPointX,
-        this.leftCard1.y
-      );
-    if (this.rightCard1)
-      this.moveAndRemoveCard(
-        this.rightCard1,
-        this.cardStartPointX,
-        this.rightCard1.y
-      );
-    setTimeout(() => {
-      this.createHiddenCard();
-    }, 600);
-
-  }
   @ViewChild('canvas', { static: true })
   canvas!: ElementRef<HTMLCanvasElement>;
   private ctx!: CanvasRenderingContext2D;
@@ -1385,7 +1374,7 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
         );
         break;
       }
-      case '4': {
+      case '2': {
         const targetX = this.cardStartPointX + this.rightCard1EndPositionX;
         this.rightCard1 = this.createCard(
           'H4_',
@@ -1579,6 +1568,26 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
         1000
       );
     }
+  }
+  clearRound(){
+    if (this.leftCard1)
+      this.moveAndRemoveCard(
+        this.leftCard1,
+        this.cardStartPointX,
+        this.leftCard1.y
+      );
+
+    if (this.rightCard1)
+      this.moveAndRemoveCard(
+        this.rightCard1,
+        this.cardStartPointX,
+        this.rightCard1.y
+      );
+
+    setTimeout(() => {
+      this.createHiddenCard();
+    }, 600);
+
   }
 
 }
