@@ -261,7 +261,7 @@
   background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
 }
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
+  @apply flex justify-between w-full items-center px-[4%] mt-1 lg:flex-col lg:items-end;
   position: absolute;
   bottom: 2px;
 }
@@ -453,7 +453,7 @@
 }
 
 .desktop-coin {
-  @apply md:fixed  right-[-6%] top-[50%] z-[99] -rotate-[90deg] h-[122px] flex flex-col justify-end max-md:!hidden;
+  @apply lg:fixed  right-[-6%] top-[50%] z-[99] -rotate-[90deg] h-[122px] flex flex-col justify-end max-lg:!hidden;
 }
 
 .player_A_card h3 {
@@ -834,7 +834,7 @@
   pointer-events: none;
   transition: opacity 0.2s ease, visibility 0.2s ease;
   visibility: hidden;
-  @apply md:gap-2;
+  @apply lg:gap-2;
 }
 
 .bettingButton-i5MaZV {
@@ -846,7 +846,7 @@
   width: 57px;
   position: relative;
   transition: opacity 300ms ease;
-  @apply md:h-[93px] md:w-[93px]  [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px];
+  @apply lg:h-[93px] lg:w-[93px]  [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px];
 }
 
 .bettingButton-i5MaZV:disabled {
@@ -1064,7 +1064,7 @@
   transition: opacity 300ms ease;
 }
 .chip_size_48-odjDTm {
-  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px] h-[57px] w-[57px] md:h-[93px] md:w-[93px] md:rotate-[93deg];
+  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px] h-[57px] w-[57px] lg:h-[93px] lg:w-[93px] lg:rotate-[93deg];
 }
 
 .active-shadow {

@@ -1,4 +1,4 @@
-<div class="relative md:max-w-[22rem] md:hidden" >
+<div class="relative lg:max-w-[22rem] lg:hidden" >
     <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM">
         <div class="overflow-visible animation-container" [ngClass]="{'open-coin-bar':coinAnimateState}">
             <div class="tab-slider min-w-full" *ngIf="status !== 'SUSPEND'" [ngClass]="{'!bg-transparent':!coinAnimationBg}">
@@ -185,7 +185,7 @@
         </div>
     </div>
 
-    <div class="buttonsPanel-hAiFyw buttonsPanel_bettingState-vnMbbl md:!justify-end md:pr-2.5">
+    <div class="buttonsPanel-hAiFyw buttonsPanel_bettingState-vnMbbl lg:!justify-end lg:pr-2.5">
         <div class="buttonsPanel__buttons-nTrdCX">
             <div class="buttonsPanel__bettingButtons-tJAgVE " *ngIf="status !== 'SUSPEND'">
                 <button (click)="openQuickStakes()"
@@ -411,7 +411,7 @@
 
 
 
-<div class="desktop-coin  relative md:max-w-[22rem] !hidden">
+<div class="desktop-coin  relative lg:max-w-[22rem] !hidden">
     <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM">
         <div class="overflow-visible animation-container" [ngClass]="{'open-coin-bar':coinAnimateState}">
             <div class="tab-slider min-w-full">
@@ -598,19 +598,19 @@
         </div>
     </div>
 
-    <div class="buttonsPanel-hAiFyw buttonsPanel_bettingState-vnMbbl md:!justify-end md:pr-2.5 !hidden">
+    <div class="buttonsPanel-hAiFyw buttonsPanel_bettingState-vnMbbl lg:!justify-end lg:pr-2.5 !hidden">
         <div class="buttonsPanel__buttons-nTrdCX">
             <div class="buttonsPanel__bettingButtons-tJAgVE ">
                 <button (click)="openQuickStakes()"
                     class="bettingButton-i5MaZV bg-[rgba(138,138,153,0.2)] flex justify-center items-center"
                     type="button" data-locator="undo-bet-btn">
-                    <img class="w-[23px] h-[28px]  md:w-[46px] md:h-[56px]" src="/images/stakeEdit.svg"
+                    <img class="w-[23px] h-[28px]  lg:w-[46px] lg:h-[56px]" src="/images/stakeEdit.svg"
                         alt="Stake Edit">
                 </button>
                 <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI" type="button" disabled=""
                     data-locator="undo-bet-btn">
                     <span class="bettingButton__icon-PmQi1e"><svg
-                            class="svgIcon-JpUo7O svgIcon_large-z8G1_Q md:!h-full rotate-[90deg] md:!w-full"
+                            class="svgIcon-JpUo7O svgIcon_large-z8G1_Q lg:!h-full rotate-[90deg] lg:!w-full"
                             viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="m24 17c-3.866 0-7 3.134-7 7 0 0.5523-0.4477 1-1 1s-1-0.4477-1-1c0-4.9706 4.0295-9 9-9 4.9706 0 9 4.0294 9 9s-4.0294 9-9 9c-0.5523 0-1-0.4477-1-1s0.4477-1 1-1c3.866 0 7-3.134 7-7s-3.134-7-7-7z"
@@ -621,14 +621,14 @@
                         class="rippleWavesDetectArea-YqGgIY"></span>
                 </button>
                 <div data-locator="chip-tray-button" *ngIf="coinAnimateState"
-                    class=" chipTrayButtonWithToggle_open-LlvgMl chipTrayButtonWithToggle_horizontal-CwZaXB md:!h-[93px] md:!w-[93px] rotate-[90deg]">
+                    class=" chipTrayButtonWithToggle_open-LlvgMl chipTrayButtonWithToggle_horizontal-CwZaXB lg:!h-[93px] lg:!w-[93px] rotate-[90deg]">
                     <div
-                        class="chipTrayButtonWithToggle__bg-zQXxFd md:!h-[93px] md:!w-[93px] flex justify-center items-center">
+                        class="chipTrayButtonWithToggle__bg-zQXxFd lg:!h-[93px] lg:!w-[93px] flex justify-center items-center">
                         <button (click)="showAnimateCoinBar()"
                             class="iconButton-by3moV  iconButton_theme_default-G6tVtR iconButton_size_medium-YQpLaw iconButton_borderRadiusSize_default-SAVSQu"
                             type="button">
                             <span class="iconButton__icon-k1NKdw">
-                                <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg md:!w-[46px]" viewBox="0 0 24 24"
+                                <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg lg:!w-[46px]" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M20 6.99992C20 5.89535 16.4183 5 12 5C7.58172 5 4.00004 5.89534 4.00004 6.99991L4 8.99987C4 10.1044 7.58172 10.9999 12 10.9999C16.4183 10.9999 20 10.1044 20 8.99987V6.99992Z"
@@ -651,7 +651,7 @@
                 <div class="chipTrayWithToggle__item-nLy9Sn !p-0" (click)="showAnimateCoinBar()"
                     *ngIf="!coinAnimateState && btnCheck ===1">
                     <div class="chips-rzbOIK ">
-                        <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] md:!h-[93px] md:!w-[93px] rotate-[90deg]"
+                        <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] lg:!h-[93px] lg:!w-[93px] rotate-[90deg]"
                             data-locator="chip-250">
                             <div class="chip__1st">
                                 <div class="chip__borderDecor-8XR0Vn chip__borderDecor_medium-mF_aBv">
@@ -676,7 +676,7 @@
                 <div class="chipTrayWithToggle__item-nLy9Sn !p-0 " (click)="showAnimateCoinBar()"
                     *ngIf="btnIcon && btnCheck ===2">
                     <div class="chips-rzbOIK ">
-                        <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] md:!h-[93px] md:!w-[93px] rotate-[90deg]"
+                        <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] lg:!h-[93px] lg:!w-[93px] rotate-[90deg]"
                             data-locator="chip-250">
                             <div class="chip__frontSide-njKKgE"
                                 style=" background: linear-gradient(135deg, #f93 0%, #f50 100%, #8a8a99);">
@@ -702,7 +702,7 @@
                 <div class="chipTrayWithToggle__item-nLy9Sn !p-0" (click)="showAnimateCoinBar()"
                     *ngIf="btnIcon && btnCheck ===3">
                     <div class="chips-rzbOIK ">
-                        <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] md:!h-[93px] md:!w-[93px] rotate-[90deg]"
+                        <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] lg:!h-[93px] lg:!w-[93px] rotate-[90deg]"
                             data-locator="chip-250">
                             <div class="chip__frontSide-njKKgE"
                                 style="background: linear-gradient(135deg, #f69 0%, #c06 100%);">
@@ -728,7 +728,7 @@
                 <div class="chipTrayWithToggle__item-nLy9Sn !p-0" (click)="showAnimateCoinBar()"
                     *ngIf="btnIcon && btnCheck ===4">
                     <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
-                        <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] md:!h-[93px] md:!w-[93px] rotate-[90deg]"
+                        <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] lg:!h-[93px] lg:!w-[93px] rotate-[90deg]"
                             data-locator="chip-250">
                             <div class="chip__frontSide-njKKgE"
                                 style="background:  linear-gradient(135deg, #f33 0%, #900 100%)">
@@ -754,7 +754,7 @@
                 <div class="chipTrayWithToggle__item-nLy9Sn !p-0" (click)="showAnimateCoinBar()"
                     *ngIf="btnIcon && btnCheck ===5">
                     <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
-                        <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] md:!h-[93px] md:!w-[93px] rotate-[90deg]"
+                        <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] lg:!h-[93px] lg:!w-[93px] rotate-[90deg]"
                             data-locator="chip-250">
                             <div class="chip__frontSide-njKKgE"
                                 style="background: linear-gradient(135deg, #5f29cc 0%, #009 100%);">
@@ -780,7 +780,7 @@
                 <div class="chipTrayWithToggle__item-nLy9Sn !p-0" (click)="showAnimateCoinBar()"
                     *ngIf="btnIcon && btnCheck ===6">
                     <div class="chips-rzbOIK chips_winDefaultTheme-qvtOIg">
-                        <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] md:!h-[93px] md:!w-[93px] rotate-[90deg] "
+                        <div class="chip-kcN8LW chip_size_48-odjDTm !h-[48px] !w-[48px] lg:!h-[93px] lg:!w-[93px] rotate-[90deg] "
                             data-locator="chip-250">
                             <div class="chip__frontSide-njKKgE"
                                 style="background: linear-gradient(135deg, #2e3133 0%, #0b0c0d 100%);">
@@ -836,7 +836,7 @@
 
 <!-- desktop-coin  -->
 
-<div class="flex items center gap-[9.78px] relative !mt-[51px] max-md:hidden justify-center"
+<div class="flex items center gap-[9.78px] relative !mt-[51px] max-lg:hidden justify-center"
     *ngIf="status !== 'SUSPEND'">
 
     <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI !h-[47.45px] !w-[47.45px]" type="button" disabled=""
