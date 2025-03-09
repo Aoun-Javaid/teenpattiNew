@@ -49,7 +49,8 @@
 
 
                 <!-- Teen patti Cards Section starts here -->
-                <div class="teen_patti_conatiner absolute top-[-5.375rem] [@media(min-width:1200px)]:top-[1.625rem]   w-full md:!max-w-[473px]" [ngClass]="{'[@media(min-width:1200px)]:z-[20]':game.status === 'SUSPEND'}"
+                <div class="teen_patti_conatiner absolute top-[-5.375rem] [@media(min-width:1200px)]:top-[1.625rem]   w-full md:!max-w-[473px] md:!scale-[1.21] [@media(min-width:1200px)]:!mt-0"
+                    [ngClass]="{'[@media(min-width:1200px)]:z-[20]':game.status === 'SUSPEND'}"
                     [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
 
                     <!-- <div class="flex items-center w-full absolute  top-[-15px] pe-[9%] z-[99]">
@@ -65,7 +66,8 @@
 
 
                     <!-- Player A cards start here -->
-                    <div class="custom_flex  gap-2  [@media(min-width:1200px)]:!gap-1 player_A_cards [@media(min-width:1200px)]:!p-[10px_55px_10px_10px] [@media(min-width:1200px)]:!justify-end">
+                    <div
+                        class="custom_flex  gap-2  [@media(min-width:1200px)]:!gap-1 player_A_cards [@media(min-width:1200px)]:!p-[10px_55px_10px_10px] [@media(min-width:1200px)]:!justify-end  ">
 
                         <img [ngClass]="{ 'card-animation': playerACards?.card_1 && playerACards?.card_1 !== '0', 'opacity-0': !(playerACards?.card_1 && playerACards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
                             [src]="['/assets/52-cards/'+playerACards?.card_1+'.svg']" class="card-img" alt="card1">
@@ -77,7 +79,8 @@
                     <!-- Player A cards ends here -->
 
                     <!-- Player B cards start here -->
-                    <div class="custom_flex gap-2 player_B_cards [@media(min-width:1200px)]:!gap-1 [@media(min-width:1200px)]:!p-[10px_10px_10px_55px] [@media(min-width:1200px)]:!justify-start">
+                    <div
+                        class="custom_flex gap-2 player_B_cards [@media(min-width:1200px)]:!gap-1 [@media(min-width:1200px)]:!p-[10px_10px_10px_55px] [@media(min-width:1200px)]:!justify-start">
 
                         <img [ngClass]="{ 'card-animation': playerBCards?.card_1 && playerBCards?.card_1 !== '0', 'opacity-0': !(playerBCards?.card_1 && playerBCards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
                             [src]="'/assets/52-cards/' + playerBCards?.card_1 + '.svg'" class="card-img" alt="card1">
@@ -129,10 +132,10 @@
                         </div>
                     </div>
                     <div
-                        class="relative !mx-[2%]    md:!mx-0 !bg-[black] [@media(min-width:1200px)]:!bg-transparent rounded-b-[17px]">
+                        class="relative !mx-[2%]  lg:bottom-[28px]  md:!mx-0 !bg-[black] [@media(min-width:1200px)]:!bg-transparent rounded-b-[17px]">
                         <!-- main contnet -->
-                        <div class=" mb-[1.5rem] md:mb-[5px] relative p-[17.9048%]  md:!p-0">
-                            <div class="h-[7.75rem] w-[21rem] [@media(min-width:1200px)]:w-[473px] [@media(min-width:1200px)]:max-h-[168px] absolute left-[50%] z-[1] md:!scale-[1] md:static"
+                        <div class="mb-[1.5rem] md:mb-[5px] relative p-[17.9048%]  md:!p-0">
+                            <div class="h-[7.75rem] w-[21rem] [@media(min-width:1200px)]:w-[473px] [@media(min-width:1200px)]:max-h-[168px] absolute left-[50%] z-[1] md:!scale-[1.21] md:static"
                                 style="transform: translate(-50%, -50%) scale(var(--boardScale, 1));">
                                 <svg class="betPlacesGridSvg md:w-[473px] [@media(min-width:1200px)]:max-h-[168px]"
                                     viewBox="0 0 336 124" xmlns="http://www.w3.org/2000/svg">
@@ -420,7 +423,7 @@
                                     </div>
                                 </div>
                                 <div class="table__betInfoGrid md:h-[168px] md:px-[15px] md:w-[473px]">
-                                    <div class="betPlaceInfo "
+                                    <div class="betPlaceInfo md:!pt-[15px]"
                                         [ngClass]="this.game.status=='SUSPEND'?'player_A_player_B_opacity':''">
                                         <div class="betPlayer_A ">
                                             {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}
@@ -438,7 +441,7 @@
 
                                     </div>
 
-                                    <div class="betPlaceInfo betPlaceInfo_main_playerB "
+                                    <div class="betPlaceInfo betPlaceInfo_main_playerB md:!pt-[15px]"
                                         [ngClass]="this.game.status=='SUSPEND'?'player_A_player_B_opacity':''">
                                         <div class="betPlayer_A ">
                                             {{marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId]}}
@@ -498,7 +501,7 @@
 
                                     </div>
 
-                                    <div class="betPlaceInfo_bonus betPlaceInfo font-[Rubik,sans-serif]">
+                                    <div class="betPlaceInfo_bonus betPlaceInfo font-[Rubik,sans-serif] md:!h-[6.125rem]">
 
                                         <div class="bounus ">Bonus</div>
 
@@ -645,4 +648,3 @@
 <!-- <app-bets-chips *ngIf="BetPlaced[winnerMarketArray?.marketId][winnerMarketArray.runners[1].selectionId]"
   [BetPlaced]="BetPlaced" [marketId]="winnerMarketArray?.marketId"
   [runnerId]="winnerMarketArray.runners[1].selectionId"></app-bets-chips> -->
-
