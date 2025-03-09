@@ -154,7 +154,7 @@
 } */
 
 .win-animation {
-  animation: ctaAnimation-Nm6A8V 500ms ease infinite forwards;
+  animation: ctaAnimation-Nm6A8V 1s ease infinite forwards;
 }
 
 @keyframes ctaAnimation-Nm6A8V {
@@ -167,7 +167,7 @@
 }
 
 .win-animation-player-a {
-  animation: ctaAnimation-A 500ms ease infinite forwards;
+  animation: ctaAnimation-A 1s ease infinite forwards;
 }
 
 @keyframes ctaAnimation-A {
@@ -1338,7 +1338,7 @@
 }
 
 ::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
-  @apply [@media(min-width:1200px)]:top-[10rem] !important;
+  @apply [@media(min-width:1200px)]:!top-[calc(100vh-500px)];
 }
 
 /* Tabs */
