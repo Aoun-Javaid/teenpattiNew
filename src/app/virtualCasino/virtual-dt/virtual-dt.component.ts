@@ -17,9 +17,42 @@ import {CommonModule} from "@angular/common";
 import {BetCoinComponent} from "../../shared/bet-coin/bet-coin.component";
 import {ShortNumberPipe} from "../../pipes/short-number.pipe";
 import {QuickStakesEditComponent} from "../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component";
-import { VtdPhaserComponent } from "../casinoPhaser/vtd-phaser/vtd-phaser.component";
 
 declare var $: any;
+interface Card {
+  img: HTMLImageElement;
+  // Current drawing properties
+  x: number;
+  y: number;
+  alpha: number;
+  scale: number;
+  // Starting and target positions for initial animation
+  initialX: number;
+  initialY: number;
+  targetX: number;
+  targetY: number;
+  // Animation phase/state:
+  // 'initial' = animating into view,
+  // 'displayed' = shown and static,
+  // 'upDown' = performing up/down animation,
+  // 'disappearing' = fading/moving out,
+  // 'completed' = finished and should no longer be drawn.
+  phase: 'initial' | 'displayed' | 'upDown' | 'disappearing' | 'completed';
+  // For initial animation:
+  animationStartTime: number;
+  animationDuration: number;
+  upDownCycles?: number;
+  // For up/down animation:
+  upDownStartTime?: number;
+  upDownDuration?: number;
+  upDownOffset?: number;
+  originalY?: number;
+  // For disappearing animation:
+  disappearTargetX?: number;
+  disappearTargetY?: number;
+  disappearStartTime?: number;
+  disappearDuration?: number;
+}
 
 @Component({
   selector: 'app-virtual-dt',
@@ -27,7 +60,6 @@ declare var $: any;
   imports: [
     TimerComponent,
     TopResultsComponent, CommonModule, BetCoinComponent, BetsChipsComponent, ShortNumberPipe, QuickStakesEditComponent,
-    VtdPhaserComponent
 ],
   templateUrl: './virtual-dt.component.html',
   styleUrl: './virtual-dt.component.css'
@@ -51,6 +83,7 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
   animateCoinVal: any
   waitRound: any
   animate = false
+  cards: any = {};
   public message = {
     type: "1",
     id: ""
@@ -144,7 +177,8 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
 
     // this.eventid = this.route.snapshot.params['id'];
     // localStorage.setItem('eventId', this.eventid)
-    this.eventid = localStorage.getItem('eventId');
+    // this.eventid = localStorage.getItem('eventId');
+    this.eventid = '99.0018'
     this.message.id = this.eventid;
     this.messageResult.id = this.eventid;
     this.isDesktop = this.deviceService.isDesktop();
@@ -186,7 +220,7 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
     }
     // if(this.game == undefined || this.game === null){
     this.resultcounter = 0;
-    // this.socket.connect();
+    this.socket.connect();
     // this.sendMsg();
 
     this.encyDecy.generateEncryptionKey('', this.message);
@@ -246,6 +280,8 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
             this.betSelectedPlayer = '';
             this.secndBoxWidth = '';
             this.firstBoxWidth = '';
+            this.clearRound();
+            this.cards={};
 
           }
 
@@ -262,11 +298,37 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
           this.tigerCards = this.game?.cardsArr?.TIGER;
 
           if (this.dragonCards) {
-            if (this.dragonCards?.card_1 == 0 && this.game.status == 'SUSPEND') {
-              this.game.noMoreBets = true;
+            if(this.dragonCards.card_1!=0 && !this.cards.card_11){
+              this.cards.card_11=true
+              const targetX = this.cardStartPointX - this.leftCard1EndPositionX;
+              this.leftCard1 = this.createCard(
+                this.dragonCards.card_1,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
             }
-            else {
+            if (
+              this.dragonCards?.card_1 == 0 &&
+              this.game.status == 'SUSPEND'
+            ) {
+              this.game.noMoreBets = true;
+            } else {
               this.game.noMoreBets = false;
+            }
+          }
+          if(this.tigerCards){
+            if(this.tigerCards.card_1!=0 && !this.cards.card_21){
+              this.cards.card_21=true
+              const targetX = this.cardStartPointX + this.rightCard1EndPositionX;
+              this.rightCard1 = this.createCard(
+                this.tigerCards.card_1,
+                this.cardStartPointX,
+                this.cardStartPointY,
+                targetX,
+                this.cardEndPointY
+              );
             }
           }
           this.winnerMarketArray = this.game.marketArr ? this.game.marketArr[0] : ''
@@ -320,6 +382,18 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
 
     this.getAllMarketProfitLoss();
     this.getResults();
+    const canvasEl = this.canvas.nativeElement;
+    canvasEl.width = this.width;
+    canvasEl.height = this.height;
+    this.ctx = canvasEl.getContext('2d')!;
+
+    // Set breakpoints (you can extend this logic as needed)
+    this.setBreakPoints();
+
+    // Preload images then start the render loop
+    this.preloadImages().then(() => {
+      this.render();
+    });
   }
 
 
@@ -357,7 +431,6 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
 
       this.BetPlaced[marketId][selectionId] = stake;
     }
-    console.log('bet placed', this.BetPlaced);
     this.betsChipsComponent?.CalculateIndex();
 
     this.game.betAccepted = true;
@@ -441,14 +514,21 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
 
 
 
-            console.warn('resultss test',this.resultArray[1].runners[this.marketArray[1]?.runners[0]?.selectionId])
-            console.warn('resultss',objMarket.data.resultsArr)
+
             // for video results
             for (let key in objMarket.data.resultsArr[0].runners) {
               if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
 
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
-                // console.log(this.RoundWinner)
+                setTimeout(() => {
+
+                  if (this.RoundWinner === 'DRAGON') {
+                    if (this.leftCard1) this.animateUpDown(this.leftCard1);
+                  } else if (this.RoundWinner === 'TIGER') {
+                    if (this.rightCard1) this.animateUpDown(this.rightCard1);
+                  }
+
+                }, 500);
                 this.BetPlaced = [];
               }
               if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
@@ -562,8 +642,6 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
       }, 1000);
     }
 
-    console.log('method clicked ', price)
-    return
     if (this.game.status != 'SUSPEND' && !this.isbetInProcess) {
       if (this.selectedBetAmount > 0) {
         this.isBetsSlipOpened = selectionId;
@@ -942,7 +1020,8 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
 
 
   getCoinValue(event: any) {
-    console.log('event', event);
+    this.selectedBetAmount = event;
+
   }
 
 
@@ -1105,4 +1184,401 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
     }
     // console.log('onclick', this.selectedBetAmount);
   }
+  clearRound(){
+    if (this.leftCard1)
+      this.moveAndRemoveCard(
+        this.leftCard1,
+        this.cardStartPointX,
+        this.leftCard1.y
+      );
+    if (this.rightCard1)
+      this.moveAndRemoveCard(
+        this.rightCard1,
+        this.cardStartPointX,
+        this.rightCard1.y
+      );
+    setTimeout(() => {
+      this.createHiddenCard();
+    }, 600);
+
+  }
+  @ViewChild('canvas', { static: true })
+  canvas!: ElementRef<HTMLCanvasElement>;
+  private ctx!: CanvasRenderingContext2D;
+  private animationFrameId!: number;
+
+  // Canvas dimensions
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  // Game parameters (simplified; adjust as needed)
+  cardSize = 15;
+  hiddenCardSize = 15;
+  cardStartPointX = this.width * 0.5;
+  cardStartPointY = this.height * 0.3;
+  cardEndPointY = this.cardStartPointY + 70;
+  // End positions for left/right animations (using sample offsets)
+  leftCard1EndPositionX = 27;
+  rightCard1EndPositionX = 105;
+  hiddenCardEndPointX = this.width * 0.22;
+  hiddenCardEndPointY = this.height * 0.43;
+
+  // Store active cards (only one per slot for demo)
+  private leftCard1: Card | null = null;
+  private rightCard1: Card | null = null;
+  private hiddenCard: Card | null = null;
+
+  // Dictionary for loaded images
+  private images: { [key: string]: HTMLImageElement } = {};
+
+  // Adjust game parameters based on canvas size
+  private setBreakPoints() {
+    switch (true) {
+
+      case this.width >= 850:
+        this.cardSize = 15;
+        this.hiddenCardSize = 65;
+        this.cardStartPointX = this.width * 0.45;
+        this.cardStartPointY = this.height * 0.45;
+        this.cardEndPointY = this.cardStartPointY + 80;
+        this.leftCard1EndPositionX = 30;
+        this.rightCard1EndPositionX = 80;
+        this.hiddenCardEndPointX = this.width * 0.27;
+        this.hiddenCardEndPointY = this.height * 0.41;
+
+        break;
+
+      case this.width >= 820:
+        this.cardSize = 15;
+        this.hiddenCardSize = 65;
+        this.cardStartPointX = this.width * 0.45;
+        this.cardStartPointY = this.height * 0.45;
+        this.cardEndPointY = this.cardStartPointY + 80;
+        this.leftCard1EndPositionX = 30;
+        this.rightCard1EndPositionX = 80;
+        this.hiddenCardEndPointX = this.width * 0.16;
+        this.hiddenCardEndPointY = this.height * 0.43;
+
+        break;
+
+      case this.width >= 768:
+        this.cardSize = 15;
+        this.hiddenCardSize = 60;
+        this.cardStartPointX = this.width * 0.45;
+        this.cardStartPointY = this.height * 0.45;
+        this.cardEndPointY = this.cardStartPointY + 80;
+        this.leftCard1EndPositionX = 40;
+        this.rightCard1EndPositionX = 60;
+        this.hiddenCardEndPointX = this.width * 0.11;
+        this.hiddenCardEndPointY = this.height * 0.41;
+
+        break;
+
+      case this.width >= 390:
+        this.cardSize = 15;
+        this.hiddenCardSize = 39;
+        this.cardStartPointX = this.width * 0.48;
+        this.cardStartPointY = this.height * 0.48;
+        this.cardEndPointY = this.cardStartPointY + 36;
+        this.leftCard1EndPositionX = 40;
+        this.rightCard1EndPositionX = 15;
+        this.hiddenCardEndPointX = this.width * 0.10;
+        this.hiddenCardEndPointY = this.height * 0.45;
+
+        break;
+
+
+      case this.width >= 320:
+        this.cardSize = 15;
+        this.hiddenCardSize = 37;
+        this.cardStartPointX = this.width * 0.47
+        this.cardStartPointY = this.height * 0.49;
+        this.cardEndPointY = this.cardStartPointY + 34;
+        this.leftCard1EndPositionX = 27;
+        this.rightCard1EndPositionX = 27;
+        this.hiddenCardEndPointX = this.width * 0.10;
+        this.hiddenCardEndPointY = this.height * 0.45;
+
+        break;
+
+
+      default:
+        this.cardSize = 15;
+        this.hiddenCardSize = 80;
+        this.cardStartPointX = this.width * 0.49;
+        this.cardStartPointY = this.height * 0.35;
+        this.cardEndPointY = this.cardStartPointY + 180;
+        this.leftCard1EndPositionX = 60;
+        this.rightCard1EndPositionX = 60;
+        this.hiddenCardEndPointX = this.width * 0.25;
+        this.hiddenCardEndPointY = this.height * 0.10;
+
+        break;
+    }
+  }
+
+  // Preload a set of card images (adjust or add more as needed)
+  private preloadImages(): Promise<void> {
+    const cardNames = [
+      'Broder',
+      'C2_', 'C3_', 'C4_', 'C5_', 'C6_', 'C7_', 'C8_', 'C9_', 'C10_', 'CA_', 'CJ_', 'CQ_', 'CK_',
+      'D2_', 'D3_', 'D4_', 'D5_', 'D6_', 'D7_', 'D8_', 'D9_', 'D10_', 'DA_', 'DJ_', 'DQ_', 'DK_',
+      'H2_', 'H3_', 'H4_', 'H5_', 'H6_', 'H7_', 'H8_', 'H9_', 'H10_', 'HA_', 'HJ_', 'HQ_', 'HK_',
+      'S2_', 'S3_', 'S4_', 'S5_', 'S6_', 'S7_', 'S8_', 'S9_', 'S10_', 'SA_', 'SJ_', 'SQ_', 'SK_'
+    ];
+    const promises = cardNames.map((name) => {
+      return new Promise<void>((resolve, reject) => {
+        const img = new Image();
+        img.src = `/assets/52 Cards skew/${name}.svg`;
+        img.onload = () => {
+          this.images[name] = img;
+          resolve();
+        };
+        img.onerror = () => reject(`Error loading image: ${name}`);
+      });
+    });
+    return Promise.all(promises).then(() => {});
+  }
+
+  // Create a new card with initial animation properties.
+  private createCard(
+    cardName: string,
+    startX: number,
+    startY: number,
+    targetX: number,
+    targetY: number,
+    duration = 600
+  ): Card {
+    const img = this.images[cardName];
+    return {
+      img,
+      x: startX,
+      y: startY,
+      initialX: startX,
+      initialY: startY,
+      targetX,
+      targetY,
+      alpha: 0,
+      scale: this.cardSize / img.width,
+      phase: 'initial',
+      animationStartTime: performance.now(),
+      animationDuration: duration,
+    };
+  }
+
+  // Listen for key presses to trigger card animations.
+  // Keys '1'-'6' create cards.
+  // 'L' or 'l' animate left cards up/down.
+  // 'R' or 'r' animate right cards up/down.
+  // 'D' or 'd' trigger the disappearing animation.
+  @HostListener('window:keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent): void {
+    switch (event.key) {
+      case '1': {
+        const targetX = this.cardStartPointX - this.leftCard1EndPositionX;
+        this.leftCard1 = this.createCard(
+          'C5_',
+          this.cardStartPointX,
+          this.cardStartPointY,
+          targetX,
+          this.cardEndPointY
+        );
+        break;
+      }
+      case '4': {
+        const targetX = this.cardStartPointX + this.rightCard1EndPositionX;
+        this.rightCard1 = this.createCard(
+          'H4_',
+          this.cardStartPointX,
+          this.cardStartPointY,
+          targetX,
+          this.cardEndPointY
+        );
+        break;
+      }
+      case 'l':
+      case 'L': {
+        if (this.leftCard1) this.animateUpDown(this.leftCard1);
+        break;
+      }
+      case 'r':
+      case 'R': {
+        if (this.rightCard1) this.animateUpDown(this.rightCard1);
+        break;
+      }
+      case 'd':
+      case 'D': {
+        if (this.leftCard1)
+          this.moveAndRemoveCard(
+            this.leftCard1,
+            this.cardStartPointX,
+            this.leftCard1.y
+          );
+        if (this.rightCard1)
+          this.moveAndRemoveCard(
+            this.rightCard1,
+            this.cardStartPointX,
+            this.rightCard1.y
+          );
+        setTimeout(() => {
+          this.createHiddenCard();
+        }, 700);
+        break;
+      }
+      default:
+        break;
+    }
+  }
+
+  // Initiate an up/down (yoyo) animation on the given card.
+  private animateUpDown(card: Card): void {
+    if (card.phase === 'displayed') {
+      card.phase = 'upDown';
+      card.upDownStartTime = performance.now();
+      card.upDownDuration = 600; // total duration (up + down)
+      card.upDownOffset = 15; // move 15 pixels up
+      card.originalY = card.y;
+      card.upDownCycles = 0;
+    }
+  }
+
+  // Initiate a disappearing animation on the card (moves it to target X and fades out).
+  private moveAndRemoveCard(
+    card: Card,
+    endX: number,
+    endY: number,
+    duration = 1000
+  ): void {
+    card.phase = 'disappearing';
+    card.disappearStartTime = performance.now();
+    card.disappearDuration = duration;
+    card.disappearTargetX = endX;
+    card.disappearTargetY = endY;
+    // Save starting position for interpolation.
+    card.initialX = card.x;
+    card.initialY = card.y;
+  }
+
+  // Main render loop.
+  private render = (): void => {
+    this.ctx.clearRect(0, 0, this.width, this.height);
+    const now = performance.now();
+
+    // Update & draw each card if present.
+    this.updateAndDrawCard(this.leftCard1, now);
+    this.updateAndDrawCard(this.rightCard1, now);
+    this.updateAndDrawCard(this.hiddenCard, now);
+    this.animationFrameId = requestAnimationFrame(this.render);
+  };
+
+  // Update each card’s state based on its current phase and then draw it.
+  private updateAndDrawCard(card: Card | null, now: number): void {
+    if (!card || card.phase === 'completed') {
+      return;
+    }
+    switch (card.phase) {
+      case 'initial': {
+        const elapsed = now - card.animationStartTime;
+        const progress = Math.min(elapsed / card.animationDuration, 1);
+        card.x = card.initialX + (card.targetX - card.initialX) * progress;
+        card.y = card.initialY + (card.targetY - card.initialY) * progress;
+        card.alpha = progress;
+        if (progress >= 1) {
+          card.phase = 'displayed';
+          card.x = card.targetX;
+          card.y = card.targetY;
+          card.alpha = 1;
+        }
+        break;
+      }
+      case 'upDown': {
+        const elapsed = now - (card.upDownStartTime || now);
+        const progress = Math.min(elapsed / (card.upDownDuration || 600), 1);
+        if (progress < 0.5) {
+          // Move upward.
+          card.y =
+            (card.originalY || card.y) -
+            (card.upDownOffset || 15) * (progress / 0.5);
+        } else {
+          // Move back downward.
+          card.y =
+            (card.originalY || card.y) -
+            (card.upDownOffset || 15) * (1 - (progress - 0.5) / 0.5);
+        }
+        if (progress >= 1) {
+          // Increase the cycle count.
+          card.upDownCycles = (card.upDownCycles || 0) + 1;
+          if (card.upDownCycles < 2) {
+            // Start another cycle: reset start time.
+            card.upDownStartTime = now;
+          } else {
+            // Completed two cycles – return to 'displayed' state.
+            card.phase = 'displayed';
+            card.y = card.originalY || card.y;
+          }
+        }
+        break;
+      }
+
+      case 'disappearing': {
+        const elapsed = now - (card.disappearStartTime || now);
+        const progress = Math.min(
+          elapsed / (card.disappearDuration || 1000),
+          1
+        );
+        card.x =
+          card.initialX +
+          ((card.disappearTargetX || card.x) - card.initialX) * progress;
+        card.y =
+          card.initialY +
+          ((card.disappearTargetY || card.y) - card.initialY) * progress;
+        card.alpha = 1 - progress;
+        if (progress >= 1) {
+          card.phase = 'completed';
+          return; // Do not draw if completed.
+        }
+        break;
+      }
+      // 'displayed' means no further changes.
+    }
+    // Draw the card on the canvas.
+    this.ctx.save();
+    this.ctx.globalAlpha = card.alpha;
+    this.ctx.translate(card.x, card.y);
+    this.ctx.scale(card.scale, card.scale);
+    this.ctx.drawImage(card.img, -card.img.width / 2, -card.img.height / 2);
+    this.ctx.restore();
+  }
+
+  // Function to create a C5 card and animate it disappearing to the target coordinates.
+  public createHiddenCard(): void {
+    const startX = this.cardStartPointX;
+    const startY = this.cardEndPointY;
+    // Create the C5 card using the existing createCard function.
+    // Here we pass startX and startY as both the initial and target positions,
+    // and a duration of 0 so that it appears immediately.
+    this.hiddenCard = this.createCard(
+      'Broder',
+      startX,
+      startY,
+      startX,
+      startY,
+      0
+    );
+
+    // Immediately set its phase to 'displayed'
+    if (this.hiddenCard) {
+      this.hiddenCard.phase = 'displayed';
+      this.hiddenCard.scale = this.hiddenCardSize / this.images['Broder'].width;
+      // Now trigger the disappearing animation:
+      // This will move the card from its current position to x = this.width*0.22, y = this.height*0.43 over 1000 ms.
+      this.moveAndRemoveCard(
+        this.hiddenCard,
+        this.hiddenCardEndPointX,
+        this.hiddenCardEndPointY,
+        1000
+      );
+    }
+  }
+
 }
