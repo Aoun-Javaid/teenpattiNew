@@ -554,9 +554,8 @@
 }
 
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
+  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end bottom-[2px] md:bottom-[50px] xl:bottom-[2px];
   position: absolute;
-  bottom: 2px;
 }
 
 .dicbg {

@@ -2,7 +2,7 @@
 
 @layer utilities {
   .content_wrapper {
-    @apply fixed z-[1600] bottom-0 bg-[#0E212E] h-[52px] max-h-[60px]  md:hidden flex flex-row justify-between items-center w-full;
+    @apply fixed z-[1600] bottom-0 bg-[#0E212E] h-[52px] max-h-[60px]  xl:hidden flex flex-row justify-between items-center w-full;
   }
   .content_container {
     @apply grid grid-cols-4 w-full place-items-center;
@@ -20,7 +20,7 @@
     @apply text-[15px] leading-[17.9px] font-semibold text-white;
   }
   .navigation-wrapper {
-    @apply grid justify-center w-full leading-[1] p-[0_1rem] bg-[#0f212e] shadow-[0_5px_5px_#0a1c2766] overflow-hidden h-[52px] fixed bottom-0 z-[1600] md:hidden grid-cols-5;
+    @apply grid justify-center w-full leading-[1] p-[0_1rem] bg-[#0f212e] shadow-[0_5px_5px_#0a1c2766] overflow-hidden h-[52px] fixed bottom-0 z-[1600] xl:hidden grid-cols-5;
   }
 
   .button-wrap {
