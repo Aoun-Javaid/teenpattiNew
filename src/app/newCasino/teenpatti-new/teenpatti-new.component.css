@@ -228,13 +228,13 @@
 }
 
 .betPlayer_A {
-  @apply [@media(max-width:1024)]:!text-[1.125rem];
+  @apply [@media(max-width:1024px)]:!text-[1.125rem];
   font-size: 1.5rem;
   font-weight: 800;
 }
 
 .betPlaceInfo__roundInfo {
-  @apply [@media(max-width:1024)]:!text-[0.625rem] [@media(max-width:1024)]:!m-[0.25rem_0];
+  @apply [@media(max-width:1024px)]:!text-[0.625rem] [@media(max-width:1024px)]:!m-[0.25rem_0];
   font-size: 0.875rem;
   margin: 0.5rem 0;
   position: relative;
@@ -615,7 +615,7 @@
   align-items: flex-end;
   padding: 0px 19px;
   height: 10rem;
-  @apply [@media(min-width:1200px)]:p-0;
+  @apply xl:p-0;
 }
 .teen_patti_conatiner::before {
 }
@@ -623,17 +623,17 @@
 
 /* Winning Percentage Chances Section starts here */
 .win_percentage_container {
-  /* padding: 0px 2%; */
+  padding: 0px 2%;
   /* background-color: black; */
   width: 100%;
   /* margin-top: 15px; */
-  @apply [@media(max-width:1024px)]:!px-[2%];
+  @apply [@media(max-width:1220px)]:!px-[2%];
 }
 
 .win_percentage_wrapper {
   height: 35px;
   /* padding: 8px; */
-  @apply [@media(max-width:767px)]:h-[35px] [@media(max-width:1024px)]:h-[51px];
+  @apply md:h-[43px] lg:h-[51px] xl:h-[35px];
 }
 
 .player_B_cards,
@@ -676,9 +676,7 @@
   width: 40px;
   height: 57px;
 
-  @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px];
-
-  @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px] [@media(min-width:1200px)]:w-[36px] [@media(min-width:1200px)]:h-[51px];
+ @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px] md:w-[53px] md:h-[75px] lg:w-[70px] lg:h-[99px] xl:w-[36px]  xl:h-[51px];
 }
 
 .progress_bar_container {
@@ -710,7 +708,7 @@
   font-size: 10px;
   /* font-family: "Poppins", sans-serif; */
   height: 19px;
-  @apply [@media(max-width:767px)]:!h-[19px]  [@media(max-width:1024px)]:h-[33px] [@media(max-width:767px)]:!text-[10px]  [@media(max-width:1024px)]:text-[18px];
+  @apply md:h-[25px] lg:h-[33px] xl:h-[19px] md:text-[14px] xl:text-[10px];
 }
 
 /* Winning Percentage Chances Section ends here */
@@ -1337,9 +1335,9 @@
   visibility: hidden;
 }
 
-::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
-  @apply [@media(min-width:1200px)]:!top-[calc(100vh-500px)];
-}
+/* ::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
+  @apply xl:!top-[calc(100vh-500px)];
+} */
 
 /* Tabs */
 .tabs-wrapper {

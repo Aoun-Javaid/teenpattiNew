@@ -846,7 +846,7 @@
   width: 57px;
   position: relative;
   transition: opacity 300ms ease;
-  @apply xl:h-[93px] xl:w-[93px]  [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px];
+  @apply lg:h-[90px] lg:w-[90px]  [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px];
 }
 
 .bettingButton-i5MaZV:disabled {
@@ -880,7 +880,7 @@
 
 .svgIcon_large-z8G1_Q {
   width: 57px;
-  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px]
+  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px] lg:h-[90px] lg:w-[90px] xl:h-[48px] xl:w-[48px]
 }
 
 .svgIcon-JpUo7O {
@@ -963,7 +963,7 @@
 .iconButton_size_medium-YQpLaw {
   height: 57px;
   width: 57px;
-  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px]
+  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px] lg:h-[90px] lg:w-[90px]
 }
 .iconButton-by3moV {
   align-items: center;
@@ -993,6 +993,7 @@
 
 .svgIcon_default-OFLILg {
   width: 1.5rem;
+  @apply lg:w-[2.5rem] xl:w-[1.5rem]
 }
 .svgIcon-JpUo7O {
   fill: currentColor;
@@ -1064,7 +1065,7 @@
   transition: opacity 300ms ease;
 }
 .chip_size_48-odjDTm {
-  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px] h-[57px] w-[57px] xl:h-[93px] xl:w-[93px] xl:rotate-[93deg];
+  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px] h-[57px] w-[57px] lg:h-[90px] lg:w-[90px] xl:rotate-[93deg];
 }
 
 .active-shadow {

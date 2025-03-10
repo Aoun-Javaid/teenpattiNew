@@ -121,7 +121,7 @@ export class BetCoinComponent implements OnInit {
           translateX = '-112px';
           break;
       }
-    } else if (this.screenWith <= 390 && this.screenWith > 375)  {
+    }  if (this.screenWith <= 390 && this.screenWith > 375)  {
       switch (this.btnCheck) {
         case 1:
           translateX = '195px';
@@ -142,7 +142,7 @@ export class BetCoinComponent implements OnInit {
           translateX = '-100px';
           break;
       }
-    } else if (this.screenWith <= 375) {
+    }  if (this.screenWith <= 375) {
       switch (this.btnCheck) {
         case 1:
           translateX = '185px';
@@ -164,30 +164,76 @@ export class BetCoinComponent implements OnInit {
           break;
       }
     }
+   if (this.screenWith >= 1024 && this.screenWith < 1280) {
+      switch (this.btnCheck) {
+        case 1:
+          translateX = '310px';
+          break;
+        case 2:
+          translateX = '210px';
+          break;
+        case 3:
+          translateX = '120px';
+          break;
+        case 4:
+          translateX = '17px';
+          break;
+        case 5:
+          translateX = '-75.2px';
+          break;
+        case 6:
+          translateX = '-180px';
+          break;
+      }
+    }
 
     document.documentElement.style.setProperty('--translateX', translateX);
 
     let translateXRevers = '212px';
-    switch (this.btnCheck) {
-      case 1:
-        translateXRevers = '212px';
-        break;
-      case 2:
-        translateXRevers = '148px';
-        break;
-      case 3:
-        translateXRevers = '83px';
-        break;
-      case 4:
-        translateXRevers = '17px';
-        break;
-      case 5:
-        translateXRevers = '-47.2px';
-        break;
-      case 6:
-        translateXRevers = '-112px';
-        break;
+    if (this.screenWith >= 1024 && this.screenWith < 1280) {
+      switch (this.btnCheck) {
+        case 1:
+          translateXRevers = '310px';
+          break;
+        case 2:
+          translateXRevers = '210px';
+          break;
+        case 3:
+          translateXRevers = '120px';
+          break;
+        case 4:
+          translateXRevers = '17px';
+          break;
+        case 5:
+          translateXRevers = '-75.2px';
+          break;
+        case 6:
+          translateXRevers = '-180px';
+          break;
+      }
     }
+   else{
+      switch (this.btnCheck) {
+        case 1:
+          translateXRevers = '212px';
+          break;
+        case 2:
+          translateXRevers = '148px';
+          break;
+        case 3:
+          translateXRevers = '83px';
+          break;
+        case 4:
+          translateXRevers = '17px';
+          break;
+        case 5:
+          translateXRevers = '-47.2px';
+          break;
+        case 6:
+          translateXRevers = '-112px';
+          break;
+      }
+   }
 
 
     document.documentElement.style.setProperty('--translateXReverse', translateXRevers);
