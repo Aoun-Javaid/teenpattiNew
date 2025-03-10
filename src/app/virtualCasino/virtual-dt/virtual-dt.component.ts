@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {TimerComponent} from "../shared/timer/timer.component";
 import {TopResultsComponent} from "../../newCasino/shared/top-results/top-results.component";
 import {BetsChipsComponent} from "../../newCasino/shared/bets-chips/bets-chips.component";
@@ -65,11 +65,11 @@ interface Card {
   templateUrl: './virtual-dt.component.html',
   styleUrl: './virtual-dt.component.css'
 })
-export class VirtualDtComponent implements OnInit,OnDestroy {
+export class VirtualDtComponent implements OnInit,OnDestroy,AfterViewInit  {
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
-  @ViewChild('playVideo') bgVideo!: ElementRef;
+  @ViewChild('playVideo') bgVideo !: ElementRef;
   reverseAnimate: boolean = false
-  coinsState: boolean = false; // Coin bar is hidden by default
+  coinsState: boolean = false;
   coinStateActive: boolean = false;
   animateIcon: boolean = false;
   coinAnimateState = false;
@@ -397,6 +397,20 @@ export class VirtualDtComponent implements OnInit,OnDestroy {
     });
   }
 
+  onVideoLoaded(event: Event) {
+    // console.log('Video loaded successfully');
+    this.bgVideo.nativeElement.play();
+  }
+  ngAfterViewInit(): void {
+    const videoElement = this.bgVideo.nativeElement;
+    const playPromise = videoElement.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((error: any) => {
+        videoElement.muted = true;
+        videoElement.play();
+      });
+    }
+  }
 
 
 
