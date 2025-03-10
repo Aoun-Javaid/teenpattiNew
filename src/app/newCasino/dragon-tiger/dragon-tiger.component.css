@@ -7,6 +7,10 @@
   @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
 }
 
+::ng-deep app-video-player .videoPlayer {
+  @apply lg:!top-[-41rem] md:top-[-1.25rem];
+}
+
 .gradientDiv {
   height: 55%;
   /* background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%); */
@@ -438,7 +442,7 @@
 }
 
 .dragonTigerHistoryPortrait__scoreInfo-jDmarn {
-  padding: 0 0.5rem 0.25rem;
+  @apply xl:p-[0_0.5rem_0.25rem] p-0;
   margin-top: 5px;
 }
 
@@ -473,11 +477,12 @@
 }
 
 .scoreBoardInfo__totalItem-KhIYhz {
+  @apply lg:text-[0.625rem] lg:min-w-[1.875rem];
   color: #fff;
   cursor: default;
-  font-size: 0.625rem;
+  font-size: 7px;
   margin: 0 0.25rem;
-  min-width: 1.875rem;
+  min-width: 1rem;
 }
 
 .scoreBoardInfo-USWOxa,
@@ -488,10 +493,12 @@
 }
 
 .scoreBoardInfo__totalItemSvg-eW0Cnx {
+  @apply lg:w-[0.5625rem] lg:mb-0;
   aspect-ratio: 1;
   display: block;
   margin-right: 0.125rem;
-  width: 0.5625rem;
+  width: 0.4625rem;
+  margin-bottom: 1px;
 }
 
 .scoreBoardInfo__button_left-cIMRsf {
@@ -500,10 +507,11 @@
 }
 
 .scoreBoardInfo__button-wmBupa {
+  @apply lg:p-[0.1875rem_0.25rem_0.1875rem_0.4375rem];
   box-sizing: content-box;
   cursor: pointer;
   max-width: 3rem;
-  padding: 0.1875rem 0.25rem 0.1875rem 0.4375rem;
+  padding: 1px 4px;
   position: relative;
   transition: background-color 300ms ease;
 }
