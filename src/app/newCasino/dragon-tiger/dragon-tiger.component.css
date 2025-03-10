@@ -8,7 +8,7 @@
 }
 
 ::ng-deep app-video-player .videoPlayer {
-  @apply lg:!top-[-41rem] md:top-[-1.25rem];
+  @apply md:top-[-1.25rem];
 }
 
 .gradientDiv {
