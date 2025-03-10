@@ -1,21 +1,7 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
   <app-top-results class="xl:hidden"></app-top-results>
   <div #target>
-    <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true" 
-    [displayResult]="false"
+    <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true" [displayResult]="false"
       [unityTimer]="false"></app-video-player>
     <!-- <ng-container *ngIf="isMobileInfo == 'iOS'">
             <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
@@ -895,7 +881,8 @@
   </div>
 </div>
 
-<div class="xl:!flex fixed w-[20.5rem] mx-[2%] bottom-[20%] !hidden flex-col gap-[1.5rem]">
+<div
+  class="xl:!flex fixed [@media(max-width:1360px)]:w-[18rem] w-[20.5rem] mx-[2%] bottom-[20%] !hidden flex-col gap-[1.5rem]">
   <div class="dragonTiger__history-jQwWbi">
     <div class="scoreBoardInfo-USWOxa">
       <div class="scoreBoardInfo__total-b3bUj3">
@@ -932,10 +919,8 @@
           </svg> {{ties}}</div>
       </div>
       <div class="scoreBoardInfo__buttons-nUvY7g">
-        <button
-          class="scoreBoardInfo__button-wmBupa scoreBoardInfo__button_left-cIMRsf" type="button">
-          <svg
-            viewBox="0 0 19 4.5" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+        <button class="scoreBoardInfo__button-wmBupa scoreBoardInfo__button_left-cIMRsf" type="button">
+          <svg viewBox="0 0 19 4.5" xmlns="http://www.w3.org/2000/svg" style="display: block;">
             <path
               d="M0.1319999999999999,4.2
               c-0.037,-0 -0.068,-0.014 -0.093,-0.04c-0.026,-0.027 -0.039,-0.059 -0.039,-0.097l0,-3.72c0,-0.042 0.013,-0.077 0.039,-0.103c0.025,-0.027 0.056,-0.04 0.093,-0.04l1.344,-0c0.371,-0 0.676,0.059 0.915,0.177c0.242,0.118 0.424,0.293 0.545,0.526c0.125,0.232 0.189,0.516 0.193,0.851c0.007,0.168 0.011,0.316 0.011,0.446c0,0.129 -0.004,0.276 -0.011,0.44c-0.007,0.354 -0.07,0.647 -0.187,0.88c-0.118,0.228 -0.296,0.4 -0.535,0.514c-0.235,0.111 -0.536,0.166 -0.903,0.166l-1.372,-0Zm0.634,-0.657l0.71,-0c0.206,-0 0.373,-0.031 0.502,-0.092c0.128,-0.061 0.222,-0.158 0.281,-0.291c0.062,-0.137 0.095,-0.316 0.099,-0.537c0.003,-0.115 0.005,-0.214 0.005,-0.298c0.004,-0.087 0.004,-0.173 0,-0.257c0,-0.087 -0.002,-0.186 -0.005,-0.297c-0.008,-0.312 -0.083,-0.543 -0.226,-0.691c-0.143,-0.149 -0.371,-0.223 -0.683,-0.223l-0.683,-0l-0,2.686Z"
@@ -954,7 +939,8 @@
             <circle cx="12.2" cy="2.3" r="1.225" fill="#e19d19"></circle>
             <path d="M17.7,1.45 l-1.8,1.8" fill="none" stroke-width="0.5" stroke="#e19d19" stroke-linecap="round">
             </path>
-          </svg></button></div>
+          </svg></button>
+      </div>
     </div>
     <app-top-results></app-top-results>
   </div>
