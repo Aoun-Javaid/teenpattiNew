@@ -14,6 +14,7 @@
     visibility 0.25s 0.75s !important;
   width: 4.5rem;
   z-index: 998 !important;
+  @apply lg:!top-[10rem]  [@media(min-width:1200px)]:!top-[calc(100vh-500px)];
 }
 .bettingTimer_timer {
   fill: #0006;
