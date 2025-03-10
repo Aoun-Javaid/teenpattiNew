@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, first, map, Observable, Subject } from 'rxjs';
 import { CONFIG } from '../../../config';
@@ -13,7 +14,7 @@ export class NetworkService {
   private resultData : BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
   private betPlaceObj = new Subject<any>();
 
-  constructor(private http: HttpClient,private toaster:ToastrService) { }
+  constructor(private http: HttpClient,private toaster:ToastrService,private router: Router,) { }
 
   getAllRecordsByPost(url: any, params: any) {
     return this.http.post<any>(url, params)
@@ -195,6 +196,24 @@ export class NetworkService {
         toastClass: 'ngx-toastr custom-toast',
       });
       return;
+    }
+  }
+  goToMarketCurrent(eventid: any) {
+    localStorage.setItem('eventId',eventid)
+    if (eventid == '99.0010') {
+      let url = '/Nteenpatti'
+      this.router.navigateByUrl(url);
+      return
+    }
+    else if (eventid == '88.0011') {
+      let url = '/Vteenpatti'
+      this.router.navigateByUrl(url);
+      return
+    }
+
+    else{
+      let url = '/home'
+      this.router.navigateByUrl(url);
     }
   }
 
