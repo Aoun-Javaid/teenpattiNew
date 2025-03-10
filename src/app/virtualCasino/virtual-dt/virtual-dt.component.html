@@ -73,13 +73,13 @@
           <div class="gradientDiv" *ngIf="this.game">
             <div class="absolute h-4 w-full bg-[#0A0A1A] blur-[11px]"></div>
             <div *ngIf="marketArray"
-                 class="absolute lg:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] lg:bottom-[5px] [@media(max-width:375px)]:bottom-[25px]   lg:!max-w-[473px]  left-0 w-full ">
+                 class="absolute lg:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] lg:bottom-[64px] [@media(max-width:375px)]:bottom-[25px]   lg:!max-w-[473px]  left-0 w-full ">
               <div class="relative z-[1] h-full lg:max-w-[473px] ">
-                <div class="relative !mx-[2%] md:!mx-0 !bg-[black] rounded-[17px]">
+                <div class="relative lg:bottom-14 !mx-[2%] md:!mx-0 !bg-[black] rounded-[17px]">
                   <!-- main content -->
                   <div class="mb-[0.3rem] md:mb-[5px] relative p-[18.9048%_0px_29.5048%] lg:!p-0">
                     <div
-                      class="h-[7.75rem] w-[21rem] lg:w-[473px] lg:max-h-[168px] absolute left-[50%] lg:!scale-[1] lg:static"
+                      class="h-[7.75rem] w-[21rem] [@media(min-width:1200px)]:w-[473px] [@media(min-width:1200px)]:max-h-[168px] absolute left-[50%] z-[1] lg:!scale-[1.46] lg:static"
                       style="transform: translate(-50%, -50%) scale(var(--boardScale, 1));">
                       <svg class="table__svg-Qpr3tH" viewBox="0 0 344 150">
                         <path clip-rule="evenodd"
