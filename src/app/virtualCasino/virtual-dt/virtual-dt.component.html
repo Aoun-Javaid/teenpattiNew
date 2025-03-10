@@ -37,7 +37,6 @@
             </video>
           </div>
         </div>
-        <div class="gradient-_9dd5n gradient_mobile-cBpe4n"></div>
       </div>
     </div>
     <!--  Game Body Table -->
@@ -69,9 +68,11 @@
             <div class="winningPlayersMessage__totalWin">€ 2.21</div>
           </div>
         </div>
+
+        <div class="[@media(max-width:768px)]:hidden gradient-_9dd5n gradient_desktop-UoLq1h"></div>
         <div [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'" id="marketScroll" style="overflow-y: auto;">
           <div class="gradientDiv" *ngIf="this.game">
-            <div class="absolute h-4 w-full bg-[#0A0A1A] blur-[11px]"></div>
+<!--            <div class="absolute h-4 w-full bg-[#0A0A1A] blur-[11px]"></div>-->
             <div *ngIf="marketArray"
                  class="absolute xl:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] lg:bottom-[64px] [@media(max-width:375px)]:bottom-[25px]   lg:!max-w-[473px]  left-0 w-full ">
               <div class="relative z-[1] h-full lg:max-w-[473px] ">
@@ -986,7 +987,7 @@
               </div>
 
               <div class="w-full  lg:mt-[110px]">
-                <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game.status"></app-bet-coin>
+                <app-bet-coin (eventBetValue)="getCoinValue($event)"></app-bet-coin>
               </div>
             </div>
             <div class="time-container">
