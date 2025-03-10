@@ -62,32 +62,24 @@
   transition: opacity 300ms ease,visibility 300ms ease;
   width: 100%;
 }
-
-@media (orientation: portrait) {
-  .gradient_mobile-cBpe4n {
-    --video-height: var(--video-size, 48.2%);
-    background-image: var(--color-videobg-0), var(--color-videobg-1);
-    background-position: top, bottom;
-    background-repeat: no-repeat;
-    background-size: 100% calc(var(--video-height) + 0.0625rem), 100% calc(100% - var(--video-height));
-  }
-}
-@media (orientation: landscape) {
-  .gradient_mobile-cBpe4n {
-    background-image: linear-gradient(to top, rgb(10,10,26, 0%), transparent 100%);
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: 100% 6rem;
-  }
-}
-.gradient_mobile-cBpe4n {
-  inset: 0;
-}
 .gradient-_9dd5n {
   pointer-events: none;
   position: absolute;
-  z-index: 5;
 }
+.gradient_desktop-UoLq1h {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgb(10, 10, 26) 75%,
+    rgb(10, 10, 26) 100%
+  );
+  bottom: -0.0625rem;
+  height: 13rem;
+  left: 0;
+  width: 100%;
+}
+
+
 .chatPreview_mobile {
   left: 0;
   max-width: 8.375rem;
