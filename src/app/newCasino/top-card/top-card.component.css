@@ -18,10 +18,14 @@
   height: 9rem;
   width: 21.5rem;
 }
-.table__backgroundShadow, .table__drawBetPlace, .table__leftBetPlace, .table__rightBetPlace {
+.table__backgroundShadow,
+.table__drawBetPlace,
+.table__leftBetPlace,
+.table__rightBetPlace {
   grid-area: 1/1;
 }
-.table__leftBetPlace, .table__rightBetPlace {
+.table__leftBetPlace,
+.table__rightBetPlace {
   align-self: start;
   height: 8.25rem;
   margin-top: 0.125rem;
@@ -32,7 +36,8 @@
   justify-self: start;
   margin-left: 0.125rem;
 }
-.table_flattenMode .table__leftBetPlace, .table_flattenMode .table__rightBetPlace {
+.table_flattenMode .table__leftBetPlace,
+.table_flattenMode .table__rightBetPlace {
   height: 9rem;
   margin-top: 0;
   width: 11.1875rem;
@@ -41,17 +46,20 @@
   margin-left: 0;
 }
 /*winner class for left right or center*/
-.table_winner_draw .table__drawBetPlace, .table_winner_leftSide .table__leftBetPlace, .table_winner_rightSide .table__rightBetPlace {
+.table_winner_draw .table__drawBetPlace,
+.table_winner_leftSide .table__leftBetPlace,
+.table_winner_rightSide .table__rightBetPlace {
   z-index: 3;
 }
-.sideBetPlace{
+.sideBetPlace {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 100%;
   height: 100%;
   width: 100%;
 }
-.sideBetPlace__button, .sideBetPlace__content {
+.sideBetPlace__button,
+.sideBetPlace__content {
   grid-area: 1/1;
 }
 .sideBetPlace__button {
@@ -64,10 +72,11 @@
   overflow: visible;
   width: 100%;
 }
-.sideButton__borderWin, .sideButton__glowShadow{
+.sideButton__borderWin,
+.sideButton__glowShadow {
   opacity: 0;
   pointer-events: all;
-  transition: opacity 300ms ease,visibility 300ms ease;
+  transition: opacity 300ms ease, visibility 300ms ease;
   visibility: hidden;
 }
 .sideBetPlace__content {
@@ -84,7 +93,8 @@
 .sideBetPlace_alignment_left .sideBetPlace__imageWrapper {
   padding-right: 2.5rem;
 }
-.sideBetPlace_flattenMode.sideBetPlace_alignment_left .sideBetPlace__imageWrapper {
+.sideBetPlace_flattenMode.sideBetPlace_alignment_left
+  .sideBetPlace__imageWrapper {
   padding-right: 2.5rem;
 }
 .sideBetPlace_variant_classic .sideBetPlace__image {
@@ -93,22 +103,26 @@
   border-radius: 1px;
 }
 .sideBetPlace_variant_classic.sideBetPlace_alignment_left .sideBetPlace__image {
-  transform: translate(1rem,0.375rem);
+  transform: translate(1rem, 0.375rem);
 }
-.sideBetPlace_variant_classic.sideBetPlace_flattenMode.sideBetPlace_alignment_left .sideBetPlace__image {
-  transform: translate(0.375rem,0.25rem);
+.sideBetPlace_variant_classic.sideBetPlace_flattenMode.sideBetPlace_alignment_left
+  .sideBetPlace__image {
+  transform: translate(0.375rem, 0.25rem);
 }
 .sideBetPlace__title {
-  color: hsla(0,0%,100%,.8);
+  color: hsla(0, 0%, 100%, 0.8);
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.5625rem;
   position: absolute;
-  text-shadow: 0 0.0625rem 0.25rem rgba(0,0,0,.55);
+  text-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.55);
   text-transform: uppercase;
   top: 0.75rem;
 }
-.sideBetPlace_alignment_left .sideBetPlace__betStat, .sideBetPlace_alignment_left .sideBetPlace__chip, .sideBetPlace_alignment_left .sideBetPlace__coefficient, .sideBetPlace_alignment_left .sideBetPlace__title {
+.sideBetPlace_alignment_left .sideBetPlace__betStat,
+.sideBetPlace_alignment_left .sideBetPlace__chip,
+.sideBetPlace_alignment_left .sideBetPlace__coefficient,
+.sideBetPlace_alignment_left .sideBetPlace__title {
   left: 0.75rem;
 }
 /*.sideBetPlace_roundState_waiting .sideBetPlace__betStat, .sideBetPlace_roundState_waiting .sideBetPlace__button, .sideBetPlace_roundState_waiting .sideBetPlace__coefficient, .sideBetPlace_roundState_waiting .sideBetPlace__title {*/
@@ -145,16 +159,22 @@
 .sideBetPlace_alignment_right .sideBetPlace__imageWrapper {
   padding-left: 2.5rem;
 }
-.sideBetPlace_flattenMode.sideBetPlace_alignment_right .sideBetPlace__imageWrapper {
+.sideBetPlace_flattenMode.sideBetPlace_alignment_right
+  .sideBetPlace__imageWrapper {
   padding-left: 2.5rem;
 }
-.sideBetPlace_variant_classic.sideBetPlace_alignment_right .sideBetPlace__image {
-  transform: translate(-1rem,0.375rem);
+.sideBetPlace_variant_classic.sideBetPlace_alignment_right
+  .sideBetPlace__image {
+  transform: translate(-1rem, 0.375rem);
 }
-.sideBetPlace_variant_classic.sideBetPlace_flattenMode.sideBetPlace_alignment_right .sideBetPlace__image {
-  transform: translate(-0.375rem,0.25rem);
+.sideBetPlace_variant_classic.sideBetPlace_flattenMode.sideBetPlace_alignment_right
+  .sideBetPlace__image {
+  transform: translate(-0.375rem, 0.25rem);
 }
-.sideBetPlace_alignment_right .sideBetPlace__betStat, .sideBetPlace_alignment_right .sideBetPlace__chip, .sideBetPlace_alignment_right .sideBetPlace__coefficient, .sideBetPlace_alignment_right .sideBetPlace__title {
+.sideBetPlace_alignment_right .sideBetPlace__betStat,
+.sideBetPlace_alignment_right .sideBetPlace__chip,
+.sideBetPlace_alignment_right .sideBetPlace__coefficient,
+.sideBetPlace_alignment_right .sideBetPlace__title {
   right: 0.75rem;
 }
 .table__drawBetPlace {
@@ -173,7 +193,10 @@
   position: relative;
   width: 100%;
 }
-.drawBetPlace__betStat, .drawBetPlace__button, .drawBetPlace__coefficient, .drawBetPlace__title {
+.drawBetPlace__betStat,
+.drawBetPlace__button,
+.drawBetPlace__coefficient,
+.drawBetPlace__title {
   transition: opacity 300ms ease;
 }
 .drawBetPlace__button {
@@ -192,14 +215,17 @@
 .drawButton__g {
   pointer-events: all;
 }
-.drawButton_roundResult_win .drawButton__glowBorder, .drawButton_roundResult_win .drawButton__glowShadow, .drawButton_roundResult_win .drawButton__imageWin {
+.drawButton_roundResult_win .drawButton__glowBorder,
+.drawButton_roundResult_win .drawButton__glowShadow,
+.drawButton_roundResult_win .drawButton__imageWin {
   opacity: 1;
   visibility: visible;
 }
-.drawButton__glowBorder, .drawButton__glowShadow {
+.drawButton__glowBorder,
+.drawButton__glowShadow {
   opacity: 0;
   pointer-events: all;
-  transition: opacity 300ms ease,visibility 300ms ease;
+  transition: opacity 300ms ease, visibility 300ms ease;
   visibility: hidden;
 }
 .drawButton__background {
@@ -209,7 +235,7 @@
   stroke-width: 4;
   stroke: #181818;
   fill: #7e7e7e;
-  transition: stroke 300ms ease,fill 300ms ease;
+  transition: stroke 300ms ease, fill 300ms ease;
 }
 .drawBetPlace__content {
   align-items: center;
@@ -223,7 +249,10 @@
   width: 100%;
   z-index: 2;
 }
-.drawBetPlace_roundResult_win .drawBetPlace__betStat, .drawBetPlace_roundResult_win .drawBetPlace__button, .drawBetPlace_roundResult_win .drawBetPlace__coefficient, .drawBetPlace_roundResult_win .drawBetPlace__title {
+.drawBetPlace_roundResult_win .drawBetPlace__betStat,
+.drawBetPlace_roundResult_win .drawBetPlace__button,
+.drawBetPlace_roundResult_win .drawBetPlace__coefficient,
+.drawBetPlace_roundResult_win .drawBetPlace__title {
   opacity: 1;
 }
 .drawBetPlace__title {
@@ -238,7 +267,7 @@
 .drawBetPlace_flatten .drawBetPlace__title {
   bottom: 1.5rem;
 }
-.drawBetPlace__coefficient{
+.drawBetPlace__coefficient {
   bottom: 0.375rem;
   color: #fff;
   font-size: 0.625rem;
@@ -254,6 +283,25 @@
   font-size: 0.625rem;
 }
 
+.gradient-_9dd5n {
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.gradient_desktop-UoLq1h {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgb(10, 10, 26) 75%,
+    rgb(10, 10, 26) 100%
+  );
+  bottom: -0.625rem;
+  height: 13rem;
+  left: 0;
+  width: 100%;
+}
+
 /*BOTTOM FOOTER*/
 .time-container {
   margin-top: 0.25rem;
@@ -261,11 +309,10 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding-left: 4%;
-  padding-right: 4%;
+  @apply px-[4%] md:px-[2%];
 }
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
+  @apply flex justify-between w-full items-center px-[4%] md:px-[2%] mt-1 md:flex-col md:items-end;
   position: absolute;
   bottom: 2px;
 }
@@ -282,7 +329,7 @@
 .gradientDiv {
   height: 55%;
   /* background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%); */
-  background:var(--NteenpattiVideoBottomBg);
+  background: var(--NteenpattiVideoBottomBg);
 }
 .tableMainCards__card__animation {
   animation: cardAnimationAppearing 300ms ease forwards;
@@ -298,7 +345,12 @@
   }
 }
 .winner-toastr {
-  background: linear-gradient(90deg, transparent 0%, rgb(1,200,188) 50%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(1, 200, 188) 50%,
+    transparent 100%
+  );
   font-family: Baloo\2, sans-serif;
   font-weight: 800;
   padding: 0.125rem 0;
@@ -308,21 +360,51 @@
   text-align: center;
   color: white;
 }
-.offense-winner-bg{
-  background: linear-gradient(90deg, transparent 0%, rgb(206,37,50) 50%, transparent 100%) !important;
+.offense-winner-bg {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(206, 37, 50) 50%,
+    transparent 100%
+  ) !important;
   color: white;
 }
-.sideButton_roundResult_win .sideButton__borderWin, .sideButton_roundResult_win .sideButton__glowShadow {
+.sideButton_roundResult_win .sideButton__borderWin,
+.sideButton_roundResult_win .sideButton__glowShadow {
   opacity: 1;
   visibility: visible;
 }
 .topCard__substrateIllumination {
-  --substrate-illumination-filled-left: radial-gradient(58.02% 77.05% at 0% 100%,rgba(235, 0, 56,0.6) 0%,transparent 100%);
-  --substrate-illumination-filled-right: radial-gradient(58.02% 77.05% at 100% 100%,rgba(1, 202, 190,0.6) 0%,transparent 100%);
-  --substrate-illumination-filled-center: radial-gradient(58.02% 58.02% at 50% 100%,rgba(248, 255, 19,0.6) 0%,transparent 100%);
-  --substrate-illumination-translucent-left: radial-gradient(50% 50% at 50% 50%,rgba(235, 0, 56,0.4) 0%,transparent 100%);
-  --substrate-illumination-translucent-right: radial-gradient(50% 50% at 50% 50%,rgba(1, 202, 190,0.4) 0%,transparent 100%);
-  --substrate-illumination-translucent-center: radial-gradient(50% 50% at 50% 50%,rgba(248, 255, 19,0.4) 0%,transparent 100%);
+  --substrate-illumination-filled-left: radial-gradient(
+    58.02% 77.05% at 0% 100%,
+    rgba(235, 0, 56, 0.6) 0%,
+    transparent 100%
+  );
+  --substrate-illumination-filled-right: radial-gradient(
+    58.02% 77.05% at 100% 100%,
+    rgba(1, 202, 190, 0.6) 0%,
+    transparent 100%
+  );
+  --substrate-illumination-filled-center: radial-gradient(
+    58.02% 58.02% at 50% 100%,
+    rgba(248, 255, 19, 0.6) 0%,
+    transparent 100%
+  );
+  --substrate-illumination-translucent-left: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(235, 0, 56, 0.4) 0%,
+    transparent 100%
+  );
+  --substrate-illumination-translucent-right: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(1, 202, 190, 0.4) 0%,
+    transparent 100%
+  );
+  --substrate-illumination-translucent-center: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(248, 255, 19, 0.4) 0%,
+    transparent 100%
+  );
   left: 0;
   pointer-events: none;
   position: absolute;
@@ -330,12 +412,12 @@
   z-index: -1;
 }
 @media (orientation: portrait) {
-  .topCard__substrateIllumination{
+  .topCard__substrateIllumination {
     position: absolute;
     height: 100%;
     inset: 0;
-    visibility: visible!important;
-    opacity: 1!important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }
 @media (orientation: landscape) {
@@ -350,12 +432,14 @@
   position: relative;
   width: 100%;
 }
-.substrateIllumination__center, .substrateIllumination__left, .substrateIllumination__right {
+.substrateIllumination__center,
+.substrateIllumination__left,
+.substrateIllumination__right {
   background-repeat: no-repeat;
   height: 100%;
   opacity: 0;
   position: absolute;
-  transition: opacity .3s ease,visibility .3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   visibility: hidden;
 }
 .substrateIllumination__left {
@@ -367,21 +451,37 @@
 .substrateIllumination__right {
   background-position: right -0.5rem bottom;
 }
-.substrateIllumination_filledMode .substrateIllumination__center, .substrateIllumination_filledMode .substrateIllumination__left, .substrateIllumination_filledMode.substrateIllumination__right {
+.substrateIllumination_filledMode .substrateIllumination__center,
+.substrateIllumination_filledMode .substrateIllumination__left,
+.substrateIllumination_filledMode.substrateIllumination__right {
   left: 0;
   top: 0;
   width: 100%;
 }
 .substrateIllumination_filledMode .substrateIllumination__left {
-  background-image: radial-gradient(58.02% 77.05% at 0% 100%, rgba(235, 0, 56,0.6) 0%, transparent 100%);
+  background-image: radial-gradient(
+    58.02% 77.05% at 0% 100%,
+    rgba(235, 0, 56, 0.6) 0%,
+    transparent 100%
+  );
 }
 .substrateIllumination_filledMode.substrateIllumination__center {
-  background-image: radial-gradient(58.02% 58.02% at 50% 100%, rgba(248, 255, 19,0.6) 0%, transparent 100%);
+  background-image: radial-gradient(
+    58.02% 58.02% at 50% 100%,
+    rgba(248, 255, 19, 0.6) 0%,
+    transparent 100%
+  );
 }
 .substrateIllumination_filledMode .substrateIllumination__right {
-  background-image: radial-gradient(58.02% 77.05% at 100% 100%, rgba(1, 202, 190,0.6) 0%, transparent 100%);;
+  background-image: radial-gradient(
+    58.02% 77.05% at 100% 100%,
+    rgba(1, 202, 190, 0.6) 0%,
+    transparent 100%
+  );
 }
-.substrateIllumination_winner_center .substrateIllumination__center, .substrateIllumination_winner_left .substrateIllumination__left, .substrateIllumination_winner_right .substrateIllumination__right {
+.substrateIllumination_winner_center .substrateIllumination__center,
+.substrateIllumination_winner_left .substrateIllumination__left,
+.substrateIllumination_winner_right .substrateIllumination__right {
   opacity: 1;
   visibility: visible;
 }
