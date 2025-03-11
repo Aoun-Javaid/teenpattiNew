@@ -70,7 +70,7 @@
           <div class="gradientDiv" *ngIf="this.game">
 <!--            <div class="absolute h-4 w-full bg-[#0A0A1A] blur-[11px]"></div>-->
             <div *ngIf="marketArray"
-                 class="absolute xl:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[150px] lg:bottom-[165px] xl:bottom-[64px] [@media(max-width:375px)]:bottom-[75px]   xl:!max-w-[473px]  left-0 w-full ">
+                 class="absolute xl:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[75px] md:bottom-[135px] lg:bottom-[150px] xl:bottom-[64px] xl:!max-w-[473px]  left-0 w-full ">
               <div class="relative z-[1] h-full xl:max-w-[473px] ">
                 <div class="relative xxxl:bottom-14 !mx-[2%] md:!mx-0 rounded-[17px]">
                   <!-- main content -->
@@ -992,7 +992,7 @@
 
         <app-timer [fancyTimer]="true"></app-timer>
       </div>
-      <div class="time-container max-md:!bottom-[50px] [@media(max-width:1023px)]:!bottom-[100px] max-xl:!bottom-[110px]">
+      <div class="time-container !bottom-[50px] md:!bottom-[108px] xl:!bottom-[6px]">
         <div class="last-win">{{this.game?.eventName}}
           <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.min}}</span>
           -
