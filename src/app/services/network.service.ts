@@ -202,26 +202,6 @@ export class NetworkService {
     }
   }
 
-  // goToMarketCurrent(eventid: any) {
-  //   localStorage.setItem('eventId', eventid);
-  //   if (eventid == '99.0010') {
-  //     let url = '/Nteenpatti';
-  //     this.router.navigateByUrl(url);
-  //     return;
-  //   } else if (eventid == '88.0011') {
-  //     let url = '/Vteenpatti';
-  //     this.router.navigateByUrl(url);
-  //     return;
-  //   } else if (eventid == '99.0018') {
-  //     let url = '/Ndt';
-  //     this.router.navigateByUrl(url);
-  //     return;
-  //   } else {
-  //     let url = '/home';
-  //     this.router.navigateByUrl(url);
-  //   }
-  // }
-
   goToMarketCurrent(eventid: string) {
     localStorage.setItem('eventId', eventid);
     const eventRoutes: { [key: string]: string } = {
