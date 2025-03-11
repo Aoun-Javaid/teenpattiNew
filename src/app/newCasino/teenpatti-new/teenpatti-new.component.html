@@ -47,7 +47,7 @@
             <div class="absolute h-[3rem] w-full bg-mixer blur-[4px]"></div>
             <div class="absolute h-[3rem] w-full bg-mixer blur-[4px]"></div>
             <div *ngIf="marketArray"
-                class="absolute xl:fixed xl:left-[50%] xl:translate-x-[-50%] bottom-[64px] md:bottom-[120px] xl:bottom-[64px]  [@media(max-width:375px)]:bottom-[25px]  xl:!max-w-[473px]  left-0 w-full ">
+                class="absolute xl:fixed xl:left-[50%] xl:translate-x-[-50%] bottom-[64px] md:bottom-[100px] xl:bottom-[64px]  [@media(max-width:375px)]:bottom-[25px]  xl:!max-w-[473px]  left-0 w-full ">
                 <!-- Teen patti Cards Section starts here -->
                 <div class="teen_patti_conatiner absolute top-[-5.375rem] md:top-[-6.375rem] lg:top-[-8.375rem] xl:top-[1.625rem]   w-full xl:!max-w-[473px] xl:!scale-[1.21] xl:!mt-0"
                     [ngClass]="{'xl:z-[20]':game.status === 'SUSPEND'}"
@@ -67,7 +67,7 @@
 
                     <!-- Player A cards start here -->
                     <div
-                        class="custom_flex  gap-2  xl:!gap-1 player_A_cards xl:!p-[10px_55px_10px_10px] xl:!justify-end  ">
+                        class="custom_flex  gap-2  xl:!gap-1 player_A_cards md:!gap-[0.75rem] xl:!p-[10px_55px_10px_10px] md:!justify-center xl:!justify-end  ">
 
                         <img [ngClass]="{ 'card-animation': playerACards?.card_1 && playerACards?.card_1 !== '0', 'opacity-0': !(playerACards?.card_1 && playerACards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
                             [src]="['/assets/52-cards/'+playerACards?.card_1+'.svg']" class="card-img" alt="card1">
@@ -80,7 +80,7 @@
 
                     <!-- Player B cards start here -->
                     <div
-                        class="custom_flex gap-2 player_B_cards xl:!gap-1 xl:!p-[10px_10px_10px_55px] xl:!justify-start">
+                        class="custom_flex gap-2 player_B_cards xl:!gap-1 md:!gap-[0.75rem] xl:!p-[10px_10px_10px_55px] md:!justify-center xl:!justify-start">
 
                         <img [ngClass]="{ 'card-animation': playerBCards?.card_1 && playerBCards?.card_1 !== '0', 'opacity-0': !(playerBCards?.card_1 && playerBCards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
                             [src]="'/assets/52-cards/' + playerBCards?.card_1 + '.svg'" class="card-img" alt="card1">

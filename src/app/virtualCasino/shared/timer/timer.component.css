@@ -14,7 +14,7 @@
     visibility 0.25s 0.75s !important;
   width: 4.5rem;
   z-index: 998 !important;
-  @apply lg:!top-[10rem]  [@media(min-width:1200px)]:!top-[calc(100vh-500px)];
+  @apply lg:!top-[14rem] [@media(min-width:820px)]:top-[10rem]  [@media(min-width:1200px)]:!top-[calc(100vh-500px)] [@media(min-width:820px)]:h-[116px] [@media(min-width:820px)]:w-[116px]   xl:!h-[4.5rem] xl:!w-[4.5rem];
 }
 .bettingTimer_timer {
   fill: #0006;
@@ -28,6 +28,7 @@
   justify-content: center;
   align-items: center;
   right: 1.2rem;
+  @apply [@media(min-width:820px)]:right-[42px] xl:!right-[1.2rem];
 }
 .timerTextWrapper {
   position: relative;
@@ -50,6 +51,7 @@
   color: white;
   font-family: Rubik, sans-serif;
   animation: roll-up 1s ease-in-out infinite;
+  @apply [@media(min-width:820px)]:text-[2.76rem] xl:!text-[1.76rem];
 }
 
 .cd-number {
