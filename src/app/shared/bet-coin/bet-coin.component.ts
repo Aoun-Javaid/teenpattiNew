@@ -17,6 +17,7 @@ export class BetCoinComponent implements OnInit {
   coinAnimateState = false;
   animateCoinVal: any
   btnCheck = 1
+  downCoinAnimationValue: string = '67px'
   coinParentBtn = false
   reverseAnimate: boolean = false
   btnIcon = false
@@ -34,10 +35,18 @@ export class BetCoinComponent implements OnInit {
     this.toggleService.setQuickStakeEditSidebarState(true)
   }
 
-   @HostListener('window:resize', ['$event'])
-    onResize(event?: Event) {
-     this.screenWith = window.innerWidth
+  @HostListener('window:resize', ['$event'])
+  onResize(event?: Event) {
+    this.screenWith = window.innerWidth
+
+    if (this.screenWith >= 1024) {
+      this.downCoinAnimationValue = '105px'
+    } else {
+      this.downCoinAnimationValue = '67px'
     }
+
+    document.documentElement.style.setProperty('--downValue', this.downCoinAnimationValue);
+  }
 
 
   animatecoinValue(value: any) {
@@ -50,6 +59,14 @@ export class BetCoinComponent implements OnInit {
     this.getStackData();
     this.localCoinValue = localStorage.setItem('coinIndex', '')
     this.screenWith = window.innerWidth
+
+    if (this.screenWith >= 1024) {
+      this.downCoinAnimationValue = '105px'
+    } else {
+      this.downCoinAnimationValue = '67px'
+    }
+
+    document.documentElement.style.setProperty('--downValue', this.downCoinAnimationValue);
   }
 
   getStackData() {
@@ -100,7 +117,7 @@ export class BetCoinComponent implements OnInit {
 
     let translateX = '212px';
     if (this.screenWith > 390) {
-     
+
       switch (this.btnCheck) {
         case 1:
           translateX = '212px';
@@ -121,7 +138,7 @@ export class BetCoinComponent implements OnInit {
           translateX = '-112px';
           break;
       }
-    }  if (this.screenWith <= 390 && this.screenWith > 375)  {
+    } if (this.screenWith <= 390 && this.screenWith > 375) {
       switch (this.btnCheck) {
         case 1:
           translateX = '195px';
@@ -142,7 +159,7 @@ export class BetCoinComponent implements OnInit {
           translateX = '-100px';
           break;
       }
-    }  if (this.screenWith <= 375) {
+    } if (this.screenWith <= 375) {
       switch (this.btnCheck) {
         case 1:
           translateX = '185px';
@@ -164,7 +181,7 @@ export class BetCoinComponent implements OnInit {
           break;
       }
     }
-   if (this.screenWith >= 1024 && this.screenWith < 1280) {
+    if (this.screenWith >= 1024 && this.screenWith < 1280) {
       switch (this.btnCheck) {
         case 1:
           translateX = '310px';
@@ -212,7 +229,7 @@ export class BetCoinComponent implements OnInit {
           break;
       }
     }
-   else{
+    else {
       switch (this.btnCheck) {
         case 1:
           translateXRevers = '212px';
@@ -233,7 +250,7 @@ export class BetCoinComponent implements OnInit {
           translateXRevers = '-112px';
           break;
       }
-   }
+    }
 
 
     document.documentElement.style.setProperty('--translateXReverse', translateXRevers);

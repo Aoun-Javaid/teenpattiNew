@@ -2736,7 +2736,7 @@ p {
     z-index: 20;
   }
   100% {
-    -webkit-transform: translate(var(--translateX), 67px);
+    -webkit-transform: translate(var(--translateX), var(--downValue));
   }
 }
 
@@ -2746,7 +2746,7 @@ p {
 
 @keyframes move_back {
   0% {
-    -webkit-transform: translate(var(--translateXReverse), 67px);
+    -webkit-transform: translate(var(--translateXReverse), var(--downValue));
     position: relative;
     z-index: 20;
   }

@@ -13,6 +13,7 @@ import Swiper from 'swiper';
 import { ToggleService } from '../../services/toggle.service';
 import { BetsComponent } from '../bets/bets.component';
 import { MainService } from '../../services/main.service';
+import { NetworkService } from '../../services/network.service';
 
 @Component({
   selector: 'app-lobby',
@@ -157,7 +158,7 @@ export class LobbyComponent implements OnInit, AfterViewInit {
   universeProviderGames: any;
   private isInitialLoad = true;
   // swiperInstance: Swiper;
-  constructor(private router: Router, private mainService: MainService) {
+  constructor(private router: Router, private mainService: MainService,private networkService:NetworkService) {
 
   }
 
@@ -251,7 +252,7 @@ export class LobbyComponent implements OnInit, AfterViewInit {
     //   setTimeout(() => {
     //     this.setDefaultView();
     //     this.setDefaultViewProvider();
-    //     this.isInitialLoad = false; 
+    //     this.isInitialLoad = false;
     //     console.log('true call');
 
     //   }, 50);
@@ -317,6 +318,7 @@ export class LobbyComponent implements OnInit, AfterViewInit {
           games: groupedData[providerTitle].filter((game: any) => game.isFavorite).sort((a: any, b: any) => a.gameSequence - b.gameSequence)
         }));
         this.universeProviderGames = result.sort((a: any, b: any) => a.providerSequence - b.providerSequence);
+        console.log('provides',this.universeProviderGames)
       }
     });
   }
@@ -330,6 +332,12 @@ export class LobbyComponent implements OnInit, AfterViewInit {
     if (this.providerSwiper) {
       this.ProviderPrevBtn = this.providerSwiper.isBeginning;
       this.ProviderNextBtn = this.providerSwiper.isEnd;
+    }
+  }
+  gotoEvent(event:any){
+    console.log(event);
+    if(event.providerTitle=='Universe'){
+      this.networkService.goToMarketCurrent(event.gameId);
     }
   }
   checkCarousel() {

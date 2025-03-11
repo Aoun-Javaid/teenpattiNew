@@ -37,15 +37,10 @@
             </video>
           </div>
         </div>
-        <div class="gradient-_9dd5n gradient_mobile-cBpe4n"></div>
       </div>
     </div>
     <!--  Game Body Table -->
     <div class="game__body flex h-full relative z-[1]">
-      <div class="chatPreview chatPreview_mobile chatPreview_hidden-GXvWSw">
-        <div class="messagePreview"></div>
-      </div>
-      <div class="promoWidget"></div>
       <div class="dragonTiger-RufiAg dragonTiger_rngGame">
         <div class="dragonTiger__rngTable">
           <div class="rngTable rngTable_ready">
@@ -69,15 +64,17 @@
             <div class="winningPlayersMessage__totalWin">€ 2.21</div>
           </div>
         </div>
+
+        <div class="[@media(max-width:768px)]:hidden gradient-_9dd5n gradient_desktop-UoLq1h"></div>
         <div [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'" id="marketScroll" style="overflow-y: auto;">
           <div class="gradientDiv" *ngIf="this.game">
-            <div class="absolute h-4 w-full bg-[#0A0A1A] blur-[11px]"></div>
+<!--            <div class="absolute h-4 w-full bg-[#0A0A1A] blur-[11px]"></div>-->
             <div *ngIf="marketArray"
-                 class="absolute xl:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] lg:bottom-[64px] [@media(max-width:375px)]:bottom-[25px]   lg:!max-w-[473px]  left-0 w-full ">
-              <div class="relative z-[1] h-full lg:max-w-[473px] ">
+                 class="absolute xl:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[150px] lg:bottom-[165px] xl:bottom-[64px] [@media(max-width:375px)]:bottom-[75px]   xl:!max-w-[473px]  left-0 w-full ">
+              <div class="relative z-[1] h-full xl:max-w-[473px] ">
                 <div class="relative xxxl:bottom-14 !mx-[2%] md:!mx-0 rounded-[17px]">
                   <!-- main content -->
-                  <div class="mb-[0.3rem] md:mb-[5px] relative p-[18.9048%_0px_29.5048%] xl:!p-0">
+                  <div class="mb-[0.3rem] md:mb-[5px] relative p-[18.9048%_0px_29.5048%] lg:p-[18.9048%_0px_24.5048%] xl:!p-0">
                     <div
                       class="h-[7.75rem] w-[21rem] [@media(min-width:1200px)]:w-[473px] [@media(min-width:1200px)]:max-h-[168px] absolute left-[50%] z-[1] xl:!scale-[1] xxxl:!scale-[1.46] xl:static"
                       style="transform: translate(-50%, -50%) scale(var(--boardScale, 1));">
@@ -985,26 +982,29 @@
                 </div>
               </div>
 
-              <div class="w-full  lg:mt-[110px]">
-                <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game.status"></app-bet-coin>
+              <div class="w-full  xl:mt-[95px] xxxl:mt-[110px]">
+                <app-bet-coin (eventBetValue)="getCoinValue($event)"></app-bet-coin>
               </div>
             </div>
-            <div class="time-container">
-              <div class="last-win">{{this.game?.eventName}}
-                <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.min}}</span>
-                -
-                <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.max |
-                  shortNumber}}</span>
-              </div>
-              <div class="roundInfo-date">
-                <!-- <span class="inline-block">.</span>  -->
-                {{this.game?.roundId}}
-              </div>
-            </div>
+
           </div>
         </div>
+
         <app-timer [fancyTimer]="true"></app-timer>
       </div>
+      <div class="time-container max-md:!bottom-[50px] [@media(max-width:1023px)]:!bottom-[100px] max-xl:!bottom-[110px]">
+        <div class="last-win">{{this.game?.eventName}}
+          <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.min}}</span>
+          -
+          <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.max |
+            shortNumber}}</span>
+        </div>
+        <div class="roundInfo-date">
+          <!-- <span class="inline-block">.</span>  -->
+          {{this.game?.roundId}}
+        </div>
+      </div>
+
     </div>
 </div>
 <div class="[@media(max-width:1280px)]:hidden  fixed w-[20.5rem] mx-[2%] bottom-[20%] flex flex-col gap-[1.5rem]">

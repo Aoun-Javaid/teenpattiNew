@@ -1499,6 +1499,7 @@ body {
   text-transform: uppercase;
   transform: translateY(1.625rem) scaleX(0);
   text-align: center;
+  @apply md:!text-[25px] 
 }
 
 .animation-player-scale {
