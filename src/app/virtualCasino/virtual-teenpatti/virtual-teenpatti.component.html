@@ -82,8 +82,8 @@
 
         <!-- Teen patti Cards Section starts here -->
         <div
-          class="teen_patti_conatiner absolute top-[-5.375rem] md:top-[-6.375rem] lg:top-[-8.375rem] xl:top-[1.625rem]   w-full xl:!max-w-[473px] xl:!scale-[1.21] xl:!mt-0"
-          [ngClass]="{'xl:z-[20]':game.status === 'SUSPEND'}" [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
+          class="teen_patti_conatiner absolute top-[18%]  md:top-[29%]   w-full xl:!max-w-[473px] xl:!scale-[1.21] xl:!mt-0 "
+          [ngClass]="{'z-[20]':game.status === 'SUSPEND'}" [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
         
           <!-- <div class="flex items-center w-full absolute  top-[-15px] pe-[9%] z-[99]">
                               <div class="flex justify-center w-[50%]">
@@ -99,7 +99,7 @@
         
           <!-- Player A cards start here -->
           <div
-            class="custom_flex  gap-2  xl:!gap-1 player_A_cards md:!gap-[0.75rem] xl:!p-[10px_55px_10px_10px] md:!justify-center xl:!justify-end  ">
+            class="custom_flex  gap-1  xl:!gap-1 player_A_cards md:!gap-[0.75rem] xl:!p-[10px_55px_10px_10px] md:!justify-center xl:!justify-end  ">
         
             <img
               [ngClass]="{ 'card-animation': playerACards?.card_1 && playerACards?.card_1 !== '0', 'opacity-0': !(playerACards?.card_1 && playerACards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
@@ -115,7 +115,7 @@
         
           <!-- Player B cards start here -->
           <div
-            class="custom_flex gap-2 player_B_cards xl:!gap-1 md:!gap-[0.75rem] xl:!p-[10px_10px_10px_55px] md:!justify-center xl:!justify-start">
+            class="custom_flex gap-1 !justify-end player_B_cards xl:!gap-1 md:!gap-[0.75rem] xl:!p-[10px_10px_10px_55px] md:!justify-center xl:!justify-start">
         
             <img
               [ngClass]="{ 'card-animation': playerBCards?.card_1 && playerBCards?.card_1 !== '0', 'opacity-0': !(playerBCards?.card_1 && playerBCards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
