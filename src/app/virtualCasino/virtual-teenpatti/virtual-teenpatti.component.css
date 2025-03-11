@@ -357,7 +357,7 @@
 }
 
 .win-animation-player-a {
-  animation: ctaAnimation-A 500ms ease infinite forwards;
+  animation: ctaAnimation-A 1s ease infinite forwards;
 }
 
 @keyframes ctaAnimation-A {
@@ -385,17 +385,19 @@
 }
 
 .pair-plus {
-  font-size: 0.875rem;
-  font-weight: 500;
+  @apply [@media(max-width:1024px)]:!text-[0.875rem] [@media(max-width:1024px)]:!font-medium;
+  font-size: 1.25rem;
+  font-weight: 600;
   line-height: 0.75rem;
   font-family: "Rubik";
 }
 
 .down-player {
+  @apply [@media(max-width:1024px)]:!text-[0.75rem] [@media(max-width:1024px)]:!m-[0.25rem_0];
   font-weight: 500;
   line-height: 0.75rem;
-  font-size: 0.75rem;
-  margin: 0.25rem 0;
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
   font-weight: 500;
   font-family: "Rubik";
 }
@@ -416,13 +418,15 @@
 }
 
 .betPlayer_A {
-  font-size: 1.125rem;
+  @apply [@media(max-width:1024px)]:!text-[1.125rem];
+  font-size: 1.5rem;
   font-weight: 800;
 }
 
 .betPlaceInfo__roundInfo {
-  font-size: 0.625rem;
-  margin: 0.25rem 0;
+  @apply [@media(max-width:1024px)]:!text-[0.625rem] [@media(max-width:1024px)]:!m-[0.25rem_0];
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
   position: relative;
 }
 
@@ -716,9 +720,8 @@
 }
 
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
+  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[54px] xl:bottom-[2px];
   position: absolute;
-  bottom: 2px;
 }
 
 .dicbg {
@@ -785,16 +788,17 @@
 
 /* Winning Percentage Chances Section starts here */
 .win_percentage_container {
-  /* padding: 0px 2%; */
+  padding: 0px 2%;
   /* background-color: black; */
   width: 100%;
   /* margin-top: 15px; */
-  @apply [@media(max-width:768px)]:!px-[2%];
+  @apply [@media(max-width:1220px)]:!px-[2%];
 }
 
 .win_percentage_wrapper {
   height: 35px;
   /* padding: 8px; */
+  @apply md:h-[50px] [@media(min-width:820px)]:h-[58px] lg:!h-[66px] xl:!h-[35px];
 }
 
 .player_B_cards,
@@ -821,13 +825,13 @@
 }
 
 .player_B_cards::before {
-  background-image: linear-gradient(0deg, #fa0 0%, rgba(255, 270, 0, 0) 100%);
   opacity: 0.3;
+  @apply max-lg:bg-[linear-gradient(0deg,#fa0_0%,rgba(255,270,0,0)_100%)];
 }
 
 .player_A_cards::before {
-  background-image: linear-gradient(0deg, #ff2b00 0%, rgba(255, 43, 0, 0) 100%);
   opacity: 0.3;
+  @apply max-lg:bg-[linear-gradient(0deg,#ff2b00_0%,rgba(255,43,0,0)_100%)];
 }
 
 .card-img {
@@ -837,7 +841,7 @@
   width: 40px;
   height: 57px;
 
-  @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px] [@media(min-width:1200px)]:w-[36px] [@media(min-width:1200px)]:h-[51px];
+  @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px] md:w-[53px] md:h-[75px] lg:w-[70px] lg:h-[99px] xl:w-[36px]  xl:h-[51px];
 }
 
 .progress_bar_container {
@@ -851,6 +855,7 @@
   flex-direction: row;
   gap: 4px;
   font-family: "Baloo", sans-serif;
+  @apply md:p-[12.5px] [@media(min-width:820px)]:p-[14.5px] lg:!p-[16.5px] xl:!p-[8px] lg:[border-top-left-radius:22px] lg:[border-top-right-radius:22px] xl:[border-top-left-radius:15px] xl:[border-top-right-radius:15px];
 }
 .bg-Tie {
   background: #18862e;
@@ -868,6 +873,7 @@
   font-size: 10px;
   /* font-family: "Poppins", sans-serif; */
   height: 19px;
+  @apply md:h-[25px] [@media(min-width:820px)]:h-[29px] lg:!h-[33px] xl:!h-[19px] md:text-[14px] xl:text-[10px];
 }
 
 /* Winning Percentage Chances Section ends here */
@@ -922,7 +928,7 @@
 }
 
 .desktop-coin {
-  @apply md:fixed  right-[-6%] top-[50%] z-[99] -rotate-[90deg] h-[122px] flex flex-col justify-end max-md:!hidden;
+  @apply xl:fixed  right-[-6%] top-[50%] z-[99] -rotate-[90deg] h-[122px] flex flex-col justify-end max-xl:!hidden;
 }
 
 .player_A_card h3 {
@@ -1303,7 +1309,7 @@
   pointer-events: none;
   transition: opacity 0.2s ease, visibility 0.2s ease;
   visibility: hidden;
-  @apply md:gap-2;
+  @apply xl:gap-2;
 }
 
 .bettingButton-i5MaZV {
@@ -1315,7 +1321,7 @@
   width: 3rem;
   position: relative;
   transition: opacity 300ms ease;
-  @apply md:h-[93px] md:w-[93px];
+  @apply xl:h-[93px] xl:w-[93px];
 }
 
 .bettingButton-i5MaZV:disabled {
@@ -1535,7 +1541,7 @@
   transition: opacity 300ms ease;
 }
 .chip_size_48-odjDTm {
-  @apply h-[48px] w-[48px] md:h-[93px] md:w-[93px] md:rotate-[93deg];
+  @apply h-[48px] w-[48px] xl:h-[93px] xl:w-[93px] xl:rotate-[93deg];
 }
 
 .chip-kcN8LW:before {
