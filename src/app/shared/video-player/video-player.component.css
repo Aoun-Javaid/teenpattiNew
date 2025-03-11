@@ -785,7 +785,7 @@ video {
     visibility 0.25s 0.75s;
   width: 4rem;
   z-index: 998 !important;
-  @apply lg:!top-[10rem]  [@media(min-width:1200px)]:!top-[calc(100vh-500px)];
+  @apply lg:!top-[12rem] [@media(min-width:820px)]:top-[10rem]  [@media(min-width:1200px)]:!top-[calc(100vh-500px)];
 }
 @media only screen and (min-width:1200px) {
   .videoPlayer{
