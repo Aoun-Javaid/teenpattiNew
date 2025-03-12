@@ -54,6 +54,45 @@
   background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
 }
 
+.gradient-_9dd5n {
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.gradient_desktop-UoLq1h {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgb(10, 10, 26) 75%,
+    rgb(10, 10, 26) 100%
+  );
+  bottom: -0.0625rem;
+  height: 13rem;
+  left: 0;
+  width: 100%;
+}
+
+.time-container {
+  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
+  position: absolute;
+  bottom: 2px;
+}
+.last-win {
+  @apply text-[0.625rem] text-white;
+}
+.roundInfo-date {
+  color: #8a8a99;
+  display: flex;
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 10px;
+}
+
+::ng-deep app-bet-coin .buttonsPanel-hAiFyw {
+  justify-content: flex-end !important;
+}
+
 .table__svg-uuecxW {
   overflow: visible;
 }
@@ -638,6 +677,7 @@
   min-width: 1.875rem;
   display: flex;
   align-items: center;
+  @apply md:text-[18px] md:min-w-[3rem] xl:text-[0.625rem] xl:min-w-[1.875rem];
 }
 
 .scoreBoardInfo__totalItemSvg-eW0Cnx {
@@ -645,6 +685,7 @@
   display: block;
   margin-right: 0.125rem;
   width: 0.5625rem;
+  @apply md:w-[18px] xl:w-[0.5625rem];
 }
 
 .scoreBoardInfo__buttons-nUvY7g {
@@ -652,6 +693,7 @@
   display: flex;
   gap: 0.25rem;
   justify-content: space-between;
+  @apply md:gap-2 xl:gap-1;
 }
 
 .scoreBoardInfo__button_left-cIMRsf {
@@ -665,6 +707,7 @@
   padding: 0.1875rem 0.25rem 0.1875rem 0.4375rem;
   position: relative;
   transition: background-color 300ms ease;
+  @apply md:p-[5px_1rem_0.1875rem_0.4375rem] xl:p-[0.1875rem_0.25rem_0.1875rem_0.4375rem];
 }
 
 .scoreBoardInfo__button-wmBupa > svg {

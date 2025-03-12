@@ -554,7 +554,7 @@
 }
 
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end bottom-[2px] md:bottom-[50px] xl:bottom-[2px];
+  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[54px] xl:bottom-[2px];
   position: absolute;
 }
 
@@ -632,7 +632,7 @@
 .win_percentage_wrapper {
   height: 35px;
   /* padding: 8px; */
-  @apply md:h-[43px] lg:h-[51px] xl:h-[35px];
+  @apply md:h-[50px] [@media(min-width:820px)]:h-[58px] lg:!h-[66px] xl:!h-[35px] ;
 }
 
 .player_B_cards,
@@ -689,11 +689,14 @@
   flex-direction: row;
   gap: 4px;
   font-family: "Baloo", sans-serif;
-  @apply [@media(max-width:767px)]:!py-2  [@media(max-width:1024px)]:py-[9px] [@media(max-width:767px)]:!px-2  [@media(max-width:1024px)]:px-[9px];
+  @apply md:p-[12.5px] [@media(min-width:820px)]:p-[14.5px] lg:!p-[16.5px] xl:!p-[8px] lg:[border-top-left-radius:22px] lg:[border-top-right-radius:22px] xl:[border-top-left-radius:15px] xl:[border-top-right-radius:15px];
 }
+
 .bg-Tie {
   background: #18862e;
 }
+
+
 
 .progress_bar_container div {
   display: flex;
@@ -707,7 +710,7 @@
   font-size: 10px;
   /* font-family: "Poppins", sans-serif; */
   height: 19px;
-  @apply md:h-[25px] lg:h-[33px] xl:h-[19px] md:text-[14px] xl:text-[10px];
+  @apply md:h-[25px] [@media(min-width:820px)]:h-[29px] lg:!h-[33px] xl:!h-[19px] md:text-[14px] xl:text-[10px];
 }
 
 /* Winning Percentage Chances Section ends here */
