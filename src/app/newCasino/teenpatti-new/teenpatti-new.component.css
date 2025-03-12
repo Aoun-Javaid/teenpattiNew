@@ -558,6 +558,16 @@
   position: absolute;
 }
 
+@media (max-width: 375px) and (min-height: 500px) {
+  .time-container {
+  @apply !bottom-[58px]
+}
+
+.main-position{
+  @apply !bottom-[100px]
+}
+}
+
 .dicbg {
   /* background: linear-gradient(to right, #ec2401, #ff3400, #ec2401); */
   background: linear-gradient(to right, #f02909, #f74315, #e92b0a);
