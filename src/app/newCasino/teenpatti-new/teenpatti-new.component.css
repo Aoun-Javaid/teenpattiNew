@@ -1,6 +1,6 @@
 .newGameWrapper {
   background-color: #0a0a1a;
-  height: calc(100vh - 114px);
+  height: calc(100dvh - 114px);
   /* height: 100%; */
   position: relative;
   width: 100%;
@@ -556,6 +556,16 @@
 .time-container {
   @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[54px] xl:bottom-[2px];
   position: absolute;
+}
+
+@media (max-width: 375px) and (min-height: 768px) {
+  .time-container {
+  @apply !bottom-[58px]
+}
+
+.main-position{
+  @apply !bottom-[100px]
+}
 }
 
 .dicbg {

@@ -724,6 +724,16 @@
   position: absolute;
 }
 
+@media (max-width: 375px) and (min-height: 768px) {
+  .time-container {
+  @apply !bottom-[58px]
+}
+
+.main-position{
+  @apply !bottom-[100px]
+}
+}
+
 .dicbg {
   /* background: linear-gradient(to right, #ec2401, #ff3400, #ec2401); */
   background: linear-gradient(to right, #f02909, #f74315, #e92b0a);
@@ -838,11 +848,18 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
   width: 34px;
   border-radius: 2px;
-  width: 40px;
-  height: 57px;
+  width: 38px;
+  height: 54px;
 
-  @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[34px] [@media(max-width:375px)]:!h-[48px] md:w-[53px] md:h-[75px] lg:w-[70px] lg:h-[99px] xl:w-[36px]  xl:h-[51px];
+  @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[33px] [@media(max-width:375px)]:!h-[48px] md:w-[53px] md:h-[75px] lg:w-[70px] lg:h-[99px] xl:w-[36px]  xl:h-[51px];
 }
+
+@media (max-width: 393px) {
+   .card-img{
+       @apply h-[50px] w-[35.47px] 
+   }
+}
+
 
 .progress_bar_container {
   border-top-left-radius: 15px;
