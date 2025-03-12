@@ -54,6 +54,45 @@
   background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
 }
 
+.gradient-_9dd5n {
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.gradient_desktop-UoLq1h {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgb(10, 10, 26) 75%,
+    rgb(10, 10, 26) 100%
+  );
+  bottom: -0.0625rem;
+  height: 13rem;
+  left: 0;
+  width: 100%;
+}
+
+.time-container {
+  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
+  position: absolute;
+  bottom: 2px;
+}
+.last-win {
+  @apply text-[0.625rem] text-white;
+}
+.roundInfo-date {
+  color: #8a8a99;
+  display: flex;
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 10px;
+}
+
+::ng-deep app-bet-coin .buttonsPanel-hAiFyw {
+  justify-content: flex-end !important;
+}
+
 .table__svg-uuecxW {
   overflow: visible;
 }
