@@ -764,7 +764,7 @@
 
 .custom_flex {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: flex-start;
   padding: 20px;
   flex-direction: row;
@@ -826,12 +826,12 @@
 
 .player_B_cards::before {
   opacity: 0.3;
-  @apply max-lg:bg-[linear-gradient(0deg,#fa0_0%,rgba(255,270,0,0)_100%)];
+  /* @apply max-lg:bg-[linear-gradient(0deg,#fa0_0%,rgba(255,270,0,0)_100%)]; */
 }
 
 .player_A_cards::before {
   opacity: 0.3;
-  @apply max-lg:bg-[linear-gradient(0deg,#ff2b00_0%,rgba(255,43,0,0)_100%)];
+  /* @apply max-lg:bg-[linear-gradient(0deg,#ff2b00_0%,rgba(255,43,0,0)_100%)]; */
 }
 
 .card-img {
