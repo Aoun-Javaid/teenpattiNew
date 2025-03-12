@@ -1,6 +1,6 @@
 .newGameWrapper {
   background-color: #0a0a1a;
-  height: calc(100vh - 114px);
+  height: calc(100dvh - 114px);
   /* height: 100%; */
   position: relative;
   width: 100%;
@@ -558,7 +558,7 @@
   position: absolute;
 }
 
-@media (max-width: 375px) and (min-height: 500px) {
+@media (max-width: 375px) and (min-height: 768px) {
   .time-container {
   @apply !bottom-[58px]
 }
