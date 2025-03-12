@@ -677,6 +677,7 @@
   min-width: 1.875rem;
   display: flex;
   align-items: center;
+  @apply md:text-[18px] md:min-w-[3rem] xl:text-[0.625rem] xl:min-w-[1.875rem];
 }
 
 .scoreBoardInfo__totalItemSvg-eW0Cnx {
@@ -684,6 +685,7 @@
   display: block;
   margin-right: 0.125rem;
   width: 0.5625rem;
+  @apply md:w-[18px] xl:w-[0.5625rem];
 }
 
 .scoreBoardInfo__buttons-nUvY7g {
@@ -691,6 +693,7 @@
   display: flex;
   gap: 0.25rem;
   justify-content: space-between;
+  @apply md:gap-2 xl:gap-1;
 }
 
 .scoreBoardInfo__button_left-cIMRsf {
@@ -704,6 +707,7 @@
   padding: 0.1875rem 0.25rem 0.1875rem 0.4375rem;
   position: relative;
   transition: background-color 300ms ease;
+  @apply md:p-[5px_1rem_0.1875rem_0.4375rem] xl:p-[0.1875rem_0.25rem_0.1875rem_0.4375rem];
 }
 
 .scoreBoardInfo__button-wmBupa > svg {
