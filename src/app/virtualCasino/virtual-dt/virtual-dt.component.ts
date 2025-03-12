@@ -405,7 +405,10 @@ export class VirtualDtComponent implements OnInit,OnDestroy,AfterViewInit  {
     const videoElement = this.bgVideo.nativeElement;
     const playPromise = videoElement.play();
     if (playPromise !== undefined) {
-      playPromise.catch((error: any) => {
+      playPromise.then(() => {
+        console.log('Autoplay started!');
+      }).catch((error: any) => {
+        console.log('Autoplay prevented!');
         videoElement.muted = true;
         videoElement.play();
       });
