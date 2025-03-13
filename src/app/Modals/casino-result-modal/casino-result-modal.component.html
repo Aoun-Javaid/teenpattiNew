@@ -115,7 +115,7 @@
                         <div class="flex justify-center items-center" [ngClass]="darkTheme?'darkPlayerA':''">
                           <img [src]="darkTheme ? 'assets/52-cards/' + selectedResult?.cards['BANKER']?.card_1 + '.svg' : 'assets/cards/' + selectedResult?.cards['BANKER']?.card_1 + '.png'">
                           <img [src]="darkTheme ? 'assets/52-cards/' + selectedResult?.cards['BANKER']?.card_2 + '.svg' : 'assets/cards/' + selectedResult?.cards['BANKER']?.card_2 + '.png'">
-                          <img *ngIf="selectedResult?.cards['BANKER']?.card_3!=0" [src]="darkTheme ? 'assets/52-cards/' + selectedResult?.cards['BANKER']?.card_3 + '.svg' : 'assets/cards/' + selectedResult?.cards['BANKER']?.card_3 + '.png'">
+                          <img class="baccarat3rdCard" *ngIf="selectedResult?.cards['BANKER']?.card_3!=0" [src]="darkTheme ? 'assets/52-cards/' + selectedResult?.cards['BANKER']?.card_3 + '.svg' : 'assets/cards/' + selectedResult?.cards['BANKER']?.card_3 + '.png'">
                         </div>
 
                         <button *ngIf="selectedResult?.winner == 'B'"
@@ -132,7 +132,7 @@
                         <div class="flex justify-center items-center" [ngClass]="darkTheme?'darkPlayerB':''">
                           <img [src]="darkTheme ? 'assets/52-cards/' + selectedResult?.cards['PLAYER']?.card_1 + '.svg' : 'assets/cards/' + selectedResult?.cards['PLAYER']?.card_1 + '.png'">
                           <img [src]="darkTheme ? 'assets/52-cards/' + selectedResult?.cards['PLAYER']?.card_2 + '.svg' : 'assets/cards/' + selectedResult?.cards['PLAYER']?.card_2 + '.png'">
-                          <img *ngIf="selectedResult?.cards['PLAYER']?.card_3!=0" [src]="darkTheme ? 'assets/52-cards/' + selectedResult?.cards['PLAYER']?.card_3 + '.svg' : 'assets/cards/' + selectedResult?.cards['PLAYER']?.card_3 + '.png'">
+                          <img class="baccarat3rdCard" *ngIf="selectedResult?.cards['PLAYER']?.card_3!=0" [src]="darkTheme ? 'assets/52-cards/' + selectedResult?.cards['PLAYER']?.card_3 + '.svg' : 'assets/cards/' + selectedResult?.cards['PLAYER']?.card_3 + '.png'">
                         </div>
                         <button *ngIf="selectedResult?.winner == 'P'"
                                 class="winner-team btn"

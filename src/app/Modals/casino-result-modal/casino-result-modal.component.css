@@ -18,7 +18,10 @@
   max-width: 500px;
   border-radius: .5rem;
 }
-
+.baccarat3rdCard{
+  transform: rotate(90deg);
+  margin-left: 15px !important;
+}
 .modal-main-content-wrapper {
   @apply bg-[#ffffff] rounded-[.5rem];
 }
