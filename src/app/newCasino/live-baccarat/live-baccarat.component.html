@@ -18,13 +18,13 @@
     <div [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'" id="marketScroll" style="overflow-y: auto;">
         <div class="gradientDiv">
             <div
-                class="absolute  [@media(min-width:1312px)]:fixed  [@media(min-width:1312px)]:z-[1]    md:left-[50%] md:translate-x-[-50%] bottom-[64px]  [@media(min-width:1312px)]:!bottom-[60px]  [@media(min-width:375px)]:bottom-[25px] [@media(min-width:768px)]:bottom-[65px] [@media(min-width:1312px)]:!max-w-[473px]   left-0 w-full ">
+                class="absolute  [@media(min-width:1312px)]:fixed  [@media(min-width:1312px)]:z-[1]    md:left-[50%] md:translate-x-[-50%] bottom-[64px]  [@media(min-width:1312px)]:!bottom-[60px]  [@media(min-width:375px)]:bottom-[25px] [@media(min-width:768px)]:bottom-[100px] [@media(min-width:1312px)]:!max-w-[473px]   left-0 w-full ">
                 <div class="relative z-[1] h-full [@media(min-width:1312px)]:max-w-[473px] ">
                     <div class="relative !mx-[2%] md:!mx-0">
                         <!-- main content -->
                         <div
                             class=" mb-[0.3rem] md:mb-[5px] relative p-[18.9048%_0px_29.5048%]   [@media(min-width:1312px)]:!p-0 ">
-                            <div class="h-[7.75rem] w-[21rem]  [@media(min-width:1312px)]:w-[473px]   lg:max-h-[168px] absolute left-[50%] [@media(min-width:1312px)]:!scale-[1]  [@media(min-width:1312px)]:static  [@media(min-width:1312px)]:h-[118.25px]    "
+                            <div class="h-[7.75rem] w-[21rem]  [@media(min-width:1312px)]:w-[473px]   lg:max-h-[168px] absolute left-[50%] [@media(min-width:1312px)]:!scale-[1.183]  [@media(min-width:1312px)]:static [@media(min-width:1312px)]:mb-[70px]   [@media(min-width:1312px)]:h-[118.25px]    "
                                 style="transform: translate(-50%, -50%) scale(var(--boardScale, 1));">
 
                                 <svg class="mobileSvg table__svg-uuecxW" xmlns="http://www.w3.org/2000/svg"
@@ -1109,16 +1109,19 @@
                     <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game.status"></app-bet-coin>
                 </div>
             </div>
-            <div class="time-container xl:!mb-3">
-                <div class="roundInfo-date">
-                    <!-- <span class="inline-block">.</span>  -->
-                    {{this.game?.roundId}}
-                </div>
-                <div class="last-win">{{this.game?.eventName}}
-                    <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.min}}</span>
+            <div class="time-container " *ngIf="this.game">
+                <div class="last-win md:!text-[1.3rem] xl:!text-[0.75rem]">{{this.game.eventName}}
+                    <span class="text-[rgb(255,170,0)] text-[0.75rem]  xl:!text-[0.75rem] md:!text-[1.3rem] font-bold">
+                        {{winnerMarketArray.min}}</span>
                     -
-                    <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.max |
+                    <span class="text-[rgb(255,170,0)] text-[0.75rem] md:!text-[1.3rem]   xl:!text-[0.75rem]  font-bold">
+                        {{winnerMarketArray.max
+                        |
                         shortNumber}}</span>
+                </div>
+                <div class="roundInfo-date  md:!text-[1.3rem]  xl:!text-[0.75rem]">
+                    <!-- <span class="inline-block">.</span>  -->
+                    {{this.game.roundId}}
                 </div>
             </div>
         </div>
