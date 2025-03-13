@@ -881,7 +881,7 @@
 }
 
 ::ng-deep app-bet-coin div:nth-child(3) {
-  @apply lg:!mt-0;
+  @apply xl:!mt-0;
 }
 
 .dragonTigerHistoryPortrait__scoreInfo-jDmarn {
@@ -1007,9 +1007,8 @@
   padding-right: 4%;
 }
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end lg:mb-2;
+  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[54px] xl:bottom-[2px];
   position: absolute;
-  bottom: 2px;
 }
 .last-win {
   @apply text-[0.625rem] text-white;

@@ -38,14 +38,14 @@
                         <video *ngIf="mobileView"
                             class="staticVideo__player-oLgBsz staticVideo__player_withPoster-vt9rL5" autoplay loop muted
                             #playVideo (loadeddata)="onVideoLoaded($event)">
-                            <source src="/assets/topVideo.mp4" type="video/mp4">
+                            <source src="/assets/topVideo.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
 
                         <video *ngIf="!mobileView"
                             class="staticVideo__player-oLgBsz staticVideo__player_withPoster-vt9rL5" autoplay loop muted
                             #playVideo (loadeddata)="onVideoLoaded($event)">
-                            <source src="/assets/desktopVideo.mp4" type="video/mp4">
+                            <source src="/assets/desktopVideo.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -68,12 +68,21 @@
                         <div class="rngTable-U4qMWx">
                             <img class="rngTable__image-qO0cK5"
                                 src="https://client.petros04.com/js/../img/rng-table.286655c6.png" alt="table" />
-                            <svg [ngClass]="{ 
-                                  'tableLine dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
-                                  'tableLine tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
-                                  'tableLine tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
-                                }" class="rngTable__svg-p8L0DQ" viewBox="0 0 940 684"
-                                xmlns="http://www.w3.org/2000/svg" stroke-linecap="round">
+                            <svg [ngClass]="{
+                  'tableLine dragonWins':
+                    resultArray[0]?.runners[
+                      marketArray[0]?.runners[0]?.selectionId
+                    ] === 'WINNER',
+                  'tableLine tigerWins':
+                    resultArray[0]?.runners[
+                      marketArray[0]?.runners[2]?.selectionId
+                    ] === 'WINNER',
+                  'tableLine tieWins':
+                    resultArray[0]?.runners[
+                      marketArray[0]?.runners[1]?.selectionId
+                    ] === 'WINNER'
+                }" class="rngTable__svg-p8L0DQ" viewBox="0 0 940 684" xmlns="http://www.w3.org/2000/svg"
+                                stroke-linecap="round">
                                 <path
                                     d="M66.721,91.239l180.463,-0c7.758,-0 9.142,1.11 12.174,4.336c4.656,4.954 16.34,17.916 21.705,23.064c3.79,3.636 5.323,4.357 13.482,4.359c193.074,0.039 158.675,0.039 351.75,0c8.159,-0.002 9.691,-0.723 13.481,-4.359c5.365,-5.148 17.049,-18.11 21.705,-23.064c3.032,-3.226 4.417,-4.336 12.174,-4.336l180.464,-0"
                                     filter="url(#rngTopCardLineFilter)" fill="none" stroke="currentColor"
@@ -92,9 +101,9 @@
                             </svg>
                         </div>
                         <div class="rngTable__cards-CIQw_j relative">
-                            <img class="h-[3rem] w-[3.5rem] lg:h-[4.8rem] lg:w-[7rem] absolute left-[50%] rounded -translate-x-2/4 top-[17%]"
+                            <img class="h-[3rem] w-[3.5rem] xl:h-[4.8rem] xl:w-[7rem] absolute left-[50%] rounded -translate-x-2/4 top-[17%]"
                                 src="/assets/virtual-table-cards/cardStack.svg" alt="card-stack" />
-                            <img class="h-[2.5rem] w-[2rem] lg:h-[3.5rem] lg:w-[4.4rem] absolute top-[16%] lg:top-[22%] left-[17%] skew-x-[-22deg]"
+                            <img class="h-[2.5rem] w-[2rem] xl:h-[3.5rem] xl:w-[4.4rem] absolute top-[16%] xl:top-[22%] left-[17%] skew-x-[-22deg]"
                                 src="/assets/virtual-table-cards/singleCard.svg" alt="single-card" />
                             <div class="canvasBase-rsnbXU">
                                 <div class="konvajs-content" role="presentation" style="
@@ -121,40 +130,61 @@
                         </div>
                     </div>
                 </div>
-                <div class="topCard__mainArea-BPe8Po mb-2 lg:mb-0">
+                <div class="topCard__mainArea-BPe8Po mb-2 xl:mb-0">
                     <div class="topCard__substrateIllumination-Fgc6XC">
                         <div class="substrateIllumination-QERXre substrateIllumination_filledMode-RrfQJ9">
-                            <div [ngClass]="{'dragonBox': resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER'}"
-                                class="substrateIllumination__left-EhuQx_"></div>
-                            <div [ngClass]="{'tieBox': resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'}"
-                                class="substrateIllumination__center-OOyono"></div>
-                            <div [ngClass]="{'tigerBox': resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER'}"
-                                class="substrateIllumination__right-Qgonl_"></div>
+                            <div [ngClass]="{
+                  dragonBox:
+                    resultArray[0]?.runners[
+                      marketArray[0]?.runners[0]?.selectionId
+                    ] === 'WINNER'
+                }" class="substrateIllumination__left-EhuQx_"></div>
+                            <div [ngClass]="{
+                  tieBox:
+                    resultArray[0]?.runners[
+                      marketArray[0]?.runners[1]?.selectionId
+                    ] === 'WINNER'
+                }" class="substrateIllumination__center-OOyono"></div>
+                            <div [ngClass]="{
+                  tigerBox:
+                    resultArray[0]?.runners[
+                      marketArray[0]?.runners[2]?.selectionId
+                    ] === 'WINNER'
+                }" class="substrateIllumination__right-Qgonl_"></div>
                         </div>
                     </div>
                     <div class="topCard__table-dHIFjS">
                         <div class="topCard__betsTable-RPVYMP">
                             <div data-locator="bets-table" class="betsTable-O_8TCE">
                                 <div class="gameTableScaleWrap-d6JpbW" style="padding-top: 41.8605%">
-                                    <div class="gameTableScaleWrap__item-K34egi lg:mb-2 lg:!scale-[1] lg:!static lg:flex lg:justify-center"
+                                    <div class="gameTableScaleWrap__item-K34egi xl:mb-2 xl:!scale-[1.15] xl:!static xl:flex xl:justify-center"
                                         style="
                       transform: translate(-50%, -50%)
                         scale(var(--boardScale, 1));
                     ">
                                         <div class="tableTooltip-YTZM32">
                                             <div
-                                                class="lg:!hidden betsTable__winLine-Hy_5JI betsTable__winLine_top-O31Eeh">
+                                                class="xl:!hidden betsTable__winLine-Hy_5JI betsTable__winLine_top-O31Eeh">
                                                 <svg class="backgroundWinLine_mirroredY-_eX8IJ !hidden" [ngClass]="{
-                            '!block dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
-                            '!block tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
-                            '!block tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
+                            '!block dragonWins':
+                              resultArray[0]?.runners[
+                                marketArray[0]?.runners[0]?.selectionId
+                              ] === 'WINNER',
+                            '!block tigerWins':
+                              resultArray[0]?.runners[
+                                marketArray[0]?.runners[2]?.selectionId
+                              ] === 'WINNER',
+                            '!block tieWins':
+                              resultArray[0]?.runners[
+                                marketArray[0]?.runners[1]?.selectionId
+                              ] === 'WINNER'
                           }" viewBox="0 0 374 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g filter="url(#BackgroundWinLineFilter)">
-                                                        <path class="!hidden"
-                                                            [ngClass]="{'backgroundWinLine__path-nnmXl_': resultArray.length > 0}"
-                                                            fill="none" stroke-width="1" stroke="currentColor"
-                                                            fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M 0 8 Q 187 16 374 8"></path>
+                                                        <path class="!hidden" [ngClass]="{
+                                'backgroundWinLine__path-nnmXl_':
+                                  resultArray.length > 0
+                              }" fill="none" stroke-width="1" stroke="currentColor" fill-rule="evenodd"
+                                                            clip-rule="evenodd" d="M 0 8 Q 187 16 374 8"></path>
                                                     </g>
                                                     <defs>
                                                         <filter id="BackgroundWinLineFilter" x="0" y="0" width="100%"
@@ -169,19 +199,27 @@
                                                 </svg>
                                             </div>
                                             <div
-                                                class="lg:!hidden betsTable__winLine-Hy_5JI betsTable__winLine_bottom-yhJg7N">
+                                                class="xl:!hidden betsTable__winLine-Hy_5JI betsTable__winLine_bottom-yhJg7N">
                                                 <svg class="!hidden" [ngClass]="{
-                                                    '!block dragonWins' : resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId] === 'WINNER',
-                                                    '!block tigerWins' : resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId] === 'WINNER',
-                                                    '!block tieWins' : resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId] === 'WINNER'
-                                                  }" viewBox="0 0 374 19" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
+                            '!block dragonWins':
+                              resultArray[0]?.runners[
+                                marketArray[0]?.runners[0]?.selectionId
+                              ] === 'WINNER',
+                            '!block tigerWins':
+                              resultArray[0]?.runners[
+                                marketArray[0]?.runners[2]?.selectionId
+                              ] === 'WINNER',
+                            '!block tieWins':
+                              resultArray[0]?.runners[
+                                marketArray[0]?.runners[1]?.selectionId
+                              ] === 'WINNER'
+                          }" viewBox="0 0 374 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g filter="url(#BackgroundWinLineFilter)">
-                                                        <path class="!hidden"
-                                                            [ngClass]="{'backgroundWinLine__path-nnmXl_': resultArray.length > 0}"
-                                                            fill="none" stroke-width="1" stroke="currentColor"
-                                                            fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M 0 8 Q 187 16 374 8"></path>
+                                                        <path class="!hidden" [ngClass]="{
+                                'backgroundWinLine__path-nnmXl_':
+                                  resultArray.length > 0
+                              }" fill="none" stroke-width="1" stroke="currentColor" fill-rule="evenodd"
+                                                            clip-rule="evenodd" d="M 0 8 Q 187 16 374 8"></path>
                                                     </g>
                                                     <defs>
                                                         <filter id="BackgroundWinLineFilter" x="0" y="0" width="100%"
@@ -195,7 +233,7 @@
                                                     </defs>
                                                 </svg>
                                             </div>
-                                            <div [ngClass]="{'table_flattenMode-mAvamp': mobileView}"
+                                            <div [ngClass]="{ 'table_flattenMode-mAvamp': mobileView }"
                                                 class="table-mGfpj2">
                                                 <svg class="table__backgroundShadow-CDVpmk"
                                                     xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -215,21 +253,24 @@
                                                     <div
                                                         class="sideBetPlace-yaTQLm sideBetPlace_variant_classic-sXwkw_ sideBetPlace_flattenMode-LlQvR6 sideBetPlace_roundState_betting-HoZEfk sideBetPlace_alignment_left-j7KLQf">
                                                         <div data-locator="side-bet-Contender" [ngClass]="{
-                                                                '!opacity-[0.6]': this.game?.status == 'SUSPEND',
-                                                                '!opacity-100': resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId]
-                                                                }" class="sideBetPlace__button-ECqlcw">
+                                '!opacity-[0.6]':
+                                  this.game?.status == 'SUSPEND',
+                                '!opacity-100':
+                                  resultArray[0]?.runners[
+                                    marketArray[0]?.runners[0]?.selectionId
+                                  ]
+                              }" class="sideBetPlace__button-ECqlcw">
                                                             <svg *ngIf="mobileView" class="sideButton-hG99dd"
                                                                 viewBox="0 0 179 144"
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <g>
                                                                     <path [ngClass]="{
-                                                                      dragonBox:
-                                                                        resultArray[0]?.runners[
-                                                                          marketArray[0]?.runners[0]
-                                                                            ?.selectionId
-                                                                        ] === 'WINNER'
-                                                                    }" class="sideButton__glowShadow-sSqbCK"
-                                                                        fill="#ff4100"
+                                      dragonBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[0]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" class="sideButton__glowShadow-sSqbCK" fill="#ff4100"
                                                                         filter="url(#topCardBetPlaceAnimationGlowShadow_mirrorMode:false)"
                                                                         d="M23.4392 4.42861L23.4394 4.42861L158.902 1.10096C160.715 1.05642 162.261 2.40617 162.461 4.20864C162.671 6.09071 161.32 7.84259 159.375 8.2255C129.519 14.1029 107 40.4205 107 72C107 107.899 136.101 137 172 137C172.759 137 173.514 136.987 174.266 136.961C175.921 136.905 177.337 138.087 177.511 139.658C177.706 141.414 176.31 142.94 174.543 142.9L23.4892 139.522C17.9195 139.398 13.8419 139.305 10.7246 138.819C7.63598 138.337 5.63584 137.489 4.1359 135.955C2.63596 134.421 1.8318 132.403 1.41886 129.304C1.00208 126.177 1 122.098 1 116.527V27.4218C1 21.8619 1.00208 17.7915 1.41774 14.6698C1.82957 11.5768 2.63157 9.56105 4.12757 8.02812C5.62357 6.49519 7.61917 5.64428 10.7012 5.15716C13.8118 4.66551 17.881 4.56418 23.4392 4.42861Z">
                                                                     </path>
@@ -242,15 +283,22 @@
                                                                         d="M23.4392 4.42861L23.4394 4.42861L158.902 1.10096C160.715 1.05642 162.261 2.40617 162.461 4.20864C162.671 6.09071 161.32 7.84259 159.375 8.2255C129.519 14.1029 107 40.4205 107 72C107 107.899 136.101 137 172 137C172.759 137 173.514 136.987 174.266 136.961C175.921 136.905 177.337 138.087 177.511 139.658C177.706 141.414 176.31 142.94 174.543 142.9L23.4892 139.522C17.9195 139.398 13.8419 139.305 10.7246 138.819C7.63598 138.337 5.63584 137.489 4.1359 135.955C2.63596 134.421 1.8318 132.403 1.41886 129.304C1.00208 126.177 1 122.098 1 116.527V27.4218C1 21.8619 1.00208 17.7915 1.41774 14.6698C1.82957 11.5768 2.63157 9.56105 4.12757 8.02812C5.62357 6.49519 7.61917 5.64428 10.7012 5.15716C13.8118 4.66551 17.881 4.56418 23.4392 4.42861Z">
                                                                     </path>
                                                                     <path [ngClass]="{
-                                                                          dragonBox:
-                                                                            resultArray[0]?.runners[
-                                                                              marketArray[0]?.runners[0]
-                                                                                ?.selectionId
-                                                                            ] === 'WINNER'
-                                                                        }"
-                                                                        (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[0].selectionId,'back',marketArray[0].runners[0].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
-                                                                        class="sideButton__borderWin-qJIxv_"
-                                                                        stroke="#ff4100" stroke-width="2"
+                                      dragonBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[0]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" (click)="
+                                      openBetslip(
+                                        marketArray[0].marketId,
+                                        marketArray[0].runners[0].selectionId,
+                                        'back',
+                                        marketArray[0].runners[0].price.back[0]
+                                          .price,
+                                        marketArray[0]?.min,
+                                        marketArray[0]?.max
+                                      )
+                                    " class="sideButton__borderWin-qJIxv_" stroke="#ff4100" stroke-width="2"
                                                                         d="M23.4392 4.42861L23.4394 4.42861L158.902 1.10096C160.715 1.05642 162.261 2.40617 162.461 4.20864C162.671 6.09071 161.32 7.84259 159.375 8.2255C129.519 14.1029 107 40.4205 107 72C107 107.899 136.101 137 172 137C172.759 137 173.514 136.987 174.266 136.961C175.921 136.905 177.337 138.087 177.511 139.658C177.706 141.414 176.31 142.94 174.543 142.9L23.4892 139.522C17.9195 139.398 13.8419 139.305 10.7246 138.819C7.63598 138.337 5.63584 137.489 4.1359 135.955C2.63596 134.421 1.8318 132.403 1.41886 129.304C1.00208 126.177 1 122.098 1 116.527V27.4218C1 21.8619 1.00208 17.7915 1.41774 14.6698C1.82957 11.5768 2.63157 9.56105 4.12757 8.02812C5.62357 6.49519 7.61917 5.64428 10.7012 5.15716C13.8118 4.66551 17.881 4.56418 23.4392 4.42861Z">
                                                                     </path>
                                                                 </g>
@@ -277,13 +325,12 @@
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <g>
                                                                     <path [ngClass]="{
-                                                                        dragonBox:
-                                                                          resultArray[0]?.runners[
-                                                                            marketArray[0]?.runners[0]
-                                                                              ?.selectionId
-                                                                          ] === 'WINNER'
-                                                                      }" class="sideButton__glowShadow-sSqbCK"
-                                                                        fill="#ff4100"
+                                      dragonBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[0]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" class="sideButton__glowShadow-sSqbCK" fill="#ff4100"
                                                                         filter="url(#topCardBetPlaceAnimationGlowShadow_mirrorMode:false)"
                                                                         d="M23.575 127.553c-5.59-.103-9.681-.181-12.81-.657-3.1-.473-5.108-1.318-6.615-2.853-1.506-1.534-2.314-3.558-2.73-6.666-.418-3.137-.42-7.23-.42-12.82v-77.15c0-5.582.002-9.669.42-12.802.414-3.104 1.22-5.126 2.724-6.66 1.504-1.535 3.51-2.381 6.605-2.857 3.124-.48 7.21-.565 12.791-.676l166.567-3.35a2.385 2.385 0 0 1 2.416 2.1c.156 1.297-.777 2.52-2.135 2.758C161.757 10.943 140 35.93 140 66c0 33.69 27.311 61 61 61 1.444 0 2.877-.05 4.296-.149 1.162-.081 2.167.738 2.298 1.83a2.014 2.014 0 0 1-2.037 2.255l-181.982-3.383Z">
                                                                     </path>
@@ -296,15 +343,22 @@
                                                                         d="M23.575 127.553c-5.59-.103-9.681-.181-12.81-.657-3.1-.473-5.108-1.318-6.615-2.853-1.506-1.534-2.314-3.558-2.73-6.666-.418-3.137-.42-7.23-.42-12.82v-77.15c0-5.582.002-9.669.42-12.802.414-3.104 1.22-5.126 2.724-6.66 1.504-1.535 3.51-2.381 6.605-2.857 3.124-.48 7.21-.565 12.791-.676l166.567-3.35a2.385 2.385 0 0 1 2.416 2.1c.156 1.297-.777 2.52-2.135 2.758C161.757 10.943 140 35.93 140 66c0 33.69 27.311 61 61 61 1.444 0 2.877-.05 4.296-.149 1.162-.081 2.167.738 2.298 1.83a2.014 2.014 0 0 1-2.037 2.255l-181.982-3.383Z">
                                                                     </path>
                                                                     <path [ngClass]="{
-                                                                        dragonBox:
-                                                                          resultArray[0]?.runners[
-                                                                            marketArray[0]?.runners[0]
-                                                                              ?.selectionId
-                                                                          ] === 'WINNER'
-                                                                      }"
-                                                                        (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[0].selectionId,'back',marketArray[0].runners[0].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
-                                                                        class="sideButton__borderWin-qJIxv_"
-                                                                        stroke="#ff4100" stroke-width="2"
+                                      dragonBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[0]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" (click)="
+                                      openBetslip(
+                                        marketArray[0].marketId,
+                                        marketArray[0].runners[0].selectionId,
+                                        'back',
+                                        marketArray[0].runners[0].price.back[0]
+                                          .price,
+                                        marketArray[0]?.min,
+                                        marketArray[0]?.max
+                                      )
+                                    " class="sideButton__borderWin-qJIxv_" stroke="#ff4100" stroke-width="2"
                                                                         d="M23.575 127.553c-5.59-.103-9.681-.181-12.81-.657-3.1-.473-5.108-1.318-6.615-2.853-1.506-1.534-2.314-3.558-2.73-6.666-.418-3.137-.42-7.23-.42-12.82v-77.15c0-5.582.002-9.669.42-12.802.414-3.104 1.22-5.126 2.724-6.66 1.504-1.535 3.51-2.381 6.605-2.857 3.124-.48 7.21-.565 12.791-.676l166.567-3.35a2.385 2.385 0 0 1 2.416 2.1c.156 1.297-.777 2.52-2.135 2.758C161.757 10.943 140 35.93 140 66c0 33.69 27.311 61 61 61 1.444 0 2.877-.05 4.296-.149 1.162-.081 2.167.738 2.298 1.83a2.014 2.014 0 0 1-2.037 2.255l-181.982-3.383Z">
                                                                     </path>
                                                                 </g>
@@ -329,9 +383,13 @@
                                                         <div class="sideBetPlace__content-j1EBj7 relative">
                                                             <div data-locator="bet-title-Contender"
                                                                 class="sideBetPlace__title-fRWK_S" [ngClass]="{
-                                                                '!opacity-[0.6]': this.game?.status == 'SUSPEND',
-                                                                '!opacity-100': resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId]
-                                                                }">
+                                  '!opacity-[0.6]':
+                                    this.game?.status == 'SUSPEND',
+                                  '!opacity-100':
+                                    resultArray[0]?.runners[
+                                      marketArray[0]?.runners[0]?.selectionId
+                                    ]
+                                }">
                                                                 {{
                                                                 marketArray[0]?.runnersName[
                                                                 marketArray[0]?.runners[0]?.selectionId
@@ -340,9 +398,13 @@
                                                             </div>
                                                             <div data-locator="side-bet-coefficient-Contender"
                                                                 class="sideBetPlace__coefficient-rLhU1g" [ngClass]="{
-                                                                '!opacity-[0.6]': this.game?.status == 'SUSPEND',
-                                                                '!opacity-100': resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId]
-                                                                }">
+                                  '!opacity-[0.6]':
+                                    this.game?.status == 'SUSPEND',
+                                  '!opacity-100':
+                                    resultArray[0]?.runners[
+                                      marketArray[0]?.runners[0]?.selectionId
+                                    ]
+                                }">
                                                                 {{
                                                                 marketArray[0]?.runners[0]?.price?.back[0]
                                                                 ?.price
@@ -351,14 +413,16 @@
                                                             <div
                                                                 class="h-[25px] absolute z-50 top-[48%] left-3 w-[25px]">
                                                                 <div *ngIf="BetPlaced[marketArray[0]?.marketId]">
-                                                                    <app-bets-chips
-                                                                        *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[0]?.selectionId]"
-                                                                        [BetPlaced]="BetPlaced"
-                                                                        [marketId]="marketArray[0]?.marketId"
-                                                                        [runnerId]="marketArray[0].runners[0].selectionId"></app-bets-chips>
+                                                                    <app-bets-chips *ngIf="
+                                      BetPlaced[marketArray[0]?.marketId][
+                                        marketArray[0]?.runners[0]?.selectionId
+                                      ]
+                                    " [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId" [runnerId]="
+                                      marketArray[0].runners[0].selectionId
+                                    "></app-bets-chips>
                                                                 </div>
                                                             </div>
-                                                            <div [ngClass]="{'leftCards' : !mobileView}"
+                                                            <div [ngClass]="{ leftCards: !mobileView }"
                                                                 class="sideBetPlace__card-uKttcd">
                                                                 <img [ngClass]="
                                     dragonCards?.card_1 != '0' &&
@@ -372,9 +436,13 @@
                                   ]" class="card-img rounded-[0.125rem]" alt="card1" />
                                                             </div>
                                                             <div [ngClass]="{
-                                                                '!opacity-[0.6]': this.game?.status == 'SUSPEND',
-                                                                '!opacity-100': resultArray[0]?.runners[marketArray[0]?.runners[0]?.selectionId]
-                                                                }" class="sideBetPlace__betStat-IC2sez">
+                                  '!opacity-[0.6]':
+                                    this.game?.status == 'SUSPEND',
+                                  '!opacity-100':
+                                    resultArray[0]?.runners[
+                                      marketArray[0]?.runners[0]?.selectionId
+                                    ]
+                                }" class="sideBetPlace__betStat-IC2sez">
                                                                 <div class="topCardBetStat-PngAzO topCardBetStat_size_medium-hGKde_"
                                                                     data-locator="side-bet-stat-Contender">
                                                                     0%
@@ -388,9 +456,13 @@
                                                         class="drawBetPlace-rGh1m_ drawBetPlace_flatten-O0riqv drawBetPlace_roundState_betting-nZl6GO">
                                                         <div data-locator="draw-bet" class="drawBetPlace__button-k5DXi_"
                                                             [ngClass]="{
-                                                            '!opacity-[0.6]': this.game?.status == 'SUSPEND',
-                                                            '!opacity-100': resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId]
-                                                            }">
+                                '!opacity-[0.6]':
+                                  this.game?.status == 'SUSPEND',
+                                '!opacity-100':
+                                  resultArray[0]?.runners[
+                                    marketArray[0]?.runners[1]?.selectionId
+                                  ]
+                              }">
                                                             <svg class="drawButton-TOg_3P" viewBox="0 0 124 124"
                                                                 xmlns="http://www.w3.org/2000/svg" style="
                                   --drawInnerCircleFill: #7e7e7e;
@@ -415,25 +487,42 @@
                                                                         stroke="url(#top-card-bet-place-draw-border-light)">
                                                                     </path>
                                                                     <path [ngClass]="{
-                                                                      tieBox:
-                                                                        resultArray[0]?.runners[
-                                                                          marketArray[0]?.runners[1]
-                                                                            ?.selectionId
-                                                                        ] === 'WINNER'
-                                                                    }" (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[1].selectionId,'back',marketArray[0].runners[1].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
-                                                                        class="drawButton__glowBorder-w79A3E"
-                                                                        stroke="#f8ff13" stroke-width="2"
+                                      tieBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[1]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" (click)="
+                                      openBetslip(
+                                        marketArray[0].marketId,
+                                        marketArray[0].runners[1].selectionId,
+                                        'back',
+                                        marketArray[0].runners[1].price.back[0]
+                                          .price,
+                                        marketArray[0]?.min,
+                                        marketArray[0]?.max
+                                      )
+                                    " class="drawButton__glowBorder-w79A3E" stroke="#f8ff13" stroke-width="2"
                                                                         fill="url(#top-card-bet-place-animation-glow-background-draw)"
                                                                         d="M1,62a61,61 0 1,0 122,0a61,61 0 1,0 -122,0">
                                                                     </path>
                                                                     <path [ngClass]="{
-                                                                      tieInnerBox:
-                                                                        resultArray[0]?.runners[
-                                                                          marketArray[0]?.runners[1]
-                                                                            ?.selectionId
-                                                                        ] === 'WINNER'
-                                                                    }" (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[1].selectionId,'back',marketArray[0].runners[1].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
-                                                                        class="drawButton__innerCircle-uHjRNX"
+                                      tieInnerBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[1]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" (click)="
+                                      openBetslip(
+                                        marketArray[0].marketId,
+                                        marketArray[0].runners[1].selectionId,
+                                        'back',
+                                        marketArray[0].runners[1].price.back[0]
+                                          .price,
+                                        marketArray[0]?.min,
+                                        marketArray[0]?.max
+                                      )
+                                    " class="drawButton__innerCircle-uHjRNX"
                                                                         d="M46,62a16,16 0 1,0 32,0a16,16 0 1,0 -32,0">
                                                                     </path>
                                                                     <defs>
@@ -485,9 +574,13 @@
                                                         <div class="drawBetPlace__content-qi07bj relative">
                                                             <div data-locator="bet-title-Draw"
                                                                 class="drawBetPlace__title-uB5e9_" [ngClass]="{
-                                                                    '!opacity-[0.6]': this.game?.status == 'SUSPEND',
-                                                                    '!opacity-100': resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId]
-                                                                    }">
+                                  '!opacity-[0.6]':
+                                    this.game?.status == 'SUSPEND',
+                                  '!opacity-100':
+                                    resultArray[0]?.runners[
+                                      marketArray[0]?.runners[1]?.selectionId
+                                    ]
+                                }">
                                                                 {{
                                                                 marketArray[0]?.runnersName[
                                                                 marketArray[0]?.runners[1]?.selectionId
@@ -496,9 +589,13 @@
                                                             </div>
                                                             <div data-locator="draw-coefficient"
                                                                 class="drawBetPlace__coefficient-EGyWtF" [ngClass]="{
-                                                                    '!opacity-[0.6]': this.game?.status == 'SUSPEND',
-                                                                    '!opacity-100': resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId]
-                                                                    }">
+                                  '!opacity-[0.6]':
+                                    this.game?.status == 'SUSPEND',
+                                  '!opacity-100':
+                                    resultArray[0]?.runners[
+                                      marketArray[0]?.runners[1]?.selectionId
+                                    ]
+                                }">
                                                                 {{
                                                                 marketArray[0]?.runners[1]?.price?.back[0]
                                                                 ?.price
@@ -506,18 +603,24 @@
                                                             </div>
                                                             <div class="h-[25px] w-[25px] absolute z-50 top-[71%]">
                                                                 <div *ngIf="BetPlaced[marketArray[0]?.marketId]">
-                                                                    <app-bets-chips
-                                                                        *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[1]?.selectionId]"
-                                                                        [BetPlaced]="BetPlaced"
-                                                                        [marketId]="marketArray[0]?.marketId"
-                                                                        [runnerId]="marketArray[0].runners[1].selectionId"></app-bets-chips>
+                                                                    <app-bets-chips *ngIf="
+                                      BetPlaced[marketArray[0]?.marketId][
+                                        marketArray[0]?.runners[1]?.selectionId
+                                      ]
+                                    " [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId" [runnerId]="
+                                      marketArray[0].runners[1].selectionId
+                                    "></app-bets-chips>
                                                                 </div>
                                                             </div>
                                                             <div data-locator="draw-stats"
                                                                 class="drawBetPlace__betStat-LmQIe6" [ngClass]="{
-                                                                    '!opacity-[0.6]': this.game?.status == 'SUSPEND',
-                                                                    '!opacity-100': resultArray[0]?.runners[marketArray[0]?.runners[1]?.selectionId]
-                                                                    }">
+                                  '!opacity-[0.6]':
+                                    this.game?.status == 'SUSPEND',
+                                  '!opacity-100':
+                                    resultArray[0]?.runners[
+                                      marketArray[0]?.runners[1]?.selectionId
+                                    ]
+                                }">
                                                                 <div
                                                                     class="topCardBetStat-PngAzO topCardBetStat_size_small-MQKzgR">
                                                                     100%
@@ -530,22 +633,24 @@
                                                     <div
                                                         class="sideBetPlace-yaTQLm sideBetPlace_variant_classic-sXwkw_ sideBetPlace_flattenMode-LlQvR6 sideBetPlace_roundState_betting-HoZEfk sideBetPlace_alignment_right-lxfKXH">
                                                         <div data-locator="side-bet-Champion" [ngClass]="{
-                                                            '!opacity-[0.6]': this.game?.status == 'SUSPEND',
-                                                            '!opacity-100': resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId]
-                                                            }" class="sideBetPlace__button-ECqlcw">
-
+                                '!opacity-[0.6]':
+                                  this.game?.status == 'SUSPEND',
+                                '!opacity-100':
+                                  resultArray[0]?.runners[
+                                    marketArray[0]?.runners[2]?.selectionId
+                                  ]
+                              }" class="sideBetPlace__button-ECqlcw">
                                                             <svg *ngIf="mobileView" class="sideButton-hG99dd"
                                                                 viewBox="0 0 179 144"
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <g>
                                                                     <path [ngClass]="{
-                                                                      tigerBox:
-                                                                        resultArray[0]?.runners[
-                                                                          marketArray[0]?.runners[2]
-                                                                            ?.selectionId
-                                                                        ] === 'WINNER'
-                                                                    }" class="sideButton__glowShadow-sSqbCK"
-                                                                        fill="#74d8e3"
+                                      tigerBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[2]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" class="sideButton__glowShadow-sSqbCK" fill="#74d8e3"
                                                                         filter="url(#topCardBetPlaceAnimationGlowShadow_mirrorMode:true)"
                                                                         d="M155.561 139.571L155.561 139.571L20.0976 142.899C18.2846 142.944 16.7388 141.594 16.5385 139.791C16.3294 137.909 17.6801 136.157 19.6252 135.775C49.4808 129.897 72 103.579 72 72C72 36.1015 42.8985 7 7 7C6.24144 7 5.48589 7.013 4.73355 7.03877C3.07947 7.09547 1.66312 5.91278 1.48863 4.34241C1.2935 2.58627 2.69026 1.06041 4.45676 1.09993L155.511 4.47827C161.081 4.60204 165.158 4.69473 168.275 5.18088C171.364 5.66257 173.364 6.51137 174.864 8.045C176.364 9.57864 177.168 11.5972 177.581 14.6958C177.998 17.8231 178 21.9017 178 27.4726V116.578C178 122.138 177.998 126.209 177.582 129.33C177.17 132.423 176.368 134.439 174.872 135.972C173.376 137.505 171.381 138.356 168.299 138.843C165.188 139.334 161.119 139.436 155.561 139.571Z">
                                                                     </path>
@@ -558,14 +663,22 @@
                                                                         d="M155.561 139.571L155.561 139.571L20.0976 142.899C18.2846 142.944 16.7388 141.594 16.5385 139.791C16.3294 137.909 17.6801 136.157 19.6252 135.775C49.4808 129.897 72 103.579 72 72C72 36.1015 42.8985 7 7 7C6.24144 7 5.48589 7.013 4.73355 7.03877C3.07947 7.09547 1.66312 5.91278 1.48863 4.34241C1.2935 2.58627 2.69026 1.06041 4.45676 1.09993L155.511 4.47827C161.081 4.60204 165.158 4.69473 168.275 5.18088C171.364 5.66257 173.364 6.51137 174.864 8.045C176.364 9.57864 177.168 11.5972 177.581 14.6958C177.998 17.8231 178 21.9017 178 27.4726V116.578C178 122.138 177.998 126.209 177.582 129.33C177.17 132.423 176.368 134.439 174.872 135.972C173.376 137.505 171.381 138.356 168.299 138.843C165.188 139.334 161.119 139.436 155.561 139.571Z">
                                                                     </path>
                                                                     <path [ngClass]="{
-                                                                      tigerBox:
-                                                                        resultArray[0]?.runners[
-                                                                          marketArray[0]?.runners[2]
-                                                                            ?.selectionId
-                                                                        ] === 'WINNER'
-                                                                    }" (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[2].selectionId,'back',marketArray[0].runners[2].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
-                                                                        class="sideButton__borderWin-qJIxv_"
-                                                                        stroke="#74d8e3" stroke-width="2"
+                                      tigerBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[2]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" (click)="
+                                      openBetslip(
+                                        marketArray[0].marketId,
+                                        marketArray[0].runners[2].selectionId,
+                                        'back',
+                                        marketArray[0].runners[2].price.back[0]
+                                          .price,
+                                        marketArray[0]?.min,
+                                        marketArray[0]?.max
+                                      )
+                                    " class="sideButton__borderWin-qJIxv_" stroke="#74d8e3" stroke-width="2"
                                                                         d="M155.561 139.571L155.561 139.571L20.0976 142.899C18.2846 142.944 16.7388 141.594 16.5385 139.791C16.3294 137.909 17.6801 136.157 19.6252 135.775C49.4808 129.897 72 103.579 72 72C72 36.1015 42.8985 7 7 7C6.24144 7 5.48589 7.013 4.73355 7.03877C3.07947 7.09547 1.66312 5.91278 1.48863 4.34241C1.2935 2.58627 2.69026 1.06041 4.45676 1.09993L155.511 4.47827C161.081 4.60204 165.158 4.69473 168.275 5.18088C171.364 5.66257 173.364 6.51137 174.864 8.045C176.364 9.57864 177.168 11.5972 177.581 14.6958C177.998 17.8231 178 21.9017 178 27.4726V116.578C178 122.138 177.998 126.209 177.582 129.33C177.17 132.423 176.368 134.439 174.872 135.972C173.376 137.505 171.381 138.356 168.299 138.843C165.188 139.334 161.119 139.436 155.561 139.571Z">
                                                                     </path>
                                                                 </g>
@@ -592,13 +705,12 @@
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <g>
                                                                     <path [ngClass]="{
-                                                                        tigerBox:
-                                                                          resultArray[0]?.runners[
-                                                                            marketArray[0]?.runners[2]
-                                                                              ?.selectionId
-                                                                          ] === 'WINNER'
-                                                                      }" class="sideButton__glowShadow-sSqbCK"
-                                                                        fill="#74d8e3"
+                                      tigerBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[2]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" class="sideButton__glowShadow-sSqbCK" fill="#74d8e3"
                                                                         filter="url(#topCardBetPlaceAnimationGlowShadow_mirrorMode:true)"
                                                                         d="M185.425 4.44668L185.425 4.44669C191.014 4.55001 195.106 4.62776 198.235 5.10438C201.335 5.57663 203.343 6.42175 204.85 7.9566C206.356 9.49146 207.164 11.5147 207.579 14.623C207.998 17.7601 208 21.8528 208 27.4428V104.593C208 110.175 207.998 114.262 207.58 117.395C207.166 120.5 206.36 122.521 204.856 124.055C203.352 125.59 201.347 126.436 198.251 126.912C195.127 127.393 191.041 127.477 185.46 127.588L185.46 127.588L18.8933 130.939C17.6676 130.963 16.6227 130.055 16.4765 128.838C16.3209 127.541 17.2535 126.318 18.6119 126.08C47.2427 121.057 69 96.0704 69 66C69 32.3106 41.6894 5 8 5C6.55573 5 5.12302 5.05022 3.70354 5.14901C2.54225 5.22983 1.53685 4.41135 1.40564 3.3186C1.25986 2.10443 2.22064 1.04144 3.44333 1.06418L185.425 4.44668Z">
                                                                     </path>
@@ -611,15 +723,22 @@
                                                                         d="M185.425 4.44668L185.425 4.44669C191.014 4.55001 195.106 4.62776 198.235 5.10438C201.335 5.57663 203.343 6.42175 204.85 7.9566C206.356 9.49146 207.164 11.5147 207.579 14.623C207.998 17.7601 208 21.8528 208 27.4428V104.593C208 110.175 207.998 114.262 207.58 117.395C207.166 120.5 206.36 122.521 204.856 124.055C203.352 125.59 201.347 126.436 198.251 126.912C195.127 127.393 191.041 127.477 185.46 127.588L185.46 127.588L18.8933 130.939C17.6676 130.963 16.6227 130.055 16.4765 128.838C16.3209 127.541 17.2535 126.318 18.6119 126.08C47.2427 121.057 69 96.0704 69 66C69 32.3106 41.6894 5 8 5C6.55573 5 5.12302 5.05022 3.70354 5.14901C2.54225 5.22983 1.53685 4.41135 1.40564 3.3186C1.25986 2.10443 2.22064 1.04144 3.44333 1.06418L185.425 4.44668Z">
                                                                     </path>
                                                                     <path [ngClass]="{
-                                                                        tigerBox:
-                                                                          resultArray[0]?.runners[
-                                                                            marketArray[0]?.runners[2]
-                                                                              ?.selectionId
-                                                                          ] === 'WINNER'
-                                                                      }"
-                                                                        (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[2].selectionId,'back',marketArray[0].runners[2].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
-                                                                        class="sideButton__borderWin-qJIxv_"
-                                                                        stroke="#74d8e3" stroke-width="2"
+                                      tigerBox:
+                                        resultArray[0]?.runners[
+                                          marketArray[0]?.runners[2]
+                                            ?.selectionId
+                                        ] === 'WINNER'
+                                    }" (click)="
+                                      openBetslip(
+                                        marketArray[0].marketId,
+                                        marketArray[0].runners[2].selectionId,
+                                        'back',
+                                        marketArray[0].runners[2].price.back[0]
+                                          .price,
+                                        marketArray[0]?.min,
+                                        marketArray[0]?.max
+                                      )
+                                    " class="sideButton__borderWin-qJIxv_" stroke="#74d8e3" stroke-width="2"
                                                                         d="M185.425 4.44668L185.425 4.44669C191.014 4.55001 195.106 4.62776 198.235 5.10438C201.335 5.57663 203.343 6.42175 204.85 7.9566C206.356 9.49146 207.164 11.5147 207.579 14.623C207.998 17.7601 208 21.8528 208 27.4428V104.593C208 110.175 207.998 114.262 207.58 117.395C207.166 120.5 206.36 122.521 204.856 124.055C203.352 125.59 201.347 126.436 198.251 126.912C195.127 127.393 191.041 127.477 185.46 127.588L185.46 127.588L18.8933 130.939C17.6676 130.963 16.6227 130.055 16.4765 128.838C16.3209 127.541 17.2535 126.318 18.6119 126.08C47.2427 121.057 69 96.0704 69 66C69 32.3106 41.6894 5 8 5C6.55573 5 5.12302 5.05022 3.70354 5.14901C2.54225 5.22983 1.53685 4.41135 1.40564 3.3186C1.25986 2.10443 2.22064 1.04144 3.44333 1.06418L185.425 4.44668Z">
                                                                     </path>
                                                                 </g>
@@ -644,9 +763,13 @@
                                                         <div class="relative sideBetPlace__content-j1EBj7">
                                                             <div data-locator="bet-title-Champion"
                                                                 class="sideBetPlace__title-fRWK_S" [ngClass]="{
-                                                                    '!opacity-[0.6]': this.game?.status == 'SUSPEND',
-                                                                    '!opacity-100': resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId]
-                                                                    }">
+                                  '!opacity-[0.6]':
+                                    this.game?.status == 'SUSPEND',
+                                  '!opacity-100':
+                                    resultArray[0]?.runners[
+                                      marketArray[0]?.runners[2]?.selectionId
+                                    ]
+                                }">
                                                                 {{
                                                                 marketArray[0]?.runnersName[
                                                                 marketArray[0]?.runners[2]?.selectionId
@@ -654,9 +777,13 @@
                                                                 }}
                                                             </div>
                                                             <div data-locator="side-bet-coefficient-Champion" [ngClass]="{
-                                                                '!opacity-[0.6]': this.game?.status == 'SUSPEND',
-                                                                '!opacity-100': resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId]
-                                                                }" class="sideBetPlace__coefficient-rLhU1g">
+                                  '!opacity-[0.6]':
+                                    this.game?.status == 'SUSPEND',
+                                  '!opacity-100':
+                                    resultArray[0]?.runners[
+                                      marketArray[0]?.runners[2]?.selectionId
+                                    ]
+                                }" class="sideBetPlace__coefficient-rLhU1g">
                                                                 {{
                                                                 marketArray[0]?.runners[2]?.price?.back[0]
                                                                 ?.price
@@ -665,14 +792,16 @@
                                                             <div
                                                                 class="h-[25px] w-[25px] absolute z-50 top-[48%] right-3">
                                                                 <div *ngIf="BetPlaced[marketArray[0]?.marketId]">
-                                                                    <app-bets-chips
-                                                                        *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[2]?.selectionId]"
-                                                                        [BetPlaced]="BetPlaced"
-                                                                        [marketId]="marketArray[0]?.marketId"
-                                                                        [runnerId]="marketArray[0].runners[2].selectionId"></app-bets-chips>
+                                                                    <app-bets-chips *ngIf="
+                                      BetPlaced[marketArray[0]?.marketId][
+                                        marketArray[0]?.runners[2]?.selectionId
+                                      ]
+                                    " [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId" [runnerId]="
+                                      marketArray[0].runners[2].selectionId
+                                    "></app-bets-chips>
                                                                 </div>
                                                             </div>
-                                                            <div [ngClass]="{'rightCards' : !mobileView}"
+                                                            <div [ngClass]="{ rightCards: !mobileView }"
                                                                 class="sideBetPlace__card-uKttcd right-side">
                                                                 <img [ngClass]="
                                     tigerCards?.card_1 != '0' &&
@@ -686,9 +815,13 @@
                                   ]" class="card-img rounded-[0.125rem]" alt="card1" />
                                                             </div>
                                                             <div [ngClass]="{
-                                                                '!opacity-[0.6]': this.game?.status == 'SUSPEND',
-                                                                '!opacity-100': resultArray[0]?.runners[marketArray[0]?.runners[2]?.selectionId]
-                                                                }" class="sideBetPlace__betStat-IC2sez">
+                                  '!opacity-[0.6]':
+                                    this.game?.status == 'SUSPEND',
+                                  '!opacity-100':
+                                    resultArray[0]?.runners[
+                                      marketArray[0]?.runners[2]?.selectionId
+                                    ]
+                                }" class="sideBetPlace__betStat-IC2sez">
                                                                 <div class="topCardBetStat-PngAzO topCardBetStat_size_medium-hGKde_"
                                                                     data-locator="side-bet-stat-Champion">
                                                                     0%
@@ -704,22 +837,26 @@
                             </div>
                         </div>
                     </div>
-                    <app-bet-coin class="betStyle lg:mb-2" (eventBetValue)="getCoinValue($event)"
+                    <app-bet-coin class="betStyle mb-8 md:mb-[6rem] xl:mb-2" (eventBetValue)="getCoinValue($event)"
                         [status]="this.game.status"></app-bet-coin>
 
-                    <div class="[@media(max-width:1024px)]:!hidden time-container" *ngIf="this.game">
-                        <div class="last-win">{{this.game.eventName}}
-                            <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">
+                    <div class="time-container " *ngIf="this.game">
+                        <div class="last-win md:!text-[1.3rem] xl:!text-[0.75rem]">{{this.game.eventName}}
+                            <span
+                                class="text-[rgb(255,170,0)] text-[0.75rem]  xl:!text-[0.75rem] md:!text-[1.3rem] font-bold">
                                 {{winnerMarketArray.min}}</span>
                             -
-                            <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold"> {{winnerMarketArray.max |
+                            <span
+                                class="text-[rgb(255,170,0)] text-[0.75rem] md:!text-[1.3rem]   xl:!text-[0.75rem]  font-bold">
+                                {{winnerMarketArray.max
+                                |
                                 shortNumber}}</span>
                         </div>
-                        <div class="roundInfo-date">
+                        <div class="roundInfo-date  md:!text-[1.3rem]  xl:!text-[0.75rem]">
+                            <!-- <span class="inline-block">.</span>  -->
                             {{this.game.roundId}}
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -748,13 +885,13 @@
     </div>
 </main>
 
-<div class="[@media(max-width:1023px)]:hidden z-10 fixed w-[20.5rem] mx-[2%] bottom-[20%] flex flex-col gap-[1.5rem]">
+<div class="[@media(max-width:1279px)]:hidden z-10 fixed w-[20.5rem] mx-[2%] bottom-[20%] flex flex-col gap-[1.5rem]">
     <div class="dragonTiger__history-jQwWbi">
         <div class="scoreBoardInfo-USWOxa">
             <div class="scoreBoardInfo__total-b3bUj3">
                 <div class="scoreBoardInfo__totalItem-KhIYhz">#1</div>
-                <div class="scoreBoardInfo__totalItem-KhIYhz"><svg class="scoreBoardInfo__totalItemSvg-eW0Cnx"
-                        viewBox="0 0 9 9">
+                <div class="scoreBoardInfo__totalItem-KhIYhz">
+                    <svg class="scoreBoardInfo__totalItemSvg-eW0Cnx" viewBox="0 0 9 9">
                         <g>
                             <circle cx="4.5" cy="4.5" r="4.5" fill="#c62808"></circle>
                             <path
@@ -762,9 +899,10 @@
               c-0.037,-0 -0.068,-0.014 -0.093,-0.04c-0.026,-0.027 -0.039,-0.059 -0.039,-0.097l0,-3.72c0,-0.042 0.013,-0.077 0.039,-0.103c0.025,-0.027 0.056,-0.04 0.093,-0.04l1.344,-0c0.371,-0 0.676,0.059 0.915,0.177c0.242,0.118 0.424,0.293 0.545,0.526c0.125,0.232 0.189,0.516 0.193,0.851c0.007,0.168 0.011,0.316 0.011,0.446c0,0.129 -0.004,0.276 -0.011,0.44c-0.007,0.354 -0.07,0.647 -0.187,0.88c-0.118,0.228 -0.296,0.4 -0.535,0.514c-0.235,0.111 -0.536,0.166 -0.903,0.166l-1.372,-0Zm0.634,-0.657l0.71,-0c0.206,-0 0.373,-0.031 0.502,-0.092c0.128,-0.061 0.222,-0.158 0.281,-0.291c0.062,-0.137 0.095,-0.316 0.099,-0.537c0.003,-0.115 0.005,-0.214 0.005,-0.298c0.004,-0.087 0.004,-0.173 0,-0.257c0,-0.087 -0.002,-0.186 -0.005,-0.297c-0.008,-0.312 -0.083,-0.543 -0.226,-0.691c-0.143,-0.149 -0.371,-0.223 -0.683,-0.223l-0.683,-0l-0,2.686Z"
                                 fill="#fff"></path>
                         </g>
-                    </svg>1</div>
-                <div class="scoreBoardInfo__totalItem-KhIYhz"><svg class="scoreBoardInfo__totalItemSvg-eW0Cnx"
-                        viewBox="0 0 9 9">
+                    </svg>1
+                </div>
+                <div class="scoreBoardInfo__totalItem-KhIYhz">
+                    <svg class="scoreBoardInfo__totalItemSvg-eW0Cnx" viewBox="0 0 9 9">
                         <g>
                             <circle cx="4.5" cy="4.5" r="4.5" fill="#e19d19"></circle>
                             <path
@@ -772,9 +910,10 @@
             c-0.038,0 -0.07,-0.013 -0.097,-0.04c-0.026,-0.027 -0.04,-0.059 -0.04,-0.097l0,-3.16l-1.057,-0c-0.038,-0 -0.07,-0.013 -0.097,-0.04c-0.027,-0.027 -0.04,-0.059 -0.04,-0.097l-0,-0.423c-0,-0.042 0.013,-0.076 0.04,-0.103c0.027,-0.027 0.059,-0.04 0.097,-0.04l2.914,0c0.042,0 0.077,0.013 0.103,0.04c0.027,0.027 0.04,0.061 0.04,0.103l0,0.423c0,0.038 -0.013,0.07 -0.04,0.097c-0.026,0.027 -0.061,0.04 -0.103,0.04l-1.051,-0l-0,3.16c-0,0.038 -0.013,0.07 -0.04,0.097c-0.027,0.027 -0.061,0.04 -0.103,0.04l-0.526,0Z"
                                 fill="#fff"></path>
                         </g>
-                    </svg>0</div>
-                <div class="scoreBoardInfo__totalItem-KhIYhz"><svg class="scoreBoardInfo__totalItemSvg-eW0Cnx"
-                        viewBox="0 0 9 9">
+                    </svg>0
+                </div>
+                <div class="scoreBoardInfo__totalItem-KhIYhz">
+                    <svg class="scoreBoardInfo__totalItemSvg-eW0Cnx" viewBox="0 0 9 9">
                         <g>
                             <circle cx="4.5" cy="4.5" r="4.5" fill="#29cccc"></circle>
                             <path
@@ -782,11 +921,12 @@
             c-0.038,0 -0.07,-0.013 -0.097,-0.04c-0.026,-0.027 -0.04,-0.059 -0.04,-0.097l0,-3.16l-1.057,-0c-0.038,-0 -0.07,-0.013 -0.097,-0.04c-0.027,-0.027 -0.04,-0.059 -0.04,-0.097l-0,-0.423c-0,-0.042 0.013,-0.076 0.04,-0.103c0.027,-0.027 0.059,-0.04 0.097,-0.04l2.914,0c0.042,0 0.077,0.013 0.103,0.04c0.027,0.027 0.04,0.061 0.04,0.103l0,0.423c0,0.038 -0.013,0.07 -0.04,0.097c-0.026,0.027 -0.061,0.04 -0.103,0.04l-1.051,-0l-0,3.16c-0,0.038 -0.013,0.07 -0.04,0.097c-0.027,0.027 -0.061,0.04 -0.103,0.04l-0.526,0Z"
                                 fill="#fff"></path>
                         </g>
-                    </svg>0</div>
+                    </svg>0
+                </div>
             </div>
-            <div class="scoreBoardInfo__buttons-nUvY7g"><button
-                    class="scoreBoardInfo__button-wmBupa scoreBoardInfo__button_left-cIMRsf" type="button"><svg
-                        viewBox="0 0 19 4.5" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+            <div class="scoreBoardInfo__buttons-nUvY7g">
+                <button class="scoreBoardInfo__button-wmBupa scoreBoardInfo__button_left-cIMRsf" type="button">
+                    <svg viewBox="0 0 19 4.5" xmlns="http://www.w3.org/2000/svg" style="display: block">
                         <path
                             d="M0.1319999999999999,4.2
               c-0.037,-0 -0.068,-0.014 -0.093,-0.04c-0.026,-0.027 -0.039,-0.059 -0.039,-0.097l0,-3.72c0,-0.042 0.013,-0.077 0.039,-0.103c0.025,-0.027 0.056,-0.04 0.093,-0.04l1.344,-0c0.371,-0 0.676,0.059 0.915,0.177c0.242,0.118 0.424,0.293 0.545,0.526c0.125,0.232 0.189,0.516 0.193,0.851c0.007,0.168 0.011,0.316 0.011,0.446c0,0.129 -0.004,0.276 -0.011,0.44c-0.007,0.354 -0.07,0.647 -0.187,0.88c-0.118,0.228 -0.296,0.4 -0.535,0.514c-0.235,0.111 -0.536,0.166 -0.903,0.166l-1.372,-0Zm0.634,-0.657l0.71,-0c0.206,-0 0.373,-0.031 0.502,-0.092c0.128,-0.061 0.222,-0.158 0.281,-0.291c0.062,-0.137 0.095,-0.316 0.099,-0.537c0.003,-0.115 0.005,-0.214 0.005,-0.298c0.004,-0.087 0.004,-0.173 0,-0.257c0,-0.087 -0.002,-0.186 -0.005,-0.297c-0.008,-0.312 -0.083,-0.543 -0.226,-0.691c-0.143,-0.149 -0.371,-0.223 -0.683,-0.223l-0.683,-0l-0,2.686Z"
@@ -794,10 +934,10 @@
                         <circle cx="7.5" cy="2.3" r="1" fill="none" stroke-width="0.5" stroke="#c62808"></circle>
                         <circle cx="12.2" cy="2.3" r="1.225" fill="#c62808"></circle>
                         <path d="M17.7,1.45 l-1.8,1.8" fill="none" stroke-width="0.5" stroke="#c62808"
-                            stroke-linecap="round">
-                        </path>
+                            stroke-linecap="round"></path>
                     </svg></button><button class="scoreBoardInfo__button-wmBupa scoreBoardInfo__button_right-ZSwl6f"
-                    type="button"><svg viewBox="0 0 19 4.5" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+                    type="button">
+                    <svg viewBox="0 0 19 4.5" xmlns="http://www.w3.org/2000/svg" style="display: block">
                         <path
                             d="M1.234,4.2
             c-0.038,0 -0.07,-0.013 -0.097,-0.04c-0.026,-0.027 -0.04,-0.059 -0.04,-0.097l0,-3.16l-1.057,-0c-0.038,-0 -0.07,-0.013 -0.097,-0.04c-0.027,-0.027 -0.04,-0.059 -0.04,-0.097l-0,-0.423c-0,-0.042 0.013,-0.076 0.04,-0.103c0.027,-0.027 0.059,-0.04 0.097,-0.04l2.914,0c0.042,0 0.077,0.013 0.103,0.04c0.027,0.027 0.04,0.061 0.04,0.103l0,0.423c0,0.038 -0.013,0.07 -0.04,0.097c-0.026,0.027 -0.061,0.04 -0.103,0.04l-1.051,-0l-0,3.16c-0,0.038 -0.013,0.07 -0.04,0.097c-0.027,0.027 -0.061,0.04 -0.103,0.04l-0.526,0Z"
@@ -805,9 +945,10 @@
                         <circle cx="7.5" cy="2.3" r="1" fill="none" stroke-width="0.5" stroke="#e19d19"></circle>
                         <circle cx="12.2" cy="2.3" r="1.225" fill="#e19d19"></circle>
                         <path d="M17.7,1.45 l-1.8,1.8" fill="none" stroke-width="0.5" stroke="#e19d19"
-                            stroke-linecap="round">
-                        </path>
-                    </svg></button></div>
+                            stroke-linecap="round"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
         <app-top-results></app-top-results>
     </div>
