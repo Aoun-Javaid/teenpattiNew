@@ -92,11 +92,11 @@ export class LiveBaccaratComponent implements OnInit {
   isBetPlaceProccess: boolean = false;
   betStakes: any;
 
-  playerMarket = '0%';
+  playerMarket:any
   playerMarketSize: any;
-  tieMarket = '0%';
+  tieMarket:any
   tieMarketSize: any;
-  bankerMarket = '0%';
+  bankerMarket:any
   bankerMarketSize: any;
   pairPlayer = '0%';
   pairPlayerSize: any;

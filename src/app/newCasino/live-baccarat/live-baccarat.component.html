@@ -1106,7 +1106,7 @@
                     <app-top-results class="[@media(max-width:1280px)]:hidden "></app-top-results>
                 </div>
                 <div class="w-full  [@media(min-width:1312px)]:mt-[-2.7rem]">
-                    <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game.status"></app-bet-coin>
+                    <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game?.status"></app-bet-coin>
                 </div>
             </div>
             <div class="time-container " *ngIf="this.game">
