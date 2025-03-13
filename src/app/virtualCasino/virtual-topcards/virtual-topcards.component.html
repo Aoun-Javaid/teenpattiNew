@@ -157,7 +157,7 @@
                         <div class="topCard__betsTable-RPVYMP">
                             <div data-locator="bets-table" class="betsTable-O_8TCE">
                                 <div class="gameTableScaleWrap-d6JpbW" style="padding-top: 41.8605%">
-                                    <div class="gameTableScaleWrap__item-K34egi xl:mb-2 xl:!scale-[1.15] xl:!static xl:flex xl:justify-center"
+                                    <div class="gameTableScaleWrap__item-K34egi xl:mb-2 xl:!scale-[1.4] xl:!static xl:flex xl:justify-center [@media(min-width:1412px)]:mb-[3rem]"
                                         style="
                       transform: translate(-50%, -50%)
                         scale(var(--boardScale, 1));
@@ -840,7 +840,7 @@
                     <app-bet-coin class="betStyle mb-8 md:mb-[6rem] xl:mb-2" (eventBetValue)="getCoinValue($event)"
                         [status]="this.game.status"></app-bet-coin>
 
-                    <div class="time-container " *ngIf="this.game">
+                    <div class="time-container mb-8" *ngIf="this.game">
                         <div class="last-win md:!text-[1.3rem] xl:!text-[0.75rem]">{{this.game.eventName}}
                             <span
                                 class="text-[rgb(255,170,0)] text-[0.75rem]  xl:!text-[0.75rem] md:!text-[1.3rem] font-bold">
