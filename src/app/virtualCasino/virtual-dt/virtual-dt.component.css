@@ -785,7 +785,7 @@
   ) !important;
 }
 .no-more-bets {
-  @apply absolute left-[50%] translate-x-[-50%] text-nowrap top-[50%] text-[#fff] text-[0.875rem] !bg-none px-3 py-1  max-w-fit font-[550] font-[Rubik,_sans-serif] leading-[1.14] tracking-[-0.2px];
+  @apply absolute left-[50%] translate-x-[-50%] text-nowrap top-[35%] md:top-[35%] text-[#fff] text-[0.875rem] md:text-[1.5rem] !bg-none px-3 py-1  max-w-fit font-[550] font-[Rubik,_sans-serif] leading-[1.14] tracking-[-0.2px];
 }
 
 .roundStatus__decor-DDvAQJ {
@@ -797,4 +797,7 @@
 
 ::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
   @apply [@media(min-width:1200px)]:top-[50vh] !important;
+}
+.wait-next-round {
+  @apply bg-black text-white text-[12px] px-3 py-0.5 font-medium max-w-fit absolute translate-x-[-50%] font-[Rubik] text-nowrap translate-y-[-50%] rounded-[12px] left-[50%] top-[35%] z-20;
 }

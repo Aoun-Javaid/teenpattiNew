@@ -28,6 +28,13 @@
   </div>
   <!-- no bet more  -->
 
+  <!-- wait for next round -->
+  <div class="wait-next-round !duration-500 opacity-0"
+       [ngClass]="{'!opacity-[1] !duration-500':waitRound}">
+    Wait for
+    the next round</div>
+  <!-- wait for next round -->
+
   <!-- bet-confirm  -->
   <div *ngIf="this.game?.betAccepted" class="no-more-bets">
     <div class="relative z-10">Bet confirmed</div>
@@ -39,12 +46,12 @@
   <div class="dragonTiger__rngTable-TzLSaF">
     <div class="rngTable-R7R9il rngTable_ready-FD53Fj">
       <img class="rngTableImage-k19Eso relative" src="assets/table.png" alt="table">
-      <span class="absolute xl:top-[3%] top-[2%] left-[17%] h-[3rem] w-[2.3rem] xl:h-[4rem] xl:w-[4rem]">
-        <img src="/assets/virtual-table-cards/singleCard.svg" alt="single-card" class="skew-x-[-15deg]">
+      <span>
+        <img src="/assets/virtual-table-cards/singleCardRed.svg" alt="single-card" class="h-[3rem] w-[2.125rem] lg:h-[4rem] lg:w-[3.125rem] absolute top-[1.5%] left-[20%] skew-x-[-15deg]">
       </span>
-      <span class="absolute top-[1%] left-[46%] h-[2.5rem] w-[2rem] xl:h-[4rem] xl:w-[4rem]">
-        <img src="/assets/virtual-table-cards/cardStack.svg" alt="card-stack"
-          class="absolute left-[50%] -translate-x-2/4">
+      <span>
+        <img src="/assets/virtual-table-cards/cardStackRed.svg" alt="card-stack"
+          class="h-[3rem] w-[2.125rem] lg:h-[4rem] lg:w-[3.125rem] absolute left-[50%] rounded -translate-x-2/4 top-[1%]">
       </span>
       <div class="rngTable__cards-jXjS2o">
         <div class="canvasBase-rsnbXU">
@@ -88,7 +95,7 @@
                               <div class="flex justify-center w-[50%]">
                                   <div class="high-card text-[rgb(204,73,62)]">High Card</div>
                               </div>
-        
+
                               <div class="flex justify-center w-[50%]">
                                   <div class="high-card text-[rgb(230,144,57)]">High Card</div>
                               </div>
