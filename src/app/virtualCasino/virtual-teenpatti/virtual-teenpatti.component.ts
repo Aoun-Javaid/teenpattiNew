@@ -1044,6 +1044,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
   @HostListener('window:resize', ['$event'])
   onResize(event?: Event) {
+    window.location.reload();
     this.getWindowSize()
   }
 

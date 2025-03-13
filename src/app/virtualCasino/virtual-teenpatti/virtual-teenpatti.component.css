@@ -3339,3 +3339,6 @@ p {
     -webkit-transform: translate(0, 0);
   }
 }
+.wait-next-round {
+  @apply bg-black text-white text-[12px] px-3 py-0.5 font-medium max-w-fit absolute translate-x-[-50%] font-[Rubik] text-nowrap translate-y-[-50%] rounded-[12px] left-[50%] top-[35%] z-20;
+}

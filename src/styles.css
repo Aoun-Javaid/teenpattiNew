@@ -1462,20 +1462,20 @@ body {
   @apply bg-black text-white text-[12px] px-3 py-0.5 font-medium max-w-fit absolute translate-x-[-50%] font-[Rubik] text-nowrap translate-y-[-50%] rounded-[12px] left-[50%] top-[50%] z-20;
 }
 
-.no-more-bets {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  max-width: fit-content;
-  --tw-translate-x: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  text-wrap: nowrap;
-  font-size: 0.875rem;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
+/*.no-more-bets {*/
+/*  position: absolute;*/
+/*  left: 50%;*/
+/*  top: 50%;*/
+/*  max-width: fit-content;*/
+/*  --tw-translate-x: -50%;*/
+/*  transform: translate(var(--tw-translate-x), var(--tw-translate-y))*/
+/*    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))*/
+/*    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));*/
+/*  text-wrap: nowrap;*/
+/*  font-size: 0.875rem;*/
+/*  --tw-text-opacity: 1;*/
+/*  color: rgb(255 255 255 / var(--tw-text-opacity, 1));*/
+/*}*/
 
 .playerA-win-point {
   @apply left-[50%] cursor-none absolute translate-x-[-50%] z-[4] top-[10.125rem];
@@ -1499,7 +1499,7 @@ body {
   text-transform: uppercase;
   transform: translateY(1.625rem) scaleX(0);
   text-align: center;
-  @apply md:!text-[25px] 
+  @apply md:!text-[25px]
 }
 
 .animation-player-scale {
