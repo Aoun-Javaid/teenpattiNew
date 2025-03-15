@@ -15,6 +15,6 @@
 }
 
 .page-wrapper {
-  /* h-[calc(100vh-67px)] */
-  @apply h-[calc(100vh-114px)] [@media(min-width:768px)]:!h-[calc(100vh-60px)]   bg-[rgb(26,44,56)] overflow-y-auto;
+  /* h-[calc(100dvh-67px)] */
+  @apply h-[calc(100dvh-114px)] [@media(min-width:768px)]:!h-[calc(100dvh-60px)]   bg-[rgb(26,44,56)] overflow-y-auto;
 }
