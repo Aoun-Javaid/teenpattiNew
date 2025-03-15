@@ -1,6 +1,6 @@
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
   <app-top-results class="xl:hidden"></app-top-results>
-  <div #target>
+  <div [ngClass]="{'relative xl:!z-[0]': isShow}" #target>
     <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true" [displayResult]="false"
       [unityTimer]="false"></app-video-player>
     <!-- <ng-container *ngIf="isMobileInfo == 'iOS'">
