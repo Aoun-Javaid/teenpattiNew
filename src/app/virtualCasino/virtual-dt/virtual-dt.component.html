@@ -26,12 +26,19 @@
     </div>
     <!-- no bet more  -->
 
+  <!-- wait for next round -->
+  <div class="wait-next-round !duration-500 opacity-0"
+       [ngClass]="{'!opacity-[1] !duration-500':waitRound}">
+    Wait for
+    the next round</div>
+  <!-- wait for next round -->
+
     <!--  Game Background Video-->
     <div class="game__substrateLayer">
       <div class="game__video dragonTiger__staticVideoWrap">
         <div class="game__staticVideo">
           <div class="h-full w-full relative">
-            <video class="staticVideo__player staticVideo__player_withPoster" autoplay loop muted #playVideo (loadeddata)="onVideoLoaded($event)">
+            <video class="staticVideo__player staticVideo__player_withPoster" autoplay loop muted playsinline #playVideo (loadeddata)="onVideoLoaded($event)">
               <source src="/assets/virtual-table-cards/virtual-dt-video.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -983,7 +990,7 @@
               </div>
 
               <div class="w-full  xl:mt-[95px] xxxl:mt-[110px]">
-                <app-bet-coin (eventBetValue)="getCoinValue($event)"></app-bet-coin>
+                <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="game.status"></app-bet-coin>
               </div>
             </div>
 

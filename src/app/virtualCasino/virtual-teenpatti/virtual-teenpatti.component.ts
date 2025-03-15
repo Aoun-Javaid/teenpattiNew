@@ -1044,6 +1044,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
   @HostListener('window:resize', ['$event'])
   onResize(event?: Event) {
+    window.location.reload();
     this.getWindowSize()
   }
 
@@ -1319,20 +1320,19 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         break;
 
       case this.width >= 390:
-        this.cardSize = 15;
+        this.cardSize = 50;
         this.hiddenCardSize = 39;
         this.cardStartPointX = this.width * 0.48;
         this.cardStartPointY = this.height * 0.48;
-        this.cardEndPointY = this.cardStartPointY + 36;
-        this.leftCard1EndPositionX = 137;
-        this.leftCard2EndPositionX = 90;
-        this.leftCard3EndPositionX = 40;
-        this.rightCard1EndPositionX = 15;
-        this.rightCard2EndPositionX = 63;
-        this.rightCard3EndPositionX = 111;
-        this.hiddenCardEndPointX = this.width * 0.10;
+        this.cardEndPointY = this.cardStartPointY + 60;
+        this.leftCard1EndPositionX = 140;
+        this.leftCard2EndPositionX = 80;
+        this.leftCard3EndPositionX = 20;
+        this.rightCard1EndPositionX = 40;
+        this.rightCard2EndPositionX = 100;
+        this.rightCard3EndPositionX = 160;
+        this.hiddenCardEndPointX = this.width * 0.13;
         this.hiddenCardEndPointY = this.height * 0.45;
-
         break;
 
 

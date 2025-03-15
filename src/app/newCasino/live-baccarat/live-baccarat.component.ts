@@ -92,15 +92,15 @@ export class LiveBaccaratComponent implements OnInit {
   isBetPlaceProccess: boolean = false;
   betStakes: any;
 
-  playerMarket = '0%';
+  playerMarket:any
   playerMarketSize: any;
-  tieMarket = '0%';
+  tieMarket:any
   tieMarketSize: any;
-  bankerMarket = '0%';
+  bankerMarket:any
   bankerMarketSize: any;
-  pairPlayer = '0%';
+  pairPlayer = '0';
   pairPlayerSize: any;
-  pairBanker = '0%';
+  pairBanker = '0';
   pairBankerSize: any;
   isDesktop: any;
   BetPlaced: any = {};
@@ -196,7 +196,7 @@ export class LiveBaccaratComponent implements OnInit {
 
           if (objMarket.type == "1") {
             this.marketArray = objMarket?.data[0]?.marketArr;
-            console.log(this.marketArray, 'marketArray');
+            // console.log(this.marketArray, 'marketArray');
             this.game = objMarket?.data[0];
             this.game.marketArr = this.marketArray ? this.marketArray : objMarket?.data[0]?.marketArr;
             this.playerMarketSize = this.marketArray[0]?.runners[0]?.price?.back[0]?.size;
@@ -251,41 +251,6 @@ export class LiveBaccaratComponent implements OnInit {
 
         this.networkService.updateRoundId(this.game);
 
-        // Get result Array
-
-        // if (objMarket.type == "3") {
-
-        //   this.RoundWinner = null;
-        //   //  Check user's bet player
-        //   if (this.casinoPl && this.casinoPl[this.winnerMarketArray?.marketId]) {
-        //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[0].selectionId] > 0) {
-        //       this.betSelectedPlayer = this.winnerMarketArray.runners[0].selectionId
-        //     }
-        //     if (this.casinoPl[this.winnerMarketArray?.marketId][this.winnerMarketArray.runners[1].selectionId] > 0) {
-        //       this.betSelectedPlayer = this.winnerMarketArray.runners[1].selectionId
-        //     }
-        //   }
-
-        //   if (this.resultcounter > 0) {
-        //     this.RoundWinner = objMarket.data[0].winner;
-        //     setTimeout(() => {
-        //       this.RoundWinner = null;
-        //     }, 5000)
-
-        //     objMarket.data[0].results[0].runners.forEach((runner: any) => {
-        //       if (runner.selectionId == this.betSelectedPlayer && runner.result == "WINNER") {
-
-        //         setTimeout(() => {
-        //           this.videoComponent.surpriseFireWork();
-        //         }, 1000);
-        //       }
-        //     })
-
-
-        //   }
-        //   this.networkService.updateResultstream(objMarket.data)
-        //   this.resultcounter++;
-        // }
 
       }
 
@@ -419,8 +384,7 @@ export class LiveBaccaratComponent implements OnInit {
 
 
           this.resultArray = objMarket.data.resultsArr;
-          console.warn('resultss test', this.resultArray[1].runners[this.marketArray[1]?.runners[0]?.selectionId])
-          console.warn('resultss', objMarket.data.resultsArr)
+
           // for video results
           // for video results
 
@@ -441,11 +405,7 @@ export class LiveBaccaratComponent implements OnInit {
               }, 1000);
             }
           }
-          if (objMarket.data.resultsArr[1].runners[39578955] == 'WINNER') {
-            // console.log('winner winner')
-            // this.RoundWinner = objMarket.data?.resultsArr[1]?.runners[0];
-            this.RoundWinner = objMarket.data?.resultsArr[1]?.runnersName[39578955];
-          }
+
           setTimeout(() => {
             this.RoundWinner = null;
             this.resultArray = JSON.parse(JSON.stringify([]))
@@ -462,57 +422,6 @@ export class LiveBaccaratComponent implements OnInit {
           let runnersIndex: any = this.split_arr[3];
           let backIndex = this.split_arr[6];
 
-          // this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].price  = this.changeValue;
-
-          // if(this.split_arr[7]== 'size'){
-          //   if(marketIndex==0){
-          //     if(runnersIndex==0){
-          //       let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-          //       let percnt = ((this.changeValue/size)*100);
-          //       this.playerMarket = -1*(percnt-100 )+'%';
-          //     }
-          //     if(runnersIndex==1){
-          //       let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-          //       let percnt = ((this.changeValue/size)*100);
-          //       this.bankerMarket=  -1*(percnt-100 )+'%';
-          //     }
-          //   }
-          //   if(marketIndex==1){
-          //     if(runnersIndex==0){
-          //       let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-          //       let percnt = ((this.changeValue/size)*100);
-          //       let PercentFinal = -1*(percnt-100 );
-          //       this.tieMarket = -1*(percnt-100 )+'%';
-          //       if(PercentFinal<=10){
-          //         this.tieMarketLeft ='45%'
-          //       }
-          //       if(PercentFinal > 10){
-
-          //        let percentLeft =   45 - (( PercentFinal - 10) / 2 ) ;
-
-          //        this.tieMarketLeft  = percentLeft + '%'
-
-          //       }
-          //       this.tieMarket = -1*(percnt-100 )+'%';
-          //     }
-
-          //   }
-          //   if(marketIndex==2){
-          //     if(runnersIndex==0){
-          //       let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-          //       let percnt = ((this.changeValue/size)*100);
-          //       this.pairPlayer = -1*(percnt-100 )+'%';
-          //     }
-          //     if(runnersIndex==1){
-          //       let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-          //       let percnt = ((this.changeValue/size)*100);
-          //       this.pairBanker =  -1*(percnt-100 )+'%';
-          //     }
-          //   }
-          //   this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size  = this.changeValue;
-
-          // }
-
           if (this.split_arr[7] == 'size') {
             //
 
@@ -520,20 +429,23 @@ export class LiveBaccaratComponent implements OnInit {
               if (runnersIndex == 0) {
                 // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
                 let percnt = ((this.changeValue / this.playerMarketSize) * 100);
-                this.playerMarket = -1 * (percnt - 100) + '%';
+                this.playerMarket = -1 * (percnt - 100) + '';
+
               }
               //
               if (runnersIndex == 1) {
                 // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-                let percnt = ((this.changeValue / this.bankerMarketSize) * 100);
-                this.bankerMarket = -1 * (percnt - 100) + '%';
+                let percnt1 = ((this.changeValue / this.bankerMarketSize) * 100);
+                this.bankerMarket = -1 * (percnt1 - 100) + '';
+
               }
             }
+
             if (marketIndex == 1) {
               if (runnersIndex == 0) {
                 // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
                 let percnt = ((this.changeValue / this.tieMarketSize) * 100);
-                this.tieMarket = -1 * (percnt - 100) + '%';
+                this.tieMarket = -1 * (percnt - 100) + '';
 
 
                 let PercentFinal = -1 * (percnt - 100);
@@ -544,26 +456,13 @@ export class LiveBaccaratComponent implements OnInit {
 
                   let percentLeft = 45 - ((PercentFinal - 10) / 2);
 
-                  this.tieMarketLeft = percentLeft + '%'
+                  this.tieMarketLeft = percentLeft + ''
 
                 }
               }
               //
             }
-            if (marketIndex == 2) {
-              //
-              if (runnersIndex == 0) {
-                // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-                let percnt = ((this.changeValue / this.pairPlayerSize) * 100);
-                this.pairPlayer = -1 * (percnt - 100) + '%';
-              }
-              //
-              if (runnersIndex == 1) {
-                // let size =this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size ;
-                let percnt = ((this.changeValue / this.pairBankerSize) * 100);
-                this.pairBanker = -1 * (percnt - 100) + '%';
-              }
-            }
+
             this.marketArray[marketIndex].runners[runnersIndex].price.back[backIndex].size = this.changeValue;
 
           }

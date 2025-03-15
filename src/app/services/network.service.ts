@@ -208,6 +208,7 @@ export class NetworkService {
       '99.0010': '/Nteenpatti',
       '88.0011': '/Vteenpatti',
       '99.0018': '/Ndt',
+      '99.0001': '/live-baccarat',
     };
 
     const matchedRoute = eventRoutes[eventid];
