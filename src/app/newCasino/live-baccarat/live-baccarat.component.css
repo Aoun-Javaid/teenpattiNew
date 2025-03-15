@@ -42,7 +42,7 @@
 /* ================================== */
 .newGameWrapper {
   background-color: #0a0a1a;
-  height: calc(100vh - 114px);
+  height: calc(100dvh - 114px);
   position: relative;
   width: 100%;
   overflow-y: scroll;
@@ -829,9 +829,9 @@
   }
 }
 
-::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
+/* ::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
   top: 2rem !important;
-}
+} */
 
 /* key frame ====================== */
 @keyframes payoutToggleVisibilityAnimation-peh7oz {
@@ -861,5 +861,5 @@
 }
 
 ::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
-  @apply [@media(min-width:1200px)]:top-[50vh] !important;
+  @apply [@media(min-width:1200px)]:top-[50dvh] !important;
 }
