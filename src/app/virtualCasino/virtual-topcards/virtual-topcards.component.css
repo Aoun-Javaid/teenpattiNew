@@ -532,6 +532,12 @@
   top: 50%;
 }
 
+@media (min-width: 1024px) and (max-width: 1400px) {
+  .gameTableScaleWrap__item-K34egi {
+    margin-bottom: 2.5rem !important;
+  }
+}
+
 .tableTooltip-YTZM32 {
   position: relative;
   z-index: 0;
