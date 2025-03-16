@@ -17,6 +17,8 @@ export const CONFIG = {
 
   // casino Socekt Urls
   // CasinoSocketUrl: '',
+  vimaanIframeUrl:'https://vimaan.ludoexchange.com',
+
   CasinoSocketUrl: 'wss://casino.betever365.com/',
   casninoTableURL: 'universe_casino_77',
   virtualTableURL: 'universe_casino_88',

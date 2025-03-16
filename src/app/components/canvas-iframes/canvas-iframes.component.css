@@ -1,0 +1,38 @@
+.vimaan-layout{
+  min-height: calc(100vh - 114px);
+  /* min-height: calc(100vh - 110px); */
+}
+@media only screen and (min-width:992px) {
+  /* .vimaan-layout{
+    margin-top: 38px;
+   } */
+   .vimaan-layout {
+    min-height: calc(100vh - 60px);
+}
+}
+@media only screen and (max-width:991px) {
+  .vimaan-layout{
+   /* margin-top: 50px; */
+  }
+
+}
+
+.balloon-layout{
+  min-height: calc(100vh - 114px);
+  /* min-height: calc(100vh - 110px); */
+}
+@media only screen and (min-width:992px) {
+  /* .balloon-layout{
+    margin-top: 38px;
+   } */
+   .balloon-layout {
+    min-height: calc(100vh - 60px);
+}
+}
+@media only screen and (max-width:991px) {
+  /* .balloon-layout {
+   margin-top: 50px;
+  } */
+
+}
+
