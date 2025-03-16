@@ -12,7 +12,6 @@
             [unityTimer]="false"></app-video-player-unreal>
     </ng-container> -->
   </div>
-  <div class="[@media(max-width:768px)]:hidden gradient-_9dd5n gradient_desktop-UoLq1h"></div>
   <div class="playerA-win-point" *ngIf="this.RoundWinner">
     <div class="player-content-wrapper">
       <div class="winner-toastr animation-player-scale" [ngClass]="{
@@ -20,18 +19,19 @@
            } ">{{this.RoundWinner}}</div>
     </div>
   </div>
+  <div class="[@media(max-width:768px)]:hidden gradient-_9dd5n gradient_desktop-UoLq1h"></div>
   <div [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'" id="marketScroll" style="overflow-y: auto;">
     <div class="" *ngIf="this.game">
       <div *ngIf="marketArray"
-        class="absolute xl:fixed xl:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] xl:bottom-[60px] [@media(max-width:375px)]:bottom-[25px]   xl:!max-w-[21.5rem]  left-0 w-full ">
+        class="absolute xl:fixed xl:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[30px] md:bottom-[40px] xl:bottom-[60px] [@media(max-width:375px)]:bottom-[25px]   xl:!max-w-[21.5rem]  left-0 w-full ">
         <div class="relative z-[1] h-full xl:max-w-[21.5rem] ">
           <div class="relative !mx-[2%] md:!mx-0  rounded-[17px] xl:mb-8">
             <!-- main content -->
             <div
-              class="mb-[0.3rem] md:mb-[5px] relative p-[18.9048%_0px_29.5048%] md:p-[18.9048%_0px_24.5048%] xl:!p-0">
+              class="mb-[0.3rem] md:mb-[5px] relative p-[18.9048%_0px_20.5048%] md:p-[18.9048%_0px_22.5048%] xl:!p-0">
 
               <div
-                class="h-[7.75rem] w-[21.5rem] xl:w-[21.5rem] xl:max-h-[168px] absolute left-[50%] xl:!scale-[1] xl:static"
+                class="h-[9.2rem] w-[21.5rem] xl:w-[21.5rem] xl:max-h-[168px] absolute left-[50%] xl:!scale-[1.4] xxxl:!scale-[1.5] xl:static"
                 style="transform: translate(-50%, -50%) scale(var(--boardScale, 1));">
                 <!-- main content -->
 
@@ -89,14 +89,21 @@
                         <div class="sideBetPlace__content">
                           <div class="sideBetPlace__imageWrapper">
                             <img
-                              [ngClass]="playerACards?.card_1!='0' && playerACards?.card_1 ?'tableMainCards__card__animation':'opacity-0'"
-                              [src]="['assets/52-cards/'+playerACards?.card_1+'.svg']" class="sideBetPlace__image"
+                              src="https://files.petros04.com/topcard/offense.png"
+                               class="sideBetPlace__image"
                               alt="card1">
                           </div>
                           <div class="sideBetPlace__title">
                             {{marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}}</div>
                           <div class="sideBetPlace__coefficient">{{marketArray[0]?.runners[0]?.price?.back[0]?.price |
                             number : '1.2-2'}}</div>
+                          <div class="sideBetPlace__card">
+                            <div class="card-wi2ADp card_size_large">
+                                <img
+                                  [ngClass]="playerACards?.card_1!='0' && playerACards?.card_1 ?'tableMainCards__card__animation':'opacity-0'"
+                                  [src]="['assets/52-cards/'+playerACards?.card_1+'.svg']"
+                                  alt="card1">
+                            </div></div>
                           <div class="sideBetPlace__betStat">
                             <div class="topCardBetStat topCardBetStat_size_medium">{{firstBoxWidth | number :'1.0-1'}}%
                             </div>
@@ -202,14 +209,21 @@
                         <div class="sideBetPlace__content">
                           <div class="sideBetPlace__imageWrapper">
                             <img
-                              [ngClass]="playerBCards?.card_1!='0' && playerBCards?.card_1 ?'tableMainCards__card__animation':'opacity-0'"
-                              [src]="['assets/52-cards/'+playerBCards?.card_1+'.svg']" class="sideBetPlace__image"
+                              src="https://files.petros04.com/topcard/defense.png"
+                              class="sideBetPlace__image"
                               alt="card2">
                           </div>
                           <div class="sideBetPlace__title">
                             {{marketArray[0]?.runnersName[marketArray[0]?.runners[2]?.selectionId]}}</div>
                           <div class="sideBetPlace__coefficient">{{marketArray[0]?.runners[2]?.price?.back[0]?.price |
                             number : '1.2-2'}}</div>
+                          <div class="sideBetPlace__card">
+                            <div class="card-wi2ADp card_size_large">
+                              <img
+                                [ngClass]="playerBCards?.card_1!='0' && playerBCards?.card_1 ?'tableMainCards__card__animation':'opacity-0'"
+                                [src]="['assets/52-cards/'+playerBCards?.card_1+'.svg']"
+                                alt="card1">
+                            </div></div>
                           <div class="sideBetPlace__betStat">
                             <div class="topCardBetStat topCardBetStat_size_medium">{{secndBoxWidth | number :'1.0-1'}}%
                             </div>
@@ -229,7 +243,7 @@
           </div>
           <div class="topCard__substrateIllumination">
             <div
-              class="substrateIllumination substrateIllumination_winner_left substrateIllumination_winner_center substrateIllumination_winner_right   substrateIllumination_filledMode">
+              class="substrateIllumination substrateIllumination_winner_right substrateIllumination_filledMode">
               <div class="substrateIllumination__left"></div>
               <div class="substrateIllumination__center"></div>
               <div class="substrateIllumination__right"></div>
@@ -259,3 +273,5 @@
     <app-top-results></app-top-results>
   </div>
 </div>
+
+<app-quick-stakes-edit></app-quick-stakes-edit>

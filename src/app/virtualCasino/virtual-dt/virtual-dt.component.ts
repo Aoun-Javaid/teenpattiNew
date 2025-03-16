@@ -544,12 +544,34 @@ export class VirtualDtComponent implements OnInit,OnDestroy,AfterViewInit  {
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
                 setTimeout(() => {
                   if (this.RoundWinner === 'DRAGON') {
+                    console.log("Dragon win condition met.");
                     if (this.leftCard1) this.animateUpDown(this.leftCard1);
                   } else if (this.RoundWinner === 'TIGER') {
-                    if (this.rightCard1) this.animateUpDown(this.rightCard1);
-                  } else if(this.RoundWinner === 'TIE'){
-                    if (this.leftCard1) this.animateUpDown(this.leftCard1);
-                    if (this.rightCard1) this.animateUpDown(this.rightCard1);
+                    const tryAnimate = () => {
+                      if (
+                        this.rightCard1 &&
+                        this.rightCard1.phase === 'displayed'
+                      ) {
+                        this.animateUpDown(this.rightCard1);
+                      } else {
+                        setTimeout(tryAnimate, 100);
+                      }
+                    };
+                    tryAnimate();
+                  } else if (this.RoundWinner === 'TIE') {
+                    const tryAnimate = () => {
+                      if (
+                        this.rightCard1 &&
+                        this.rightCard1.phase === 'displayed'
+                      ) {
+                        if (this.leftCard1) this.animateUpDown(this.leftCard1);
+
+                        this.animateUpDown(this.rightCard1);
+                      } else {
+                        setTimeout(tryAnimate, 100);
+                      }
+                    };
+                    tryAnimate();
                   }
 
                 }, 500);
