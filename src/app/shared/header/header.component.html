@@ -8,11 +8,11 @@
     <div class="header-wallet">
         <div class="balance_section   text-white">
             <h4 class="">Balance &nbsp;:</h4>
-            <h4 class="font-bold userTotalBalance">{{( userBalance.balance?userBalance.balance - userBalance.exposure:'0.00' ) | number:'1.2-2'}}</h4>
+            <h4 class="font-bold userTotalBalance">{{( userBalance?userBalance:'0.00' ) | number:'1.2-2'}}</h4>
         </div>
         <div class="balance_section   -translate-x-1 mt-[2px]">
             <h4 class=" text-white  ">Exposure &nbsp;:</h4>
-            <h4 class="font-bold  text-[#ff1f22] userTotalExposure">{{( userBalance.exposure?userBalance.exposure:'0.00') | number:'1.2-2'}}</h4>
+            <h4 class="font-bold  text-[#ff1f22] userTotalExposure">{{( UserExposure?UserExposure:'0.00') | number:'1.2-2'}}</h4>
         </div>
     </div>
 </header>

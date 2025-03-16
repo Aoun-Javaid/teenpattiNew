@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { IndexedDbService } from './indexed-db.service';
 import { NetworkService } from './network.service';
 
@@ -12,6 +12,7 @@ export class MainService {
   private navigationList: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
   private providersNavigationsList: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
   private liveBetRoom: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
+  private LoggedIn = new Subject<any>();
 
   constructor( private networkService: NetworkService,
     private indexedDBService: IndexedDbService) { }
@@ -128,7 +129,12 @@ export class MainService {
   setProvidersNavigationsList(value: any | null): void {
     this.providersNavigationsList.next(value);
   }
-
+ setLoggedIn(loginState: any) {
+    this.LoggedIn.next(loginState);
+  }
+  getLoggedIn(): Observable<any> {
+    return this.LoggedIn.asObservable();
+  }
   getLiveBetRoom(): BehaviorSubject<any | null> {
     return this.liveBetRoom;
   }

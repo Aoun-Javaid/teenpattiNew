@@ -3,6 +3,7 @@ import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first, Subscription } from 'rxjs';
 import { CONFIG } from '../../../../config';
+import { MainService } from '../../services/main.service';
 import { NetworkService } from '../../services/network.service';
 
 @Component({
@@ -29,7 +30,9 @@ export class LauncherComponent implements OnInit,OnDestroy{
 
   favIcon: HTMLLinkElement = document.querySelector('#appIcon') as HTMLLinkElement;
 
-  constructor(private route: ActivatedRoute, private networkService: NetworkService, private router: Router, private meta: Meta,) {
+  constructor(private route: ActivatedRoute,
+     private networkService: NetworkService,
+      private router: Router, private mainService:MainService) {
     this.isLoader = true
 
 
@@ -63,6 +66,7 @@ export class LauncherComponent implements OnInit,OnDestroy{
               localStorage.setItem('localset', 'true');
 
 
+              this.mainService.setLoggedIn(true);
 
               if (this.eventId) {
                 this.networkService.goToMarketCurrent(this.eventId);
@@ -76,6 +80,7 @@ export class LauncherComponent implements OnInit,OnDestroy{
             }
           }
           else {
+            this.mainService.setLoggedIn(false);
             this.router.navigate(['/unautherized']);
           }
         },

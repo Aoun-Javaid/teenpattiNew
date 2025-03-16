@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { first } from 'rxjs';
 import { CONFIG } from '../../../../config';
+import { MainService } from '../../services/main.service';
 import { NetworkService } from '../../services/network.service';
 import { ToggleService } from '../../services/toggle.service';
 
@@ -14,26 +15,40 @@ import { ToggleService } from '../../services/toggle.service';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent implements OnInit{
-  constructor(private networkService:NetworkService,private toggle:ToggleService){
+  constructor(private networkService:NetworkService,private toggle:ToggleService,private mainService:MainService){
+    this.isLoggedIn = localStorage.getItem('token') ? true : false;
+  }
+  userBalance:any;
+  UserExposure:any;
+  isLoggedIn:any;
+  ngOnInit(): void {
+    // this.getUserBallance();
+
+    this.mainService.getLoggedIn().subscribe((res: any) => {
+      // console.log('agya bai login hai ya ni ', res)
+      this.isLoggedIn = res;
+
+    });
+    if (this.isLoggedIn) {
+      // this.mainService.setLoggedIn(true);
+      this.getUserBallance();
+      // this.userDetail = JSON.parse(localStorage.getItem('userDetail') as string);
+    }
 
   }
-  userBalance:any={};
-  ngOnInit(): void {
-    // this.getBalance();
-  }
-  getBalance(){
-    this.networkService.getAllRecordsByPost(CONFIG.userBalance, {})
+  getUserBallance() {
+    this.networkService.getAllRecordsByPost(CONFIG.getUserBalanceURL, {})
       .pipe(first())
       .subscribe(
-        data => {
-
-          if (data.meta.status == true) {
-            this.userBalance = data.data;
-
-          }
+        res => {
+          // let availBalance = (res.data.balance - res.data.exposure).toFixed(2)
+          let availBalance = (res.data.balance - res.data.exposure);
+          this.userBalance = availBalance;
+          this.UserExposure = res.data.exposure;
         },
         error => {
-          let responseData = error;
+          //let statusError = error;
+
         });
   }
   getAllRecordsByPost(userBalance: any, arg1: {}) {
