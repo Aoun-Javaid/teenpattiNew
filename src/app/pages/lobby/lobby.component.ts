@@ -5,6 +5,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   ElementRef,
   HostListener,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -23,11 +24,12 @@ import { NetworkService } from '../../services/network.service';
   styleUrl: './lobby.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class LobbyComponent implements OnInit, AfterViewInit {
+export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
   owlPrevBtn: boolean = true;
   owlNextBtn: boolean = false;
   ProviderPrevBtn: boolean = true;
   ProviderNextBtn: boolean = false;
+  swiperLoader:boolean = false
   providerSwiper!: Swiper;
   activeTab: number = 1;
   LiveTab = 'basketball';
@@ -391,12 +393,15 @@ export class LobbyComponent implements OnInit, AfterViewInit {
       }, 100);
     }
   }
+
   private initializeSwiper(config: any): void {
     if (this.stakeOrigin && typeof this.stakeOrigin.destroy === 'function') {
       this.stakeOrigin.destroy(true, true); // Destroy existing Swiper instance
     }
     this.stakeOrigin = new Swiper('.stake-swiper-lobby', config); // Initialize Swiper with new config
+    this.swiperLoader = true
   }
+
   removeSwiperGridClass() {
     const swiperElement = document.querySelector('.swiper-grid');
     if (swiperElement) {
@@ -584,5 +589,8 @@ export class LobbyComponent implements OnInit, AfterViewInit {
         },
       },
     };
+  }
+  ngOnDestroy(): void {
+    this.swiperLoader = false
   }
 }
