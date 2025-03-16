@@ -70,10 +70,10 @@
         </div>
     </div>
     <div class="stake-swiper-lobby" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper" >
             <div *ngFor="let stake of item.games" class="swiper-slide">
                 <a class="relative" (click)="gotoEvent(stake)">
-                    <img [src]="stake?.gameImage" alt="" class="border-0 rounded-[10px]">
+                    <img [src]="stake?.gameImage" alt="" class="border-0 rounded-[10px]" *ngIf="swiperLoader">
                     @if (stake.isMaintenance) {
                     <div class="maintenance_wrapper">
                         <div class="lock_img_wrapper">
@@ -88,7 +88,7 @@
                     }
                   </a>
 
-                <div class="stake-player-row flex justify-center gap-2 pt-1">
+                <div class="stake-player-row flex justify-center gap-2 pt-1" *ngIf="swiperLoader">
                     <span [ngClass]="[(stake?.gameStatus == 'ACTIVE' &&  !stake.isMaintenance)  ? 'stake-dot-green' :'stake-dot-red']"></span>
                     <span *ngIf="stake?.gameStatus==='ACTIVE'" class="count-text"> {{stake?.count}}</span>
                     <span class="text-[#b1bad3] text-xs font-semibold">{{(stake?.gameStatus == 'ACTIVE' &&  !stake.isMaintenance) ?  'Playing' : (stake?.gameStatus == 'ACTIVE' &&  stake.isMaintenance) ?   'Maintenance' : ''}}</span>
