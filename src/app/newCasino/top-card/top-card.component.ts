@@ -15,6 +15,7 @@ import {CasinoSocketService} from "../../services/casino-socket.service";
 import {CommonModule} from "@angular/common";
 import {BetCoinComponent} from "../../shared/bet-coin/bet-coin.component";
 import {ShortNumberPipe} from "../../pipes/short-number.pipe";
+import {QuickStakesEditComponent} from "../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component";
 
 declare var $: any;
 
@@ -27,7 +28,8 @@ declare var $: any;
     CommonModule,
     BetCoinComponent,
     BetsChipsComponent,
-    ShortNumberPipe
+    ShortNumberPipe,
+    QuickStakesEditComponent
   ],
   templateUrl: './top-card.component.html',
   styleUrl: './top-card.component.css'
@@ -192,13 +194,14 @@ export class TopCardComponent {
     this.encyDecy.generateEncryptionKey('', this.message);
 
     this.subscription = this.encyDecy.getMarketData().pipe(retry(this.retryConfig)).subscribe((marketData: any) => {
-      this.socket = marketData; // Update the receivedMessage variable with the received message
+      this.socket = marketData;
+      // Update the receivedMessage variable with the received message
 
       if (marketData) {
         // this.getRoundId = localStorage.getItem('roundID')
 
         let objMarket = JSON.parse(marketData);
-        // console.log('market data', objMarket)
+        console.log('market data', objMarket)
         // let objMarket = marketData;
         if (this.eventid == '99.0046') {
           // console.log(objMarket)
@@ -257,8 +260,8 @@ export class TopCardComponent {
           if (this.game.status == 'ONLINE') {
 
           }
-          this.playerACards = this.game?.cardsArr?.FIGHTER_A;
-          this.playerBCards = this.game?.cardsArr?.FIGHTER_B;
+          this.playerACards = this.game?.cardsArr?.DRAGON;
+          this.playerBCards = this.game?.cardsArr?.TIGER;
 
           if (this.playerACards) {
             if (this.playerACards?.card_1 == 0 && this.game.status == 'SUSPEND') {
