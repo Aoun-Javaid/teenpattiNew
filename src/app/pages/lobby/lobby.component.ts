@@ -27,10 +27,14 @@ import { NetworkService } from '../../services/network.service';
 export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
   owlPrevBtn: boolean = true;
   owlNextBtn: boolean = false;
+  navigationStates: { prevDisabled: boolean; nextDisabled: boolean }[] = [];
+  swiperIndex:any
   ProviderPrevBtn: boolean = true;
   ProviderNextBtn: boolean = false;
+  public swiperInstances: Swiper[] = [];
   swiperLoader:boolean = false
   providerSwiper!: Swiper;
+  previousIndex: number | null = null;
   activeTab: number = 1;
   LiveTab = 'basketball';
   stakeOrigin!: Swiper;
@@ -320,16 +324,116 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
           games: groupedData[providerTitle].filter((game: any) => game.isFavorite).sort((a: any, b: any) => a.gameSequence - b.gameSequence)
         }));
         this.universeProviderGames = result.sort((a: any, b: any) => a.providerSequence - b.providerSequence);
+        const firstIndex = {
+          "providerTitle": "test",
+          "games": [
+            {
+              "_id": "67c3481c19e7bbba6334e237",
+              "providerTitle": "Universe",
+              "providerSequence": 0,
+              "gameName": "TEEN PATTI",
+              "gameId": "99.0010",
+              "gameSequence": 1,
+              "gameStatus": "ACTIVE",
+              "isMaintenance": false,
+              "type": "GAME",
+              "isFavorite": true,
+              "createdAt": "2025-03-01T17:47:08.903Z",
+              "updatedAt": "2025-03-13T09:05:19.412Z",
+              "gameImage": "https://v2.universestudio.online/v2/operator/games/csp/game-img-1741856719275-teen.png",
+              "providerImage": null
+            },
+            {
+              "_id": "67ceb75517cb549abd82775a",
+              "providerTitle": "Universe",
+              "providerSequence": 0,
+              "gameName": "Virtual Teen Patti",
+              "gameId": "88.0011",
+              "gameSequence": 2,
+              "gameStatus": "ACTIVE",
+              "isMaintenance": false,
+              "type": "GAME",
+              "isFavorite": true,
+              "createdAt": "2025-03-10T09:56:37.827Z",
+              "updatedAt": "2025-03-10T11:18:29.281Z",
+              "gameImage": "https://v2.universestudio.online/v2/operator/games/csp/game-img-1741600597715-teenpatti.png",
+              "providerImage": null
+            },
+            {
+              "_id": "67d29f3417cb549abd827abe",
+              "providerTitle": "Universe",
+              "providerSequence": 0,
+              "gameName": "Dragon Tiger",
+              "gameId": "99.0018",
+              "gameSequence": 3,
+              "gameStatus": "ACTIVE",
+              "isMaintenance": false,
+              "type": "GAME",
+              "isFavorite": true,
+              "createdAt": "2025-03-13T09:02:44.322Z",
+              "updatedAt": "2025-03-13T09:05:26.811Z",
+              "gameImage": "https://v2.universestudio.online/v2/operator/games/csp/game-img-1741856564209-dragon.png",
+              "providerImage": null
+            },
+            {
+              "_id": "67d2a01017cb549abd827acd",
+              "providerTitle": "Universe",
+              "providerSequence": 0,
+              "gameName": "Baccarat",
+              "gameId": "99.0001",
+              "gameSequence": 4,
+              "gameStatus": "ACTIVE",
+              "isMaintenance": false,
+              "type": "GAME",
+              "isFavorite": true,
+              "createdAt": "2025-03-13T09:06:24.018Z",
+              "updatedAt": "2025-03-13T09:06:45.663Z",
+              "gameImage": "https://v2.universestudio.online/v2/operator/games/csp/game-img-1741856783976-baccart.png",
+              "providerImage": null
+            },
+            {
+              "_id": "67d678c46c008ae8aeb487d8",
+              "providerTitle": "Universe",
+              "providerSequence": 0,
+              "gameName": "Sic Bo",
+              "gameId": "99.0061",
+              "gameSequence": 5,
+              "gameStatus": "ACTIVE",
+              "isMaintenance": false,
+              "type": "GAME",
+              "isFavorite": true,
+              "createdAt": "2025-03-16T07:07:48.537Z",
+              "updatedAt": "2025-03-16T07:07:50.916Z",
+              "gameImage": "https://v2.universestudio.online/v2/operator/games/csp/game-img-1742108868481-sicbo1.png",
+              "providerImage": null
+            }
+          ]
+        }
+        this.universeProviderGames.push(firstIndex)
         console.log('provides',this.universeProviderGames)
       }
     });
   }
-  updateNavigationButtons() {
-    if (this.stakeOrigin) {
-      this.owlPrevBtn = this.stakeOrigin.isBeginning;
-      this.owlNextBtn = this.stakeOrigin.isEnd;
+
+
+  private updateNavigationButtons(index: number): void {
+    console.log('Updating navigation for index:', index);
+    console.log('swiperInstances:', this.swiperInstances);
+    console.log('navigationStates:', this.navigationStates);
+    
+    if (!this.swiperInstances[index]) return;
+    // Ensure navigationStates[index] exists
+    if (!this.navigationStates[index]) {
+      this.navigationStates[index] = { prevDisabled: false, nextDisabled: false };
     }
+
+    this.navigationStates[index].prevDisabled = this.swiperInstances[index].isBeginning;
+    this.navigationStates[index].nextDisabled = this.swiperInstances[index].isEnd;
   }
+
+
+
+
   updateProviderNavigationButtons() {
     if (this.providerSwiper) {
       this.ProviderPrevBtn = this.providerSwiper.isBeginning;
@@ -382,25 +486,87 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
   // setLiveTabActive(tab: string) {
   //   this.LiveTab = tab;
   // }
-  setCasinoViewType() {
-    this.casinoViewAllState = !this.casinoViewAllState;
-    if (this.casinoViewAllState) {
+
+
+
+  setCasinoViewType(i: any) {
+    if (this.previousIndex === i) {
+      const swiperElements = document.querySelectorAll('.swiper-grid');
+      swiperElements.forEach((element: any) => {
+          element.classList.remove('swiper-grid');
+          this.setDefaultView();
+      });
+      this.previousIndex = null;
+      return;
+    }
+
+    this.swiperIndex = i;
+
+    if (this.swiperIndex === i) {
       this.setGridView();
     } else {
-      this.removeSwiperGridClass()
+      this.removeSwiperGridClass();
       setTimeout(() => {
         this.setDefaultView();
       }, 100);
     }
+
+    const swiperElements = document.querySelectorAll('.swiper-grid');
+    swiperElements.forEach((element: any, index: any) => {
+      if (i !== index) {
+        element.classList.remove('swiper-grid');
+      }
+    });
+
+    this.previousIndex = i; 
+
+    console.log(i);
   }
 
-  private initializeSwiper(config: any): void {
-    if (this.stakeOrigin && typeof this.stakeOrigin.destroy === 'function') {
-      this.stakeOrigin.destroy(true, true); // Destroy existing Swiper instance
+
+
+  private initializeSwiper(config: any, index: number): void {
+    const selector = `.stake-swiper-lobby${index}`;
+    const element = document.querySelector(selector);
+
+    if (!element) {
+      console.warn(`Swiper container not found for selector: ${selector}`);
+      return;
     }
-    this.stakeOrigin = new Swiper('.stake-swiper-lobby', config); // Initialize Swiper with new config
-    this.swiperLoader = true
+
+
+    if (!this.navigationStates[index]) {
+      this.navigationStates[index] = { prevDisabled: true, nextDisabled: false };
+    }
+
+
+    if (this.swiperInstances[index] && typeof this.swiperInstances[index].destroy === 'function') {
+      this.swiperInstances[index].destroy(true, true);
+    }
+
+
+    this.swiperInstances[index] = new Swiper(selector, {
+      ...config,
+      on: {
+        init: (swiper: any) => {
+          this.updateButtonStates(swiper, index);
+        },
+        slideChange: (swiper: any) => {
+          this.updateButtonStates(swiper, index);
+        }
+      }
+    });
+
+    this.swiperLoader = true;
   }
+
+  // Method to update button states based on Swiper's position
+  private updateButtonStates(swiper: any, index: number): void {
+    this.navigationStates[index].prevDisabled = swiper.isBeginning;
+    this.navigationStates[index].nextDisabled = swiper.isEnd;
+  }
+
+
 
   removeSwiperGridClass() {
     const swiperElement = document.querySelector('.swiper-grid');
@@ -408,7 +574,8 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
         swiperElement.classList.remove('swiper-grid');
     }
 }
-  private getDefaultSwiperConfig(): any {
+
+ private getDefaultSwiperConfig(index: number): any {
     return {
       loop: false,
       slidesPerView: 7.5,
@@ -418,8 +585,8 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
       speed: 700,
       grid: { rows: 1, fill: 'row' },
       navigation: {
-        nextEl: '.myCarouselRight',
-        prevEl: '.myCarouselLeft',
+        nextEl: `.myCarouselRight${index}`, 
+        prevEl: `.myCarouselLeft${index}`,
       },
       breakpoints: {
         300: {
@@ -439,12 +606,14 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
         },
       },
       on: {
-        slideChange: () => this.updateNavigationButtons(),
-        reachBeginning: () => (this.owlPrevBtn = true),
-        reachEnd: () => (this.owlNextBtn = true),
+        slideChange: () => this.updateNavigationButtons(index),
+        reachBeginning: () => (this.navigationStates[index].prevDisabled = true),
+        reachEnd: () => (this.navigationStates[index].nextDisabled = true),
       },
     };
-  }
+}
+
+
   private getGridSwiperConfig(): any {
     const totalSlides = this.universeProviderGames[0].games?.length;
     const slidesPerView = 3; // Number of slides per row
@@ -484,15 +653,22 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
       },
     };
   }
+
+
   setDefaultView(): void {
-    const config = this.getDefaultSwiperConfig();
-    this.initializeSwiper(config);
+    this.universeProviderGames.forEach((ele:any, index: number) => {
+      const config = this.getDefaultSwiperConfig(index); 
+      this.initializeSwiper(config, index);
+    });
   }
 
   setGridView(): void {
     const config = this.getGridSwiperConfig();
-    this.initializeSwiper(config);
+    this.universeProviderGames.forEach((ele: any, index: number) => {
+      this.initializeSwiper(config, index);
+    });
   }
+  
   setProviderViewType() {
     this.ProviderViewAllState = !this.ProviderViewAllState;
     if (this.ProviderViewAllState) {
