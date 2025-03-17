@@ -70,7 +70,7 @@ export class CanvasIframesComponent {
     }
     if (event.data === 'unautherized') {
       this.closeIframe();
-      this.router.navigateByUrl('/unautherized');
+      this.router.navigateByUrl('/unauthorized');
     }
   }
   closeIframe() {
