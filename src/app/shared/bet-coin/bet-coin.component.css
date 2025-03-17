@@ -2721,7 +2721,7 @@ p {
 } */
 
 .move_right {
-  animation: move_right 500ms;
+  animation: move_right 750ms;
 }
 
 @keyframes move_right {
@@ -2741,7 +2741,7 @@ p {
 }
 
 .move_back {
-  animation: move_back 500ms forwards;
+  animation: move_back 750ms forwards;
 }
 
 @keyframes move_back {
@@ -2761,7 +2761,7 @@ p {
 }
 
 .move_center-1 {
-  animation: move_center-1 250ms forwards;
+  animation: move_center-1 375ms forwards;
 }
 
 @keyframes move_center-1 {
@@ -2775,7 +2775,7 @@ p {
 }
 
 .move_center-2 {
-  animation: move_center-2 250ms forwards;
+  animation: move_center-2 375ms forwards;
 }
 
 @keyframes move_center-2 {
@@ -2789,7 +2789,7 @@ p {
 }
 
 .move_center-3 {
-  animation: move_center-3 250ms forwards;
+  animation: move_center-3 375ms forwards;
 }
 
 @keyframes move_center-3 {
@@ -2803,7 +2803,7 @@ p {
 }
 
 .move_center-4 {
-  animation: move_center-4 250ms forwards;
+  animation: move_center-4 375ms forwards;
 }
 
 @keyframes move_center-4 {
@@ -2817,7 +2817,7 @@ p {
 }
 
 .move_center-5 {
-  animation: move_center-5 250ms forwards;
+  animation: move_center-5 375ms forwards;
 }
 
 @keyframes move_center-5 {
@@ -2831,7 +2831,7 @@ p {
 }
 
 .move_center-6 {
-  animation: move_center-6 250ms forwards;
+  animation: move_center-6 375ms forwards;
 }
 
 @keyframes move_center-6 {
@@ -2845,7 +2845,7 @@ p {
 }
 
 .move_center-back-1 {
-  animation: move_center-back-1 500ms forwards;
+  animation: move_center-back-1 750ms forwards;
 }
 
 @keyframes move_center-back-1 {
@@ -2858,7 +2858,7 @@ p {
 }
 
 .move_center-back-2 {
-  animation: move_center-back-2 500ms forwards;
+  animation: move_center-back-2 750ms forwards;
 }
 
 @keyframes move_center-back-2 {
@@ -2871,7 +2871,7 @@ p {
 }
 
 .move_center-back-3 {
-  animation: move_center-back-3 500ms forwards;
+  animation: move_center-back-3 750ms forwards;
 }
 
 @keyframes move_center-back-3 {
@@ -2884,7 +2884,7 @@ p {
 }
 
 .move_center-back-4 {
-  animation: move_center-back-4 500ms forwards;
+  animation: move_center-back-4 750ms forwards;
 }
 
 @keyframes move_center-back-4 {
@@ -2897,7 +2897,7 @@ p {
 }
 
 .move_center-back-5 {
-  animation: move_center-back-5 500ms forwards;
+  animation: move_center-back-5 750ms forwards;
 }
 
 @keyframes move_center-back-5 {
@@ -2910,7 +2910,7 @@ p {
 }
 
 .move_center-back-6 {
-  animation: move_center-back-6 500ms forwards;
+  animation: move_center-back-6 750ms forwards;
 }
 
 @keyframes move_center-back-6 {
