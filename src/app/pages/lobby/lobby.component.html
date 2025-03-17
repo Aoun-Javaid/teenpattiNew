@@ -45,31 +45,31 @@
 
       </div> -->
         <div class="view_type">
-            @if (!casinoViewAllState) {
-            <button (click)="setCasinoViewType()" class="sports-heading view_text">
+            @if ($index !== previousIndex) {
+            <button (click)="setCasinoViewType($index)" class="sports-heading view_text">
                 View All
             </button>
             }@else {
-            <button (click)="setCasinoViewType()" class="sports-heading view_text">
+            <button (click)="setCasinoViewType($index)" class="sports-heading view_text">
                 Hide All
             </button>
             }
 
             <div class="flex_row cursor-pointer btnContainer">
-                <button (click)="this.stakeOrigin.slidePrev()" [disabled]="owlPrevBtn"
-                    [ngClass]="!owlPrevBtn? '!border-[#55758A] ':'border-[#304553] '" class="btn_left !border-r-0  ">
-                    <img [ngClass]="[!owlPrevBtn ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
+                <button  class="myCarouselLeft{{$index}}" (click)="swiperInstances[$index].slideNext()"  [disabled]="this.navigationStates[$index]?.prevDisabled"
+                    [ngClass]="!this.navigationStates[$index]?.prevDisabled ? '!border-[#55758A] ':'border-[#304553] '" class="btn_left !border-r-0  ">
+                    <img [ngClass]="[!this.navigationStates[$index]?.prevDisabled ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
                         class="w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
                 </button>
-                <button (click)="this.stakeOrigin.slideNext()" [disabled]="owlNextBtn"
-                    [ngClass]="!owlNextBtn? 'border-[#55758A] ':'border-[#304553] '" class="btn_right border-l  ">
-                    <img [ngClass]="[!owlNextBtn ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
+                <button class="myCarouselRight{{$index}}" (click)="swiperInstances[$index].slidePrev()" [disabled]="this.navigationStates[$index]?.nextDisabled"
+                    [ngClass]="!this.navigationStates[$index]?.nextDisabled ? 'border-[#55758A] ':'border-[#304553] '" class="btn_right border-l  ">
+                    <img [ngClass]="[!this.navigationStates[$index]?.nextDisabled  ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
                         class="rotate-180 w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
                 </button>
             </div>
         </div>
     </div>
-    <div class="stake-swiper-lobby" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''">
+    <div [class]="'stake-swiper-lobby'+$index" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''">
         <div class="swiper-wrapper" >
             <div *ngFor="let stake of item.games" class="swiper-slide">
                 <a class="relative" (click)="gotoEvent(stake)">
