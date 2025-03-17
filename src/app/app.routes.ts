@@ -29,6 +29,8 @@ import {TopCardComponent} from "./newCasino/top-card/top-card.component";
 import { VirtualDragonComponent } from './virtualCasino/virtual-dragon/virtual-dragon.component';
 import { VirtualTopcardsComponent } from './virtualCasino/virtual-topcards/virtual-topcards.component';
 import { LiveRouletteComponent } from './newCasino/live-roulette/live-roulette.component';
+import { LauncherComponent } from './auth/launcher/launcher.component';
+import { CanvasIframesComponent } from './components/canvas-iframes/canvas-iframes.component';
 
 
 
@@ -148,6 +150,15 @@ export const routes: Routes = [
         path: 'live-roulette',
         component: LiveRouletteComponent
       },
+      {
+        path: 'casino',
+        component: CanvasIframesComponent
+      },
+      {
+        path: 'launch',
+        component: LauncherComponent
+      },
+
       {
         path: '**',
         component:PageNotFoundComponent

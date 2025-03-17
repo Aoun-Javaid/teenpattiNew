@@ -1,6 +1,6 @@
 .newGameWrapper {
   background-color: #0a0a1a;
-  height: calc(100vh - 114px);
+  height: calc(100dvh - 114px);
   position: relative;
   width: 100%;
   overflow-y: scroll;
@@ -98,15 +98,14 @@
   padding-right: 2.5rem;
 }
 .sideBetPlace_variant_classic .sideBetPlace__image {
-  max-height: 3.2rem;
-  max-width: 3.2rem;
+  max-height: 4rem;
+  max-width: 4rem;
   border-radius: 1px;
 }
 .sideBetPlace_variant_classic.sideBetPlace_alignment_left .sideBetPlace__image {
   transform: translate(1rem, 0.375rem);
 }
-.sideBetPlace_variant_classic.sideBetPlace_flattenMode.sideBetPlace_alignment_left
-  .sideBetPlace__image {
+.sideBetPlace_variant_classic.sideBetPlace_flattenMode.sideBetPlace_alignment_left .sideBetPlace__image {
   transform: translate(0.375rem, 0.25rem);
 }
 .sideBetPlace__title {
@@ -283,25 +282,6 @@
   font-size: 0.625rem;
 }
 
-.gradient-_9dd5n {
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-}
-
-.gradient_desktop-UoLq1h {
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgb(10, 10, 26) 75%,
-    rgb(10, 10, 26) 100%
-  );
-  bottom: -0.625rem;
-  height: 13rem;
-  left: 0;
-  width: 100%;
-}
-
 /*BOTTOM FOOTER*/
 .time-container {
   margin-top: 0.25rem;
@@ -416,8 +396,6 @@
     position: absolute;
     height: 100%;
     inset: 0;
-    visibility: visible !important;
-    opacity: 1 !important;
   }
 }
 @media (orientation: landscape) {
@@ -484,4 +462,55 @@
 .substrateIllumination_winner_right .substrateIllumination__right {
   opacity: 1;
   visibility: visible;
+}
+.gradient-_9dd5n {
+  pointer-events: none;
+  position: absolute;
+}
+.gradient_desktop-UoLq1h {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgb(10, 10, 26) 75%,
+    rgb(10, 10, 26) 100%
+  );
+  bottom: -0.0625rem;
+  height: 13rem;
+  left: 0;
+  width: 100%;
+}
+.sideBetPlace__card {
+  bottom: 2rem;
+  position: absolute;
+}
+.sideBetPlace_alignment_left .sideBetPlace__card{
+  left: 4.5rem;
+}
+.sideBetPlace_flattenMode .sideBetPlace__card {
+  bottom: 2.375rem;
+}
+.sideBetPlace_flattenMode.sideBetPlace_alignment_left .sideBetPlace__card {
+  left: 3.5rem;
+}
+.sideBetPlace_flattenMode.sideBetPlace_alignment_right .sideBetPlace__card {
+  right: 3.5rem;
+}
+.card-wi2ADp {
+  --box-shadow-color: rgba(0,0,0,.4);
+  border-radius: 0.125rem;
+  position: relative;
+}
+.card_size_large {
+  height: 3rem;
+  width: 2.125rem;
+}
+.card__inner {
+  background: #fff;
+  border-radius: inherit;
+  height: inherit;
+  position: relative;
+  transition: opacity 300ms ease;
+}
+.card_size_large .card__inner {
+  box-shadow: 0 0.5rem 1rem var(--box-shadow-color);
 }

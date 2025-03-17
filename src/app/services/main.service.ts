@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, first, Observable, Subject } from 'rxjs';
+import { CONFIG } from '../../../config';
 import { IndexedDbService } from './indexed-db.service';
 import { NetworkService } from './network.service';
-
+declare var $: any;
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +13,7 @@ export class MainService {
   private navigationList: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
   private providersNavigationsList: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
   private liveBetRoom: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
+  private LoggedIn = new Subject<any>();
 
   constructor( private networkService: NetworkService,
     private indexedDBService: IndexedDbService) { }
@@ -109,7 +111,23 @@ export class MainService {
       );
     });
   }
+  getBalance() {
+     this.networkService.getAllRecordsByPost(CONFIG.getUserBalanceURL, {})
+      .pipe(first())
+      .subscribe(
+        res => {
+          // let availBalance = (res.data.balance - res.data.exposure).toFixed(2)
+          let availBalance = (res.data.balance - res.data.exposure);
 
+          $('.userTotalBalance').text(availBalance);
+          $('.userTotalExposure').text(res.data.exposure);
+        },
+        error => {
+          //let statusError = error;
+
+        });
+
+  }
   getBannersList(): BehaviorSubject<any | null> {
     return this.bannersList;
   }
@@ -128,7 +146,12 @@ export class MainService {
   setProvidersNavigationsList(value: any | null): void {
     this.providersNavigationsList.next(value);
   }
-
+ setLoggedIn(loginState: any) {
+    this.LoggedIn.next(loginState);
+  }
+  getLoggedIn(): Observable<any> {
+    return this.LoggedIn.asObservable();
+  }
   getLiveBetRoom(): BehaviorSubject<any | null> {
     return this.liveBetRoom;
   }

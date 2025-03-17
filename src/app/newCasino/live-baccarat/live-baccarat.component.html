@@ -10,10 +10,11 @@
     <div class="playerA-win-point" *ngIf="this.RoundWinner">
         <div class="player-content-wrapper">
             <div class="player-text animation-player-scale"
-                [ngClass]="{'playerA-winnerText':this.RoundWinner=='PLAYER'}">
+                [ngClass]="{'!bg-[linear-gradient(90deg,transparent_0%,rgb(0,115,230)_50%,transparent_100%)]':this.RoundWinner=='PLAYER', '!bg-[linear-gradient(90deg,transparent_0%,rgb(229,38,0)_50%,transparent_100%)]':this.RoundWinner=='BANKER', '!bg-[linear-gradient(90deg,transparent_0%,rgb(83,178,83)_50%,transparent_100%)]':this.RoundWinner=='TIE'}">
                 {{this.RoundWinner}}</div>
         </div>
     </div>
+    <!-- 0, 115, 230 -->
 
     <div [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'" id="marketScroll" style="overflow-y: auto;">
         <div class="gradientDiv">

@@ -1,7 +1,11 @@
 
 
 // const BASE_URL = 'http://101.0.20.58:5011';
-const BASE_URL = 'https://universestudio.online';
+
+// const BASE_URL = 'https://universestudio.online';
+const BASE_URL = 'https://v2.universestudio.online'
+
+
 
 // const BASE_URL = '';
 export const BASE_URL_WS = "https://universestudio.online";
@@ -13,6 +17,8 @@ export const CONFIG = {
 
   // casino Socekt Urls
   // CasinoSocketUrl: '',
+  vimaanIframeUrl:'https://vimaan.ludoexchange.com',
+
   CasinoSocketUrl: 'wss://casino.betever365.com/',
   casninoTableURL: 'universe_casino_77',
   virtualTableURL: 'universe_casino_88',
@@ -41,6 +47,8 @@ export const CONFIG = {
   virtualCasinoPlacebetURL: BASE_URL + "/casinoapp/exchange/users/casino/placebet",
   getUserBalanceURL: BASE_URL + "/v2/operator/user/userBalance",
   getAllMarketplURL: BASE_URL + '/v2/operator/user/userBetProfitLoss',
+
+  authlaunch: BASE_URL + "/v2/operator/auth",
 };
 
 
