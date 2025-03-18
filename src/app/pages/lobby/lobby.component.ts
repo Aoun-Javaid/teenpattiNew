@@ -409,7 +409,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
             }
           ]
         }
-        this.universeProviderGames.push(firstIndex)
+        // this.universeProviderGames.push(firstIndex)
         console.log('provides',this.universeProviderGames)
       }
     });
@@ -420,7 +420,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log('Updating navigation for index:', index);
     console.log('swiperInstances:', this.swiperInstances);
     console.log('navigationStates:', this.navigationStates);
-    
+
     if (!this.swiperInstances[index]) return;
     // Ensure navigationStates[index] exists
     if (!this.navigationStates[index]) {
@@ -518,7 +518,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     });
 
-    this.previousIndex = i; 
+    this.previousIndex = i;
 
     console.log(i);
   }
@@ -585,7 +585,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
       speed: 700,
       grid: { rows: 1, fill: 'row' },
       navigation: {
-        nextEl: `.myCarouselRight${index}`, 
+        nextEl: `.myCarouselRight${index}`,
         prevEl: `.myCarouselLeft${index}`,
       },
       breakpoints: {
@@ -657,7 +657,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setDefaultView(): void {
     this.universeProviderGames.forEach((ele:any, index: number) => {
-      const config = this.getDefaultSwiperConfig(index); 
+      const config = this.getDefaultSwiperConfig(index);
       this.initializeSwiper(config, index);
     });
   }
@@ -668,7 +668,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
       this.initializeSwiper(config, index);
     });
   }
-  
+
   setProviderViewType() {
     this.ProviderViewAllState = !this.ProviderViewAllState;
     if (this.ProviderViewAllState) {

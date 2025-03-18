@@ -593,7 +593,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
       marketId: this.betplaceObj.marketId,
       selectionId: this.betplaceObj.selectionId,
       stake: this.selectedBetAmount,
-      eventId: this.betplaceObj.eventId,
+      eventId: this.betplaceObj?.eventId,
       flag: this.betplaceObj.betType
     };
 

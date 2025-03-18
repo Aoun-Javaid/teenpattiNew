@@ -1,5 +1,5 @@
-<div class="relative h-full">
-  <app-top-results class="min-[1200px]:!hidden"></app-top-results>
+<div class="relative h-full xl:h-[calc(100dvh-60px)]">
+  <app-top-results class="xl:!hidden"></app-top-results>
 
   <div #target>
     <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true" [displayResult]="false"
@@ -1648,7 +1648,8 @@
   </div>
 
   <div class="bottom-[50px] absolute w-full flex h-full">
-    <div class="sicBo__betsTable-WJ28TI sicBo__betsTable_betting-Gy23yv">
+    <div
+      class="sicBo__betsTable-WJ28TI sicBo__betsTable_betting-Gy23yv fixed left-[32%] [transform:translateX(-50%)] bottom-[5.5%]">
       <div class="tableTooltip-YTZM32">
         <div
           class="table_orientation_horizontal-VBjVN9 table_size_medium-wvZtzV table_roundStatus_betting-C_QBNz table_cta-dFGLTJ">
@@ -2878,6 +2879,9 @@
         </div>
       </div>
     </div>
-    <app-top-results class="max-[1200px]:!hidden"></app-top-results>
+    <div class="fixed w-[22.5rem] mx-[2%] bottom-[2.5%] flex flex-col gap-[1.5rem] max-xl:!hidden">
+      <app-top-results class=""></app-top-results>
+    </div>
+
   </div>
 </div>
