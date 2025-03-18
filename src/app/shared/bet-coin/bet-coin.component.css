@@ -846,7 +846,7 @@
   width: 57px;
   position: relative;
   transition: opacity 300ms ease;
-  @apply    [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px]  lg:!h-[99px] lg:!w-[99px] xl:!w-[47.45px] xl:!h-[47.45px] [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px];
+  @apply [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px]  lg:!h-[99px] lg:!w-[99px] xl:!w-[47.45px] xl:!h-[47.45px] [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px];
 }
 
 .bettingButton-i5MaZV:disabled {
@@ -880,7 +880,7 @@
 
 .svgIcon_large-z8G1_Q {
   width: 57px;
-  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px] [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px]  lg:!h-[99px] lg:!w-[99px] xl:!w-[47.45px] xl:!h-[47.45px]
+  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px] [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px]  lg:!h-[99px] lg:!w-[99px] xl:!w-[47.45px] xl:!h-[47.45px];
 }
 
 .svgIcon-JpUo7O {
@@ -963,7 +963,7 @@
 .iconButton_size_medium-YQpLaw {
   height: 57px;
   width: 57px;
-  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px] [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px]  lg:!h-[99px] lg:!w-[99px] xl:!w-[47.45px] xl:!h-[47.45px]
+  @apply [@media(max-width:375px)]:!h-[48px] [@media(max-width:375px)]:!w-[48px] [@media(max-width:390px)]:h-[51px] [@media(max-width:390px)]:w-[51px] [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px]  lg:!h-[99px] lg:!w-[99px] xl:!w-[47.45px] xl:!h-[47.45px];
 }
 .iconButton-by3moV {
   align-items: center;
@@ -993,7 +993,7 @@
 
 .svgIcon_default-OFLILg {
   width: 1.5rem;
-  @apply [@media(min-width:820px)]:w-[2.2rem] lg:!w-[2.5rem] xl:!w-[1.5rem]
+  @apply [@media(min-width:820px)]:w-[2.2rem] lg:!w-[2.5rem] xl:!w-[1.5rem];
 }
 .svgIcon-JpUo7O {
   fill: currentColor;
@@ -2845,79 +2845,103 @@ p {
 }
 
 .move_center-back-1 {
-  animation: move_center-back-1 750ms forwards;
+  animation: move_center-back-1 350ms forwards;
+  animation-delay: 350ms;
+  opacity: 0;
 }
 
 @keyframes move_center-back-1 {
   0% {
     -webkit-transform: translate(205px, 0);
+        opacity: .5;
   }
   100% {
     -webkit-transform: translate(0, 0);
+     opacity: 1;
   }
 }
 
 .move_center-back-2 {
-  animation: move_center-back-2 750ms forwards;
+  animation: move_center-back-2 350ms forwards;
+  animation-delay: 350ms;
+  opacity: 0;
 }
 
 @keyframes move_center-back-2 {
   0% {
     -webkit-transform: translate(143.8px, 0);
+    opacity: .5;
   }
   100% {
     -webkit-transform: translate(0, 0);
+    opacity: 1;
   }
 }
 
 .move_center-back-3 {
-  animation: move_center-back-3 750ms forwards;
+  animation: move_center-back-3 350ms forwards;
+  animation-delay: 350ms;
+  opacity: 0;
 }
 
 @keyframes move_center-back-3 {
   0% {
     -webkit-transform: translate(85.51px, 0);
+    opacity: .5;
   }
   100% {
     -webkit-transform: translate(0, 0);
+    opacity: 1;
   }
 }
 
 .move_center-back-4 {
-  animation: move_center-back-4 750ms forwards;
+  animation: move_center-back-4 350ms forwards;
+  animation-delay: 350ms;
+  opacity: 0;
 }
 
 @keyframes move_center-back-4 {
   0% {
     -webkit-transform: translate(26.4px, 0);
+    opacity: .5;
   }
   100% {
     -webkit-transform: translate(0, 0);
+     opacity: 1;
   }
 }
 
 .move_center-back-5 {
-  animation: move_center-back-5 750ms forwards;
+  animation: move_center-back-5 350ms forwards;
+  animation-delay: 350ms;
+  opacity: 0;
 }
 
 @keyframes move_center-back-5 {
   0% {
     -webkit-transform: translate(-33.2px, 0);
+      opacity: .5;
   }
   100% {
     -webkit-transform: translate(0, 0);
+      opacity: 1;
   }
 }
 
 .move_center-back-6 {
-  animation: move_center-back-6 750ms forwards;
+  animation: move_center-back-6 350ms forwards;
+  animation-delay: 350ms;
+  opacity: 0;
 }
 
 @keyframes move_center-back-6 {
   0% {
     -webkit-transform: translate(-90.8px, 0);
+      opacity: .5;
   }
   100% {
     -webkit-transform: translate(0, 0);
+    opacity:1;
   }
 }
