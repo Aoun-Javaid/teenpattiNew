@@ -2721,7 +2721,7 @@ p {
 } */
 
 .move_right {
-  animation: move_right 750ms;
+  animation: move_right 400ms;
 }
 
 @keyframes move_right {
@@ -2741,7 +2741,7 @@ p {
 }
 
 .move_back {
-  animation: move_back 750ms forwards;
+  animation: move_back 400ms forwards;
 }
 
 @keyframes move_back {
@@ -2761,7 +2761,7 @@ p {
 }
 
 .move_center-1 {
-  animation: move_center-1 375ms forwards;
+  animation: move_center-1 200ms forwards;
 }
 
 @keyframes move_center-1 {
@@ -2775,7 +2775,7 @@ p {
 }
 
 .move_center-2 {
-  animation: move_center-2 375ms forwards;
+  animation: move_center-2 200ms forwards;
 }
 
 @keyframes move_center-2 {
@@ -2789,7 +2789,7 @@ p {
 }
 
 .move_center-3 {
-  animation: move_center-3 375ms forwards;
+  animation: move_center-3 200ms forwards;
 }
 
 @keyframes move_center-3 {
@@ -2803,7 +2803,7 @@ p {
 }
 
 .move_center-4 {
-  animation: move_center-4 375ms forwards;
+  animation: move_center-4 200ms forwards;
 }
 
 @keyframes move_center-4 {
@@ -2817,7 +2817,7 @@ p {
 }
 
 .move_center-5 {
-  animation: move_center-5 375ms forwards;
+  animation: move_center-5 200ms forwards;
 }
 
 @keyframes move_center-5 {
@@ -2831,7 +2831,7 @@ p {
 }
 
 .move_center-6 {
-  animation: move_center-6 375ms forwards;
+  animation: move_center-6 200ms forwards;
 }
 
 @keyframes move_center-6 {
@@ -2845,8 +2845,8 @@ p {
 }
 
 .move_center-back-1 {
-  animation: move_center-back-1 350ms forwards;
-  animation-delay: 350ms;
+  animation: move_center-back-1 200ms forwards;
+  animation-delay: 200ms;
   opacity: 0;
 }
 
@@ -2857,13 +2857,13 @@ p {
   }
   100% {
     -webkit-transform: translate(0, 0);
-     opacity: 1;
+     opacity: 1; 
   }
 }
 
 .move_center-back-2 {
-  animation: move_center-back-2 350ms forwards;
-  animation-delay: 350ms;
+  animation: move_center-back-2 200ms forwards;
+  animation-delay: 200ms;
   opacity: 0;
 }
 
@@ -2879,8 +2879,8 @@ p {
 }
 
 .move_center-back-3 {
-  animation: move_center-back-3 350ms forwards;
-  animation-delay: 350ms;
+  animation: move_center-back-3 200ms forwards;
+  animation-delay: 200ms;
   opacity: 0;
 }
 
@@ -2896,8 +2896,8 @@ p {
 }
 
 .move_center-back-4 {
-  animation: move_center-back-4 350ms forwards;
-  animation-delay: 350ms;
+  animation: move_center-back-4 200ms forwards;
+  animation-delay: 200ms;
   opacity: 0;
 }
 
@@ -2913,8 +2913,8 @@ p {
 }
 
 .move_center-back-5 {
-  animation: move_center-back-5 350ms forwards;
-  animation-delay: 350ms;
+  animation: move_center-back-5 200ms forwards;
+  animation-delay: 200ms;
   opacity: 0;
 }
 
@@ -2930,8 +2930,8 @@ p {
 }
 
 .move_center-back-6 {
-  animation: move_center-back-6 350ms forwards;
-  animation-delay: 350ms;
+  animation: move_center-back-6 200ms forwards;
+  animation-delay: 200ms;
   opacity: 0;
 }
 
