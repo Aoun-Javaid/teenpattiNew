@@ -364,6 +364,167 @@
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+.table-area {
+  align-items: flex-end;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 0.5rem;
+  margin-left: auto;
+  position: absolute;
+  bottom: 0.625rem;
+}
+
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  transform: scale(1);
+  transform-origin: bottom;
+  width: 100%;
+  position: relative;
+}
+
+.sicBo__controls-bEHBgU {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 6;
+}
+
+@media (max-width: 1135px) {
+  .sicBo__controls-bEHBgU {
+    height: 100%;
+  }
+}
+
+.controlsPanel-mDHDjp {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  position: relative;
+  width: 3rem;
+}
+
+.btn-wrapper {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.secbo-btn {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.svgIcon-JpUo7O {
+  fill: currentColor;
+  aspect-ratio: 1;
+  overflow: visible;
+}
+
+.duration-height {
+  transition: height 400ms ease-in-out;
+}
+
+.bettingButton_blue-VHm4OI:before {
+  background: linear-gradient(135deg, #2996cc, #004d99);
+}
+
+.bettingButton-i5MaZV:before {
+  inset: 0;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50% !important;
+}
+
+.bettingButton-i5MaZV:after,
+.bettingButton-i5MaZV:before {
+  border-radius: inherit;
+  content: "";
+  position: absolute;
+  z-index: 2;
+}
+
+.bettingButton-i5MaZV:before {
+  inset: 0;
+}
+
+.svgIcon_default-OFLILg {
+  width: 1.5rem;
+  fill: white;
+}
+
+.chip__svg-nFRcEL {
+  fill: white !important;
+}
+
+.chip__borderDecor-8XR0Vn {
+  border-radius: inherit;
+  grid-area: 1 / 1;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.chip__borderDecor_medium-mF_aBv {
+  position: absolute !important;
+}
+
+.chip__borderDecor-8XR0Vn {
+  border-radius: inherit;
+  grid-area: 1 / 1;
+  height: 100%;
+  width: 100%;
+}
+
+.chip__borderDecor-8XR0Vn:before {
+  background-image: url("/assets/download.svg");
+  z-index: 1;
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.chip__1st {
+  background: linear-gradient(135deg, #0c4 0%, #090 100%);
+  border-radius: 50%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+  place-content: center;
+  place-items: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.chip_size_48-odjDTm {
+  height: 48px;
+  width: 48px;
+}
+
+.chip-kcN8LW {
+  transition: opacity 300ms ease;
+}
+
+.chipTrayWithToggle__item-nLy9Sn {
+  pointer-events: all;
+}
+
+.bettingButton-i5MaZV:before {
+  inset: 0;
+}
+
+.bettingButton_orange-oB31C6:before {
+  background: linear-gradient(135deg, #f93, #f50);
+}
+
 /* grid ============= */
 .parent {
   display: grid;
@@ -372,9 +533,6 @@
   gap: 2px;
   margin: 0;
   padding: 0;
-  position: absolute;
-  top: -324px;
-  left: -152px;
   background: transparent;
   height: 503.305px;
   width: 274.305px;
@@ -748,4 +906,1114 @@
   border-radius: 4px;
   grid-column-start: 4;
   grid-row-start: 2;
+}
+
+.sicBo__interactiveArea-_Pd65K {
+  display: none;
+  margin-left: auto;
+  padding-right: 0.5rem;
+  width: 100%;
+}
+
+.tableTooltip-YTZM32 {
+  position: relative;
+  z-index: 0;
+}
+
+.table_orientation_vertical-lHaJIi {
+  height: 31.75rem;
+  padding-bottom: 1.125rem;
+  padding-left: 1.25rem;
+  width: 18rem;
+}
+
+.table__wrapper-xYwJxu {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.table_orientation_vertical-lHaJIi .table__mask-T0Bvf0 {
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27268%27 height=%27490%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M8 0a8 8 0 0 0-8 8v60a8 8 0 0 0 8 8h77a2 2 0 0 0 2-2V8a8 8 0 0 0-8-8H8ZM0 118a8 8 0 0 0 8 8h31a2 2 0 0 0 2-2V80a2 2 0 0 0-2-2H8a8 8 0 0 0-8 8v32Zm8 10a8 8 0 0 0-8 8v32a8 8 0 0 0 8 8h31a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H8Zm-8 96c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H8a8 8 0 0 0-8 8v38Zm2 4a2 2 0 0 0-2 2v38a8 8 0 0 0 8 8h28a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H2Zm-2 58a8 8 0 0 1 8-8h42a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-26Zm0 32c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-32Zm8 74a8 8 0 0 0-8 8v38c0 1.1.9 2 2 2h84a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H8Zm-6 50a2 2 0 0 0-2 2v38a8 8 0 0 0 8 8h78a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H2Zm88 2c0-1.1.9-2 2-2h84a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2H92a2 2 0 0 1-2-2v-44Zm2-52a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h84a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H92Zm88 52c0-1.1.9-2 2-2h84a2 2 0 0 1 2 2v38a8 8 0 0 1-8 8h-78a2 2 0 0 1-2-2v-44Zm2-52a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h84a2 2 0 0 0 2-2v-38a8 8 0 0 0-8-8h-78ZM2 354a2 2 0 0 0-2 2v26a8 8 0 0 0 8 8h42a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2H2Zm54 0a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2H56Zm-2-36c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2H56a2 2 0 0 1-2-2v-32Zm2-40a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2H56Zm52 78c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2h-48a2 2 0 0 1-2-2v-32Zm2-40a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2h-48Zm-2-36c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2h-48a2 2 0 0 1-2-2v-32Zm56 74a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2h-48Zm-2-36c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2h-48a2 2 0 0 1-2-2v-32Zm2-40a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2h-48Zm52 78c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v26a8 8 0 0 1-8 8h-42a2 2 0 0 1-2-2v-32Zm2-40a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2h-48Zm-2-36c0-1.1.9-2 2-2h42a8 8 0 0 1 8 8v26a2 2 0 0 1-2 2h-48a2 2 0 0 1-2-2v-32ZM42 228a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H42Zm-2-4c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H42a2 2 0 0 0-2 2v44Zm40 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H80Zm-2-4c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H80a2 2 0 0 0-2 2v44Zm40 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-32Zm-2-4c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-32a2 2 0 0 0-2 2v44Zm40 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-32Zm-2-4c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-32a2 2 0 0 0-2 2v44Zm40 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-32Zm-2-4c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-32a2 2 0 0 0-2 2v44Zm40 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h28a8 8 0 0 0 8-8v-38a2 2 0 0 0-2-2h-34Zm-2-4c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2v-38a8 8 0 0 0-8-8h-28a2 2 0 0 0-2 2v44ZM45 128a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H45Zm-2-4c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2V80a2 2 0 0 0-2-2H45a2 2 0 0 0-2 2v44Zm48 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H91Zm-2-4c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2V80a2 2 0 0 0-2-2H91a2 2 0 0 0-2 2v44Zm48 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-40Zm-2-4c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2V80a2 2 0 0 0-2-2h-40a2 2 0 0 0-2 2v44Zm48 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-40Zm-2-4c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2V80a2 2 0 0 0-2-2h-40a2 2 0 0 0-2 2v44Zm48 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h31a8 8 0 0 0 8-8v-32a8 8 0 0 0-8-8h-31Zm-2-4c0 1.1.9 2 2 2h31a8 8 0 0 0 8-8V86a8 8 0 0 0-8-8h-31a2 2 0 0 0-2 2v44ZM181 8a8 8 0 0 1 8-8h71a8 8 0 0 1 8 8v60a8 8 0 0 1-8 8h-77a2 2 0 0 1-2-2V8ZM97 0a8 8 0 0 0-8 8v66c0 1.1.9 2 2 2h86a2 2 0 0 0 2-2V8a8 8 0 0 0-8-8H97Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27268%27 height=%27490%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M8 0a8 8 0 0 0-8 8v60a8 8 0 0 0 8 8h77a2 2 0 0 0 2-2V8a8 8 0 0 0-8-8H8ZM0 118a8 8 0 0 0 8 8h31a2 2 0 0 0 2-2V80a2 2 0 0 0-2-2H8a8 8 0 0 0-8 8v32Zm8 10a8 8 0 0 0-8 8v32a8 8 0 0 0 8 8h31a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H8Zm-8 96c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H8a8 8 0 0 0-8 8v38Zm2 4a2 2 0 0 0-2 2v38a8 8 0 0 0 8 8h28a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H2Zm-2 58a8 8 0 0 1 8-8h42a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-26Zm0 32c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-32Zm8 74a8 8 0 0 0-8 8v38c0 1.1.9 2 2 2h84a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H8Zm-6 50a2 2 0 0 0-2 2v38a8 8 0 0 0 8 8h78a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H2Zm88 2c0-1.1.9-2 2-2h84a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2H92a2 2 0 0 1-2-2v-44Zm2-52a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h84a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H92Zm88 52c0-1.1.9-2 2-2h84a2 2 0 0 1 2 2v38a8 8 0 0 1-8 8h-78a2 2 0 0 1-2-2v-44Zm2-52a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h84a2 2 0 0 0 2-2v-38a8 8 0 0 0-8-8h-78ZM2 354a2 2 0 0 0-2 2v26a8 8 0 0 0 8 8h42a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2H2Zm54 0a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2H56Zm-2-36c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2H56a2 2 0 0 1-2-2v-32Zm2-40a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2H56Zm52 78c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2h-48a2 2 0 0 1-2-2v-32Zm2-40a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2h-48Zm-2-36c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2h-48a2 2 0 0 1-2-2v-32Zm56 74a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2h-48Zm-2-36c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2h-48a2 2 0 0 1-2-2v-32Zm2-40a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2h-48Zm52 78c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v26a8 8 0 0 1-8 8h-42a2 2 0 0 1-2-2v-32Zm2-40a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2h-48Zm-2-36c0-1.1.9-2 2-2h42a8 8 0 0 1 8 8v26a2 2 0 0 1-2 2h-48a2 2 0 0 1-2-2v-32ZM42 228a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H42Zm-2-4c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H42a2 2 0 0 0-2 2v44Zm40 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H80Zm-2-4c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H80a2 2 0 0 0-2 2v44Zm40 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-32Zm-2-4c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-32a2 2 0 0 0-2 2v44Zm40 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-32Zm-2-4c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-32a2 2 0 0 0-2 2v44Zm40 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-32Zm-2-4c0 1.1.9 2 2 2h32a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-32a2 2 0 0 0-2 2v44Zm40 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h28a8 8 0 0 0 8-8v-38a2 2 0 0 0-2-2h-34Zm-2-4c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2v-38a8 8 0 0 0-8-8h-28a2 2 0 0 0-2 2v44ZM45 128a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H45Zm-2-4c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2V80a2 2 0 0 0-2-2H45a2 2 0 0 0-2 2v44Zm48 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H91Zm-2-4c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2V80a2 2 0 0 0-2-2H91a2 2 0 0 0-2 2v44Zm48 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-40Zm-2-4c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2V80a2 2 0 0 0-2-2h-40a2 2 0 0 0-2 2v44Zm48 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2h-40Zm-2-4c0 1.1.9 2 2 2h40a2 2 0 0 0 2-2V80a2 2 0 0 0-2-2h-40a2 2 0 0 0-2 2v44Zm48 4a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h31a8 8 0 0 0 8-8v-32a8 8 0 0 0-8-8h-31Zm-2-4c0 1.1.9 2 2 2h31a8 8 0 0 0 8-8V86a8 8 0 0 0-8-8h-31a2 2 0 0 0-2 2v44ZM181 8a8 8 0 0 1 8-8h71a8 8 0 0 1 8 8v60a8 8 0 0 1-8 8h-77a2 2 0 0 1-2-2V8ZM97 0a8 8 0 0 0-8 8v66c0 1.1.9 2 2 2h86a2 2 0 0 0 2-2V8a8 8 0 0 0-8-8H97Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+}
+
+.table_roundStatus_betting-C_QBNz .table__mask-T0Bvf0:before {
+  opacity: 0.9;
+}
+
+.table__mask-T0Bvf0:after,
+.table__mask-T0Bvf0:before {
+  background-color: rgb(248, 236, 211);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.table__mask-T0Bvf0 {
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.table_orientation_vertical-lHaJIi .table__gaps-VxxpIl {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27264%27 height=%27481%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M5 68.94c.33.04.66.06 1 .06h77a2 2 0 0 0 2-2V1c0-.34-.02-.67-.06-1H85a1 1 0 1 0 2 0h.06c-.04.33-.06.66-.06 1v66c0 1.1.9 2 2 2h86a2 2 0 0 0 2-2V1c0-.34-.02-.67-.06-1h.06a1 1 0 1 0 2 0h.06c-.04.33-.06.66-.06 1v66c0 1.1.9 2 2 2h77c.34 0 .67-.02 1-.06V69a1 1 0 1 0 0 2v.06a8.07 8.07 0 0 0-1-.06h-31a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h31c.34 0 .67-.02 1-.06v.06a1 1 0 1 0 0 2v.06a8.05 8.05 0 0 0-1-.06h-31a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h31c.34 0 .67-.02 1-.06v.06a1 1 0 1 0 0 2v.06a8.05 8.05 0 0 0-1-.06h-28a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h34a1 1 0 1 0 0 2h-34a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h28c.34 0 .67-.02 1-.06v.06a1 1 0 1 0 0 2v.06a8.05 8.05 0 0 0-1-.06h-42a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a1 1 0 1 0 0 2h-48a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a1 1 0 1 0 0 2h-48a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h42c.34 0 .67-.02 1-.06v.06a1 1 0 1 0 0 2v.06a8.05 8.05 0 0 0-1-.06h-78a2 2 0 0 0-2 2v44c0 1.1.9 2 2 2h84a1 1 0 1 0 0 2h-84a2 2 0 0 0-2 2v44a1 1 0 1 0-2 0v-44a2 2 0 0 0-2-2H90a2 2 0 0 0-2 2v44a1 1 0 1 0-2 0v-44a2 2 0 0 0-2-2H0a1 1 0 1 0 0-2h84a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H6c-.34 0-.67.02-1 .06V385a1 1 0 1 0 0-2v-.06c.33.04.66.06 1 .06h42a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2H0a1 1 0 1 0 0-2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2H0a1 1 0 1 0 0-2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2H6c-.34 0-.67.02-1 .06V271a1 1 0 1 0 0-2v-.06c.33.04.66.06 1 .06h28a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H0a1 1 0 1 0 0-2h34a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H6c-.34 0-.67.02-1 .06V171a1 1 0 1 0 0-2v-.06c.33.04.66.06 1 .06h31a2 2 0 0 0 2-2v-44a2 2 0 0 0-2-2H6c-.34 0-.67.02-1 .06V121a1 1 0 1 0 0-2v-.06c.33.04.66.06 1 .06h31a2 2 0 0 0 2-2V73a2 2 0 0 0-2-2H6c-.34 0-.67.02-1 .06V71a1 1 0 1 0 0-2v-.06ZM88 387c0-1.1.9-2 2-2h84a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2H90a2 2 0 0 1-2-2v-44Zm-36-38c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2H54a2 2 0 0 1-2-2v-32Zm2-40a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2H54Zm-2-36c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2H54a2 2 0 0 1-2-2v-32Zm56 74a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2h-48Zm-2-36c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2h-48a2 2 0 0 1-2-2v-32Zm2-40a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2h-48Zm52 78c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2h-48a2 2 0 0 1-2-2v-32Zm2-40a2 2 0 0 0-2 2v32c0 1.1.9 2 2 2h48a2 2 0 0 0 2-2v-32a2 2 0 0 0-2-2h-48Zm-2-36c0-1.1.9-2 2-2h48a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2h-48a2 2 0 0 1-2-2v-32ZM38 223c0-1.1.9-2 2-2h32a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2H40a2 2 0 0 1-2-2v-44Zm2-4a2 2 0 0 1-2-2v-44c0-1.1.9-2 2-2h32a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2H40Zm36 4c0-1.1.9-2 2-2h32a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2H78a2 2 0 0 1-2-2v-44Zm2-4a2 2 0 0 1-2-2v-44c0-1.1.9-2 2-2h32a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2H78Zm36 4c0-1.1.9-2 2-2h32a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2h-32a2 2 0 0 1-2-2v-44Zm2-4a2 2 0 0 1-2-2v-44c0-1.1.9-2 2-2h32a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2h-32Zm36 4c0-1.1.9-2 2-2h32a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2h-32a2 2 0 0 1-2-2v-44Zm2-4a2 2 0 0 1-2-2v-44c0-1.1.9-2 2-2h32a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2h-32Zm36 4c0-1.1.9-2 2-2h32a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2h-32a2 2 0 0 1-2-2v-44Zm2-4a2 2 0 0 1-2-2v-44c0-1.1.9-2 2-2h32a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2h-32ZM41 123c0-1.1.9-2 2-2h40a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2H43a2 2 0 0 1-2-2v-44Zm2-4a2 2 0 0 1-2-2V73c0-1.1.9-2 2-2h40a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2H43Zm44 4c0-1.1.9-2 2-2h40a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2H89a2 2 0 0 1-2-2v-44Zm2-4a2 2 0 0 1-2-2V73c0-1.1.9-2 2-2h40a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2H89Zm44 4c0-1.1.9-2 2-2h40a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2h-40a2 2 0 0 1-2-2v-44Zm2-4a2 2 0 0 1-2-2V73c0-1.1.9-2 2-2h40a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2h-40Zm44 4c0-1.1.9-2 2-2h40a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2h-40a2 2 0 0 1-2-2v-44Zm2-4a2 2 0 0 1-2-2V73c0-1.1.9-2 2-2h40a2 2 0 0 1 2 2v44a2 2 0 0 1-2 2h-40Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  background-position: center top 0.4375rem;
+  background-size: 16.5rem 30.0625rem;
+}
+
+.table__gaps-VxxpIl {
+  background-repeat: no-repeat;
+}
+
+.table__gaps-VxxpIl,
+.table__mask-T0Bvf0 {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.tableVertical-GGmy4B {
+  display: grid;
+  position: relative;
+  row-gap: 0.125rem;
+  z-index: 1;
+}
+
+.tableVertical__section_anyTripleBet-qPCtHm {
+  grid-template-columns: 5.4375rem 5.625rem 5.4375rem;
+  height: 4.75rem;
+}
+
+.tableVertical__section-cQm5Ep {
+  -moz-column-gap: 0.125rem;
+  column-gap: 0.125rem;
+  display: grid;
+  position: relative;
+}
+
+.tableVertical__section_anyTripleBet-qPCtHm {
+  grid-template-columns: 5.4375rem 5.625rem 5.4375rem;
+  height: 4.75rem;
+}
+
+.tableVertical__section_anyTripleBet-qPCtHm > :first-child,
+.tableVertical__section_anyTripleBet-qPCtHm > :nth-child(2),
+.tableVertical__section_anyTripleBet-qPCtHm > :nth-child(3) {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.tableVertical__section_anyTripleBet-qPCtHm > :first-child {
+  border-bottom-left-radius: 0.5rem;
+}
+.betPlace_roundStatus_betting-M0s9yC {
+  cursor: pointer;
+}
+
+.tableVertical__section_anyTripleBet-qPCtHm > :nth-child(2) {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.tableVertical__section_anyTripleBet-qPCtHm > :nth-child(3) {
+  border-bottom-right-radius: 0.5rem;
+}
+
+.betPlace__flip-JO8XCO {
+  border-radius: inherit;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: -1;
+}
+
+.dice_size_16-nOOJLo {
+  box-shadow: 0 0.04167rem 0.08333rem rgba(0, 0, 0, 0.4);
+  height: 1rem;
+  padding: 0.16667rem;
+  width: 1rem;
+}
+
+.betPlace_orientation_vertical-aY79dn.betPlace_anyTripleBet-qqLJtg
+  .betPlace__flipBack-SmZf5S,
+.betPlace_orientation_vertical-aY79dn.betPlace_anyTripleBet-qqLJtg
+  .betPlace__flipFront-ttQDsg {
+  padding-bottom: 0.375rem;
+  padding-top: 0.375rem;
+}
+
+.betPlace__flipFront-ttQDsg {
+  transition-property: rotate, visibility;
+  transition-timing-function: linear;
+}
+.betPlace__flipBack-SmZf5S,
+.betPlace__flipFront-ttQDsg {
+  align-items: center;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  transition-duration: 300ms;
+  transition-property: visibility, rotate;
+  transition-timing-function: ease;
+}
+
+.betPlace_orientation_vertical-aY79dn.betPlace_anyTripleBet-qqLJtg
+  .betPlace__range-Tfc6Nd {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.1667;
+}
+
+.betPlace__label-ODEbdF,
+.betPlace__range-Tfc6Nd {
+  color: rgb(128, 77, 77);
+  opacity: 0.9;
+}
+
+.betPlace_orientation_vertical-aY79dn.betPlace_anyTripleBet-qqLJtg
+  .betPlace__label-ODEbdF {
+  font-family: Baloo, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 0.7778;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.betPlace__label-ODEbdF,
+.betPlace__range-Tfc6Nd {
+  color: rgb(128, 77, 77);
+  opacity: 0.9;
+}
+
+.betPlace_orientation_vertical-aY79dn.betPlace_anyTripleBet-qqLJtg
+  .betPlace__subLabel-PMzYhh {
+  font-size: 0.75rem;
+  letter-spacing: -0.04em;
+  line-height: 1.1667;
+  display: block;
+  text-align: center;
+}
+
+.betPlace__subLabel-PMzYhh {
+  color: rgb(128, 77, 77);
+  opacity: 0.6;
+}
+
+.betPlace_orientation_vertical-aY79dn.betPlace_anyTripleBet-qqLJtg
+  .betPlace__subLabel-PMzYhh {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  justify-content: center;
+  letter-spacing: -0.04em;
+  line-height: 1.1667;
+  margin-top: auto;
+  row-gap: 0.125rem;
+  text-align: center;
+}
+
+.tableVertical__section_pairBet-ARIcsZ,
+.tableVertical__section_tripleBet-UggjMO {
+  grid-template-columns: 2.5625rem repeat(4, 2.75rem) 2.5625rem;
+  height: 3rem;
+}
+
+.tableVertical__section_tripleBet-UggjMO > :first-child {
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+}
+.betPlace_roundStatus_betting-M0s9yC {
+  cursor: pointer;
+}
+
+.betPlace-ALnS59 {
+  border-radius: 0.125rem;
+  height: 100%;
+  /* min-height: 3rem; */
+  position: relative;
+  width: 100%;
+}
+
+.betPlace__flipBack-SmZf5S,
+.betPlace__flipFront-ttQDsg {
+  align-items: center;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  transition-duration: 300ms;
+}
+
+.betPlace__dice_twoLineMode-_MBbi0 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.betPlace__dice-ZBRV6v {
+  display: grid;
+  gap: 0.125rem;
+  place-items: center;
+}
+
+.betPlace__dice_twoLineMode-_MBbi0 .betPlace__die-K9Lnx4:first-child {
+  grid-column: 1 / -1;
+}
+
+.dice_size_12-NbsQDX {
+  box-shadow: 0 0.03125rem 0.0625rem rgba(0, 0, 0, 0.4);
+  height: 0.75rem;
+  padding: 0.125rem;
+  width: 0.75rem;
+}
+
+.dice_size_16-nOOJLo {
+  box-shadow: 0 0.04167rem 0.08333rem rgba(0, 0, 0, 0.4);
+  height: 1rem;
+  padding: 0.16667rem;
+  width: 1rem;
+}
+
+.dice-_xaMkD {
+  background: linear-gradient(135deg, #bf2a1d 0%, #b20925 100%);
+  border-radius: 8.3333333333%;
+  overflow: hidden;
+  position: relative;
+}
+
+.dice_default-QVTGGB:after,
+.dice_default-QVTGGB:before {
+  background-image: linear-gradient(135deg, #bf4c4c 0%, #a65242 100%);
+  content: "";
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+.dice__dots-Da6vXI svg {
+  display: block;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.dice__dots-Da6vXI path {
+  fill: rgb(255, 255, 255);
+}
+
+.tableVertical__section_tripleBet-UggjMO > :nth-child(7) {
+  bottom: 0;
+  position: absolute;
+  right: calc(100% + 0.25rem);
+  top: 0;
+  width: 1rem;
+}
+
+.payout_direction_left-M54nhb {
+  scale: -1 -1;
+}
+.payout_direction_left-M54nhb,
+.payout_direction_right-m4vpky {
+  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.payout_size_large-fGE4Mv .payout__title-ufIQIe {
+  font-size: 0.75rem;
+}
+
+.payout_direction_left-M54nhb .payout__title-ufIQIe,
+.payout_direction_right-m4vpky .payout__title-ufIQIe {
+  writing-mode: vertical-rl;
+}
+.payout__title-ufIQIe {
+  color: rgba(255, 255, 255, 0.8);
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* .dice__dots-Da6vXI {
+    display: block;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+} */
+
+.dice_size_18-k1JFjk {
+  box-shadow: 0 0.04688rem 0.09375rem rgba(0, 0, 0, 0.4);
+  height: 1.125rem;
+  padding: 0.1875rem;
+  width: 1.125rem;
+}
+
+.dice-_xaMkD {
+  background: linear-gradient(135deg, #bf2a1d 0%, #b20925 100%);
+  border-radius: 8.3333333333%;
+  overflow: hidden;
+  position: relative;
+}
+
+.tableVertical__section_pairBet-ARIcsZ > :nth-child(7),
+.tableVertical__section_tripleBet-UggjMO > :nth-child(7) {
+  bottom: 0;
+  position: absolute;
+  right: calc(100% + 0.25rem);
+  top: 0;
+  width: 1rem;
+}
+
+.payout_direction_left-M54nhb {
+  scale: -1 -1;
+}
+
+.payout-WiMrEx {
+  align-items: center;
+  background-color: rgba(102, 72, 51, 0.6);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+.tableVertical__section_threeNumberTotalBet-Ul4JM7 {
+  grid-template-columns: 2.375rem repeat(5, 2.25rem) 2.375rem;
+  grid-template-rows: repeat(2, 3rem);
+  row-gap: 0.125rem;
+}
+
+.betPlace_orientation_vertical-aY79dn.betPlace_threeNumberTotalBet-LQt49B
+  .betPlace__label-ODEbdF {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.125;
+  font-family: Rubik, sans-serif;
+}
+
+.betPlace_orientation_vertical-aY79dn.betPlace_threeNumberTotalBet-LQt49B
+  .betPlace__subLabel-PMzYhh {
+  font-size: 0.625rem;
+  line-height: 1.4;
+}
+
+.tableVertical__section_twoNumberCombinationBet-QNh9As {
+  grid-template-columns: repeat(5, 3.25rem);
+  grid-template-rows: repeat(3, 2.25rem);
+  row-gap: 0.125rem;
+}
+
+.betPlace_orientation_vertical-aY79dn.betPlace_twoNumberCombinationBet-lwpFl1
+  .betPlace__dice-ZBRV6v {
+  grid-auto-flow: column;
+}
+
+.tableVertical__section_singleNumberBet-RrAk5E {
+  grid-template-columns: repeat(3, 5.5rem);
+  grid-template-rows: repeat(2, 3rem);
+  row-gap: 0.125rem;
+}
+
+.betPlace_orientation_vertical-aY79dn.betPlace_singleNumberBet-V579S7
+  .betPlace__flipFront-ttQDsg {
+  -moz-column-gap: 0.5rem;
+  column-gap: 0.5rem;
+  flex-direction: row;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.betPlace_orientation_vertical-aY79dn.betPlace_singleNumberBet-V579S7
+  .betPlace__label-ODEbdF {
+  flex-grow: 1;
+  font-family: Baloo, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.1667;
+  order: 2;
+}
+
+.betPlace_orientation_vertical-aY79dn.betPlace_singleNumberBet-V579S7
+  .betPlace__dice-ZBRV6v {
+  order: 1;
+}
+
+.dice_size_28-Q3rKG3 {
+  box-shadow: 0 0.07292rem 0.14583rem rgba(0, 0, 0, 0.4);
+  height: 1.75rem;
+  padding: 0.29167rem;
+  width: 1.75rem;
+}
+
+.tableVertical__payoutsGroup-Zj7Q6M {
+  left: 0;
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27268%27 height=%2718%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M0 1.27C0 .2 1.5-.37 2.38.27a11.13 11.13 0 0 0 6.55 2.12h250.14c2.45 0 4.71-.79 6.56-2.13.86-.63 2.37-.06 2.37 1v7.82c0 4.93-4 8.92-8.93 8.92H8.93C4 18 0 14 0 9.08V1.27Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27268%27 height=%2718%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M0 1.27C0 .2 1.5-.37 2.38.27a11.13 11.13 0 0 0 6.55 2.12h250.14c2.45 0 4.71-.79 6.56-2.13.86-.63 2.37-.06 2.37 1v7.82c0 4.93-4 8.92-8.93 8.92H8.93C4 18 0 14 0 9.08V1.27Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  -webkit-mask-size: 16.75rem 1.125rem;
+  mask-size: 16.75rem 1.125rem;
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+
+.tableVertical__payoutsGroup-Zj7Q6M > * {
+  border-radius: 0;
+  -moz-column-gap: 0.125rem;
+  column-gap: 0.125rem;
+  height: 1.125rem;
+  padding-top: 0.1875rem;
+}
+
+.payout_size_medium-X7juqg .payout__title-ufIQIe {
+  font-size: 0.625rem;
+}
+
+.tableVertical__payoutsGroup-Zj7Q6M > * > * {
+  flex-basis: 33.3333%;
+}
+.payout__title-ufIQIe {
+  color: rgba(255, 255, 255, 0.8);
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sicBo__controls-bEHBgU {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 6;
+}
+
+.controlsPanel-mDHDjp {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  position: relative;
+  width: 3rem;
+}
+
+.svgIcon_default-OFLILg {
+  width: 1.5rem;
+  fill: white;
+}
+
+.secbo-btn {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-wrapper {
+  @apply flex flex-col mb-2;
+}
+
+.bettingButton_blue-VHm4OI:before {
+  background: linear-gradient(135deg, #2996cc, #004d99);
+}
+.bettingButton-i5MaZV:before {
+  inset: 0;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50% !important;
+}
+
+.svgIcon_large-z8G1_Q {
+  width: 3rem;
+}
+
+.svgIcon-JpUo7O {
+  fill: currentColor;
+  aspect-ratio: 1;
+  overflow: visible;
+}
+
+.bettingButton-i5MaZV:after,
+.bettingButton-i5MaZV:before {
+  border-radius: inherit;
+  content: "";
+  position: absolute;
+  z-index: 2;
+}
+
+.bettingButton_orange-oB31C6:before {
+  background: linear-gradient(135deg, #f93, #f50);
+}
+
+.bettingButton-i5MaZV:before {
+  inset: 0;
+}
+
+.tableHorizontal_size_medium-Aj8PE_ .tableHorizontal__section_combine-ILAhJR {
+  grid-template-columns: 5rem repeat(6, 4.875rem);
+  height: 4.875rem;
+}
+
+.sicBo__betsTable_betting-Gy23yv {
+  /* transform: translateY(-0.75rem); */
+  transition-delay: 0s;
+}
+
+.sicBo__betsTable-WJ28TI {
+  transform: translateY(2.625rem);
+  transition: transform 0.3s ease;
+  width: 35rem;
+}
+.sicBo-VDSDXG,
+.sicBo__betsTable-WJ28TI {
+  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+}
+
+.tableTooltip-YTZM32 {
+  position: relative;
+  z-index: 0;
+}
+
+.table_size_medium-wvZtzV.table_orientation_horizontal-VBjVN9 {
+  height: 13.25rem;
+  padding-bottom: 0.875rem;
+  width: 35rem;
+}
+
+.table__wrapper-xYwJxu {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.table_size_medium-wvZtzV.table_orientation_horizontal-VBjVN9
+  .table__mask-T0Bvf0 {
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27560%27 height=%27198%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M8 0a8 8 0 0 0-8 8v62a8 8 0 0 0 8 8h70a2 2 0 0 0 2-2V8a8 8 0 0 0-8-8H8Zm82 14a8 8 0 0 0-8 8v54c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2H90Zm80 0a8 8 0 0 0-8 8v54c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-15Zm-61 2c0-1.1.9-2 2-2h21a2 2 0 0 1 2 2v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V16Zm82-2a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-21Zm-55 2c0-1.1.9-2 2-2h14a8 8 0 0 1 8 8v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V16Zm82-2a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h20a2 2 0 0 0 2-2V22a8 8 0 0 0-8-8h-14ZM0 88a8 8 0 0 1 8-8h30a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2H8a8 8 0 0 1-8-8V88Zm44-8a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2H44Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2H84a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h28a8 8 0 0 0 8-8V88a8 8 0 0 0-8-8h-28Zm-297 42c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2H85a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2H49Zm-36 8a8 8 0 0 1 8-8h22a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2H21a8 8 0 0 1-8-8v-28Zm252-8a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h22a8 8 0 0 1 8 8v28a8 8 0 0 1-8 8h-22a2 2 0 0 1-2-2v-40ZM8 166a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h82a2 2 0 0 0 2-2v-28a2 2 0 0 0-2-2H8Zm86 2c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2H96a2 2 0 0 1-2-2v-28Zm96-2a2 2 0 0 0-2 2v28c0 1.1.9 2 2 2h88a2 2 0 0 0 2-2v-28a2 2 0 0 0-2-2h-88Zm92 2c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2h-88a2 2 0 0 1-2-2v-28Zm96-2a2 2 0 0 0-2 2v28c0 1.1.9 2 2 2h88a2 2 0 0 0 2-2v-28a2 2 0 0 0-2-2h-88Zm92 2c0-1.1.9-2 2-2h80a8 8 0 0 1 8 8v16a8 8 0 0 1-8 8h-80a2 2 0 0 1-2-2v-28ZM242 8a8 8 0 0 1 8-8h62a8 8 0 0 1 8 8v68a2 2 0 0 1-2 2h-74a2 2 0 0 1-2-2V8Zm248-8a8 8 0 0 0-8 8v68c0 1.1.9 2 2 2h68a8 8 0 0 0 8-8V8a8 8 0 0 0-8-8h-62Zm-88 22a8 8 0 0 1 8-8h15a2 2 0 0 1 2 2v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V22Zm29-8a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-21Zm25 2c0-1.1.9-2 2-2h14a8 8 0 0 1 8 8v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V16Zm-126-2a8 8 0 0 0-8 8v54c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-15Zm19 2c0-1.1.9-2 2-2h21a2 2 0 0 1 2 2v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V16Zm29-2a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h20a2 2 0 0 0 2-2V22a8 8 0 0 0-8-8h-14Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27560%27 height=%27198%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M8 0a8 8 0 0 0-8 8v62a8 8 0 0 0 8 8h70a2 2 0 0 0 2-2V8a8 8 0 0 0-8-8H8Zm82 14a8 8 0 0 0-8 8v54c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2H90Zm80 0a8 8 0 0 0-8 8v54c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-15Zm-61 2c0-1.1.9-2 2-2h21a2 2 0 0 1 2 2v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V16Zm82-2a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-21Zm-55 2c0-1.1.9-2 2-2h14a8 8 0 0 1 8 8v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V16Zm82-2a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h20a2 2 0 0 0 2-2V22a8 8 0 0 0-8-8h-14ZM0 88a8 8 0 0 1 8-8h30a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2H8a8 8 0 0 1-8-8V88Zm44-8a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2H44Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2H84a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V82a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V82Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h28a8 8 0 0 0 8-8V88a8 8 0 0 0-8-8h-28Zm-297 42c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2H85a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2H49Zm-36 8a8 8 0 0 1 8-8h22a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2H21a8 8 0 0 1-8-8v-28Zm252-8a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h22a8 8 0 0 1 8 8v28a8 8 0 0 1-8 8h-22a2 2 0 0 1-2-2v-40ZM8 166a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h82a2 2 0 0 0 2-2v-28a2 2 0 0 0-2-2H8Zm86 2c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2H96a2 2 0 0 1-2-2v-28Zm96-2a2 2 0 0 0-2 2v28c0 1.1.9 2 2 2h88a2 2 0 0 0 2-2v-28a2 2 0 0 0-2-2h-88Zm92 2c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2h-88a2 2 0 0 1-2-2v-28Zm96-2a2 2 0 0 0-2 2v28c0 1.1.9 2 2 2h88a2 2 0 0 0 2-2v-28a2 2 0 0 0-2-2h-88Zm92 2c0-1.1.9-2 2-2h80a8 8 0 0 1 8 8v16a8 8 0 0 1-8 8h-80a2 2 0 0 1-2-2v-28ZM242 8a8 8 0 0 1 8-8h62a8 8 0 0 1 8 8v68a2 2 0 0 1-2 2h-74a2 2 0 0 1-2-2V8Zm248-8a8 8 0 0 0-8 8v68c0 1.1.9 2 2 2h68a8 8 0 0 0 8-8V8a8 8 0 0 0-8-8h-62Zm-88 22a8 8 0 0 1 8-8h15a2 2 0 0 1 2 2v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V22Zm29-8a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-21Zm25 2c0-1.1.9-2 2-2h14a8 8 0 0 1 8 8v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V16Zm-126-2a8 8 0 0 0-8 8v54c0 1.1.9 2 2 2h21a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2h-15Zm19 2c0-1.1.9-2 2-2h21a2 2 0 0 1 2 2v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V16Zm29-2a2 2 0 0 0-2 2v60c0 1.1.9 2 2 2h20a2 2 0 0 0 2-2V22a8 8 0 0 0-8-8h-14Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+}
+
+.table_size_medium-wvZtzV.table_orientation_horizontal-VBjVN9
+  .table__gaps-VxxpIl {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27544%27 height=%27180%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M72 6v54a2 2 0 0 1-2 2H0a1 1 0 1 1 0 2h30a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2H13a1 1 0 0 1 0 2h22a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2H13a1 1 0 0 1 0 2h69a2 2 0 0 1 2 2v28a1 1 0 0 1 2 0v-28c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a1 1 0 0 1 2 0v-28c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a1 1 0 0 1 2 0v-28c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a1 1 0 0 1 2 0v-28c0-1.1.9-2 2-2h88a2 2 0 0 1 2 2v28a1 1 0 0 1 2 0v-28c0-1.1.9-2 2-2h67a1 1 0 0 1 0-2h-22a2 2 0 0 1-2-2v-40c0-1.1.9-2 2-2h22a1 1 0 0 1 0-2h-15a2 2 0 0 1-2-2V66c0-1.1.9-2 2-2h28a1 1 0 0 1 0-2h-68a2 2 0 0 1-2-2V6a1 1 0 0 1-2 0v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V6a1 1 0 0 1-2 0v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V6a1 1 0 0 1-2 0v54a2 2 0 0 1-2 2h-74a2 2 0 0 1-2-2V6a1 1 0 0 1-2 0v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V6a1 1 0 0 1-2 0v54a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2h-21a2 2 0 0 1-2-2V0a1 1 0 0 1-2 0v60a2 2 0 0 1-2 2H76a2 2 0 0 1-2-2V6a1 1 0 1 1-2 0ZM34 66c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2H36a2 2 0 0 1-2-2V66Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V66a2 2 0 0 0-2-2H76Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V66Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V66a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V66Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V66a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V66Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V66a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V66Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V66a2 2 0 0 0-2-2h-34Zm38 2c0-1.1.9-2 2-2h34a2 2 0 0 1 2 2v34a2 2 0 0 1-2 2h-34a2 2 0 0 1-2-2V66Zm42-2a2 2 0 0 0-2 2v34c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V66a2 2 0 0 0-2-2h-34Zm-255 40a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm-34-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2H77Zm-38 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2H41a2 2 0 0 1-2-2v-40Zm216 0c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Zm38-2a2 2 0 0 0-2 2v40c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2v-40a2 2 0 0 0-2-2h-30Zm34 2c0-1.1.9-2 2-2h30a2 2 0 0 1 2 2v40a2 2 0 0 1-2 2h-30a2 2 0 0 1-2-2v-40Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  background-position: center top 1rem;
+  background-size: 34rem 11.25rem;
+}
+
+.table__gaps-VxxpIl {
+  background-repeat: no-repeat;
+}
+
+.table__gaps-VxxpIl,
+.table__mask-T0Bvf0 {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.tableHorizontal-VSRITG {
+  display: grid;
+  position: relative;
+  row-gap: 0.125rem;
+  z-index: 1;
+}
+
+.tableHorizontal_size_medium-Aj8PE_ .tableHorizontal__section_combine-ILAhJR {
+  grid-template-columns: 5rem repeat(6, 4.875rem);
+  height: 4.875rem;
+}
+
+.tableHorizontal__section-toxuWm {
+  -moz-column-gap: 0.125rem;
+  column-gap: 0.125rem;
+  display: grid;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_anyTripleBet-qqLJtg
+  .betPlace__label-ODEbdF {
+  font-family: Baloo\2, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 0.8;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_anyTripleBet-qqLJtg
+  .betPlace__subLabel-PMzYhh {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.625rem;
+  justify-content: center;
+  line-height: 1.2;
+  margin-top: auto;
+  row-gap: 0.25rem;
+  text-align: center;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_anyTripleBet-qqLJtg
+  .betPlace__flipBack-SmZf5S,
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_anyTripleBet-qqLJtg
+  .betPlace__flipFront-ttQDsg {
+  padding-bottom: 0.25rem;
+  padding-top: 0.375rem;
+}
+
+.tableHorizontal_size_medium-Aj8PE_ .tableHorizontal__section_pairBet-puTkJg,
+.tableHorizontal_size_medium-Aj8PE_ .tableHorizontal__section_tripleBet-FFun9Q {
+  grid-template-columns: repeat(2, 1.5625rem) 1.5rem;
+  grid-template-rows: 0.75rem 1fr;
+  row-gap: 0.125rem;
+}
+
+.tableHorizontal__section-toxuWm {
+  -moz-column-gap: 0.125rem;
+  column-gap: 0.125rem;
+  display: grid;
+}
+
+.active-shadow {
+  /* border: 0.125rem solid #fa0; */
+  /* box-shadow: 0 0 0.25rem rgba(255, 221, 51, 0.225), 0 0 0.59375rem #fb3,
+    inset 0 0 0.59375rem #fb3, inset 0 0 0.25rem rgba(255, 187, 51, 0.225);
+  inset: -0.1875rem; */
+  border-radius: 23px;
+  transition-property: opacity, visibility;
+  /* visibility: hidden;
+  z-index: 1; */
+  border: 2px solid #fa0;
+}
+
+.tableHorizontal__section_pairBet-puTkJg > :first-child,
+.tableHorizontal__section_pairBet-puTkJg > :nth-child(2),
+.tableHorizontal__section_pairBet-puTkJg > :nth-child(3),
+.tableHorizontal__section_tripleBet-FFun9Q > :first-child,
+.tableHorizontal__section_tripleBet-FFun9Q > :nth-child(2),
+.tableHorizontal__section_tripleBet-FFun9Q > :nth-child(3) {
+  grid-row: 2 / -1;
+}
+
+.tableHorizontal__section_pairBet-puTkJg > :first-child,
+.tableHorizontal__section_tripleBet-FFun9Q > :first-child {
+  border-top-left-radius: 0.5rem;
+}
+.betPlace_roundStatus_betting-M0s9yC {
+  cursor: pointer;
+}
+.betPlace-ALnS59 {
+  border-radius: 0.125rem;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.tableHorizontal__section_pairBet-puTkJg > :nth-child(4),
+.tableHorizontal__section_tripleBet-FFun9Q > :nth-child(4) {
+  grid-column: 1 / -1;
+}
+
+.payout_direction_top-lwKcVT {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.payout-WiMrEx {
+  align-items: center;
+  background-color: rgba(102, 72, 51, 0.6);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+.payout_direction_top-lwKcVT:before {
+  background-position: left -0.0625rem top;
+  left: 0;
+}
+.payout_direction_top-lwKcVT:after,
+.payout_direction_top-lwKcVT:before {
+  top: 100%;
+}
+.payout-WiMrEx:after,
+.payout-WiMrEx:before {
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    transparent 0.5rem,
+    rgba(102, 72, 51, 0.6) 0.5rem
+  );
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  content: "";
+  height: 0.5rem;
+  position: absolute;
+  width: 0.5rem;
+}
+
+.payout_direction_top-lwKcVT:after {
+  background-position: right -0.0625rem top !important;
+  right: 0 !important;
+}
+
+.tableHorizontal__section_threeNumberTotalBet-noM4Yj {
+  grid-template-columns: 2.5rem repeat(13, 2.375rem);
+  height: 2.375rem;
+}
+
+.tableHorizontal__section-toxuWm {
+  -moz-column-gap: 0.125rem;
+  column-gap: 0.125rem;
+  display: grid;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_threeNumberTotalBet-LQt49B
+  .betPlace__label-ODEbdF {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_threeNumberTotalBet-LQt49B
+  .betPlace__subLabel-PMzYhh {
+  font-size: 0.625rem;
+  line-height: 1.2;
+}
+
+.tableHorizontal_size_medium-Aj8PE_
+  .tableHorizontal__section_twoNumberCombinationBet-C5djCr {
+  grid-template-columns: 0.6875rem 2rem repeat(13, 2.125rem) 2rem 0.6875rem;
+  height: 2.75rem;
+}
+
+.tableHorizontal__section_twoNumberCombinationBet-C5djCr > :first-child {
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  grid-column: 2 / 3;
+}
+
+.tableHorizontal_size_medium-Aj8PE_
+  .tableHorizontal__section_twoNumberCombinationBet-C5djCr
+  > :nth-child(16) {
+  grid-row: 1 / 2;
+}
+
+.tableHorizontal__section_twoNumberCombinationBet-C5djCr > :nth-child(16) {
+  grid-column: 1 / 2;
+}
+.payout_direction_left-M54nhb {
+  scale: -1 -1;
+}
+
+.payout_direction_left-M54nhb .payout__title-ufIQIe,
+.payout_direction_right-m4vpky .payout__title-ufIQIe {
+  writing-mode: vertical-rl;
+}
+
+.payout_direction_left-M54nhb:before,
+.payout_direction_right-m4vpky:before {
+  background-position: right top -0.0625rem;
+  top: 0;
+}
+
+.payout_direction_left-M54nhb:after,
+.payout_direction_right-m4vpky:after {
+  background-position: right bottom -0.0625rem !important;
+  bottom: 0 !important;
+}
+
+.tableHorizontal_size_medium-Aj8PE_
+  .tableHorizontal__section_singleNumberBet-Mx9zMY {
+  grid-template-columns: repeat(5, 5.75rem) 5.625rem;
+  height: 2rem;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_singleNumberBet-V579S7
+  .betPlace__flipBack-SmZf5S,
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_singleNumberBet-V579S7
+  .betPlace__flipFront-ttQDsg {
+  -moz-column-gap: 0.375rem;
+  column-gap: 0.375rem;
+  flex-direction: row;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_singleNumberBet-V579S7:first-child
+  .betPlace__label-ODEbdF,
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_singleNumberBet-V579S7:nth-child(
+    2
+  )
+  .betPlace__label-ODEbdF,
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_singleNumberBet-V579S7:nth-child(
+    3
+  )
+  .betPlace__label-ODEbdF {
+  order: 2;
+}
+.betPlace_orientation_horizontal-YoAkp9.betPlace_size_medium-o_KWCG.betPlace_singleNumberBet-V579S7
+  .betPlace__label-ODEbdF {
+  flex-grow: 1;
+  font-family: Baloo, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.dice_size_24-qhdI3e {
+  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.4);
+  height: 1.5rem;
+  padding: 0.25rem;
+  width: 1.5rem;
+}
+
+.tableHorizontal_size_medium-Aj8PE_ .tableHorizontal__payoutsGroup-xrctjk {
+  height: 0.875rem;
+  left: 0;
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27560%27 height=%2715%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M0 1.14C0 .18 1.35-.33 2.13.24A9.95 9.95 0 0 0 8 2.14h544c2.2 0 4.22-.7 5.87-1.9.78-.57 2.13-.06 2.13.9v5a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8v-5Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%27560%27 height=%2715%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M0 1.14C0 .18 1.35-.33 2.13.24A9.95 9.95 0 0 0 8 2.14h544c2.2 0 4.22-.7 5.87-1.9.78-.57 2.13-.06 2.13.9v5a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8v-5Z%27 fill=%27%23000%27/%3E%3C/svg%3E");
+  -webkit-mask-size: 35rem 0.9375rem;
+  mask-size: 35rem 0.9375rem;
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+
+.tableHorizontal_size_medium-Aj8PE_
+  .tableHorizontal__payoutsGroup-xrctjk
+  > *
+  > * {
+  flex-basis: 33.3333%;
+}
+.payout_size_medium-X7juqg .payout__title-ufIQIe {
+  font-size: 0.625rem;
+}
+
+@media (max-width: 1135px) {
+  .sicBo__interactiveArea-_Pd65K {
+    align-items: flex-end;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+  }
+  .sicBo__controls-bEHBgU {
+    height: 100%;
+  }
+
+  .sicBo__betsTable-WJ28TI {
+    display: none;
+  }
+
+  .sicBo__tableArea-KVdEwC {
+    display: flex;
+    justify-content: center;
+    transform: scale(1);
+    transform-origin: bottom;
+    width: 100%;
+    position: relative;
+  }
+}
+
+.chipTrayWithToggle__item-nLy9Sn {
+  pointer-events: all;
+}
+
+.chips-rzbOIK {
+  position: relative;
+  transition: opacity 300ms ease;
+}
+
+.chip-kcN8LW {
+  transition: opacity 300ms ease;
+}
+
+.chip_size_48-odjDTm {
+  @apply h-[48px] w-[48px] md:rotate-[93deg];
+}
+
+.chip__1st {
+  background: linear-gradient(135deg, #0c4 0%, #090 100%);
+  border-radius: 50%;
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+  place-content: center;
+  place-items: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.chip__borderDecor-8XR0Vn {
+  border-radius: inherit;
+  grid-area: 1 / 1;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+.chip_style_default-zHvD8j .chip__borderDecor-8XR0Vn:before {
+  background-color: #fff;
+  z-index: 1;
+}
+
+.chip__borderDecor_medium-mF_aBv {
+  position: absolute !important;
+}
+
+.chip__svg-nFRcEL {
+  fill: white !important;
+}
+
+.chip__borderDecor-8XR0Vn {
+  border-radius: inherit;
+  grid-area: 1 / 1;
+  height: 100%;
+  /* position: relative; */
+  width: 100%;
+}
+
+.chip__borderDecor-8XR0Vn:before {
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 48 48%27%3E%3Cpath fill=%27%23000%27 fill-rule=%27evenodd%27 d=%27M20.312 6.378c-.54.113-1.088-.201-1.23-.734L17.786.812A24.033 24.033 0 0 1 24 0c2.149 0 4.231.282 6.213.812l-1.295 4.832c-.142.533-.69.847-1.23.734A18.078 18.078 0 0 0 24 6c-1.264 0-2.497.13-3.688.378Zm20.659.651-3.536 3.536c-.39.39-.388 1.022-.02 1.433a17.98 17.98 0 0 1 3.69 6.383c.173.525.719.843 1.252.7l4.831-1.294A23.976 23.976 0 0 0 40.97 7.029Zm6.217 23.184-4.83-1.294c-.534-.143-1.08.175-1.252.7a17.981 17.981 0 0 1-3.691 6.383c-.368.411-.37 1.042.02 1.433l3.535 3.536a23.974 23.974 0 0 0 6.218-10.758ZM30.213 47.188l-1.295-4.832c-.142-.533-.69-.847-1.23-.734-1.19.248-2.424.378-3.688.378a18.08 18.08 0 0 1-3.688-.378c-.54-.113-1.088.201-1.23.734l-1.295 4.832c1.981.53 4.064.812 6.213.812s4.231-.282 6.213-.812ZM7.029 40.97l3.536-3.535c.39-.39.388-1.022.02-1.433a17.981 17.981 0 0 1-3.69-6.383c-.173-.525-.719-.843-1.253-.7l-4.83 1.294a23.974 23.974 0 0 0 6.217 10.758ZM.812 17.788l4.83 1.294c.534.143 1.08-.175 1.252-.7a17.981 17.981 0 0 1 3.69-6.383c.37-.411.371-1.042-.02-1.433L7.03 7.029A23.975 23.975 0 0 0 .812 17.787Z%27 clip-rule=%27evenodd%27/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 48 48%27%3E%3Cpath fill=%27%23000%27 fill-rule=%27evenodd%27 d=%27M20.312 6.378c-.54.113-1.088-.201-1.23-.734L17.786.812A24.033 24.033 0 0 1 24 0c2.149 0 4.231.282 6.213.812l-1.295 4.832c-.142.533-.69.847-1.23.734A18.078 18.078 0 0 0 24 6c-1.264 0-2.497.13-3.688.378Zm20.659.651-3.536 3.536c-.39.39-.388 1.022-.02 1.433a17.98 17.98 0 0 1 3.69 6.383c.173.525.719.843 1.252.7l4.831-1.294A23.976 23.976 0 0 0 40.97 7.029Zm6.217 23.184-4.83-1.294c-.534-.143-1.08.175-1.252.7a17.981 17.981 0 0 1-3.691 6.383c-.368.411-.37 1.042.02 1.433l3.535 3.536a23.974 23.974 0 0 0 6.218-10.758ZM30.213 47.188l-1.295-4.832c-.142-.533-.69-.847-1.23-.734-1.19.248-2.424.378-3.688.378a18.08 18.08 0 0 1-3.688-.378c-.54-.113-1.088.201-1.23.734l-1.295 4.832c1.981.53 4.064.812 6.213.812s4.231-.282 6.213-.812ZM7.029 40.97l3.536-3.535c.39-.39.388-1.022.02-1.433a17.981 17.981 0 0 1-3.69-6.383c-.173-.525-.719-.843-1.253-.7l-4.83 1.294a23.974 23.974 0 0 0 6.217 10.758ZM.812 17.788l4.83 1.294c.534.143 1.08-.175 1.252-.7a17.981 17.981 0 0 1 3.69-6.383c.37-.411.371-1.042-.02-1.433L7.03 7.029A23.975 23.975 0 0 0 .812 17.787Z%27 clip-rule=%27evenodd%27/%3E%3C/svg%3E");
+  background-color: white;
+  z-index: 1;
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.duration-height {
+  transition: height 400ms ease-in-out;
+}
+
+.height-animation {
+  animation: height-animation 400ms;
+}
+
+.full-height {
+  animation: height-full 400ms;
+}
+
+.move_center-back-1 {
+  animation: move_center-back-1 500ms forwards;
+}
+
+.move_center-back-2 {
+  animation: move_center-back-2 500ms forwards;
+}
+
+.move_center-back-3 {
+  animation: move_center-back-3 500ms forwards;
+}
+
+.move_center-back-4 {
+  animation: move_center-back-4 500ms forwards;
+}
+
+.move_center-back-5 {
+  animation: move_center-back-5 500ms forwards;
+}
+
+.move_center-back-6 {
+  animation: move_center-back-6 500ms forwards;
+}
+
+@keyframes move_center-back-1 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 168px);
+  }
+}
+
+@keyframes move_center-back-2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 112px);
+  }
+}
+
+@keyframes move_center-back-3 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 56px);
+  }
+}
+
+@keyframes move_center-back-4 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0px);
+  }
+}
+
+@keyframes move_center-back-5 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, -56px);
+  }
+}
+
+@keyframes move_center-back-6 {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, -112px);
+  }
+}
+
+@keyframes height-full {
+  0% {
+    height: 48px;
+  }
+
+  100% {
+    height: 404px;
+  }
+}
+
+.orange-bg {
+  background: linear-gradient(135deg, #f93 0%, #f50 100%, #8a8a99) !important;
+}
+
+.pink-bg {
+  background: linear-gradient(135deg, #f69 0%, #c06 100%) !important;
+}
+
+.red-bg {
+  background: linear-gradient(135deg, #f33 0%, #900 100%) !important;
+}
+
+.blue-bg {
+  background: linear-gradient(135deg, #5f29cc 0%, #009 100%) !important;
+}
+
+.black-bg {
+  background: linear-gradient(135deg, #2e3133 0%, #0b0c0d 100%) !important;
 }
