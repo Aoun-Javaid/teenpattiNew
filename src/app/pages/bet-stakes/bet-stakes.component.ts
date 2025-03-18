@@ -29,7 +29,7 @@ export class BetStakesComponent implements OnInit{
 
   }
   ngOnInit(): void {
-
+    this.getStackData();
   }
   getStackData() {
     const path = CONFIG.userGetStackURL.split('/').filter(Boolean).pop();
@@ -40,6 +40,7 @@ export class BetStakesComponent implements OnInit{
         this.stackButtonArry = STACK_VALUE;
       }
     })
+
   }
   numberOnly(event: any): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
@@ -89,6 +90,9 @@ export class BetStakesComponent implements OnInit{
           // this.toaster.success(data.meta.message, '');
           if(!this.isPopup){
             this.router.navigate(['/home']);
+          }
+          else{
+            this.toggle.setStakeChanged(true);
           }
 
         }

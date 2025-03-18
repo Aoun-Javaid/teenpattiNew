@@ -55,6 +55,13 @@ export class BetCoinComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStackData();
+    this.toggleService.getStakeChanged().subscribe((res:any)=>{
+      if(res){
+        console.log('socins')
+        this.getStackData();
+        this.toggleService.setStakeChanged(false);
+      }
+    })
     this.localCoinValue = localStorage.setItem('coinIndex', '')
     this.screenWith = window.innerWidth
 
@@ -78,7 +85,7 @@ export class BetCoinComponent implements OnInit {
     this.localCoinValue = localStorage.setItem('coinIndex', this.animateCoinVal.toString())
   }
 
- 
+
 
   getStackData() {
     const path = CONFIG.userGetStackURL.split('/').filter(Boolean).pop();
