@@ -32,9 +32,9 @@ export class JwtinterceptorService {
       const Authorization = "Bearer " + localStorage.getItem('token') || "";
       return next.handle(req.clone({ setHeaders: { Authorization } })).pipe(
         catchError((error: HttpErrorResponse) => {
-          // if (error.status === 401) {
-          //   this.router.navigate(['/unautherized']);
-          // }
+          if (error.status === 401) {
+            this.router.navigate(['/unauthorized']);
+          }
           return throwError(error);
         })
       );

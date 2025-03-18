@@ -92,6 +92,7 @@ export class BetStakesComponent implements OnInit{
             this.router.navigate(['/home']);
           }
           else{
+            this.toggle.setQuickStakeEditSidebarState(false);
             this.toggle.setStakeChanged(true);
           }
 
