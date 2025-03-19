@@ -16,9 +16,9 @@
   pointer-events: auto;
   width: 95%;
   max-width: 500px;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
-.baccarat3rdCard{
+.baccarat3rdCard {
   transform: rotate(90deg);
   margin-left: 15px !important;
 }
@@ -27,20 +27,19 @@
 }
 
 .modal-header-container {
-  @apply p-[15px] flex items-center justify-between w-full;;
+  @apply p-[15px] flex items-center justify-between w-full;
 
-    background: var(--modal-header-bg);
-    color: var(--modal-header-text);
-    padding: .25rem .4rem;
-    border: 1px solid var(--modal-header-text);
-    border-radius: .5rem .5rem 0rem 0rem;
-
+  background: var(--modal-header-bg);
+  color: var(--modal-header-text);
+  padding: 0.25rem 0.4rem;
+  border: 1px solid var(--modal-header-text);
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
 }
 
 .modal-title {
   @apply text-[16px] text-[#b1bad3] font-black;
 }
-.round-id{
+.round-id {
   color: #000;
 }
 .common-button {
@@ -63,7 +62,7 @@
 .content-container {
   color: #000;
   max-height: 80vh !important;
-  overflow: auto
+  overflow: auto;
 }
 
 .current-title {
@@ -82,23 +81,23 @@
   @apply grid grid-cols-12 gap-3 items-center mb-[10px];
 }
 
-.new-title{
-    @apply col-span-4 text-[12px] text-[#1e1e1e] font-semibold
+.new-title {
+  @apply col-span-4 text-[12px] text-[#1e1e1e] font-semibold;
 }
 
-.input{
-    @apply w-full outline-none rounded p-[5px] text-[12px] text-[#1e1e1e] font-black shadow-[rgba(0,0,0,0.5)_0px_1px_0px_inset]
+.input {
+  @apply w-full outline-none rounded p-[5px] text-[12px] text-[#1e1e1e] font-black shadow-[rgba(0,0,0,0.5)_0px_1px_0px_inset];
 }
 
-.submit-container{
-    @apply flex items-center justify-center p-[15px]
+.submit-container {
+  @apply flex items-center justify-center p-[15px];
 }
 
-.submit-btn{
-    @apply rounded px-2 text-[13px] h-[25px] font-black w-[140px] flex items-center justify-center bg-[linear-gradient(rgb(53,53,53),rgb(17,17,17))] text-[rgb(236,173,23)]
+.submit-btn {
+  @apply rounded px-2 text-[13px] h-[25px] font-black w-[140px] flex items-center justify-center bg-[linear-gradient(rgb(53,53,53),rgb(17,17,17))] text-[rgb(236,173,23)];
 }
 
-.crossBtn{
+.crossBtn {
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
@@ -110,20 +109,20 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 1rem;
-  gap:  1rem;
+  gap: 1rem;
 }
-.title-wrap{
+.title-wrap {
   display: flex;
   flex-direction: column;
 }
-.title{
+.title {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
-    justify-content: center;
-    display: flex;
-    width: 100%;
+  justify-content: center;
+  display: flex;
+  width: 100%;
 }
 
 h6 {
@@ -134,6 +133,23 @@ h6 {
 
 .modal-header .close {
   font-size: 1.3rem;
+}
+
+.modal {
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out,
+    visibility 0.3s ease-out;
+  position: absolute;
+  left: 50%;
+  width: 100%;
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .paati_boxs h6 {
@@ -154,8 +170,8 @@ h6 {
   border: solid 1px gray;
   border-radius: 9px;
 }
-.resultVideo{
-background: black;
+.resultVideo {
+  background: black;
 }
 .imgClassModal {
   width: 24px;
@@ -253,7 +269,6 @@ background: black;
   background: linear-gradient(-180deg, #11b24b 0, #1c6235 100%);
 }
 
-
 .tigerResult {
   background: #ff4500;
 }
@@ -312,14 +327,13 @@ background: black;
   } */
 
   .recent-res {
-      margin-top: 10px;
+    margin-top: 10px;
   }
 }
 
 .modal-header {
   padding: 10px;
 }
-
 
 .paati_boxs {
   text-align: center;
@@ -328,7 +342,7 @@ background: black;
   margin: 10px 0;
   float: left;
 }
-.card-Img-box{
+.card-Img-box {
   text-align: center;
 }
 .card-Img-box img {
@@ -348,64 +362,101 @@ background: black;
   margin: 10px auto;
   border-radius: 4px;
 }
-.custom-winner-green{
+.custom-winner-green {
   background: #28a745;
 }
 .winner-team-tiger {
-  background: linear-gradient(90deg, transparent 0%, rgb(225, 157, 25) 50%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(225, 157, 25) 50%,
+    transparent 100%
+  );
   color: #fff;
 }
 .winner-team-dragon {
-  background: linear-gradient(90deg, transparent 0%, rgb(198,40,8) 50%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(198, 40, 8) 50%,
+    transparent 100%
+  );
   color: #fff;
 }
-.winner-team-A{
-  background: linear-gradient(90deg, transparent 0%, rgb(255,85,0) 50%, transparent 100%);
+.winner-team-A {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(255, 85, 0) 50%,
+    transparent 100%
+  );
   color: #fff;
 }
-.winner-team-B{
-  background: linear-gradient(90deg, transparent 0%, rgb(248,149,0) 50%, transparent 100%);
+.winner-team-B {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(248, 149, 0) 50%,
+    transparent 100%
+  );
   color: #fff;
 }
-.winner-player{
-  background: linear-gradient(90deg, transparent 0%, rgb(0,115,230) 50%, transparent 100%);
+.winner-player {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(0, 115, 230) 50%,
+    transparent 100%
+  );
 }
-.winner-banker{
-  background: linear-gradient(90deg, transparent 0%, rgb(229,38,0) 50%, transparent 100%)
+.winner-banker {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(229, 38, 0) 50%,
+    transparent 100%
+  );
 }
-.winner-defense{
-  background: linear-gradient(90deg, transparent 0%, rgb(1,200,188) 50%, transparent 100%);
+.winner-defense {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(1, 200, 188) 50%,
+    transparent 100%
+  );
 }
-.winner-offense{
-  background: linear-gradient(90deg, transparent 0%, rgb(206,37,50) 50%, transparent 100%);
+.winner-offense {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(206, 37, 50) 50%,
+    transparent 100%
+  );
 }
-
 
 @media only screen and (max-width: 767px) {
-
   .paati_boxs {
-      margin: 5px 0;
-      padding: 0;
+    margin: 5px 0;
+    padding: 0;
   }
 
   .paati_boxs h6 {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   .card-Img-box img {
-      width: 50px;
+    width: 50px;
   }
 
   .card-Img-box2 {
-      display: flex;
-      justify-content: center;
+    display: flex;
+    justify-content: center;
   }
 
   .card-Img-box2 img {
-      width: 50px;
-      height: 65px;
+    width: 50px;
+    height: 65px;
   }
-
 }
 
 .all-market-winner {
@@ -431,8 +482,6 @@ background: black;
   clear: both;
   border-top: 1px solid #ccc;
 }
-
-
 
 .winner-icon {
   -webkit-animation: 2s infinite winnerbox;
@@ -461,18 +510,17 @@ background: black;
   font-size: 14px;
 }
 
-
 @keyframes winnerbox {
   0% {
-      -webkit-box-shadow: 0 0 0 0 rgba(29, 127, 30, .6)
+    -webkit-box-shadow: 0 0 0 0 rgba(29, 127, 30, 0.6);
   }
 
   70% {
-      -webkit-box-shadow: 0 0 0 10px rgba(29, 127, 30, 0)
+    -webkit-box-shadow: 0 0 0 10px rgba(29, 127, 30, 0);
   }
 
   100% {
-      -webkit-box-shadow: 0 0 0 0 rgba(29, 127, 30, 0)
+    -webkit-box-shadow: 0 0 0 0 rgba(29, 127, 30, 0);
   }
 }
 
@@ -493,27 +541,22 @@ background: black;
   margin-left: 10px;
 }
 
-
-
 .number {
   text-decoration: none;
   color: #333;
 }
 
-
 @media only screen and (max-width: 426px) {
   .body-bottom {
-      margin-bottom: 40px;
+    margin-bottom: 40px;
   }
 }
 
 @media only screen and (min-width: 426px) {
   .recent-res {
-      margin-top: 5px;
+    margin-top: 5px;
   }
 }
-
-
 
 .third-sec-con {
   display: flex;
@@ -611,68 +654,67 @@ background: black;
 
 .numberOne {
   color: #f7d36d;
-  background: rgba(247, 211, 109, .3);
+  background: rgba(247, 211, 109, 0.3);
   border: 2px solid #f7d36d;
 }
 
 .numberTwo {
   color: #6e97f8;
-  background: rgba(110, 151, 248, .3);
+  background: rgba(110, 151, 248, 0.3);
   border: 2px solid #6e97f8;
 }
 
 .numberFive {
   color: #c288f8;
-  background: rgba(194, 136, 248, .3);
+  background: rgba(194, 136, 248, 0.3);
   border: 2px solid #c288f8;
 }
 
 .numberTen {
   color: #82e483;
-  background: rgba(130, 228, 131, .3);
+  background: rgba(130, 228, 131, 0.3);
   border: 2px solid #82e483;
 }
 
 .numberTwenty {
   color: #de7a4d;
-  background: rgba(222, 122, 77, .3);
+  background: rgba(222, 122, 77, 0.3);
   border: 2px solid #de7a4d;
 }
 
 .numberFourty {
   color: #eb5159;
-  background: rgba(235, 81, 89, .3);
+  background: rgba(235, 81, 89, 0.3);
   border: 2px solid #eb5159;
 }
-.sportsbookTile{
-background-color: #72e3a0 !important;
+.sportsbookTile {
+  background-color: #72e3a0 !important;
 }
-.darkPlayerA img{
+.darkPlayerA img {
   border: 1px solid #f34731;
   border-radius: 4px;
 }
-.darkPlayerB img{
+.darkPlayerB img {
   border: 1px solid #f89215;
   border-radius: 4px;
 }
-.darkTheme{
+.darkTheme {
   background: #161a2b;
 }
-.darkTheme .modal-header-container{
+.darkTheme .modal-header-container {
   border: 1px solid grey;
 }
-.darkTheme .content{
+.darkTheme .content {
   background: #161a2b;
   color: white;
-  border-bottom-left-radius: .5rem;
-  border-bottom-right-radius: .5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
   border: 1px solid grey;
   border-top: none;
 }
-.darkTheme .round-id{
+.darkTheme .round-id {
   color: white;
 }
-.darkTheme .paati_boxs{
+.darkTheme .paati_boxs {
   border: none;
 }
-
