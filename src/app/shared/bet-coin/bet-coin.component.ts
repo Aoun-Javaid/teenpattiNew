@@ -55,6 +55,13 @@ export class BetCoinComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStackData();
+    this.toggleService.getStakeChanged().subscribe((res:any)=>{
+      if(res){
+        console.log('socins')
+        this.getStackData();
+        this.toggleService.setStakeChanged(false);
+      }
+    })
     this.localCoinValue = localStorage.setItem('coinIndex', '')
     this.screenWith = window.innerWidth
 
@@ -78,7 +85,7 @@ export class BetCoinComponent implements OnInit {
     this.localCoinValue = localStorage.setItem('coinIndex', this.animateCoinVal.toString())
   }
 
- 
+
 
   getStackData() {
     const path = CONFIG.userGetStackURL.split('/').filter(Boolean).pop();
@@ -109,7 +116,7 @@ export class BetCoinComponent implements OnInit {
 
       setTimeout(() => {
         this.reverseAnimate = false;
-      }, 750);
+      }, 400);
 
     } else {
       this.coinParentBtn = true;
@@ -121,7 +128,7 @@ export class BetCoinComponent implements OnInit {
         this.btnIcon = true;
         this.coinAnimateState = false;
         this.coinParentBtn = false;
-      }, 750);
+      }, 400);
     }
 
     this.btnIcon = false;
