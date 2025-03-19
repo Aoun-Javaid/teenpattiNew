@@ -718,6 +718,7 @@
   padding: 0px 4px;
   border-radius: 3.74px;
   color: white;
+  min-width: fit-content;
   font-size: 10px;
   /* font-family: "Poppins", sans-serif; */
   height: 19px;
