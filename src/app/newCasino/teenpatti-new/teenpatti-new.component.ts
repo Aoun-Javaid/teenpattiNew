@@ -18,6 +18,7 @@ import { ShortNumberPipe } from '../../pipes/short-number.pipe';
 import { ToastrService } from 'ngx-toastr';
 import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
 import { BetsChipsComponent } from '../shared/bets-chips/bets-chips.component';
+import { ModalService } from '../../services/modal.service';
 
 export let browserRefresh = false;
 declare var $: any;
@@ -47,6 +48,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   liveData$: any;
   animateCoinVal: any
+  isShow:boolean = false
   waitRound: any
   animate = false
   public message = {
@@ -132,7 +134,9 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
     private deviceService: DeviceDetectorService,
     private indexedDb: IndexedDbService,
     private toaster: ToastrService,
-    private socket: CasinoSocketService) {
+    private socket: CasinoSocketService,
+    private modalService: ModalService
+  ) {
 
     // this.eventid = this.route.snapshot.params['id'];
     // this.eventid = '99.0018';
@@ -158,6 +162,14 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
+
+    this.subscription = this.modalService.getCasinoResulttModal().subscribe((value: any) => {
+      if (value.show) {
+        this.selectedResult = value;
+        this.isShow = value.show;
+        console.log('selected result', this.selectedResult)
+      }
+    })
 
     this.networkService.getBetPlace().subscribe((betObj: any) => {
       // this.getAllMarketProfitLoss();
