@@ -17,10 +17,7 @@
       <div class="[@media(max-width:768px)]:hidden gradient-_9dd5n gradient_desktop-UoLq1h"></div>
     </div>
   </div>
-
   <app-timer [fancyTimer]="true"></app-timer>
-
-
   <!-- no bet more  -->
   <div class="no-more-bets" *ngIf="this.game?.noMoreBets && this.game?.status == 'SUSPEND'">
     <div class="relative z-10">No more bets</div>
@@ -29,8 +26,7 @@
   <!-- no bet more  -->
 
   <!-- wait for next round -->
-  <div class="wait-next-round !duration-500 opacity-0"
-       [ngClass]="{'!opacity-[1] !duration-500':waitRound}">
+  <div class="wait-next-round !duration-500 opacity-0" [ngClass]="{'!opacity-[1] !duration-500':waitRound}">
     Wait for
     the next round</div>
   <!-- wait for next round -->
@@ -47,7 +43,8 @@
     <div class="rngTable-R7R9il rngTable_ready-FD53Fj">
       <img class="rngTableImage-k19Eso relative" src="assets/table.png" alt="table">
       <span>
-        <img src="/assets/virtual-table-cards/singleCardRed.svg" alt="single-card" class="h-[3rem] w-[2.125rem] lg:h-[4rem] lg:w-[3.125rem] absolute top-[1.5%] left-[20%] skew-x-[-15deg]">
+        <img src="/assets/virtual-table-cards/singleCardRed.svg" alt="single-card"
+          class="h-[3rem] w-[2.125rem] lg:h-[4rem] lg:w-[3.125rem] absolute top-[1.5%] left-[20%] skew-x-[-15deg]">
       </span>
       <span>
         <img src="/assets/virtual-table-cards/cardStackRed.svg" alt="card-stack"

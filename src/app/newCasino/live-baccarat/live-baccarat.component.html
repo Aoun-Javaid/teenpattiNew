@@ -1,6 +1,6 @@
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
-    <app-top-results class="[@media(min-width:1200px)]:hidden"></app-top-results>
-    <div #target>
+    <app-top-results class="xl:hidden"></app-top-results>
+    <div [ngClass]="{'relative xl:!z-0': isShow}" #target>
         <app-video-player [cardsActive]="false" [displayResult]="false" [fancyTimer]="true"
             [resultDeclared]="RoundWinner" [unityTimer]="false"></app-video-player>
     </div>
@@ -1115,7 +1115,8 @@
                     <span class="text-[rgb(255,170,0)] text-[0.75rem]  xl:!text-[0.75rem] md:!text-[1.3rem] font-bold">
                         {{winnerMarketArray.min}}</span>
                     -
-                    <span class="text-[rgb(255,170,0)] text-[0.75rem] md:!text-[1.3rem]   xl:!text-[0.75rem]  font-bold">
+                    <span
+                        class="text-[rgb(255,170,0)] text-[0.75rem] md:!text-[1.3rem]   xl:!text-[0.75rem]  font-bold">
                         {{winnerMarketArray.max
                         |
                         shortNumber}}</span>

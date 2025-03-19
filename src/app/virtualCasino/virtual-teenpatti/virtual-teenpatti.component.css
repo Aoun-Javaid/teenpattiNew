@@ -726,12 +726,12 @@
 
 @media (max-width: 375px) and (min-height: 768px) {
   .time-container {
-  @apply !bottom-[58px]
-}
+    @apply !bottom-[58px];
+  }
 
-.main-position{
-  @apply !bottom-[100px]
-}
+  .main-position {
+    @apply !bottom-[100px];
+  }
 }
 
 .dicbg {
@@ -855,11 +855,10 @@
 }
 
 @media (max-width: 393px) {
-   .card-img{
-       @apply h-[50px] w-[35.47px] 
-   }
+  .card-img {
+    @apply h-[50px] w-[35.47px];
+  }
 }
-
 
 .progress_bar_container {
   border-top-left-radius: 15px;

@@ -1,5 +1,5 @@
 <div class="newGameWrapper relative" style="overflow: hidden;">
-  <app-top-results class="[@media(min-width:1280px)]:hidden"></app-top-results>
+  <app-top-results class="xl:hidden"></app-top-results>
 
   <div class="playerA-win-point-virtual" *ngIf="this.RoundWinner">
     <div class="player-content-wrapper">
@@ -940,7 +940,7 @@
 
   </div>
 </div>
-<div class="[@media(max-width:1280px)]:hidden  fixed w-[20.5rem] mx-[2%] bottom-[20%] flex flex-col gap-[1.5rem]">
+<div class="[@media(max-width:1280px)]:hidden  fixed w-[20.5rem] mx-[2%] bottom-[20%] flex flex-col gap-[1.5rem] z-[999999]">
   <div class="dragonTiger__history-jQwWbi">
     <div class="scoreBoardInfo-USWOxa">
       <div class="scoreBoardInfo__total-b3bUj3">
@@ -997,7 +997,8 @@
             <circle cx="12.2" cy="2.3" r="1.225" fill="#e19d19"></circle>
             <path d="M17.7,1.45 l-1.8,1.8" fill="none" stroke-width="0.5" stroke="#e19d19" stroke-linecap="round">
             </path>
-          </svg></button></div>
+          </svg></button>
+        </div>
     </div>
     <app-top-results></app-top-results>
   </div>
