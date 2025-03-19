@@ -47,7 +47,7 @@
             <div class="absolute h-[3rem] w-full bg-mixer blur-[4px]"></div>
             <!-- <div class="absolute h-[3rem] w-full bg-mixer blur-[4px]"></div> -->
             <div *ngIf="marketArray"
-                class="absolute xl:fixed xl:left-[50%] xl:translate-x-[-50%] bottom-[32px] md:bottom-[100px] xl:bottom-[46px]  xl:!max-w-[473px]  left-0 w-full main-position xl:pl-[30px] [@media(min-width:1330px)]:!pl-0" [ngClass]="{'xl:!bottom-[14px]':this.game.status === 'ONLINE'}">
+                class="absolute xl:fixed xl:left-[50%] xl:translate-x-[-50%] bottom-[32px] md:bottom-[100px] xl:bottom-[46px]  xl:!max-w-[473px]  left-0 w-full main-position xl:pl-[30px] [@media(min-width:1330px)]:!pl-0 xl:z-[5]" [ngClass]="{'xl:!bottom-[14px]':this.game.status === 'ONLINE'}">
                 <!-- Teen patti Cards Section starts here -->
                 <div class="teen_patti_conatiner absolute top-[-5.375rem] md:top-[-6.375rem] lg:top-[-8.375rem] xl:top-[1.625rem]   w-full xl:!max-w-[473px] xl:!scale-[1.21] xl:!mt-0"
                     [ngClass]="{'xl:z-[20]':game.status === 'SUSPEND'}"
@@ -201,7 +201,7 @@
                                         d="M12 0A12 12 0 0 0 0 12v100a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h48a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12H181a12 12 0 0 0-11.96 11h-2.08A12 12 0 0 0 155 0H12Z">
                                     </path>
                                     <g class="mainBetPlaceSvg_roundResult_lose-EwvTF6">
-                                        <path id="PlayerA" style="pointer-events: all;"
+                                        <path id="PlayerA" style="pointer-events: all; cursor: pointer;"
                                             (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[0].selectionId,'back',marketArray[0].runners[0].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
                                             d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
                                             class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
@@ -236,7 +236,7 @@
                                         </defs>
                                     </g>
                                     <g class="">
-                                        <path id="PlayerB" style="pointer-events: all;"
+                                        <path id="PlayerB" style="pointer-events: all; cursor: pointer;"
                                             (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[1].selectionId,'back',marketArray[0].runners[1].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
                                             d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z"
                                             class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
@@ -271,7 +271,7 @@
                                         </defs>
                                     </g>
                                     <g class="">
-                                        <path id="PairPlusPlayerA" style="pointer-events: all;"
+                                        <path id="PairPlusPlayerA" style="pointer-events: all; cursor: pointer;"
                                             (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[0].selectionId,'back',marketArray[1].runners[0].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)"
                                             fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:true)"
                                             class="secondaryBetPlaceSvg__backgroundClickZone-dEesVC"
@@ -305,7 +305,7 @@
                                         </defs>
                                     </g>
                                     <g class="">
-                                        <path id="PairPlusPlayerB" style="pointer-events: all;"
+                                        <path id="PairPlusPlayerB" style="pointer-events: all; cursor: pointer;"
                                             (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[1].selectionId,'back',marketArray[1].runners[1].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)"
                                             fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:false)"
                                             class="secondaryBetPlaceSvg__backgroundClickZone-dEesVC"
@@ -339,7 +339,7 @@
                                         </defs>
                                     </g>
                                     <g class="bonusBetPlaceSvg_roundResult_lose-iymbKS">
-                                        <path id="Bonus" style="pointer-events: all;"
+                                        <path id="Bonus" style="pointer-events: all; cursor: pointer;"
                                             fill="url(#teenPatti_BonusBetPlaceSvg_backgroundGradient)"
                                             d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12"
                                             class="bonusBetPlaceSvg__backgroundClickZone-Qybilv"></path>
@@ -431,7 +431,7 @@
                                         <div class="betPlaceInfo__roundInfo">
                                             {{marketArray[0]?.runners[0]?.price?.back[0]?.price | number : '1.2-2'}}
                                         </div>
-                                        <div *ngIf="BetPlaced[marketArray[0]?.marketId]">
+                                        <div *ngIf="BetPlaced[marketArray[0]?.marketId]" class="mt-[6px]">
                                             <app-bets-chips
                                                 *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[0]?.selectionId]"
                                                 [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"
@@ -450,7 +450,7 @@
                                             {{marketArray[0]?.runners[1]?.price?.back[0]?.price | number : '1.2-2'}}
                                         </div>
 
-                                        <div *ngIf="BetPlaced[marketArray[0]?.marketId]">
+                                        <div *ngIf="BetPlaced[marketArray[0]?.marketId]" class="mt-[6px]">
                                             <app-bets-chips
                                                 *ngIf="BetPlaced[marketArray[0]?.marketId][marketArray[0]?.runners[1]?.selectionId]"
                                                 [BetPlaced]="BetPlaced" [marketId]="marketArray[0]?.marketId"

@@ -5,31 +5,38 @@
     <div class="resultItem-R4uUuB resultItem_size_small-Feox9S">
       <div class="resultItem__list-J7YJ2v">
         <div class="abResultLine-eMgxz_">
-          <div class="abResultLine__inner-fF8OCI abResultLine__inner_animateFirstItem-Nbi5o9 abResultLine__inner_stretch-Z3RTMl abResultLine__inner_multipleLines-pKLIP8 animated2-gtLnvD" style="--shift-horizontally: -1.25rem;">
+          <div
+            class="abResultLine__inner-fF8OCI abResultLine__inner_animateFirstItem-Nbi5o9 abResultLine__inner_stretch-Z3RTMl abResultLine__inner_multipleLines-pKLIP8 animated2-gtLnvD"
+            style="--shift-horizontally: -1.25rem;">
             @for (item of resultArray; track $index) {
-            <a (click)="setResults(item)" class="tile-lWsz_U tile_size_small-ATZ3H_ tile_indentSize_medium-U9Lwul " [ngClass]="{'tile_theme_playerA' : item.winner === 'A', 'tile_theme_playerB' : item.winner === 'B','tile_theme_playerTie' : item.winner === 'T'  }">
+            <a (click)="setResults(item)"
+              class="tile-lWsz_U tile_size_small-ATZ3H_ tile_indentSize_medium-U9Lwul cursor-pointer"
+              [ngClass]="{'tile_theme_playerA' : item.winner === 'A', 'tile_theme_playerB' : item.winner === 'B','tile_theme_playerTie' : item.winner === 'T'  }">
               <div class="tile__label"> {{item.winner}}</div>
             </a>
-          }
+            }
           </div>
         </div>
       </div>
     </div>
   </div>
 
-<!--  Dragon Tiger Results-->
+  <!--  Dragon Tiger Results-->
   <div class="result" *ngIf="eventid=='99.0018'">
     <div class="resultItem-R4uUuB resultItem_size_small-dt">
       <div class="resultItem__list-J7YJ2v">
         <div class="abResultLine-eMgxz_">
-          <div class="abResultLine__inner-fF8OCI abResultLine__inner_animateFirstItem-Nbi5o9 abResultLine__inner_stretch-Z3RTMl abResultLine__inner_multipleLines-pKLIP8 animated2-gtLnvD" style="--shift-horizontally: -1.25rem;">
+          <div
+            class="abResultLine__inner-fF8OCI abResultLine__inner_animateFirstItem-Nbi5o9 abResultLine__inner_stretch-Z3RTMl abResultLine__inner_multipleLines-pKLIP8 animated2-gtLnvD"
+            style="--shift-horizontally: -1.25rem;">
             @for (item of resultArray; track $index) {
-              <a (click)="setResults(item)" class="tile-lWsz_U_dt tile_size_small_dt tile_indentSize_medium-U9Lwul"
-                 [ngClass]="{'tile_theme_Dragon': item.winner === 'DRAGON', 'tile_theme_Tiger': item.winner === 'TIGER', 'tile_theme_Tie': item.winner === 'TIE'}">
-                <div class="tile__label_dt">
-                  {{ item.winner === 'DRAGON' ? 'D' : item.winner === 'TIGER' ? 'T' : item.winner === 'TIE' ? 'T' : '' }}
-                </div>
-              </a>
+            <a (click)="setResults(item)"
+              class="tile-lWsz_U_dt tile_size_small_dt tile_indentSize_medium-U9Lwul cursor-pointer"
+              [ngClass]="{'tile_theme_Dragon': item.winner === 'DRAGON', 'tile_theme_Tiger': item.winner === 'TIGER', 'tile_theme_Tie': item.winner === 'TIE'}">
+              <div class="tile__label_dt">
+                {{ item.winner === 'DRAGON' ? 'D' : item.winner === 'TIGER' ? 'T' : item.winner === 'TIE' ? 'T' : '' }}
+              </div>
+            </a>
 
             }
           </div>
@@ -38,19 +45,22 @@
     </div>
   </div>
 
-<!--  live baccarat results-->
+  <!--  live baccarat results-->
   <div class="result" *ngIf="eventid=='99.0001'">
     <div class="resultItem-R4uUuB resultItem_size_small-dt">
       <div class="resultItem__list-J7YJ2v">
         <div class="abResultLine-eMgxz_">
-          <div class="abResultLine__inner-fF8OCI abResultLine__inner_animateFirstItem-Nbi5o9 abResultLine__inner_stretch-Z3RTMl abResultLine__inner_multipleLines-pKLIP8 animated2-gtLnvD" style="--shift-horizontally: -1.25rem;">
+          <div
+            class="abResultLine__inner-fF8OCI abResultLine__inner_animateFirstItem-Nbi5o9 abResultLine__inner_stretch-Z3RTMl abResultLine__inner_multipleLines-pKLIP8 animated2-gtLnvD"
+            style="--shift-horizontally: -1.25rem;">
             @for (item of resultArray; track $index) {
-              <a (click)="setResults(item)" class="tile-lWsz_U_dt tile_size_small_dt tile_indentSize_medium-U9Lwul"
-                 [ngClass]="{'tile_theme_Baccarat': item.winner === 'B', 'tile_theme_Player': item.winner === 'P', 'tile_theme_baccarat_Tie': item.winner === 'T'}">
-                <div class="tile__label_dt">
-                  {{ item.winner}}
-                </div>
-              </a>
+            <a (click)="setResults(item)"
+              class="tile-lWsz_U_dt tile_size_small_dt tile_indentSize_medium-U9Lwul cursor-pointer"
+              [ngClass]="{'tile_theme_Baccarat': item.winner === 'B', 'tile_theme_Player': item.winner === 'P', 'tile_theme_baccarat_Tie': item.winner === 'T'}">
+              <div class="tile__label_dt">
+                {{ item.winner}}
+              </div>
+            </a>
             }
           </div>
         </div>
@@ -61,21 +71,25 @@
 
 <!--  live top-card results-->
 <div class="relative w-full z-[1000000000]">
-<div class="topCard__historyLine" *ngIf="eventid=='99.0051'">
-  <div class="topCardHistoryLineScrollable topCardHistoryLineScrollable_withBackground">
-    <div class="topCardHistoryLineScrollable__list">
-      <div class="abstractHistoryLine">
-        <div class="abstractHistoryLine__inner abstractHistoryLine__inner_animateFirstItem abstractHistoryLine__inner_stretch animated2" style="--animation-duration: 700ms; --shift-horizontally: -2.75rem;">
-          @for (item of resultArray; track $index) {
-            <div (click)="setResults(item)" class="topCardHistoryItem topCardHistoryItem_size_medium topCardHistoryItem_withoutIndents topCardHistoryItem_shadow"
-                 [ngClass]="{'topCardHistoryItem_theme_champion': item.winner === 'B', 'topCardHistoryItem_theme_contender': item.winner === 'A', 'topCardHistoryItem_theme_draw': item.winner === 'T'}">
-              <span class="topCardHistoryItem__label">{{item.winner}}</span></div>
-          }
+  <div class="topCard__historyLine" *ngIf="eventid=='99.0051'">
+    <div class="topCardHistoryLineScrollable topCardHistoryLineScrollable_withBackground">
+      <div class="topCardHistoryLineScrollable__list">
+        <div class="abstractHistoryLine">
+          <div
+            class="abstractHistoryLine__inner abstractHistoryLine__inner_animateFirstItem abstractHistoryLine__inner_stretch animated2"
+            style="--animation-duration: 700ms; --shift-horizontally: -2.75rem;">
+            @for (item of resultArray; track $index) {
+            <div (click)="setResults(item)"
+              class="topCardHistoryItem topCardHistoryItem_size_medium topCardHistoryItem_withoutIndents topCardHistoryItem_shadow cursor-pointer"
+              [ngClass]="{'topCardHistoryItem_theme_champion': item.winner === 'B', 'topCardHistoryItem_theme_contender': item.winner === 'A', 'topCardHistoryItem_theme_draw': item.winner === 'T'}">
+              <span class="topCardHistoryItem__label">{{item.winner}}</span>
+            </div>
+            }
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 
