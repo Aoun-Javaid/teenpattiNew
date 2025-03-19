@@ -1,6 +1,6 @@
 <div class="relative xl:max-w-[22rem] xl:hidden" >
     <div data-locator="chip-tray" class="chipTrayWithToggle-It_Bqx  chipTrayWithToggle_open-aWURNM">
-        <div class="overflow-visible animation-container" [ngClass]="{'open-coin-bar':coinAnimateState}">
+        <div class="overflow-visible animation-container" [ngClass]="{'open-coin-bar':coinAnimationBg, 'animation-container-overflow':!overflowRemove}">
             <div class="tab-slider min-w-full" *ngIf="status !== 'SUSPEND'" [ngClass]="{'!bg-transparent':!coinAnimationBg}">
 
                 <div class="flex">

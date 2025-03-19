@@ -15,9 +15,10 @@ import { IndexedDbService } from '../../services/indexed-db.service';
 export class BetCoinComponent implements OnInit {
   coinAnimationBg = false
   coinAnimateState = false;
+  overflowRemove: boolean = false
   animateCoinVal: any
   btnCheck = 1
-  downCoinAnimationValue: string = '67px'
+  downCoinAnimationValue: string = '10px'
   coinParentBtn = false
   reverseAnimate: boolean = false
   btnIcon = false
@@ -40,13 +41,13 @@ export class BetCoinComponent implements OnInit {
     this.screenWith = window.innerWidth
 
     if (this.screenWith >= 1024) {
-      this.downCoinAnimationValue = '105px'
+      this.downCoinAnimationValue = '55px'
     }
     if (this.screenWith >= 820 && this.screenWith < 1024) {
-      this.downCoinAnimationValue = '80px'
+      this.downCoinAnimationValue = '30px'
     }
     else {
-      this.downCoinAnimationValue = '67px'
+      this.downCoinAnimationValue = '10px'
     }
 
     document.documentElement.style.setProperty('--downValue', this.downCoinAnimationValue);
@@ -55,8 +56,8 @@ export class BetCoinComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStackData();
-    this.toggleService.getStakeChanged().subscribe((res:any)=>{
-      if(res){
+    this.toggleService.getStakeChanged().subscribe((res: any) => {
+      if (res) {
         console.log('socins')
         this.getStackData();
         this.toggleService.setStakeChanged(false);
@@ -66,13 +67,13 @@ export class BetCoinComponent implements OnInit {
     this.screenWith = window.innerWidth
 
     if (this.screenWith >= 1024) {
-      this.downCoinAnimationValue = '105px'
+      this.downCoinAnimationValue = '55px'
     }
     if (this.screenWith >= 820 && this.screenWith < 1024) {
-      this.downCoinAnimationValue = '80px'
+      this.downCoinAnimationValue = '30px'
     }
-   else {
-      this.downCoinAnimationValue = '67px'
+    else {
+      this.downCoinAnimationValue = '10px'
     }
 
     document.documentElement.style.setProperty('--downValue', this.downCoinAnimationValue);
@@ -104,10 +105,12 @@ export class BetCoinComponent implements OnInit {
 
   showAnimateCoinBar() {
 
+
     this.coinAnimationBg = !this.coinAnimationBg;
 
     if (!this.coinAnimateState) {
       this.coinAnimateState = true;
+      this.overflowRemove = true
       this.reverseAnimate = true;
 
       if (this.animateCoinVal) {
@@ -128,6 +131,8 @@ export class BetCoinComponent implements OnInit {
         this.btnIcon = true;
         this.coinAnimateState = false;
         this.coinParentBtn = false;
+        this.overflowRemove = false
+        this.overflowRemove = false
       }, 400);
     }
 

@@ -3,7 +3,7 @@
 // const BASE_URL = 'http://101.0.20.58:5011';
 
 // const BASE_URL = 'https://universestudio.online';
-const BASE_URL = 'https://universestudio.online'
+const BASE_URL = 'https://v2.universestudio.online'
 
 
 
@@ -11,24 +11,24 @@ const BASE_URL = 'https://universestudio.online'
 export const BASE_URL_WS = "https://universestudio.online";
 
 export const CONFIG = {
-  SiteName:'Universe',
-  siteKey:'',
+  SiteName: 'Universe',
+  siteKey: '',
   socketurl: BASE_URL + '',
 
   // casino Socekt Urls
   // CasinoSocketUrl: '',
-  vimaanIframeUrl:'https://vimaan.ludoexchange.com',
+  vimaanIframeUrl: 'https://vimaan.ludoexchange.com',
 
   CasinoSocketUrl: 'wss://casino.betever365.com/',
   casninoTableURL: 'universe_casino_77',
   virtualTableURL: 'universe_casino_88',
 
-  bannersList : BASE_URL + "/v2/operator/banners/bannersList",
+  bannersList: BASE_URL + "/v2/operator/banners/bannersList",
   bannersListTime: 120,
   NavigationList: BASE_URL + "/v2/operator/navigation/NavigationList",
-  NavigationListTime:120,
+  NavigationListTime: 120,
   tablesList: BASE_URL + "/v2/operator/navigation/tablesList",
-  tablesListTime:120,
+  tablesListTime: 120,
   userBalance: BASE_URL + "/v2/operator/user/userBalance",
   userGetStackURL: BASE_URL + "/v2/operator/user/userStake",
   updateUserBetStake: BASE_URL + "/v2/operator/user/updateUserStake",
@@ -36,7 +36,7 @@ export const CONFIG = {
   allBets: BASE_URL + "/v2/casino/allBets",
   highRollers: BASE_URL + "/v2/casino/highRollers",
   providersNavigations: BASE_URL + "/v2/operator/navigation/providersNavigations",
-  providersNavigationsTime:120,
+  providersNavigationsTime: 120,
 
   // casino urls
   getCasinoResultURL: BASE_URL + '/v2/operator/user/latestResults',
