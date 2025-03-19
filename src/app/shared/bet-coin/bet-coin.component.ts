@@ -116,7 +116,7 @@ export class BetCoinComponent implements OnInit {
 
       setTimeout(() => {
         this.reverseAnimate = false;
-      }, 750);
+      }, 400);
 
     } else {
       this.coinParentBtn = true;
@@ -128,7 +128,7 @@ export class BetCoinComponent implements OnInit {
         this.btnIcon = true;
         this.coinAnimateState = false;
         this.coinParentBtn = false;
-      }, 750);
+      }, 400);
     }
 
     this.btnIcon = false;
