@@ -25,6 +25,7 @@ import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
 import { TopResultsComponent } from '../../newCasino/shared/top-results/top-results.component';
 import { BetsChipsComponent } from '../../newCasino/shared/bets-chips/bets-chips.component';
 import { TimerComponent } from '../shared/timer/timer.component';
+import { ModalService } from '../../services/modal.service';
 
 export let browserRefresh = false;
 declare var $: any;
@@ -169,6 +170,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   currentUrl: any;
   isMobile: boolean;
   isMobileInfo: string;
+  isShow: boolean = false;
   // isTeNteenPatti:any;
   stackButtonArry: any = STACK_VALUE;
 
@@ -180,7 +182,8 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
     private deviceService: DeviceDetectorService,
     private indexedDb: IndexedDbService,
     private toaster: ToastrService,
-    private socket: CasinoSocketService
+    private socket: CasinoSocketService,
+    private modalService: ModalService
   ) {
     // this.eventid = this.route.snapshot.params['id'];
     // this.eventid = '99.0018';
@@ -204,6 +207,17 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.subscription = this.modalService
+      .getCasinoResulttModal()
+      .subscribe((value: any) => {
+        if (value.show) {
+          this.selectedResult = value;
+          this.isShow = value.show;
+          console.log('selected result', this.selectedResult);
+          console.log('isShow: ', this.isShow);
+        }
+      });
+
     this.networkService.getBetPlace().subscribe((betObj: any) => {
       // this.getAllMarketProfitLoss();
       this.isbetInProcess = false;

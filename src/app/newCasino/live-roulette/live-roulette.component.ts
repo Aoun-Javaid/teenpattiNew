@@ -4,11 +4,12 @@ import { CONFIG, STACK_VALUE } from '../../../../config';
 import { ToggleService } from '../../services/toggle.service';
 import { IndexedDbService } from '../../services/indexed-db.service';
 import { ShortNumberPipe } from '../../pipes/short-number.pipe';
+import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
 
 @Component({
   selector: 'app-live-roulette',
   standalone: true,
-  imports: [CommonModule, ShortNumberPipe],
+  imports: [CommonModule, ShortNumberPipe, BetCoinComponent],
   templateUrl: './live-roulette.component.html',
   styleUrl: './live-roulette.component.css',
 })
@@ -25,6 +26,7 @@ export class LiveRouletteComponent {
   stackButtonArry: any = [];
   openCoinBarState = false;
   coinAnimateCheck = false;
+  game: any;
 
   constructor(
     private toggleService: ToggleService,
@@ -119,5 +121,9 @@ export class LiveRouletteComponent {
         this.selectedBetAmount = this.stackButtonArry[5].stakeAmount;
         break;
     }
+  }
+
+  getCoinValue(event: any) {
+    this.selectedBetAmount = event;
   }
 }
