@@ -1,7 +1,7 @@
 <div class="newGameWrapper relative" style="overflow: hidden;">
     <app-top-results class="xl:hidden "></app-top-results>
 
-    <div [ngClass]="{'relative xl:!z-[0]': isShow}" #target>
+    <div #target class="" [ngClass]="{'xl:!z-0 relative':isShow}">
         <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
             [displayResult]="false" [unityTimer]="false"></app-video-player>
         <!-- <ng-container *ngIf="isMobileInfo == 'iOS'">
@@ -42,12 +42,12 @@
 
 
     <div id="marketScroll" style="overflow-y: auto;" [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'"
-        class="h-[55%]">
+        class="!h-[51%] [@media(min-width:344px)]:!h-[73%] [@media(min-width:390px)]:!h-[76%]   [@media(min-width:412px)]:!h-[80%] [@media(min-width:430px)]:!h-[40%] [@media(min-width:768px)]:!h-[38%] [@media(min-width:820px)]:!h-[47%] [@media(min-width:1024px)]:!h-[42%] ">
         <div class="gradientDiv ">
             <div class="absolute h-[3rem] w-full bg-mixer blur-[4px]"></div>
             <!-- <div class="absolute h-[3rem] w-full bg-mixer blur-[4px]"></div> -->
             <div *ngIf="marketArray"
-                class="absolute xl:fixed xl:left-[50%] xl:translate-x-[-50%] bottom-[32px] md:bottom-[100px] xl:bottom-[46px]  xl:!max-w-[473px]  left-0 w-full main-position xl:pl-[30px] [@media(min-width:1330px)]:!pl-0 xl:z-[5]" [ngClass]="{'xl:!bottom-[14px]':this.game.status === 'ONLINE'}">
+                class="absolute xl:fixed xl:left-[50%] xl:translate-x-[-50%] bottom-[32px] md:bottom-[100px] xl:bottom-[46px]  xl:!max-w-[473px]  left-0 w-full main-position xl:pl-[30px] [@media(min-width:1330px)]:!pl-0 xl:z-[5]"  [ngClass]="{'xl:!bottom-[14px]':this.game.status === 'ONLINE', 'xl:!z-0':isShow}">
                 <!-- Teen patti Cards Section starts here -->
                 <div class="teen_patti_conatiner absolute top-[-5.375rem] md:top-[-6.375rem] lg:top-[-8.375rem] xl:top-[1.625rem]   w-full xl:!max-w-[473px] xl:!scale-[1.21] xl:!mt-0"
                     [ngClass]="{'xl:z-[20]':game.status === 'SUSPEND'}"

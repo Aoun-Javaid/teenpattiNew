@@ -64,9 +64,10 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   videoComponent!: VideoPlayerComponent;
   subscription!: Subscription;
   liveData$: any;
-  animateCoinVal: any;
-  waitRound: any;
-  animate = false;
+  animateCoinVal: any
+  isShow:boolean = false
+  waitRound: any
+  animate = false
   public message = {
     type: '1',
     id: '',
@@ -151,6 +152,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
     private socket: CasinoSocketService,
     private modalService: ModalService
   ) {
+
     // this.eventid = this.route.snapshot.params['id'];
     // this.eventid = '99.0018';
     // localStorage.setItem('eventId', this.eventid)
@@ -173,15 +175,14 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = this.modalService
-      .getCasinoResulttModal()
-      .subscribe((value: any) => {
-        if (value.show) {
-          this.selectedResult = value;
-          this.isShow = value.show;
-          console.log('selected result', this.selectedResult);
-        }
-      });
+
+    this.subscription = this.modalService.getCasinoResulttModal().subscribe((value: any) => {
+      if (value.show) {
+        this.selectedResult = value;
+        this.isShow = value.show;
+        console.log('selected result', this.selectedResult)
+      }
+    })
 
     this.networkService.getBetPlace().subscribe((betObj: any) => {
       // this.getAllMarketProfitLoss();
@@ -370,13 +371,16 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
     } else {
       this.BetPlaced[marketId][selectionId] = stake;
     }
-    console.log('bet placed', this.BetPlaced);
+    // console.log('bet placed', this.BetPlaced);
     this.betsChipsComponent?.CalculateIndex();
 
     this.game.betAccepted = true;
+    this.game.betStake = stake;
+    // console.log('value', this.game.betStake);
     this.networkService.updateRoundId(this.game);
     setTimeout(() => {
       this.game.betAccepted = false;
+      this.game.betStake = null;
       this.networkService.updateRoundId(this.game);
     }, 1500);
   }
