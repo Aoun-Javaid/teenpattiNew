@@ -5,11 +5,13 @@ import { ToggleService } from '../../services/toggle.service';
 import { IndexedDbService } from '../../services/indexed-db.service';
 import { ShortNumberPipe } from '../../pipes/short-number.pipe';
 import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
+import { TopResultsComponent } from "../shared/top-results/top-results.component";
+import { VideoPlayerComponent } from "../../shared/video-player/video-player.component";
 
 @Component({
   selector: 'app-live-roulette',
   standalone: true,
-  imports: [CommonModule, ShortNumberPipe, BetCoinComponent],
+  imports: [CommonModule, ShortNumberPipe, BetCoinComponent, TopResultsComponent, VideoPlayerComponent],
   templateUrl: './live-roulette.component.html',
   styleUrl: './live-roulette.component.css',
 })
