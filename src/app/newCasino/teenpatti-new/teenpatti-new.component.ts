@@ -373,11 +373,11 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
     this.game.betAccepted = true;
     this.game.betStake = stake;
-    console.log('value', this.game.betStake);
+    // console.log('value', this.game.betStake);
     this.networkService.updateRoundId(this.game);
     setTimeout(() => {
       this.game.betAccepted = false;
-      // this.game.betStake = null;
+      this.game.betStake = null;
       this.networkService.updateRoundId(this.game);
     }, 1500);
   }
