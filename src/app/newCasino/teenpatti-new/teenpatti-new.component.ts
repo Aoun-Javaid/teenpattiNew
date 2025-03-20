@@ -64,10 +64,10 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   videoComponent!: VideoPlayerComponent;
   subscription!: Subscription;
   liveData$: any;
-  animateCoinVal: any
-  isShow:boolean = false
-  waitRound: any
-  animate = false
+  animateCoinVal: any;
+  isShow: boolean = false;
+  waitRound: any;
+  animate = false;
   public message = {
     type: '1',
     id: '',
@@ -137,7 +137,6 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   currentUrl: any;
   isMobile: boolean;
   isMobileInfo: string;
-  isShow: boolean = false;
   // isTeNteenPatti:any;
   stackButtonArry: any = STACK_VALUE;
 
@@ -152,7 +151,6 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
     private socket: CasinoSocketService,
     private modalService: ModalService
   ) {
-
     // this.eventid = this.route.snapshot.params['id'];
     // this.eventid = '99.0018';
     // localStorage.setItem('eventId', this.eventid)
@@ -175,14 +173,15 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
-    this.subscription = this.modalService.getCasinoResulttModal().subscribe((value: any) => {
-      if (value.show) {
-        this.selectedResult = value;
-        this.isShow = value.show;
-        console.log('selected result', this.selectedResult)
-      }
-    })
+    this.subscription = this.modalService
+      .getCasinoResulttModal()
+      .subscribe((value: any) => {
+        if (value.show) {
+          this.selectedResult = value;
+          this.isShow = value.show;
+          console.log('selected result', this.selectedResult);
+        }
+      });
 
     this.networkService.getBetPlace().subscribe((betObj: any) => {
       // this.getAllMarketProfitLoss();
