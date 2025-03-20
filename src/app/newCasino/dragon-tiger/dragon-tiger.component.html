@@ -36,12 +36,11 @@
 
 
   <div [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'" id="marketScroll" style="overflow-y: auto;"
-   class="!h-[51%] [@media(min-width:344px)]:!h-[27%] [@media(min-width:390px)]:!h-[42%]   [@media(min-width:412px)]:!h-[43%] [@media(min-width:430px)]:!h-[40%] [@media(min-width:768px)]:!h-[20%] [@media(min-width:820px)]:!h-[47%] [@media(min-width:1024px)]:!h-[42%] "
-  >
+    class="!h-[51%] [@media(min-width:344px)]:!h-[27%] [@media(min-width:390px)]:!h-[42%]   [@media(min-width:412px)]:!h-[43%] [@media(min-width:430px)]:!h-[40%] [@media(min-width:768px)]:!h-[20%] [@media(min-width:820px)]:!h-[47%] [@media(min-width:1024px)]:!h-[42%] ">
     <div class="gradientDiv" *ngIf="this.game">
       <div class="absolute h-[3rem] w-full bg-mixer blur-[4px]"></div>
       <div *ngIf="marketArray" [ngClass]="{'xl:!z-[0]': isShow}"
-        class="absolute xl:fixed xl:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] xl:bottom-[12px] [@media(max-width:375px)]:bottom-[25px] [@media(max-width:620px)]:bottom-[30px] xl:!max-w-[473px]  left-0 w-full ">
+        class="absolute xl:fixed xl:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] md:bottom-[98px] xl:bottom-[12px] [@media(max-width:375px)]:bottom-[25px] [@media(max-width:620px)]:bottom-[30px] xl:!max-w-[473px]  left-0 w-full ">
         <div class="relative z-[1] h-full xl:max-w-[473px] ">
           <div class="relative !mx-[2%] md:!mx-0 rounded-[17px]">
             <!-- main content -->
@@ -869,16 +868,19 @@
         </div>
       </div>
 
-      <div class="time-container xl:!mb-3">
-        <div class="roundInfo-date">
-          <!-- <span class="inline-block">.</span>  -->
-          {{this.game?.roundId}}
-        </div>
-        <div class="last-win">{{this.game?.eventName}}
-          <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.min}}</span>
+      <div class="time-container " *ngIf="this.game">
+        <div class="last-win md:!text-[1.3rem] xl:!text-[0.75rem]">{{this.game.eventName}}
+          <span class="text-[rgb(255,170,0)] text-[0.75rem]  xl:!text-[0.75rem] md:!text-[1.3rem] font-bold">
+            {{winnerMarketArray.min}}</span>
           -
-          <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.max |
+          <span class="text-[rgb(255,170,0)] text-[0.75rem] md:!text-[1.3rem]   xl:!text-[0.75rem]  font-bold">
+            {{winnerMarketArray.max
+            |
             shortNumber}}</span>
+        </div>
+        <div class="roundInfo-date  md:!text-[1.3rem]  xl:!text-[0.75rem]">
+          <!-- <span class="inline-block">.</span>  -->
+          {{this.game.roundId}}
         </div>
       </div>
     </div>
