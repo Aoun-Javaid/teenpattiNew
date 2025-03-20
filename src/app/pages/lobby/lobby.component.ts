@@ -410,7 +410,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
           ]
         }
         // this.universeProviderGames.push(firstIndex)
-        console.log('provides',this.universeProviderGames)
+        // console.log('provides',this.universeProviderGames)
       }
     });
   }
