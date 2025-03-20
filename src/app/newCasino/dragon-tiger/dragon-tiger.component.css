@@ -18,7 +18,7 @@
 }
 
 .gradientDiv {
-  height: 55%;
+  height: 100%;
   /* background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%); */
   /* background: linear-gradient(
     to right,
@@ -59,11 +59,20 @@
   background: linear-gradient(to bottom, #000 3%, #0a0a1a 50%);
 }
 
+.dicbg {
+  /* background: linear-gradient(to right, #ec2401, #ff3400, #ec2401); */
+  background: linear-gradient(to right, #f02909, #f74315, #e92b0a);
+  width: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .gradient-_9dd5n {
   pointer-events: none;
   position: absolute;
   z-index: 0;
 }
+
 
 .gradient_desktop-UoLq1h {
   background: linear-gradient(
