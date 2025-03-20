@@ -3,12 +3,12 @@
 // const BASE_URL = 'http://101.0.20.58:5011';
 
 // const BASE_URL = 'https://universestudio.online';
-const BASE_URL = 'https://universestudio.online'
+const BASE_URL = 'https://v2.universestudio.online'
 
 
 
 // const BASE_URL = '';
-export const BASE_URL_WS = "https://universestudio.online";
+export const BASE_URL_WS = "https://v2.universestudio.online";
 
 export const CONFIG = {
   SiteName: 'Universe',
