@@ -925,7 +925,7 @@
 
       <app-timer [fancyTimer]="true"></app-timer>
     </div>
-    <div class="time-container !bottom-[50px] md:!bottom-[108px] xl:!bottom-[6px]">
+    <div *ngIf="this.game" class="time-container !bottom-[50px] md:!bottom-[108px] xl:!bottom-[6px]">
       <div class="last-win">{{this.game?.eventName}}
         <span class="text-[rgb(255,170,0)] text-[0.75rem] font-bold">{{winnerMarketArray.min}}</span>
         -

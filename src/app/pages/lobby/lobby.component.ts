@@ -354,7 +354,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
   gotoEvent(event:any){
-    console.log(event);
+    // console.log(event);
     if(event.providerTitle=='Universe'){
       this.networkService.goToMarketCurrent(event.gameId);
     }
