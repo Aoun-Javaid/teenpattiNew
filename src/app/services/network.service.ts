@@ -212,9 +212,14 @@ export class NetworkService {
       '99.0061': '/sic-bo',
       '88.0022': '/casino',
       '88.0023': '/casino',
+      '88.0013': '/Vdt',
+
     };
 
     const matchedRoute = eventRoutes[eventid];
     this.router.navigateByUrl(matchedRoute ? matchedRoute : '/home');
   }
 }
+
+
+

@@ -324,102 +324,13 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
           games: groupedData[providerTitle].filter((game: any) => game.isFavorite).sort((a: any, b: any) => a.gameSequence - b.gameSequence)
         }));
         this.universeProviderGames = result.sort((a: any, b: any) => a.providerSequence - b.providerSequence);
-        const firstIndex = {
-          "providerTitle": "test",
-          "games": [
-            {
-              "_id": "67c3481c19e7bbba6334e237",
-              "providerTitle": "Universe",
-              "providerSequence": 0,
-              "gameName": "TEEN PATTI",
-              "gameId": "99.0010",
-              "gameSequence": 1,
-              "gameStatus": "ACTIVE",
-              "isMaintenance": false,
-              "type": "GAME",
-              "isFavorite": true,
-              "createdAt": "2025-03-01T17:47:08.903Z",
-              "updatedAt": "2025-03-13T09:05:19.412Z",
-              "gameImage": "https://v2.universestudio.online/v2/operator/games/csp/game-img-1741856719275-teen.png",
-              "providerImage": null
-            },
-            {
-              "_id": "67ceb75517cb549abd82775a",
-              "providerTitle": "Universe",
-              "providerSequence": 0,
-              "gameName": "Virtual Teen Patti",
-              "gameId": "88.0011",
-              "gameSequence": 2,
-              "gameStatus": "ACTIVE",
-              "isMaintenance": false,
-              "type": "GAME",
-              "isFavorite": true,
-              "createdAt": "2025-03-10T09:56:37.827Z",
-              "updatedAt": "2025-03-10T11:18:29.281Z",
-              "gameImage": "https://v2.universestudio.online/v2/operator/games/csp/game-img-1741600597715-teenpatti.png",
-              "providerImage": null
-            },
-            {
-              "_id": "67d29f3417cb549abd827abe",
-              "providerTitle": "Universe",
-              "providerSequence": 0,
-              "gameName": "Dragon Tiger",
-              "gameId": "99.0018",
-              "gameSequence": 3,
-              "gameStatus": "ACTIVE",
-              "isMaintenance": false,
-              "type": "GAME",
-              "isFavorite": true,
-              "createdAt": "2025-03-13T09:02:44.322Z",
-              "updatedAt": "2025-03-13T09:05:26.811Z",
-              "gameImage": "https://v2.universestudio.online/v2/operator/games/csp/game-img-1741856564209-dragon.png",
-              "providerImage": null
-            },
-            {
-              "_id": "67d2a01017cb549abd827acd",
-              "providerTitle": "Universe",
-              "providerSequence": 0,
-              "gameName": "Baccarat",
-              "gameId": "99.0001",
-              "gameSequence": 4,
-              "gameStatus": "ACTIVE",
-              "isMaintenance": false,
-              "type": "GAME",
-              "isFavorite": true,
-              "createdAt": "2025-03-13T09:06:24.018Z",
-              "updatedAt": "2025-03-13T09:06:45.663Z",
-              "gameImage": "https://v2.universestudio.online/v2/operator/games/csp/game-img-1741856783976-baccart.png",
-              "providerImage": null
-            },
-            {
-              "_id": "67d678c46c008ae8aeb487d8",
-              "providerTitle": "Universe",
-              "providerSequence": 0,
-              "gameName": "Sic Bo",
-              "gameId": "99.0061",
-              "gameSequence": 5,
-              "gameStatus": "ACTIVE",
-              "isMaintenance": false,
-              "type": "GAME",
-              "isFavorite": true,
-              "createdAt": "2025-03-16T07:07:48.537Z",
-              "updatedAt": "2025-03-16T07:07:50.916Z",
-              "gameImage": "https://v2.universestudio.online/v2/operator/games/csp/game-img-1742108868481-sicbo1.png",
-              "providerImage": null
-            }
-          ]
-        }
-        // this.universeProviderGames.push(firstIndex)
-        console.log('provides',this.universeProviderGames)
+
       }
     });
   }
 
 
   private updateNavigationButtons(index: number): void {
-    console.log('Updating navigation for index:', index);
-    console.log('swiperInstances:', this.swiperInstances);
-    console.log('navigationStates:', this.navigationStates);
 
     if (!this.swiperInstances[index]) return;
     // Ensure navigationStates[index] exists
@@ -429,6 +340,8 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.navigationStates[index].prevDisabled = this.swiperInstances[index].isBeginning;
     this.navigationStates[index].nextDisabled = this.swiperInstances[index].isEnd;
+
+
   }
 
 
@@ -552,6 +465,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
           this.updateButtonStates(swiper, index);
         },
         slideChange: (swiper: any) => {
+          // this.updateNavigationButtons(index)
           this.updateButtonStates(swiper, index);
         }
       }
@@ -578,12 +492,12 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
  private getDefaultSwiperConfig(index: number): any {
     return {
       loop: false,
-      slidesPerView: 7.5,
-      slidesPerGroup: 6,
+      slidesPerView: 3,
+      slidesPerGroup: 3,
       freeMode: true,
       spaceBetween: 10,
       speed: 700,
-      grid: { rows: 1, fill: 'row' },
+
       navigation: {
         nextEl: `.myCarouselRight${index}`,
         prevEl: `.myCarouselLeft${index}`,
@@ -594,14 +508,19 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
           slidesPerGroup: 3,
           spaceBetween: 6,
         },
+        500: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          spaceBetween: 6,
+        },
         768: {
           slidesPerView: 4,
           slidesPerGroup: 3,
           spaceBetween: 6,
         },
         1024: {
-          slidesPerView: 7.5,
-          slidesPerGroup: 6,
+          slidesPerView: 7,
+          slidesPerGroup: 3,
           spaceBetween: 10,
         },
       },
