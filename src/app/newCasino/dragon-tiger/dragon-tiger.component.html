@@ -36,7 +36,7 @@
 
 
   <div [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'" id="marketScroll" style="overflow-y: auto;"
-    class="!h-[51%] [@media(min-width:344px)]:!h-[27%] [@media(min-width:390px)]:!h-[42%]   [@media(min-width:412px)]:!h-[43%] [@media(min-width:430px)]:!h-[40%] [@media(min-width:768px)]:!h-[20%] [@media(min-width:820px)]:!h-[47%] [@media(min-width:1024px)]:!h-[42%] ">
+    class="!h-[51%] [@media(min-width:344px)]:!h-[27%] [@media(min-width:390px)]:!h-[42%]   [@media(min-width:412px)]:!h-[43%] [@media(min-width:430px)]:!h-[40%] [@media(min-width:768px)]:!h-[20%] [@media(min-width:820px)]:!h-[20%] [@media(min-width:1024px)]:!h-[21%] heigth-query">
     <div class="gradientDiv" *ngIf="this.game">
       <div class="absolute h-[3rem] w-full bg-mixer blur-[4px]"></div>
       <div *ngIf="marketArray" [ngClass]="{'xl:!z-[0]': isShow}"
