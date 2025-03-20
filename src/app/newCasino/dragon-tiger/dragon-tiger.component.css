@@ -1,10 +1,12 @@
 .newGameWrapper {
   background-color: #0a0a1a;
   height: calc(100dvh - 114px);
+  /* height: 100%; */
   position: relative;
   width: 100%;
+  /* height: ; */
   overflow-y: scroll;
-  @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
+  @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:!overflow-y-hidden;
 }
 
 @media (width: 540px) {
@@ -499,6 +501,7 @@
   align-items: center;
   display: flex;
   font-family: Rubik, sans-serif;
+  @apply xl:h-[18.63px]
 }
 
 .scoreBoardInfo-USWOxa {
@@ -530,6 +533,7 @@
   font-size: 7px;
   margin: 0 0.25rem;
   min-width: 1rem;
+  @apply [@media(min-width:1512px)]:text-[12.79px]
 }
 
 .scoreBoardInfo-USWOxa,
@@ -546,6 +550,7 @@
   margin-right: 0.125rem;
   width: 0.4625rem;
   margin-bottom: 1px;
+ @apply [@media(min-width:1512px)]:!w-[11.59px]
 }
 
 .scoreBoardInfo__button_left-cIMRsf {
@@ -616,7 +621,7 @@
 }
 
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[54px] xl:bottom-[2px];
+  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[54px] xl:bottom-[15px];
   position: absolute;
 }
 

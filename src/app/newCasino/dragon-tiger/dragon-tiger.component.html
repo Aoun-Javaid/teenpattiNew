@@ -1,4 +1,4 @@
-<div class="newGameWrapper relative" style="overflow-y: hidden;">
+<div class="newGameWrapper relative" style="overflow: hidden;">
   <app-top-results class="xl:hidden"></app-top-results>
   <div [ngClass]="{'relative xl:!z-[0]': isShow}" #target>
     <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true" [displayResult]="false"
@@ -40,13 +40,14 @@
     <div class="gradientDiv" *ngIf="this.game">
       <div class="absolute h-[3rem] w-full bg-mixer blur-[4px]"></div>
       <div *ngIf="marketArray" [ngClass]="{'xl:!z-[0]': isShow}"
-        class="absolute xl:fixed xl:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] md:bottom-[98px] xl:bottom-[12px] [@media(max-width:375px)]:bottom-[25px] [@media(max-width:620px)]:bottom-[30px] xl:!max-w-[473px]  left-0 w-full ">
+        class="absolute xl:fixed xl:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[64px] md:bottom-[98px] xl:bottom-[12px] [@media(max-width:375px)]:bottom-[25px] [@media(max-width:620px)]:bottom-[30px] xl:!max-w-[473px]  left-0 w-full "
+        [ngClass]="{'xl:bottom-[-17px]':game.status === 'SUSPEND'}">
         <div class="relative z-[1] h-full xl:max-w-[473px] ">
           <div class="relative !mx-[2%] md:!mx-0 rounded-[17px]">
             <!-- main content -->
             <div class="xl:!bottom-[35px] mb-[0.3rem] md:mb-[5px] relative p-[18.9048%_0px_29.5048%] xl:!p-0">
               <div
-                class="h-[7.75rem] w-[21rem] xl:w-[473px] xl:max-h-[168px] absolute left-[50%] xl:!scale-[1.35] xl:static"
+                class="h-[7.75rem] w-[21rem] xl:w-[473px] xl:max-h-[168px] absolute left-[50%] xl:!scale-[1.25] xl:static"
                 style="transform: translate(-50%, -50%) scale(var(--boardScale, 1));">
                 <svg class="table__svg-Qpr3tH" viewBox="0 0 344 150">
                   <path clip-rule="evenodd"
@@ -888,9 +889,9 @@
 </div>
 
 <div
-  class="xl:!flex fixed [@media(max-width:1360px)]:w-[18rem] w-[20.5rem] mx-[2%] bottom-[20%] !hidden flex-col gap-[1.5rem]">
+  class="xl:!flex fixed [@media(max-width:1360px)]:w-[18rem] w-[20.5rem]  [@media(min-width:1512px)]:min-w-[437.55px] mx-[2%] bottom-[1.5%] !hidden flex-col gap-[1.5rem]">
   <div class="dragonTiger__history-jQwWbi">
-    <div class="scoreBoardInfo-USWOxa">
+    <div class="scoreBoardInfo-USWOxa mb-[0.25rem]">
       <div class="scoreBoardInfo__total-b3bUj3">
         <div class="scoreBoardInfo__totalItem-KhIYhz">#{{tigerWins+dragonWins+ties}}</div>
         <div class="scoreBoardInfo__totalItem-KhIYhz"><svg class="scoreBoardInfo__totalItemSvg-eW0Cnx"
