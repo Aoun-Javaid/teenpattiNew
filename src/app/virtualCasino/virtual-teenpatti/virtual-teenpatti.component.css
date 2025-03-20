@@ -726,12 +726,12 @@
 
 @media (max-width: 375px) and (min-height: 768px) {
   .time-container {
-  @apply !bottom-[58px]
-}
+    @apply !bottom-[58px];
+  }
 
-.main-position{
-  @apply !bottom-[100px]
-}
+  .main-position {
+    @apply !bottom-[100px];
+  }
 }
 
 .dicbg {
@@ -855,11 +855,10 @@
 }
 
 @media (max-width: 393px) {
-   .card-img{
-       @apply h-[50px] w-[35.47px] 
-   }
+  .card-img {
+    @apply h-[50px] w-[35.47px];
+  }
 }
-
 
 .progress_bar_container {
   border-top-left-radius: 15px;
@@ -3358,6 +3357,7 @@ p {
 }
 .wait-next-round {
   @apply bg-black text-white text-[12px] px-3 py-0.5 font-medium max-w-fit absolute translate-x-[-50%] font-[Rubik] text-nowrap translate-y-[-50%] rounded-[12px] left-[50%] top-[35%] z-20;
+
 }
 
 @media only screen and (min-width:1400px) and (max-width:1600px){
@@ -3372,4 +3372,5 @@ p {
   .progress_bar_container .progress-bar_data{
     font-size: 8.7px;
   }
+
 }

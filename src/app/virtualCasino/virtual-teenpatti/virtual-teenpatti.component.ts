@@ -171,6 +171,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   currentUrl: any;
   isMobile: boolean;
   isMobileInfo: string;
+  isShow: boolean = false;
   // isTeNteenPatti:any;
   stackButtonArry: any = STACK_VALUE;
 
@@ -207,6 +208,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
 
     this.subscription = this.modalService.getCasinoResulttModal().subscribe((value: any) => {
       if (value.show) {
@@ -1324,21 +1326,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
         this.hiddenCardEndPointY = this.height * 0.41;
 
         break;
-      case this.width >= 435:
-        this.cardSize = 50;
-        this.hiddenCardSize = 39;
-        this.cardStartPointX = this.width * 0.48;
-        this.cardStartPointY = this.height * 0.48;
-        this.cardEndPointY = this.cardStartPointY + 45;
-        this.leftCard1EndPositionX = 140;
-        this.leftCard2EndPositionX = 80;
-        this.leftCard3EndPositionX = 20;
-        this.rightCard1EndPositionX = 40;
-        this.rightCard2EndPositionX = 100;
-        this.rightCard3EndPositionX = 160;
-        this.hiddenCardEndPointX = this.width * 0.13;
-        this.hiddenCardEndPointY = this.height * 0.45;
-        break;
+     
 
       case this.width >= 390:
         this.cardSize = 50;

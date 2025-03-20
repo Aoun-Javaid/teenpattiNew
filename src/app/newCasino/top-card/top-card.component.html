@@ -1,6 +1,6 @@
 <div class="newGameWrapper relative" style="overflow-y: hidden;">
-  <app-top-results class="[@media(min-width:1024px)]:hidden"></app-top-results>
-  <div #target>
+  <app-top-results class="xl:hidden"></app-top-results>
+  <div [ngClass]="{'relative xl:!z-0': isShow}" #target>
     <app-video-player class="video-wrapper" [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true"
       [displayResult]="false" [unityTimer]="false"></app-video-player>
     <!-- <ng-container *ngIf="isMobileInfo == 'iOS'">
@@ -22,7 +22,7 @@
   <div class="[@media(max-width:768px)]:hidden gradient-_9dd5n gradient_desktop-UoLq1h"></div>
   <div [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'" id="marketScroll" style="overflow-y: auto;">
     <div class="" *ngIf="this.game">
-      <div *ngIf="marketArray"
+      <div *ngIf="marketArray" [ngClass]="{'xl:!z-[0]': isShow}"
         class="absolute xl:fixed xl:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[30px] md:bottom-[40px] xl:bottom-[60px] [@media(max-width:375px)]:bottom-[25px]   xl:!max-w-[21.5rem]  left-0 w-full ">
         <div class="relative z-[1] h-full xl:max-w-[21.5rem] ">
           <div class="relative !mx-[2%] md:!mx-0  rounded-[17px] xl:mb-8">
@@ -88,9 +88,7 @@
                         </div>
                         <div class="sideBetPlace__content">
                           <div class="sideBetPlace__imageWrapper">
-                            <img
-                              src="https://files.petros04.com/topcard/offense.png"
-                               class="sideBetPlace__image"
+                            <img src="https://files.petros04.com/topcard/offense.png" class="sideBetPlace__image"
                               alt="card1">
                           </div>
                           <div class="sideBetPlace__title">
@@ -99,11 +97,11 @@
                             number : '1.2-2'}}</div>
                           <div class="sideBetPlace__card">
                             <div class="card-wi2ADp card_size_large">
-                                <img
-                                  [ngClass]="playerACards?.card_1!='0' && playerACards?.card_1 ?'tableMainCards__card__animation':'opacity-0'"
-                                  [src]="['assets/52-cards/'+playerACards?.card_1+'.svg']"
-                                  alt="card1">
-                            </div></div>
+                              <img
+                                [ngClass]="playerACards?.card_1!='0' && playerACards?.card_1 ?'tableMainCards__card__animation':'opacity-0'"
+                                [src]="['assets/52-cards/'+playerACards?.card_1+'.svg']" alt="card1">
+                            </div>
+                          </div>
                           <div class="sideBetPlace__betStat">
                             <div class="topCardBetStat topCardBetStat_size_medium">{{firstBoxWidth | number :'1.0-1'}}%
                             </div>
@@ -208,9 +206,7 @@
                         </div>
                         <div class="sideBetPlace__content">
                           <div class="sideBetPlace__imageWrapper">
-                            <img
-                              src="https://files.petros04.com/topcard/defense.png"
-                              class="sideBetPlace__image"
+                            <img src="https://files.petros04.com/topcard/defense.png" class="sideBetPlace__image"
                               alt="card2">
                           </div>
                           <div class="sideBetPlace__title">
@@ -221,9 +217,9 @@
                             <div class="card-wi2ADp card_size_large">
                               <img
                                 [ngClass]="playerBCards?.card_1!='0' && playerBCards?.card_1 ?'tableMainCards__card__animation':'opacity-0'"
-                                [src]="['assets/52-cards/'+playerBCards?.card_1+'.svg']"
-                                alt="card1">
-                            </div></div>
+                                [src]="['assets/52-cards/'+playerBCards?.card_1+'.svg']" alt="card1">
+                            </div>
+                          </div>
                           <div class="sideBetPlace__betStat">
                             <div class="topCardBetStat topCardBetStat_size_medium">{{secndBoxWidth | number :'1.0-1'}}%
                             </div>
@@ -242,8 +238,7 @@
             <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game.status"></app-bet-coin>
           </div>
           <div class="topCard__substrateIllumination">
-            <div
-              class="substrateIllumination substrateIllumination_winner_right substrateIllumination_filledMode">
+            <div class="substrateIllumination substrateIllumination_winner_right substrateIllumination_filledMode">
               <div class="substrateIllumination__left"></div>
               <div class="substrateIllumination__center"></div>
               <div class="substrateIllumination__right"></div>

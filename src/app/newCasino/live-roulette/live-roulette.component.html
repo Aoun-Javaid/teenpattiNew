@@ -20,15 +20,15 @@
         <div class="gradient-_9dd5n gradient_mobile-cBpe4n"></div>
     </div>
     <div class="table-area w-full h-screen">
-        <div class="table-wrapper md:pb-[3.5rem]">
+        <div class="table-wrapper md:pb-[3.5rem] xl:pb-0 xl:items-center">
             <div class="parent relative">
                 <div class="zero-box">0</div>
-                <div class="cell div1">1</div>
-                <div class="cell div2">2</div>
+                <div class="count-cell cell div1">1</div>
+                <div class="count-cell cell div2">2</div>
                 <div class="cell div3">1 - 18</div>
                 <div class="cell div4">EVEN</div>
                 <div class="cell div5">1st 12</div>
-                <div class="red-bg cell div6"></div>
+                <div class="red-cell cell div6"></div>
                 <div class="cell div7"></div>
                 <div class="cell div8">2nd 12</div>
                 <div class="cell div9">ODD</div>
@@ -36,48 +36,54 @@
                 <div class="cell div13">3rd 12</div>
                 <div class="cell div14">14</div>
                 <div class="cell div15">15</div>
-                <div class="red-bg cell div17">1</div>
-                <div class="cell div18">4</div>
-                <div class="red-bg cell div19">7</div>
-                <div class="cell div20">10</div>
-                <div class="cell div21">13</div>
-                <div class="red-bg cell div22">16</div>
-                <div class="red-bg cell div23">19</div>
-                <div class="cell div24">22</div>
-                <div class="red-bg cell div25">25</div>
-                <div class="cell div26">28</div>
-                <div class="cell div27">31</div>
-                <div class="red-bg cell div28">34</div>
+                <div class="count-cell red-cell cell div17">1</div>
+                <div class="count-cell cell div18">4</div>
+                <div class="count-cell red-cell cell div19">7</div>
+                <div class="count-cell cell div20">10</div>
+                <div class="count-cell cell div21">13</div>
+                <div class="count-cell red-cell cell div22">16</div>
+                <div class="count-cell red-cell cell div23">19</div>
+                <div class="count-cell cell div24">22</div>
+                <div class="count-cell red-cell cell div25">25</div>
+                <div class="count-cell cell div26">28</div>
+                <div class="count-cell cell div27">31</div>
+                <div class="count-cell red-cell cell div28">34</div>
                 <div class="cell div29">2 to 1</div>
                 <div class="cell div30">2 to 1</div>
                 <div class="cell div31">2 to 1</div>
-                <div class="cell div32">35</div>
-                <div class="red-bg cell div33">36</div>
-                <div class="cell div34">33</div>
-                <div class="red-bg cell div35">32</div>
-                <div class="cell div36">29</div>
-                <div class="red-bg cell div37">30</div>
-                <div class="red-bg cell div38">27</div>
-                <div class="cell div39">26</div>
-                <div class="red-bg cell div40">23</div>
-                <div class="cell div41">24</div>
-                <div class="red-bg cell div42">21</div>
-                <div class="cell div43">20</div>
-                <div class="cell div44">17</div>
-                <div class="red-bg cell div45">18</div>
-                <div class="cell div46">15</div>
-                <div class="red-bg cell div47">14</div>
-                <div class="cell div48">11</div>
-                <div class="red-bg cell div49">12</div>
-                <div class="red-bg cell div50">9</div>
-                <div class="cell div51">8</div>
-                <div class="red-bg cell div52">5</div>
-                <div class="cell div53">6</div>
-                <div class="red-bg cell div54">3</div>
-                <div class="cell div55">2</div>
+                <div class="count-cell cell div32">35</div>
+                <div class="count-cell red-cell cell div33">36</div>
+                <div class="count-cell cell div34">33</div>
+                <div class="count-cell red-cell cell div35">32</div>
+                <div class="count-cell cell div36">29</div>
+                <div class="count-cell red-cell cell div37">30</div>
+                <div class="count-cell red-cell cell div38">27</div>
+                <div class="count-cell cell div39">26</div>
+                <div class="count-cell red-cell cell div40">23</div>
+                <div class="count-cell cell div41">24</div>
+                <div class="count-cell red-cell cell div42">21</div>
+                <div class="count-cell cell div43">20</div>
+                <div class="count-cell cell div44">17</div>
+                <div class="count-cell red-cell cell div45">18</div>
+                <div class="count-cell cell div46">15</div>
+                <div class="count-cell red-cell cell div47">14</div>
+                <div class="count-cell cell div48">11</div>
+                <div class="count-cell red-cell cell div49">12</div>
+                <div class="count-cell red-cell cell div50">9</div>
+                <div class="count-cell cell div51">8</div>
+                <div class="count-cell red-cell cell div52">5</div>
+                <div class="count-cell cell div53">6</div>
+                <div class="count-cell red-cell cell div54">3</div>
+                <div class="count-cell cell div55">2</div>
+            </div>
+
+            <div class="w-full hidden xl:block">
+                <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game?.status">
+                </app-bet-coin>
             </div>
         </div>
-        <div class="sicBo__controls-bEHBgU">
+
+        <div class="xl:hidden sicBo__controls-bEHBgU">
             <div class="controlsPanel-mDHDjp controlsPanel_state_waiting-L0UDJt">
                 <div class="btn-wrapper">
                     <button class="secbo-btn">
@@ -108,7 +114,7 @@
 
                 </div>
 
-                
+
 
                 <div class="btn-wrapper gap-2 duration-height h-fit" [ngClass]="
                   openCoinBarState
@@ -466,7 +472,6 @@
             </div>
         </div>
     </div>
-    <div class="game__drawerLayer-KdhoNp"></div>
     <div class="game__footer-MQgjt7">
         <div class="footer-YSYRDp">
             <div class="footer__row-c5nTQ4">
