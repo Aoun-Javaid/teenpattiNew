@@ -50,8 +50,53 @@
 }
 
 .gradientDiv {
-  height: 55%;
-  background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%);
+  height: 100%;
+  /* background: linear-gradient(315deg, #819bca47 0%, #331c3e14 100%); */
+  /* background: linear-gradient(
+    to right,
+    #eb2300 0%,
+    #f82601e6 2%,
+    #ff2900 10%,
+    #fe2e02 50%,
+    #ea1b01 73%,
+    #dc1401 86%,
+    #b80600 98%,
+    #ba0800 92%
+  ),
+  linear-gradient(to bottom,
+          rgba(0, 0, 0, 0) 85%,
+          rgba(0, 0, 0, 0.5) 95%,
+          rgba(0, 0, 0, 1) 100%
+      ); */
+  background-blend-mode: multiply;
+  background: var(--NteenpattiVideoBottomBg);
+  /* backdrop-filter: blur(10px); */
+}
+
+.gradientDiv::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(var(--blur));
+  /* background: linear-gradient(
+  to bottom,
+  rgba(0, 0, 0, 0) 0%,
+  rgba(10, 10, 26, 0.05) 93%,
+  #0A0A1A 100%
+); */
+}
+
+.bg-mixer {
+  background: linear-gradient(to bottom, #000 3%, #0a0a1a 50%);
+}
+
+.dicbg {
+  /* background: linear-gradient(to right, #ec2401, #ff3400, #ec2401); */
+  background: linear-gradient(to right, #f02909, #f74315, #e92b0a);
+  width: 120%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .gradient-_9dd5n {
@@ -72,6 +117,8 @@
   left: 0;
   width: 100%;
 }
+
+
 
 .time-container {
   @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[54px] xl:bottom-[2px];
@@ -862,4 +909,11 @@
 
 ::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
   @apply [@media(min-width:1200px)]:top-[50dvh] !important;
+}
+
+
+@media (max-width: 344px) and (min-height: 800px) {
+::ng-deep .heigth-query{
+    @apply !h-[40%];
+  }
 }
