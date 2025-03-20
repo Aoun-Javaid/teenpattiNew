@@ -1302,18 +1302,7 @@ export class VirtualDtComponent implements OnInit,OnDestroy,AfterViewInit  {
         this.hiddenCardEndPointY = this.height * 0.41;
 
         break;
-        case this.width >= 435:
-          this.cardSize = 50;
-          this.hiddenCardSize = 39;
-          this.cardStartPointX = this.width * 0.48;
-          this.cardStartPointY = this.height * 0.48;
-          this.cardEndPointY = this.cardStartPointY + 45;
-          this.leftCard1EndPositionX = 20;
-          this.rightCard1EndPositionX = 40;
-          this.hiddenCardEndPointX = this.width * 0.13;
-          this.hiddenCardEndPointY = this.height * 0.45;
-  
-          break;
+        
       case this.width >= 390:
         this.cardSize = 50;
         this.hiddenCardSize = 39;
