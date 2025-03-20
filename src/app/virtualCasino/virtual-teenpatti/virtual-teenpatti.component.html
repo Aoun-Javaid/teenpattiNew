@@ -1,5 +1,5 @@
-<div class="newGameWrapper relative" style="overflow: hidden;">
-  <app-top-results class="[@media(min-width:1200px)]:hidden"></app-top-results>
+<div class="newGameWrapper relative" style="overflow: hidden;" [ngClass]="{'xl:!z-0 relative':isShow}">
+  <app-top-results class="[@media(min-width:1200px)]:hidden" ></app-top-results>
 
 
   <!--  Game Background Video-->
@@ -82,7 +82,7 @@
     <div class="gradientDiv mt-[13.5rem]">
       <div class="absolute h-4 w-full bg-[#0A0A1A] blur-[11px]"></div>
       <div *ngIf="marketArray"
-        class="absolute xl:fixed xl:left-[50%] xl:translate-x-[-50%] bottom-[32px] md:bottom-[100px] xl:bottom-[64px]  [@media(max-width:375px)]:bottom-[25px]  xl:!max-w-[473px]  left-0 w-full main-position xl:pl-[30px] [@media(min-width:1330px)]:!pl-0">
+        class="absolute xl:fixed xl:left-[50%] xl:translate-x-[-50%] bottom-[32px] md:bottom-[100px] xl:bottom-[46px]  [@media(max-width:375px)]:bottom-[25px]  xl:!max-w-[473px]  left-0 w-full main-position xl:pl-[30px] [@media(min-width:1330px)]:!pl-0 z-[5]" [ngClass]="{'xl:!bottom-[14px]':this.game.status === 'ONLINE', 'xl:!z-0':isShow}">
 
 
 
@@ -592,11 +592,11 @@
 
 
 
-
-
-<div class=" [@media(max-width:1200px)]:hidden fixed w-[22.5rem] mx-[2%] bottom-[7%] flex flex-col gap-[1.5rem]">
-  <div class="win_percentage_container  relative w-full !p-0">
+<div
+  class=" [@media(max-width:1200px)]:hidden fixed w-[22.5rem] mx-[2%] bottom-[1.5%] flex flex-col gap-[2rem] [@media(min-width:1512px)]:min-w-[392px]">
+  <div class="win_percentage_container  relative w-full !p-0 xl:!px-0 ">
     <div class="win_percentage_wrapper  ">
+
       <div
         class="progress_bar_container !flex-col !rounded-[15px] !bg-[linear-gradient(135deg,rgba(31,31,51,.9),rgba(31,37,51,.9))]">
         <div class="flex justify-between w-full text-white text-[0.875rem] font-medium font-[Rubik,sans-serif]">
@@ -605,26 +605,26 @@
         </div>
         <div class="flex w-full gap-1">
           <div class="progress-bar bg-danger !bg-[#CC493E]" [style.width]="aPlayerChances+'%'">
-            <div class="progress-bar_data">
-              A
-            </div>
-            <div class="progress-bar_data">
+            <!-- <div class="progress-bar_data [@media(min-width:1512px)]:text-[0.5rem]">
+                            A
+                        </div> -->
+            <div class="progress-bar_data [@media(min-width:1512px)]:!text-[0.5rem]">
               {{aPlayerChances}}%
             </div>
           </div>
           <div *ngIf="TPlayerChances" class="progress-bar bg-Tie" [style.width]="TPlayerChances+'%'">
-            <div class="progress-bar_data">
-              T
-            </div>
-            <div class="progress-bar_data">
+            <!-- <div class="progress-bar_data [@media(min-width:1512px)]:text-[0.5rem]">
+                            T
+                        </div> -->
+            <div class="progress-bar_data [@media(min-width:1512px)]:!text-[0.5rem]">
               {{TPlayerChances}}%
             </div>
           </div>
           <div class="progress-bar yellow_bg  !flex-row-reverse" [style.width]="bPlayerChances+'%'">
-            <div class="progress-bar_data">
-              B
-            </div>
-            <div class="progress-bar_data">
+            <!-- <div class="progress-bar_data [@media(min-width:1512px)]:text-[0.5rem]">
+                            B
+                        </div> -->
+            <div class="progress-bar_data [@media(min-width:1512px)]:!text-[0.5rem]">
               {{bPlayerChances}}%
             </div>
           </div>
@@ -632,6 +632,6 @@
       </div>
     </div>
   </div>
-  <app-top-results class="inline-block w-full relative z-10 bottom-[4px]"></app-top-results>
 
+  <app-top-results></app-top-results>
 </div>
