@@ -7,10 +7,6 @@
   @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
 }
 
-::ng-deep app-video-player .videoPlayer {
-  @apply md:top-[-1.25rem];
-}
-
 @media (width: 540px) {
   ::ng-deep app-video-player .videoPlayer {
     @apply !top-[-6.25rem];
@@ -72,7 +68,6 @@
   position: absolute;
   z-index: 0;
 }
-
 
 .gradient_desktop-UoLq1h {
   background: linear-gradient(
@@ -621,19 +616,26 @@
 }
 
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 md:flex-col md:items-end;
+  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[54px] xl:bottom-[2px];
   position: absolute;
-  bottom: 2px;
 }
-.last-win {
-  @apply text-[0.625rem] text-white;
+
+@media (max-width: 375px) and (min-height: 768px) {
+  .time-container {
+    @apply !bottom-[58px];
+  }
 }
+
 .roundInfo-date {
   color: #8a8a99;
   display: flex;
   font-weight: 300;
   line-height: 1.5;
   font-size: 10px;
+}
+
+.last-win {
+  @apply text-[0.625rem] text-white;
 }
 
 @keyframes blinkingAnimation-BVoTic {
