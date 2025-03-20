@@ -171,7 +171,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   currentUrl: any;
   isMobile: boolean;
   isMobileInfo: string;
-  isShow: boolean = false;
+
   // isTeNteenPatti:any;
   stackButtonArry: any = STACK_VALUE;
 
