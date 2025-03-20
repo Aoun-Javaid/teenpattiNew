@@ -56,12 +56,12 @@
             }
 
             <div class="flex_row cursor-pointer btnContainer">
-                <button  class="myCarouselLeft{{$index}}" (click)="swiperInstances[$index].slidePrev(3)"  [disabled]="this.navigationStates[$index]?.prevDisabled"
+                <button  class="myCarouselLeft{{$index}}"   [disabled]="this.navigationStates[$index]?.prevDisabled"
                     [ngClass]="!this.navigationStates[$index]?.prevDisabled ? '!border-[#55758A] ':'border-[#304553] '" class="btn_left !border-r-0  ">
                     <img [ngClass]="[!this.navigationStates[$index]?.prevDisabled ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
                         class="w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
                 </button>
-                <button class="myCarouselRight{{$index}}" (click)="swiperInstances[$index].slideNext(3)" [disabled]="this.navigationStates[$index]?.nextDisabled"
+                <button class="myCarouselRight{{$index}}"  [disabled]="this.navigationStates[$index]?.nextDisabled"
                     [ngClass]="!this.navigationStates[$index]?.nextDisabled ? 'border-[#55758A] ':'border-[#304553] '" class="btn_right border-l  ">
                     <img [ngClass]="[!this.navigationStates[$index]?.nextDisabled  ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
                         class="rotate-180 w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
