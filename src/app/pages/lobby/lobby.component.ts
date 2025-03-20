@@ -417,9 +417,6 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   private updateNavigationButtons(index: number): void {
-    console.log('Updating navigation for index:', index);
-    console.log('swiperInstances:', this.swiperInstances);
-    console.log('navigationStates:', this.navigationStates);
 
     if (!this.swiperInstances[index]) return;
     // Ensure navigationStates[index] exists
@@ -429,6 +426,8 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.navigationStates[index].prevDisabled = this.swiperInstances[index].isBeginning;
     this.navigationStates[index].nextDisabled = this.swiperInstances[index].isEnd;
+
+
   }
 
 
@@ -552,6 +551,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
           this.updateButtonStates(swiper, index);
         },
         slideChange: (swiper: any) => {
+          this.updateNavigationButtons(index)
           this.updateButtonStates(swiper, index);
         }
       }
