@@ -368,13 +368,15 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
 
       this.BetPlaced[marketId][selectionId] = stake;
     }
-    console.log('bet placed', this.BetPlaced);
+    // console.log('bet placed', this.BetPlaced);
     this.betsChipsComponent?.CalculateIndex();
 
     this.game.betAccepted = true;
+    this.game.betStake = stake;
     this.networkService.updateRoundId(this.game);
     setTimeout(() => {
       this.game.betAccepted = false;
+      this.game.betStake = null;
       this.networkService.updateRoundId(this.game);
     }, 1500);
   }

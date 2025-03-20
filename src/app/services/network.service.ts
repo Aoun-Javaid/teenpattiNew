@@ -138,10 +138,10 @@ export class NetworkService {
             item.stake = item.stake;
             item.betSuccess = true;
             this.setBetPlace(item);
-            this.toaster.success(res.meta.message, '', {
-              positionClass: 'toast-top-center',
-              toastClass: 'ngx-toastr custom-toast success',
-            });
+            // this.toaster.success(res.meta.message, '', {
+            //   positionClass: 'toast-top-center',
+            //   toastClass: 'ngx-toastr custom-toast success',
+            // });
 
             this.getBalance();
           } else {

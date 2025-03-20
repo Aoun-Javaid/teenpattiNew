@@ -679,7 +679,9 @@
     <div *ngIf="this.game?.betAccepted" class="no-more-bets">
       <div class="relative z-10">Bet confirmed</div>
 
-      <div class="roundStatus__decor-DDvAQJ"></div>
+      <div class="roundStatus__decor-DDvAQJ">
+        {{this.game.betStake}}
+      </div>
     </div>
     <!-- bet-confirm  -->
 
