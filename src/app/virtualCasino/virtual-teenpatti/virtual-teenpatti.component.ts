@@ -1279,7 +1279,6 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
   // Adjust game parameters based on canvas size
   private setBreakPoints() {
-    console.log(this.width, this.height);
 
     switch (true) {
       case this.width >= 850:

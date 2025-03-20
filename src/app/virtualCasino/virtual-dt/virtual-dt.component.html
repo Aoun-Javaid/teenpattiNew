@@ -78,7 +78,7 @@
           <!--            <div class="absolute h-4 w-full bg-[#0A0A1A] blur-[11px]"></div>-->
           <div *ngIf="marketArray"
             class="absolute xl:fixed lg:z-[1]  md:left-[50%] md:translate-x-[-50%] bottom-[75px] md:bottom-[135px] lg:bottom-[150px] xl:bottom-[64px] xl:!max-w-[473px]  left-0 w-full ">
-            <div class="relative z-[1] h-full xl:max-w-[473px] ">
+            <div class="relative z-[1] h-full xl:max-w-[473px]  hidden">
               <div class="relative xxxl:bottom-14 !mx-[2%] md:!mx-0 rounded-[17px]">
                 <!-- main content -->
                 <div
@@ -940,7 +940,8 @@
 
   </div>
 </div>
-<div class="[@media(max-width:1280px)]:hidden  fixed w-[20.5rem] mx-[2%] bottom-[20%] flex flex-col gap-[1.5rem] z-[999999]">
+<div
+  class="[@media(max-width:1280px)]:hidden  fixed w-[20.5rem] mx-[2%] bottom-[20%] flex flex-col gap-[1.5rem] z-[999999]">
   <div class="dragonTiger__history-jQwWbi">
     <div class="scoreBoardInfo-USWOxa">
       <div class="scoreBoardInfo__total-b3bUj3">
@@ -998,7 +999,7 @@
             <path d="M17.7,1.45 l-1.8,1.8" fill="none" stroke-width="0.5" stroke="#e19d19" stroke-linecap="round">
             </path>
           </svg></button>
-        </div>
+      </div>
     </div>
     <app-top-results></app-top-results>
   </div>
