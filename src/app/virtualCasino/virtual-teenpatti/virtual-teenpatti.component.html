@@ -1,5 +1,5 @@
 <div class="newGameWrapper relative" style="overflow: hidden;" [ngClass]="{'xl:!z-0 relative':isShow}">
-  <app-top-results class="[@media(min-width:1200px)]:hidden" ></app-top-results>
+  <app-top-results class="[@media(min-width:1200px)]:hidden"></app-top-results>
 
 
   <!--  Game Background Video-->
@@ -79,7 +79,8 @@
     <div class="gradientDiv mt-[13.5rem]">
       <div class="absolute h-4 w-full bg-[#0A0A1A] blur-[11px]"></div>
       <div *ngIf="marketArray"
-        class="absolute xl:fixed xl:left-[50%] xl:translate-x-[-50%] bottom-[32px] md:bottom-[100px] xl:bottom-[46px]  [@media(max-width:375px)]:bottom-[25px]  xl:!max-w-[473px]  left-0 w-full main-position xl:pl-[30px] [@media(min-width:1330px)]:!pl-0 z-[5]" [ngClass]="{'xl:!bottom-[14px]':this.game.status === 'ONLINE', 'xl:!z-0':isShow}">
+        class="absolute xl:fixed xl:left-[50%] xl:translate-x-[-50%] bottom-[32px] md:bottom-[100px] xl:bottom-[46px]  [@media(max-width:375px)]:bottom-[25px]  xl:!max-w-[473px]  left-0 w-full main-position xl:pl-[30px] [@media(min-width:1330px)]:!pl-0 z-[5]"
+        [ngClass]="{'xl:!bottom-[14px]':this.game.status === 'ONLINE', 'xl:!z-0':isShow}">
 
 
 
@@ -139,7 +140,7 @@
 
 
 
-        <div class="relative   z-[1] h-full [@media(min-width:1200px)]:max-w-[473px] ">
+        <div class="relative   z-[1] h-full [@media(min-width:1200px)]:max-w-[473px] hidden ">
           <div class="win_percentage_container relative [@media(min-width:1200px)]:hidden ">
             <div class="win_percentage_wrapper  ">
               <div class="progress_bar_container">
@@ -631,6 +632,3 @@
   </div>
   <app-top-results></app-top-results>
 </div>
-
-
-
