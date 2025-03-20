@@ -96,6 +96,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   @ViewChild(VideoPlayerComponent)
   videoComponent!: VideoPlayerComponent;
   subscription!: Subscription;
+  isShow:boolean = false
   liveData$: any;
   animateCoinVal: any;
   waitRound: any;
@@ -207,16 +208,17 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = this.modalService
-      .getCasinoResulttModal()
-      .subscribe((value: any) => {
-        if (value.show) {
-          this.selectedResult = value;
-          this.isShow = value.show;
-          console.log('selected result', this.selectedResult);
-          console.log('isShow: ', this.isShow);
-        }
-      });
+
+
+    this.subscription = this.modalService.getCasinoResulttModal().subscribe((value: any) => {
+      if (value.show) {
+        this.selectedResult = value;
+        this.isShow = value.show;
+        console.log('selected result', this.selectedResult)
+      }
+    })
+
+
 
     this.networkService.getBetPlace().subscribe((betObj: any) => {
       // this.getAllMarketProfitLoss();
