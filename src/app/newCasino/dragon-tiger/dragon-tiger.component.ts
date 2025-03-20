@@ -182,6 +182,15 @@ export class DragonTigerComponent implements OnInit, OnDestroy {
         }
       });
 
+    if (!this.isDesktop) {
+      this.setMarketScrollHeight();
+      if (this.isMobileInfo !== 'iOS') {
+        $('html').css('overflow', 'hidden');
+      }
+    } else {
+      $('html').css('overflow', 'hidden');
+    }
+
     this.networkService.getBetPlace().subscribe((betObj: any) => {
       // this.getAllMarketProfitLoss();
       this.isbetInProcess = false;
