@@ -1,0 +1,64 @@
+<div [ngClass]="{' top-[1.1%] s375:top-[1.2%] s390:top-[0.9%] s540:top-[1.1%]  md:top-[2.8%]  m820:top-[2.4%] m910:top-[2.1%] lg:top-[2%] xl:top-[3.5%] fadeIn': betHistoryModalState, '  pointer-events-none fadeOut': !betHistoryModalState}"
+    class="absolute  top-[0.5%] duration-300 left-2 right-2   md:max-w-[500px] md:min-w-[500px] !overflow-auto   md:left-[17.5%] m820:left-[18.6%] m910:left-[21.8%]  lg:left-[22%]  xl:left-[32.1%] z-[1500] bg-[#2c2d30]  h-fit border-transparent border-0 rounded-lg">
+    <div class="flex h-[36px] items-center justify-between  ps-[10px] pe-[10px] w-full">
+        <div class="">
+            <h2 class="text-[16px] text-[#ffffff] font-light tracking-[0.03em]">My Bet History</h2>
+        </div>
+        <div (click)="closeMyBetHistoryModal()"
+            class="overlay text-[#97A4AE] cursor-pointer opacity-50 text-[24px] font-[700] ">×
+        </div>
+    </div>
+    <div class="py-[16px]  px-[4px] bg-[#1b1c1d]  w-full">
+        <div class="flex mx-[10px] h-[20px] items-center font-light">
+            <div class="w-[19%] -translate-y-[2px]">
+                <span class="text-[11px]  text-[#7B7B7B]">User</span>
+            </div>
+            <div
+                class="flex gap-[10px] lg:w-[36.8%] w-[36%] justify-end translate-x-[0.5px]  max-xxm:translate-x-1 xm:translate-x-[3.5px] s390:translate-x-[3.5px] xl:translate-x-0">
+                <span class="text-[11px] text-[#7B7B7B] "> Bet USD</span>
+                <span class="text-[11px] text-[#7B7B7B]">X</span>
+            </div>
+            <div class="flex-1 text-end -translate-y-0.5">
+                <span class="text-[11px] text-[#7B7B7B]"> Cash out USD </span>
+            </div>
+        </div>
+        <ul class="max-h-[482px] overflow-auto">
+            @for (item of myBets; track $index) {
+            <li [ngClass]="[item.isCelebrated ? 'bet_item_celebrated':'!text-[#bbbfc5] ']"
+                class="grid grid-cols-5 w-full bg-[#101112] font-['Inter'] min-h-[34px] justify-center items-center mt-0.5 border border-solid border-[#101112] rounded-lg  px-2">
+                <div
+                    class=" col-span-2 !text-[#bbbfc5] flex flex-col  items-start pl-0.5  text-[12px] font-light   leading-none">
+                    <h3>
+                        {{item.time}}
+                    </h3>
+                    <h3>
+                        {{item.date }}
+                    </h3>
+                </div>
+                <div class="text-[14px]  col-span-2 text-[#7B7B7B]">
+                    {{item.userBet}}
+                    <span [ngStyle]="{'color': item.multiValueColor}"
+                        class=" cursor-pointer font-semibold   text-[12px] py-0.5 px-1.5  bg-[#00000080] border-0 rounded-[11px] box-border">
+                        {{item.multiValue}}
+                    </span>
+                </div>
+                <div class="text-[14px]  col-span-1  flex flex-row justify-center items-center gap-2">
+                    <a class="w-[30%] font-light -translate-x-4" [ngClass]="[!item.userCashOut ? 'opacity-0' : '']">
+                        {{item.userCashOut || 10000 }}
+                    </a>
+                    <div class="flex justify-center items-center gap-1 w-[70%]">
+                        <a class="cursor-pointer">
+                            <img (click)="openProvablyFairDetailsModal()" class="w-3.5 h-4 "
+                                src="/assets/icons/icon-provabyfair.71eb97eaadfab595.svg" alt="provabyfair">
+                        </a>
+                        <a class="cursor-pointer"> <img class="w-4 h-3.5 "
+                                src="/assets/icons/share.658297c40a9fcd66.svg" alt="copy"></a>
+                    </div>
+
+                </div>
+            </li>
+            }
+        </ul>
+
+
+    </div>

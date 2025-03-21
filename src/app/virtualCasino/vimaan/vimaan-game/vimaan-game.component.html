@@ -1,0 +1,63 @@
+<!-- aviator-game.component.html -->
+
+<div #phaserContainer class="phaser-container">
+    <div class="absolute top-1 left-9 z-[500]">
+        <button type="button" class="speaker-button" (click)="toggleSound()">
+            <!-- Speaker icon when sound is ON -->
+            <svg *ngIf="bgMusicState" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="#d2d2d2" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path
+                    d="M19.07 4.92999C20.9447 6.80527 21.9979 9.34835 21.9979 12C21.9979 14.6516 20.9447 17.1947 19.07 19.07M15.54 8.45999C16.4774 9.39763 17.004 10.6692 17.004 11.995C17.004 13.3208 16.4774 14.5924 15.54 15.53"
+                    stroke="#d2d2d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+
+            <!-- Speaker with a cross icon when sound is OFF -->
+            <svg *ngIf="!bgMusicState" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="#d2d2d2" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path d="M16 8L23 15" stroke="#d2d2d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+                <path d="M23 8L16 15" stroke="#d2d2d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+            </svg>
+        </button>
+    </div>
+    <div class="phaser-game">
+        @if (isPlaneOnMove) {
+        <div class="amount_multiplier">
+            <p class="amount_value text_white">{{multiplier}}x</p>
+        </div>
+        }
+        @if ( planeFlewAway) {
+        <div class="flewAway_wrapper">
+            <div>
+                <p class="text_white flew_away">FLEW AWAY!</p>
+            </div>
+            <div class="flew_value">
+                <p class="amount_value text_red">{{multiplier}}x</p>
+            </div>
+        </div>
+        }
+        @if(!isPlaneOnMove && !planeFlewAway){
+        <div class="waiting_text_wrapper">
+            <p class="text_white waiting_text">WAITING FOR NEXT ROUND</p>
+        </div>
+        }
+    </div>
+</div>
+
+<!--
+<div class="absolute left-0 bottom-20 z-[999] flex justify-between gap-5 items-center">
+    <div class="flex justify-between gap-5 items-center">
+        <button (click)="reset()" class="bg-red-700 text-white">Reset</button>
+        <button (click)="play()" class="bg-red-600 text-white">Start</button>
+        <button (click)="showError()" class="bg-red-600 text-white">error</button>
+    </div>
+    <div class="flex justify-between items-center gap-5">
+        <button (click)="fly()" class="bg-red-900 text-white">Fly</button>
+
+    </div>
+</div> -->

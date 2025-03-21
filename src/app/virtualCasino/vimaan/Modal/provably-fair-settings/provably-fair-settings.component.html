@@ -1,0 +1,146 @@
+<div [ngClass]="{' top-[1.1%] s375:top-[1.2%] s390:top-[0.9%] s540:top-[1.1%]  md:top-[2.8%]  m820:top-[2.4%] m910:top-[2.1%] lg:top-[3.3%]  fadeIn': provablyFairSettingState, '  pointer-events-none fadeOut': !provablyFairSettingState}"
+    class="absolute   duration-300 left-2 right-2   md:max-w-[500px] md:min-w-[500px]  lg:max-w-[800px] lg:min-w-[800px] !overflow-auto   md:left-[17.5%] m820:left-[18.6%] m910:left-[21.8%]  lg:left-[22.2%]   z-[1500] bg-[#2c2d30]  h-fit border-transparent border-0 rounded-lg">
+    <div class=" relative">
+        <div class=" flex h-[36px] items-center justify-between ps-2.5 pe-[10px]">
+            <div>
+                <h2 class="text-[16px] font-light tracking-wide lg:tracking-[0.030em] text-[#ffffff]"> PROVABLY FAIR
+                    SETTINGS </h2>
+            </div>
+            <div (click)="closeProvablyFairSettings()"
+                class="overlay text-[#97A4AE] opacity-50 cursor-pointer text-[24px] font-[700]">×
+            </div>
+        </div>
+        <div
+            class="flex flex-col lg:flex-row items-start justify-between lg:items-center p-[20px] pb-[17px] lg:pb-5 bg-[#1b1c1d] border-b border-[#ffffff] border-opacity-[0.1]">
+            <div class="text-[#868B8D] text-[14px]  lg:max-w-[593.13px] lg:translate-y-[0.25px]">
+                <p class="leading-[1] font-light tracking-[0.02em] lg:tracking-[0.018em] "> This game uses Provably Fair
+                    technology to determine
+                    game result. This
+                    tool
+                    gives you
+                    ability to change your
+                    seed and check fairness of the game.</p>
+            </div>
+            <div class="flex items-center gap-1 mt-2 lg:mt-0 lg:translate-y-[0.25px]">
+                <div class="h-[16px] w-[16px]">
+                    <img src="/assets/icons/question.e62efb43de5363fc.svg" alt="" class="h-full w-full">
+                </div>
+                <div (click)="openProvablyFairModal()"
+                    class="text-[#E30C32] cursor-pointer text-[14px] tracking-[0.011em] lg:tracking-[0.016em]">
+                    <span>What
+                        is Provably
+                        Fair</span>
+                </div>
+            </div>
+        </div>
+        <div class="px-[20px] py-[10px] bg-[#1b1c1d] border-b border-opacity-[0.1] border-[#ffffff]">
+            <div class="flex items-center gap-[10px]">
+                <div>
+                    <img src="/assets/icons/client.72620f2a0ac61808.svg" alt="">
+                </div>
+                <div class="text-[14px] text-[#ffffff] font-light tracking-[0.015em] -translate-y-0.5">
+                    <span>Client (your) seed:</span>
+                </div>
+            </div>
+            <div class="text-[#9b9c9e] text-[14px] tracking-[0.015em]  lg:tracking-[0.017em] font-light lg:ml-9">
+                <span>Round result is determined form combination of server seed and first 3 bets of the round.</span>
+            </div>
+            <div class="flex  justify-center mt-[10px] w-full">
+                <div
+                    class="flex lg:w-[689px]  bg-[#151616] rounded-[8px]  py-2.5 ps-[20px] pe-[10px] items-center -translate-x-0.5  w-full">
+                    <div class="flex  flex-col lg:flex-row justify-between w-full">
+                        <div class="flex items-center gap-[5px]">
+                            <!-- <input type="radio" class="h-[16px] w-[16px]"> -->
+                            <input (click)="changeSelectedOption(random.value)" #random
+                                class="relative h-[16px] w-[16px] appearance-none rounded-full border border-solid border-green-500 before:pointer-events-none before:absolute before:h-[8px] before:w-[8px] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:content-[''] after:absolute after:z-[1] after:block after:h-[8px] after:w-[8px] after:rounded-full after:content-[''] checked:border-green-500 checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[8px] checked:after:w-[8px] checked:after:rounded-full checked:after:border-green-500 checked:after:bg-green-500 checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04]"
+                                type="radio" value="random" name="RadioDefault" id="radioDefault01"
+                                [checked]="selectedOption==='random'" />
+                            <div>
+                                <h2 class="text-[#868B8D] tracking-[0.02em] font-light text-[14px]">Random on every new
+                                    game </h2>
+                            </div>
+                        </div>
+                        <div [ngClass]="[selectedOption==='manual'? 'opacity-30' :'opacity-100']"
+                            class="bg-[#000] lg:w-[400px] flex justify-between items-center gap-1 pe-[23px] pt-[10px] pb-[12px] ps-[20px] mt-[5px] rounded-[24px]">
+                            <div class="">
+                                <span class="text-[14px] text-[#868B8D]">Current: </span>
+                                <span class="text-[14px] text-[#ffffff]">8CJHFf7tU47rwqTnAwDC</span>
+                            </div>
+                            <div class="h-[16px] w-[16px] cursor-pointer translate-x-1"><img
+                                    src="/assets/icons/copy.4a0d60bc14e7330f.svg" alt="" class="h-full w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex  justify-center mt-[10px] w-full">
+                <div
+                    class="flex lg:w-[689px]  bg-[#151616] rounded-[8px]  py-[10px] ps-[20px] pe-[10px] items-center ms-[1px] w-full">
+                    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center w-full">
+                        <div class="flex items-center gap-[5px] w-full">
+                            <!-- <input type="radio" class="h-[16px] w-[16px]"> -->
+                            <input (click)="changeSelectedOption(manualSeed.value)" #manualSeed
+                                class="relative h-[16px] w-[16px] appearance-none rounded-full border border-solid border-green-500 before:pointer-events-none before:absolute before:h-[8px] before:w-[8px] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:content-[''] after:absolute after:z-[1] after:block after:h-[8px] after:w-[8px] after:rounded-full after:content-[''] checked:border-green-500 checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[8px] checked:after:w-[8px] checked:after:rounded-full checked:after:border-green-500 checked:after:bg-green-500 checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04]"
+                                type="radio" name="RadioDefault" id="radioDefault01" value="manual"
+                                [checked]="selectedOption==='manual'" />
+                            <div>
+                                <h2 class="text-[#868B8D] font-light text-[14px]">Enter manually </h2>
+                            </div>
+                        </div>
+                        <div [ngClass]="[selectedOption==='random'? 'opacity-30' :'opacity-100']"
+                            class="flex flex-col lg:flex-row gap-[10px] items-center w-full">
+                            <div
+                                class="bg-[#000] lg:w-[296.2px] flex justify-between items-center gap-1 pe-[23px] pt-[10px] pb-[12px] ps-[20px] mt-[5px] rounded-[24px] w-full">
+                                <div class="">
+                                    <span class="text-[14px] text-[#868B8D]">Current: </span>
+                                    <span class="text-[14px] text-[#ffffff]">8CJHFf7tU47rwqTnAwDC</span>
+                                </div>
+                                <div class="h-[16px] w-[16px] cursor-pointer translate-x-1"><img
+                                        src="/assets/icons/copy.4a0d60bc14e7330f.svg" alt="" class="h-full w-full">
+                                </div>
+                            </div>
+                            <button (click)="openChangeSeedModal()"
+                                class="border border-[#b2f2a3] bg-[#28a909] h-[30px] w-[89.8px] flex items-center justify-center text-[#ffffff] text-[16px] rounded-[20px]">
+                                CHANGE
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="pt-[10px] px-[20px] pb-[20px] bg-[#1b1c1d]">
+            <div class="flex items-center gap-[10px]">
+                <div class="w-[32px] h-[31px]">
+                    <img src="/assets/icons/server.14ac68b338b918d9.svg" alt="" class="h-full w-full">
+                </div>
+                <div>
+                    <span class="text-[14px] text-[#ffffff]">Server seed SHA256:</span>
+                </div>
+            </div>
+            <div class="mt-[18px] flex justify-center lg:w-">
+                <!-- <button class="text-[#ffffff] w-full h-[46px] text-[14px] bg-[#000] me-[8px] rounded-[24px]"><span>
+                            bb776c45b7160808915d8a1e9f88a6a465d1ca36d9436bb7927e5caa576694b8 </span>
+                    </button> -->
+                <input
+                    class="bg-[#000] w-full text-[14px] lg:w-[573.44px] px-5 py-3 font-light  border-0 rounded-3xl text-white"
+                    type="text" name="serverSeed" id="serverSeed"
+                    value="bb776c45b7160808915d8a1e9f88a6a465d1ca36d9436bb7927e5caa576694b8 " readonly>
+
+            </div>
+        </div>
+        <div class="text-center bg-[#2c2d30] p-[20px] rounded-b-[8px]">
+            <div class="text-[14px] text-[#868B8D] tracking-[0.011em]">You can check fairness of each bet from bets
+                history
+            </div>
+        </div>
+        <!-- Change Seed Modal here -->
+        <app-change-seed-modal></app-change-seed-modal>
+        @if(changeSeedModalState){
+        <div class="bg-[rgba(23,_30,_35,_.8)] fixed inset-0 overflow-hidden z-[1520]  "></div>
+        }
+    </div>
+
+</div>

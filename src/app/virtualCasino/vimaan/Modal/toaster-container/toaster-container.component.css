@@ -1,0 +1,27 @@
+/* .toaster-show {
+  animation: slideIn 300ms ease-in-out forwards;
+}
+
+.toaster-hide {
+  animation: slideout 300ms ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0 !important;
+    top: 150px;
+  }
+  to {
+    opacity: 100;
+    top: 80px;
+  }
+}
+@keyframes slideout {
+  from {
+    opacity: 100 !important;
+    top: -100px;
+  }
+  to {
+    opacity: 0;
+  }
+} */

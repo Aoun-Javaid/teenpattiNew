@@ -31,6 +31,7 @@ import { VirtualTopcardsComponent } from './virtualCasino/virtual-topcards/virtu
 import { LiveRouletteComponent } from './newCasino/live-roulette/live-roulette.component';
 import { LauncherComponent } from './auth/launcher/launcher.component';
 import { CanvasIframesComponent } from './components/canvas-iframes/canvas-iframes.component';
+import { MainComponent } from './virtualCasino/vimaan/main/main.component';
 
 
 
@@ -149,6 +150,10 @@ export const routes: Routes = [
       {
         path: 'live-roulette',
         component: LiveRouletteComponent
+      },
+      {
+        path: 'vimaan',
+        component: MainComponent
       },
       {
         path: 'casino',

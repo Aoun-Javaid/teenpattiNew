@@ -1,0 +1,62 @@
+<div [ngClass]="{' top-[1.1%] s375:top-[1.2%] s390:top-[0.9%] s540:top-[1.1%]  md:top-[2.8%]  m820:top-[2.4%] m910:top-[2.1%] lg:top-[2%] xl:top-[3.5%] fadeIn': howToPlayState, '  pointer-events-none fadeOut':  !howToPlayState}"
+    class="absolute  top-[0.5%] left-2 right-2 duration-300   md:max-w-[500px] md:min-w-[500px] !overflow-auto   md:left-[16.5%] m820:left-[18.6%] m910:left-[21.8%] lg:min-w-[800px] lg:max-w-[800px] lg:left-[10.2%]  xl:left-[21.65%] z-[1500] bg-[rgb(37,40,48)]  h-fit border-transparent border-0 rounded-lg">
+    <div class="bg-[#E69308] px-2.5 border-0 rounded-t-lg h-9 flex justify-between items-center">
+
+        <h3 class=" text-base text-[#965419]  tracking-[0.008em] font-['Inter'] font-light">
+            HOW TO PLAY?</h3>
+
+        <button (click)="closeRulesModal()"
+            class="text-[#49290c] -translate-y-0.5 cursor-pointer text-[24px] font-bold font-['Nunito'] leading-none opacity-50 ![text-shadow:_0_1px_0_#97a4ae]">
+            x
+        </button>
+    </div>
+    <div class=" bg-[#f5a623]  w-full h-full pb-[14px] ">
+        <div class="w-full pt-4 h-full">
+            <iframe class="w-full h-[200px] lg:h-[500px] xl:h-[450px]"
+                src="https://www.youtube.com/embed/PZejs3XDCSY?si=T5PvikdVbYAZ0vxD" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <ul class="flex flex-col justify-center items-center">
+            <li class="flex flex-row justify-start items-center font-['Inter'] gap-7 px-5 py-2 w-full lg:pl-1">
+                <div class="flex justify-center gap-1 items-center pl-2">
+                    <h4 class="text-[18px] font-bold text-[#5f3816]">01</h4>
+                    <img class="w-[68px] h-10 s540:w-10" src="/assets/icons/01-bet.825ca2bc7c7b97a6.svg" alt="make bet">
+                </div>
+                <div>
+                    <p class="text-sm text-[#5f3816] font-light">Make a bet, or even two at same time and wait for the
+                        round to
+                        start. </p>
+                </div>
+            </li>
+            <li class="flex flex-row justify-start items-center font-['Inter'] gap-7 px-5 py-2 w-full lg:pl-1">
+                <div class="flex justify-center gap-1 items-center pl-2">
+                    <h4 class="text-[18px] font-bold text-[#5f3816]">02</h4>
+                    <img class="w-[90px] h-10 s540:w-10" src="/assets/icons/02-watch.ea80a7e88f9b36d2.svg"
+                        alt="make bet">
+                </div>
+                <div>
+                    <p class="text-sm text-[#5f3816] font-light">Look after the lucky plane. Your win is bet multiplied
+                        by a coefficient of lucky plane. </p>
+                </div>
+            </li>
+            <li
+                class="flex flex-row justify-start s540:justify-start s540:-translate-x-2.5 md:translate-x-0 items-center font-['Inter'] gap-[18px] s540:gap-7 w-full px-5 py-2 lg:pl-1">
+                <div class="flex justify-center  gap-1 items-center pl-2">
+                    <h4 class="text-[18px] font-bold text-[#5f3816]">03</h4>
+                    <img class="w-[68px] h-10 s540:w-10" src="/assets/icons/03-cashout.a17abd692baf4849.svg"
+                        alt="make bet">
+                </div>
+                <div>
+                    <p class="text-sm text-[#5f3816] font-light">Cash Out before plane flies away and money is yours!
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="bg-[#E69308] px-2.5 border-0 rounded-b-lg h-9 flex justify-center items-center">
+        <a (click)="openDetailedRulesModal()"
+            class="font-light text-[#5f3816] text-sm leading-none cursor-pointer">detailed rules</a>
+    </div>
+</div>
