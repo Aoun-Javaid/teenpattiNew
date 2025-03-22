@@ -1396,6 +1396,45 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
         break;
 
+
+
+            case this.width >= 435:
+        if (this.isMobileInfo !== 'iOS') {
+          this.cardSize = 5;
+          this.hiddenCardSize = 37;
+          this.cardStartPointX = this.width * 0.47;
+          this.cardStartPointY = this.height * 0.49;
+          this.cardEndPointY = this.cardStartPointY + 34;
+          this.leftCard1EndPositionX = 143;
+          this.leftCard2EndPositionX = 90;
+          this.leftCard3EndPositionX = 37;
+          this.rightCard1EndPositionX = 17;
+          this.rightCard2EndPositionX = 70;
+          this.rightCard3EndPositionX = 123;
+          this.hiddenCardEndPointX = this.width * 0.15;
+          this.hiddenCardEndPointY = this.height * 0.45;
+        } else {
+          this.cardSize = 50;
+          this.hiddenCardSize = 39;
+          this.cardStartPointX = this.width * 0.34;
+          this.cardStartPointY = this.height * 0.48;
+          this.cardEndPointY = this.cardStartPointY + 40;
+          this.leftCard1EndPositionX = 120;
+          this.leftCard2EndPositionX = 70;
+          this.leftCard3EndPositionX = 20;
+          this.rightCard1EndPositionX = 40;
+          this.rightCard2EndPositionX = 90;
+          this.rightCard3EndPositionX = 140;
+          this.hiddenCardEndPointX = this.width * 0.15;
+          this.hiddenCardEndPointY = this.height * 0.45;
+        }
+
+        break;
+
+
+
+
+
       case this.width >= 390 && this.height <= 610:
         if (this.isMobileInfo !== 'iOS') {
           this.cardSize = 5;

@@ -7,8 +7,10 @@ import { FormsModule } from '@angular/forms';
 import { NetworkService } from '../../../services/network.service';
 import { IndexedDbService } from '../../../services/indexed-db.service';
 import { ToggleService } from '../../../services/toggle.service';
-import { ToastrService } from 'ngx-toastr';
+
 import { CONFIG, STACK_VALUE } from '../../../../../config';
+import { ToasterContainerComponent } from "../Modal/toaster-container/toaster-container.component";
+import { ToasterService } from '../../../services/toaster.service';
 
 
 @Component({
@@ -19,7 +21,8 @@ import { CONFIG, STACK_VALUE } from '../../../../../config';
     VimaanGameComponent,
     BetHistoryComponent,
     FormsModule,
-  ],
+    ToasterContainerComponent
+],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })
@@ -72,7 +75,7 @@ export class MainComponent implements OnInit {
     private networkService: NetworkService,
     private indexedDb: IndexedDbService,
     private toggle: ToggleService,
-    private toaster: ToastrService
+    private toaster: ToasterService
   ) {}
 
   ngOnInit() {
@@ -346,32 +349,32 @@ export class MainComponent implements OnInit {
     } else {
       if (betNumber === 1) {
         if (!this.selectedStake) {
-          this.toaster.error('Please select the stake First.');
+          this.toaster.showError('Please select the stake First.');
           return;
         }
         this.isBetPlacedBtn1 = true;
       }
       if (betNumber === 2) {
         if (!this.selectedStake2 && this.isMobile) {
-          this.toaster.error('Please select the stake First.');
+          this.toaster.showError('Please select the stake First.');
           return;
         }
         if (!this.selectedStake && !this.isMobile) {
-          this.toaster.error('Please select the stake First.');
+          this.toaster.showError('Please select the stake First.');
           return;
         }
         this.isBetPlacedBtn2 = true;
       }
       if (betNumber === 3) {
         if (!this.selectedStake) {
-          this.toaster.error('Please select the stake First.');
+          this.toaster.showError('Please select the stake First.');
           return;
         }
         this.isBetPlacedBtn3 = true;
       }
       if (betNumber === 4) {
         if (!this.selectedStake) {
-          this.toaster.error('Please select the stake First.');
+          this.toaster.showError('Please select the stake First.');
           return;
         }
         this.isBetPlacedBtn4 = true;
@@ -486,18 +489,18 @@ export class MainComponent implements OnInit {
                 // this.toaster.error(errorObject[key].message, '', {
 
                 // });
-                this.toaster.error(errorObject[key].message);
+                this.toaster.showError(errorObject[key].message);
                 return;
               }
             } else {
               // this.toaster.error(errorObject, '', {
 
               // });
-              this.toaster.error(errorObject);
+              this.toaster.showError(errorObject);
               return;
             }
           } else {
-            this.toaster.error('Hey, looks like something went wrong.');
+            this.toaster.showError('Hey, looks like something went wrong.');
             // this.toaster.error('Hey, looks like something went wrong.', '', {
 
             // });
@@ -540,18 +543,18 @@ export class MainComponent implements OnInit {
                 // this.toaster.error(errorObject[key].message, '', {
 
                 // });
-                this.toaster.error(errorObject[key].message);
+                this.toaster.showError(errorObject[key].message);
                 return;
               }
             } else {
               // this.toaster.error(errorObject, '', {
 
               // });
-              this.toaster.error(errorObject);
+              this.toaster.showError(errorObject);
               return;
             }
           } else {
-            this.toaster.error('Hey, looks like something went wrong.');
+            this.toaster.showError('Hey, looks like something went wrong.');
             // this.toaster.error('Hey, looks like something went wrong.', '', {
 
             // });
@@ -569,7 +572,7 @@ export class MainComponent implements OnInit {
         (data) => {
           if (data && data.data && Array.isArray(data.data)) {
             data.data.forEach((element: any) => {
-              this.toaster.success(
+              this.toaster.showSuccess(
                 element.cashout.toFixed(2),
                 element.cashOutAtMultiplier
               );
@@ -606,18 +609,18 @@ export class MainComponent implements OnInit {
                 // this.toaster.error(errorObject[key].message, '', {
 
                 // });
-                this.toaster.error(errorObject[key].message);
+                this.toaster.showError(errorObject[key].message);
                 return;
               }
             } else {
               // this.toaster.error(errorObject, '', {
 
               // });
-              this.toaster.error(errorObject);
+              this.toaster.showError(errorObject);
               return;
             }
           } else {
-            this.toaster.error('Hey, looks like something went wrong.');
+            this.toaster.showError('Hey, looks like something went wrong.');
             // this.toaster.error('Hey, looks like something went wrong.', '', {
 
             // });
@@ -669,7 +672,7 @@ export class MainComponent implements OnInit {
           this.playCashoutSound();
 
           this.mybetsManager();
-          this.toaster.success(
+          this.toaster.showSuccess(
             data.data[0].cashout.toFixed(2),
             cashOutAtMultiplier
           );
@@ -687,18 +690,18 @@ export class MainComponent implements OnInit {
                 // this.toaster.error(errorObject[key].message, '', {
 
                 // });
-                this.toaster.error(errorObject[key].message);
+                this.toaster.showError(errorObject[key].message);
                 return;
               }
             } else {
               // this.toaster.error(errorObject, '', {
 
               // });
-              this.toaster.error(errorObject);
+              this.toaster.showError(errorObject);
               return;
             }
           } else {
-            this.toaster.error('Hey, looks like something went wrong.');
+            this.toaster.showError('Hey, looks like something went wrong.');
             // this.toaster.error('Hey, looks like something went wrong.', '', {
 
             // });
