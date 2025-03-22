@@ -1,0 +1,163 @@
+<div [ngClass]="{' top-[1.1%] s375:top-[1.2%] s390:top-[0.9%] s540:top-[1.1%]  md:top-[2.8%]  m820:top-[2.4%] m910:top-[2.1%] lg:top-[2%] xl:top-[3%]  fadeIn': provablyFairDetailState, '  pointer-events-none fadeOut': !provablyFairDetailState}"
+    class="absolute top-[0.5%] left-2 right-2 mb-2   font-['Inter'] duration-300   md:max-w-[500px] md:min-w-[500px]   md:left-[16.5%] m820:left-[18.6%] m910:left-[21.8%] lg:min-w-[800px] lg:max-w-[800px] lg:left-[22.3%]  z-[1500] bg-[rgb(37,40,48)]  max-h-fit border-transparent border-0 rounded-lg">
+    <div class="bg-[#2c2d30] px-2.5 border-0 rounded-t-lg h-9 flex justify-between items-center w-full">
+        <div class="flex flex-row justify-center items-center gap-1">
+            <h3 class=" text-base text-white  tracking-[0.008em] font-['Inter'] font-light">
+                ROUND {{bet.roundId}}</h3>
+            <div class="flex flex-row justify-center items-center gap-[7px]">
+                <div [ngStyle]="{'color': bet.color}"
+                    class=" cursor-pointer font-semibold   text-[12px] py-0.5 px-1.5  bg-[#00000080] border-0 rounded-[11px] box-border">
+                    {{bet.betResult}}x
+                </div>
+                <div class="text-white font-light text-[14px]">
+                    {{bet.time | date:'HH:mm:ss'}}
+                </div>
+            </div>
+        </div>
+
+        <button (click)="closeProvablyFairsDetail()"
+            class="text-[#97a4ae] -translate-y-0.5 cursor-pointer text-[24px] font-bold font-['Nunito'] leading-none opacity-50 ![text-shadow:_0_1px_0_#97a4ae]">
+            x
+        </button>
+    </div>
+    <div class="p-4 lg:px-12  w-full bg-[#1b1c1d]  max-h-fit lg:max-h-[88svh] overflow-auto">
+        <div class="flex justify-start gap-2.5 items-center">
+            <div>
+                <img class="w-8 h-[31px]" src="/server.d1f55f15e704c606.svg" alt="server">
+            </div>
+            <div class="leading-none tracking-[0.008em]">
+                <h4 class="text-[14px] text-white font-light">Server Seed:</h4>
+                <p class="text-[14px] mt-[3px] text-[#ffffff80] font-light">Generated on our side</p>
+            </div>
+        </div>
+        <div class=" w-full mt-2  ">
+            <input class="bg-[#0707084d] w-full text-[14px] px-5 py-3 font-light  border-0 rounded-md text-white"
+                type="text" name="serverSeed" id="serverSeed" value="d4Oqj1NMANZF8wSyRM9lMoVVgiuWYAhHyZM36h3k" readonly>
+        </div>
+
+        <div class="flex justify-start gap-2.5 items-center mt-[18px]">
+            <div>
+                <img class="w-8 h-[25px]" src="/client.1a7adfbd8896f09e.svg" alt="client">
+            </div>
+            <div class="leading-none tracking-[0.008em]">
+                <h4 class="text-[14px] text-white font-light">Client Seed:</h4>
+                <p class="text-[14px] mt-[3px] text-[#ffffff80] font-light">Generated on players side</p>
+            </div>
+        </div>
+        <div
+            class="bg-[#0707084d] px-5 pt-1 mb-[5px] border-0 rounded-md mt-2 h-[56px] lg:h-[43px] lg:flex lg:justify-start lg:items-center gap-20">
+            <div class="flex flex-row justify-center items-center gap-2">
+                <div class="text-[#ffffff80] text-[14px] font-light ">
+                    Player N1:
+                </div>
+                <div>
+                    <img class="w-[30px] h-[30px]" src="/assets/av-4.png" alt="user_img">
+                </div>
+                <div class="text-white leading-[14px] text-[14px] ">
+                    d***1
+                </div>
+            </div>
+            <div class="flex flex-row justify-center items-center gap-2.5">
+                <div class="text-[#ffffff80] text-[14px] font-light">
+                    Seed:
+                </div>
+                <div class="text-white text-[14px] font-light tracking-[0.01em]">
+                    H4hVmVRJ1WxNaaKsibRg
+                </div>
+            </div>
+        </div>
+        <div
+            class="bg-[#0707084d] px-5 pt-1 mb-[5px] border-0 rounded-md mt-1 h-[56px] lg:h-[43px] lg:flex lg:justify-start lg:items-center gap-20">
+            <div class="flex flex-row justify-center items-center gap-2">
+                <div class="text-[#ffffff80] text-[14px] font-light ">
+                    Player N2:
+                </div>
+                <div>
+                    <img class="w-[30px] h-[30px]" src="/assets/av-4.png" alt="user_img">
+                </div>
+                <div class="text-white leading-[14px] text-[14px] ">
+                    d***5
+                </div>
+            </div>
+            <div class="flex flex-row justify-center items-center gap-2.5">
+                <div class="text-[#ffffff80] text-[14px] font-light">
+                    Seed:
+                </div>
+                <div class="text-white text-[14px] font-light tracking-[0.01em] ">
+                    4sk5iS1dDFjw9uAmXUZu
+                </div>
+            </div>
+        </div>
+        <div
+            class="bg-[#0707084d] px-5 pt-1 mb-[5px] border-0 rounded-md mt-1 h-[56px] lg:h-[43px] lg:flex lg:justify-start lg:items-center gap-20">
+            <div class="flex flex-row justify-center items-center gap-2">
+                <div class="text-[#ffffff80] text-[14px] font-light ">
+                    Player N3:
+                </div>
+                <div>
+                    <img class="w-[30px] h-[30px]" src="/assets/av-4.png" alt="user_img">
+                </div>
+                <div class="text-white leading-[14px] text-[14px] ">
+                    d***1
+                </div>
+            </div>
+            <div class="flex flex-row justify-center items-center gap-2.5">
+                <div class="text-[#ffffff80] text-[14px] font-light">
+                    Seed:
+                </div>
+                <div class="text-white text-[14px] font-light tracking-[0.01em]">
+                    EAVBMoP9HLhvOq5Ef9Ae
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-start gap-2.5 items-center mt-[25px] w-full">
+
+            <img class="w-8 h-[30px]" src="/hash.99b8c40ac31b3e06.svg" alt="hash">
+
+            <div class="leading-none tracking-[0.008em] ">
+                <h4 class="text-[14px] text-white font-light">Combined SHA512 Hash:</h4>
+                <p class="text-[14px] mt-[3px] text-[#ffffff80] font-light"> Above seeds combined and converted to
+                    SHA512 Hash. This is your game result </p>
+            </div>
+        </div>
+        <div class=" w-full mt-2  ">
+            <input class="bg-[#0707084d] w-full text-[14px] px-5 py-3 font-light  border-0 rounded-md text-white"
+                type="text" name="serverSeed" id="serverSeed"
+                value="ecc2681930ba4f00f827fe87b190a8057e682bc5583eef229b0961e1c07f85fc36004e4495968becf49dd2b7f263f8e98e791e9fe2a97560acaba81fd865eb7f"
+                readonly>
+        </div>
+        <div class="lg:flex lg:flex-row justify-center items-center  w-full">
+            <div class="text-center mt-[15px] lg:mt-0 w-full">
+                <h3 class="mb-1 text-[#ffffff80] text-[14px] font-light">Hex:</h3>
+                <div
+                    class="bg-[#0707084d] text-white flex justify-center items-center  text-[14px] font-['Inter'] mb-1.5 py-3 font-light border-0 rounded-md max-h-[38px]">
+                    ecc2681930ba4
+                </div>
+            </div>
+            <div class="text-center  w-full">
+                <h3 class="mb-1 text-[#ffffff80] text-[14px] font-light">Decimal:</h3>
+                <div
+                    class="bg-[#0707084d] text-white flex justify-center items-center text-[14px] font-['Inter'] mb-1.5 py-3 font-light border-0 rounded-md max-h-[38px]">
+                    4165115428670372
+                </div>
+            </div>
+            <div class="text-center w-full ">
+                <h3 class="mb-1 text-[#ffffff80] text-[14px] font-light">Result:</h3>
+                <div
+                    class="bg-[#0707084d] text-white flex justify-center items-center text-[14px] font-['Inter'] mb-1.5 py-3 font-light border-0 rounded-md max-h-[38px]">
+                    5102.92
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div
+        class="bg-[#2c2d30] border-0 rounded-b-lg w-full h-[70px] xxm:h-[48px] font-['Inter'] flex justify-center items-center p-2.5">
+        <div class="m-1 text-[14px] text-[#ffffff80] font-light text-center ">
+            For instructions check <a (click)="openProvablyFairModal()" class="text-[#e30c32] cursor-pointer"> What is
+                Provably Fair </a>
+        </div>
+
+    </div>
+
+</div>

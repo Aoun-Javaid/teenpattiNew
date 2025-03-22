@@ -179,7 +179,7 @@ export class TeenpattiNewComponent implements OnInit, OnDestroy {
         if (value.show) {
           this.selectedResult = value;
           this.isShow = value.show;
-          console.log('selected result', this.selectedResult);
+          // console.log('selected result', this.selectedResult);
         }
       });
 

@@ -1,0 +1,6 @@
+@for (item of currentToasts; track $index) {
+<app-toaster [ngStyle]="{ 'top': (150 + $index*70) + 'px' }" class=" fixed z-[1500] duration-300 left-[5px] xm:left-[10%] s390:left-[15%]
+    lg:left-1/3 font-['Inter'] mb-3" [ngClass]="{'-translate-y-10': item.Type , ' -translate-y-full': !item.Type }"
+    [betCashOutAmount]="item.cashOutVal" [betMultiVal]="item.betMultiVal" [errorMsg]="item.Message"
+    [toasterType]="item.Type" (disposeEvent)="dispose($index)"></app-toaster>
+}

@@ -354,7 +354,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
   gotoEvent(event:any){
-    console.log(event);
+    // console.log(event);
     if(event.providerTitle=='Universe'){
       this.networkService.goToMarketCurrent(event.gameId);
     }
@@ -553,7 +553,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
         300: {
           slidesPerView: 3,
           slidesPerGroup: 3,
-          spaceBetween: 6,
+          spaceBetween: 3,
           grid: {
             rows: rows,
             fill: 'row',
@@ -562,12 +562,12 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
         768: {
           slidesPerView: 4,
           slidesPerGroup: 3,
-          spaceBetween: 6,
+          spaceBetween: 4,
         },
         1024: {
           slidesPerView: 7.5,
           slidesPerGroup: 6,
-          spaceBetween: 10,
+          spaceBetween: 7.5,
         },
       },
     };

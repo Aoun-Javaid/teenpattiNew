@@ -49,6 +49,15 @@ export const CONFIG = {
   getAllMarketplURL: BASE_URL + '/v2/operator/user/userBetProfitLoss',
 
   authlaunch: BASE_URL + "/v2/operator/auth",
+
+  AviatorPlacebet: BASE_URL + '/casinoapp/exchange/users/casino/placebet',
+  AviatorcashOut: BASE_URL + '/casinoapp/exchange/users/casino/cashOut',
+  AviatorBetClear: BASE_URL + '/casinoapp/exchange/users/casino/betClear',
+
+  getAutoCashoutMultiplier:
+  BASE_URL + '/casinoapp/exchange/users/casino/getAutoCashoutMultiplier',
+  setAutoCashoutMultiplier:
+  BASE_URL + '/casinoapp/exchange/users/casino/setAutoCashoutMultiplier',
 };
 
 

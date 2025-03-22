@@ -1,6 +1,8 @@
 @import "swiper/css";
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+Nag+Mundari:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -1530,5 +1532,36 @@ body {
   }
   100% {
     transform: translateY(0);
+  }
+}
+.all-bet {
+  background-color: rgb(44, 45, 48);
+}
+
+input [type="”radio”"] {
+  background-color: #38ca07;
+}
+.fadeIn {
+  animation: fadeIn 150ms ease-out forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 100ms ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    display: block;
+  }
+  to {
+    display: none;
+  }
+}
+@keyframes fadeIn {
+  from {
+    display: none;
+  }
+  to {
+    display: block;
   }
 }

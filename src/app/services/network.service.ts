@@ -15,7 +15,8 @@ export class NetworkService {
     any | null
   >(null);
   private betPlaceObj = new Subject<any>();
-
+  private aviatorResultList: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
+  private userCount = new Subject<any>();
   constructor(
     private http: HttpClient,
     private toaster: ToastrService,
@@ -210,7 +211,7 @@ export class NetworkService {
       '99.0018': '/Ndt',
       '99.0001': '/live-baccarat',
       '99.0061': '/sic-bo',
-      '88.0022': '/casino',
+      '88.0022': '/vimaan',
       '88.0023': '/casino',
       '88.0013': '/Vdt',
 
@@ -218,6 +219,22 @@ export class NetworkService {
 
     const matchedRoute = eventRoutes[eventid];
     this.router.navigateByUrl(matchedRoute ? matchedRoute : '/home');
+  }
+
+
+
+  public getaviatorResultList(): Observable<any> {
+    return this.aviatorResultList.asObservable();
+  }
+
+  public updateaviatorResultList(message: any): void {
+    this.aviatorResultList.next(message);
+  }
+  setUserCount(count: any) {
+    this.userCount.next(count);
+  }
+  getUserCout() {
+    return this.userCount
   }
 }
 

@@ -1,0 +1,44 @@
+<div [ngClass]="{' top-[1.1%] s375:top-[1.2%] s390:top-[0.9%] s540:top-[1.1%]  md:top-[2.8%]  m820:top-[2.4%] m910:top-[2.1%] lg:top-[2%] xl:top-[3.5%] fadeIn': gameLimitState, '  pointer-events-none fadeOut': !gameLimitState}"
+    class="absolute  top-[0.5%] duration-300 left-2 right-2   md:max-w-[500px] md:min-w-[500px] !overflow-auto   md:left-[17.5%] m820:left-[18.6%] m910:left-[21.8%]  lg:left-[22%]  xl:left-[32.6%] z-[1500] bg-[#2c2d30]  h-fit border-transparent border-0 rounded-lg">
+    <div class="flex h-[36px] items-center justify-between  ps-[15px] pe-[10px] w-full">
+        <div class="-translate-x-1">
+            <h2 class="text-[16px] text-[#ffffff] font-light tracking-[0.03em]">GAME LIMITS</h2>
+        </div>
+        <div (click)="closeGameLimitModal()"
+            class="overlay text-[#97A4AE] cursor-pointer opacity-50 text-[24px] font-[700] ">×
+        </div>
+    </div>
+    <div class="py-[30px]  px-[16px] bg-[#1b1c1d]  w-full">
+        <ul>
+            <li
+                class="flex min-h-[34px] max-h-[34px] flex-row justify-between items-center text-white text-[14px] py-1 rounded-t-md pl-2.5 pr-[5px] font-light border border-solid border-[rgba(255,_255,_255,_.1)]">
+                <div class="tracking-[0.02em]">
+                    Minimum bet USD:
+                </div>
+                <div
+                    class="bg-[#123405] max-h-[23px]  tracking-[0.015em]  border border-solid border-[#427f00] rounded-[11px] text-[14px] px-2.5 py-1 text-white leading-none">
+                    0.10
+                </div>
+            </li>
+            <li
+                class="flex flex-row min-h-[34px] max-h-[34px] justify-between items-center text-white text-[14px] py-1 pl-2.5 pr-[5px] font-light border border-t-0 border-solid border-[rgba(255,_255,_255,_.1)]">
+                <div class="tracking-[0.02em]">
+                    Maximum bet USD:
+                </div>
+                <div
+                    class="bg-[#123405] tracking-[0.015em] max-h-[23px]  border border-solid border-[#427f00] rounded-[11px] text-[14px] px-2.5 py-1 text-white leading-none">
+                    100.00
+                </div>
+            </li>
+            <li
+                class="flex flex-row min-h-[34px] max-h-[34px] justify-between items-center text-white text-[14px] rounded-b-md border-t-0 py-1 pl-2.5 pr-[5px] font-light border border-solid border-[rgba(255,_255,_255,_.1)]">
+                <div class="tracking-[0.02em]">
+                    Maximum win for one bet USD:
+                </div>
+                <div
+                    class="bg-[#123405] tracking-[0.015em] max-h-[23px]  border border-solid border-[#427f00] rounded-[11px] text-[14px] px-2.5 py-1 text-white leading-none">
+                    10,000.00
+                </div>
+            </li>
+        </ul>
+    </div>

@@ -1,0 +1,29 @@
+<div [ngClass]="{' top-[1.1%] s375:top-[1.2%] s390:top-[0.9%] s540:top-[1.1%]  md:top-[2.8%]  m820:top-[2.4%] m910:top-[2.1%] lg:top-[3.3%]  fadeIn': changeAvatarModalState, '  pointer-events-none fadeOut': !changeAvatarModalState}"
+    class="absolute   duration-300 left-2 right-2   md:max-w-[500px] md:min-w-[500px]  lg:max-w-[800px] lg:min-w-[800px] !overflow-auto   md:left-[17.5%] m820:left-[18.6%] m910:left-[21.8%]  lg:left-[22.2%]   z-[1500] bg-[#2c2d30]  h-fit border-transparent border-0 rounded-lg">
+    <div class=" relative">
+        <div class=" flex h-[36px] items-center justify-between ps-2.5 pe-[10px]">
+            <div>
+                <h2 class="text-[16px] font-light tracking-wide lg:tracking-[0.030em] text-[#ffffff]"> CHOOSE GAME
+                    AVATAR </h2>
+            </div>
+            <div (click)="closeChangeAvatarModal()"
+                class="overlay text-[#97A4AE] opacity-90 cursor-pointer text-[24px] font-[700]">×
+            </div>
+        </div>
+        <div
+            class="flex flex-col lg:flex-row items-start justify-between lg:items-center p-4  bg-[#1b1c1d] border-b border-[#ffffff] border-opacity-[0.1]">
+            <div class="flex flex-row justify-center flex-wrap items-center ">
+                @for (item of avatarImages; track $index) {
+                <img class="w-[70px] mb-2.5 mr-2.5 h-[70px] border-4 border-solid border-[#333] cursor-pointer rounded-[50%]"
+                    [src]="item.img" alt="av-{{$index}}">
+                }
+            </div>
+        </div>
+        <div class="bg-[#2c2d30] p-2.5 flex justify-center items-center">
+            <button (click)="closeChangeAvatarModal()"
+                class="cursor-pointer border tracking-[0.025em] text-base  border-solid font-light rounded-[20px] border-[#6c757d] text-[#6c757d] leading-normal py-1.5 px-3">
+                Close
+            </button>
+        </div>
+
+    </div>

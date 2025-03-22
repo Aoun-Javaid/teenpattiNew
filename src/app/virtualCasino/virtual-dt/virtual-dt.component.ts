@@ -1315,7 +1315,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
         this.cardEndPointY = this.cardStartPointY + 80;
         this.leftCard1EndPositionX = 40;
         this.rightCard1EndPositionX = 60;
-        this.hiddenCardEndPointX = this.width * 0.11;
+        this.hiddenCardEndPointX = this.width * 0.15;
         this.hiddenCardEndPointY = this.height * 0.41;
 
         break;
@@ -1329,7 +1329,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
           this.cardEndPointY = this.cardStartPointY + 34;
           this.leftCard1EndPositionX = 48;
           this.rightCard1EndPositionX = 28;
-          this.hiddenCardEndPointX = this.width * 0.1;
+          this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         } else {
           this.cardSize = 50;
@@ -1339,7 +1339,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
           this.cardEndPointY = this.cardStartPointY + 60;
           this.leftCard1EndPositionX = 20;
           this.rightCard1EndPositionX = 40;
-          this.hiddenCardEndPointX = this.width * 0.13;
+          this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         }
 
@@ -1354,7 +1354,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
           this.cardEndPointY = this.cardStartPointY + 34;
           this.leftCard1EndPositionX = 48;
           this.rightCard1EndPositionX = 28;
-          this.hiddenCardEndPointX = this.width * 0.1;
+          this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         } else {
           this.cardSize = 50;
@@ -1379,7 +1379,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
           this.cardEndPointY = this.cardStartPointY + 34;
           this.leftCard1EndPositionX = 37;
           this.rightCard1EndPositionX = 17;
-          this.hiddenCardEndPointX = this.width * 0.1;
+          this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         } else {
           this.cardSize = 50;
@@ -1403,7 +1403,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
           this.cardEndPointY = this.cardStartPointY + 34;
           this.leftCard1EndPositionX = 37;
           this.rightCard1EndPositionX = 17;
-          this.hiddenCardEndPointX = this.width * 0.1;
+          this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         } else {
           this.cardSize = 50;
@@ -1428,7 +1428,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
           this.cardEndPointY = this.cardStartPointY + 34;
           this.leftCard1EndPositionX = 37;
           this.rightCard1EndPositionX = 17;
-          this.hiddenCardEndPointX = this.width * 0.1;
+          this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         } else {
           this.cardSize = 50;
@@ -1452,7 +1452,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
         this.cardEndPointY = this.cardStartPointY + 34;
         this.leftCard1EndPositionX = 37;
         this.rightCard1EndPositionX = 17;
-        this.hiddenCardEndPointX = this.width * 0.1;
+        this.hiddenCardEndPointX = this.width * 0.15;
         this.hiddenCardEndPointY = this.height * 0.45;
 
         break;
@@ -1465,7 +1465,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
         this.cardEndPointY = this.cardStartPointY + 180;
         this.leftCard1EndPositionX = 60;
         this.rightCard1EndPositionX = 60;
-        this.hiddenCardEndPointX = this.width * 0.25;
+        this.hiddenCardEndPointX = this.width * 0.15;
         this.hiddenCardEndPointY = this.height * 0.1;
 
         break;
@@ -1575,63 +1575,63 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
   // 'R' or 'r' animate right cards up/down.
   // 'D' or 'd' trigger the disappearing animation.
   @HostListener('window:keydown', ['$event'])
-  onKeyDown(event: KeyboardEvent): void {
-    switch (event.key) {
-      case '1': {
-        const targetX = this.cardStartPointX - this.leftCard1EndPositionX;
-        this.leftCard1 = this.createCard(
-          'C5_',
-          this.cardStartPointX,
-          this.cardStartPointY,
-          targetX,
-          this.cardEndPointY
-        );
-        break;
-      }
-      case '2': {
-        const targetX = this.cardStartPointX + this.rightCard1EndPositionX;
-        this.rightCard1 = this.createCard(
-          'H4_',
-          this.cardStartPointX,
-          this.cardStartPointY,
-          targetX,
-          this.cardEndPointY
-        );
-        break;
-      }
-      case 'l':
-      case 'L': {
-        if (this.leftCard1) this.animateUpDown(this.leftCard1);
-        break;
-      }
-      case 'r':
-      case 'R': {
-        if (this.rightCard1) this.animateUpDown(this.rightCard1);
-        break;
-      }
-      case 'd':
-      case 'D': {
-        if (this.leftCard1)
-          this.moveAndRemoveCard(
-            this.leftCard1,
-            this.cardStartPointX,
-            this.leftCard1.y
-          );
-        if (this.rightCard1)
-          this.moveAndRemoveCard(
-            this.rightCard1,
-            this.cardStartPointX,
-            this.rightCard1.y
-          );
-        setTimeout(() => {
-          this.createHiddenCard();
-        }, 700);
-        break;
-      }
-      default:
-        break;
-    }
-  }
+  // onKeyDown(event: KeyboardEvent): void {
+  //   switch (event.key) {
+  //     case '1': {
+  //       const targetX = this.cardStartPointX - this.leftCard1EndPositionX;
+  //       this.leftCard1 = this.createCard(
+  //         'C5_',
+  //         this.cardStartPointX,
+  //         this.cardStartPointY,
+  //         targetX,
+  //         this.cardEndPointY
+  //       );
+  //       break;
+  //     }
+  //     case '2': {
+  //       const targetX = this.cardStartPointX + this.rightCard1EndPositionX;
+  //       this.rightCard1 = this.createCard(
+  //         'H4_',
+  //         this.cardStartPointX,
+  //         this.cardStartPointY,
+  //         targetX,
+  //         this.cardEndPointY
+  //       );
+  //       break;
+  //     }
+  //     case 'l':
+  //     case 'L': {
+  //       if (this.leftCard1) this.animateUpDown(this.leftCard1);
+  //       break;
+  //     }
+  //     case 'r':
+  //     case 'R': {
+  //       if (this.rightCard1) this.animateUpDown(this.rightCard1);
+  //       break;
+  //     }
+  //     case 'd':
+  //     case 'D': {
+  //       if (this.leftCard1)
+  //         this.moveAndRemoveCard(
+  //           this.leftCard1,
+  //           this.cardStartPointX,
+  //           this.leftCard1.y
+  //         );
+  //       if (this.rightCard1)
+  //         this.moveAndRemoveCard(
+  //           this.rightCard1,
+  //           this.cardStartPointX,
+  //           this.rightCard1.y
+  //         );
+  //       setTimeout(() => {
+  //         this.createHiddenCard();
+  //       }, 700);
+  //       break;
+  //     }
+  //     default:
+  //       break;
+  //   }
+  // }
 
   // Initiate an up/down (yoyo) animation on the given card.
   private animateUpDown(card: Card): void {

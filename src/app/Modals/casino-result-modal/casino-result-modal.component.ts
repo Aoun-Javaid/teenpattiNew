@@ -30,7 +30,7 @@ export class CasinoResultModalComponent {
       if(value.show){
         this.selectedResult = value;
         this.isShow = value.show;
-        console.log('selected result',this.selectedResult)
+        // console.log('selected result',this.selectedResult)
       }
     })
   }
@@ -44,7 +44,7 @@ export class CasinoResultModalComponent {
 
   toggleExposure() {
     this.isShow = false;
-
+    this.selectedResult=null;
   }
   toggleExposurePasswordVisibility() {
     this.exposurePassword = !this.exposurePassword;

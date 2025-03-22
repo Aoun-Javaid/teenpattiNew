@@ -1,0 +1,37 @@
+<div [ngClass]="{' top-[25%] lg:top-[30%] fadeIn': changeSeedModalState, '  pointer-events-none fadeOut': !changeSeedModalState}"
+    class="absolute  left-[5%] lg:left-[30.7%]  [box-shadow:_0_0_50px_4px_#000000bf] duration-300  max-w-[310px] min-w-[310px]  !overflow-auto   z-[1550] bg-[#2c2d30]  h-fit border-transparent border-0 rounded-lg">
+    <div class="flex h-[36px] items-center justify-between  ps-[10px] pe-[10px] w-full">
+        <div class="">
+            <h2 class="text-[16px] text-[#ffffff] font-light tracking-[0.03em]">CHANGE SEED</h2>
+        </div>
+        <div (click)="closeChangeSeedModalState()"
+            class="overlay text-[#97A4AE] cursor-pointer opacity-50 text-[24px] font-[700] ">×
+        </div>
+    </div>
+    <div class="py-[16px]  px-[10px] bg-[#1b1c1d]  w-full">
+
+        <div class="leading-none  mt-1">
+            <h4 class="text-[14px] text-white  tracking-[0.02em] font-light">Enter new seed:</h4>
+
+        </div>
+        <div class=" w-full mt-2  ">
+            <input
+                class="bg-[#000000] w-full text-[14px] px-[15px] py-[5px] font-light  border-0 rounded-[22px] text-white"
+                type="text" name="serverSeed" id="serverSeed" value="d4Oqj1NMANZF8wSyNZF8wSy">
+        </div>
+        <div
+            class="text-white font-light text-base font-['Inter'] mt-3 w-full flex flex-col justify-center items-center gap-[18px]">
+            <div class="flex justify-center items-center ">
+                <button
+                    class="bg-[#D07206] px-3 py-1.5 w-[135px] h-[30px] rounded-[20px] leading-[1.2] border border-solid border-[#ffbd71] [box-shadow:_inset_0_1px_1px_#ffffff80] [text-shadow:_0_1px_2px_rgba(0,_0,_0,_.5)]">
+                    RANDOM
+                </button>
+            </div>
+            <div class="flex flex-row justify-center items-center gap-2.5">
+                <button
+                    class="bg-[#28a909] px-3 py-1.5 w-[135px] h-[30px] rounded-[20px] leading-[1.2] border border-solid border-[#b2f2a3] [box-shadow:_inset_0_1px_1px_#ffffff80] [text-shadow:_0_1px_2px_rgba(0,_0,_0,_.5)]">SAVE</button>
+                <button
+                    class="bg-[#cb011a] px-3 py-1.5 w-[135px] h-[30px] rounded-[20px] leading-[1.2] border border-solid border-[#ff7171] [box-shadow:_inset_0_1px_1px_#ffffff80] [text-shadow:_0_1px_2px_rgba(0,_0,_0,_.5)]">CANCEL</button>
+            </div>
+        </div>
+    </div>

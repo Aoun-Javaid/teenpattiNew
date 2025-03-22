@@ -1,0 +1,81 @@
+<div [ngClass]="{' top-[1.1%] s375:top-[1.2%] s390:top-[0.9%] s540:top-[1.1%]  md:top-[2.8%]  m820:top-[2.4%] m910:top-[2.1%] lg:top-[2%] xl:top-[3.5%]  fadeIn': provablyFairModalState, '  pointer-events-none fadeOut': !provablyFairModalState}"
+    class="absolute top-[0.5%] left-2 right-2 mb-2   font-['Inter'] duration-300   md:max-w-[500px] md:min-w-[500px]   md:left-[16.5%] m820:left-[18.6%] m910:left-[21.8%] lg:min-w-[800px] lg:max-w-[800px] xl:min-w-[1140px] xl:max-w-[1140px] lg:left-[10.2%]  xl:left-[10.65%] z-[1500] bg-[rgb(37,40,48)]  max-h-fit border-transparent border-0 rounded-lg">
+    <div class="bg-[#2c2d30] px-2.5 border-0 rounded-t-lg h-9 flex justify-between items-center w-full">
+        <h3 class=" text-base text-white  tracking-[0.008em] font-['Inter'] font-light">
+            WHAT IS PROVABLY FAIR?</h3>
+        <button (click)="closeProvablyFairsModal()"
+            class="text-[#97a4ae] -translate-y-0.5 cursor-pointer text-[24px] font-bold font-['Nunito'] leading-none opacity-50 ![text-shadow:_0_1px_0_#97a4ae]">
+            x
+        </button>
+    </div>
+
+    <div class="p-4 w-full bg-[#2d3c27] border-0 rounded-md max-h-fit lg:max-h-[88svh] overflow-auto">
+        <div class="flex flex-col justify-center items-center gap-2.5 ">
+            <div>
+                <img class="w-20 h-[90px]" src="/assets/icons/icon-provabyfair.71eb97eaadfab595.svg" alt="provablyFair">
+            </div>
+            <div class="text-[14px] text-white font-light tracking-[0.008em]">
+                Provably Fair - 100% FAIR GAME
+            </div>
+        </div>
+        <div
+            class="p-2.5 my-5 text-[#9ea0a3] bg-[#0000004d] text-[14px] font-light border-0 rounded-md leading-normal tracking-[0.007em]">
+            "Vimaan" is
+            based on cryptographic
+            technology
+            called
+            "Provably Fair". This technology
+            guarantees 100%
+            fairness of game result. With this technology, it's impossible for any third party to interfere in game
+            process.
+
+        </div>
+        <div class="text-center">
+            <h3 class="text-white font-light text-[14px] tracking-[0.008em]">HOW IT WORKS</h3>
+        </div>
+        <div class="flex flex-col justify-center items-start tracking-[0.005em]">
+            <h3 class="text-[14px] text-white font-light">Quick explanation:</h3>
+            <p class="text-[#9ea0a3] mt-2.5  text-[14px] font-light">
+                Result of each round (Game's "Fly away" multiplier ) is not generated on our servers. It's generated
+                with help of round players and is fully transparent. This way, it's impossible for anyone to manipulate
+                game output. Also, anyone can check and confirm game fairness
+            </p>
+        </div>
+        <div class="flex flex-col justify-center items-start tracking-[0.005em]">
+            <h3 class="text-[14px] text-white font-light">More information:</h3>
+            <p class="text-[#9ea0a3] mt-2.5  text-[14px] font-light">
+                Round result is generated from four independent participants of the round: game operator and first 3
+                betters of the round. Operator is generating server seed (random 16 symbols). Hashed version of this
+                server seed is available publicly before round starts (In user menu, check "Provably Fair Settings" and
+                then "Next server seed SHA256") Client seed is generated on the side of each player and when round
+                starts first 3 betters are participating in generating round result.
+            </p>
+            <p class="text-[#9ea0a3] mt-2.5  text-[14px] font-light ">
+                When round starts, game merges server seed with three client seeds. From merged symbols is generated
+                SHA512 hash, and from this hash - game result.
+            </p>
+        </div>
+        <div class="my-20 lg:flex lg:justify-center lg:items-center">
+            <img class="w-full lg:w-[500px]  " src="/provablyFair.svg" alt="provablyFair">
+        </div>
+        <div class="text-center mb-8">
+            <h3 class="text-white font-light text-[14px] tracking-[0.008em]">HOW TO CHECK</h3>
+        </div>
+        <div class="flex flex-col justify-center items-start tracking-[0.005em] text-[#9ea0a3]  text-[14px] font-light">
+            - You can check fairness of each round from game history, by clicking on green icon.
+        </div>
+        <div class="flex flex-col justify-center items-start tracking-[0.005em] text-[#9ea0a3]  text-[14px] font-light">
+            - In opened window, you will see server seed, 3 pair of players seeds, combined hash and round result.
+        </div>
+        <div class="flex flex-col justify-center items-start tracking-[0.005em] text-[#9ea0a3]  text-[14px] font-light">
+            - Hashed version of next rounds server seed is available publicly in settings window (In user menu, check
+            "Provably Fair Settings" and then "Next server seed SHA256"). You can also change your client seed here.
+        </div>
+        <div class="flex flex-col justify-center items-start tracking-[0.005em] text-[#9ea0a3]  text-[14px] font-light">
+            - If you want to participate in round result generation, make sure you are between first 3 players who make
+            bet in that round.
+        </div>
+    </div>
+
+
+</div>

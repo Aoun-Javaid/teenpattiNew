@@ -273,7 +273,7 @@ export class VideoPlayerComponent implements OnChanges {
     });
     this.networkService.getRoundId().subscribe(data => {
 
-      if (this.game.eventId == '99.0010') {
+      if (this.game?.eventId == '99.0010') {
         this.myPosterUrl = '/teenpattiVideoBg.jpeg'
       }
       this.game = data;

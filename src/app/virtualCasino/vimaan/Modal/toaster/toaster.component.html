@@ -1,0 +1,74 @@
+<section>
+    @if (toasterType==='Success') {
+    <div
+        class="w-[310px] h-[60px] bg-[#123404] border border-[#427F00] text-white flex justify-between items-center px-4 py-2  rounded-[40px] ">
+        <div class="font-light flex flex-col justify-center items-center leading-none ">
+            <div class="text-[#979B9E] text-[12px]  text-center mb-[1px]">
+                You have cashed out!
+            </div>
+            <div class="text-white !text-[20px]">
+                {{betMultiVal}}x
+            </div>
+        </div>
+        <div class="flex flex-row justify-center items-center gap-2">
+            <div
+                class="bg-[#4EAF0F] relative font-semibold w-[170px] overflow-hidden h-[50px] text-white border-0 rounded-[50px] flex  flex-col leading-none justify-center items-center">
+                <div class="text-sm [text-shadow:_0_1px_2px_rgba(0,_0,_0,_0.5)]">
+                    Win INR
+                </div>
+                <div class="text-[20px] [text-shadow:_0_1px_2px_rgba(0,_0,_0,_0.5)]">
+                    {{betCashOutAmount}}
+                </div>
+                <img class=" absolute left-[1px] top-2  w-6 h-6 opacity-50 "
+                    src="/assets/icons/star-menu.2420fd6cd7e47259.svg" alt="star">
+                <img class=" absolute -left-[7px] top-[30px]  w-4 h-4 opacity-50 "
+                    src="/assets/icons/star-menu.2420fd6cd7e47259.svg" alt="star">
+                <img class=" absolute left-[20px] top-7 w-3 h-3 opacity-50 "
+                    src="/assets/icons/star-menu.2420fd6cd7e47259.svg" alt="star">
+                <img class=" absolute right-[1px] top-2  w-6 h-6 opacity-50 "
+                    src="/assets/icons/star-menu.2420fd6cd7e47259.svg" alt="star">
+                <img class=" absolute -right-[7px] top-[30px]  w-4 h-4 opacity-50 "
+                    src="/assets/icons/star-menu.2420fd6cd7e47259.svg" alt="star">
+                <img class=" absolute right-[20px] top-7 w-3 h-3 opacity-50 "
+                    src="/assets/icons/star-menu.2420fd6cd7e47259.svg" alt="star">
+
+            </div>
+            <div class="opacity-80 cursor-pointer" (click)="closeToaster()">
+                <img class=" w-3 h-3 [filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7474%)_hue-rotate(69deg)_brightness(98%)_contrast(90%)]"
+                    src="/assets/icons/close.9967d3df9ff555ef.svg" alt="close">
+            </div>
+        </div>
+
+    </div>
+    }
+    @if (toasterType === 'Error') {
+    <div
+        class="w-[300px] h-[50px] max-w-fit bg-[#B1171A] text-white flex justify-between items-center gap-5 px-4 py-2 border border-transparent rounded-lg ">
+        @if (errorMsg) {
+        <div class="font-light text-base text-white text-[12px] ">
+            {{errorMsg}}
+        </div>
+        }
+        <div class="opacity-80 cursor-pointer " (click)="closeToaster()">
+            <img class=" w-3 h-3 [filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7474%)_hue-rotate(69deg)_brightness(98%)_contrast(90%)]"
+                src="/assets/icons/close.9967d3df9ff555ef.svg" alt="">
+        </div>
+    </div>
+    }
+    @if (toasterType === 'SuccessMsg') {
+    <div
+        class="w-[300px] h-[50px] max-w-fit bg-[#123404] border-[#427F00] text-white flex justify-between items-center gap-5 px-4 py-2 border border-transparent rounded-lg ">
+        @if (errorMsg) {
+        <div class="font-light text-base text-white text-[12px]">
+            {{errorMsg}}
+        </div>
+        }
+        <div class="opacity-80 cursor-pointer " (click)="closeToaster()">
+            <img class=" w-3 h-3 [filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7474%)_hue-rotate(69deg)_brightness(98%)_contrast(90%)]"
+                src="/assets/icons/close.9967d3df9ff555ef.svg" alt="">
+        </div>
+    </div>
+    }
+
+
+</section>

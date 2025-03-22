@@ -1,0 +1,180 @@
+<div [ngClass]="{' top-[1.1%] xxm:top-[1%] s375:top-[1.2%] s390:top-[0.9%] s540:top-[1.1%]  md:top-[2.8%]  m820:top-[2.4%] m910:top-[2.1%] lg:top-[2%] xl:top-[3.5%] fadeIn': autPlayModalState, '  pointer-events-none fadeOut': !autPlayModalState}"
+    class="absolute  top-[0.5%] duration-300 left-2 right-2  font-['Inter']  md:max-w-[500px] md:min-w-[500px] !overflow-auto   md:left-[17.5%] m820:left-[18.6%] m910:left-[21.8%]  lg:left-[22%]  xl:left-[32.6%] z-[1500] bg-[#2c2d30]  h-fit border-transparent border-0 rounded-lg">
+    <div class="flex h-[36px] items-center justify-between  ps-2.5 pe-[10px] w-full">
+        <div class="">
+            <h2 class="text-[16px] text-[#ffffff] font-light tracking-[0.005em]">Auto play options</h2>
+        </div>
+        <div (click)="closeAutoPlayModal()"
+            class="overlay text-[#97A4AE] cursor-pointer opacity-50 text-[24px] font-[700] ">×
+        </div>
+    </div>
+    <div class="py-[10px]  px-[10px] bg-[#1b1c1d]  w-full">
+        <div
+            class="pt-[15px] pb-3 text-white font-light px-2.5 bg-[#2c2d30] border-0 rounded-[10px] mb-[5px] leading-[14px] text-sm">
+            <div class="flex justify-center items-center">
+                <h3>Number of Rounds:</h3>
+            </div>
+            <div class="mt-2.5 flex justify-center items-center gap-[7.5px] xxm:gap-3 xm:gap-[13px]">
+                <button #btn1 (click)="selectedBtn(btn1.value)"
+                    [ngClass]="{'!border-[#60ae05] !text-[#fff] !bg-[#545b62]' : btnClicked==='10'}" value="10"
+                    class="bg-[#252528] w-[58px] hover:bg-[#36363B] cursor-pointer leading-normal py-1 px-2 text-[#83878e] text-center border border-solid border-[#36363c] rounded-[100px] [box-shadow:_none]">
+                    10
+                </button>
+                <button #btn2 (click)="selectedBtn(btn2.value)"
+                    [ngClass]="{'!border-[#60ae05] !text-[#fff] !bg-[#545b62]' : btnClicked==='20'}" value="20"
+                    class="bg-[#252528] w-[58px] hover:bg-[#36363B] cursor-pointer leading-normal py-1 px-2 text-[#83878e] text-center border border-solid border-[#36363c] rounded-[100px] [box-shadow:_none]">
+                    20
+                </button>
+                <button #btn3 (click)="selectedBtn(btn3.value)"
+                    [ngClass]="{'!border-[#60ae05] !text-[#fff] !bg-[#545b62]' : btnClicked==='50'}" value="50"
+                    class="bg-[#252528] w-[58px] hover:bg-[#36363B] cursor-pointer leading-normal py-1 px-2 text-[#83878e] text-center border border-solid border-[#36363c] rounded-[100px] [box-shadow:_none]">
+                    50
+                </button>
+                <button #btn4 (click)="selectedBtn(btn4.value)"
+                    [ngClass]="{'!border-[#60ae05] !text-[#fff] !bg-[#545b62]' : btnClicked==='100'}" value="100"
+                    class="bg-[#252528] w-[58px] hover:bg-[#36363B] cursor-pointer leading-normal py-1 px-2 text-[#83878e] text-center border border-solid border-[#36363c] rounded-[100px] [box-shadow:_none]">
+                    100
+                </button>
+            </div>
+        </div>
+        <!-- Cash decrease condition start -->
+        <div
+            class=" flex flex-row justify-start items-center gap-[5px] h-[86px] xxm:h-[72px] xm:h-[64px]  pt-[15px] pb-3 text-white font-light px-2.5 bg-[#2c2d30] border-0 rounded-[10px] mb-[5px] leading-[14px] text-sm">
+            <label class="relative inline-flex items-center cursor-pointer  -translate-y-[1px] ">
+                <input type="checkbox" value="" class="sr-only peer" [(checked)]="stopIfCashDecreaseBy"
+                    (change)="toggleStopCashDecreaseBy($event)">
+                <div
+                    class="w-[36px]  h-[18px] bg-[1b1c1d] rounded-full border border-white border-opacity-50 peer-checked:border-[#60ae05] peer-checked:after:translate-x-[16px] rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-0.5 after:start-[3px] after:bg-[#f1f1f1] after:border-[#a3b98a] after:border-[2px] after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:bg-[#229607]">
+                </div>
+            </label>
+            <div [ngClass]="[stopIfCashDecreaseBy ? 'opacity-100' : 'opacity-40']"
+                class="text-[#d2d2d2]  text-sm leading-[14px] -translate-y-[1px] tracking-[0.0015em]">
+                Stop if cash decreases by
+            </div>
+            <div
+                class="bg-[#000000b3]  md:ml-[80px] flex justify-center items-center px-[10px] rounded-[22px] h-[34px] w-[130px] -translate-x-[1px] -translate-y-[1px] md:translate-x-0">
+                <div class=" translate-y-[1px]">
+                    <button [ngClass]="[stopIfCashDecreaseBy ? 'opacity-100' : 'opacity-50']"
+                        [disabled]="!stopIfCashDecreaseBy"
+                        class="h-[18px] w-[18px]  bg-transparent bg-cover border-none" (click)="decrementBtn1()">
+                        <img src="/assets/icons/minus-in-circle.de5c67298d5ab197.svg" alt="">
+                    </button>
+                </div>
+                <div [ngClass]="[stopIfCashDecreaseBy ? 'opacity-100' : 'opacity-50']"
+                    class="w-[84px] text-center translate-y-[1px]">
+                    <span class="text-[#fff] text-[18px] tracking-[-0.075em] w-full font-[600]">{{
+                        counter1 | number:
+                        '1.2-2' }}</span>
+                </div>
+                <div [ngClass]="[stopIfCashDecreaseBy ? 'opacity-100' : 'opacity-50']" class="translate-y-[1px]">
+                    <button [disabled]="!stopIfCashDecreaseBy"
+                        class="h-[18px] w-[18px]  bg-transparent bg-cover border-none" (click)="incrementBtn1()">
+                        <img src="/assets/icons/plus-in-circle.3440127f08f179fd.svg" alt="">
+                    </button>
+                </div>
+            </div>
+            <div [ngClass]="[stopIfCashDecreaseBy ? 'opacity-100' : 'opacity-40']"
+                class="text-white  text-sm leading-[14px] -translate-x-[1px] lg:translate-x-0  -translate-y-[1px]">
+                USD
+            </div>
+
+        </div>
+
+        <!-- Cash increase condition start -->
+        <div
+            class=" flex flex-row justify-start items-center gap-[5px] h-[86px] xxm:h-[72px] xm:h-[64px]  pt-[15px] pb-3 text-white font-light px-2.5 bg-[#2c2d30] border-0 rounded-[10px] mb-[5px] leading-[14px] text-sm">
+            <label class="relative inline-flex items-center cursor-pointer -translate-y-[1px] ">
+                <input type="checkbox" value="" class="sr-only peer" [(checked)]="stopIfCashIncreaseBy"
+                    (change)="toggleStopCashIncreaseBy($event)">
+                <div
+                    class="w-[36px]  h-[18px] bg-[1b1c1d] rounded-full border border-white border-opacity-50 peer-checked:border-[#60ae05] peer-checked:after:translate-x-[16px] rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-0.5 after:start-[3px] after:bg-[#f1f1f1] after:border-[#a3b98a] after:border-[2px] after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:bg-[#229607]">
+                </div>
+            </label>
+            <div [ngClass]="[stopIfCashIncreaseBy ? 'opacity-100' : 'opacity-40']"
+                class="text-[#d2d2d2]  text-sm leading-[14px] -translate-y-[1px] tracking-[0.0015em]">
+                Stop if cash increases by
+            </div>
+            <div
+                class="bg-[#000000b3] md:ml-[85px] flex justify-center -translate-y-[1px] items-center px-[10px] rounded-[22px] h-[34px] w-[130px] -translate-x-[1px] md:translate-x-0">
+                <div class=" translate-y-[1px]">
+                    <button [ngClass]="[stopIfCashIncreaseBy ? 'opacity-100' : 'opacity-50']"
+                        [disabled]="!stopIfCashIncreaseBy"
+                        class="h-[18px] w-[18px]  bg-transparent bg-cover border-none" (click)="decrementBtn2()">
+                        <img src="/assets/icons/minus-in-circle.de5c67298d5ab197.svg" alt="">
+                    </button>
+                </div>
+                <div [ngClass]="[stopIfCashIncreaseBy ? 'opacity-100' : 'opacity-50']"
+                    class="w-[84px] text-center translate-y-[1px]">
+                    <span class="text-[#fff] text-[18px] tracking-[-0.075em] w-full font-[600]">{{
+                        counter2 | number:
+                        '1.2-2' }}</span>
+                </div>
+                <div [ngClass]="[stopIfCashIncreaseBy ? 'opacity-100' : 'opacity-50']" class="translate-y-[1px]">
+                    <button [disabled]="!stopIfCashIncreaseBy"
+                        class="h-[18px] w-[18px]  bg-transparent bg-cover border-none" (click)="incrementBtn2()">
+                        <img src="/assets/icons/plus-in-circle.3440127f08f179fd.svg" alt="">
+                    </button>
+                </div>
+            </div>
+            <div [ngClass]="[stopIfCashIncreaseBy ? 'opacity-100' : 'opacity-40']"
+                class="text-white  text-sm leading-[14px] -translate-x-[1px] lg:translate-x-0  -translate-y-[1px]">
+                USD
+            </div>
+        </div>
+
+        <!-- single win exceeds condition -->
+        <div
+            class=" flex flex-row justify-start items-center gap-[5px] h-[86px] xxm:h-[72px] xm:h-[64px]  pt-[15px] pb-3 text-white font-light px-2.5 bg-[#2c2d30] border-0 rounded-[10px] mb-[5px] leading-[14px] text-sm">
+            <label class="relative inline-flex items-center cursor-pointer  -translate-y-[1px] ">
+                <input type="checkbox" value="" class="sr-only peer" [(checked)]="stopIfSingleWinExceeds"
+                    (change)="toggleStopSingleWinExceeds($event)">
+                <div
+                    class="w-[36px]  h-[18px] bg-[1b1c1d] rounded-full border border-white border-opacity-50 peer-checked:border-[#60ae05] peer-checked:after:translate-x-[16px] rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-0.5 after:start-[3px] after:bg-[#f1f1f1] after:border-[#a3b98a] after:border-[2px] after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:bg-[#229607]">
+                </div>
+            </label>
+            <div [ngClass]="[stopIfSingleWinExceeds ? 'opacity-100' : 'opacity-40']"
+                class="text-[#d2d2d2]  text-sm leading-[14px] -translate-y-[1px] tracking-[0.0015em]">
+                Stop if single win exceeds
+            </div>
+            <div
+                class="bg-[#000000b3] md:ml-[79px] flex justify-center -translate-y-[1px] items-center px-[10px] rounded-[22px] h-[34px] w-[130px] -translate-x-[1px] md:translate-x-0">
+                <div class=" translate-y-[1px]">
+                    <button [ngClass]="[stopIfSingleWinExceeds ? 'opacity-100' : 'opacity-50']"
+                        [disabled]="!stopIfSingleWinExceeds"
+                        class="h-[18px] w-[18px]  bg-transparent bg-cover border-none" (click)="decrementBtn3()">
+                        <img src="/assets/icons/minus-in-circle.de5c67298d5ab197.svg" alt="">
+                    </button>
+                </div>
+                <div [ngClass]="[stopIfSingleWinExceeds ? 'opacity-100' : 'opacity-50']"
+                    class="w-[84px] text-center translate-y-[1px]">
+                    <span class="text-[#fff] text-[18px] tracking-[-0.075em] w-full font-[600]">{{
+                        counter3 | number:
+                        '1.2-2' }}</span>
+                </div>
+                <div [ngClass]="[stopIfSingleWinExceeds ? 'opacity-100' : 'opacity-50']" class="translate-y-[1px]">
+                    <button [disabled]="!stopIfSingleWinExceeds"
+                        class="h-[18px] w-[18px]  bg-transparent bg-cover border-none" (click)="incrementBtn3()">
+                        <img src="/assets/icons/plus-in-circle.3440127f08f179fd.svg" alt="">
+                    </button>
+                </div>
+            </div>
+            <div [ngClass]="[stopIfSingleWinExceeds ? 'opacity-100' : 'opacity-40']"
+                class="text-white  text-sm leading-[14px] -translate-x-[1px] lg:translate-x-0  -translate-y-[1px]">
+                USD
+            </div>
+        </div>
+    </div>
+    <div class="bg-[#2c2d30] p-2.5 ">
+        <div class="m-1 flex justify-center items-center gap-[15px]">
+            <button
+                class="bg-[#d07206]  border border-solid border-[#ffbd71] h-[22px] cursor-pointer font-light tracking-[0.01em] leading-normal rounded-[20px] text-sm  min-w-[80px] text-white text-center [text-shadow:_0_1px_2px_rgba(0,_0,_0,_.5)] [box-shadow:_inset_0_1px_1px_#ffffff80]">
+                Reset
+            </button>
+            <button
+                class="w-[160px] h-[30px] text-[20px] tracking-[0.01em] leading-normal font-light cursor-pointer border border-solid border-[#b2f2a3] bg-[#28a909]  text-center text-white rounded-[20px] [text-shadow:_0_1px_2px_rgba(0,_0,_0,_.5)] [box-shadow:_inset_0_1px_1px_#ffffff80]">
+                Start
+            </button>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div
+    class="absolute top-[6px] left-0 right-0 z-[998] bg-[#252830] w-full h-fit border-transparent border-0 rounded-2xl">
+    <div class="bg-[#1B1C1D] text-white h-8 flex justify-start border-0 rounded-t-2xl !border-transparent items-center">
+        <h3 class=" text-sm font-['Inter'] [text-shadow:_0_1px_2px_rgba(0,_0,_0,_.5)] font-light pl-2.5">
+            ROUND HISTORY</h3>
+    </div>
+    <div
+        class="flex  justify-center items-center w-full  flex-wrap  gap-[7px]  max-xm:gap-1.5 max-sm:gap-[6.5px] p-[5px] py-2  ">
+        @for (result of results; track $index) {
+        <div [ngClass]="result.winner>0 && result.winner<2?'blue':result.winner>=2 && result.winner<=10?'purple':'pink'"
+            class=" cursor-pointer font-semibold   text-[12px] py-0.5 px-1.5  bg-[#00000080] border-0 rounded-[11px] box-border">
+            {{result.winner}}x
+        </div>
+        }
+    </div>
+</div>
