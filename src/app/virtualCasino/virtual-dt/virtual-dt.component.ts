@@ -216,6 +216,8 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     });
 
+   
+
     this.getStackData();
     this.getWindowSize();
 
