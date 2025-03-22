@@ -280,6 +280,7 @@
   position: absolute;
   bottom: 0.625rem;
   margin-bottom: 40px;
+  @apply xl:mb-2.5 z-[999];
 }
 
 .table-wrapper {
@@ -1993,9 +1994,9 @@
 }
 
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[54px];
+  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[10px];
   position: absolute;
-  z-index: 5;
+  z-index: 999;
 }
 
 .roundInfo-date {
