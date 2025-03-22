@@ -95,7 +95,8 @@
 
         <div class="xl:hidden sicBo__controls-bEHBgU">
             <div class="controlsPanel-mDHDjp controlsPanel_state_waiting-L0UDJt">
-                <div class="btn-wrapper">
+                <div [ngClass]="{'invisible relative bottom-[11rem] opacity-0': openCoinBarState}"
+                    class="btn-wrapper visible trans-show">
                     <button class="secbo-btn">
                         <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -131,8 +132,8 @@
                     ? 'absolute bottom-[-30px] z-30 justify-between  py-4 !pb-0 '
                     : '!py-0 !pb-0'
                 ">
-                    <button [ngClass]="{'!absolute top-[-20rem] opacity-[0.7]': openCoinBarState}"
-                        class="bettingButton-i5MaZV bettingButton_blue-VHm4OI relative">
+                    <button [ngClass]="{'!absolute translate-y-[-14rem] opacity-[0.7]': openCoinBarState}"
+                        class="bettingButton-i5MaZV bettingButton_blue-VHm4OI relative transition-all duration-500 ease-in-out">
                         <svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q relative z-20" viewBox="0 0 48 48"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -144,7 +145,7 @@
 
                     <div class="h-full flex justify-end items-end"
                         [ngClass]="{'h-[calc(100vh-200px)] ':openCoinBarState}">
-                        <div class=" duration-height justify-end items-end relative flex-col gap-2  hidden  z-30 overflow-hidden"
+                        <div class=" duration-height justify-end items-end relative flex-col gap-2  hidden  z-30 overflow-hidden top-10"
                             [ngClass]="{
                                 'full-height !flex': openCoinBarState === true
                               }">
@@ -394,7 +395,7 @@
                                 </div>
                             </div>
 
-                            <button class="mt-5 secbo-btn" (click)="closeBetCoin($event)" *ngIf="openCoinBarState">
+                            <button class="secbo-btn" (click)="closeBetCoin($event)" *ngIf="openCoinBarState">
                                 <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4 4l16 16m0-16L4 20" stroke="currentColor" stroke-width="2"
@@ -440,7 +441,8 @@
 
 
 
-                    <button class="bettingButton-i5MaZV bettingButton_orange-oB31C6 relative" *ngIf="!openCoinBarState">
+                    <button [ngClass]="{'!opacity-0 top-[8.7rem] invisible': openCoinBarState}"
+                        class="trans-show visible opacity-100 bettingButton-i5MaZV bettingButton_orange-oB31C6 relative">
                         <svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q relative z-20" viewBox="0 0 48 48"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -451,7 +453,7 @@
                 </div>
 
                 <div class="btn-wrapper mb-0">
-                    <button class="secbo-btn">
+                    <button [ngClass]="{'invisible opacity-0': openCoinBarState}" class="visible opacity-100 secbo-btn">
                         <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill="currentColor"
@@ -471,7 +473,7 @@
                         </svg>
                     </button>
 
-                    <button class="secbo-btn">
+                    <button [ngClass]="{'invisible opacity-0': openCoinBarState}" class="visible opacity-100 secbo-btn">
                         <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
