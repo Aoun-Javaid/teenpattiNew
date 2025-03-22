@@ -131,7 +131,8 @@
                     ? 'absolute bottom-[-30px] z-30 justify-between  py-4 !pb-0 '
                     : '!py-0 !pb-0'
                 ">
-                    <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI relative">
+                    <button [ngClass]="{'!absolute top-[-20rem] opacity-[0.7]': openCoinBarState}"
+                        class="bettingButton-i5MaZV bettingButton_blue-VHm4OI relative">
                         <svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q relative z-20" viewBox="0 0 48 48"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
