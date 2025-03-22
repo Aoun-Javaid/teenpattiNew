@@ -1345,6 +1345,32 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
 
         break;
 
+
+      case this.width >= 435:
+        if (this.isMobileInfo !== 'iOS') {
+          this.cardSize = 7;
+          this.hiddenCardSize = 37;
+          this.cardStartPointX = this.width * 0.47;
+          this.cardStartPointY = this.height * 0.49;
+          this.cardEndPointY = this.cardStartPointY + 34;
+          this.leftCard1EndPositionX = 48;
+          this.rightCard1EndPositionX = 28;
+          this.hiddenCardEndPointX = this.width * 0.15;
+          this.hiddenCardEndPointY = this.height * 0.45;
+        } else {
+          this.cardSize = 50;
+          this.hiddenCardSize = 39;
+          this.cardStartPointX = this.width * 0.48;
+          this.cardStartPointY = this.height * 0.48;
+          this.cardEndPointY = this.cardStartPointY + 40;
+          this.leftCard1EndPositionX = 20;
+          this.rightCard1EndPositionX = 40;
+          this.hiddenCardEndPointX = this.width * 0.13;
+          this.hiddenCardEndPointY = this.height * 0.45;
+        }
+
+        break;
+
       case this.width >= 412 && this.height <= 745:
         if (this.isMobileInfo !== 'iOS') {
           this.cardSize = 7;
@@ -1370,6 +1396,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
 
         break;
 
+        
       case this.width >= 390:
         if (this.isMobileInfo !== 'iOS') {
           this.cardSize = 7;
@@ -1394,6 +1421,9 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
         break;
+
+
+
       case this.width >= 360 && this.height <= 620:
         if (this.isMobileInfo !== 'iOS') {
           this.cardSize = 5;
@@ -1418,6 +1448,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
         break;
+
 
       case this.width >= 360:
         if (this.isMobileInfo !== 'iOS') {

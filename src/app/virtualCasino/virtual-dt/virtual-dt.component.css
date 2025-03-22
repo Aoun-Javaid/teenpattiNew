@@ -178,7 +178,7 @@
 }
 @media (orientation: portrait) {
   .dragonTiger__rngTable {
-    top: 20%;
+    top: 15%;
     width: 130%;
   }
 }
@@ -662,6 +662,7 @@
   font-size: 0.625rem;
   margin: 0 0.25rem;
   min-width: 1.875rem;
+  @apply [@media(min-width:1512px)]:text-[12.79px]
 }
 
 .scoreBoardInfo-USWOxa,
@@ -676,6 +677,7 @@
   display: block;
   margin-right: 0.125rem;
   width: 0.5625rem;
+  @apply [@media(min-width:512px)]:!w-[11.59px]
 }
 
 .scoreBoardInfo__button_left-cIMRsf {
