@@ -557,7 +557,7 @@
           </div>
         </div>
         <!-- Teen patti Cards Section ends here -->
-        <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="game.status"></app-bet-coin>
+        <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="game.status" *ngIf="game.status !== 'SUSPEND'"></app-bet-coin>
       </div>
     </div>
 
