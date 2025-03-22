@@ -482,7 +482,10 @@
             </div>
         </div>
     </div>
-    <app-top-results class="hidden xl:block"></app-top-results>
+    <div
+        class="xl:!flex fixed [@media(max-width:1360px)]:w-[18rem] w-[20.5rem] [@media(min-width:1512px)]:min-w-[437.55px] mx-[2%] bottom-[1.5%] !hidden flex-col gap-[1.5rem]">
+        <app-top-results></app-top-results>
+    </div>
     <div class="time-container ">
         <div class="last-win md:!text-[1.3rem] xl:!text-[0.75rem]">Live roulette
             <span class="text-[rgb(255,170,0)] text-[0.75rem]  xl:!text-[0.75rem] md:!text-[1.3rem] font-bold">
