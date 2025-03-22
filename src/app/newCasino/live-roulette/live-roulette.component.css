@@ -269,6 +269,10 @@
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+.trans-show {
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
 .table-area {
   align-items: flex-end;
   display: flex;
