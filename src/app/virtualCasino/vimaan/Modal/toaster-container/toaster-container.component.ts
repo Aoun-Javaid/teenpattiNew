@@ -1,8 +1,9 @@
 import { ChangeDetectorRef, Component, DoCheck, OnInit } from '@angular/core';
 import { ToasterComponent } from '../toaster/toaster.component';
-import { toasterEvent } from '../../../serivces/interface/toastEvents';
-import { ToasterService } from '../../../serivces/toaster.service';
+
 import { NgClass, NgStyle } from '@angular/common';
+import { toasterEvent } from '../../../../services/interface/toastEvents';
+import { ToasterService } from '../../../../services/toaster.service';
 
 @Component({
   selector: 'app-toaster-container',
