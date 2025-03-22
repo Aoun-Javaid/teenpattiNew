@@ -915,7 +915,7 @@
               </div>
             </div>
 
-            <div class="w-full  xl:mt-[70px]">
+            <div class="w-full  xl:mt-[126px] [@media(min-width:1512px)]:mt-[70px]" [ngClass]="{'[@media(min-width:1512px)]:!mt-[61px]':game.status === 'SUSPEND'}">
               <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="game.status"></app-bet-coin>
             </div>
           </div>
@@ -940,10 +940,12 @@
 
   </div>
 </div>
+
+
 <div
-  class="[@media(max-width:1280px)]:hidden  fixed w-[20.5rem] mx-[2%] bottom-[20%] flex flex-col gap-[1.5rem] z-[999999]">
+  class="[@media(max-width:1280px)]:hidden  fixed w-[20.5rem] [@media(min-width:1512px)]:min-w-[437.55px] mx-[2%] bottom-[1.5%] flex flex-col gap-[1.5rem] z-[999999]">
   <div class="dragonTiger__history-jQwWbi">
-    <div class="scoreBoardInfo-USWOxa">
+    <div class="scoreBoardInfo-USWOxa mb-[6px] h-[18.63px] ">
       <div class="scoreBoardInfo__total-b3bUj3">
         <div class="scoreBoardInfo__totalItem-KhIYhz">#1</div>
         <div class="scoreBoardInfo__totalItem-KhIYhz"><svg class="scoreBoardInfo__totalItemSvg-eW0Cnx"
