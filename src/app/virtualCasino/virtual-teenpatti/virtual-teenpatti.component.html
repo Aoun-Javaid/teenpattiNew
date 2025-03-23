@@ -79,8 +79,8 @@
     <div class="gradientDiv mt-[13.5rem]">
       <div class="absolute h-4 w-full bg-[#0A0A1A] blur-[11px]"></div>
       <div *ngIf="marketArray"
-        class="absolute xl:fixed xl:left-[50%] xl:translate-x-[-50%] bottom-[32px] md:bottom-[100px] xl:bottom-[46px]  [@media(max-width:375px)]:bottom-[25px]  xl:!max-w-[473px]  left-0 w-full main-position xl:pl-[30px] [@media(min-width:1330px)]:!pl-0 z-[5]"
-        [ngClass]="{'xl:!bottom-[14px]':this.game.status === 'ONLINE', 'xl:!z-0':isShow}">
+        class="absolute xl:fixed xl:left-[50%]  xl:translate-x-[-50%] bottom-[32px] md:bottom-[100px] xl:bottom-[46px]  [@media(max-width:375px)]:bottom-[25px]  xl:!max-w-[473px]  left-0 w-full main-position xl:pl-[30px] [@media(min-width:1330px)]:!pl-0 z-[5]"
+        [ngClass]="{'xl:!bottom-[14px]':this.game.status === 'ONLINE', 'xl:!z-0':isShow, '[@media(max-width:375px)]:!bottom-0':this.isMobileInfo === 'iOS' && this.game.status === 'SUSPEND'}">
 
 
 
@@ -109,13 +109,13 @@
             class="custom_flex !pl-[26px] [@media(min-width:400px)_and_(max-width:500px)]:!pl-[33px] gap-1  xl:!gap-1 player_A_cards md:!gap-[0.75rem] xl:!p-[10px_55px_10px_10px] md:!justify-center xl:!justify-end  ">
 
             <img
-              [ngClass]="{ 'card-animation': playerACards?.card_1 && playerACards?.card_1 !== '0', 'opacity-0': !(playerACards?.card_1 && playerACards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
+              [ngClass]="{ 'card-animation': playerACards?.card_1 && playerACards?.card_1 !== '0', 'opacity-0': !(playerACards?.card_1 && playerACards?.card_1 !== '0'),}"
               [src]="['/assets/52-cards/'+playerACards?.card_1+'.svg']" class="card-img" alt="card1">
             <img
-              [ngClass]="{ 'card-animation': playerACards?.card_2 && playerACards?.card_2 !== '0', 'opacity-0': !(playerACards?.card_2 && playerACards?.card_2 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId] }"
+              [ngClass]="{ 'card-animation': playerACards?.card_2 && playerACards?.card_2 !== '0', 'opacity-0': !(playerACards?.card_2 && playerACards?.card_2 !== '0'), }"
               [src]="['/assets/52-cards/'+playerACards?.card_2+'.svg']" class="card-img" alt="card2">
             <img
-              [ngClass]="{ 'card-animation': playerACards?.card_3 && playerACards?.card_3 !== '0', 'opacity-0': !(playerACards?.card_3 && playerACards?.card_3 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId] }"
+              [ngClass]="{ 'card-animation': playerACards?.card_3 && playerACards?.card_3 !== '0', 'opacity-0': !(playerACards?.card_3 && playerACards?.card_3 !== '0'), }"
               [src]="['/assets/52-cards/'+playerACards?.card_3+'.svg']" class="card-img" alt="card3">
           </div>
           <!-- Player A cards ends here -->
@@ -125,15 +125,15 @@
             class="custom_flex gap-1 !pr-[26px] [@media(min-width:400px)_and_(max-width:500px)]:!pr-[33px] !justify-end player_B_cards xl:!gap-1 md:!gap-[0.75rem] xl:!p-[10px_10px_10px_55px] md:!justify-center xl:!justify-start">
 
             <img
-              [ngClass]="{ 'card-animation': playerBCards?.card_1 && playerBCards?.card_1 !== '0', 'opacity-0': !(playerBCards?.card_1 && playerBCards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
+              [ngClass]="{ 'card-animation': playerBCards?.card_1 && playerBCards?.card_1 !== '0', 'opacity-0': !(playerBCards?.card_1 && playerBCards?.card_1 !== '0')}"
               [src]="'/assets/52-cards/' + playerBCards?.card_1 + '.svg'" class="card-img" alt="card1">
 
             <img
-              [ngClass]="{ 'card-animation': playerBCards?.card_2 && playerBCards?.card_2 !== '0', 'opacity-0': !(playerBCards?.card_2 && playerBCards?.card_2 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
+              [ngClass]="{ 'card-animation': playerBCards?.card_2 && playerBCards?.card_2 !== '0', 'opacity-0': !(playerBCards?.card_2 && playerBCards?.card_2 !== '0')}"
               [src]="'/assets/52-cards/' + playerBCards?.card_2 + '.svg'" class="card-img" alt="card2">
 
             <img
-              [ngClass]="{ 'card-animation': playerBCards?.card_3 && playerBCards?.card_3 !== '0', 'opacity-0': !(playerBCards?.card_3 && playerBCards?.card_3 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
+              [ngClass]="{ 'card-animation': playerBCards?.card_3 && playerBCards?.card_3 !== '0', 'opacity-0': !(playerBCards?.card_3 && playerBCards?.card_3 !== '0')}"
               [src]="'/assets/52-cards/' + playerBCards?.card_3 + '.svg'" class="card-img" alt="card3">
 
           </div>
