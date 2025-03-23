@@ -167,6 +167,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
   resultcounter = 0;
   RoundWinner: any;
   betSelectedPlayer: any;
+  localStatus:any
   isDesktop: boolean;
   currentUrl: any;
   isMobile: boolean;
@@ -264,6 +265,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
               if (objMarket?.type == '1') {
                 this.marketArray = objMarket?.data[0]?.marketArr;
                 this.game = objMarket?.data[0];
+                this.localStatus = localStorage.setItem('status', this.game.status)
                 this.game.marketArr = this.marketArray
                   ? this.marketArray
                   : objMarket?.data[0]?.marketArr;

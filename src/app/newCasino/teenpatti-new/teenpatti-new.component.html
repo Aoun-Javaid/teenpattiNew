@@ -49,8 +49,8 @@
             <div *ngIf="marketArray"
                 class="absolute xl:fixed xl:left-[50%] xl:translate-x-[-50%] bottom-[32px] md:bottom-[100px] xl:bottom-[46px]  xl:!max-w-[473px]  left-0 w-full main-position xl:pl-[30px] [@media(min-width:1330px)]:!pl-0 xl:z-[5]"  [ngClass]="{'xl:!bottom-[14px]':this.game.status === 'ONLINE', 'xl:!z-0':isShow}">
                 <!-- Teen patti Cards Section starts here -->
-                <div class="teen_patti_conatiner absolute top-[-5.375rem] md:top-[-6.375rem] lg:top-[-8.375rem] xl:top-[1.625rem]   w-full xl:!max-w-[473px] xl:!scale-[1.21] xl:!mt-0"
-                    [ngClass]="{'xl:z-[20]':game.status === 'SUSPEND'}"
+                <div class="teen_patti_conatiner xl:z-[20] absolute top-[-5.375rem] md:top-[-6.375rem] lg:top-[-8.375rem] xl:top-[1.625rem]   w-full xl:!max-w-[473px] xl:!scale-[1.21] xl:!mt-0"
+                    [ngClass]="{'xl:!z-[0]':game.status === 'ONLINE'}"
                     [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
 
                     <!-- <div class="flex items-center w-full absolute  top-[-15px] pe-[9%] z-[99]">
