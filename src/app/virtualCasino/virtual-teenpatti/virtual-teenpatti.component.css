@@ -8,6 +8,7 @@
   overflow-y: scroll;
   @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
 }
+
 .dashboard_wrapper {
   width: 100%;
   background-color: black;
@@ -23,6 +24,7 @@
   top: 0;
   width: 100%;
 }
+
 .game__substrateLayer,
 .game__video {
   overflow: hidden;
@@ -856,17 +858,18 @@
 
 .card-img {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
-  width: 34px;
+  /* width: 34px; */
   border-radius: 2px;
   width: 36px;
   height: 52px;
 
-  @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[30px] xl:[box-shadow:-0.5rem_0_0.75rem_rgba(0,0,0,0.4)] [@media(max-width:375px)]:!h-[44px] md:w-[53px] md:h-[75px] lg:w-[70px] lg:h-[99px] xl:w-[36px]  xl:h-[51px];
+  /* @apply [@media(max-width:390px)]:w-[36px] [@media(max-width:390px)]:h-[51px] [@media(max-width:375px)]:!w-[30px] xl:[box-shadow:-0.5rem_0_0.75rem_rgba(0,0,0,0.4)] [@media(max-width:375px)]:!h-[44px] md:w-[53px] md:h-[75px] lg:w-[70px] lg:h-[99px] xl:w-[36px]  xl:h-[51px]; */
+  @apply [@media(max-width:500px)]:!h-auto [@media(max-width:400px)]:!w-[23.5%]   [@media(max-width:500px)]:w-[21.5%]  md:w-[53px] md:h-[75px] lg:w-[70px] lg:h-[99px] xl:w-[36px]  xl:h-[51px] xl:[box-shadow:-0.5rem_0_0.75rem_rgba(0,0,0,0.4)];
 }
 
 @media (max-width: 393px) {
   .card-img {
-    @apply h-[45px] w-[31.47px];
+    @apply h-[45px] w-[31.47px]
   }
 }
 

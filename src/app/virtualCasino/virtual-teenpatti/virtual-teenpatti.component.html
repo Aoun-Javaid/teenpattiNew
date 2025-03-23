@@ -86,8 +86,11 @@
 
         <!-- Teen patti Cards Section starts here -->
         <div
-          class="teen_patti_conatiner absolute top-[24%]  md:top-[29%] xl:top-[19%]   w-full xl:!max-w-[473px] xl:!scale-[1.21] xl:!mt-0 "
-          [ngClass]="{'z-[20]':game.status === 'SUSPEND'}" [ngClass]="[coinStateActive  ? 'table_wrapper' : '']">
+          class="teen_patti_conatiner absolute top-[24%]  md:top-[29%] xl:top-[19%]   w-full xl:!max-w-[473px] xl:!scale-[1.21] xl:!mt-0 z-[20]  "
+          [ngClass]="{
+  '!z-[0]': game.status === 'ONLINE',
+  'table_wrapper': coinStateActive
+}">
 
           <!-- <div class="flex items-center w-full absolute  top-[-15px] pe-[9%] z-[99]">
                               <div class="flex justify-center w-[50%]">
@@ -103,7 +106,7 @@
 
           <!-- Player A cards start here -->
           <div
-            class="custom_flex !pl-[26px]  gap-1  xl:!gap-1 player_A_cards md:!gap-[0.75rem] xl:!p-[10px_55px_10px_10px] md:!justify-center xl:!justify-end  ">
+            class="custom_flex !pl-[26px] [@media(min-width:400px)_and_(max-width:500px)]:!pl-[33px] gap-1  xl:!gap-1 player_A_cards md:!gap-[0.75rem] xl:!p-[10px_55px_10px_10px] md:!justify-center xl:!justify-end  ">
 
             <img
               [ngClass]="{ 'card-animation': playerACards?.card_1 && playerACards?.card_1 !== '0', 'opacity-0': !(playerACards?.card_1 && playerACards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[0]?.selectionId]}"
@@ -119,7 +122,7 @@
 
           <!-- Player B cards start here -->
           <div
-            class="custom_flex gap-1 !pr-[26px] !justify-end player_B_cards xl:!gap-1 md:!gap-[0.75rem] xl:!p-[10px_10px_10px_55px] md:!justify-center xl:!justify-start">
+            class="custom_flex gap-1 !pr-[26px] [@media(min-width:400px)_and_(max-width:500px)]:!pr-[33px] !justify-end player_B_cards xl:!gap-1 md:!gap-[0.75rem] xl:!p-[10px_10px_10px_55px] md:!justify-center xl:!justify-start">
 
             <img
               [ngClass]="{ 'card-animation': playerBCards?.card_1 && playerBCards?.card_1 !== '0', 'opacity-0': !(playerBCards?.card_1 && playerBCards?.card_1 !== '0'), 'win-card-animation':this.RoundWinner==marketArray[0]?.runnersName[marketArray[0]?.runners[1]?.selectionId] }"
@@ -236,7 +239,7 @@
                     d="M12 0A12 12 0 0 0 0 12v100a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h48a12 12 0 0 0 12-12v-4a1 1 0 0 1 2 0v4a12 12 0 0 0 12 12h106a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12H181a12 12 0 0 0-11.96 11h-2.08A12 12 0 0 0 155 0H12Z">
                   </path>
                   <g class="mainBetPlaceSvg_roundResult_lose-EwvTF6">
-                    <path id="PlayerA" style="pointer-events: all;"
+                    <path id="PlayerA" style="pointer-events: all; cursor: pointer;"
                       (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[0].selectionId,'back',marketArray[0].runners[0].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
                       d="M12 0C5.373 0 0 5.373 0 12v54c0 6.627 5.373 12 12 12h116a2 2 0 0 0 2-2V54c0-7.732 6.268-14 14-14h21a2 2 0 0 0 2-2V12c0-6.627-5.373-12-12-12H12Z"
                       class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
@@ -265,7 +268,7 @@
                     </defs>
                   </g>
                   <g class="">
-                    <path id="PlayerB" style="pointer-events: all;"
+                    <path id="PlayerB" style="pointer-events: all; cursor: pointer;"
                       (click)="openBetslip(marketArray[0].marketId,marketArray[0].runners[1].selectionId,'back',marketArray[0].runners[1].price.back[0].price,marketArray[0]?.min,marketArray[0]?.max)"
                       d="M181 2.86102e-06C174.373 2.86102e-06 169 5.37258 169 12V38C169 39.1046 169.895 40 171 40H192C199.732 40 206 46.268 206 54V76C206 77.1046 206.895 78 208 78H324C330.627 78 336 72.6274 336 66V12C336 5.37259 330.627 2.86102e-06 324 2.86102e-06H181Z"
                       class="mainBetPlaceSvg__backgroundClickZone-NTLxg_"
@@ -295,7 +298,7 @@
                     </defs>
                   </g>
                   <g class="">
-                    <path id="PairPlusPlayerA" style="pointer-events: all;"
+                    <path id="PairPlusPlayerA" style="pointer-events: all; cursor: pointer;"
                       (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[0].selectionId,'back',marketArray[1].runners[0].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)"
                       fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:true)"
                       class="secondaryBetPlaceSvg__backgroundClickZone-dEesVC"
@@ -325,7 +328,7 @@
                     </defs>
                   </g>
                   <g class="">
-                    <path id="PairPlusPlayerB" style="pointer-events: all;"
+                    <path id="PairPlusPlayerB" style="pointer-events: all; cursor: pointer;"
                       (click)="openBetslip(marketArray[1].marketId,marketArray[1].runners[1].selectionId,'back',marketArray[1].runners[1].price.back[0].price,marketArray[1]?.min,marketArray[1]?.max)"
                       fill="url(#teenPartySecondaryBetPlaceSvg_isPairPlusPlayerA:false)"
                       class="secondaryBetPlaceSvg__backgroundClickZone-dEesVC"
@@ -356,7 +359,7 @@
                     </defs>
                   </g>
                   <g class="bonusBetPlaceSvg_roundResult_lose-iymbKS">
-                    <path id="Bonus" style="pointer-events: all;"
+                    <path id="Bonus" style="pointer-events: all; cursor: pointer;"
                       fill="url(#teenPatti_BonusBetPlaceSvg_backgroundGradient)"
                       d="M144 42h48s12 0 12 12v58s0 12 -12 12h-48s-12 0 -12 -12v-58s0 -12 12 -12"
                       class="bonusBetPlaceSvg__backgroundClickZone-Qybilv"></path>
@@ -557,7 +560,8 @@
           </div>
         </div>
         <!-- Teen patti Cards Section ends here -->
-        <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="game.status" *ngIf="game.status !== 'SUSPEND'"></app-bet-coin>
+        <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="game.status"
+          *ngIf="game.status !== 'SUSPEND'"></app-bet-coin>
       </div>
     </div>
 

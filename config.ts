@@ -44,20 +44,20 @@ export const CONFIG = {
   getRulesOfMarketURL: BASE_URL + '/v2/operator/user/eventRules',
 
   asianCasinoPlacebetURL: BASE_URL + "/v2/operator/user/casinoPlaceBet",
-  virtualCasinoPlacebetURL: BASE_URL + "/casinoapp/exchange/users/casino/placebet",
+  virtualCasinoPlacebetURL: BASE_URL + "/v2/operator/user/casino/placebet",
   getUserBalanceURL: BASE_URL + "/v2/operator/user/userBalance",
   getAllMarketplURL: BASE_URL + '/v2/operator/user/userBetProfitLoss',
 
   authlaunch: BASE_URL + "/v2/operator/auth",
 
-  AviatorPlacebet: BASE_URL + '/casinoapp/exchange/users/casino/placebet',
-  AviatorcashOut: BASE_URL + '/casinoapp/exchange/users/casino/cashOut',
-  AviatorBetClear: BASE_URL + '/casinoapp/exchange/users/casino/betClear',
+  AviatorPlacebet: BASE_URL + '/v2/operator/user/casino/placebet',
+  AviatorcashOut: BASE_URL + '/v2/operator/user/casino/cashOut',
+  AviatorBetClear: BASE_URL + '/v2/operator/user/casino/betClear',
 
   getAutoCashoutMultiplier:
-  BASE_URL + '/casinoapp/exchange/users/casino/getAutoCashoutMultiplier',
+  BASE_URL + '/v2/operator/user/getAutoCashoutMultiplier',
   setAutoCashoutMultiplier:
-  BASE_URL + '/casinoapp/exchange/users/casino/setAutoCashoutMultiplier',
+  BASE_URL + '/v2/operator/user/setAutoCashoutMultiplier',
 };
 
 
