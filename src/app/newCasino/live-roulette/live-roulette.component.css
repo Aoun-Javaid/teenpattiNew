@@ -326,7 +326,7 @@
 }
 
 .secbo-btn {
-  height: 3rem;
+  min-height: 3rem;
   width: 3rem;
   border-radius: 50%;
   color: white;
@@ -1395,15 +1395,6 @@
   fill: white;
 }
 
-.secbo-btn {
-  height: 3rem;
-  width: 3rem;
-  border-radius: 50%;
-  color: white;
-  display: flex;
-  justify-content: center;
-}
-
 .btn-wrapper {
   @apply flex flex-col mb-2;
 }
@@ -1877,16 +1868,12 @@
   position: absolute;
 }
 
-.duration-height {
-  transition: height 400ms ease-in-out;
-}
-
 .height-animation {
   animation: height-animation 400ms;
 }
 
 .full-height {
-  animation: height-full 400ms;
+  animation: height-full 1200ms;
 }
 
 .move_center-back-1 {
@@ -1965,6 +1952,21 @@
   100% {
     -webkit-transform: translate(0, -112px);
   }
+}
+
+.coins-animate {
+  max-height: 0;
+  opacity: 0;
+  transform: scaleY(0.8);
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, opacity 0.3s ease-in,
+    transform 0.3s ease-in-out;
+}
+
+.coins-animate.show {
+  max-height: 404px;
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 @keyframes height-full {
