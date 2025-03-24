@@ -1421,12 +1421,12 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           this.cardStartPointX = this.width * 0.34;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 40;
-          this.leftCard1EndPositionX = 120;
-          this.leftCard2EndPositionX = 70;
+          this.leftCard1EndPositionX = 100;
+          this.leftCard2EndPositionX = 60;
           this.leftCard3EndPositionX = 20;
           this.rightCard1EndPositionX = 40;
-          this.rightCard2EndPositionX = 90;
-          this.rightCard3EndPositionX = 140;
+          this.rightCard2EndPositionX = 80;
+          this.rightCard3EndPositionX = 120;
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         }
