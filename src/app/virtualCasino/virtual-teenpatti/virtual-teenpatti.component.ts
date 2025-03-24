@@ -305,7 +305,7 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
               this.secndBoxWidth = '';
               this.firstBoxWidth = '';
               this.clearRound();
-              this.cards = {};
+              this.cards = JSON.parse(JSON.stringify({}));
             }
 
             if (this.game.status == 'SUSPEND') {

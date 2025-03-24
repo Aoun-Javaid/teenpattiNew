@@ -297,7 +297,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
               this.secndBoxWidth = '';
               this.firstBoxWidth = '';
               this.clearRound();
-              this.cards = {};
+              this.cards = JSON.parse(JSON.stringify({}));
             }
 
             // this.networkService.updateRoundId(this.game);
