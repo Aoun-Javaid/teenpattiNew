@@ -1340,12 +1340,12 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           this.cardStartPointX = this.width * 0.47;
           this.cardStartPointY = this.height * 0.49;
           this.cardEndPointY = this.cardStartPointY + 34;
-          this.leftCard1EndPositionX = 160;
-          this.leftCard2EndPositionX = 100;
-          this.leftCard3EndPositionX = 40;
-          this.rightCard1EndPositionX = 20;
-          this.rightCard2EndPositionX = 80;
-          this.rightCard3EndPositionX = 140;
+          this.leftCard1EndPositionX = 170;
+          this.leftCard2EndPositionX = 110;
+          this.leftCard3EndPositionX = 50;
+          this.rightCard1EndPositionX = 30;
+          this.rightCard2EndPositionX = 90;
+          this.rightCard3EndPositionX = 150;
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         } else {
@@ -1367,17 +1367,17 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
       case this.width >= 446:
         if (this.isMobileInfo !== 'iOS') {
-          this.cardSize = 6;
+          this.cardSize = 5;
           this.hiddenCardSize = 37;
           this.cardStartPointX = this.width * 0.47;
           this.cardStartPointY = this.height * 0.49;
           this.cardEndPointY = this.cardStartPointY + 34;
-          this.leftCard1EndPositionX = 156;
-          this.leftCard2EndPositionX = 98;
-          this.leftCard3EndPositionX = 40;
-          this.rightCard1EndPositionX = 20;
-          this.rightCard2EndPositionX = 78;
-          this.rightCard3EndPositionX = 136;
+          this.leftCard1EndPositionX = 145;
+          this.leftCard2EndPositionX = 95;
+          this.leftCard3EndPositionX = 45;
+          this.rightCard1EndPositionX = 25;
+          this.rightCard2EndPositionX = 75;
+          this.rightCard3EndPositionX = 125;
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         } else {
@@ -1466,6 +1466,170 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
 
           break;
 
+          case this.width >= 412 && this.height <= 615:
+            if (this.isMobileInfo !== 'iOS') {
+              this.cardSize = 5.5;
+              this.hiddenCardSize = 37;
+              this.cardStartPointX = this.width * 0.47;
+              this.cardStartPointY = this.height * 0.49;
+              this.cardEndPointY = this.cardStartPointY + 34;
+              this.leftCard1EndPositionX = 141;
+              this.leftCard2EndPositionX = 93;
+              this.leftCard3EndPositionX = 45;
+              this.rightCard1EndPositionX = 25;
+              this.rightCard2EndPositionX = 73;
+              this.rightCard3EndPositionX = 121;
+              this.hiddenCardEndPointX = this.width * 0.15;
+              this.hiddenCardEndPointY = this.height * 0.45;
+            } else {
+              this.cardSize = 40;
+              this.hiddenCardSize = 39;
+              this.cardStartPointX = this.width * 0.48;
+              this.cardStartPointY = this.height * 0.48;
+              this.cardEndPointY = this.cardStartPointY + 60;
+              this.leftCard1EndPositionX = 120;
+              this.leftCard2EndPositionX = 70;
+              this.leftCard3EndPositionX = 20;
+              this.rightCard1EndPositionX = 40;
+              this.rightCard2EndPositionX = 90;
+              this.rightCard3EndPositionX = 140;
+              this.hiddenCardEndPointX = this.width * 0.15;
+              this.hiddenCardEndPointY = this.height * 0.45;
+            }
+
+            break;
+
+          case this.width >= 412 && this.height <= 700:
+            if (this.isMobileInfo !== 'iOS') {
+              this.cardSize = 6;
+              this.hiddenCardSize = 37;
+              this.cardStartPointX = this.width * 0.47;
+              this.cardStartPointY = this.height * 0.49;
+              this.cardEndPointY = this.cardStartPointY + 34;
+              this.leftCard1EndPositionX = 141;
+              this.leftCard2EndPositionX = 93;
+              this.leftCard3EndPositionX = 45;
+              this.rightCard1EndPositionX = 25;
+              this.rightCard2EndPositionX = 73;
+              this.rightCard3EndPositionX = 121;
+              this.hiddenCardEndPointX = this.width * 0.15;
+              this.hiddenCardEndPointY = this.height * 0.45;
+            } else {
+              this.cardSize = 40;
+              this.hiddenCardSize = 39;
+              this.cardStartPointX = this.width * 0.48;
+              this.cardStartPointY = this.height * 0.48;
+              this.cardEndPointY = this.cardStartPointY + 60;
+              this.leftCard1EndPositionX = 120;
+              this.leftCard2EndPositionX = 70;
+              this.leftCard3EndPositionX = 20;
+              this.rightCard1EndPositionX = 40;
+              this.rightCard2EndPositionX = 90;
+              this.rightCard3EndPositionX = 140;
+              this.hiddenCardEndPointX = this.width * 0.15;
+              this.hiddenCardEndPointY = this.height * 0.45;
+            }
+
+            break;
+
+            case this.width >= 412 && this.height <= 750:
+              if (this.isMobileInfo !== 'iOS') {
+                this.cardSize = 4.5;
+                this.hiddenCardSize = 37;
+                this.cardStartPointX = this.width * 0.47;
+                this.cardStartPointY = this.height * 0.49;
+                this.cardEndPointY = this.cardStartPointY + 34;
+                this.leftCard1EndPositionX = 141;
+              this.leftCard2EndPositionX = 93;
+              this.leftCard3EndPositionX = 45;
+              this.rightCard1EndPositionX = 25;
+              this.rightCard2EndPositionX = 73;
+              this.rightCard3EndPositionX = 121;
+                this.hiddenCardEndPointX = this.width * 0.15;
+                this.hiddenCardEndPointY = this.height * 0.45;
+              } else {
+                this.cardSize = 40;
+                this.hiddenCardSize = 39;
+                this.cardStartPointX = this.width * 0.48;
+                this.cardStartPointY = this.height * 0.48;
+                this.cardEndPointY = this.cardStartPointY + 60;
+                this.leftCard1EndPositionX = 120;
+                this.leftCard2EndPositionX = 70;
+                this.leftCard3EndPositionX = 20;
+                this.rightCard1EndPositionX = 40;
+                this.rightCard2EndPositionX = 90;
+                this.rightCard3EndPositionX = 140;
+                this.hiddenCardEndPointX = this.width * 0.13;
+                this.hiddenCardEndPointY = this.height * 0.45;
+              }
+
+              break;
+
+          case this.width >= 412 && this.height <= 780:
+            if (this.isMobileInfo !== 'iOS') {
+              this.cardSize = 6;
+              this.hiddenCardSize = 37;
+              this.cardStartPointX = this.width * 0.47;
+              this.cardStartPointY = this.height * 0.49;
+              this.cardEndPointY = this.cardStartPointY + 34;
+              this.leftCard1EndPositionX = 141;
+              this.leftCard2EndPositionX = 93;
+              this.leftCard3EndPositionX = 45;
+              this.rightCard1EndPositionX = 25;
+              this.rightCard2EndPositionX = 73;
+              this.rightCard3EndPositionX = 121;
+              this.hiddenCardEndPointX = this.width * 0.15;
+              this.hiddenCardEndPointY = this.height * 0.45;
+            } else {
+              this.cardSize = 40;
+              this.hiddenCardSize = 39;
+              this.cardStartPointX = this.width * 0.48;
+              this.cardStartPointY = this.height * 0.48;
+              this.cardEndPointY = this.cardStartPointY + 60;
+              this.leftCard1EndPositionX = 120;
+              this.leftCard2EndPositionX = 70;
+              this.leftCard3EndPositionX = 20;
+              this.rightCard1EndPositionX = 40;
+              this.rightCard2EndPositionX = 90;
+              this.rightCard3EndPositionX = 140;
+              this.hiddenCardEndPointX = this.width * 0.13;
+              this.hiddenCardEndPointY = this.height * 0.45;
+            }
+
+            break;
+
+          case this.width >= 412 && this.height <= 800:
+            if (this.isMobileInfo !== 'iOS') {
+              this.cardSize = 5;
+              this.hiddenCardSize = 37;
+              this.cardStartPointX = this.width * 0.47;
+              this.cardStartPointY = this.height * 0.49;
+              this.cardEndPointY = this.cardStartPointY + 34;
+              this.leftCard1EndPositionX = 141;
+              this.leftCard2EndPositionX = 93;
+              this.leftCard3EndPositionX = 45;
+              this.rightCard1EndPositionX = 25;
+              this.rightCard2EndPositionX = 73;
+              this.rightCard3EndPositionX = 121;
+              this.hiddenCardEndPointX = this.width * 0.15;
+              this.hiddenCardEndPointY = this.height * 0.45;
+            } else {
+              this.cardSize = 40;
+              this.hiddenCardSize = 39;
+              this.cardStartPointX = this.width * 0.48;
+              this.cardStartPointY = this.height * 0.48;
+              this.cardEndPointY = this.cardStartPointY + 60;
+              this.leftCard1EndPositionX = 120;
+              this.leftCard2EndPositionX = 70;
+              this.leftCard3EndPositionX = 20;
+              this.rightCard1EndPositionX = 40;
+              this.rightCard2EndPositionX = 90;
+              this.rightCard3EndPositionX = 140;
+              this.hiddenCardEndPointX = this.width * 0.15;
+              this.hiddenCardEndPointY = this.height * 0.45;
+            }
+
+            break;
 
 
 
