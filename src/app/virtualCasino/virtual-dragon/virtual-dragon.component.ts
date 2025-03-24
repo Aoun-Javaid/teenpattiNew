@@ -17,7 +17,7 @@ import { TopResultsComponent } from '../../newCasino/shared/top-results/top-resu
 import { CommonModule } from '@angular/common';
 import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
 import { QuickStakesEditComponent } from '../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component';
-import { VtdPhaserComponent } from '../casinoPhaser/vtd-phaser/vtd-phaser.component';
+
 import { TimerComponent } from '../shared/timer/timer.component';
 
 
@@ -28,12 +28,11 @@ declare var $: any;
   standalone: true,
   imports: [
     TopResultsComponent, CommonModule, BetCoinComponent, BetsChipsComponent, ShortNumberPipe, QuickStakesEditComponent,
-    VtdPhaserComponent, TimerComponent],
+    TimerComponent],
   templateUrl: './virtual-dragon.component.html',
   styleUrl: './virtual-dragon.component.css'
 })
 export class VirtualDragonComponent implements AfterViewInit {
-  @ViewChild(VtdPhaserComponent) VtdPhaserComponent!: VtdPhaserComponent;
 
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
   @ViewChild('playVideo') bgVideo !: ElementRef;
@@ -257,7 +256,7 @@ export class VirtualDragonComponent implements AfterViewInit {
             this.firstBoxWidth = '';
 
             this.cards = {};
-            this.VtdPhaserComponent.clearRoundVdt();
+            // this.VtdPhaserComponent.clearRoundVdt();
 
           }
 
@@ -274,10 +273,10 @@ export class VirtualDragonComponent implements AfterViewInit {
           this.tigerCards = this.game?.cardsArr?.TIGER;
 
           if (this.dragonCards) {
-            if(this.dragonCards.card_1!=0 && !this.cards.card_11){
-              this.cards.card_11=true
-              this.VtdPhaserComponent.showDragonCardVdt(this.dragonCards.card_1);
-            }
+            // if(this.dragonCards.card_1!=0 && !this.cards.card_11){
+            //   this.cards.card_11=true
+            //   this.VtdPhaserComponent.showDragonCardVdt(this.dragonCards.card_1);
+            // }
             if (this.dragonCards?.card_1 == 0 && this.game.status == 'SUSPEND') {
               this.game.noMoreBets = true;
             }
@@ -285,12 +284,12 @@ export class VirtualDragonComponent implements AfterViewInit {
               this.game.noMoreBets = false;
             }
           }
-          if (this.tigerCards) {
-            if(this.tigerCards.card_1!=0 && !this.cards.card_21){
-              this.cards.card_21=true
-              this.VtdPhaserComponent.showTigerCardVdt(this.tigerCards.card_1);
-            }
-          }
+          // if (this.tigerCards) {
+          //   if(this.tigerCards.card_1!=0 && !this.cards.card_21){
+          //     this.cards.card_21=true
+          //     this.VtdPhaserComponent.showTigerCardVdt(this.tigerCards.card_1);
+          //   }
+          // }
 
           this.winnerMarketArray = this.game.marketArr ? this.game.marketArr[0] : ''
           this.runnersName = this.winnerMarketArray.runnersName;
@@ -482,9 +481,9 @@ export class VirtualDragonComponent implements AfterViewInit {
                 this.RoundWinner = objMarket.data.resultsArr[0]?.runnersName[key];
                 // console.log(this.RoundWinner)
                 this.BetPlaced = [];
-                setTimeout(() => {
-                  this.VtdPhaserComponent.winnerCardVdt(this.RoundWinner=='DRAGON'?1:2)
-                }, 500);
+                // setTimeout(() => {
+                //   this.VtdPhaserComponent.winnerCardVdt(this.RoundWinner=='DRAGON'?1:2)
+                // }, 500);
               }
               if (key == this.betSelectedPlayer && objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
                 setTimeout(() => {
