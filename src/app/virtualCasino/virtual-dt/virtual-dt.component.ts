@@ -216,7 +216,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     });
 
-   
+
 
     this.getStackData();
     this.getWindowSize();
@@ -1283,18 +1283,80 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
     console.log(this.width, this.height);
 
     switch (true) {
-      case this.width >= 850:
+
+      case this.width >= 1900:
         this.cardSize = 8;
-        this.hiddenCardSize = 65;
-        this.cardStartPointX = this.width * 0.45;
-        this.cardStartPointY = this.height * 0.45;
-        this.cardEndPointY = this.cardStartPointY + 80;
-        this.leftCard1EndPositionX = 20;
-        this.rightCard1EndPositionX = 80;
-        this.hiddenCardEndPointX = this.width * 0.27;
+        this.hiddenCardSize = 55;
+        this.cardStartPointX = this.width * 0.485;
+        this.cardStartPointY = this.height * 0.38;
+        this.cardEndPointY = this.cardStartPointY + 150;
+        this.leftCard1EndPositionX = 60;
+        this.rightCard1EndPositionX =40;
+        this.hiddenCardEndPointX = this.width * 0.37;
+        this.hiddenCardEndPointY = this.height * 0.43;
+
+        break;
+      case this.width >= 1500:
+        this.cardSize = 6;
+        this.hiddenCardSize = 55;
+        this.cardStartPointX = this.width * 0.485;
+        this.cardStartPointY = this.height * 0.38;
+        this.cardEndPointY = this.cardStartPointY + 150;
+        this.leftCard1EndPositionX = 60;
+        this.rightCard1EndPositionX =40;
+        this.hiddenCardEndPointX = this.width * 0.32;
         this.hiddenCardEndPointY = this.height * 0.41;
 
         break;
+      case this.width >= 1400:
+        this.cardSize = 6;
+        this.hiddenCardSize = 55;
+        this.cardStartPointX = this.width * 0.485;
+        this.cardStartPointY = this.height * 0.38;
+        this.cardEndPointY = this.cardStartPointY + 150;
+        this.leftCard1EndPositionX = 40;
+        this.rightCard1EndPositionX =40;
+        this.hiddenCardEndPointX = this.width * 0.32;
+        this.hiddenCardEndPointY = this.height * 0.41;
+
+        break;
+        case this.width >= 1300:
+          this.cardSize = 12;
+          this.hiddenCardSize = 55;
+          this.cardStartPointX = this.width * 0.45;
+          this.cardStartPointY = this.height * 0.45;
+          this.cardEndPointY = this.cardStartPointY + 80;
+          this.leftCard1EndPositionX = 10;
+          this.rightCard1EndPositionX = 80;
+          this.hiddenCardEndPointX = this.width * 0.3;
+          this.hiddenCardEndPointY = this.height * 0.4;
+
+          break;
+        case this.width >= 1100:
+          this.cardSize = 12;
+          this.hiddenCardSize = 55;
+          this.cardStartPointX = this.width * 0.45;
+          this.cardStartPointY = this.height * 0.45;
+          this.cardEndPointY = this.cardStartPointY + 80;
+          this.leftCard1EndPositionX = 20;
+          this.rightCard1EndPositionX = 60;
+          this.hiddenCardEndPointX = this.width * 0.28;
+          this.hiddenCardEndPointY = this.height * 0.41;
+
+          break;
+
+        case this.width >= 910:
+          this.cardSize = 6;
+          this.hiddenCardSize = 65;
+          this.cardStartPointX = this.width * 0.45;
+          this.cardStartPointY = this.height * 0.45;
+          this.cardEndPointY = this.cardStartPointY + 80;
+          this.leftCard1EndPositionX = 30;
+          this.rightCard1EndPositionX = 80;
+          this.hiddenCardEndPointX = this.width * 0.24;
+          this.hiddenCardEndPointY = this.height * 0.45;
+
+          break;
 
       case this.width >= 820:
         this.cardSize = 8;
@@ -1321,6 +1383,54 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
         this.hiddenCardEndPointY = this.height * 0.41;
 
         break;
+        case this.width >= 530:
+          if (this.isMobileInfo !== 'iOS') {
+            this.cardSize = 6;
+            this.hiddenCardSize = 37;
+            this.cardStartPointX = this.width * 0.47;
+            this.cardStartPointY = this.height * 0.49;
+            this.cardEndPointY = this.cardStartPointY + 24;
+            this.leftCard1EndPositionX = 48;
+            this.rightCard1EndPositionX = 28;
+            this.hiddenCardEndPointX = this.width * 0.15;
+            this.hiddenCardEndPointY = this.height * 0.43;
+          } else {
+            this.cardSize = 50;
+            this.hiddenCardSize = 39;
+            this.cardStartPointX = this.width * 0.48;
+            this.cardStartPointY = this.height * 0.48;
+            this.cardEndPointY = this.cardStartPointY + 60;
+            this.leftCard1EndPositionX = 20;
+            this.rightCard1EndPositionX = 40;
+            this.hiddenCardEndPointX = this.width * 0.15;
+            this.hiddenCardEndPointY = this.height * 0.45;
+          }
+
+          break;
+        case this.width >= 470:
+          if (this.isMobileInfo !== 'iOS') {
+            this.cardSize = 6;
+            this.hiddenCardSize = 37;
+            this.cardStartPointX = this.width * 0.47;
+            this.cardStartPointY = this.height * 0.49;
+            this.cardEndPointY = this.cardStartPointY + 34;
+            this.leftCard1EndPositionX = 48;
+            this.rightCard1EndPositionX = 28;
+            this.hiddenCardEndPointX = this.width * 0.15;
+            this.hiddenCardEndPointY = this.height * 0.45;
+          } else {
+            this.cardSize = 50;
+            this.hiddenCardSize = 39;
+            this.cardStartPointX = this.width * 0.48;
+            this.cardStartPointY = this.height * 0.48;
+            this.cardEndPointY = this.cardStartPointY + 60;
+            this.leftCard1EndPositionX = 20;
+            this.rightCard1EndPositionX = 40;
+            this.hiddenCardEndPointX = this.width * 0.15;
+            this.hiddenCardEndPointY = this.height * 0.45;
+          }
+
+          break;
 
       case this.width >= 446:
         if (this.isMobileInfo !== 'iOS') {
@@ -1365,17 +1475,66 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
           this.cardStartPointX = this.width * 0.48;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 40;
-          this.leftCard1EndPositionX = 20;
+          this.leftCard1EndPositionX = 30;
           this.rightCard1EndPositionX = 40;
           this.hiddenCardEndPointX = this.width * 0.13;
           this.hiddenCardEndPointY = this.height * 0.45;
         }
 
         break;
+        case this.width >= 412 && this.height <= 620:
+          if (this.isMobileInfo !== 'iOS') {
+            this.cardSize = 5;
+            this.hiddenCardSize = 37;
+            this.cardStartPointX = this.width * 0.47;
+            this.cardStartPointY = this.height * 0.49;
+            this.cardEndPointY = this.cardStartPointY + 18;
+            this.leftCard1EndPositionX = 40;
+            this.rightCard1EndPositionX = 20;
+            this.hiddenCardEndPointX = this.width * 0.15;
+            this.hiddenCardEndPointY = this.height * 0.45;
+          } else {
+            this.cardSize = 50;
+            this.hiddenCardSize = 39;
+            this.cardStartPointX = this.width * 0.48;
+            this.cardStartPointY = this.height * 0.48;
+            this.cardEndPointY = this.cardStartPointY + 60;
+            this.leftCard1EndPositionX = 30;
+            this.rightCard1EndPositionX = 40;
+            this.hiddenCardEndPointX = this.width * 0.13;
+            this.hiddenCardEndPointY = this.height * 0.45;
+          }
+
+          break;
+
+          case this.width >= 412 && this.height <= 700:
+            if (this.isMobileInfo !== 'iOS') {
+              this.cardSize = 7;
+              this.hiddenCardSize = 37;
+              this.cardStartPointX = this.width * 0.47;
+              this.cardStartPointY = this.height * 0.49;
+              this.cardEndPointY = this.cardStartPointY + 18;
+              this.leftCard1EndPositionX = 45;
+              this.rightCard1EndPositionX = 25;
+              this.hiddenCardEndPointX = this.width * 0.15;
+              this.hiddenCardEndPointY = this.height * 0.45;
+            } else {
+              this.cardSize = 50;
+              this.hiddenCardSize = 39;
+              this.cardStartPointX = this.width * 0.48;
+              this.cardStartPointY = this.height * 0.48;
+              this.cardEndPointY = this.cardStartPointY + 60;
+              this.leftCard1EndPositionX = 30;
+              this.rightCard1EndPositionX = 40;
+              this.hiddenCardEndPointX = this.width * 0.13;
+              this.hiddenCardEndPointY = this.height * 0.45;
+            }
+
+            break;
 
       case this.width >= 412 && this.height <= 745:
         if (this.isMobileInfo !== 'iOS') {
-          this.cardSize = 7;
+          this.cardSize = 6;
           this.hiddenCardSize = 37;
           this.cardStartPointX = this.width * 0.47;
           this.cardStartPointY = this.height * 0.49;
@@ -1390,7 +1549,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
           this.cardStartPointX = this.width * 0.48;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 60;
-          this.leftCard1EndPositionX = 20;
+          this.leftCard1EndPositionX = 30;
           this.rightCard1EndPositionX = 40;
           this.hiddenCardEndPointX = this.width * 0.13;
           this.hiddenCardEndPointY = this.height * 0.45;
@@ -1398,16 +1557,15 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
 
         break;
 
-        
-      case this.width >= 390:
+      case this.width >= 412 :
         if (this.isMobileInfo !== 'iOS') {
-          this.cardSize = 7;
+          this.cardSize = 8;
           this.hiddenCardSize = 37;
           this.cardStartPointX = this.width * 0.47;
           this.cardStartPointY = this.height * 0.49;
           this.cardEndPointY = this.cardStartPointY + 34;
-          this.leftCard1EndPositionX = 37;
-          this.rightCard1EndPositionX = 17;
+          this.leftCard1EndPositionX = 48;
+          this.rightCard1EndPositionX = 28;
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         } else {
@@ -1416,13 +1574,87 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
           this.cardStartPointX = this.width * 0.48;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 60;
-          this.leftCard1EndPositionX = 20;
+          this.leftCard1EndPositionX = 30;
           this.rightCard1EndPositionX = 40;
           this.hiddenCardEndPointX = this.width * 0.13;
           this.hiddenCardEndPointY = this.height * 0.45;
         }
 
         break;
+
+
+      case this.width >= 390:
+        if (this.isMobileInfo !== 'iOS') {
+          this.cardSize = 7;
+          this.hiddenCardSize = 37;
+          this.cardStartPointX = this.width * 0.47;
+          this.cardStartPointY = this.height * 0.49;
+          this.cardEndPointY = this.cardStartPointY + 34;
+          this.leftCard1EndPositionX = 40;
+          this.rightCard1EndPositionX = 20;
+          this.hiddenCardEndPointX = this.width * 0.15;
+          this.hiddenCardEndPointY = this.height * 0.45;
+        } else {
+          this.cardSize = 50;
+          this.hiddenCardSize = 39;
+          this.cardStartPointX = this.width * 0.48;
+          this.cardStartPointY = this.height * 0.48;
+          this.cardEndPointY = this.cardStartPointY + 60;
+          this.leftCard1EndPositionX = 30;
+          this.rightCard1EndPositionX = 40;
+          this.hiddenCardEndPointX = this.width * 0.13;
+          this.hiddenCardEndPointY = this.height * 0.45;
+        }
+
+        break;
+        case this.width >= 384 && this.height <=667:
+          if (this.isMobileInfo !== 'iOS') {
+            this.cardSize = 5;
+            this.hiddenCardSize = 37;
+            this.cardStartPointX = this.width * 0.47;
+            this.cardStartPointY = this.height * 0.49;
+            this.cardEndPointY = this.cardStartPointY + 34;
+            this.leftCard1EndPositionX = 45;
+            this.rightCard1EndPositionX = 25;
+            this.hiddenCardEndPointX = this.width * 0.15;
+            this.hiddenCardEndPointY = this.height * 0.45;
+          } else {
+            this.cardSize = 50;
+            this.hiddenCardSize = 39;
+            this.cardStartPointX = this.width * 0.48;
+            this.cardStartPointY = this.height * 0.48;
+            this.cardEndPointY = this.cardStartPointY + 60;
+            this.leftCard1EndPositionX = 30;
+            this.rightCard1EndPositionX = 40;
+            this.hiddenCardEndPointX = this.width * 0.13;
+            this.hiddenCardEndPointY = this.height * 0.45;
+          }
+
+          break;
+          case this.width >= 384 :
+            if (this.isMobileInfo !== 'iOS') {
+              this.cardSize = 7;
+              this.hiddenCardSize = 37;
+              this.cardStartPointX = this.width * 0.47;
+              this.cardStartPointY = this.height * 0.49;
+              this.cardEndPointY = this.cardStartPointY + 34;
+              this.leftCard1EndPositionX = 45;
+              this.rightCard1EndPositionX = 25;
+              this.hiddenCardEndPointX = this.width * 0.15;
+              this.hiddenCardEndPointY = this.height * 0.45;
+            } else {
+              this.cardSize = 50;
+              this.hiddenCardSize = 39;
+              this.cardStartPointX = this.width * 0.48;
+              this.cardStartPointY = this.height * 0.48;
+              this.cardEndPointY = this.cardStartPointY + 60;
+              this.leftCard1EndPositionX = 30;
+              this.rightCard1EndPositionX = 40;
+              this.hiddenCardEndPointX = this.width * 0.13;
+              this.hiddenCardEndPointY = this.height * 0.45;
+            }
+
+            break;
 
 
 
@@ -1443,7 +1675,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
           this.cardStartPointX = this.width * 0.48;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 60;
-          this.leftCard1EndPositionX = 20;
+          this.leftCard1EndPositionX = 30;
           this.rightCard1EndPositionX = 40;
           this.hiddenCardEndPointX = this.width * 0.13;
           this.hiddenCardEndPointY = this.height * 0.45;
@@ -1469,7 +1701,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
           this.cardStartPointX = this.width * 0.48;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 60;
-          this.leftCard1EndPositionX = 20;
+          this.leftCard1EndPositionX = 30;
           this.rightCard1EndPositionX = 40;
           this.hiddenCardEndPointX = this.width * 0.13;
           this.hiddenCardEndPointY = this.height * 0.45;
@@ -1608,63 +1840,63 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
   // 'R' or 'r' animate right cards up/down.
   // 'D' or 'd' trigger the disappearing animation.
   @HostListener('window:keydown', ['$event'])
-  // onKeyDown(event: KeyboardEvent): void {
-  //   switch (event.key) {
-  //     case '1': {
-  //       const targetX = this.cardStartPointX - this.leftCard1EndPositionX;
-  //       this.leftCard1 = this.createCard(
-  //         'C5_',
-  //         this.cardStartPointX,
-  //         this.cardStartPointY,
-  //         targetX,
-  //         this.cardEndPointY
-  //       );
-  //       break;
-  //     }
-  //     case '2': {
-  //       const targetX = this.cardStartPointX + this.rightCard1EndPositionX;
-  //       this.rightCard1 = this.createCard(
-  //         'H4_',
-  //         this.cardStartPointX,
-  //         this.cardStartPointY,
-  //         targetX,
-  //         this.cardEndPointY
-  //       );
-  //       break;
-  //     }
-  //     case 'l':
-  //     case 'L': {
-  //       if (this.leftCard1) this.animateUpDown(this.leftCard1);
-  //       break;
-  //     }
-  //     case 'r':
-  //     case 'R': {
-  //       if (this.rightCard1) this.animateUpDown(this.rightCard1);
-  //       break;
-  //     }
-  //     case 'd':
-  //     case 'D': {
-  //       if (this.leftCard1)
-  //         this.moveAndRemoveCard(
-  //           this.leftCard1,
-  //           this.cardStartPointX,
-  //           this.leftCard1.y
-  //         );
-  //       if (this.rightCard1)
-  //         this.moveAndRemoveCard(
-  //           this.rightCard1,
-  //           this.cardStartPointX,
-  //           this.rightCard1.y
-  //         );
-  //       setTimeout(() => {
-  //         this.createHiddenCard();
-  //       }, 700);
-  //       break;
-  //     }
-  //     default:
-  //       break;
-  //   }
-  // }
+  onKeyDown(event: KeyboardEvent): void {
+    switch (event.key) {
+      case '1': {
+        const targetX = this.cardStartPointX - this.leftCard1EndPositionX;
+        this.leftCard1 = this.createCard(
+          'C5_',
+          this.cardStartPointX,
+          this.cardStartPointY,
+          targetX,
+          this.cardEndPointY
+        );
+        break;
+      }
+      case '2': {
+        const targetX = this.cardStartPointX + this.rightCard1EndPositionX;
+        this.rightCard1 = this.createCard(
+          'H4_',
+          this.cardStartPointX,
+          this.cardStartPointY,
+          targetX,
+          this.cardEndPointY
+        );
+        break;
+      }
+      case 'l':
+      case 'L': {
+        if (this.leftCard1) this.animateUpDown(this.leftCard1);
+        break;
+      }
+      case 'r':
+      case 'R': {
+        if (this.rightCard1) this.animateUpDown(this.rightCard1);
+        break;
+      }
+      case 'd':
+      case 'D': {
+        if (this.leftCard1)
+          this.moveAndRemoveCard(
+            this.leftCard1,
+            this.cardStartPointX,
+            this.leftCard1.y
+          );
+        if (this.rightCard1)
+          this.moveAndRemoveCard(
+            this.rightCard1,
+            this.cardStartPointX,
+            this.rightCard1.y
+          );
+        setTimeout(() => {
+          this.createHiddenCard();
+        }, 700);
+        break;
+      }
+      default:
+        break;
+    }
+  }
 
   // Initiate an up/down (yoyo) animation on the given card.
   private animateUpDown(card: Card): void {
