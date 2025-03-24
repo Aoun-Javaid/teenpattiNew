@@ -1454,12 +1454,12 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
             this.cardStartPointX = this.width * 0.48;
             this.cardStartPointY = this.height * 0.48;
             this.cardEndPointY = this.cardStartPointY + 60;
-            this.leftCard1EndPositionX = 150;
-            this.leftCard2EndPositionX = 90;
+            this.leftCard1EndPositionX = 140;
+            this.leftCard2EndPositionX = 85;
             this.leftCard3EndPositionX = 30;
             this.rightCard1EndPositionX = 50;
-            this.rightCard2EndPositionX = 110;
-            this.rightCard3EndPositionX = 170;
+            this.rightCard2EndPositionX = 105;
+            this.rightCard3EndPositionX = 160;
             this.hiddenCardEndPointX = this.width * 0.13;
             this.hiddenCardEndPointY = this.height * 0.45;
           }
@@ -1486,17 +1486,17 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         } else {
-          this.cardSize = 50;
+          this.cardSize = 45;
           this.hiddenCardSize = 39;
           this.cardStartPointX = this.width * 0.48;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 60;
-          this.leftCard1EndPositionX = 140;
-          this.leftCard2EndPositionX = 80;
+          this.leftCard1EndPositionX = 120;
+          this.leftCard2EndPositionX = 70;
           this.leftCard3EndPositionX = 20;
           this.rightCard1EndPositionX = 40;
-          this.rightCard2EndPositionX = 100;
-          this.rightCard3EndPositionX = 160;
+          this.rightCard2EndPositionX = 90;
+          this.rightCard3EndPositionX = 140;
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         }
@@ -1519,17 +1519,17 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         } else {
-          this.cardSize = 50;
+          this.cardSize = 45;
           this.hiddenCardSize = 39;
           this.cardStartPointX = this.width * 0.48;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 60;
-          this.leftCard1EndPositionX = 140;
-          this.leftCard2EndPositionX = 80;
+          this.leftCard1EndPositionX = 120;
+          this.leftCard2EndPositionX = 70;
           this.leftCard3EndPositionX = 20;
           this.rightCard1EndPositionX = 40;
-          this.rightCard2EndPositionX = 100;
-          this.rightCard3EndPositionX = 160;
+          this.rightCard2EndPositionX = 90;
+          this.rightCard3EndPositionX = 140;
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         }
@@ -1557,12 +1557,12 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           this.cardStartPointX = this.width * 0.48;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 60;
-          this.leftCard1EndPositionX = 140;
-          this.leftCard2EndPositionX = 80;
+          this.leftCard1EndPositionX = 120;
+          this.leftCard2EndPositionX = 70;
           this.leftCard3EndPositionX = 20;
           this.rightCard1EndPositionX = 40;
-          this.rightCard2EndPositionX = 100;
-          this.rightCard3EndPositionX = 160;
+          this.rightCard2EndPositionX = 90;
+          this.rightCard3EndPositionX = 140;
           this.hiddenCardEndPointX = this.width * 0.13;
           this.hiddenCardEndPointY = this.height * 0.45;
         }
@@ -1585,17 +1585,17 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         } else {
-          this.cardSize = 50;
+          this.cardSize = 45;
           this.hiddenCardSize = 39;
           this.cardStartPointX = this.width * 0.48;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 60;
-          this.leftCard1EndPositionX = 140;
-          this.leftCard2EndPositionX = 80;
+          this.leftCard1EndPositionX = 120;
+          this.leftCard2EndPositionX = 70;
           this.leftCard3EndPositionX = 20;
           this.rightCard1EndPositionX = 40;
-          this.rightCard2EndPositionX = 100;
-          this.rightCard3EndPositionX = 160;
+          this.rightCard2EndPositionX = 90;
+          this.rightCard3EndPositionX = 140;
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         }
@@ -1622,12 +1622,12 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           this.cardStartPointX = this.width * 0.48;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 60;
-          this.leftCard1EndPositionX = 140;
-          this.leftCard2EndPositionX = 80;
+          this.leftCard1EndPositionX = 120;
+          this.leftCard2EndPositionX = 70;
           this.leftCard3EndPositionX = 20;
           this.rightCard1EndPositionX = 40;
-          this.rightCard2EndPositionX = 100;
-          this.rightCard3EndPositionX = 160;
+          this.rightCard2EndPositionX = 90;
+          this.rightCard3EndPositionX = 140;
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         }
@@ -1654,12 +1654,12 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           this.cardStartPointX = this.width * 0.48;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 60;
-          this.leftCard1EndPositionX = 140;
-          this.leftCard2EndPositionX = 80;
+          this.leftCard1EndPositionX = 120;
+          this.leftCard2EndPositionX = 70;
           this.leftCard3EndPositionX = 20;
           this.rightCard1EndPositionX = 40;
-          this.rightCard2EndPositionX = 100;
-          this.rightCard3EndPositionX = 160;
+          this.rightCard2EndPositionX = 90;
+          this.rightCard3EndPositionX = 140;
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         }
@@ -1686,12 +1686,12 @@ export class VirtualTeenpattiComponent implements OnInit, OnDestroy {
           this.cardStartPointX = this.width * 0.48;
           this.cardStartPointY = this.height * 0.48;
           this.cardEndPointY = this.cardStartPointY + 60;
-          this.leftCard1EndPositionX = 140;
-          this.leftCard2EndPositionX = 80;
+          this.leftCard1EndPositionX = 120;
+          this.leftCard2EndPositionX = 70;
           this.leftCard3EndPositionX = 20;
           this.rightCard1EndPositionX = 40;
-          this.rightCard2EndPositionX = 100;
-          this.rightCard3EndPositionX = 160;
+          this.rightCard2EndPositionX = 90;
+          this.rightCard3EndPositionX = 140;
           this.hiddenCardEndPointX = this.width * 0.15;
           this.hiddenCardEndPointY = this.height * 0.45;
         }
