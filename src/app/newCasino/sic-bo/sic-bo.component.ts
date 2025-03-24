@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SicBoComponent {
   RoundWinner: any;
-
+  btnAnimation:any
   coinAnimateState = false;
   animateCoinVal: any
   btnCheck = 1
@@ -50,6 +50,7 @@ export class SicBoComponent {
 
   openBetCoin() {
     this.openCoinBarState = true;
+    this.btnAnimation = true
   }
 
   closeBetCoin(event: any) {
@@ -62,6 +63,7 @@ export class SicBoComponent {
       this.coinAnimateCheck = false
     }, 500);
 
+    this.btnAnimation = false
    
 
     let translateYRevers = ''; // Change `const` to `let`
@@ -95,7 +97,7 @@ export class SicBoComponent {
     this.animateCoinVal = value
     this.btnCheck = value;
     this.coinAnimateCheck = false;
-
+   
 
     switch (this.btnCheck) {
       case 1:
