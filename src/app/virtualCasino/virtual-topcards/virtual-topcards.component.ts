@@ -23,7 +23,7 @@ import { TopResultsComponent } from '../../newCasino/shared/top-results/top-resu
 import { CommonModule } from '@angular/common';
 import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
 import { QuickStakesEditComponent } from '../../shared/mob-navigation/quick-stakes-edit/quick-stakes-edit.component';
-import { VtdPhaserComponent } from '../casinoPhaser/vtd-phaser/vtd-phaser.component';
+
 import { TimerComponent } from '../shared/timer/timer.component';
 
 declare var $: any;
@@ -38,14 +38,14 @@ declare var $: any;
     BetsChipsComponent,
     ShortNumberPipe,
     QuickStakesEditComponent,
-    VtdPhaserComponent,
+
     TimerComponent,
   ],
   templateUrl: './virtual-topcards.component.html',
   styleUrl: './virtual-topcards.component.css',
 })
 export class VirtualTopcardsComponent implements AfterViewInit {
-  @ViewChild(VtdPhaserComponent) VtdPhaserComponent!: VtdPhaserComponent;
+
 
   @ViewChild(BetsChipsComponent) betsChipsComponent!: BetsChipsComponent;
   @ViewChild('playVideo') bgVideo!: ElementRef;
@@ -270,7 +270,7 @@ export class VirtualTopcardsComponent implements AfterViewInit {
               this.firstBoxWidth = '';
 
               this.cards = {};
-              this.VtdPhaserComponent.clearRoundVdt();
+              // this.VtdPhaserComponent.clearRoundVdt();
             }
 
             // this.networkService.updateRoundId(this.game);
@@ -287,9 +287,9 @@ export class VirtualTopcardsComponent implements AfterViewInit {
             if (this.dragonCards) {
               if (this.dragonCards.card_1 != 0 && !this.cards.card_11) {
                 this.cards.card_11 = true;
-                this.VtdPhaserComponent.showDragonCardVdt(
-                  this.dragonCards.card_1
-                );
+                // this.VtdPhaserComponent.showDragonCardVdt(
+                //   this.dragonCards.card_1
+                // );
               }
               if (
                 this.dragonCards?.card_1 == 0 &&
@@ -303,9 +303,9 @@ export class VirtualTopcardsComponent implements AfterViewInit {
             if (this.tigerCards) {
               if (this.tigerCards.card_1 != 0 && !this.cards.card_21) {
                 this.cards.card_21 = true;
-                this.VtdPhaserComponent.showTigerCardVdt(
-                  this.tigerCards.card_1
-                );
+                // this.VtdPhaserComponent.showTigerCardVdt(
+                //   this.tigerCards.card_1
+                // );
               }
             }
 
@@ -499,9 +499,9 @@ export class VirtualTopcardsComponent implements AfterViewInit {
                 // console.log(this.RoundWinner)
                 this.BetPlaced = [];
                 setTimeout(() => {
-                  this.VtdPhaserComponent.winnerCardVdt(
-                    this.RoundWinner == 'DRAGON' ? 1 : 2
-                  );
+                  // this.VtdPhaserComponent.winnerCardVdt(
+                  //   this.RoundWinner == 'DRAGON' ? 1 : 2
+                  // );
                 }, 500);
               }
               if (
