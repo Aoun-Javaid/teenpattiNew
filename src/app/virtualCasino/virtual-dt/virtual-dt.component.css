@@ -400,11 +400,13 @@
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1;
+   @apply xl:text-[0.85rem]
 }
 
 .tableMainStatic__suitedTie-M9pbef .tableMainStatic__payout-cdrdZV,
 .tableMainStatic__tie-fDeGvN .tableMainStatic__payout-cdrdZV {
   font-size: 0.625rem;
+    @apply xl:text-[0.85rem]
 }
 
 .tableMainStatic__title-VDxh9o {
@@ -414,12 +416,14 @@
   font-weight: 800;
   line-height: 1;
   text-transform: uppercase;
+  @apply xl:text-[1.17rem]
 }
 
 .tableMainStatic__suitedTie-M9pbef .tableMainStatic__title-VDxh9o,
 .tableMainStatic__tie-fDeGvN .tableMainStatic__title-VDxh9o {
   font-size: 0.75rem;
   font-size-adjust: none;
+   @apply xl:text-[0.85rem]
 }
 
 
@@ -515,6 +519,7 @@
 .card_size_large-HaRpNj {
   height: 3rem;
   width: 2.125rem;
+  @apply xl:w-[38px] xl:h-[53px] xl:max-w-[47px] xl:max-h-[66px]
 }
 
 .card_color_black-iDcRjL {
@@ -587,6 +592,7 @@
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
+  @apply xl:text-[0.85rem]
 }
 
 
@@ -596,6 +602,7 @@
   font-size: 0.625rem;
   font-weight: 700;
   line-height: 1;
+  @apply xl:text-[0.7rem]
 }
 
 .tableSideChips-BtyLLs {
@@ -747,10 +754,16 @@
 }
 
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 lg:flex-col lg:items-end;
+  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[29px] md:bottom-[80px] [@media(min-width:900px)]:bottom-[95px] xl:!bottom-[2px];
   position: absolute;
-  bottom: 2px;
 }
+
+@media (max-width: 375px) and (min-height: 768px) {
+  .time-container {
+    @apply !bottom-[58px];
+  }
+}
+
 .last-win {
   @apply text-[0.625rem] text-white;
 }
@@ -800,6 +813,4 @@
 ::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
   @apply [@media(min-width:1200px)]:top-[50dvh] !important;
 }
-.wait-next-round {
-  @apply bg-black text-white text-[12px] px-3 py-0.5 font-medium max-w-fit absolute translate-x-[-50%] font-[Rubik] text-nowrap translate-y-[-50%] rounded-[12px] left-[50%] top-[35%] z-20;
-}
+

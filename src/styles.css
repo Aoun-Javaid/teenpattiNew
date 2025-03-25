@@ -1461,7 +1461,7 @@ body {
 }
 
 .wait-next-round {
-  @apply bg-black text-white text-[12px] px-3 py-0.5 font-medium max-w-fit absolute translate-x-[-50%] font-[Rubik] text-nowrap translate-y-[-50%] rounded-[12px] left-[50%] top-[50%] z-20;
+  @apply bg-black text-white text-[12px] xl:!text-[14px] px-3 py-0.5 xl:!px-4 xl:!py-1 font-medium max-w-fit absolute translate-x-[-50%] font-[Rubik] text-nowrap translate-y-[-50%] rounded-[12px] left-[50%] top-[50%] z-[999];
 }
 
 /*.no-more-bets {*/

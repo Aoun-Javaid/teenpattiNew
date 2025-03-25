@@ -529,10 +529,6 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
           if ('status' in objMarket?.data) {
             this.game.status = objMarket?.data?.status;
           }
-          if ('leftSec' in objMarket?.data) {
-            this.game.leftSec = objMarket?.data?.leftSec;
-            // console.log('this',objMarket?.data?.leftSec)
-          }
           if ('resultsArr' in objMarket?.data) {
             // if (objMarket?.data?.roundStatus == 'RESULT_DECLARED') {
 
@@ -542,7 +538,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
             ) {
               if (
                 this.casinoPl[this.winnerMarketArray?.marketId][
-                  this.winnerMarketArray.runners[0].selectionId
+                this.winnerMarketArray.runners[0].selectionId
                 ] > 0
               ) {
                 this.betSelectedPlayer =
@@ -550,59 +546,21 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
               }
               if (
                 this.casinoPl[this.winnerMarketArray?.marketId][
-                  this.winnerMarketArray.runners[1].selectionId
+                this.winnerMarketArray.runners[1].selectionId
                 ] > 0
               ) {
                 this.betSelectedPlayer =
                   this.winnerMarketArray.runners[1].selectionId;
               }
-              if (
-                this.casinoPl[this.winnerMarketArray?.marketId][
-                  this.winnerMarketArray.runners[2].selectionId
-                ] > 0
-              ) {
-                this.betSelectedPlayer =
-                  this.winnerMarketArray.runners[2].selectionId;
-              }
             }
+            this.resultArray = objMarket.data.resultsArr;
 
             // for video results
             for (let key in objMarket.data.resultsArr[0].runners) {
               if (objMarket.data?.resultsArr[0]?.runners[key] == 'WINNER') {
                 this.RoundWinner =
                   objMarket.data.resultsArr[0]?.runnersName[key];
-                setTimeout(() => {
-                  if (this.RoundWinner === 'DRAGON') {
-                    console.log('Dragon win condition met.');
-                    if (this.leftCard1) this.animateUpDown(this.leftCard1);
-                  } else if (this.RoundWinner === 'TIGER') {
-                    const tryAnimate = () => {
-                      if (
-                        this.rightCard1 &&
-                        this.rightCard1.phase === 'displayed'
-                      ) {
-                        this.animateUpDown(this.rightCard1);
-                      } else {
-                        setTimeout(tryAnimate, 100);
-                      }
-                    };
-                    tryAnimate();
-                  } else if (this.RoundWinner === 'TIE') {
-                    const tryAnimate = () => {
-                      if (
-                        this.rightCard1 &&
-                        this.rightCard1.phase === 'displayed'
-                      ) {
-                        if (this.leftCard1) this.animateUpDown(this.leftCard1);
-
-                        this.animateUpDown(this.rightCard1);
-                      } else {
-                        setTimeout(tryAnimate, 100);
-                      }
-                    };
-                    tryAnimate();
-                  }
-                }, 500);
+                // console.log(this.RoundWinner)
                 this.BetPlaced = [];
               }
               if (
@@ -617,6 +575,7 @@ export class VirtualDtComponent implements OnInit, OnDestroy, AfterViewInit {
             }
             setTimeout(() => {
               this.RoundWinner = null;
+              this.resultArray = JSON.parse(JSON.stringify([]));
             }, 5000);
             // }
           }
