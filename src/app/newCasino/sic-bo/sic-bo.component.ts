@@ -57,11 +57,11 @@ export class SicBoComponent {
     event.stopPropagation();
     setTimeout(() => {
       this.openCoinBarState = false;
-    }, 500);
+    }, 300);
     this.coinAnimateCheck = true
     setTimeout(() => {
       this.coinAnimateCheck = false
-    }, 500);
+    }, 300);
 
     this.btnAnimation = false
    
