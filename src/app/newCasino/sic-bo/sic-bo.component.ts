@@ -151,10 +151,7 @@ export class SicBoComponent implements OnInit {
 
     document.documentElement.style.setProperty('--translateY', translateYRevers);
   }
-
-   
-
-
+  
   animatecoinValue(value: any) {
     this.animateCoinVal = value
     this.btnCheck = value;
@@ -185,9 +182,5 @@ export class SicBoComponent implements OnInit {
         break
     }
   }
-
-
-  
-
 
 }
