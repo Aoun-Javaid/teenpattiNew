@@ -940,6 +940,7 @@
     transform-origin: bottom;
     width: 100%;
     position: relative;
+    @apply [@media(min-width:375px)]:scale-[0.9]
   }
 }
 
