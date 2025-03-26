@@ -499,7 +499,7 @@
   justify-content: flex-end;
   position: relative;
   width: 3rem;
-  @apply [@media(min-width:390px)]:w-[3.3rem] [@media(min-width:414px)]:w-[3.6rem] [@media(min-width:430px)]:w-[3.9rem]   md:w-[75px]  [@media(min-width:820px)]:w-[87px] lg:!w-[7rem];
+  @apply [@media(min-width:390px)_and_(max-width:412px)]:w-[3.3rem] [@media(min-width:414px)_and_(max-width:430px)]:w-[3.6rem] [@media(min-width:430px)_and_(max-width:767px)]:w-[3.9rem]   md:w-[75px]  [@media(min-width:820px)]:w-[87px] lg:!w-[7rem];
 }
 
 .svgIcon_default-OFLILg {
@@ -515,7 +515,7 @@
   color: white;
   display: flex;
   justify-content: center;
-  @apply [@media(min-width:390px)]:w-[51px] [@media(min-width:390px)]:h-[51px] [@media(min-width:414px)]:w-[54px] [@media(min-width:414px)]:h-[54px]  [@media(min-width:430px)]:w-[57px] [@media(min-width:430px)]:h-[57px] md:w-[75px] md:h-[75px] [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px] lg:!h-[99px] lg:!w-[99px];
+  @apply [@media(min-width:390px)_and_(max-width:412px)]:w-[51px] [@media(min-width:390px)_and_(max-width:412px)]:h-[51px] [@media(min-width:414px)_and_(max-width:430px)]:w-[54px] [@media(min-width:414px)_and_(max-width:430px)]:h-[54px]  [@media(min-width:430px)_and_(max-width:767px)]:w-[57px] [@media(min-width:430px)_and_(max-width:767px)]:h-[57px] md:w-[75px] md:h-[75px] [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px] lg:!h-[99px] lg:!w-[99px];
 }
 
 .btn-wrapper {
@@ -530,12 +530,12 @@
   height: 3rem;
   width: 3rem;
   border-radius: 50% !important;
-  @apply [@media(min-width:390px)]:w-[51px] [@media(min-width:390px)]:h-[51px] [@media(min-width:414px)]:w-[54px] [@media(min-width:414px)]:h-[54px] [@media(min-width:430px)]:w-[57px] [@media(min-width:430px)]:h-[57px]  md:w-[75px] md:h-[75px] [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px] lg:!h-[99px] lg:!w-[99px];
+  @apply [@media(min-width:390px)_and_(max-width:412px)]:w-[51px] [@media(min-width:390px)_and_(max-width:412px)]:h-[51px] [@media(min-width:414px)_and_(max-width:430px)]:w-[54px] [@media(min-width:414px)_and_(max-width:430px)]:h-[54px] [@media(min-width:430px)_and_(max-width:767px)]:w-[57px] [@media(min-width:430px)_and_(max-width:767px)]:h-[57px]  md:w-[75px] md:h-[75px] [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px] lg:!h-[99px] lg:!w-[99px];
 } 
 
 .svgIcon_large-z8G1_Q {
   width: 3rem;
-    @apply [@media(min-width:390px)]:w-[51px] [@media(min-width:414px)]:w-[54px] [@media(min-width:430px)]:w-[57px]   md:w-[75px] [@media(min-width:820px)]:w-[87px]  lg:!w-[99px];
+    @apply [@media(min-width:390px)_and_(max-width:412px)]:w-[51px] [@media(min-width:414px)_and_(max-width:430px)]:w-[54px] [@media(min-width:430px)_and_(max-width:767px)]:w-[57px]   md:w-[75px] [@media(min-width:820px)]:w-[87px]  lg:!w-[99px];
 }
 
 .svgIcon-JpUo7O {
@@ -958,7 +958,7 @@
 }
 
 .chip_size_48-odjDTm {
-  @apply [@media(min-width:390px)]:w-[51px] [@media(min-width:390px)]:h-[51px] [@media(min-width:414px)]:w-[54px] [@media(min-width:414px)]:h-[54px] [@media(min-width:430px)]:w-[57px] [@media(min-width:430px)]:h-[57px]  h-[48px] w-[48px] md:rotate-[93deg] md:w-[75px] md:h-[75px] [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px] lg:!h-[99px] lg:!w-[99px];
+  @apply [@media(min-width:390px)_and_(max-width:412px)]:w-[51px] [@media(min-width:390px)_and_(max-width:412px)]:h-[51px] [@media(min-width:414px)_and_(max-width:430px)]:w-[54px] [@media(min-width:414px)_and_(max-width:430px)]:h-[54px] [@media(min-width:430px)_and_(max-width:767px)]:w-[57px] [@media(min-width:430px)_and_(max-width:767px)]:h-[57px]  h-[48px] w-[48px] md:rotate-[93deg] md:w-[75px] md:h-[75px] [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px] lg:!h-[99px] lg:!w-[99px];
 }
 
 .chip__1st {
