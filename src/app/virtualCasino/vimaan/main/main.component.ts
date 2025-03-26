@@ -134,19 +134,19 @@ export class MainComponent implements OnInit {
   setAutoCashoutMultiplier() {
     let req = [
       {
-        cashOutSelection: '1',
+        cashOutSelection: 1,
         cashOutAtMultiplier: this.autoCashOut[1].value,
       },
       {
-        cashOutSelection: '2',
+        cashOutSelection: 2,
         cashOutAtMultiplier: this.autoCashOut[2].value,
       },
       {
-        cashOutSelection: '3',
+        cashOutSelection: 3,
         cashOutAtMultiplier: this.autoCashOut[3].value,
       },
       {
-        cashOutSelection: '4',
+        cashOutSelection: 4,
         cashOutAtMultiplier: this.autoCashOut[4].value,
       },
     ];
