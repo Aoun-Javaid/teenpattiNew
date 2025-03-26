@@ -28,13 +28,13 @@ export class SicBoComponent implements OnInit {
   openCoinBarState = false;
   coinAnimateCheck = false
   screenWith:any
-  btnYValue: any = '-100vh + 600px';
+  btnYValue: any = '-100vh + 650px';
   move_center_back_1:any = '168px'
   move_center_back_2: any = '112px'
   move_center_back_3: any = '56px'
   move_center_back_5: any = '-56px'
   move_center_back_6: any = '-112px'
-  btnAnimationValue: any = '170px'
+  btnAnimationValue: any = '168px'
 
   constructor(private toggleService: ToggleService, private indexedDb: IndexedDbService) { }
 
@@ -70,6 +70,16 @@ export class SicBoComponent implements OnInit {
       this.move_center_back_6 = '-166px'
       this.btnAnimationValue = '249px'
     }
+    else if (this.screenWith >= 430 && this.screenWith > 414) {
+      this.btnYValue = '-100vh + 700px'
+      this.btnAnimationValue = '195px'
+    }
+    else if (this.screenWith >= 414 && this.screenWith < 430) {
+      this.btnYValue = '-100vh + 700px'
+      this.btnAnimationValue = '177px'
+    }
+
+
     document.documentElement.style.setProperty('--btnYValue', this.btnYValue);
     document.documentElement.style.setProperty('--btnMatchValue', this.btnAnimationValue);
 
@@ -107,7 +117,7 @@ export class SicBoComponent implements OnInit {
     event.stopPropagation();
     setTimeout(() => {
       this.openCoinBarState = false;
-    }, 320);
+    }, 300);
     this.coinAnimateCheck = true
     setTimeout(() => {
       this.coinAnimateCheck = false
