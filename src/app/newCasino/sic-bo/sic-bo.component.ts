@@ -6,11 +6,12 @@ import { ToggleService } from '../../services/toggle.service';
 import { IndexedDbService } from '../../services/indexed-db.service';
 import { CONFIG, STACK_VALUE } from '../../../../config';
 import { CommonModule } from '@angular/common';
+import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
 
 @Component({
   selector: 'app-sic-bo',
   standalone: true,
-  imports: [VideoPlayerComponent, TopResultsComponent, ShortNumberPipe, CommonModule],
+  imports: [VideoPlayerComponent, TopResultsComponent, ShortNumberPipe, CommonModule, BetCoinComponent],
   templateUrl: './sic-bo.component.html',
   styleUrl: './sic-bo.component.css'
 })
@@ -151,7 +152,7 @@ export class SicBoComponent implements OnInit {
 
     document.documentElement.style.setProperty('--translateY', translateYRevers);
   }
-  
+
   animatecoinValue(value: any) {
     this.animateCoinVal = value
     this.btnCheck = value;
