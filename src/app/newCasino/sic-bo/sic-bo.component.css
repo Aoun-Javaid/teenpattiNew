@@ -948,6 +948,29 @@
   pointer-events: all;
 }
 
+.roundInfo-date {
+  color: #8a8a99;
+  display: flex;
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 10px;
+}
+
+.last-win {
+  @apply text-[0.625rem] text-white;
+}
+
+.time-container {
+  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[54px] xl:bottom-[2px];
+  position: absolute;
+}
+
+@media (max-width: 375px) and (min-height: 768px) {
+  .time-container {
+  @apply !bottom-[58px]
+}
+}
+
 .chips-rzbOIK {
   position: relative;
   transition: opacity 300ms ease;
