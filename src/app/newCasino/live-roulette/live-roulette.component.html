@@ -22,7 +22,7 @@
                 <div class="cell div11">19 - 36</div>
                 <div class="cell div13">3rd 12</div>
                 <div class="cell div14"></div>
-                <div class="cell div15">15</div>
+                <div class="cell div15">0%</div>
                 <div class="count-cell red-cell cell div17">1</div>
                 <div class="count-cell cell div18">4</div>
                 <div class="count-cell red-cell cell div19">7</div>
@@ -62,7 +62,7 @@
                 <div class="count-cell cell div53">6</div>
                 <div class="count-cell red-cell cell div54">3</div>
                 <div class="count-cell cell div55">2</div>
-                <div class="roulette__heatMapButton-W_4cw2">
+                <div class="roulette__heatMapButton-W_4cw2 md:!hidden xl:!flex">
                     <div>
                         <button class="heatmapBtn-pkUA8U" type="button"><svg
                                 class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
@@ -87,16 +87,32 @@
                     </div>
                 </div>
             </div>
+
             <div class="w-full hidden xl:block">
                 <app-bet-coin (eventBetValue)="getCoinValue($event)" [status]="this.game?.status">
                 </app-bet-coin>
             </div>
         </div>
+        <div class="roulette__heatMapButton-W_4cw2 !hidden md:!flex !bottom-[32px] xl:!hidden">
+            <svg class="text-black svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill="url(#flameIconGradient-:r2:)"
+                    d="M5.026 17.131C5.336 21.157 10.02 22 10.02 22s-1.974-1.303-1.916-3.427c.058-2.124 1.374-2.584 2.613-4.017 1.238-1.432.774-3.53.774-3.53s4.063 2.94.851 6.105c-.2.198 1.916.936 2.942-1.198C17.566 19.397 13.62 22 13.62 22s5.498-1.03 5.378-6.742c-.213-4.85-6.27-8.37-6.018-10.88.251-2.172 1.877-1.648 1.877-1.648S13.62 2 12.728 2c-.891 0-3.038.3-3.967 2.378-.929 2.079.213 4.289.213 4.289s-2.263-.88-3.464.599c.891.094 1.723.412 1.723 1.891 0 1.48-2.516 1.948-2.207 5.974Z">
+                </path>
+                <defs>
+                    <radialGradient id="flameIconGradient-:r2:" cx="0" cy="0" r="1"
+                        gradientTransform="matrix(20.3618 0 0 19.9088 4.645 1.944)" gradientUnits="userSpaceOnUse">
+                        <stop offset=".355" stop-color="#fff"></stop>
+                        <stop offset=".72" stop-color="#fff"></stop>
+                        <stop offset="1" stop-color="#fff"></stop>
+                    </radialGradient>
+                </defs>
+            </svg>
+        </div>
 
-        <div class="xl:hidden sicBo__controls-bEHBgU">
+        <div class="sicBo__controls-bEHBgU xl:hidden">
             <div class="controlsPanel-mDHDjp controlsPanel_state_waiting-L0UDJt">
-                <div [ngClass]="{'invisible relative bottom-[11rem] opacity-0': openCoinBarState}"
-                    class="btn-wrapper visible trans-show">
+                <div class="btn-wrapper">
                     <button class="secbo-btn">
                         <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -106,6 +122,7 @@
                                 fill="currentColor"></path>
                         </svg>
                     </button>
+
                     <button class="secbo-btn">
                         <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -114,6 +131,7 @@
                                 fill="currentColor"></path>
                         </svg>
                     </button>
+
                     <button class="secbo-btn">
                         <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -122,19 +140,16 @@
                                 fill="currentColor"></path>
                         </svg>
                     </button>
-
                 </div>
-
-
 
                 <div class="btn-wrapper gap-2 duration-height h-fit" [ngClass]="
                   openCoinBarState
-                    ? 'absolute bottom-[-30px] z-30 justify-between  py-4 !pb-0 '
+                    ? 'absolute bottom-[-30px] z-30 justify-between  py-4 !pb-0 md:!pb-4'
                     : '!py-0 !pb-0'
                 ">
-                    <button
-                        class="bettingButton-i5MaZV bettingButton_blue-VHm4OI relative transition-all duration-500 ease-in-out"
-                        [ngClass]="{'!absolute !translate-y-[-14rem] opacity-[0.7]': openCoinBarState}">
+
+                    <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI relative"
+                        [ngClass]="{ 'btn-animation':btnAnimation, 'btn-animation-back':!btnAnimation}">
                         <svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q relative z-20" viewBox="0 0 48 48"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -144,15 +159,13 @@
                         </svg>
                     </button>
 
-                    <div class="h-full flex justify-end items-end"
-                        [ngClass]="{'h-[calc(100vh-200px)] ':openCoinBarState}">
-                        <div class="coins-animate justify-end items-end relative flex-col gap-2  hidden  z-30 overflow-hidden top-6"
+                    <div class="h-full flex justify-end items-end">
+                        <div class=" duration-height justify-end items-end relative flex-col gap-2  hidden  z-30 overflow-hidden"
                             [ngClass]="{
-                                'full-height !flex': openCoinBarState === true,
-                                'show': openCoinBarState
+                                ' !flex': openCoinBarState === true
                               }">
                             <div class="chipTrayWithToggle__item-nLy9Sn z-10" (click)="animatecoinValue(1)"
-                                [ngClass]="{ 'move_center-back-1':coinAnimateCheck, 'transition-all':btnCheck === 1 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 1, }">
+                                [ngClass]="{ 'move_center-back-1':coinAnimateCheck, 'move_up-1':!coinAnimateCheck, 'transition-all':btnCheck === 1 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 1, }">
                                 <div class="chips-rzbOIK">
                                     <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" [ngClass]="{
                                       'active-shadow': btnCheck === 1 && openCoinBarState
@@ -187,7 +200,7 @@
                             </div>
 
                             <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(2)"
-                                [ngClass]="{'move_center-back-2':coinAnimateCheck, 'transition-all':btnCheck === 2 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 2, }">
+                                [ngClass]="{'move_center-back-2':coinAnimateCheck, 'move_up-2':!coinAnimateCheck, 'transition-all':btnCheck === 2 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 2, }">
                                 <div class="chips-rzbOIK">
                                     <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" data-locator="chip-250"
                                         [ngClass]="{
@@ -230,7 +243,7 @@
                             </div>
 
                             <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(3)"
-                                [ngClass]="{ 'move_center-back-3':coinAnimateCheck, 'transition-all':btnCheck === 3 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 3, }">
+                                [ngClass]="{ 'move_center-back-3':coinAnimateCheck,  'move_up-3':!coinAnimateCheck, 'transition-all':btnCheck === 3 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 3, }">
                                 <div class="chips-rzbOIK">
                                     <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" data-locator="chip-250"
                                         [ngClass]="{
@@ -272,7 +285,7 @@
                             </div>
 
                             <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(4)"
-                                [ngClass]="{'move_center-back-4':coinAnimateCheck, 'transition-all':btnCheck === 4 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 4, }">
+                                [ngClass]="{'move_center-back-4':coinAnimateCheck, 'move_up-4':!coinAnimateCheck, 'transition-all':btnCheck === 4 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 4, }">
                                 <div class="chips-rzbOIK">
                                     <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" data-locator="chip-250"
                                         [ngClass]="{
@@ -314,7 +327,7 @@
                             </div>
 
                             <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(5)"
-                                [ngClass]="{ 'move_center-back-5':coinAnimateCheck,  'transition-all relative z-20':btnCheck === 5, 'transition-all':btnCheck === 5 && !openCoinBarState, }">
+                                [ngClass]="{ 'move_center-back-5':coinAnimateCheck, 'move_up-5':!coinAnimateCheck,  'transition-all relative z-20':btnCheck === 5, 'transition-all':btnCheck === 5 && !openCoinBarState, }">
                                 <div class="chips-rzbOIK">
                                     <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" data-locator="chip-250"
                                         [ngClass]="{
@@ -356,7 +369,7 @@
                             </div>
 
                             <div class="chipTrayWithToggle__item-nLy9Sn" (click)="animatecoinValue(6)"
-                                [ngClass]="{'move_center-back-6':coinAnimateCheck, 'transition-all':btnCheck === 6 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 6, }">
+                                [ngClass]="{'move_center-back-6':coinAnimateCheck, 'move_up-6':!coinAnimateCheck, 'transition-all':btnCheck === 6 && !openCoinBarState, 'transition-all relative z-20':btnCheck === 6, }">
                                 <div class="chips-rzbOIK">
                                     <div class="chip-kcN8LW chip_size_48-odjDTm !rotate-0" data-locator="chip-250"
                                         [ngClass]="{
@@ -397,7 +410,7 @@
                                 </div>
                             </div>
 
-                            <button class="secbo-btn" (click)="closeBetCoin($event)" *ngIf="openCoinBarState">
+                            <button class="mt-5 secbo-btn" (click)="closeBetCoin($event)" *ngIf="openCoinBarState">
                                 <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4 4l16 16m0-16L4 20" stroke="currentColor" stroke-width="2"
@@ -443,8 +456,13 @@
 
 
 
-                    <button [ngClass]="{'!opacity-0 top-[8.7rem] invisible': openCoinBarState}"
-                        class="trans-show visible opacity-100 bettingButton-i5MaZV bettingButton_orange-oB31C6 relative">
+
+                </div>
+
+                <div class="btn-wrapper mb-0">
+
+                    <button class="bettingButton-i5MaZV bettingButton_orange-oB31C6 relative"
+                        [ngClass]="{'opacity-0':btnAnimation === true}">
                         <svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q relative z-20" viewBox="0 0 48 48"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -452,16 +470,15 @@
                                 fill="currentColor"></path>
                         </svg>
                     </button>
-                </div>
 
-                <div class="btn-wrapper mb-0">
-                    <button [ngClass]="{'invisible opacity-0': openCoinBarState}" class="visible opacity-100 secbo-btn">
+
+                    <button class="secbo-btn">
                         <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill="currentColor"
                                 d="M14.408 16.383a.536.536 0 0 1 .638.078l2.177 2.176c.21.21.192.559-.052.73a9 9 0 0 1-14.155-7.91H1.25a.5.5 0 0 1-.354-.854L4.69 6.812a.5.5 0 0 1 .707 0l.767.767a.527.527 0 0 1 .004.004L7.54 8.954l.003.002 1.647 1.648a.5.5 0 0 1-.353.853H7.029a5 5 0 0 0 7.379 4.926ZM9.592 7.617a.536.536 0 0 1-.638-.078L6.777 5.363a.477.477 0 0 1 .052-.73 9 9 0 0 1 14.155 7.91h1.766a.5.5 0 0 1 .354.853L19.31 17.19a.5.5 0 0 1-.708 0l-3.792-3.793a.5.5 0 0 1 .353-.853h1.807a5 5 0 0 0-7.379-4.926Z">
                             </path>
-                            <path class="autoplay__iconSvg_cta-AflZzr opacity-0" fill="currentColor"
+                            <path class="autoplay__iconSvg_cta-AflZzr" fill="currentColor"
                                 filter="url(#AutoplayButtonSmallCtaFilter)"
                                 d="M14.408 16.383a.536.536 0 0 1 .638.078l2.177 2.176c.21.21.192.559-.052.73a9 9 0 0 1-14.155-7.91H1.25a.5.5 0 0 1-.354-.854L4.69 6.812a.5.5 0 0 1 .707 0l.767.767a.527.527 0 0 1 .004.004L7.54 8.954l.003.002 1.647 1.648a.5.5 0 0 1-.353.853H7.029a5 5 0 0 0 7.379 4.926ZM9.592 7.617a.536.536 0 0 1-.638-.078L6.777 5.363a.477.477 0 0 1 .052-.73 9 9 0 0 1 14.155 7.91h1.766a.5.5 0 0 1 .354.853L19.31 17.19a.5.5 0 0 1-.708 0l-3.792-3.793a.5.5 0 0 1 .353-.853h1.807a5 5 0 0 0-7.379-4.926Z">
                             </path>
@@ -475,7 +492,7 @@
                         </svg>
                     </button>
 
-                    <button [ngClass]="{'invisible opacity-0': openCoinBarState}" class="visible opacity-100 secbo-btn">
+                    <button class="secbo-btn" [ngClass]="{'opacity-0':btnAnimation === true}">
                         <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -488,7 +505,7 @@
         </div>
     </div>
     <div
-        class="xl:!flex fixed [@media(max-width:1360px)]:w-[18rem] w-[20.5rem] [@media(min-width:1512px)]:min-w-[437.55px] mx-[2%] bottom-[1.5%] !hidden flex-col gap-[1.5rem]">
+        class="xl:!flex fixed [@media(max-width:1360px)]:w-[18rem] w-[20.5rem] [@media(min-width:1512px)]:min-w-[437.55px] mx-[2%] bottom-[1.5%] !hidden flex-col gap-[1.5rem] xl:!bottom-[3.5%]">
         <app-top-results></app-top-results>
     </div>
     <div class="time-container ">
