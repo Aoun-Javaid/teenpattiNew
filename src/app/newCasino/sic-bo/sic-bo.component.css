@@ -940,7 +940,7 @@
     transform-origin: bottom;
     width: 100%;
     position: relative;
-    @apply [@media(min-width:375px)]:scale-[0.9]
+    @apply [@media(min-width:375px)]:scale-[0.9] [@media(min-width:390px)]:scale-[1.06] [@media(min-width:412px)]:scale-[1.13]  [@media(min-width:430px)]:scale-[1.19] [@media(min-width:768px)]:scale-[1.55] [@media(min-width:820px)]:scale-[1.82] [@media(min-width:1024px)]:!scale-[2.066]
   }
 }
 
