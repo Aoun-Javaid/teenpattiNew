@@ -72,7 +72,7 @@ export class SicBoComponent implements OnInit {
       this.btnAnimationValue = '249px'
     }
     else if (this.screenWith >= 430 && this.screenWith > 414) {
-      this.btnYValue = '-100vh + 700px'
+      this.btnYValue = '-100vh + 730px'
       this.move_center_back_1 = '195px'
       this.move_center_back_2 = '129px'
       this.move_center_back_3 = '65px'
