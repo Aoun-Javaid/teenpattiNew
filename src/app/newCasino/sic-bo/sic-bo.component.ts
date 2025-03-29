@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 import { VideoPlayerComponent } from "../../shared/video-player/video-player.component";
 import { TopResultsComponent } from '../shared/top-results/top-results.component';
 import { ShortNumberPipe } from '../../pipes/short-number.pipe';
@@ -17,7 +17,7 @@ import { TimerComponent } from '../../virtualCasino/shared/timer/timer.component
   templateUrl: './sic-bo.component.html',
   styleUrl: './sic-bo.component.css'
 })
-export class SicBoComponent implements OnInit {
+export class SicBoComponent implements OnInit, AfterViewInit {
   RoundWinner: any;
   btnAnimation: any
   coinAnimateState = false;
@@ -37,7 +37,8 @@ export class SicBoComponent implements OnInit {
   move_center_back_3: any = '56px'
   move_center_back_5: any = '-56px'
   move_center_back_6: any = '-112px'
-  btnAnimationValue: any = '168px'
+  btnAnimationValue: any = '168px';
+  dynamicHeight:any
 
   constructor(private toggleService: ToggleService, private indexedDb: IndexedDbService) { }
 
@@ -106,6 +107,14 @@ export class SicBoComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event?: Event) {
     this.setAnimationsValues();
+  }
+
+  ngAfterViewInit(): void {
+   setTimeout(() => {
+     let height = document.querySelector('.get-height') as HTMLElement;
+     console.log('height', height.offsetHeight);
+     this.dynamicHeight = height.offsetHeight + 60 + 32 + 54
+   }, 1000);
   }
 
   getStackData() {
