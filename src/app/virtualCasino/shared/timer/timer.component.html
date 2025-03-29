@@ -1,5 +1,5 @@
-<div class="timerPortrait lg:!top-[40%]" *ngIf="fancyTimer">
-  <div  style="--size: 4rem">
+<div class="timerPortrait" *ngIf="fancyTimer">
+  <div *ngIf="TIME_LIMIT !== 0" style="--size: 4rem">
     <svg class="bettingTimer_timer flex justify-center" viewBox="0 0 64 64">
       <circle class="bettingTimer_circle transition-all duration-500" fill="#0006" [attr.stroke]="getStrokeColor()"
         stroke-linecap="round" [attr.stroke-dasharray]="getStrokeDasharray()" stroke-dashoffset="0"
