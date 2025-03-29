@@ -1107,6 +1107,24 @@
   }
 }
 
+::ng-deep app-video-player app-timer .timerPortrait {
+  @apply max-xl:!hidden;
+}
+
+
+::ng-deep app-timer .timerPortrait {
+  @apply  !inset-0 !w-auto !h-auto !translate-x-0 lg:!top-[0px]
+}
+
+::ng-deep app-timer .timerTextWrapper{
+  @apply [@media(min-width:300px)_and_(max-width:389px)]:!h-[11px] [@media(min-width:300px)_and_(max-width:389px)]:!w-[11px] [@media(min-width:390px)_and_(max-width:411px)]:!w-[13px] [@media(min-width:390px)_and_(max-width:411px)]:!h-[13px] [@media(min-width:412px)_and_(max-width:429px)]:!w-[15px] [@media(min-width:412px)_and_(max-width:729px)]:!h-[15px] [@media(min-width:430px)_and_(max-width:767px)]:!w-[17px] [@media(min-width:430px)_and_(max-width:767px)]:!h-[17px] [@media(min-width:768px)_and_(max-width:819px)]:!w-[36px] [@media(min-width:768px)_and_(max-width:819px)]:!h-[36px]    [@media(min-width:820px)_and_(max-width:1023px)]:!w-[0px] [@media(min-width:820px)_and_(max-width:1023px)]:!h-[0px]  [@media(min-width:1024px)_and_(max-width:1280px)]:!w-[15px] [@media(min-width:1024px)_and_(max-width:1280px)]:!h-[15px] 
+}
+
+::ng-deep app-timer .timerText{
+ @apply !text-[20px] md:!text-[30px] [@media(min-width:1024px)]:!text-[39px]
+}
+
+
 
 
 

@@ -14,7 +14,7 @@
     visibility 0.25s 0.75s !important;
   width: 4.5rem;
   z-index: 998 !important;
-  @apply lg:!top-[14rem] [@media(min-width:820px)]:top-[10rem]  [@media(min-width:1200px)]:!top-[calc(100vh-500px)] [@media(min-width:820px)]:h-[116px] [@media(min-width:820px)]:w-[116px]   xl:!h-[4.5rem] xl:!w-[4.5rem];
+  @apply  [@media(min-width:1024px)]:top-[14rem] [@media(min-width:820px)]:top-[10rem]  [@media(min-width:1200px)]:!top-[calc(100vh-500px)] [@media(min-width:820px)]:h-[116px] [@media(min-width:820px)]:w-[116px]   xl:!h-[4.5rem] xl:!w-[4.5rem];
 }
 .bettingTimer_timer {
   fill: #0006;
