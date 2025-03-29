@@ -54,7 +54,7 @@
 }
 
 .secbo-result{
-@apply flex-auto text-[12px] [@media(min-width:430px)]:text-[14.25px] font-[500]  text-center md:!text-[18.75px] [@media(min-width:820px)_and_(max-width:1023px)]:!text-[21.75px] lg:!text-[24.75px]
+@apply flex-auto text-[12px] [@media(min-width:430px)]:text-[14.25px] font-[500]  text-center md:!text-[18.75px] [@media(min-width:820px)_and_(max-width:1023px)]:!text-[21.75px] lg:!text-[24.75px] xl:!text-[14px]
 }
 
 .resultItem {
