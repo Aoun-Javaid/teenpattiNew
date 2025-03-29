@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 import { VideoPlayerComponent } from "../../shared/video-player/video-player.component";
 import { TopResultsComponent } from '../shared/top-results/top-results.component';
 import { ShortNumberPipe } from '../../pipes/short-number.pipe';
@@ -7,17 +7,19 @@ import { IndexedDbService } from '../../services/indexed-db.service';
 import { CONFIG, STACK_VALUE } from '../../../../config';
 import { CommonModule } from '@angular/common';
 import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
+import { TimerComponent } from '../../virtualCasino/shared/timer/timer.component';
+
 
 @Component({
   selector: 'app-sic-bo',
   standalone: true,
-  imports: [VideoPlayerComponent, TopResultsComponent, ShortNumberPipe, CommonModule, BetCoinComponent],
+  imports: [VideoPlayerComponent, TopResultsComponent, ShortNumberPipe, CommonModule, BetCoinComponent, TimerComponent],
   templateUrl: './sic-bo.component.html',
   styleUrl: './sic-bo.component.css'
 })
-export class SicBoComponent implements OnInit {
+export class SicBoComponent implements OnInit, AfterViewInit {
   RoundWinner: any;
-  btnAnimation:any
+  btnAnimation: any
   coinAnimateState = false;
   animateCoinVal: any
   btnCheck = 1
@@ -28,14 +30,15 @@ export class SicBoComponent implements OnInit {
   stackButtonArry: any = [];
   openCoinBarState = false;
   coinAnimateCheck = false
-  screenWith:any
+  screenWith: any
   btnYValue: any = '-100vh + 650px';
-  move_center_back_1:any = '168px'
+  move_center_back_1: any = '168px'
   move_center_back_2: any = '112px'
   move_center_back_3: any = '56px'
   move_center_back_5: any = '-56px'
   move_center_back_6: any = '-112px'
-  btnAnimationValue: any = '168px'
+  btnAnimationValue: any = '168px';
+  dynamicHeight:any
 
   constructor(private toggleService: ToggleService, private indexedDb: IndexedDbService) { }
 
@@ -44,7 +47,7 @@ export class SicBoComponent implements OnInit {
     this.setAnimationsValues();
   }
 
-  setAnimationsValues(){
+  setAnimationsValues() {
     this.screenWith = window.innerWidth
     if (this.screenWith >= 1024) {
       this.btnYValue = '-100vh + 1100px'
@@ -104,6 +107,15 @@ export class SicBoComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event?: Event) {
     this.setAnimationsValues();
+    let height = document.querySelector('.get-height') as HTMLElement;
+    this.dynamicHeight = height.offsetHeight + 60 + 32 + 54
+  }
+
+  ngAfterViewInit(): void {
+   setTimeout(() => {
+     let height = document.querySelector('.get-height') as HTMLElement;
+     this.dynamicHeight = height.offsetHeight + 60 + 32 + 54
+   }, 1000);
   }
 
   getStackData() {
@@ -135,7 +147,7 @@ export class SicBoComponent implements OnInit {
     }, 300);
 
     this.btnAnimation = false
-   
+
 
     let translateYRevers = ''; // Change `const` to `let`
 
@@ -167,7 +179,7 @@ export class SicBoComponent implements OnInit {
     this.animateCoinVal = value
     this.btnCheck = value;
     this.coinAnimateCheck = false;
-   
+
 
     switch (this.btnCheck) {
       case 1:

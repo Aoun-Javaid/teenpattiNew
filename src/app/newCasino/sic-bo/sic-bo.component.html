@@ -1,7 +1,7 @@
 <div class="relative h-full xl:h-[calc(100dvh-60px)]">
   <app-top-results class="xl:!hidden"></app-top-results>
 
-  <div #target>
+  <div #target class="get-height">
     <app-video-player [resultDeclared]="RoundWinner" [cardsActive]="false" [fancyTimer]="true" [displayResult]="false"
       [unityTimer]="false"></app-video-player>
     <!-- <ng-container *ngIf="isMobileInfo == 'iOS'">
@@ -13,6 +13,13 @@
                     [unityTimer]="false"></app-video-player-unreal>
             </ng-container> -->
   </div>
+
+
+  <div class="w-full gradientDiv" [style.height]="'calc(100dvh - ' + dynamicHeight + 'px)'">
+
+  </div>
+
+
   <div class="[@media(max-width:768px)]:hidden gradient-_9dd5n gradient_desktop-UoLq1h"></div>
 
   <div class="sicBo__interactiveArea-_Pd65K absolute bottom-[2.65rem] md:bottom-[95px]">
@@ -1326,16 +1333,19 @@
               : '!py-0 !pb-0'
           ">
 
-          <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI relative"
-            [ngClass]="{ 'btn-animation':btnAnimation, 'btn-animation-back':!btnAnimation}">
-            <svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q relative z-20" viewBox="0 0 48 48"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="m24 17c-3.866 0-7 3.134-7 7 0 0.5523-0.4477 1-1 1s-1-0.4477-1-1c0-4.9706 4.0295-9 9-9 4.9706 0 9 4.0294 9 9s-4.0294 9-9 9c-0.5523 0-1-0.4477-1-1s0.4477-1 1-1c3.866 0 7-3.134 7-7s-3.134-7-7-7z"
-                clip-rule="evenodd" fill-rule="evenodd"></path>
-              <path d="m16 28-3-4h6.0622l-3.0622 4z"></path>
-            </svg>
-          </button>
+          <div class="flex flex-col gap-2" [ngClass]="{ 'btn-animation':btnAnimation, 'btn-animation-back':!btnAnimation}">
+            <div class="relative [@media(min-width:390px)_and_(max-width:412px)]:w-[51px] [@media(min-width:390px)_and_(max-width:412px)]:h-[51px] [@media(min-width:414px)_and_(max-width:430px)]:w-[54px] [@media(min-width:414px)_and_(max-width:430px)]:h-[54px] [@media(min-width:430px)_and_(max-width:767px)]:w-[57px] [@media(min-width:430px)_and_(max-width:767px)]:h-[57px]  h-[48px] w-[48px]  md:w-[75px] md:h-[75px] [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px] lg:!h-[99px] lg:!w-[99px]">
+              <app-timer [fancyTimer]="true"></app-timer>
+            </div>
+            <button class="bettingButton-i5MaZV bettingButton_blue-VHm4OI relative">
+              <svg class="svgIcon-JpUo7O svgIcon_large-z8G1_Q relative z-20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="m24 17c-3.866 0-7 3.134-7 7 0 0.5523-0.4477 1-1 1s-1-0.4477-1-1c0-4.9706 4.0295-9 9-9 4.9706 0 9 4.0294 9 9s-4.0294 9-9 9c-0.5523 0-1-0.4477-1-1s0.4477-1 1-1c3.866 0 7-3.134 7-7s-3.134-7-7-7z"
+                  clip-rule="evenodd" fill-rule="evenodd"></path>
+                <path d="m16 28-3-4h6.0622l-3.0622 4z"></path>
+              </svg>
+            </button>
+          </div>
 
           <div class="h-full flex justify-end items-end">
             <div class=" duration-height justify-end items-end relative flex-col gap-2  hidden  z-30 overflow-hidden"
@@ -1672,7 +1682,7 @@
 
   <div class="bottom-[50px] absolute w-full flex h-full max-xl:hidden">
     <div
-      class="sicBo__betsTable-WJ28TI sicBo__betsTable_betting-Gy23yv fixed left-[32%] [@media(min-width:1512px)]:left-[35.5%] [transform:translateX(-50%)] bottom-[5.5%]">
+      class="sicBo__betsTable-WJ28TI sicBo__betsTable_betting-Gy23yv fixed left-[32%] [@media(min-width:1512px)]:left-[31.9%] [transform:translateX(-50%)] bottom-[5.5%]">
       <div>
         <div class="tableTooltip-YTZM32">
           <div

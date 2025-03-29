@@ -50,6 +50,7 @@ export class TopResultsComponent implements OnInit{
       // setTimeout(() => {
       //   this.getBalance();
       // }, 1000);
+      console.log('result', this.resultArray);
     })
 
 
