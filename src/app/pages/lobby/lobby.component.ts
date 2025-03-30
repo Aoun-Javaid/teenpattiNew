@@ -170,15 +170,20 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.setActiveTableTab(this.TableTab);
+
+    // Initialize with empty array first
+    this.universeProviderGames = [];
+    this.navigationStates = [];
+
+    // Then load data
     this.getprovidersNavigations();
+
     const inner = window.innerWidth;
     if (inner <= 992 && inner >= 400) {
       this.swiperBreakPoint.slide = 4;
     } else if (inner <= 400) {
       this.swiperBreakPoint.slide = 3;
     }
-
-
   }
 
   isUserLoggedIn(): boolean {
@@ -300,48 +305,64 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
     // });
   }
   getprovidersNavigations() {
-    this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
-      if (res) {
-        // ProviderList without games
-        let allProviderListNullGame = res.filter((game: any) => (game?.gameId == null || game?.gamId == ''))
-        this.navProviderList = allProviderListNullGame.sort((a: any, b: any) => a.providerSequence - b.providerSequence);
+    this.mainService.getProvidersNavigationsList().subscribe({
+      next: (res: any) => {
+        if (res) {
+          // Initialize arrays
+          this.navProviderList = res
+            .filter((game: any) => (!game.gameId && !game.gamId))
+            .sort((a: any, b: any) => a.providerSequence - b.providerSequence);
 
-        // ProviderList with games
-        let allProviderListWithGame = res.filter((game: any) => (game?.gameId !== null && game?.gamId !== ''))
+          const withGames = res.filter((game: any) => (game.gameId || game.gamId));
 
-        const groupedData = allProviderListWithGame.reduce((acc: any, item: any) => {
-          // Check if the providerTitle already exists in the accumulator
-          if (!acc[item.providerTitle]) {
-            acc[item.providerTitle] = [];
-          }
-          // Add the item to the respective group
-          acc[item.providerTitle].push(item);
-          return acc;
-        }, {});
-        // Convert the grouped object back into an array format if needed
-        const result = Object.keys(groupedData).map(providerTitle => ({
-          providerTitle,
-          games: groupedData[providerTitle].filter((game: any) => game.isFavorite).sort((a: any, b: any) => a.gameSequence - b.gameSequence)
-        }));
-        this.universeProviderGames = result.sort((a: any, b: any) => a.providerSequence - b.providerSequence);
+          const groupedData = withGames.reduce((acc: any, item: any) => {
+            if (!acc[item.providerTitle]) {
+              acc[item.providerTitle] = [];
+            }
+            acc[item.providerTitle].push(item);
+            return acc;
+          }, {});
 
+          this.universeProviderGames = Object.keys(groupedData).map(providerTitle => ({
+            providerTitle,
+            games: groupedData[providerTitle]
+              .filter((game: any) => game.isFavorite)
+              .sort((a: any, b: any) => a.gameSequence - b.gameSequence)
+          })).sort((a: any, b: any) => a.providerSequence - b.providerSequence);
+
+          // Initialize navigationStates after data is loaded
+          this.navigationStates = this.universeProviderGames.map(() => ({
+            prevDisabled: true,
+            nextDisabled: false
+          }));
+        }
+      },
+      error: (err) => {
+        console.error('Error loading providers:', err);
+        // Initialize empty arrays if request fails
+        this.universeProviderGames = [];
+        this.navProviderList = [];
+        this.navigationStates = [];
       }
     });
   }
 
 
   private updateNavigationButtons(index: number): void {
-
     if (!this.swiperInstances[index]) return;
-    // Ensure navigationStates[index] exists
+
+    // Initialize if doesn't exist
     if (!this.navigationStates[index]) {
-      this.navigationStates[index] = { prevDisabled: false, nextDisabled: false };
+      this.navigationStates[index] = {
+        prevDisabled: this.swiperInstances[index].isBeginning,
+        nextDisabled: this.swiperInstances[index].isEnd
+      };
+      return;
     }
 
+    // Update existing state
     this.navigationStates[index].prevDisabled = this.swiperInstances[index].isBeginning;
     this.navigationStates[index].nextDisabled = this.swiperInstances[index].isEnd;
-
-
   }
 
 
@@ -447,25 +468,24 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
-
+    // Ensure navigation state exists
     if (!this.navigationStates[index]) {
       this.navigationStates[index] = { prevDisabled: true, nextDisabled: false };
     }
 
-
-    if (this.swiperInstances[index] && typeof this.swiperInstances[index].destroy === 'function') {
+    // Clean up existing instance
+    if (this.swiperInstances[index]) {
       this.swiperInstances[index].destroy(true, true);
     }
 
-
+    // Create new instance
     this.swiperInstances[index] = new Swiper(selector, {
       ...config,
       on: {
-        init: (swiper: any) => {
+        init: (swiper: Swiper) => {
           this.updateButtonStates(swiper, index);
         },
-        slideChange: (swiper: any) => {
-          // this.updateNavigationButtons(index)
+        slideChange: (swiper: Swiper) => {
           this.updateButtonStates(swiper, index);
         }
       }
@@ -575,13 +595,17 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   setDefaultView(): void {
-    this.universeProviderGames.forEach((ele:any, index: number) => {
+    if (!this.universeProviderGames || this.universeProviderGames.length === 0) return;
+
+    this.universeProviderGames.forEach((ele: any, index: number) => {
       const config = this.getDefaultSwiperConfig(index);
       this.initializeSwiper(config, index);
     });
   }
 
   setGridView(): void {
+    if (!this.universeProviderGames || this.universeProviderGames.length === 0) return;
+
     const config = this.getGridSwiperConfig();
     this.universeProviderGames.forEach((ele: any, index: number) => {
       this.initializeSwiper(config, index);
@@ -686,6 +710,17 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
     };
   }
   ngOnDestroy(): void {
-    this.swiperLoader = false
+    this.swiperLoader = false;
+
+    // Clean up all Swiper instances
+    this.swiperInstances.forEach(swiper => {
+      if (swiper && typeof swiper.destroy === 'function') {
+        swiper.destroy(true, true);
+      }
+    });
+
+    if (this.providerSwiper && typeof this.providerSwiper.destroy === 'function') {
+      this.providerSwiper.destroy(true, true);
+    }
   }
 }

@@ -38,7 +38,7 @@ export class SicBoComponent implements OnInit, AfterViewInit {
   move_center_back_5: any = '-56px'
   move_center_back_6: any = '-112px'
   btnAnimationValue: any = '168px';
-  dynamicHeight:any
+  dynamicHeight: any
 
   constructor(private toggleService: ToggleService, private indexedDb: IndexedDbService) { }
 
@@ -108,14 +108,14 @@ export class SicBoComponent implements OnInit, AfterViewInit {
   onResize(event?: Event) {
     this.setAnimationsValues();
     let height = document.querySelector('.get-height') as HTMLElement;
-    this.dynamicHeight = height.offsetHeight + 60 + 32 + 54
+    this.dynamicHeight = height.offsetHeight + 60 + 32 + 53
   }
 
   ngAfterViewInit(): void {
-   setTimeout(() => {
-     let height = document.querySelector('.get-height') as HTMLElement;
-     this.dynamicHeight = height.offsetHeight + 60 + 32 + 54
-   }, 1000);
+    setTimeout(() => {
+      let height = document.querySelector('.get-height') as HTMLElement;
+      this.dynamicHeight = height.offsetHeight + 60 + 32 + 53
+    }, 1000);
   }
 
   getStackData() {
