@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import {
+  Component,
+  computed,
+  HostListener,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { CONFIG, STACK_VALUE } from '../../../../config';
 import { ToggleService } from '../../services/toggle.service';
 import { IndexedDbService } from '../../services/indexed-db.service';
@@ -43,6 +49,7 @@ export class LiveRouletteComponent {
   move_center_back_6: any = '-112px';
   btnAnimationValue: any = '168px';
   game: any;
+  resultMode: boolean = false;
 
   constructor(
     private toggleService: ToggleService,
@@ -222,5 +229,32 @@ export class LiveRouletteComponent {
 
   getCoinValue(event: any) {
     this.selectedBetAmount = event;
+  }
+
+  toggleResultMode() {
+    this.resultMode = !this.resultMode;
+  }
+
+  counter = signal(9);
+  animationClass = signal('');
+
+  increment() {
+    if (this.counter() < 9) {
+      this.animationClass.set('slide-right');
+      this.counter.set(this.counter() + 1);
+      this.resetAnimation();
+    }
+  }
+
+  decrement() {
+    if (this.counter() > 0) {
+      this.animationClass.set('slide-left');
+      this.counter.set(this.counter() - 1);
+      this.resetAnimation();
+    }
+  }
+
+  private resetAnimation() {
+    setTimeout(() => this.animationClass.set(''), 300);
   }
 }

@@ -505,7 +505,105 @@
         </div>
     </div>
     <div
-        class="xl:!flex fixed [@media(max-width:1360px)]:w-[18rem] w-[20.5rem] [@media(min-width:1512px)]:min-w-[437.55px] mx-[2%] bottom-[1.5%] !hidden flex-col gap-[1.5rem] xl:!bottom-[3.5%]">
+        class="xl:!flex fixed [@media(max-width:1360px)]:w-[22rem] w-[20.5rem] [@media(min-width:1512px)]:min-w-[437.55px] mx-[2%] bottom-[1.5%] !hidden flex-col gap-[1.5rem] xl:gap-2 xl:!bottom-[3.5%] z-[9999999]">
+        @if (!resultMode) {
+        <div class="flex flex-col w-full items-center h-[111.574px] bg-black/90">
+            <div class="upper-boxes flex gap-[2px]">
+                <span class="result-box red-cell">9</span>
+                <span class="result-box ">9</span>
+                <span class="result-box red-cell">7</span>
+                <span class="result-box ">9</span>
+                <span class="result-box red-cell">7</span>
+                <span class="result-box ">7</span>
+                <span class="result-box red-cell">7</span>
+                <span class="result-box ">7</span>
+                <span class="result-box red-cell">7</span>
+                <span class="result-box ">7</span>
+                <span class="result-box red-cell">7</span>
+                <span class="result-box ">7</span>
+                <span class="result-box red-cell">7</span>
+                <span class="result-box trapezoid right-[12px] top-1 rotate-[40deg]">7</span>
+                <span class="result-box red-cell trapezoid right-[11px] top-[77px] rotate-[138deg]">7</span>
+                <span class="result-box trapezoid right-0 top-[21px] rotate-[65deg]">7</span>
+                <span class="result-box red-cell trapezoid right-0 top-[60px] rotate-[118deg]">7</span>
+                <span class="result-box trapezoid right-[-5px] top-[40px] rotate-[92deg]">7</span>
+            </div>
+            <div class="center-boxes overflow-visible flex h-full w-[90%] p-[5px] relative rounded-full">
+                <div>Zero</div>
+                <div>Voisins</div>
+                <div>Orphelins</div>
+                <div>Tier</div>
+            </div>
+            <div class="upper-boxes flex gap-[2px]">
+                <span class="result-box ">9</span>
+                <span class="result-box red-cell">9</span>
+                <span class="result-box ">9</span>
+                <span class="result-box red-cell">7</span>
+                <span class="result-box ">7</span>
+                <span class="result-box red-cell">7</span>
+                <span class="result-box ">7</span>
+                <span class="result-box red-cell">7</span>
+                <span class="result-box ">7</span>
+                <span class="result-box red-cell">7</span>
+                <span class="result-box ">7</span>
+                <span class="result-box red-cell">7</span>
+                <span class="result-box ">7</span>
+                <span class="result-box trapezoid left-[12px] top-1 rotate-[-40deg]">7</span>
+                <span class="result-box red-cell trapezoid left-[11px] top-[77px] rotate-[-138deg]">7</span>
+                <span class="result-box trapezoid left-0 top-[21px] rotate-[-65deg]">7</span>
+                <span class="result-box red-cell trapezoid left-0 top-[60px] rotate-[-118deg]">7</span>
+                <span class="result-box trapezoid left-[-5px] top-[40px] rotate-[-92deg]">7</span>
+            </div>
+        </div>
+        }
+
+        @if (resultMode) {
+        <div>Shah</div>
+        }
+        <div class="items-center flex justify-between">
+            <span class="w-20">
+                <div (click)="toggleResultMode()"
+                    class="tabsList-_XjIcp tabsList_type_primary-d3GPf8 tabsList_size_extraSmall-oAK4hP tabsList_toggleMode-kGSYi0">
+                    <div [ngClass]="{'translate-x-10': resultMode}" class="translate-x-0 tabsList__indicator-PvZ_ca"
+                        style="width: 40px;"></div>
+                    <div data-locator="racetrack-classic-button-tab"
+                        class="tabsList__tab-JWfGfb tabsList__tab_active-o1HQna">
+                        <div class="tabsList__label-IMxxMe tabsList__label_size_extraSmall-MUj0ri"><span
+                                class="tabsList__labelIcon-jgeyeY"
+                                style="background-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3R5bGU9ImZpbGw6IG5vbmU7Ij4KICAgIDxyZWN0IHdpZHRoPSIxNCIgaGVpZ2h0PSI2IiB4PSI1IiB5PSI5IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHJ4PSIzIi8+CiAgICA8cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTcgMTJhMSAxIDAgMCAxIDEtMWg4YTEgMSAwIDEgMSAwIDJIOGExIDEgMCAwIDEtMS0xWiIvPgo8L3N2Zz4=&quot;);"></span>
+                        </div>
+                    </div>
+                    <div data-locator="racetrack-modern-button-tab" class="tabsList__tab-JWfGfb">
+                        <div class="tabsList__label-IMxxMe tabsList__label_size_extraSmall-MUj0ri"><span
+                                class="tabsList__labelIcon-jgeyeY"
+                                style="background-image: url(&quot;data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ic3ZnSWNvbi1uQ3NSSSBzdmdJY29uX2RlZmF1bHQtRjgzTksiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE5IDEyYTcgNyAwIDEgMS0xNCAwIDcgNyAwIDAgMSAxNCAwWm0tMiAwYTUgNSAwIDEgMS0xMCAwIDUgNSAwIDAgMSAxMCAwWm0tNSA0YTQgNCAwIDEgMCAwLTggNCA0IDAgMCAwIDAgOFoiLz4KPC9zdmc+&quot;);"></span>
+                        </div>
+                    </div>
+                </div>
+            </span>
+            <span class="w-20">
+                <div class="flex items-center gap-1.5">
+                    <button (click)="decrement()" [disabled]="counter() === 0" class="counter-btns">
+                        <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                    <span class="counter-btns counter-input overflow-hidden">
+                        <span [ngClass]="animationClass()">
+                            {{ counter() }}</span>
+                    </span>
+                    <button (click)="increment()" [disabled]="counter() === 9" class="counter-btns">
+                        <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12H16M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                </div>
+            </span>
+        </div>
         <app-top-results></app-top-results>
     </div>
     <div class="time-container ">
