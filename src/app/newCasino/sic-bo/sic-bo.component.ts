@@ -108,13 +108,13 @@ export class SicBoComponent implements OnInit, AfterViewInit {
   onResize(event?: Event) {
     this.setAnimationsValues();
     let height = document.querySelector('.get-height') as HTMLElement;
-    this.dynamicHeight = height.offsetHeight + 60 + 32 + 54
+    this.dynamicHeight = height.offsetHeight + 60 + 32 + 32
   }
 
   ngAfterViewInit(): void {
    setTimeout(() => {
      let height = document.querySelector('.get-height') as HTMLElement;
-     this.dynamicHeight = height.offsetHeight + 60 + 32 + 54
+     this.dynamicHeight = height.offsetHeight + 60 + 32 + 32
    }, 1000);
   }
 
