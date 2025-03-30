@@ -50,9 +50,9 @@ export const CONFIG = {
 
   authlaunch: BASE_URL + "/v2/operator/auth",
 
-  AviatorPlacebet: BASE_URL + '/v2/operator/user/casino/placebet',
-  AviatorcashOut: BASE_URL + '/v2/operator/user/casino/cashOut',
-  AviatorBetClear: BASE_URL + '/v2/operator/user/casino/betClear',
+  AviatorPlacebet: BASE_URL + '/v2/operator/user/casinoPlaceBet',
+  AviatorcashOut: BASE_URL + '/v2/operator/user/casinoBetCashOut',
+  AviatorBetClear: BASE_URL + '/v2/operator/user/casinoBetClear',
 
   getAutoCashoutMultiplier:
   BASE_URL + '/v2/operator/user/getAutoCashoutMultiplier',
