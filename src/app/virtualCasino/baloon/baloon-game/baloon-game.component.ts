@@ -211,7 +211,7 @@ export class BaloonGameComponent implements OnInit, AfterViewInit, OnDestroy {
     switch (true) {
       case width < 600:
         screenWidth = width - 10;
-        screenHeight = height - 10;
+        screenHeight = height - 100;
         break;
       case width < 781:
         screenWidth = width - 10;
