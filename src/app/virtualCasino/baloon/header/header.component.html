@@ -1,0 +1,179 @@
+<div class="header-wrap">
+  <div class="header-content-wrapper">
+      <div class="flex items-center">
+          <button class="select-btn">Balloon
+              <span class="absolute top-2 right-2.5"><img src="/baloon/arrow.svg" alt=""></span></button>
+          <button (click)="howPlay()" class="quest"><img src="/baloon/question-mark.svg" alt="question">
+              <span class="how">How to Play?</span>
+          </button>
+      </div>
+
+      <div class="flex items-center relative">
+          <div class=" hidden md:flex -translate-x-3">
+              <button type="button" class="speaker-button" (click)="toggleBgMusic()">
+                  <!-- Speaker icon when sound is ON -->
+                  <svg *ngIf="bgMusicState" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                      <path
+                          d="M19.07 4.92999C20.9447 6.80527 21.9979 9.34835 21.9979 12C21.9979 14.6516 20.9447 17.1947 19.07 19.07M15.54 8.45999C16.4774 9.39763 17.004 10.6692 17.004 11.995C17.004 13.3208 16.4774 14.5924 15.54 15.53"
+                          stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+
+                  <!-- Speaker with a cross icon when sound is OFF -->
+                  <svg *ngIf="!bgMusicState" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                      <path d="M16 8L23 15" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round">
+                      </path>
+                      <path d="M23 8L16 15" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round">
+                      </path>
+                  </svg>
+              </button>
+          </div>
+          <div class="text-white text-[14px] md:text-[12px] mr-2">
+              {{price}}<span class="ml-1 text-[#ffffff80]">INR</span>
+          </div>
+          <button class="menu-btn nav-wrapper" (click)="toggleNav()">
+              <img src="/baloon/menu-bar.svg" alt="">
+          </button>
+          @if (navState) {
+          <div
+              class="absolute bg-[#212226] py-2 rounded-lg bottom-[30px] z-[30] md:max-h-fit nav-wrapper md:top-[41px] right-[1px] w-[300px]">
+              <div class="px-2 text-[#c6cce0] text-[13px]">
+                  <div>
+                      demo_28511
+                  </div>
+                  <div class="mt-2">
+                      <div>
+                          <div class="select-menu">
+                              <div class="flex items-center ml-4">
+                                  <img src="/baloon/menu/icon-volume.svg" alt="">
+                                  <span class="ml-2">Sound</span>
+                              </div>
+                              <div class="flex items-center pr-2">
+                                  <label for="sound-toggle" class="relative ">
+                                      <!-- The switch -->
+                                      <input id="sound-toggle" type="checkbox" [(checked)]="bgSoundState"
+                                          (change)="toggleSound($event)"
+                                          class="opacity-0 w-0 h-0 absolute peer cursor-pointer">
+                                      <span
+                                          class="block w-[28px] h-[16px] bg-[#555658] rounded-full cursor-pointer peer-checked:bg-[#5BA200]"></span>
+                                      <!-- The inner circle -->
+                                      <span
+                                          class="absolute left-0.5 top-0.5 w-[12px] h-[12px] bg-white rounded-full shadow-md transition-all transform duration-300 ease-in-out peer-checked:translate-x-12 peer-checked:bg-white"></span>
+                                  </label>
+                              </div>
+
+
+                          </div>
+                          <div class="select-menu-last">
+                              <div class="flex items-center ml-4">
+                                  <img src="/baloon/menu/icon-music.svg" alt="">
+                                  <span class="ml-2">Music</span>
+                              </div>
+                              <div class="flex items-center pr-2">
+                                  <label for="music-toggle" class="relative ">
+                                      <!-- The switch -->
+                                      <input id="music-toggle" type="checkbox" [(checked)]="bgMusicState"
+                                          (change)="toggleMusic($event)"
+                                          class="opacity-0 w-0 h-0 absolute peer cursor-pointer">
+                                      <span
+                                          class="block w-[28px] h-[16px] bg-[#555658] rounded-full cursor-pointer peer-checked:bg-[#5BA200]"></span>
+                                      <!-- The inner circle -->
+                                      <span
+                                          class="absolute left-0.5 top-0.5 w-[12px] h-[12px] bg-white rounded-full shadow-md transition-all transform duration-300 ease-in-out peer-checked:translate-x-12 peer-checked:bg-white"></span>
+                                  </label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="mt-2">
+                      <div>
+                          <div class="select-menu">
+                              <div class="flex items-center ml-4">
+                                  <img src="/baloon/menu/icon-star.svg" alt="">
+                                  <span class="ml-2">Free Bets</span>
+                              </div>
+                          </div>
+                          <div class="select-menu">
+                              <div class="flex items-center ml-4">
+                                  <img src="/baloon/menu/icon-history.svg" alt="">
+                                  <span class="ml-2">Bet History</span>
+                              </div>
+                          </div>
+                          <div class="select-menu">
+                              <div class="flex items-center ml-4">
+                                  <img src="/baloon/menu/icon-limit.svg" alt="">
+                                  <span class="ml-2">Game Limits</span>
+                              </div>
+                          </div>
+                          <div class="select-menu">
+                              <div class="flex items-center ml-4">
+                                  <img src="/baloon/menu/question-mark.svg" alt="">
+                                  <span class="ml-2">How to Play</span>
+                              </div>
+                          </div>
+                          <div class="select-menu">
+                              <div class="flex items-center ml-4">
+                                  <img src="/baloon/menu/icon-rules.svg" alt="">
+                                  <span class="ml-2">Game Rules</span>
+                              </div>
+                          </div>
+                          <div class="select-menu-last">
+                              <div class="flex items-center ml-4">
+                                  <img src="/baloon/menu/icon-scales.svg" alt="">
+                                  <span class="ml-2">Provably Fair Settings</span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="mt-2">
+                      <div class="flex items-center justify-center">
+                          <img src="/baloon/menu/icon-home.svg" alt="">
+                          <span class="ml-2">Back to Home</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          }
+      </div>
+  </div>
+</div>
+
+
+<div class="play-modal-wrapper" [ngClass]="{'show-play-modal':howPlayState}">
+  <div class="play-modal-container" [ngClass]="{'!translate-y-0':howPlayState}">
+      <div class="modal-header">
+          <div class="modal-title"><b>HOW TO PLAY</b></div>
+          <button type="button" class="close" (click)="howPlay()">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="10px" height="10px" viewBox="0 0 10 10" version="1.1">
+                  <title>x</title>
+                  <g id="Auto-play" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="Auto-play-2.11" transform="translate(-745.000000, -115.000000)" fill="#FFFFFF"
+                          fill-rule="nonzero">
+                          <g id="full-options" transform="translate(450.000000, 57.000000)">
+                              <g id="close" transform="translate(290.000000, 53.000000)">
+                                  <path
+                                      d="M14.8171153,5.18286371 C14.5732689,4.93904543 14.1821946,4.93904543 13.9383483,5.18286371 L10,9.12075906 L6.06165171,5.18286371 C5.81780538,4.93904543 5.42673108,4.93904543 5.18288475,5.18286371 C4.93903842,5.426682 4.93903842,5.81771133 5.18288475,6.06152961 L9.12123303,9.99942496 L5.18288475,13.9373203 C4.93903842,14.1811386 4.93903842,14.5721679 5.18288475,14.8159862 C5.30250748,14.9355952 5.46353807,15 5.61996779,15 C5.77639752,15 5.93742811,14.9401955 6.05705084,14.8159862 L9.99539913,10.8780909 L13.9337474,14.8159862 C14.0533701,14.9355952 14.2144007,15 14.3708305,15 C14.5318611,15 14.6882908,14.9401955 14.8079135,14.8159862 C15.0517598,14.5721679 15.0517598,14.1811386 14.8079135,13.9373203 L10.878767,9.99942496 L14.8171153,6.06152961 C15.0609616,5.81771133 15.0609616,5.426682 14.8171153,5.18286371 Z"
+                                      id="x" />
+                              </g>
+                          </g>
+                      </g>
+                  </g>
+              </svg>
+          </button>
+      </div>
+      <div class="balloon-how-to-play__section">
+          <p class="balloon-how-to-play__section--text"> Fly a hot balloon and catch big winnings!</p>
+          <img src="/baloon/how-to-play.png" alt="" class="balloon-how-to-play__section--image">
+          <p class="balloon-how-to-play__section--text">Simply tap and hold “HEAT’ button to boost your multiplier.
+              Cash out at any time. </p>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+@import url(../../baloon.styles.css);
+.main-container {
+  @apply flex items-center border-b-[1px] border-solid border-b-[rgba(255,255,255,.1)] mb-5 px-[15px] py-[10px] justify-between absolute rounded-tl-[calc(.3rem-1px)] rounded-tr-[calc(.3rem-1px)];
+}
+.modal-title {
+  @apply flex items-center text-sm leading-[1.14] font-normal text-[#fff] mb-0;
+}
+.close-icon {
+  @apply font-bold text-[1.5rem] leading-[1] text-[#000];
+  text-shadow: 0 1px 0 #fff;
+  text-indent: -1000px;
+}
+.close-btn {
+  @apply relative text-center items-center justify-center flex p-0 m-0 opacity-100  overflow-hidden w-[22px] h-[22px] rounded-[20px]  border-solid border border-[rgba(0,0,0,.5)] bg-[rgb(55,62,72)];
+  transform: translate(5px);
+  text-indent: -1000px;
+  box-shadow: inset 1px 1px #fff1cd33;
+}
+.modal-dialog {
+  @apply transform-none relative w-auto  pointer-events-none;
+  transition: transform 0.3s ease-out;
+}
+@media (min-width: 576px) {
+  .modal-dialog-centered {
+    @apply min-h-[calc(100%-3.5rem)]  my-[28px] mx-auto;
+  }
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+    @apply max-w-[500px] min-w-[500px];
+  }
+}
+.modal-dialog-centered {
+  @apply flex items-center;
+}
+.modal-content {
+  @apply rounded-[12px] bg-[#212226] border-[#1b1b1b] relative flex flex-col w-full pointer-events-auto border border-solid border-[rgba(0,0,0,.2)] outline-0;
+  box-shadow: 0 1rem 3rem #0000004d !important;
+}
+.modal-body {
+  @apply w-full bg-[#0003] rounded-[8px] mb-[20px] p-1;
+}
+.options-spinner {
+  @apply h-[28px] w-full rounded-[17px] border-solid border-[rgba(255,255,255,.2)]  text-sm leading-[1] text-[#fff] flex justify-between items-center;
+  box-shadow: inset 0 1px #00000080;
+}
+.options-spinner-btn {
+  @apply py-[6px] px-3 mx-[2px] my-0 min-w-[22px] max-w-[22px] h-[22px] rounded-[50%] border-none bg-transparent relative cursor-pointer;
+}
+.start-audio-btn {
+  @apply py-[6px] px-3 rounded-[20px] h-[50px] border-[2px] border-solid border-[rgba(0,0,0,.9)] relative cursor-pointer text-sm overflow-visible transform-none text-[#fff] w-full font-normal text-center select-none bg-transparent leading-[1.5];
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-image: radial-gradient(circle at 50% 50%, #61a503, #2d7500 94%);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 6px #020b1a80, inset -1px -1px #00000052,
+    inset 1px 1px #fff1cd33;
+}
+.minus-icon {
+  @apply absolute top-[50%] left-[50%] inline-block  w-[9px] h-[1px];
+  transform: translate(-50%, -50%);
+}
+.input-wrapper {
+  @apply min-w-0 w-full h-full items-center justify-center flex flex-col;
+}
+.input-btn {
+  @apply relative overflow-hidden cursor-text text-center w-[calc(100%-.4rem)] mx-[.2rem] my-0 font-bold;
+  direction: rtl;
+}
+.plus-btn {
+  @apply min-w-[22px] max-w-[22px] h-[22px] inline-flex justify-center items-center rounded-[50%] border-none bg-[#555961] my-0 mx-[2px] relative cursor-pointer  font-normal text-[#212529] text-center align-middle transform-none overflow-visible select-none leading-[1.5] text-[1rem] px-3 py-[6px];
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.plus-icon {
+  @apply absolute top-[50%] left-[50%] inline-block  w-[9px] h-[9px];
+  transform: translate(-50%, -50%);
+}
+.custom-radio {
+  @apply h-[34px] pl-2 static bg-[#555961] items-center flex rounded-[.3rem] min-h-[1.5rem];
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+.custom-radio-input {
+  @apply absolute left-0 z-[-1] p-0 w-[1rem] h-[1.25rem] opacity-0 overflow-visible m-0;
+}
+.checkbox {
+  @apply static text-sm align-middle w-full mb-0 inline-block;
+}
+.custom-switch {
+  @apply flex items-center  relative z-[1] min-h-[1.5rem];
+  --delayAnimation: 0.2s;
+}
+.custom-switch-btn {
+  @apply border-none bg-[#ffffff42] top-[50%] left-[-2.25rem] w-[1.75rem] rounded-[0.5rem]  absolute block h-[1rem];
+  content: "";
+  pointer-events: all;
+  transform: translateY(-50%);
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
+
+.custom-control-label {
+  @apply left-[0.7rem] bg-[#5ba100] text-[#fff] border-[#007bff] border-none w-[10px] h-[10px] top-[50%] rounded-[50%]  absolute block pointer-events-none;
+  content: "";
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+
+  transform: translateY(-50%);
+}
+
+
+.svg-icone{
+    @apply !min-h-0.5 !min-w-[10px]
+}
+
+.plus-icon{
+    @apply !min-h-[10px] !min-w-[10px]
+}

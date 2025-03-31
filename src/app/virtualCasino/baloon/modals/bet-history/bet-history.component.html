@@ -1,0 +1,16 @@
+<div
+    class="absolute -top-0.5 left-0 right-0 z-[998] bg-[rgba(184,_184,_184,_0.2)] w-full h-fit border-transparent border-0 rounded-2xl">
+    <div class="bg-[#1B1C1D] text-white h-8 flex justify-start border-0 rounded-t-2xl !border-transparent items-center">
+        <h3 class=" text-sm font-['Inter'] [text-shadow:_0_1px_2px_rgba(0,_0,_0,_.5)] font-light pl-2.5">
+            ROUND HISTORY</h3>
+    </div>
+    <div
+        class="flex  justify-center items-center w-full  flex-wrap  gap-[7px]  max-xm:gap-1.5 max-sm:gap-[6.5px] p-[5px] py-2  ">
+        @for (result of betHistory; track $index) {
+        <div [ngClass]="{'blue': result.winner>0 && result.winner<2, 'yellow':result.winner>=2 }"
+            class=" cursor-pointer font-semibold   text-[12px] py-0.5 px-1.5  ">
+            {{result.winner}}x
+        </div>
+        }
+    </div>
+</div>

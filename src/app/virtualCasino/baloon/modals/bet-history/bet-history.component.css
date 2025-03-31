@@ -1,0 +1,8 @@
+@import url(../../baloon.styles.css);
+
+.blue {
+  @apply bg-[#05378F]  text-white min-w-[50px] h-[25px] border-0 rounded-[5px] text-[12px] font-bold;
+}
+.yellow {
+  @apply bg-[#FF8A00]  text-black min-w-[50px] h-[25px] border-0 rounded-[5px] text-[12px] font-bold;
+}
