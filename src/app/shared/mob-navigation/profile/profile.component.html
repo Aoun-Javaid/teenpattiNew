@@ -27,7 +27,7 @@
                 Profile
             </div>
         </div>
-        <ul class="pb-[60px] border-b border-[#304553]">
+        <ul class="pb-[20px] border-b border-[#304553]">
             @for (item of profileList; track $index) {
             <li class="flex flex-row justify-start items-center gap-4 pl-5 mt-5 cursor-pointer" (click)="navigateTo(item)">
                 <div [ngClass]="[item?.img==='' ? 'opacity-0':'']">
@@ -44,6 +44,7 @@
             </div>
         </button>
     </div>
+
     <div class="mt-[14px] bg-[#1A2C38]  border-0 rounded-[10px]">
         <ul class=" pb-[14px] "
             [ngClass]="{'border-b border-[#304553]':languageSelectionState, 'mb-[70px]': !languageSelectionState}">
@@ -83,7 +84,7 @@
             </li>
         </ul>
         @if(languageSelectionState){
-        <ul class="pb-[58px] mb-[70px]">
+        <ul class="pb-[24px] mb-[70px]">
             @for (item of languages; track $index) {
             <li class="mt-[14px] px-5 flex flex-row justify-between items-center">
                 <div class="text-[14px] font-semibold leading-[16.71px] text-white">
