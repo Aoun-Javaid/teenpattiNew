@@ -163,6 +163,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   }
 
+  navigateRoute(routeVale:any){
+    if (routeVale === 'Lobby') {
+      this.router.navigateByUrl('/home/lobby')
+       
+    } else if (routeVale === 'Universe Originals'){
+      this.router.navigateByUrl('/home/universe-originals/UNIVERSE')
+
+    } else if (routeVale === 'Providers') {
+      this.router.navigateByUrl('/home/providers')
+    }
+  }
+
   checkCarousel() {
     if (this.screenWidth > 700 && this.isCarouselActive) {
       // this.gallerySlider.unslick();
