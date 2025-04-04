@@ -104,7 +104,7 @@
           <!-- Tab item 4 -->
 
 
-          <a class="tab-item" *ngFor="let item of navList" (click)="NaviagteTo(item)" routerLinkActive="active" >
+          <a class="tab-item" *ngFor="let item of navList" (click)="NaviagteTo(item)" routerLinkActive="active"  (click)="navigateRoute(item.title)">
             <!-- <svg class="svg-icon " fill="currentColor" viewBox="0 0 96 96">
               <title></title>
               <path fill="currentColor"
