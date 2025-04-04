@@ -631,6 +631,8 @@ body {
     @apply bg-[#2f4553] text-white;
   }
 
+
+
   ::-webkit-scrollbar {
     @apply hidden;
   }

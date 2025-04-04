@@ -65,7 +65,7 @@
       <div class="tab-slider min-w-full">
         <div class="flex">
 
-          <a routerLink="/home/lobby" routerLinkActive="active" class="tab-item tab-item1">
+          <!-- <a routerLink="/home/lobby" routerLinkActive="active" class="tab-item tab-item1">
             <svg class="svg-icon" fill="currentColor" viewBox="0 0 96 96">
               <title></title>
               <path fill="currentColor" clip-rule="evenodd"
@@ -99,12 +99,12 @@
             </svg>
 
             <span>Providers</span>
-          </a>
+          </a> -->
 
           <!-- Tab item 4 -->
 
 
-          <a class="tab-item" *ngFor="let item of navList" (click)="NaviagteTo(item)">
+          <a class="tab-item" *ngFor="let item of navList" (click)="NaviagteTo(item)" routerLinkActive="active" >
             <!-- <svg class="svg-icon " fill="currentColor" viewBox="0 0 96 96">
               <title></title>
               <path fill="currentColor"
@@ -112,7 +112,7 @@
               </path>
             </svg> -->
 
-            <img [src]="item.icon" alt="" class="max-h-[28px] max-w-[28px]">
+            <img [src]="item.icon" alt="" class="max-h-[14px] max-w-[14px]" [ngClass]="{'filter-white':item.title === 'Lobby' || item.title === 'Universe Originals' || item.title === 'Providers'}">
 
             <!-- <svg fill="rgb(255, 255, 255)" viewBox="0 0 96 96" class="svg-icon " style="">
               <title />
