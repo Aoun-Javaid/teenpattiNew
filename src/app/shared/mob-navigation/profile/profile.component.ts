@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { ToggleService } from '../../../services/toggle.service';
 
 @Component({
@@ -37,11 +37,21 @@ export class ProfileComponent {
 
   toggleLanguageMenu() {
     this.languageSelectionState = !this.languageSelectionState;
+    if (this.languageSelectionState){
+      const pageWrapper = document.querySelector('.scroll-content') as HTMLElement;
+      if (pageWrapper) {
+        setTimeout(() => {
+          pageWrapper.scrollTop = 500;
+        }, 100);
+      } 
+    }
   }
 
   toggleOptionMenu() {
     this.optionSelectionState = !this.optionSelectionState;
   }
+
+   
 
   getViewType() {
     this.toggle.getMobSideBarContent().subscribe((val: string) => {

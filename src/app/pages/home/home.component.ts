@@ -80,6 +80,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       if(res){
         this.navList = res.sort((a: any, b: any) => a.sequence - b.sequence);;
         // universeId:
+        console.log('navList', this.navList);
         this.getUniverseOriginals('67728edcff8aeae796164df3');
       }
       });

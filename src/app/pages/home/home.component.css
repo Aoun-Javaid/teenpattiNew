@@ -850,3 +850,10 @@ tr:hover {
   height: 100%;
   width: 100%;
 }
+
+
+.filter-white {
+  filter: brightness(0) invert(1) !important;
+}
+
+
