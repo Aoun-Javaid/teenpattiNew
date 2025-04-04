@@ -39,6 +39,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
   LiveTab = 'basketball';
   stakeOrigin!: Swiper;
   TableTab: string = 'myBets';
+  dynamicHeight:any
   casinoViewAllState: boolean = false;
   ProviderViewAllState: boolean = false;
   WinnerDropdown = false;
@@ -201,6 +202,15 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+
+    setTimeout(() => {
+      let height = document.querySelector('.get-height') as HTMLElement;
+      this.dynamicHeight = height.offsetHeight
+      console.log('height', this.dynamicHeight);
+      
+    }, 5000);
+
+
     // this.checkCarousel();
 
     // this.stakeOrigin = new Swiper('.stake-swiper', {
