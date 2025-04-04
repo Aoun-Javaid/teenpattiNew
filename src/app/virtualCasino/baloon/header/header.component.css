@@ -1,0 +1,73 @@
+@import url(../baloon.styles.css);
+.header-wrap {
+  @apply absolute bottom-0 md:top-0 md:bottom-auto max-md:p-[5px]  w-full p-[2px];
+}
+
+.header-content-wrapper {
+  @apply flex justify-between items-center md:bg-[rgba(0,0,0,.3)]  md:px-[3px] rounded-[12px] md:h-[30px];
+}
+
+.select-btn {
+  @apply bg-[#06378f] border border-[rgba(0,0,0,.5)] w-[130px] h-[26px] text-white rounded-full text-[12px] uppercase pr-[15px] relative;
+}
+
+.quest {
+  @apply w-[22px] md:w-[150px] h-[22px] bg-[#F69315] rounded-full ml-[5px] md:ml-[15px] p-0.5 md:flex items-center;
+}
+
+.select-menu {
+  @apply h-[34px] bg-[#00000033] rounded-[.25rem] flex items-center justify-between border-b border-b-[#ffffff1a];
+}
+.select-menu-last {
+  @apply h-[34px] bg-[#00000033] rounded-[.25rem] flex items-center justify-between;
+}
+
+.how {
+  @apply relative left-[20px] text-[12px] block w-[(100%-20px)] text-center max-md:hidden;
+}
+
+input:checked + span + span {
+  transform: translateX(100%); /* Moves the inner circle when checked */
+}
+
+.play-modal-wrapper {
+  @apply flex w-screen h-screen items-center justify-center fixed left-0 top-0 invisible !duration-500 z-[999];
+}
+
+.play-modal-container {
+  @apply rounded-[12px] bg-[#212226] border-[#1b1b1b] shadow-[0_1rem_3rem_#0000004d] duration-500 max-w-[360px] translate-y-[-20px];
+}
+
+.show-play-modal {
+  @apply !visible !duration-500;
+}
+
+.modal-header {
+  @apply flex items-center justify-between border-b w-full border-[rgba(255,255,255,.1)] p-[10px_15px];
+}
+
+.close {
+  @apply bg-[#373e48] flex justify-center items-center relative p-0 m-0 opacity-[1] w-[22px] h-[22px] [text-indent:-1000px]  [transform:translate(5px)]  shadow-[inset_1px_1px_#fff1cd33] rounded-[20px];
+}
+
+.modal-title {
+  font-size: 14px;
+  line-height: 1.1428571429;
+  color: #fff;
+}
+
+.balloon-how-to-play__section {
+  @apply flex flex-col p-[20px_10px] gap-[20px];
+}
+
+.balloon-how-to-play__section--text {
+  @apply text-white text-[13px] text-center;
+}
+
+.balloon-how-to-play_image {
+  @apply object-cover max-w-[320px] m-[10px_0px];
+}
+
+.menu-btn {
+  @apply md:w-[24px] md:h-[24px] h-[26px] w-[26px]  border border-[rgba(0,0,0,.5)]  bg-[#06278f] rounded-full flex justify-center items-center;
+}

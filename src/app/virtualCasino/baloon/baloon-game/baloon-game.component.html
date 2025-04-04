@@ -1,0 +1,178 @@
+<div class="balloon-layout">
+
+
+<div #phaserContainer class="phaser-container font-['Roboto'] relative ">
+    <div [ngClass]="{'!mt-[423px] ' : ipadProState, '!mt-10' : nestHubState, 'md:mt-[250px]  m820:mt-[330px] m850:mt-[380px] m910:mt-[424px]   lg:mt-0 lg:flex lg:justify-center lg:items-center lg:!h-svh' : !ipadProState && !nestHubState}"
+        class="phaser-game  relative  ">
+
+        <div [ngClass]="{'-bottom-[383px] ' : ipadProState, '-bottom-[0px]' : nestHubState, 'bottom-[130px] xxm:bottom-[40px] xm:bottom-[50px] s375:bottom-[135px] s384:bottom-[50px] s390:bottom-0 s402:bottom-10 s412:bottom-10 s414:bottom-[6rem] s425:bottom-6 s431:bottom-[50px] s445:bottom-[60px] s540:bottom-[140px] md:-bottom-[212px] m820:-bottom-[290px] m910:-bottom-[382px] lg:bottom-[40px]' : !ipadProState && !nestHubState , '!translate-y-[50px]  duration-[2000ms]  z-[1000]  ': isBetCashOut}"
+            class="absolute  flex justify-center items-center w-full h-svh ">
+            @if (waitingState) {
+            <h4 [ngClass]="{ 'text-black':isBalloonCrashed , 'text-white' : !isBalloonCrashed && !isBetCashOut, 'text-green-600 multi-amount-anim':isBetCashOut}"
+                class="text-sm lg:text-[20px] font-bold relative z-20">
+                Waiting For Next Round
+            </h4>
+            <div>
+                <app-timer [timeLeft]="timeLeft"></app-timer>
+            </div>
+            } @else {
+            <h4 [ngClass]="{ 'text-black':isBalloonCrashed , 'text-white' : !isBalloonCrashed && !isBetCashOut, 'text-green-600 multi-amount-anim':isBetCashOut}"
+                class=" multiNumVal font-bold relative z-20">
+                {{multiplier}}
+            </h4>
+            <p [ngClass]="{ 'text-black':isBalloonCrashed , 'text-white' : !isBalloonCrashed && !isBetCashOut, 'text-green-600 multiXAnim ':isBetCashOut}"
+                class="multiXVal font-bold translate-y-1 relative z-20">
+                X</p>
+            }
+
+        </div>
+
+
+        <!-- <div class="absolute left-5 top-[50%] z-[1000]">
+
+            <button class="bg-red-600 text-white px-2 py-1 border-0 rounded-xl ml-5 " (click)="play()"> Start</button>
+            <button class="bg-red-600 text-white px-2 py-1 border-0 rounded-xl ml-5  prevent-select" (click)="crash()">
+                Flew Away</button>
+            <button class="bg-red-600 text-white px-2 py-1 border-0 rounded-xl ml-5 " (click)="cashOut()"> cash
+                out</button>
+            <button class="bg-red-600 text-white px-2 py-1 border-0 rounded-xl ml-5 " (click)="reset()"> Reset</button>
+        </div> -->
+
+        <div class="relative canvas-container ">
+            <app-footer (cashOutEmit)="handleCashOutEvent($event)"></app-footer>
+            <app-auto-play></app-auto-play>
+            <div class="absolute top-3  z-[500]  w-full">
+                <div class="flex flex-row justify-start w-full">
+                    <button [ngClass]="[!betHistoryModalState ? 'relative z-[1500]' : '']" type="button"
+                        class="speaker-button translate-x-3 translate-y-10  md:translate-y-0" (click)="toggleMusic()">
+                        <!-- Speaker icon when sound is ON -->
+                        <svg *ngIf="bgMusicState" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path
+                                d="M19.07 4.92999C20.9447 6.80527 21.9979 9.34835 21.9979 12C21.9979 14.6516 20.9447 17.1947 19.07 19.07M15.54 8.45999C16.4774 9.39763 17.004 10.6692 17.004 11.995C17.004 13.3208 16.4774 14.5924 15.54 15.53"
+                                stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+
+                        <!-- Speaker with a cross icon when sound is OFF -->
+                        <svg *ngIf="!bgMusicState" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path d="M16 8L23 15" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                            </path>
+                            <path d="M23 8L16 15" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class=" absolute top-0 z-20 w-full font-['Gotham',sans-serif] flex justify-center items-center  max-small:w-[300px]   s540:pl-0 s540:pr-0.5 m820:pr-1 m820:pl-[3px] ">
+                        <div
+                            class="flex  justify-center items-center w-full  flex-wrap h-[25px] max-h-[25px] gap-1 overflow-hidden  ">
+                            @for (result of results; track $index) {
+                            <div [ngClass]="{'blue': result.winner>0 && result.winner<2, 'yellow':result.winner>=2 }"
+                                class=" cursor-pointer    text-[12px] pb-0.5 pt-1  px-2 leading-normal ">
+                                {{result.winner}}x
+                            </div>
+                            }
+                        </div>
+                        <div class="text-end ">
+                            <button (click)="toggleBetHistoryModal()"
+                                class=" items-center relative !z-[1100] btn_history  w-[25px] h-[25px] rounded-full translate-y-[0.5px]  -translate-x-[1px] xm:-translate-x-2.5  s412:-translate-x-[5px] s425:-translate-x-1.5 max-sm:-translate-x-[10px] md:-translate-x-[15px]">
+                                <div [ngClass]="[betHistoryModalState ? 'active_button' : '']"
+                                    class="image_red flex justify-center items-center h-[22px] gap-[5px]  -translate-y-[1px]  ">
+                                    <img class="w-[16px]  "
+                                        [ngClass]="betHistoryModalState ? 'rotate-180 duration-300' : 'duration-300' "
+                                        src="/baloon/ArrowDown.webp" alt="open">
+                                </div>
+                            </button>
+                        </div>
+
+
+
+                        <!-- Bet History Modal start  -->
+                        @if (betHistoryModalState) {
+                        <app-bet-history [betHistory]="results"></app-bet-history>
+                        }
+
+                        <!-- Bet History Modal Ends here  -->
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div
+                class="h-[45px] absolute top-10 z-20 w-full font-['Gotham',sans-serif] flex justify-center items-center  max-small:w-[310px]  py-3 s540:pl-0 s540:pr-0.5 m820:pr-1 m820:pl-[3px] ">
+
+                <div
+                    class="absolute left-1 top-14 pl-list flex flex-row font-['Gotham'] justify-center pl-3 py-2 border-0 rounded-r-[20px] items-center gap-3 max-h-[28px]">
+                    <div>
+                        <img class="w-4 " src="/baloon/Profile.webp" alt="profile">
+                    </div>
+                    <div class="text-[16px] font-bold" [ngClass]="[plStateColorBlack? 'text-black': 'text-white']">
+                       {{userCount}}
+                    </div>
+                    <button (click)="togglePlList()"
+                        class="pl-icon border-0 rounded-full w-[28px] h-[28px] flex justify-center items-center">
+                        <img class="w-[18px]" [ngClass]="plListState ? 'rotate-180 duration-300' : 'duration-300' "
+                            src="/baloon/Arrow2.webp" alt="arrow">
+                    </button>
+                </div>
+                <div class="absolute left-[5px] top-[81px] font-['Gotham'] plState">
+                    @if (plListState) {
+                    <ul class="pl_wrapper">
+
+                        @for (item of placedBets; track $index) {
+
+                        <li [ngClass]="[$index ===0 ? 'pt-5' : '']"
+                            class="flex flex-row justify-center items-center gap-1">
+                            <div>
+                                <img class="w-[15px] "
+                                    [src]="'/baloon/assets/avatar-images/av-'+item?.imageNumber+'.png'"
+                                    [alt]="item?.userName">
+                            </div>
+                            <div class="text-[10px] font-medium leading-[12px] truncate min-w-[55px] max-w-[55px]  overflow-hidden"
+                                [ngClass]="[plStateColorBlack? 'text-black': 'text-white']">
+                                {{item?.userName}}
+                            </div>
+                            @if (item?.cashOut === 0) {
+                            <div class="text-[10px] font-medium leading-[12px] ">
+                                {{item?.stake | number:'1.2-2'}}
+                            </div>
+                            }@else {
+                            <div class="text-[10px] font-medium leading-[12px]"
+                                [ngClass]="[item?.cashOut > 0 ? 'text-[#008826]':'text-[#A10000]']">
+                                +{{item?.cashOut | number:'1.2-2'}}
+                            </div>
+                            }
+
+                        </li>
+
+                        }
+
+
+
+
+                    </ul>
+
+
+                    }
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+</div>

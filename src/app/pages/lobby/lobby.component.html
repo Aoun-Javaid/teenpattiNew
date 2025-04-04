@@ -15,7 +15,7 @@
                 </svg>
             </span>
             <span class="sports-heading">{{item?.providerTitle}}</span>
-          </a>
+        </a>
 
         <!-- Right -->
         <!-- <div class="flex cursor-pointer">
@@ -56,13 +56,15 @@
             }
 
             <div class="flex_row cursor-pointer btnContainer">
-                <button  class="myCarouselLeft{{$index}}"   [disabled]="navigationStates[$index].prevDisabled"
-                    [ngClass]="!navigationStates[$index].prevDisabled ? '!border-[#55758A] ':'border-[#304553] '" class="btn_left !border-r-0  ">
+                <button class="myCarouselLeft{{$index}}" [disabled]="navigationStates[$index].prevDisabled"
+                    [ngClass]="!navigationStates[$index].prevDisabled ? '!border-[#55758A] ':'border-[#304553] '"
+                    class="btn_left !border-r-0  ">
                     <img [ngClass]="[!navigationStates[$index].prevDisabled ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
                         class="w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
                 </button>
-                <button class="myCarouselRight{{$index}}"  [disabled]="navigationStates[$index].nextDisabled"
-                    [ngClass]="!navigationStates[$index].nextDisabled ? 'border-[#55758A] ':'border-[#304553] '" class="btn_right border-l  ">
+                <button class="myCarouselRight{{$index}}" [disabled]="navigationStates[$index].nextDisabled"
+                    [ngClass]="!navigationStates[$index].nextDisabled ? 'border-[#55758A] ':'border-[#304553] '"
+                    class="btn_right border-l  ">
                     <img [ngClass]="[!navigationStates[$index].nextDisabled  ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
                         class="rotate-180 w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
                 </button>
@@ -70,10 +72,12 @@
         </div>
     </div>
     <div [class]="'stake-swiper-lobby'+$index" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''">
-        <div class="swiper-wrapper" >
+        <div class="swiper-wrapper">
             <div *ngFor="let stake of item.games" class="swiper-slide">
                 <a class="relative" (click)="gotoEvent(stake)">
-                    <img [src]="stake?.gameImage" alt="" class="border-0 rounded-[10px]" *ngIf="swiperLoader">
+                    <img [src]="stake?.gameImage" alt=""
+                        class="border-0 rounded-[10px] [@media(min-width:375px)]:min-h-[152px] [@media(min-width:390px)]:min-h-[158.16px] [@media(min-width:414px)]:min-h-[167.38px] [@media(min-width:430px)]:min-h-[174.65px] [@media(min-width:768px)]:min-h-[234.43px] [@media(min-width:820px)]:min-h-[250.75px] [@media(min-width:1024px)]:!min-h-[172.42px] [@media(min-width:1280px)]:!min-h-[290px] "
+                        *ngIf="swiperLoader">
                     @if (stake.isMaintenance) {
                     <div class="maintenance_wrapper">
                         <div class="lock_img_wrapper">
@@ -86,12 +90,15 @@
 
                     </div>
                     }
-                  </a>
+                </a>
 
                 <div class="stake-player-row flex justify-center gap-2 pt-1" *ngIf="swiperLoader">
-                    <span [ngClass]="[(stake?.gameStatus == 'ACTIVE' &&  !stake.isMaintenance)  ? 'stake-dot-green' :'stake-dot-red']"></span>
+                    <span
+                        [ngClass]="[(stake?.gameStatus == 'ACTIVE' &&  !stake.isMaintenance)  ? 'stake-dot-green' :'stake-dot-red']"></span>
                     <span *ngIf="stake?.gameStatus==='ACTIVE'" class="count-text"> {{stake?.count}}</span>
-                    <span class="text-[#b1bad3] text-xs font-semibold">{{(stake?.gameStatus == 'ACTIVE' &&  !stake.isMaintenance) ?  'Playing' : (stake?.gameStatus == 'ACTIVE' &&  stake.isMaintenance) ?   'Maintenance' : ''}}</span>
+                    <span class="text-[#b1bad3] text-xs font-semibold">{{(stake?.gameStatus == 'ACTIVE' &&
+                        !stake.isMaintenance) ? 'Playing' : (stake?.gameStatus == 'ACTIVE' && stake.isMaintenance) ?
+                        'Maintenance' : ''}}</span>
 
                 </div>
             </div>

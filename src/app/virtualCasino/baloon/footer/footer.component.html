@@ -1,0 +1,176 @@
+<footer>
+  <div class="game-footer-wrapper">
+    <div class="game-footer py-2">
+      <!-- Autoplay Button starts -->
+      <div class="xxm:flex xxm:flex-row justify-start items-center gap-2">
+        <div class="flex justify-start items-center gap-2  s412:gap-6 ml-4">
+          <div class="flex items-center gap-[8px]">
+            <div class="mb-[1px] text-[14px] text-[#ffffff] leading-[16.94px] font-[600]">Auto
+            </div>
+          </div>
+          <div>
+            <label class="relative inline-flex items-center cursor-pointer translate-y-[3px]">
+              <input type="checkbox" value="" class="sr-only peer" id="autoplay"
+                [disabled]="this.betObj[1] || autoCashOut[1].betplaced" [(ngModel)]="autoCashOut[1].active"
+                [checked]="autoCashOut[1].active" (change)="toggleAutoCashOut($event)">
+              <div
+                class="w-[44px]  h-[19px] bg-[1b1c1d] rounded-full border border-white border-opacity-50 peer-checked:border-[#008826] peer-checked:after:translate-x-[23px] rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-0.5 after:start-[3px] after:bg-[#FFFFFF] after:border-[#FFFFFF] after:border-[2px] after:rounded-full after:h-[15px] after:w-[15px] after:transition-all peer-checked:bg-[#008826]">
+              </div>
+            </label>
+          </div>
+          <div [ngClass]="[autoCashOut[1].active? 'opacity-100':'opacity-0']">
+            <div class="relative w-full h-6">
+              <input inputmode="decimal"
+                class="font-weight-bold form-control h-full bg-black/75 text-white w-[55px] lg:max-w-[70px] border-0 rounded-[10px] px-2 py-1"
+                (blur)="autobetBlur(1)" [disabled]=" this.betObj[1]  || autoCashOut[1].betplaced"
+                [(ngModel)]="autoCashOut[1].value" type="text" />
+              <button class="text-white absolute right-2  cursor-default ">x</button>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="flex justify-start items-center gap-2  s412:gap-6 ml-4 xxm:ml-0 ">
+          <div class="flex items-center gap-[8px]">
+            <div class="mb-[1px] text-[14px] text-[#ffffff] leading-[16.94px] font-[600]">Auto
+            </div>
+          </div>
+          <div>
+            <label class="relative inline-flex items-center cursor-pointer translate-y-[3px]">
+              <input type="checkbox" value="" class="sr-only peer" id="autoplay"
+                [disabled]="this.betObj[2] || autoCashOut[2].betplaced" [(ngModel)]="autoCashOut[2].active"
+                [checked]="autoCashOut[2].active" value="" class="sr-only peer" (change)="toggleAutoCashOut($event)">
+              <div
+                class="w-[44px]  h-[19px] bg-[1b1c1d] rounded-full border border-white border-opacity-50 peer-checked:border-[#008826] peer-checked:after:translate-x-[23px] rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-0.5 after:start-[3px] after:bg-[#FFFFFF] after:border-[#FFFFFF] after:border-[2px] after:rounded-full after:h-[15px] after:w-[15px] after:transition-all peer-checked:bg-[#008826]">
+              </div>
+            </label>
+          </div>
+
+          <div [ngClass]="[autoCashOut[2].active? 'opacity-100':'opacity-0']">
+            <div class="relative w-full h-6">
+              <input inputmode="decimal"
+                class="font-weight-bold form-control h-full bg-black/75 text-white w-[55px] lg:max-w-[70px] border-0 rounded-[10px] px-2 py-1"
+                (blur)="autobetBlur(2)" [disabled]=" this.betObj[2]  || autoCashOut[2].betplaced"
+                [(ngModel)]="autoCashOut[2].value" type="text" />
+              <button class="text-white absolute right-2  cursor-default">x</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- Autoplay Button ends -->
+      <div class="grid grid-cols-5 md:grid-cols-4 xm:pl-2.5 s375:pl-[14px] gap-x-2  pr-1">
+        <div class="col-span-2 md:col-span-1">
+          <div class="bets-opt-list grid grid-cols-2 gap-4 w-full">
+            <ng-container *ngFor="let stake of betStakes;trackBy: trackByFn;index as i ">
+              <button *ngIf="editable==false" [ngClass]="selectedStake===stake.stakeAmount?'selectedBtn':''"
+                class="btn btn-secondary btn-sm bet-opt col-span-1 "
+                (click)="selectedStake=stake.stakeAmount?stake.stakeAmount:undefined">
+                <span class="font-semibold"> {{stake.stakeAmount}} </span>
+              </button>
+              <input *ngIf="editable==true"
+                class="btn btn-secondary btn-sm bet-opt !font-semibold col-span-1 betbtnInput !bg-[#FD4848] "
+                [attr.min]="0" [attr.max]="10000" (change)="validateStakeAmount(i)" type="number"
+                oninput="validity.valid||(value='');" [disabled]="!editable" (click)="stakeIndex=i"
+                [(ngModel)]="stake.stakeAmount">
+            </ng-container>
+
+          </div>
+        </div>
+        <div class="col-span-1 flex flex-col justify-center items-center    ">
+
+          <button class="btn btn-secondary btn-sm bet-opt edit_btn mt-1 control-btn"
+            (click)="editable=!editable;this.selectedStake=null">
+            <span>
+              {{editable?'Save':'Edits'}}
+            </span>
+
+          </button>
+          <button class="btn btn-secondary btn-sm bet-opt  clear_btn mt-1 control-btn" (click)="clearStakeValue()">
+            Clear
+          </button>
+          <button class="btn btn-secondary btn-sm bet-opt minMax_btn  mt-1 control-btn"
+            [ngClass]="selectedStake===betStakes?.[0]?.stakeAmount?'selectedBtn':''"
+            (click)="selectedStake=betStakes?.[0]?.stakeAmount">
+            Min
+          </button>
+          <button class="btn btn-secondary btn-sm bet-opt minMax_btn mt-1 control-btn"
+            [ngClass]="selectedStake===betStakes?.[7]?.stakeAmount?'selectedBtn':''"
+            (click)="selectedStake=betStakes?.[7]?.stakeAmount">
+            Max
+          </button>
+        </div>
+        <div class="col-span-2  flex flex-col justify-center  items-center md:items-end mt-1">
+          <button (click)="activeBet(1)"
+            [ngClass]="{'take-btn' :this.cashoutObj[1] && this.currentState==='RUN'  , 'heat-btn ':!this.cashoutObj[1], 'cancel-btn' : this.cashoutObj[1] && this.currentState==='WAIT' || this.betObj[1] }"
+            class="heat-btn flex justify-around items-center mt-1.5 heat-btn-size">
+            @if (!this.cashoutObj[1] && !this.betObj[1]) {
+            <div>
+              <img class="w-[46px] h-[49.36px]" src="/baloon/heat-icon.webp" alt="heat">
+            </div>
+            <div class="heat-text !tracking-[0.011em]">
+              HEAT
+            </div>
+            }@else if(this.cashoutObj[1] && this.currentState==='WAIT' || this.betObj[1]) {
+            <div class="heat-text !tracking-[0.011em]">
+              Cancel
+            </div>
+            }@else if(this.cashoutObj[1] && this.currentState==='RUN'){
+            <div class="leading-none">
+              <div class="text-[18px] font-semibold font-['Inter'] text-white">
+                Take
+              </div>
+              <div class="text-[22px] font-semibold text-white ">
+                {{ (this.cashoutObj[1].stake *
+                multiplier).toFixed(2) }}
+              </div>
+            </div>
+            }
+
+          </button>
+          <button (click)="activeBet(2)"
+            [ngClass]="{'take-btn' :this.cashoutObj[2] && this.currentState==='RUN'  , 'heat-btn ':!this.cashoutObj[2], 'cancel-btn' : this.cashoutObj[2] && this.currentState==='WAIT' || this.betObj[2] }"
+            class="heat-btn flex justify-around items-center mt-1.5 heat-btn-size">
+            @if (!this.cashoutObj[2] && !this.betObj[2]) {
+            <div>
+              <img class="w-[46px] h-[49.36px]" src="/baloon/heat-icon.webp" alt="heat">
+            </div>
+            <div class="heat-text !tracking-[0.011em]">
+              HEAT
+            </div>
+            }@else if(this.cashoutObj[2] && this.currentState==='WAIT' || this.betObj[2]) {
+            <div class="heat-text !tracking-[0.011em]">
+              Cancel
+            </div>
+            }@else if(this.cashoutObj[2] && this.currentState==='RUN'){
+            <div class="leading-none">
+              <div class="text-[18px] font-semibold font-['Inter'] text-white">
+                Take
+              </div>
+              <div class="text-[22px] font-semibold text-white ">
+                {{ (this.cashoutObj[2].stake *
+                multiplier).toFixed(2) }}
+              </div>
+            </div>
+            }
+
+          </button>
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</footer>
+<div>
+  <!-- <app-header (onBgMusicChange)="onBgMusicChange($event)"></app-header> -->
+</div>

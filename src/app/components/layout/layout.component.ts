@@ -63,5 +63,16 @@ export class LayoutComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.modalsState = true;
     }, 1000);
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const pageWrapper = document.querySelector('.page-wrapper') as HTMLElement;
+        if (pageWrapper) {
+          pageWrapper.scrollTop = 0;  
+        }
+      }
+    });
   }
+
+ 
 }
