@@ -217,7 +217,7 @@ export class ChatComponent implements OnInit {
   onOutsideClick(event: Event) {
     const dropdown = document.querySelector('.dropdown');
     if (dropdown && !dropdown.contains(event.target as Node)) {
-      this.langList = !this.langList;
+      this.langList = true;
     }
   }
 }
