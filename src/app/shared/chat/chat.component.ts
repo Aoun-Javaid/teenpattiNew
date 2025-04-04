@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ToggleService } from '../../services/toggle.service';
 import { WebSocketService } from '../../services/web-socket.service';
 import { v4 as uuidv4 } from 'uuid';
-import { ChatRulesModalComponent } from "../../Modals/chat-rules-modal/chat-rules-modal.component";
+import { ChatRulesModalComponent } from '../../Modals/chat-rules-modal/chat-rules-modal.component';
 import { ModalService } from '../../services/modal.service';
 import { ToastrService } from 'ngx-toastr';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -14,13 +14,14 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   standalone: true,
   imports: [FormsModule, CommonModule, ChatRulesModalComponent],
   templateUrl: './chat.component.html',
-  styleUrl: './chat.component.css'
+  styleUrl: './chat.component.css',
 })
 export class ChatComponent implements OnInit {
   text: any;
   casinoChat: any = [];
   connectedUsers: any;
-  token:any;
+  itemTitle = 'English';
+  token: any;
   mobSidebarState: boolean = false;
   hideSideBar: boolean = false;
   selectedLanguage: string = 'English';
@@ -28,23 +29,36 @@ export class ChatComponent implements OnInit {
   viewType = 'Profile';
   timeoutId: any;
   resultMessage: string = '';
-  isMobileInfo:any;
+  isMobileInfo: any;
+  langList: boolean = false;
+  selectedIndex: number | null = null;
 
-  constructor(private toggle: ToggleService,
-     private socketService: WebSocketService,
-     private modalsService:ModalService,
-     private toaster:ToastrService,
-     private deviceService: DeviceDetectorService
-     ) {
+  languages = [
+    { title: 'English', img: '/languages/english.svg' },
+    { title: 'Sports', img: '/languages/sports.svg' },
+    { title: 'Cricket', img: '/languages/' },
+    { title: 'Casino', img: '/languages/' },
+    { title: 'India', img: '/languages/india.svg' },
+    { title: 'Pakistan', img: '/languages/pakistan.svg' },
+    { title: 'Nepal', img: '/languages/' },
+    { title: 'Bangladesh', img: '/languages/' },
+    { title: 'Sri Lanka', img: '/languages/' },
+  ];
 
-  }
+  constructor(
+    private toggle: ToggleService,
+    private socketService: WebSocketService,
+    private modalsService: ModalService,
+    private toaster: ToastrService,
+    private deviceService: DeviceDetectorService
+  ) {}
   ngOnInit(): void {
     this.isMobileInfo = this.deviceService.os;
     this.hideSideBar = true;
     this.getMobSidebarState();
     this.token = localStorage.getItem('token');
-    if(!this.token){
-      this.token= uuidv4();
+    if (!this.token) {
+      this.token = uuidv4();
     }
     this.socketService.connect(this.token);
 
@@ -57,7 +71,6 @@ export class ChatComponent implements OnInit {
       this.updateIncomingMessage(data);
       // console.log('Received message event:', data);
     });
-
   }
   getMobSidebarState() {
     this.toggle.getChatMobSidebarState().subscribe((val: boolean) => {
@@ -86,8 +99,8 @@ export class ChatComponent implements OnInit {
   sendMessage() {
     const result = this.checkBlockedWords(this.text);
     this.resultMessage = result.message;
-    if(this.resultMessage!=''){
-      this.toaster.error(this.resultMessage)
+    if (this.resultMessage != '') {
+      this.toaster.error(this.resultMessage);
     }
     if (this.text != '' && result.isValid) {
       this.socketService.sendMessage('newMessage', { content: this.text });
@@ -98,80 +111,113 @@ export class ChatComponent implements OnInit {
     this.casinoChat.push(data);
     this.scrollChat();
   }
-  scrollChat(){
+  scrollChat() {
     setTimeout(() => {
       const parent = document.querySelector('.messages');
       const lastChild = parent?.lastElementChild;
 
       if (lastChild) {
-        lastChild.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+        lastChild.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest',
+        });
       }
     }, 200);
   }
 
-  ChatFocusScroll(){
+  ChatFocusScroll() {
     if (this.isMobileInfo == 'iOS') {
-
-    }
-    else{
+    } else {
       this.scrollChat();
     }
   }
   checkBlockedWords(input: string): { isValid: boolean; message: string } {
     const blockedWords: string[] = [
-      ".COM", ".CO", "EXCH", "EXCHANGE", "DIAMOND",
-      "KING", "LION", "BOOK", "MAHADEV","GMAIL","YAHOO","HOTMAIL",
-      "SULTAN", "KHELLO", "BONUS", "KHAI LAGAI",
-      "LAY BET", "SITE", "Turbo", "Cbtf"
+      '.COM',
+      '.CO',
+      'EXCH',
+      'EXCHANGE',
+      'DIAMOND',
+      'KING',
+      'LION',
+      'BOOK',
+      'MAHADEV',
+      'GMAIL',
+      'YAHOO',
+      'HOTMAIL',
+      'SULTAN',
+      'KHELLO',
+      'BONUS',
+      'KHAI LAGAI',
+      'LAY BET',
+      'SITE',
+      'Turbo',
+      'Cbtf',
     ];
 
-    const normalizedInput = input.trim().replace(/\s+/g, "");
+    const normalizedInput = input.trim().replace(/\s+/g, '');
 
     // console.log('normalizedInput',normalizedInput)
 
-
-    const phoneRegex = /\b(?:\+?\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?[\d\s.-]{7,10}\b/;
+    const phoneRegex =
+      /\b(?:\+?\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?[\d\s.-]{7,10}\b/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const urlRegex = /https?:\/\/[^\s/$.?#].[^\s]*|www\.[^\s]+/;
 
-    const foundWord = blockedWords.find(word =>
+    const foundWord = blockedWords.find((word) =>
       normalizedInput.toLowerCase().includes(word.toLowerCase())
     );
 
     if (foundWord) {
       return {
         isValid: false,
-        message: `Message not sent due to the use of blocked word: "${foundWord}".`
+        message: `Message not sent due to the use of blocked word: "${foundWord}".`,
       };
     } else if (phoneRegex.test(normalizedInput)) {
       return {
         isValid: false,
-        message: 'Message contains a phone number, which is not allowed.'
+        message: 'Message contains a phone number, which is not allowed.',
       };
     } else if (emailRegex.test(normalizedInput)) {
       return {
         isValid: false,
-        message: 'Message contains an email address, which is not allowed.'
+        message: 'Message contains an email address, which is not allowed.',
       };
     } else if (urlRegex.test(normalizedInput)) {
       return {
         isValid: false,
-        message: 'Message contains a website URL, which is not allowed.'
+        message: 'Message contains a website URL, which is not allowed.',
       };
     } else {
       return {
         isValid: true,
-        message: ""
+        message: '',
       };
     }
   }
-  openChatRulesModal(){
-    let obj={
-      show:true,
-    }
+  openChatRulesModal() {
+    let obj = {
+      show: true,
+    };
     this.modalsService.setChatRulesModal(obj);
   }
 
+  toggleLang() {
+    this.langList = !this.langList;
+  }
 
+  setActive(index: number, title: any) {
+    this.itemTitle = title;
+    this.selectedIndex = index;
+    this.langList = false;
+  }
 
+  @HostListener('document:click', ['$event'])
+  onOutsideClick(event: Event) {
+    const dropdown = document.querySelector('.dropdown');
+    if (dropdown && !dropdown.contains(event.target as Node)) {
+      this.langList = !this.langList;
+    }
+  }
 }

@@ -1,5 +1,3 @@
-
-
 @tailwind utilities;
 
 @layer utilities {
@@ -42,13 +40,12 @@
   appearance: none;
 }
 
-
 .mainChat-Container {
-  font-family: 'Proxima Nova', sans-serif;
+  font-family: "Proxima Nova", sans-serif;
   word-wrap: break-word;
   will-change: margin-right;
   background: #0f212e;
-  filter: drop-shadow(0 0 5px rgba(25, 25, 25, .25));
+  filter: drop-shadow(0 0 5px rgba(25, 25, 25, 0.25));
   z-index: 900;
   flex-shrink: 0;
   width: 100%;
@@ -70,12 +67,13 @@
   height: 60px;
   z-index: 2;
   position: relative;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .2), 0 4px 6px -2px rgba(0, 0, 0, .1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2),
+    0 4px 6px -2px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
   touch-action: none;
   padding-right: 6px;
   padding-left: 1rem;
-  font-family: 'Proxima Nova', sans-serif;
+  font-family: "Proxima Nova", sans-serif;
 }
 
 .dropdown {
@@ -99,20 +97,19 @@
   max-height: calc(100svh - 233px);
   min-height: calc(100svh - 233px);
 }
-.messages{
+.messages {
   overflow-x: hidden;
   min-height: 0px;
   transform: translateZ(0);
   overflow-y: scroll;
   word-break: break-word;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
   overflow-anchor: none;
   overscroll-behavior: contain;
   max-height: calc(100svh - 233px);
-  font-family: 'Proxima Nova', sans-serif;
-
+  font-family: "Proxima Nova", sans-serif;
 }
 
 .scrollY {
@@ -128,67 +125,72 @@
   color: #b1bad3;
   display: flex;
   justify-content: space-between;
-  font-size: .625rem;
+  font-size: 0.625rem;
 }
-.msg_box{
-  border-radius: .25rem;
+.msg_box {
+  border-radius: 0.25rem;
   width: 100%;
   background: #213743;
-  font-family: 'Proxima Nova', sans-serif;
+  font-family: "Proxima Nova", sans-serif;
 }
 
 .msg_box > .content {
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   width: 100%;
 }
-.user-tags >*:last-child {
-  margin-left: .15ch;
+.user-tags > *:last-child {
+  margin-left: 0.15ch;
 }
-.msg_box .userNameContainer{
+.msg_box .userNameContainer {
   display: inline-flex;
   align-items: center;
   overflow: hidden;
   line-height: 1.5;
-  font-family: 'Proxima Nova', sans-serif;
-
+  font-family: "Proxima Nova", sans-serif;
 }
-.userNameContainer .user-tags{
-display: flex;
-font-family: 'Proxima Nova', sans-serif;
+.userNameContainer .user-tags {
+  display: flex;
+  font-family: "Proxima Nova", sans-serif;
 }
 .hoverable.svelte-bbyuql {
   cursor: help;
   display: inline-flex;
 }
-.svg-icon{
- font-size:  .875rem;
+.svg-icon {
+  font-size: 0.875rem;
 }
 .transition {
-  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;
-  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;
-  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(.4,0,.2,1);
-  transition-duration: .15s;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
 }
 .ring-offset-background {
   --tw-ring-offset-color: hsl(0 0% 100% / 1);
 }
 .text-grey-200 {
   --tw-text-opacity: 1;
-  color: rgba(177,186,211,var(--tw-text-opacity));
+  color: rgba(177, 186, 211, var(--tw-text-opacity));
 }
 .footer {
   position: relative;
   display: grid;
   align-items: center;
   padding: 1rem;
-  row-gap: .5rem;
-  background:#213743;
+  row-gap: 0.5rem;
+  background: #213743;
   grid-template-rows: auto;
   grid-template-columns: auto 1fr;
   grid-template-areas: "input input" "online actions";
   touch-action: none;
-  font-family: 'Proxima Nova', sans-serif;
+  font-family: "Proxima Nova", sans-serif;
 }
 .chat-input.svelte-15zhun5 {
   grid-area: input;
@@ -214,14 +216,15 @@ pre.svelte-9e21kq {
   line-height: 1.5;
   overflow: hidden;
 }
-pre.svelte-9e21kq, textarea.svelte-9e21kq {
+pre.svelte-9e21kq,
+textarea.svelte-9e21kq {
   white-space: break-spaces;
   width: 100%;
-  color: white;;
+  color: white;
   background: #0f212e;
-  box-shadow:  0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 2px 0 rgba(0, 0, 0, .12);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
   border: 2px solid #2f4553;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   letter-spacing: 0;
   font-weight: 600;
   transition: all var(--input-transition);
@@ -231,9 +234,9 @@ pre.svelte-9e21kq, textarea.svelte-9e21kq {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  font-size:.875rem;
-  padding: .5rem;
-  font-family: 'Proxima Nova', sans-serif;
+  font-size: 0.875rem;
+  padding: 0.5rem;
+  font-family: "Proxima Nova", sans-serif;
   transition: none;
 }
 textarea.svelte-9e21kq {
@@ -257,33 +260,55 @@ div.svelte-tgp09d {
   background: var(--green-400);
 }
 div.scale-up.svelte-tgp09d {
-  animation: svelte-tgp09d-ScaleUp .2s ease-out;
+  animation: svelte-tgp09d-ScaleUp 0.2s ease-out;
 }
-.online,.actions{
+.online,
+.actions {
   color: #b1bad3;
   line-height: 1.5;
   text-align: left;
   justify-content: flex-start;
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: 600;
   display: inline-flex;
-    align-items: center;
-    font-family: 'Proxima Nova', sans-serif;
+  align-items: center;
+  font-family: "Proxima Nova", sans-serif;
 }
 .actions.svelte-49slp7 {
   display: flex;
   grid-area: actions;
   justify-content: flex-end;
   align-items: center;
-  gap: .75rem;
-  font-family: 'Proxima Nova', sans-serif;
+  gap: 0.75rem;
+  font-family: "Proxima Nova", sans-serif;
 }
 .shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow);
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+    0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .text-neutral-black {
   --tw-text-opacity: 1;
   color: rgb(5 8 10 / var(--tw-text-opacity));
+}
+
+.arrow::before {
+  visibility: visible;
+  content: "";
+  transform: rotate(45deg);
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  left: -7px;
+}
+
+.arrow > ul {
+  font-family: proxima-nova, sans-serif;
+}
+
+.active {
+  color: #1475e1 !important;
 }
