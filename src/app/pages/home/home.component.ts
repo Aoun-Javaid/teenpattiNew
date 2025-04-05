@@ -24,12 +24,12 @@ import 'swiper/css/pagination';
 import { CONFIG } from '../../../../config';
 import { MainService } from '../../services/main.service';
 
-declare var $:any;
+declare var $: any;
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink,RouterLinkActive],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -37,7 +37,7 @@ declare var $:any;
 export class HomeComponent implements OnInit, AfterViewInit {
   owlPrevBtn: boolean = true;
   owlNextBtn: boolean = false;
-  tabIndex = 0
+  tabIndex = '0'
   isMarketOpen = true;
   isMarketOpen2 = true;
   @ViewChild('tabsContainer') tabsContainer!: ElementRef;
@@ -61,29 +61,30 @@ export class HomeComponent implements OnInit, AfterViewInit {
     space: 10,
   };
 
-  heroSlides:any = [];
-  navList:any = [];
+  heroSlides: any = [];
+  navList: any = [];
   isCarouselActive = true;
   screenWidth = window.innerWidth;
 
   // swiperInstance: Swiper;
   constructor(private router: Router,
     private activeRoute: ActivatedRoute,
-    private mainService:MainService) {}
+    private mainService: MainService) { }
 
   ngOnInit() {
-   this.mainService.getBannersList().subscribe((res:any)=>{
-    if(res){
-      this.heroSlides = res.sort((a: any, b: any) => a.sequence - b.sequence);;
-    }
+    this.tabIndex = localStorage.getItem('tabIndex') || '0';
+    this.mainService.getBannersList().subscribe((res: any) => {
+      if (res) {
+        this.heroSlides = res.sort((a: any, b: any) => a.sequence - b.sequence);;
+      }
     });
-    this.mainService.getNavigationList().subscribe((res:any)=>{
-      if(res){
+    this.mainService.getNavigationList().subscribe((res: any) => {
+      if (res) {
         this.navList = res.sort((a: any, b: any) => a.sequence - b.sequence);;
         // universeId:
         this.getUniverseOriginals('67728edcff8aeae796164df3');
       }
-      });
+    });
 
     const inner = window.innerWidth;
     if (inner <= 992 && inner >= 400) {
@@ -92,13 +93,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.swiperBreakPoint.slide = 3;
     }
   }
-  getUniverseOriginals(navigationId:any){
+  getUniverseOriginals(navigationId: any) {
 
-    this.mainService.getDataFromServices(CONFIG.tablesList,CONFIG.tablesListTime,{navigationId}).subscribe((resp:any)=>{
-      if(resp){
+    this.mainService.getDataFromServices(CONFIG.tablesList, CONFIG.tablesListTime, { navigationId }).subscribe((resp: any) => {
+      if (resp) {
 
       }
-  })
+    })
   }
   isUserLoggedIn(): boolean {
     return true;
@@ -163,18 +164,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   }
 
-  navigateRoute(index:any, routeVale:any ){
-    this.tabIndex = index
+  navigateRoute(index: any, routeVale: any) {
+    let saveItem = localStorage.setItem('tabIndex', index)
+    this.tabIndex = localStorage.getItem('tabIndex') || '0';
     if (routeVale === 'Lobby') {
       this.router.navigateByUrl('/home/lobby')
-       
-    } else if (routeVale === 'Universe Originals'){
+
+    } else if (routeVale === 'Universe Originals') {
       this.router.navigateByUrl('/home/universe-originals/UNIVERSE')
 
     } else if (routeVale === 'Providers') {
       this.router.navigateByUrl('/home/providers')
     }
-
     this.scrollTabToCenter();
 
   }
@@ -187,7 +188,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       const selectedTab = tabs[this.tabIndex];
       const containerWidth = container.offsetWidth;
       const tabOffset = selectedTab.offsetLeft;
-      const tabWidth = selectedTab.offsetWidth; 
+      const tabWidth = selectedTab.offsetWidth;
       const scrollTo = tabOffset - (containerWidth / 2) + (tabWidth / 2);
       container.scrollTo({
         left: scrollTo,
@@ -225,12 +226,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // setLiveTabActive(tab: string) {
   //   this.LiveTab = tab;
   // }
-  NaviagteTo(item:any){
-    if(item.title=='Universe Originals'){
+  NaviagteTo(item: any) {
+    if (item.title == 'Universe Originals') {
       this.router.navigateByUrl('/home/universe-originals/UNIVERSE')
     }
-    else if(item.title=='Lobby'){
-        this.router.navigateByUrl('/home/lobby')
+    else if (item.title == 'Lobby') {
+      this.router.navigateByUrl('/home/lobby')
     }
 
   }
