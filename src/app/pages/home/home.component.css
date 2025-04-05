@@ -104,7 +104,10 @@
 
 /* Tabs */
 .tabs-wrapper {
-  @apply flex mt-[12px];
+  @apply flex mt-[12px] ;
+    overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; 
 }
 
 .tab-slider {

@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   tabIndex = 0
   isMarketOpen = true;
   isMarketOpen2 = true;
+  @ViewChild('tabsContainer') tabsContainer!: ElementRef;
   currentRoute!: string;
   heroSlider!: Swiper;
   activeTab: number = 1;
@@ -174,7 +175,27 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.router.navigateByUrl('/home/providers')
     }
 
+    this.scrollTabToCenter();
+
   }
+
+  scrollTabToCenter() {
+    const container = this.tabsContainer.nativeElement;
+    const tabs = container.querySelectorAll('.tab-item');
+
+    if (tabs.length > this.tabIndex) {
+      const selectedTab = tabs[this.tabIndex];
+      const containerWidth = container.offsetWidth;
+      const tabOffset = selectedTab.offsetLeft;
+      const tabWidth = selectedTab.offsetWidth; 
+      const scrollTo = tabOffset - (containerWidth / 2) + (tabWidth / 2);
+      container.scrollTo({
+        left: scrollTo,
+        behavior: 'smooth'
+      });
+    }
+  }
+
 
   checkCarousel() {
     if (this.screenWidth > 700 && this.isCarouselActive) {
