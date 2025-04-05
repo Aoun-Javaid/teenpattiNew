@@ -19,6 +19,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 export class ChatComponent implements OnInit {
   text: any;
   casinoChat: any = [];
+  itemImg = '/languages/english.svg'
   connectedUsers: any;
   itemTitle = 'English';
   token: any;
@@ -27,6 +28,8 @@ export class ChatComponent implements OnInit {
   selectedLanguage: string = 'English';
   selectedOption: string = 'xyz';
   viewType = 'Profile';
+  profileState = false
+  browser = false
   timeoutId: any;
   resultMessage: string = '';
   isMobileInfo: any;
@@ -35,14 +38,14 @@ export class ChatComponent implements OnInit {
 
   languages = [
     { title: 'English', img: '/languages/english.svg' },
-    { title: 'Sports', img: '/languages/sports.svg' },
-    { title: 'Cricket', img: '/languages/' },
-    { title: 'Casino', img: '/languages/' },
+    { title: 'Sports', img: '/languages/sport.svg' },
+    { title: 'Cricket', img: '/languages/cricket.svg' },
+    { title: 'Casino', img: '/languages/casino.png' },
     { title: 'India', img: '/languages/india.svg' },
     { title: 'Pakistan', img: '/languages/pakistan.svg' },
-    { title: 'Nepal', img: '/languages/' },
-    { title: 'Bangladesh', img: '/languages/' },
-    { title: 'Sri Lanka', img: '/languages/' },
+    { title: 'Nepal', img: '/languages/nepal.svg' },
+    { title: 'Bangladesh', img: '/languages/bangladash427321838.svg' },
+    { title: 'Sri Lanka', img: '/languages/srilanka.svg' },
   ];
 
   constructor(
@@ -71,6 +74,14 @@ export class ChatComponent implements OnInit {
       this.updateIncomingMessage(data);
       // console.log('Received message event:', data);
     });
+
+    this.toggle.getProfileMobSidebarState().subscribe((val: boolean) => {
+      this.profileState = val
+    });
+
+    this.toggle.getBrowseMobSidebarState().subscribe((val: boolean) => {
+      this.browser = val
+    })
   }
   getMobSidebarState() {
     this.toggle.getChatMobSidebarState().subscribe((val: boolean) => {
@@ -207,7 +218,8 @@ export class ChatComponent implements OnInit {
     this.langList = !this.langList;
   }
 
-  setActive(index: number, title: any) {
+  setActive(index: number, title: any, itemImg:any) {
+    this.itemImg = itemImg
     this.itemTitle = title;
     this.selectedIndex = index;
     this.langList = false;

@@ -37,7 +37,7 @@ declare var $:any;
 export class HomeComponent implements OnInit, AfterViewInit {
   owlPrevBtn: boolean = true;
   owlNextBtn: boolean = false;
-
+  tabIndex = 0
   isMarketOpen = true;
   isMarketOpen2 = true;
   currentRoute!: string;
@@ -80,7 +80,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       if(res){
         this.navList = res.sort((a: any, b: any) => a.sequence - b.sequence);;
         // universeId:
-        console.log('navList', this.navList);
         this.getUniverseOriginals('67728edcff8aeae796164df3');
       }
       });
@@ -163,7 +162,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   }
 
-  navigateRoute(routeVale:any){
+  navigateRoute(index:any, routeVale:any ){
+    this.tabIndex = index
     if (routeVale === 'Lobby') {
       this.router.navigateByUrl('/home/lobby')
        
@@ -173,6 +173,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     } else if (routeVale === 'Providers') {
       this.router.navigateByUrl('/home/providers')
     }
+
   }
 
   checkCarousel() {
