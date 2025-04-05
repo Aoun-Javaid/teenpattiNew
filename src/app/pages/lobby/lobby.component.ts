@@ -203,12 +203,6 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
 
-    setTimeout(() => {
-      let height = document.querySelector('.get-height') as HTMLElement;
-      this.dynamicHeight = height.offsetHeight
-      console.log('height', this.dynamicHeight);
-      
-    }, 5000);
 
 
     // this.checkCarousel();
