@@ -27,6 +27,8 @@ export class ChatComponent implements OnInit {
   selectedLanguage: string = 'English';
   selectedOption: string = 'xyz';
   viewType = 'Profile';
+  profileState = false
+  browser = false
   timeoutId: any;
   resultMessage: string = '';
   isMobileInfo: any;
@@ -71,6 +73,14 @@ export class ChatComponent implements OnInit {
       this.updateIncomingMessage(data);
       // console.log('Received message event:', data);
     });
+
+    this.toggle.getProfileMobSidebarState().subscribe((val: boolean) => {
+      this.profileState = val
+    });
+
+    this.toggle.getBrowseMobSidebarState().subscribe((val: boolean) => {
+      this.browser = val
+    })
   }
   getMobSidebarState() {
     this.toggle.getChatMobSidebarState().subscribe((val: boolean) => {

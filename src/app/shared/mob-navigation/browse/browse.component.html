@@ -1,6 +1,6 @@
 <section
-  class="bg-[#0d212e]  px-5  py-2.5  min-h-[calc(100svh-52px)] max-h-[calc(100svh-52px)] overflow-auto tracking-wider duration-700  absolute z-[1500] top-[0px] transition-transform  ease-in-out w-full "
-  [ngClass]="{' !duration-1000  translate-y-[120%]': !mobSidebarState, ' translate-y-[60px] ease-in-out': mobSidebarState ,'hidden': hideSideBar ,}">
+  class="bg-[#0d212e]  px-5  py-2.5  min-h-[calc(100svh-52px)] max-h-[calc(100svh-52px)] overflow-auto tracking-wider duration-700  absolute z-[1500] top-[62px] transition-transform  ease-in-out w-full "
+  [ngClass]="{' !duration-1000  translate-y-[120%]': !mobSidebarState && !profileState && !chatState, ' ease-in-out': mobSidebarState ,'hidden': hideSideBar ,  '!duration-0': profileState || chatState}">
 
   <div>
     <div class="input-wrap mobile">

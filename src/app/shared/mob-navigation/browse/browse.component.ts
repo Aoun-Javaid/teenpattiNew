@@ -46,6 +46,8 @@ export class BrowseComponent implements OnInit{
   selectedOption: string = 'xyz';
   viewType = 'Profile';
   timeoutId: any;
+  profileState = false
+  chatState = false
   toggleCoolDown: boolean = false;
   languageSelectionState: boolean = false;
   optionSelectionState: boolean = false;
@@ -53,10 +55,14 @@ export class BrowseComponent implements OnInit{
   constructor(private toggle: ToggleService,private router:Router) {}
 
   ngOnInit(): void {
-
     this.hideSideBar = true;
     this.getMobSidebarState();
-
+    this.toggle.getProfileMobSidebarState().subscribe((val: boolean) => {
+      this.profileState = val
+    });
+    this.toggle.getChatMobSidebarState().subscribe((val: boolean) => {
+      this.chatState = val
+    })
   }
 
   toggleUniverseOriginalMenu() {
@@ -96,9 +102,11 @@ export class BrowseComponent implements OnInit{
   onLanguageChange(language: string): void {
     this.selectedLanguage = language;
   }
+
   onOptionChange(option: string) {
     this.selectedOption = option;
   }
+
   gameList = [
     {
       img: '',

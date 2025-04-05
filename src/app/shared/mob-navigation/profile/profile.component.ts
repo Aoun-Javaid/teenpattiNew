@@ -21,6 +21,8 @@ export class ProfileComponent {
   timeoutId: any;
   toggleCoolDown: boolean = false;
   languageSelectionState: boolean = false;
+  browser = false
+  chatState = false
   optionSelectionState: boolean = false;
   universeOriginalState: boolean = false;
   constructor(private toggle: ToggleService,private router:Router) {}
@@ -29,6 +31,13 @@ export class ProfileComponent {
     this.hideSideBar = true;
     this.getViewType();
     this.getMobSidebarState();
+    this.toggle.getBrowseMobSidebarState().subscribe((val: boolean) => {
+      this.browser = val
+    })
+
+    this.toggle.getChatMobSidebarState().subscribe((val: boolean) => {
+      this.chatState = val
+    })
   }
 
   toggleUniverseOriginalMenu() {
