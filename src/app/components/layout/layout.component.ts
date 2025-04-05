@@ -8,9 +8,11 @@ import { filter } from 'rxjs';
 import { ToggleService } from '../../services/toggle.service';
 import { MobNavigationComponent } from '../../shared/mob-navigation/mob-navigation.component';
 import { MobSidebarComponent } from '../../shared/mob-sidebar/mob-sidebar.component';
-import { BrowseComponent } from "../../shared/mob-navigation/browse/browse.component";
-import { ChatComponent } from "../../shared/chat/chat.component";
-import { ProfileComponent } from "../../shared/mob-navigation/profile/profile.component";
+import { BrowseComponent } from '../../shared/mob-navigation/browse/browse.component';
+import { ChatComponent } from '../../shared/chat/chat.component';
+import { ProfileComponent } from '../../shared/mob-navigation/profile/profile.component';
+import { CookiesComponent } from '../../shared/cookies/cookies.component';
+import { CookieConsentService } from '../../services/cookie-consent.service';
 declare var $: any;
 @Component({
   selector: 'app-layout',
@@ -23,7 +25,8 @@ declare var $: any;
     MobSidebarComponent,
     BrowseComponent,
     ChatComponent,
-    ProfileComponent
+    ProfileComponent,
+    CookiesComponent,
   ],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],
@@ -39,7 +42,11 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   statisticTableModal: boolean = false;
   notificationState: boolean = false;
   campaingState: boolean = false;
-  constructor(private router: Router, private toggle: ToggleService) {
+  constructor(
+    private router: Router,
+    private toggle: ToggleService,
+    private cookieConsentService: CookieConsentService
+  ) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
@@ -50,15 +57,12 @@ export class LayoutComponent implements OnInit, AfterViewInit {
         });
         setTimeout(() => {
           $(document).ready(() => {
-            $('.loaderMain').css('display', 'none')
+            $('.loaderMain').css('display', 'none');
           });
         }, 1000);
-
       });
   }
-  ngOnInit(): void {
-   
-  }
+  ngOnInit(): void {}
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.modalsState = true;
@@ -66,13 +70,17 @@ export class LayoutComponent implements OnInit, AfterViewInit {
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        const pageWrapper = document.querySelector('.page-wrapper') as HTMLElement;
+        const pageWrapper = document.querySelector(
+          '.page-wrapper'
+        ) as HTMLElement;
         if (pageWrapper) {
-          pageWrapper.scrollTop = 0;  
+          pageWrapper.scrollTop = 0;
         }
       }
     });
   }
 
- 
+  get hasConsent(): boolean {
+    return this.cookieConsentService.hasConsent();
+  }
 }
