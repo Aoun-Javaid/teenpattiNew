@@ -24,12 +24,12 @@
 <div class="navigation-wrapper " id="mobile-footer">
   <ng-container *ngFor="let button of buttons">
     <div class="button-wrap">
-      <button class="button-inner-wrap" type="button" (click)="button.clickFunction()">
-        <div class="content text-[#AEBFCE]" [ngClass]="{
-       'text-white-profile border-t-4 border-blue-500': ProfileNav && button.text == 'Profile',
-       'text-white-chat border-t-4 border-blue-500': ChatNav && button.text == 'Chat',
-       'text-white-browse border-t-4 border-blue-500': browseNav && button.text == 'Browse', 
-       '!text-white border-t-4 border-blue-500': !browseNav && !ProfileNav && !ChatNav && button.text == 'Home'
+      <button class="button-inner-wrap " type="button" (click)="button.clickFunction()">
+        <div class="content text-[#AEBFCE] !border-t-4 border-transparent" [ngClass]="{
+       'text-white-profile border-t-4 !border-blue-500': ProfileNav && button.text == 'Profile',
+       'text-white-chat border-t-4 !border-blue-500': ChatNav && button.text == 'Chat',
+       'text-white-browse border-t-4 !border-blue-500': browseNav && button.text == 'Browse', 
+       '!text-white border-t-4 !border-blue-500': !browseNav && !ProfileNav && !ChatNav && button.text == 'Home'
 }">
           <div class="mobile-icon-style ">
             <svg class="svg-icon" fill="currentColor" [attr.viewBox]="button.view"
