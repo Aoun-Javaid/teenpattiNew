@@ -12,11 +12,12 @@ import {
 import { Router, ActivatedRoute } from '@angular/router';
 import Swiper from 'swiper';
 import { MainService } from '../../services/main.service';
+import { LobbyComponent } from "../lobby/lobby.component";
 
 @Component({
   selector: 'app-universe-originals',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LobbyComponent],
   templateUrl: './universe-originals.component.html',
   styleUrl: './universe-originals.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -27,7 +28,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   stakeOrigin!: Swiper;
   TableTab: number = 1;
   casinoViewAllState: boolean = false;
-
+  isCheck:boolean = false
 
   stakeCurrentSlideIndex = 0;
   stakeSlideCount = 0;
@@ -160,12 +161,12 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
     if (isInitialLoad == 'true') {
       // On initial load, use setTimeout
       setTimeout(() => {
-        this.setGridView();
+        this.setDefaultView()
         localStorage.setItem('isInitialLoad', 'false'); // Mark subsequent loads
       }, 100);
     }
     if (isInitialLoad == 'false') {
-      this.setGridView();
+      this.setDefaultView()
     }
 
     //   loop: false,
@@ -205,8 +206,13 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   getprovidersNavigations() {
     this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
       if (res) {
+        const filterIndex = res
+        const filterArr = filterIndex.filter((item: any, index: number) => item.gameName !== null);
         this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
-        this.universeProviderGames = this.navProviderList.filter((game: any) => (game.providerTitle.includes(this.providerName) && game.gameId !== null));
+        // this.universeProviderGames = this.navProviderList.filter((game: any) => (game.providerTitle.includes(this.providerName) && game.gameId !== null));
+        this.universeProviderGames = filterArr
+        console.log(res);
+        console.log(filterArr);
       }
     });
   }
@@ -324,10 +330,12 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   setDefaultView(): void {
     const config = this.getDefaultSwiperConfig();
     this.initializeSwiper(config);
+    this.isCheck = true
   }
 
   setGridView(): void {
     const config = this.getGridSwiperConfig();
     this.initializeSwiper(config);
+    this.isCheck = false
   }
 }
