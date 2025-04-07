@@ -40,3 +40,16 @@
     @apply w-[1rem] h-[1rem]
   }
 }
+
+
+.text-white-profile{
+  @apply !text-white
+}
+
+.text-white-chat {
+  @apply !text-white
+}
+
+.text-white-browse{
+    @apply !text-white
+}
