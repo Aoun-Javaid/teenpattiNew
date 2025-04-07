@@ -1,5 +1,5 @@
 <!--------------------------------- Stake Originals ---------------------->
-<div class="page-content !pb-[120px] !h-full">
+<div class="page-content !pb-[120px] !h-full ">
     <!-- Stake Sports Slider -->
     <div class="top-sports-header mb-2.5">
         <!-- left -->
@@ -46,13 +46,13 @@
       </div> -->
 
         <!-- This content is hidden and dont required -->
-        <div class="view_type !opacity-0">
-            @if (false) {
-            <button class="sports-heading view_text">
+        <div class="view_type" >
+            @if (isCheck) {
+            <button class="sports-heading view_text" (click)="setGridView()">
                 View All
             </button>
             }@else {
-            <button class="sports-heading view_text">
+            <button class="sports-heading view_text" (click)="setDefaultView()">
                 Hide All
             </button>
             }
@@ -78,7 +78,7 @@
             <div *ngFor="let stake of universeProviderGames" class="swiper-slide">
                 <div class="relative">
                     <img [src]="stake.gameImage" alt="" class="border-0 rounded-[10px]">
-                    @if (stake.isMaintenance) {
+                    @if (true) {
                     <div class="maintenance_wrapper">
                         <div class="lock_img_wrapper">
                             <img class="!w-[34px] h-10" src="/images/Lock.svg" alt="">
@@ -102,5 +102,5 @@
         </div>
     </div>
 
-
 </div>
+

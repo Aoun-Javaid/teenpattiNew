@@ -20,13 +20,13 @@
 
         <!-- This below content is hidden and dont required -->
 
-        <div class="view_type !opacity-0">
+        <div class="view_type">
             @if (false) {
-            <button class="sports-heading view_text">
+            <button class="sports-heading view_text" (click)="setGridViewProvider()">
                 View All
             </button>
             }@else {
-            <button class="sports-heading view_text">
+            <button class="sports-heading view_text" (click)="setDefaultViewProvider()">
                 Hide All
             </button>
             }
