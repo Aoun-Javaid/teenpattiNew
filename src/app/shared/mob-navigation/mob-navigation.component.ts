@@ -75,9 +75,7 @@ export class MobNavigationComponent implements OnInit {
     this.checkCurrentStates();
 
     this.currentRoute = this.router.url;
-    console.log('Initial route:', this.currentRoute);
-
-    // Subscribe to future changes
+ 
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
