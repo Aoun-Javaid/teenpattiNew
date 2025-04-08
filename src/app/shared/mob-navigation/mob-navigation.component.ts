@@ -1,7 +1,8 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { ToggleService } from '../../services/toggle.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-mob-navigation',
@@ -13,7 +14,7 @@ import { ToggleService } from '../../services/toggle.service';
 export class MobNavigationComponent implements OnInit {
   mobSideBarState: boolean = false;
   viewType = 'Profile';
-
+  currentRoute: string = '';
   browseNav:boolean=false;
   ProfileNav:boolean=false;
   ChatNav:boolean=false;
@@ -65,11 +66,24 @@ export class MobNavigationComponent implements OnInit {
 
   ];
 
-  constructor(private toggle: ToggleService,private router:Router) {}
+  constructor(private toggle: ToggleService,private router:Router) {
+
+  }
   ngOnInit(): void {
     this.getMobSideBarState();
     this.getViewType();
     this.checkCurrentStates();
+
+    this.currentRoute = this.router.url;
+    console.log('Initial route:', this.currentRoute);
+
+    // Subscribe to future changes
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.currentRoute = event.urlAfterRedirects;
+        console.log('Updated route:', this.currentRoute);
+      });
   }
 
   getViewType() {
