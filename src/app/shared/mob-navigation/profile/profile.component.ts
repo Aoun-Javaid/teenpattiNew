@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule, NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -12,7 +12,7 @@ import { ToggleService } from '../../../services/toggle.service';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
   mobSidebarState: boolean = false;
   hideSideBar: boolean = false;
   selectedLanguage: string = 'English';
@@ -39,6 +39,11 @@ export class ProfileComponent {
       this.chatState = val
     })
   }
+
+ 
+  
+
+ 
 
   toggleUniverseOriginalMenu() {
     this.universeOriginalState = !this.universeOriginalState;
@@ -67,16 +72,26 @@ export class ProfileComponent {
       this.viewType = val;
     });
   }
+
+
   getMobSidebarState() {
     this.toggle.getProfileMobSidebarState().subscribe((val: boolean) => {
       if (this.timeoutId) {
         clearTimeout(this.timeoutId);
       }
+
       if (val) {
         setTimeout(() => {
           this.mobSidebarState = val;
+
+          // Scroll to top after DOM update
+          const pageWrapper = document.querySelector('.scroll-content') as HTMLElement;
+          if (pageWrapper) {
+            pageWrapper.scrollTop = 0;
+          }
         }, 10);
       }
+
       if (!val) {
         this.mobSidebarState = val;
 
@@ -89,9 +104,13 @@ export class ProfileComponent {
     });
   }
 
+
+
   onLanguageChange(language: string): void {
     this.selectedLanguage = language;
   }
+
+
   onOptionChange(option: string) {
     this.selectedOption = option;
   }
@@ -137,6 +156,7 @@ export class ProfileComponent {
     { label: 'Español', value: 'Espanol' },
     { label: 'Hindi', value: 'Hindi' },
   ];
+
   navigateTo(item:any){
     if(item.name=='Stake Edit'){
       this.router.navigateByUrl('/stakes');
@@ -154,4 +174,5 @@ export class ProfileComponent {
       this.toggle.setProfileMobSidebarState(false);
     }
   }
+
 }
