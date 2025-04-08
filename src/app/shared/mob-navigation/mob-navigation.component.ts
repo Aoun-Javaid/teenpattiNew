@@ -82,7 +82,6 @@ export class MobNavigationComponent implements OnInit {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.currentRoute = event.urlAfterRedirects;
-        console.log('Updated route:', this.currentRoute);
       });
   }
 
