@@ -29,7 +29,7 @@
        'text-white-profile border-t-4 !border-blue-500': ProfileNav && button.text == 'Profile',
        'text-white-chat border-t-4 !border-blue-500': ChatNav && button.text == 'Chat',
        'text-white-browse border-t-4 !border-blue-500': browseNav && button.text == 'Browse', 
-       '!text-white border-t-4 !border-blue-500': !browseNav && !ProfileNav && !ChatNav && button.text == 'Home'
+       '!text-white border-t-4 !border-blue-500': !browseNav && !ProfileNav && !ChatNav && button.text == 'Home' && currentRoute === '/home/lobby'
 }">
           <div class="mobile-icon-style ">
             <svg class="svg-icon" fill="currentColor" [attr.viewBox]="button.view"
