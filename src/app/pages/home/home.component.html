@@ -106,7 +106,7 @@
 
 
           <a class="tab-item" *ngFor="let item of navList, let ii = index" (click)="NaviagteTo(item)"
-            [ngClass]="{'!bg-[rgb(47,69,83)] !text-white':tabIndex === ii.toString()}"
+            [ngClass]="{'!bg-[rgb(47,69,83)] !text-white':tabIndex === ii.toString(), '!ml-0': ii === 0}"
             (click)="navigateRoute(ii, item.title)" routerLinkActive="active">
             <!-- <svg class="svg-icon " fill="currentColor" viewBox="0 0 96 96">
                 <title></title>
