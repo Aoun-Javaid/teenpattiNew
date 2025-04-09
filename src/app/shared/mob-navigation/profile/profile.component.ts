@@ -8,7 +8,7 @@ import { ToggleService } from '../../../services/toggle.service';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
   chatState = false
   optionSelectionState: boolean = false;
   universeOriginalState: boolean = false;
-  constructor(private toggle: ToggleService,private router:Router) {}
+  constructor(private toggle: ToggleService, private router: Router) { }
 
   ngOnInit(): void {
     this.hideSideBar = true;
@@ -40,10 +40,12 @@ export class ProfileComponent implements OnInit {
     })
   }
 
- 
-  
 
- 
+
+
+
+
+
 
   toggleUniverseOriginalMenu() {
     this.universeOriginalState = !this.universeOriginalState;
@@ -51,13 +53,13 @@ export class ProfileComponent implements OnInit {
 
   toggleLanguageMenu() {
     this.languageSelectionState = !this.languageSelectionState;
-    if (this.languageSelectionState){
+    if (this.languageSelectionState) {
       const pageWrapper = document.querySelector('.scroll-content') as HTMLElement;
       if (pageWrapper) {
         setTimeout(() => {
           pageWrapper.scrollTop = 500;
         }, 100);
-      } 
+      }
     }
   }
 
@@ -65,7 +67,7 @@ export class ProfileComponent implements OnInit {
     this.optionSelectionState = !this.optionSelectionState;
   }
 
-   
+
 
   getViewType() {
     this.toggle.getMobSideBarContent().subscribe((val: string) => {
@@ -90,10 +92,22 @@ export class ProfileComponent implements OnInit {
             pageWrapper.scrollTop = 0;
           }
         }, 10);
+
+  
+          setTimeout(() => {
+            const className = document.querySelector('.scroll-content') as HTMLElement;
+            className.classList.add('!z-[99]')
+            console.log(className);
+          }, 1000);
       }
 
       if (!val) {
         this.mobSidebarState = val;
+        setTimeout(() => {
+          const className = document.querySelector('.scroll-content') as HTMLElement;
+          className.classList.remove('!z-[99]')
+          console.log(className);
+        }, 1000);
 
         this.timeoutId = setTimeout(() => {
           this.hideSideBar = true;
@@ -157,18 +171,18 @@ export class ProfileComponent implements OnInit {
     { label: 'Hindi', value: 'Hindi' },
   ];
 
-  navigateTo(item:any){
-    if(item.name=='Stake Edit'){
+  navigateTo(item: any) {
+    if (item.name == 'Stake Edit') {
       this.router.navigateByUrl('/stakes');
       this.toggle.setMobSideBarState(false);
       this.toggle.setProfileMobSidebarState(false);
     }
-    if(item.name=='My Bets'){
+    if (item.name == 'My Bets') {
       this.router.navigateByUrl('/mybets');
       this.toggle.setMobSideBarState(false);
       this.toggle.setProfileMobSidebarState(false);
     }
-    if(item.name=='Transactions'){
+    if (item.name == 'Transactions') {
       this.router.navigateByUrl('/transactions');
       this.toggle.setMobSideBarState(false);
       this.toggle.setProfileMobSidebarState(false);

@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   heroSlider!: Swiper;
   activeTab: number = 1;
   LiveTab = 'basketball';
-
   TableTab: number = 1;
 
   WinnerDropdown = false;
@@ -169,11 +168,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.tabIndex = localStorage.getItem('tabIndex') || '0';
     if (routeVale === 'Lobby') {
       this.router.navigateByUrl('/home/lobby')
+    }
 
-    } else if (routeVale === 'Universe Originals') {
-      this.router.navigateByUrl('/home/universe-originals/UNIVERSE')
-
-    } else if (routeVale === 'Providers') {
+    // } else if (routeVale === 'Universe Originals') {
+    //   this.router.navigateByUrl('/home/universe-originals/UNIVERSE')}
+     else if (routeVale === 'Providers') {
       this.router.navigateByUrl('/home/providers')
     }
     this.scrollTabToCenter();
@@ -226,13 +225,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // setLiveTabActive(tab: string) {
   //   this.LiveTab = tab;
   // }
-  NaviagteTo(item: any) {
-    if (item.title == 'Universe Originals') {
-      this.router.navigateByUrl('/home/universe-originals/UNIVERSE')
-    }
-    else if (item.title == 'Lobby') {
-      this.router.navigateByUrl('/home/lobby')
-    }
+  // NaviagteTo(item: any) {
+  //   if (item.title == 'Universe Originals') {
+  //     this.router.navigateByUrl('/home/universe-originals/UNIVERSE')
+  //   }
+  //   else if (item.title == 'Lobby') {
+  //     this.router.navigateByUrl('/home/lobby')
+  //   }
 
-  }
+  // }
 }

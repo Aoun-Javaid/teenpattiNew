@@ -1,8 +1,8 @@
 <section
-  class="bg-[#0d212e]  min-h-[calc(100svh-52px)] max-h-[calc(100svh-52px)] overflow-auto tracking-wider duration-700  absolute z-[1500] top-[0px] transition-transform  ease-in-out w-full "
-  [ngClass]="{' !duration-1000  translate-y-[120%]': !mobSidebarState, 'ease-in-out': mobSidebarState ,'hidden': hideSideBar ,}">
+  class="bg-[#0d212e]  min-h-[calc(100svh-52px)] max-h-[calc(100svh-52px)] overflow-auto tracking-wider duration-700  absolute z-[1500] top-[0px] transition-transform  ease-in-out w-full decrease-index "
+  [ngClass]="{' !duration-1000  translate-y-[120%] !z-[9]': !mobSidebarState, 'ease-in-out': mobSidebarState ,'hidden': hideSideBar ,}">
   <div class="mainChat-container">
-    <div class="content">
+    <div class="content" >
       <div class="header ">
         <div class="dropdown transparent">
           <button (click)="toggleLang()" type="button" tabindex="0"
