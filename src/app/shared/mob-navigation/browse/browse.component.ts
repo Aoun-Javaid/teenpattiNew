@@ -86,9 +86,18 @@ export class BrowseComponent implements OnInit{
         setTimeout(() => {
           this.mobSidebarState = val;
         }, 10);
+        setTimeout(() => {
+          const className = document.querySelector('.browser-index') as HTMLElement;
+          className.classList.add('!z-[99]')
+        }, 1000);
       }
       if (!val) {
         this.mobSidebarState = val;
+
+        setTimeout(() => {
+          const className = document.querySelector('.browser-index') as HTMLElement;
+          className.classList.remove('!z-[99]')
+        }, 1000);
 
         this.timeoutId = setTimeout(() => {
           this.hideSideBar = true;

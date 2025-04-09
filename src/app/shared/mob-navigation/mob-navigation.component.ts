@@ -133,7 +133,7 @@ export class MobNavigationComponent implements OnInit {
    setTimeout(() => {
      this.toggle.setProfileMobSidebarState(false);
      this.toggle.setChatMobSidebarState(false);
-   }, 0);
+   }, 1000);
 
 
     this.toggle.setBrowseMobSidebarState(!this.browseNav);
@@ -146,7 +146,7 @@ export class MobNavigationComponent implements OnInit {
     setTimeout(() => {
     this.toggle.setBrowseMobSidebarState(false);
     this.toggle.setChatMobSidebarState(false);
-    }, 0);
+    }, 1000);
     this.toggle.setProfileMobSidebarState(!this.ProfileNav);
     if(this.ProfileNav){
       document.body.classList.add('overflow-hidden');
@@ -157,7 +157,7 @@ export class MobNavigationComponent implements OnInit {
     setTimeout(() => {
     this.toggle.setBrowseMobSidebarState(false);
     this.toggle.setProfileMobSidebarState(false);
-    }, 0);
+    }, 1000);
     this.toggle.setChatMobSidebarState(!this.ChatNav);
     if(this.ChatNav){
       document.body.classList.add('overflow-hidden');
