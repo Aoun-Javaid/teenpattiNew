@@ -1,11 +1,9 @@
 <div *ngIf="showCookies"
-    class="cookie fixed bottom-[4rem] right-4 left-1/2 transform -translate-x-1/2 bg-[rgb(47,69,83)] rounded-[4px] p-[.75rem_1rem] !h-fit z-50 [font-family:proxima-nova,_sans-serif;] !max-w-[calc(100%_-_2em)] w-fit">
+    class="cookie fixed bottom-[4rem] right-4 left-1/2 transform -translate-x-1/2 bg-[rgb(47,69,83)] rounded-[4px] p-[.75rem_1rem] !h-fit z-50 [font-family:proxima-nova,_sans-serif;] !max-w-[calc(100%_-_2em)] w-max">
     <div class="flex flex-col gap-4 md:flex-row items-center">
-        <p
-            class="text-sm text-[rgb(177,186,211)] [@media(min-width:376px)]:text-nowrap [@media(min-width:376px)]:whitespace-nowrap leading-[1.5]">
-            <span
-                class="text-white font-[500] [@media(min-width:376px)]:text-nowrap [@media(min-width:376px)]:whitespace-nowrap">🍪
-                We use cookies</span> for functional and analytical purpose.
+        <p class="text-sm text-[rgb(177,186,211)] leading-[1.5] md:whitespace-nowrap">
+            <span class="text-white font-[500]">
+                🍪 We use cookies</span> for functional and analytical purpose.
         </p>
         <div class="flex w-full">
             <button (click)="accept()"
