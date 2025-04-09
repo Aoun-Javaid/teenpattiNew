@@ -26,9 +26,9 @@
     <div class="button-wrap">
       <button class="button-inner-wrap " type="button" (click)="button.clickFunction()">
         <div class="content text-[#AEBFCE] !border-t-4 border-transparent" [ngClass]="{
-       'text-white-profile border-t-4 !border-blue-500': ProfileNav && button.text == 'Profile',
-       'text-white-chat border-t-4 !border-blue-500': ChatNav && button.text == 'Chat',
-       'text-white-browse border-t-4 !border-blue-500': browseNav && button.text == 'Browse', 
+       'text-white-profile border-t-4 !border-blue-500': ProfileNav && button.text == 'Profile' && !ChatNav && !browseNav,
+       'text-white-chat border-t-4 !border-blue-500': ChatNav && button.text == 'Chat' && !ProfileNav && !browseNav,
+       'text-white-browse border-t-4 !border-blue-500': browseNav && button.text == 'Browse' && !ProfileNav && !ChatNav, 
        '!text-white border-t-4 !border-blue-500': !browseNav && !ProfileNav && !ChatNav && button.text == 'Home' && currentRoute === '/home/lobby'
 }">
           <div class="mobile-icon-style ">
