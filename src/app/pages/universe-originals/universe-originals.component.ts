@@ -9,10 +9,12 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import Swiper from 'swiper';
 import { MainService } from '../../services/main.service';
 import { LobbyComponent } from "../lobby/lobby.component";
+import { filter } from 'rxjs';
+import { CONFIG } from '../../../../config';
 
 @Component({
   selector: 'app-universe-originals',
@@ -28,8 +30,8 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   stakeOrigin!: Swiper;
   TableTab: number = 1;
   casinoViewAllState: boolean = false;
-  isCheck:boolean = false
-
+  isCheck: boolean = false
+  navList:any = []
   stakeCurrentSlideIndex = 0;
   stakeSlideCount = 0;
 
@@ -88,7 +90,10 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngOnInit() {
-    this.providerName = this.route.snapshot.params['name'];
+
+    this.route.paramMap.subscribe(params => {
+      this.providerName = params.get('name');
+    });
 
     this.getprovidersNavigations();
     const inner = window.innerWidth;
@@ -97,6 +102,26 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
     } else if (inner <= 400) {
       this.swiperBreakPoint.slide = 3;
     }
+
+   
+
+    this.mainService.getNavigationList().subscribe((res: any) => {
+      if (res) {
+        this.navList = res.sort((a: any, b: any) => a.sequence - b.sequence);;
+        // universeId:
+        this.getUniverseOriginals('67728edcff8aeae796164df3');
+      }
+    });
+
+  }
+
+  getUniverseOriginals(navigationId: any) {
+
+    this.mainService.getDataFromServices(CONFIG.tablesList, CONFIG.tablesListTime, { navigationId }).subscribe((resp: any) => {
+      if (resp) {
+
+      }
+    })
   }
 
   isUserLoggedIn(): boolean {
