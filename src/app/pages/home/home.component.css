@@ -181,6 +181,10 @@
   @apply mt-3 pt-4 !min-h-11;
 }
 
+::ng-deep .active-tab{
+  @apply !bg-[rgb(47,69,83)] !text-white
+}
+
 .event-icon {
   @apply !border-none !py-[13px] !px-4;
 }
