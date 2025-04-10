@@ -106,7 +106,7 @@
 
 
           <a class="tab-item" *ngFor="let item of navList, let ii = index" 
-            [ngClass]="{'!bg-[rgb(47,69,83)] !text-white':tabIndex === ii.toString(), '!ml-0': ii === 0}"
+            [ngClass]="{'active-tab ':tabIndex === ii.toString(), '!ml-0': ii === 0, '[@media(max-width:1024px)]:hover:!bg-transparent':tabIndex !== ii.toString(),}"
             (click)="navigateRoute(ii, item.title)" routerLinkActive="active" [routerLink]="['/home/universe-originals', item.title.split(' ')[0]]">
             <!-- <svg class="svg-icon " fill="currentColor" viewBox="0 0 96 96">
                 <title></title>
