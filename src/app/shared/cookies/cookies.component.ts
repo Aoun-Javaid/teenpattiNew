@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CookieConsentService } from '../../services/cookie-consent.service';
 
 @Component({
@@ -9,13 +9,19 @@ import { CookieConsentService } from '../../services/cookie-consent.service';
   templateUrl: './cookies.component.html',
   styleUrl: './cookies.component.css',
 })
-export class CookiesComponent implements OnInit {
+export class CookiesComponent implements OnInit, AfterViewInit {
   showCookies: boolean = false;
 
-  constructor(private cookieConsentService: CookieConsentService) {}
+  constructor(private cookieConsentService: CookieConsentService) { }
 
   ngOnInit(): void {
-    this.showCookies = !this.cookieConsentService.hasConsent();
+
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.showCookies = !this.cookieConsentService.hasConsent();
+    }, 1000);
   }
 
   accept(): void {
