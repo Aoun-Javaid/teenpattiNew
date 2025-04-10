@@ -33,7 +33,7 @@ export class JwtinterceptorService {
       return next.handle(req.clone({ setHeaders: { Authorization } })).pipe(
         catchError((error: HttpErrorResponse) => {
           if (error.status === 401) {
-            this.router.navigate(['/unauthorized']);
+            this.router.navigate(['/home/lobby']);
           }
           return throwError(error);
         })

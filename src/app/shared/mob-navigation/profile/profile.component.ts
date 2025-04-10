@@ -97,8 +97,8 @@ export class ProfileComponent implements OnInit {
           setTimeout(() => {
             const className = document.querySelector('.scroll-content') as HTMLElement;
             className.classList.add('!z-[99]')
-            console.log(className);
-          }, 1000);
+
+          }, 700);
       }
 
       if (!val) {
@@ -106,8 +106,7 @@ export class ProfileComponent implements OnInit {
         setTimeout(() => {
           const className = document.querySelector('.scroll-content') as HTMLElement;
           className.classList.remove('!z-[99]')
-          console.log(className);
-        }, 1000);
+        }, 700);
 
         this.timeoutId = setTimeout(() => {
           this.hideSideBar = true;

@@ -96,7 +96,7 @@ export class ChatComponent implements OnInit {
         setTimeout(() => {
           const className = document.querySelector('.decrease-index') as HTMLElement;
           className.classList.add('!z-[99]')
-        }, 1000);
+        }, 700);
       }
       if (!val) {
         this.mobSidebarState = val;
@@ -107,7 +107,7 @@ export class ChatComponent implements OnInit {
         setTimeout(() => {
           const className = document.querySelector('.decrease-index') as HTMLElement;
           className.classList.remove('!z-[99]')
-        }, 1000);
+        }, 700);
       } else {
         this.hideSideBar = false;
       }
