@@ -1,23 +1,25 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 import { ToggleService } from '../../services/toggle.service';
 import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-mob-navigation',
   standalone: true,
-  imports: [RouterLink,NgFor,NgClass,NgIf],
+  imports: [RouterLink, NgFor, NgClass, NgIf],
   templateUrl: './mob-navigation.component.html',
   styleUrl: './mob-navigation.component.css',
 })
 export class MobNavigationComponent implements OnInit {
   mobSideBarState: boolean = false;
   viewType = 'Profile';
+  parentRouteName: string = '';
   currentRoute: string = '';
-  browseNav:boolean=false;
-  ProfileNav:boolean=false;
-  ChatNav:boolean=false;
+  navItemIndex:any
+  browseNav: boolean = false;
+  ProfileNav: boolean = false;
+  ChatNav: boolean = false;
   buttons = [
     {
       text: 'Exit',
@@ -61,12 +63,12 @@ export class MobNavigationComponent implements OnInit {
       view: '0 0 96 96',
       clickFunction: this.openProfileMobSidebar.bind(this),
       svgPath: 'M7.99682 13.1746C3.68382 13.1746 -0.000183105 13.8546 -0.000183105 16.5746C-0.000183105 19.2956 3.66082 19.9996 7.99682 19.9996C12.3098 19.9996 15.9938 19.3206 15.9938 16.5996C15.9938 13.8786 12.3338 13.1746 7.99682 13.1746Z',
-      svgpath2:'M7.99683 10.5837C10.9348 10.5837 13.2888 8.22869 13.2888 5.29169C13.2888 2.35469 10.9348 -0.000305176 7.99683 -0.000305176C5.05983 -0.000305176 2.70483 2.35469 2.70483 5.29169C2.70483 8.22869 5.05983 10.5837 7.99683 10.5837Z'
+      svgpath2: 'M7.99683 10.5837C10.9348 10.5837 13.2888 8.22869 13.2888 5.29169C13.2888 2.35469 10.9348 -0.000305176 7.99683 -0.000305176C5.05983 -0.000305176 2.70483 2.35469 2.70483 5.29169C2.70483 8.22869 5.05983 10.5837 7.99683 10.5837Z'
     },
 
   ];
 
-  constructor(private toggle: ToggleService,private router:Router) {
+  constructor(private toggle: ToggleService, private router: Router, private activatedRoute: ActivatedRoute) {
 
   }
   ngOnInit(): void {
@@ -75,12 +77,30 @@ export class MobNavigationComponent implements OnInit {
     this.checkCurrentStates();
 
     this.currentRoute = this.router.url;
- 
+    this.parentRouteName = this.getParentRouteName();
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.currentRoute = event.urlAfterRedirects;
+        this.parentRouteName = this.getParentRouteName();
       });
+  }
+
+  private getParentRouteName(): string {
+    let route = this.activatedRoute;
+    let parentRouteName = '';
+
+    while (route.firstChild) {
+      route = route.firstChild;
+    }
+
+    const parentRoute = route.parent;
+
+    if (parentRoute && parentRoute.snapshot) {
+      parentRouteName = parentRoute.snapshot.routeConfig?.path || '';
+    }
+
+    return parentRouteName;
   }
 
   getViewType() {
@@ -93,28 +113,28 @@ export class MobNavigationComponent implements OnInit {
       this.mobSideBarState = val;
     });
   }
-  checkCurrentStates(){
-    this.toggle.getBrowseMobSidebarState().subscribe((res:any)=>{
-      this.browseNav=res;
+  checkCurrentStates() {
+    this.toggle.getBrowseMobSidebarState().subscribe((res: any) => {
+      this.browseNav = res;
       // console.log('res',res)
-      if(res==false){
+      if (res == false) {
         document.body.classList.remove('overflow-hidden');
       }
     })
-    this.toggle.getProfileMobSidebarState().subscribe((res:any)=>{
-      this.ProfileNav=res;
-      if(res==false){
+    this.toggle.getProfileMobSidebarState().subscribe((res: any) => {
+      this.ProfileNav = res;
+      if (res == false) {
         document.body.classList.remove('overflow-hidden');
       }
     })
-    this.toggle.getChatMobSidebarState().subscribe((res:any)=>{
-      this.ChatNav=res;
-      if(res==false){
+    this.toggle.getChatMobSidebarState().subscribe((res: any) => {
+      this.ChatNav = res;
+      if (res == false) {
         document.body.classList.remove('overflow-hidden');
       }
     })
   }
-  gotoHome(){
+  gotoHome() {
     this.closeMobSideBar();
     this.router.navigateByUrl('/home/lobby')
   }
@@ -124,42 +144,46 @@ export class MobNavigationComponent implements OnInit {
       this.closeMobSideBar();
     }
   }
-  gotoOrignalSite(){
+  gotoOrignalSite() {
     this.closeMobSideBar();
   }
 
   // Wrapper functions for specific sidebar types
   openBrowseMobSidebar() {
-   setTimeout(() => {
-     this.toggle.setProfileMobSidebarState(false);
-     this.toggle.setChatMobSidebarState(false);
-   }, 1000);
+    setTimeout(() => {
+      this.toggle.setProfileMobSidebarState(false);
+      this.toggle.setChatMobSidebarState(false);
+    }, 700);
 
 
     this.toggle.setBrowseMobSidebarState(!this.browseNav);
-    if(this.browseNav){
+    if (this.browseNav) {
       document.body.classList.add('overflow-hidden');
     }
   }
 
+  getIndex(index: any) {
+    this.navItemIndex = (this.navItemIndex === index) ? null : index;
+  }
+
   openProfileMobSidebar() {
     setTimeout(() => {
-    this.toggle.setBrowseMobSidebarState(false);
-    this.toggle.setChatMobSidebarState(false);
-    }, 1000);
+      this.toggle.setBrowseMobSidebarState(false);
+      this.toggle.setChatMobSidebarState(false);
+    }, 700);
     this.toggle.setProfileMobSidebarState(!this.ProfileNav);
-    if(this.ProfileNav){
+    if (this.ProfileNav) {
       document.body.classList.add('overflow-hidden');
     }
   }
 
   openChatMobSidebar() {
     setTimeout(() => {
-    this.toggle.setBrowseMobSidebarState(false);
-    this.toggle.setProfileMobSidebarState(false);
-    }, 1000);
+      this.toggle.setBrowseMobSidebarState(false);
+      this.toggle.setProfileMobSidebarState(false);
+    }, 700);
     this.toggle.setChatMobSidebarState(!this.ChatNav);
-    if(this.ChatNav){
+    if (this.ChatNav) {
       document.body.classList.add('overflow-hidden');
     }
 

@@ -236,8 +236,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
         this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
         // this.universeProviderGames = this.navProviderList.filter((game: any) => (game.providerTitle.includes(this.providerName) && game.gameId !== null));
         this.universeProviderGames = filterArr
-        console.log(res);
-        console.log(filterArr);
+  
       }
     });
   }

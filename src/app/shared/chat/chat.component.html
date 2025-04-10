@@ -505,4 +505,6 @@
 </section>
 
 
-<app-chat-rules-modal></app-chat-rules-modal>
+@if(!browser && !profileState && mobSidebarState){
+  <app-chat-rules-modal></app-chat-rules-modal>
+}

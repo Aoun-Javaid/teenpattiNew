@@ -1,5 +1,5 @@
 <div *ngIf="showCookies"
-    class="cookie fixed bottom-[4rem] right-4 left-1/2 transform -translate-x-1/2 bg-[rgb(47,69,83)] rounded-[4px] p-[.75rem_1rem] !h-fit z-50 [font-family:proxima-nova,_sans-serif;] !max-w-[calc(100%_-_2em)] w-max">
+    class="cookie fixed bottom-[4rem] lg:bottom-[1rem] right-4 left-1/2 transform -translate-x-1/2 bg-[rgb(47,69,83)] rounded-[4px] p-[.75rem_1rem] !h-fit z-50 [font-family:proxima-nova,_sans-serif;] !max-w-[calc(100%_-_2em)] w-max">
     <div class="flex flex-col gap-4 md:flex-row items-center">
         <p class="text-sm text-[rgb(177,186,211)] leading-[1.5] md:whitespace-nowrap">
             <span class="text-white font-[500]">
@@ -7,7 +7,7 @@
         </p>
         <div class="flex w-full">
             <button (click)="accept()"
-                class="shadow text-center w-full py-[10px] px-4 bg-[#1475e1] text-white text-sm rounded-[4px]">
+                class="shadow-md text-center w-full py-[10px] px-4 md:px-4 bg-[#1475e1] text-white text-sm font-[600] md:font-[500] rounded-[calc(.5rem-4px)] md:min-w-[75.73px]">
                 Accept
             </button>
         </div>
