@@ -176,13 +176,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
       case 'Providers':
         return ['/home/providers'];
       default:
-        // Handle other tabs - adjust this based on your routing structure
+   
         return ['/home/universe-originals', title.split(' ')[0]];
     }
   }
 
   scrollTabToCenter(index: number) {
-    setTimeout(() => { // Small delay to ensure DOM is updated
+    setTimeout(() => { 
       const container = this.tabsContainer.nativeElement;
       const tabs = container.querySelectorAll('.tab-item');
 
