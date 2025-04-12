@@ -121,6 +121,7 @@ export class ProfileComponent implements OnInit {
 
   onLanguageChange(language: string): void {
     this.selectedLanguage = language;
+    this.languageSelectionState = false
   }
 
 

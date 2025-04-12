@@ -30,6 +30,7 @@ export class ChatComponent implements OnInit {
   viewType = 'Profile';
   profileState = false
   browser = false
+  navItemIndex:any
   timeoutId: any;
   resultMessage: string = '';
   isMobileInfo: any;
@@ -54,11 +55,14 @@ export class ChatComponent implements OnInit {
     private modalsService: ModalService,
     private toaster: ToastrService,
     private deviceService: DeviceDetectorService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.isMobileInfo = this.deviceService.os;
     this.hideSideBar = true;
     this.getMobSidebarState();
+    this.toggle.getMobileNavState().subscribe((value) => {
+      this.navItemIndex = value
+    })
     this.token = localStorage.getItem('token');
     if (!this.token) {
       this.token = uuidv4();
@@ -228,7 +232,7 @@ export class ChatComponent implements OnInit {
     this.langList = !this.langList;
   }
 
-  setActive(index: number, title: any, itemImg:any) {
+  setActive(index: number, title: any, itemImg: any) {
     this.itemImg = itemImg
     this.itemTitle = title;
     this.selectedIndex = index;

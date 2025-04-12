@@ -1,8 +1,8 @@
 <section
   class="bg-[#0d212e]  min-h-[calc(100svh-52px)] max-h-[calc(100svh-52px)] overflow-auto tracking-wider duration-700  absolute z-[1500] top-[0px] transition-transform  ease-in-out w-full decrease-index "
-  [ngClass]="{' !duration-1000  translate-y-[120%] !z-[9]': !mobSidebarState, 'ease-in-out': mobSidebarState ,'hidden': hideSideBar ,}">
+  [ngClass]="{' !duration-1000  translate-y-[120%] !z-[9]': !mobSidebarState, 'ease-in-out': mobSidebarState ,'hidden': hideSideBar , '!invisible': !mobSidebarState && (profileState || browser)   }">
   <div class="mainChat-container">
-    <div class="content" >
+    <div class="content">
       <div class="header ">
         <div class="dropdown transparent">
           <button (click)="toggleLang()" type="button" tabindex="0"
@@ -27,7 +27,7 @@
           <ul class="text-black text-[14px] max-w-[116px]">
             @for (item of languages; track $index) {
             <li (click)="setActive($index, item.title, item.img)" class="p-3 flex gap-1 items-center">
-              <img [src]="item.img" alt="" class="max-h-[14px] max-w-[14px]"> 
+              <img [src]="item.img" alt="" class="max-h-[14px] max-w-[14px]">
               <span [class.active]="itemTitle === item.title">{{item.title}}</span>
             </li>
             }
@@ -493,7 +493,7 @@
           </svg>
         </button>
         <button type="button" tabindex="0" (click)="sendMessage()"
-          class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-green-500 text-neutral-black betterhover:hover:bg-green-400 betterhover:hover:text-neutral-black focus-visible:outline-white text-sm leading-none shadow-md py-[0.8125rem] px-[1rem]"
+          class="inline-flex relative items-center gap-2 justify-center  rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-green-500 text-neutral-black betterhover:hover:bg-green-400 betterhover:hover:text-neutral-black focus-visible:outline-white text-sm leading-none shadow-md py-[0.8125rem] px-[1rem]"
           data-button-root="">
           <div data-loader-content="" class="contents">Send</div>
         </button>
@@ -506,5 +506,5 @@
 
 
 @if(!browser && !profileState && mobSidebarState){
-  <app-chat-rules-modal></app-chat-rules-modal>
+<app-chat-rules-modal></app-chat-rules-modal>
 }

@@ -177,6 +177,10 @@ export class MobNavigationComponent implements OnInit {
   getIndex(index: any) {
     this.navItemIndex = (this.navItemIndex === index) ? null : index;
     this.toggle.setMobileNavState(this.navItemIndex)
+    if (!this.browseNav && !this.ProfileNav && !this.ChatNav) {
+      this.toggle.setMobileNavState(null)
+      this.navItemIndex  = null
+    }
   }
 
   openProfileMobSidebar() {
