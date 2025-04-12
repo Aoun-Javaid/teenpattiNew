@@ -9,7 +9,7 @@
 
 :root {
   --font-v-small: 10px;
- --blur:50px;
+  --blur: 50px;
   --font-small: 12px;
   --font-caption: 15px;
 
@@ -401,17 +401,26 @@
   --market-details-cmp-odd-row-lay-1-active-background: #f4496d;
   --market-details-cmp-odd-row-lay-1-active-color: #fff;
 
-
   /* new casino variables */
 
-
-  --NteenpattiVideoBottomBg:linear-gradient(to bottom, rgba(10,10,26,0) 30%, #0a0a1a 100%),linear-gradient(to right, #eb2300 0%, #ff0801 10%, #ff0801 10%, #fe2e02 50%, #ff0801 88%, #f60400 91%, #e30300 96%, #de0300 100%);
-
+  --NteenpattiVideoBottomBg: linear-gradient(
+      to bottom,
+      rgba(10, 10, 26, 0) 30%,
+      #0a0a1a 100%
+    ),
+    linear-gradient(
+      to right,
+      #eb2300 0%,
+      #ff0801 10%,
+      #ff0801 10%,
+      #fe2e02 50%,
+      #ff0801 88%,
+      #f60400 91%,
+      #e30300 96%,
+      #de0300 100%
+    );
 }
 /* You can add global styles to this file, and also import other style files */
-
-
-
 
 body {
   background: #1a2c38;
@@ -631,14 +640,16 @@ body {
     @apply bg-[#2f4553] text-white;
   }
 
-
+  .body-blocker {
+    overflow: hidden;
+  }
 
   ::-webkit-scrollbar {
     @apply hidden;
   }
 
   .main-section {
-    @apply  m-[0_auto] relative [@media(max-width:1680px)]:p-[0px_3vw];
+    @apply m-[0_auto] relative [@media(max-width:1680px)]:p-[0px_3vw];
   }
   .carousel_img_wrapper {
     @apply flex text-white flex-row justify-between  bg-[#213744] w-[99%] h-[170px] border-0 rounded-[20px] mb-1 [box-shadow:_3px_3px_4px_0px_#00000080];
@@ -1503,7 +1514,7 @@ body {
   text-transform: uppercase;
   transform: translateY(1.625rem) scaleX(0);
   text-align: center;
-  @apply md:!text-[25px]
+  @apply md:!text-[25px];
 }
 
 .animation-player-scale {

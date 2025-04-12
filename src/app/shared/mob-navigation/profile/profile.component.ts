@@ -93,12 +93,12 @@ export class ProfileComponent implements OnInit {
           }
         }, 10);
 
-  
-          setTimeout(() => {
-            const className = document.querySelector('.scroll-content') as HTMLElement;
-            className.classList.add('!z-[99]')
 
-          }, 700);
+        setTimeout(() => {
+          const className = document.querySelector('.scroll-content') as HTMLElement;
+          className.classList.add('!z-[99]')
+
+        }, 700);
       }
 
       if (!val) {
@@ -175,17 +175,21 @@ export class ProfileComponent implements OnInit {
       this.router.navigateByUrl('/stakes');
       this.toggle.setMobSideBarState(false);
       this.toggle.setProfileMobSidebarState(false);
+      this.toggle.setMobileNavState(null)
     }
     if (item.name == 'My Bets') {
       this.router.navigateByUrl('/mybets');
       this.toggle.setMobSideBarState(false);
       this.toggle.setProfileMobSidebarState(false);
+      this.toggle.setMobileNavState(null)
     }
     if (item.name == 'Transactions') {
       this.router.navigateByUrl('/transactions');
       this.toggle.setMobSideBarState(false);
       this.toggle.setProfileMobSidebarState(false);
+      this.toggle.setMobileNavState(null)
     }
+   
   }
 
 }

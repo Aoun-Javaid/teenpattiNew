@@ -19,6 +19,12 @@
   @apply h-[calc(100dvh-114px)] [@media(min-width:768px)]:!h-[calc(100dvh-60px)]   bg-[rgb(26,44,56)] overflow-y-auto;
 }
 
-.blocked {
+/* .blocked {
   @apply !pointer-events-none !opacity-[0.5];
+} */
+
+.overlay-blocker {
+  @apply fixed inset-0 bg-black opacity-[.5] z-[800];
+  pointer-events: none !important;
 }
+

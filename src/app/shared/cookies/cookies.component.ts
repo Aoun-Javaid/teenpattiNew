@@ -9,23 +9,24 @@ import { CookieConsentService } from '../../services/cookie-consent.service';
   templateUrl: './cookies.component.html',
   styleUrl: './cookies.component.css',
 })
-export class CookiesComponent implements OnInit, AfterViewInit {
+export class CookiesComponent implements  AfterViewInit {
   showCookies: boolean = false;
 
   constructor(private cookieConsentService: CookieConsentService) { }
 
-  ngOnInit(): void {
-
-  }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.showCookies = !this.cookieConsentService.hasConsent();
+      if (!this.showCookies) {
+        document.body.classList.remove('body-blocker');
+      }
     }, 1000);
   }
 
   accept(): void {
     this.cookieConsentService.setConsent(true);
     this.showCookies = false;
+    document.body.classList.remove('body-blocker');
   }
 }

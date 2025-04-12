@@ -115,6 +115,7 @@ export class ChatComponent implements OnInit {
   }
   closeMobSideBar() {
     this.toggle.setChatMobSidebarState(false);
+    this.toggle.setMobileNavState(null)
   }
   sendMessage() {
     const result = this.checkBlockedWords(this.text);
