@@ -61,7 +61,7 @@
 
 
     <!------------------------------- Tabs Wrapper For Casino ------------------->
-    @if(navList){
+    @if(navList && forBlink){
     <div class="tabs-wrapper overflow-scroll" #tabsContainer>
       <div class="tab-slider min-w-full">
         <div class="flex">
@@ -105,7 +105,7 @@
           <!-- Tab item 4 -->
 
 
-          <a class="tab-item" *ngFor="let item of navList, let ii = index" [ngClass]="{'!ml-0': ii === 0}"
+          <a class="tab-item" *ngFor="let item of navList, let ii = index" [ngClass]="{'!ml-0': ii === 0, '[@media(max-width:1024px)]:hover:!bg-transparent':ii.toString() !== tabIndex }"
             [routerLink]="getRouterLink(item.title)" routerLinkActive="active-tab"
             [routerLinkActiveOptions]="{exact: item.title === 'Lobby'}" (click)="scrollTabToCenter(ii)">
 

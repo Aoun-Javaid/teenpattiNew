@@ -37,6 +37,7 @@ declare var $: any;
 export class HomeComponent implements OnInit, AfterViewInit {
   owlPrevBtn: boolean = true;
   owlNextBtn: boolean = false;
+  forBlink:boolean = false
   tabIndex = '0'
   isMarketOpen = true;
   isMarketOpen2 = true;
@@ -160,11 +161,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
     //   });
     // }, 400);
 
+    this.forBlink = true
+
   }
 
   navigateRoute(index: number, routeValue: string) {
     this.scrollTabToCenter(index);
-    // Let routerLink handle the navigation
+    this.tabIndex = index.toString();
   }
 
   getRouterLink(title: string): any[] {
