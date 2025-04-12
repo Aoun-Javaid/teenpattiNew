@@ -18,12 +18,15 @@ export class CookiesComponent implements  AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.showCookies = !this.cookieConsentService.hasConsent();
+      if (!this.showCookies) {
+        document.body.classList.remove('body-blocker');
+      }
     }, 1000);
   }
 
   accept(): void {
     this.cookieConsentService.setConsent(true);
     this.showCookies = false;
-    document.body.classList.remove('scroll-locked');
+    document.body.classList.remove('body-blocker');
   }
 }
