@@ -39,3 +39,8 @@
   -moz-appearance: none;
   appearance: none;
 }
+
+.profile-condition{
+ @apply !z-[99] invisible
+}
+

@@ -91,7 +91,7 @@
                     {{ item?.label }}
                 </div>
 
-                <div class="flex items-center">
+                <div class="flex items-center" >
                     <input id="{{ item?.label }}Checkbox" type="checkbox" class="hidden peer" [value]="item?.label"
                         [checked]="selectedLanguage === item?.label" (change)="onLanguageChange(item.label)" />
                     <label for="{{ item?.label }}Checkbox"
