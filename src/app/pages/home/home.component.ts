@@ -71,7 +71,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private mainService: MainService) { }
 
   ngOnInit() {
-    this.tabIndex = localStorage.getItem('tabIndex') || '0';
     this.mainService.getBannersList().subscribe((res: any) => {
       if (res) {
         this.heroSlides = res.sort((a: any, b: any) => a.sequence - b.sequence);;
@@ -163,37 +162,43 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   }
 
-  navigateRoute(index: any, routeVale: any) {
-    let saveItem = localStorage.setItem('tabIndex', index)
-    this.tabIndex = localStorage.getItem('tabIndex') || '0';
-    if (routeVale === 'Lobby') {
-      this.router.navigateByUrl('/home/lobby')
-    }
-
-    // } else if (routeVale === 'Universe Originals') {
-    //   this.router.navigateByUrl('/home/universe-originals/UNIVERSE')}
-     else if (routeVale === 'Providers') {
-      this.router.navigateByUrl('/home/providers')
-    }
-    this.scrollTabToCenter();
-
+  navigateRoute(index: number, routeValue: string) {
+    this.scrollTabToCenter(index);
+    // Let routerLink handle the navigation
   }
 
-  scrollTabToCenter() {
-    const container = this.tabsContainer.nativeElement;
-    const tabs = container.querySelectorAll('.tab-item');
-
-    if (tabs.length > this.tabIndex) {
-      const selectedTab = tabs[this.tabIndex];
-      const containerWidth = container.offsetWidth;
-      const tabOffset = selectedTab.offsetLeft;
-      const tabWidth = selectedTab.offsetWidth;
-      const scrollTo = tabOffset - (containerWidth / 2) + (tabWidth / 2);
-      container.scrollTo({
-        left: scrollTo,
-        behavior: 'smooth'
-      });
+  getRouterLink(title: string): any[] {
+    switch (title) {
+      case 'Lobby':
+        return ['/home/lobby'];
+      case 'Universe Originals':
+        return ['/home/universe-originals/UNIVERSE'];
+      case 'Providers':
+        return ['/home/providers'];
+      default:
+        // Handle other tabs - adjust this based on your routing structure
+        return ['/home/universe-originals', title.split(' ')[0]];
     }
+  }
+
+  scrollTabToCenter(index: number) {
+    setTimeout(() => { // Small delay to ensure DOM is updated
+      const container = this.tabsContainer.nativeElement;
+      const tabs = container.querySelectorAll('.tab-item');
+
+      if (tabs.length > index) {
+        const selectedTab = tabs[index];
+        const containerWidth = container.offsetWidth;
+        const tabOffset = selectedTab.offsetLeft;
+        const tabWidth = selectedTab.offsetWidth;
+        const scrollTo = tabOffset - (containerWidth / 2) + (tabWidth / 2);
+
+        container.scrollTo({
+          left: scrollTo,
+          behavior: 'smooth'
+        });
+      }
+    }, 50);
   }
 
 
