@@ -16,7 +16,7 @@ export class MobNavigationComponent implements OnInit {
   viewType = 'Profile';
   parentRouteName: string = '';
   currentRoute: string = '';
-  navItemIndex:any
+  navItemIndex: any
   browseNav: boolean = false;
   ProfileNav: boolean = false;
   ChatNav: boolean = false;
@@ -75,7 +75,9 @@ export class MobNavigationComponent implements OnInit {
     this.getMobSideBarState();
     this.getViewType();
     this.checkCurrentStates();
-
+    this.toggle.getMobileNavState().subscribe((value) => {
+      this.navItemIndex = value
+    })
     this.currentRoute = this.router.url;
     this.parentRouteName = this.getParentRouteName();
     this.router.events
@@ -136,8 +138,18 @@ export class MobNavigationComponent implements OnInit {
   }
   gotoHome() {
     this.closeMobSideBar();
-    this.router.navigateByUrl('/home/lobby')
+    this.router.navigateByUrl('/home/lobby');
+    if (this.parentRouteName === 'home') {
+      const pageWrapper = document.querySelector(
+        '.page-wrapper'
+      ) as HTMLElement;
+      if (pageWrapper) {
+        pageWrapper.scrollTop = 0;
+      }
+    }
   }
+
+
   openMobSidebar(type: string) {
 
     if (this.mobSideBarState && this.viewType === type) {
@@ -164,6 +176,7 @@ export class MobNavigationComponent implements OnInit {
 
   getIndex(index: any) {
     this.navItemIndex = (this.navItemIndex === index) ? null : index;
+    this.toggle.setMobileNavState(this.navItemIndex)
   }
 
   openProfileMobSidebar() {

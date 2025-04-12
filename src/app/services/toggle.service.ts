@@ -14,6 +14,7 @@ export class ToggleService {
 
   private BrowseMobSidebarState = new Subject<string>();
   private ProfileMobSidebarState = new Subject<string>();
+  private mobNavIndex = new Subject<string>();
   private ChatMobSidebarState = new Subject<string>();
   private quickStakeEditSidebarState = new Subject<string>();
 
@@ -97,6 +98,16 @@ export class ToggleService {
   getStakeChanged() {
     return this.stakesChanged;
   }
+
+  getMobileNavState() {
+    return this.mobNavIndex;
+  }
+
+  setMobileNavState(value:any) {
+    this.mobNavIndex.next(value)
+  }
+
+ 
   getMobSideBarContent() {
     return this.mobSideBarContent;
   }
