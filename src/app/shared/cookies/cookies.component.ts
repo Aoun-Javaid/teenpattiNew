@@ -9,14 +9,11 @@ import { CookieConsentService } from '../../services/cookie-consent.service';
   templateUrl: './cookies.component.html',
   styleUrl: './cookies.component.css',
 })
-export class CookiesComponent implements OnInit, AfterViewInit {
+export class CookiesComponent implements  AfterViewInit {
   showCookies: boolean = false;
 
   constructor(private cookieConsentService: CookieConsentService) { }
 
-  ngOnInit(): void {
-
-  }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
@@ -27,5 +24,6 @@ export class CookiesComponent implements OnInit, AfterViewInit {
   accept(): void {
     this.cookieConsentService.setConsent(true);
     this.showCookies = false;
+    document.body.classList.remove('scroll-locked');
   }
 }

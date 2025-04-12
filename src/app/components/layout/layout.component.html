@@ -1,7 +1,7 @@
 <div class="main-container ">
   <div class="content-container">
     <app-header></app-header>
-    <main [class.blocked]="!hasConsent" class="page-wrapper">
+    <main  [ngClass]="{'pointer-events-none':!hasConsent}">
 
       <app-content></app-content>
       <!-- <app-mob-sidebar></app-mob-sidebar> -->
@@ -16,3 +16,5 @@
     <app-cookies></app-cookies>
   </div>
 </div>
+
+<div class="overlay-blocker" *ngIf="!hasConsent"></div>
