@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -19,7 +19,7 @@ import { CONFIG } from '../../../../config';
 @Component({
   selector: 'app-universe-originals',
   standalone: true,
-  imports: [CommonModule, LobbyComponent],
+  imports: [CommonModule, LobbyComponent, TitleCasePipe],
   templateUrl: './universe-originals.component.html',
   styleUrl: './universe-originals.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
