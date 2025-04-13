@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   owlPrevBtn: boolean = true;
   owlNextBtn: boolean = false;
   forBlink:boolean = false
-  tabIndex = '0'
+  tabIndex = 0
   isMarketOpen = true;
   isMarketOpen2 = true;
   @ViewChild('tabsContainer') tabsContainer!: ElementRef;
@@ -167,7 +167,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   navigateRoute(index: number, routeValue: string) {
     this.scrollTabToCenter(index);
-    this.tabIndex = index.toString();
+    this.tabIndex = index
   }
 
   getRouterLink(title: string): any[] {
