@@ -9,7 +9,12 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Router, ActivatedRoute, RouterLink, NavigationEnd } from '@angular/router';
+import {
+  Router,
+  ActivatedRoute,
+  RouterLink,
+  NavigationEnd,
+} from '@angular/router';
 import Swiper from 'swiper';
 import { ToggleService } from '../../services/toggle.service';
 import { BetsComponent } from '../bets/bets.component';
@@ -28,18 +33,18 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
   owlPrevBtn: boolean = true;
   owlNextBtn: boolean = false;
   navigationStates: { prevDisabled: boolean; nextDisabled: boolean }[] = [];
-  swiperIndex:any
+  swiperIndex: any;
   ProviderPrevBtn: boolean = true;
   ProviderNextBtn: boolean = false;
   public swiperInstances: Swiper[] = [];
-  swiperLoader:boolean = false
+  swiperLoader: boolean = false;
   providerSwiper!: Swiper;
   previousIndex: number | null = null;
   activeTab: number = 1;
   LiveTab = 'basketball';
   stakeOrigin!: Swiper;
   TableTab: string = 'myBets';
-  dynamicHeight:any
+  dynamicHeight: any;
   casinoViewAllState: boolean = false;
   ProviderViewAllState: boolean = false;
   WinnerDropdown = false;
@@ -165,9 +170,11 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
   universeProviderGames: any;
   private isInitialLoad = true;
   // swiperInstance: Swiper;
-  constructor(private router: Router, private mainService: MainService,private networkService:NetworkService) {
-
-  }
+  constructor(
+    private router: Router,
+    private mainService: MainService,
+    private networkService: NetworkService
+  ) {}
 
   ngOnInit() {
     this.setActiveTableTab(this.TableTab);
@@ -202,9 +209,6 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-
-
-
     // this.checkCarousel();
 
     // this.stakeOrigin = new Swiper('.stake-swiper', {
@@ -244,7 +248,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
     //   },
     // });
     const isInitialLoad = localStorage.getItem('isInitialLoad');
-    if (isInitialLoad   == 'true') {
+    if (isInitialLoad == 'true') {
       // On initial load, use setTimeout
       setTimeout(() => {
         this.setDefaultView();
@@ -252,7 +256,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
         localStorage.setItem('isInitialLoad', 'false'); // Mark subsequent loads
       }, 800);
     }
-    if (isInitialLoad   == 'false') {
+    if (isInitialLoad == 'false') {
       this.setDefaultView();
       this.setDefaultViewProvider();
     }
@@ -272,7 +276,6 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
 
     //   }, 50);
     // }
-
 
     // this.providerSwiper = new Swiper('.provider-swiper', {
     //   loop: false,
@@ -314,10 +317,12 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
         if (res) {
           // Initialize arrays
           this.navProviderList = res
-            .filter((game: any) => (!game.gameId && !game.gamId))
+            .filter((game: any) => !game.gameId && !game.gamId)
             .sort((a: any, b: any) => a.providerSequence - b.providerSequence);
 
-          const withGames = res.filter((game: any) => (game.gameId || game.gamId));
+          const withGames = res.filter(
+            (game: any) => game.gameId || game.gamId
+          );
 
           const groupedData = withGames.reduce((acc: any, item: any) => {
             if (!acc[item.providerTitle]) {
@@ -327,17 +332,19 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
             return acc;
           }, {});
 
-          this.universeProviderGames = Object.keys(groupedData).map(providerTitle => ({
-            providerTitle,
-            games: groupedData[providerTitle]
-              .filter((game: any) => game.isFavorite)
-              .sort((a: any, b: any) => a.gameSequence - b.gameSequence)
-          })).sort((a: any, b: any) => a.providerSequence - b.providerSequence);
+          this.universeProviderGames = Object.keys(groupedData)
+            .map((providerTitle) => ({
+              providerTitle,
+              games: groupedData[providerTitle]
+                .filter((game: any) => game.isFavorite)
+                .sort((a: any, b: any) => a.gameSequence - b.gameSequence),
+            }))
+            .sort((a: any, b: any) => a.providerSequence - b.providerSequence);
 
           // Initialize navigationStates after data is loaded
           this.navigationStates = this.universeProviderGames.map(() => ({
             prevDisabled: true,
-            nextDisabled: false
+            nextDisabled: false,
           }));
         }
       },
@@ -347,10 +354,9 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
         this.universeProviderGames = [];
         this.navProviderList = [];
         this.navigationStates = [];
-      }
+      },
     });
   }
-
 
   private updateNavigationButtons(index: number): void {
     if (!this.swiperInstances[index]) return;
@@ -359,18 +365,17 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
     if (!this.navigationStates[index]) {
       this.navigationStates[index] = {
         prevDisabled: this.swiperInstances[index].isBeginning,
-        nextDisabled: this.swiperInstances[index].isEnd
+        nextDisabled: this.swiperInstances[index].isEnd,
       };
       return;
     }
 
     // Update existing state
-    this.navigationStates[index].prevDisabled = this.swiperInstances[index].isBeginning;
-    this.navigationStates[index].nextDisabled = this.swiperInstances[index].isEnd;
+    this.navigationStates[index].prevDisabled =
+      this.swiperInstances[index].isBeginning;
+    this.navigationStates[index].nextDisabled =
+      this.swiperInstances[index].isEnd;
   }
-
-
-
 
   updateProviderNavigationButtons() {
     if (this.providerSwiper) {
@@ -378,9 +383,9 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
       this.ProviderNextBtn = this.providerSwiper.isEnd;
     }
   }
-  gotoEvent(event:any){
+  gotoEvent(event: any) {
     // console.log(event);
-    if(event.providerTitle=='Universe'){
+    if (event.providerTitle == 'Universe') {
       this.networkService.goToMarketCurrent(event.gameId);
     }
   }
@@ -425,14 +430,12 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
   //   this.LiveTab = tab;
   // }
 
-
-
   setCasinoViewType(i: any) {
     if (this.previousIndex === i) {
       const swiperElements = document.querySelectorAll('.swiper-grid');
       swiperElements.forEach((element: any) => {
-          element.classList.remove('swiper-grid');
-          this.setDefaultView();
+        element.classList.remove('swiper-grid');
+        this.setDefaultView();
       });
       this.previousIndex = null;
       return;
@@ -461,8 +464,6 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log(i);
   }
 
-
-
   private initializeSwiper(config: any, index: number): void {
     const selector = `.stake-swiper-lobby${index}`;
     const element = document.querySelector(selector);
@@ -474,7 +475,10 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // Ensure navigation state exists
     if (!this.navigationStates[index]) {
-      this.navigationStates[index] = { prevDisabled: true, nextDisabled: false };
+      this.navigationStates[index] = {
+        prevDisabled: true,
+        nextDisabled: false,
+      };
     }
 
     // Clean up existing instance
@@ -491,8 +495,8 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
         },
         slideChange: (swiper: Swiper) => {
           this.updateButtonStates(swiper, index);
-        }
-      }
+        },
+      },
     });
 
     this.swiperLoader = true;
@@ -504,16 +508,14 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
     this.navigationStates[index].nextDisabled = swiper.isEnd;
   }
 
-
-
   removeSwiperGridClass() {
     const swiperElement = document.querySelector('.swiper-grid');
     if (swiperElement) {
-        swiperElement.classList.remove('swiper-grid');
+      swiperElement.classList.remove('swiper-grid');
     }
-}
+  }
 
- private getDefaultSwiperConfig(index: number): any {
+  private getDefaultSwiperConfig(index: number): any {
     return {
       loop: false,
       slidesPerView: 3,
@@ -550,12 +552,12 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
       },
       on: {
         slideChange: () => this.updateNavigationButtons(index),
-        reachBeginning: () => (this.navigationStates[index].prevDisabled = true),
+        reachBeginning: () =>
+          (this.navigationStates[index].prevDisabled = true),
         reachEnd: () => (this.navigationStates[index].nextDisabled = true),
       },
     };
-}
-
+  }
 
   private getGridSwiperConfig(): any {
     const totalSlides = this.universeProviderGames[0].games?.length;
@@ -577,7 +579,7 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
         300: {
           slidesPerView: 3,
           slidesPerGroup: 3,
-          spaceBetween: 3,
+          spaceBetween: 6,
           grid: {
             rows: rows,
             fill: 'row',
@@ -597,9 +599,9 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
     };
   }
 
-
   setDefaultView(): void {
-    if (!this.universeProviderGames || this.universeProviderGames.length === 0) return;
+    if (!this.universeProviderGames || this.universeProviderGames.length === 0)
+      return;
 
     this.universeProviderGames.forEach((ele: any, index: number) => {
       const config = this.getDefaultSwiperConfig(index);
@@ -608,7 +610,8 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   setGridView(): void {
-    if (!this.universeProviderGames || this.universeProviderGames.length === 0) return;
+    if (!this.universeProviderGames || this.universeProviderGames.length === 0)
+      return;
 
     const config = this.getGridSwiperConfig();
     this.universeProviderGames.forEach((ele: any, index: number) => {
@@ -717,13 +720,16 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
     this.swiperLoader = false;
 
     // Clean up all Swiper instances
-    this.swiperInstances.forEach(swiper => {
+    this.swiperInstances.forEach((swiper) => {
       if (swiper && typeof swiper.destroy === 'function') {
         swiper.destroy(true, true);
       }
     });
 
-    if (this.providerSwiper && typeof this.providerSwiper.destroy === 'function') {
+    if (
+      this.providerSwiper &&
+      typeof this.providerSwiper.destroy === 'function'
+    ) {
       this.providerSwiper.destroy(true, true);
     }
   }
