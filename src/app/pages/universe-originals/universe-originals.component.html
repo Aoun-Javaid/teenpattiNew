@@ -18,7 +18,7 @@
                 
             </span>
             <!-- <span class="sports-heading">Universe Originals</span> -->
-            <span class="sports-heading !text-[18px]" *ngIf="navList">{{providerName | titlecase}}</span>
+            <span class="sports-heading !text-[18px]" *ngIf="navList">{{providerName.split('-').join(' ') | titlecase}}</span>
         </span>
 
         <!-- Right -->
@@ -77,7 +77,7 @@
         <!-- above content is hidden and dont required -->
 
     </div>
-    <div class="stake-swiper" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''" *ngIf="providerName === 'Universe'">
+    <div class="stake-swiper" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''" *ngIf="providerName === 'universe-originals'">
         <div class="swiper-wrapper">
             <div *ngFor="let stake of universeProviderGames" class="swiper-slide">
                 <div class="relative">

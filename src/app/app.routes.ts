@@ -71,7 +71,7 @@ export const routes: Routes = [
             component: LobbyComponent,
           },
           {
-            path: 'universe-originals/:name',
+            path: ':name',
             component: UniverseOriginalsComponent,
           },
           {

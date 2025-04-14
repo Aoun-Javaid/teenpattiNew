@@ -174,15 +174,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     switch (title) {
       case 'Lobby':
         return ['/home/lobby'];
-      case 'Universe Originals':
-        return ['/home/universe-originals/UNIVERSE'];
       case 'Providers':
         return ['/home/providers'];
       default:
-   
-        return ['/home/universe-originals', title.split(' ')[0]];
+        const kebabTitle = title.toLowerCase().split(' ').join('-');
+        return ['/home', kebabTitle];
     }
   }
+
+
 
   scrollTabToCenter(index: number) {
     setTimeout(() => { 
