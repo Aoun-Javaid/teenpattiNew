@@ -364,6 +364,7 @@
   justify-content: center;
   background-color: #1f1f33;
   font-size: 11px;
+  @apply min-[1512px]:h-[30px] min-[1512px]:w-[25px];
 }
 
 .trapezoid {
@@ -372,6 +373,7 @@
   background-color: #1f1f33;
   clip-path: polygon(0 0, 100% 0, 76% 100%, 23% 100%);
   position: absolute;
+  @apply min-[1512px]:h-[30px] min-[1512px]:w-[25px];
 }
 
 .center-boxes div {
