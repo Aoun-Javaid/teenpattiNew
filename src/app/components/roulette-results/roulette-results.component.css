@@ -1,0 +1,51 @@
+.result-box {
+  height: 27px;
+  width: 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1f1f33;
+  font-size: 11px;
+  @apply min-[1512px]:h-[30px] min-[1512px]:w-[25px];
+}
+
+.trapezoid {
+  height: 27px;
+  width: 20px;
+  background-color: #1f1f33;
+  clip-path: polygon(0 0, 100% 0, 76% 100%, 23% 100%);
+  position: absolute;
+  @apply min-[1512px]:h-[30px] min-[1512px]:w-[25px];
+}
+
+.center-boxes div {
+  background-color: #1d1c1f;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.center-boxes div:first-child {
+  max-width: 25%;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+}
+
+.center-boxes div:nth-child(2) {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.center-boxes div:last-child {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+}
+
+.red-cell {
+  background: #990f0f !important;
+}

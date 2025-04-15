@@ -13,6 +13,7 @@ import { ShortNumberPipe } from '../../pipes/short-number.pipe';
 import { BetCoinComponent } from '../../shared/bet-coin/bet-coin.component';
 import { TopResultsComponent } from '../shared/top-results/top-results.component';
 import { VideoPlayerComponent } from '../../shared/video-player/video-player.component';
+import { RouletteResultsComponent } from '../../components/roulette-results/roulette-results.component';
 
 @Component({
   selector: 'app-live-roulette',
@@ -23,6 +24,7 @@ import { VideoPlayerComponent } from '../../shared/video-player/video-player.com
     BetCoinComponent,
     TopResultsComponent,
     VideoPlayerComponent,
+    RouletteResultsComponent,
   ],
   templateUrl: './live-roulette.component.html',
   styleUrl: './live-roulette.component.css',
