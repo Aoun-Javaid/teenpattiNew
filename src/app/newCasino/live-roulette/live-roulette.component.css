@@ -515,7 +515,7 @@
   position: absolute;
   bottom: 0.625rem;
   margin-bottom: 12px;
-  @apply z-[999] md:mb-[60px] xl:mb-2.5;
+  @apply z-[999] md:mb-[60px] xl:mb-0;
 }
 
 .table-wrapper {
@@ -527,7 +527,7 @@
   position: relative;
   z-index: 5;
   margin-bottom: 1rem;
-  @apply xl:flex-col md:!scale-[1.4] md:!pr-3 md:!pb-4;
+  @apply xl:flex-col md:!scale-[1.4] md:!pr-3 md:!pb-4 xl:!mb-0 xl:!pb-0;
 }
 
 @media (min-width: 820px) {
@@ -687,7 +687,7 @@
   height: 503.305px;
   width: 274.305px;
   opacity: 0.9;
-  @apply xl:rotate-[270deg] xl:h-[689.305px] xl:bottom-[-16.5rem] xl:w-[229.305px] xl:scale-[0.74] xl:opacity-100;
+  @apply xl:rotate-[270deg] xl:h-[689.305px] xl:bottom-[-16.5rem] xl:w-[229.305px] xl:scale-[0.74] xl:opacity-100 relative;
 }
 
 @media (width: 375px) {
@@ -741,6 +741,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .red-cell {
@@ -2367,7 +2369,7 @@
 }
 
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[56px] md:px-[2%] xl:!bottom-[34px];
+  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[2px] md:bottom-[56px] md:px-[2%] xl:!bottom-[2px];
   position: absolute;
   z-index: 999;
 }
