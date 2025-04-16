@@ -6,14 +6,16 @@
   overflow-y: scroll;
   @apply [@media(min-width:768px)]:!h-full [@media(min-width:768px)]:overflow-y-hidden;
 }
-.game__drawerLayer, .game__substrateLayer {
+.game__drawerLayer,
+.game__substrateLayer {
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
 }
-.game__substrateLayer, .game__video {
+.game__substrateLayer,
+.game__video {
   overflow: hidden;
   z-index: 0;
 }
@@ -47,7 +49,8 @@
   position: relative;
   width: 100%;
 }
-.staticVideo__loader, .staticVideo__player_withPoster {
+.staticVideo__loader,
+.staticVideo__player_withPoster {
   inset: 0;
   position: absolute;
 }
@@ -56,10 +59,11 @@
   visibility: hidden;
   opacity: 0;
 }
-.staticVideo__player, .staticVideo__poster {
+.staticVideo__player,
+.staticVideo__poster {
   height: 100%;
   object-fit: cover;
-  transition: opacity 300ms ease,visibility 300ms ease;
+  transition: opacity 300ms ease, visibility 300ms ease;
   width: 100%;
 }
 .gradient-_9dd5n {
@@ -78,7 +82,6 @@
   left: 0;
   width: 100%;
 }
-
 
 .chatPreview_mobile {
   left: 0;
@@ -105,7 +108,12 @@
   }
 }
 .messagePreview {
-  background: linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.6) 60.13%,transparent);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.6) 60.13%,
+    transparent
+  );
   color: rgb(255, 255, 255);
   font-size: 0.625rem;
   line-height: 1.2;
@@ -113,7 +121,7 @@
   opacity: 0;
   padding: 0.625rem 0.75rem 0.625rem 0.5rem;
   transform: translateX(-0.75rem);
-  transition: opacity 300ms ease,visibility 300ms ease,transform 300ms ease;
+  transition: opacity 300ms ease, visibility 300ms ease, transform 300ms ease;
   visibility: hidden;
 }
 .promoWidget {
@@ -123,14 +131,15 @@
   position: absolute;
   right: 0;
   top: 0.25rem;
-  transition: all .1s ease;
+  transition: all 0.1s ease;
   z-index: 7;
 }
 .dragonTiger-RufiAg {
   height: 100%;
   position: relative;
 }
-.dragonTiger-RufiAg, .dragonTiger__mainArea-NsCADi {
+.dragonTiger-RufiAg,
+.dragonTiger__mainArea-NsCADi {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -147,13 +156,19 @@
   width: 10.875rem;
 }
 .winningPlayersMessage {
-  background-image: linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.6) 60.13%,transparent);
-  color: rgb(255,255,255);
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.6) 60.13%,
+    transparent
+  );
+  color: rgb(255, 255, 255);
   font-size: 0.625rem;
   line-height: 1.2;
   padding: 0.5rem;
 }
-.winningPlayersMessage__message, .winningPlayersMessage__totalWin {
+.winningPlayersMessage__message,
+.winningPlayersMessage__totalWin {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -184,14 +199,14 @@
 }
 @media (orientation: landscape) {
   .dragonTiger__rngTable {
-    top: 8.20rem;
+    top: 8.2rem;
     width: 100%;
   }
 }
 .rngTable {
   opacity: 0;
   position: relative;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 }
 .rngTable_ready {
   opacity: 1;
@@ -400,13 +415,13 @@
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1;
-   @apply xl:text-[0.85rem]
+  @apply xl:text-[0.85rem];
 }
 
 .tableMainStatic__suitedTie-M9pbef .tableMainStatic__payout-cdrdZV,
 .tableMainStatic__tie-fDeGvN .tableMainStatic__payout-cdrdZV {
   font-size: 0.625rem;
-    @apply xl:text-[0.85rem]
+  @apply xl:text-[0.85rem];
 }
 
 .tableMainStatic__title-VDxh9o {
@@ -416,16 +431,15 @@
   font-weight: 800;
   line-height: 1;
   text-transform: uppercase;
-  @apply xl:text-[1.17rem]
+  @apply xl:text-[1.17rem];
 }
 
 .tableMainStatic__suitedTie-M9pbef .tableMainStatic__title-VDxh9o,
 .tableMainStatic__tie-fDeGvN .tableMainStatic__title-VDxh9o {
   font-size: 0.75rem;
   font-size-adjust: none;
-   @apply xl:text-[0.85rem]
+  @apply xl:text-[0.85rem];
 }
-
 
 .tableMainStatic__dragon-AzpGwn {
   grid-area: dragon;
@@ -519,7 +533,7 @@
 .card_size_large-HaRpNj {
   height: 3rem;
   width: 2.125rem;
-  @apply xl:w-[38px] xl:h-[53px] xl:max-w-[47px] xl:max-h-[66px]
+  @apply xl:w-[38px] xl:h-[53px] xl:max-w-[47px] xl:max-h-[66px];
 }
 
 .card_color_black-iDcRjL {
@@ -592,9 +606,8 @@
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
-  @apply xl:text-[0.85rem]
+  @apply xl:text-[0.85rem];
 }
-
 
 .tableSideStatic__payout-fnrtY7 {
   color: rgba(255, 255, 255, 0.5);
@@ -602,7 +615,7 @@
   font-size: 0.625rem;
   font-weight: 700;
   line-height: 1;
-  @apply xl:text-[0.7rem]
+  @apply xl:text-[0.7rem];
 }
 
 .tableSideChips-BtyLLs {
@@ -669,7 +682,7 @@
   font-size: 0.625rem;
   margin: 0 0.25rem;
   min-width: 1.875rem;
-  @apply [@media(min-width:1512px)]:text-[12.79px]
+  @apply [@media(min-width:1512px)]:text-[12.79px];
 }
 
 .scoreBoardInfo-USWOxa,
@@ -684,7 +697,7 @@
   display: block;
   margin-right: 0.125rem;
   width: 0.5625rem;
-  @apply [@media(min-width:512px)]:!w-[11.59px]
+  @apply [@media(min-width:512px)]:!w-[11.59px];
 }
 
 .scoreBoardInfo__button_left-cIMRsf {
@@ -754,7 +767,7 @@
 }
 
 .time-container {
-  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[29px] md:bottom-[80px] [@media(min-width:900px)]:bottom-[95px] xl:!bottom-[2px];
+  @apply flex justify-between w-full items-center px-[4%] mt-1 xl:flex-col xl:items-end bottom-[40px] md:bottom-[91px] [@media(min-width:900px)]:bottom-[110px] xl:!bottom-[2px];
   position: absolute;
 }
 
@@ -813,4 +826,3 @@
 ::ng-deep app-video-player .timer-overlay app-timer .timerPortrait {
   @apply [@media(min-width:1200px)]:top-[50dvh] !important;
 }
-

@@ -18,7 +18,7 @@
                 
             </span>
             <!-- <span class="sports-heading">Universe Originals</span> -->
-            <span class="sports-heading !text-[18px]" *ngIf="navList">{{providerName.split('-').join(' ') | titlecase}}</span>
+            <span class="sports-heading !text-[18px]" *ngIf="navList">{{providerName?.split('-').join(' ') | titlecase}}</span>
         </span>
 
         <!-- Right -->
@@ -77,12 +77,12 @@
         <!-- above content is hidden and dont required -->
 
     </div>
-    <div class="stake-swiper" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''" *ngIf="providerName === 'universe-originals'">
+    <div class="stake-swiper" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''"  *ngIf="providerName === 'universe-originals'">
         <div class="swiper-wrapper">
             <div *ngFor="let stake of universeProviderGames" class="swiper-slide">
                 <div class="relative">
                     <img [src]="stake.gameImage" alt="" class="border-0 rounded-[10px]">
-                    @if (true) {
+                    @if (false) {
                     <div class="maintenance_wrapper">
                         <div class="lock_img_wrapper">
                             <img class="!w-[34px] h-10" src="/images/Lock.svg" alt="">

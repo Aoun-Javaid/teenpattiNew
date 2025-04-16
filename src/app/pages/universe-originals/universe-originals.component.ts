@@ -5,8 +5,10 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   ElementRef,
   HostListener,
+  OnChanges,
   OnDestroy,
   OnInit,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
@@ -28,10 +30,12 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   owlPrevBtn: boolean = true;
   owlNextBtn: boolean = false;
   stakeOrigin!: Swiper;
+
   TableTab: number = 1;
   casinoViewAllState: boolean = false;
   isCheck: boolean = false
-  navList:any = []
+  swiperCheck:any
+  navList: any = []
   stakeCurrentSlideIndex = 0;
   stakeSlideCount = 0;
 
@@ -91,9 +95,11 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
 
   ngOnInit() {
 
+
     this.route.paramMap.subscribe(params => {
       this.providerName = params.get('name');
     });
+
 
     this.getprovidersNavigations();
     const inner = window.innerWidth;
@@ -103,7 +109,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
       this.swiperBreakPoint.slide = 3;
     }
 
-   
+
 
     this.mainService.getNavigationList().subscribe((res: any) => {
       if (res) {
@@ -114,6 +120,8 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
     });
 
   }
+
+
 
   getUniverseOriginals(navigationId: any) {
 
@@ -139,6 +147,19 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngAfterViewInit() {
+
+
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        // Reinitialize Swiper
+        setTimeout(() => {
+          this.setDefaultView();
+          this.isCheck = true;
+        }, 0);
+      });
+
+
     // this.checkCarousel();
 
     // this.stakeOrigin = new Swiper('.stake-swiper', {
@@ -194,6 +215,9 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
       this.setDefaultView()
     }
 
+
+
+
     //   loop: false,
     //   slidesPerView: 7.5,
     //   slidesPerGroup: 3,
@@ -236,7 +260,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
         this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
         // this.universeProviderGames = this.navProviderList.filter((game: any) => (game.providerTitle.includes(this.providerName) && game.gameId !== null));
         this.universeProviderGames = filterArr
-  
+
       }
     });
   }
