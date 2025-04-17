@@ -87,6 +87,11 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
 
   // swiperInstance: Swiper;
   constructor(private router: Router, private mainService: MainService, private route: ActivatedRoute) {
+    this.route.paramMap.subscribe(params => {
+      this.providerName = params.get('name');
+      let navId = localStorage.getItem('navId')
+      this.getprovidersNavigations(navId);
+    });
 
   }
   ngOnDestroy(): void {
@@ -98,12 +103,9 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   ngOnInit() {
 
 
-    this.route.paramMap.subscribe(params => {
-      this.providerName = params.get('name');
-    });
 
 
-    this.getprovidersNavigations();
+
     const inner = window.innerWidth;
     if (inner <= 992 && inner >= 400) {
       this.swiperBreakPoint.slide = 4;
@@ -113,26 +115,17 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
 
 
 
-    this.mainService.getNavigationList().subscribe((res: any) => {
-      if (res) {
-        this.navList = res.sort((a: any, b: any) => a.sequence - b.sequence);;
-        // universeId:
-        this.getUniverseOriginals('67728edcff8aeae796164df3');
-      }
-    });
+    // this.mainService.getNavigationList().subscribe((res: any) => {
+    //   if (res) {
+    //     this.navList = res.sort((a: any, b: any) => a.sequence - b.sequence);;
+    //     // universeId:
+    //     this.getUniverseOriginals('67728edcff8aeae796164df3');
+    //   }
+    // });
 
   }
 
 
-
-  getUniverseOriginals(navigationId: any) {
-
-    this.mainService.getDataFromServices(CONFIG.tablesList, CONFIG.tablesListTime, { navigationId }).subscribe((resp: any) => {
-      if (resp) {
-
-      }
-    })
-  }
 
   isUserLoggedIn(): boolean {
     return true;
@@ -254,17 +247,20 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
     // });
   }
 
-  getprovidersNavigations() {
-    this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
-      if (res) {
-        const filterIndex = res
-        const filterArr = filterIndex.filter((item: any, index: number) => item.gameName !== null);
-        this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
-        // this.universeProviderGames = this.navProviderList.filter((game: any) => (game.providerTitle.includes(this.providerName) && game.gameId !== null));
-        this.universeProviderGames = filterArr
-        console.log('this.universeProviderGames', this.universeProviderGames);
-      }
-    });
+  getprovidersNavigations(navId:any) {
+
+    // idhr provider navigation me se id ki base pr data lena hai...
+
+    // this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
+    //   if (res) {
+    //     const filterIndex = res
+    //     const filterArr = filterIndex.filter((item: any, index: number) => item.gameName !== null);
+    //     this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
+    //     // this.universeProviderGames = this.navProviderList.filter((game: any) => (game.providerTitle.includes(this.providerName) && game.gameId !== null));
+    //     this.universeProviderGames = filterArr
+    //     console.log('this.universeProviderGames', this.universeProviderGames);
+    //   }
+    // });
   }
 
   updateNavigationButtons() {
@@ -299,7 +295,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   private initializeSwiper(config: any): void {
     if (this.stakeOrigin) {
       this.stakeOrigin.destroy(true, true);
-      this.isSwiperInitialized = false; 
+      this.isSwiperInitialized = false;
     }
     setTimeout(() => {
       try {

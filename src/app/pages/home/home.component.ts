@@ -69,7 +69,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // swiperInstance: Swiper;
   constructor(private router: Router,
     private activeRoute: ActivatedRoute,
-    private mainService: MainService) { }
+    private mainService: MainService) {
+
+    }
 
   ngOnInit() {
     this.mainService.getBannersList().subscribe((res: any) => {
@@ -170,14 +172,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.tabIndex = index
   }
 
-  getRouterLink(title: string): any[] {
-    switch (title) {
+  getRouterLink(item: any): any[] {
+    localStorage.setItem('navId',item._id)
+    switch (item?.title) {
       case 'Lobby':
         return ['/home/lobby'];
       case 'Providers':
         return ['/home/providers'];
       default:
-        const kebabTitle = title.toLowerCase().split(' ').join('-');
+        const kebabTitle = item?.title.toLowerCase().split(' ').join('-');
         return ['/home', kebabTitle];
     }
   }
@@ -185,7 +188,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
 
   scrollTabToCenter(index: number) {
-    setTimeout(() => { 
+    setTimeout(() => {
       const container = this.tabsContainer.nativeElement;
       const tabs = container.querySelectorAll('.tab-item');
 
