@@ -89,7 +89,8 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   constructor(private router: Router, private mainService: MainService, private route: ActivatedRoute) {
     this.route.paramMap.subscribe(params => {
       this.providerName = params.get('name');
-      let navId = localStorage.getItem('navId')
+      let navId = localStorage.getItem('navId');
+      // console.log('navId data', navId);
       this.getprovidersNavigations(navId);
     });
 

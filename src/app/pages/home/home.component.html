@@ -106,8 +106,8 @@
 
 
           <a class="tab-item" *ngFor="let item of navList, let ii = index" [ngClass]="{'!ml-0': ii === 0, '[@media(max-width:1024px)]:hover:!bg-transparent':ii !== tabIndex }"
-            [routerLink]="getRouterLink(item)" routerLinkActive="active-tab"
-            [routerLinkActiveOptions]="{exact: item.title === 'Lobby'}" (click)="scrollTabToCenter(ii)">
+          [routerLink]="getRouterLink(item.title)"  routerLinkActive="active-tab"
+            [routerLinkActiveOptions]="{exact: item.title === 'Lobby'}" (click)="scrollTabToCenter(ii);setEventId(item)">
 
             <img [src]="item.icon" alt="" class="max-h-[14px] max-w-[14px]"
               [ngClass]="{'filter-white':item.title === 'Lobby' || item.title === 'Universe Originals' || item.title === 'Providers'}">

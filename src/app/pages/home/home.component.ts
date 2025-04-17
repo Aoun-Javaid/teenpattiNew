@@ -172,19 +172,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.tabIndex = index
   }
 
-  getRouterLink(item: any): any[] {
-    localStorage.setItem('navId',item._id)
-    switch (item?.title) {
+  getRouterLink(title: string): any[] {
+    switch (title) {
       case 'Lobby':
         return ['/home/lobby'];
       case 'Providers':
         return ['/home/providers'];
       default:
-        const kebabTitle = item?.title.toLowerCase().split(' ').join('-');
+        const kebabTitle = title.toLowerCase().split(' ').join('-');
         return ['/home', kebabTitle];
     }
   }
 
+  setEventId(item:any){
+    localStorage.setItem('navId',item._id)
+  }
 
 
   scrollTabToCenter(index: number) {
