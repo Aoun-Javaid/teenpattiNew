@@ -67,15 +67,22 @@
             }
 
             <div class="flex_row cursor-pointer btnContainer">
-                <button (click)="this.stakeOrigin.slidePrev()" [disabled]="owlPrevBtn"
-                    [ngClass]="!owlPrevBtn? '!border-[#55758A] ':'border-[#304553] '" class="btn_left !border-r-0  ">
-                    <img [ngClass]="[!owlPrevBtn ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
-                        class="w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
+                <button (click)="isCheck && stakeOrigin.slidePrev()" [disabled]="!isCheck || owlPrevBtn" [ngClass]="{
+                            '!border-[#55758A]': isCheck && !owlPrevBtn,
+                            'border-[#304553]': !isCheck || owlPrevBtn
+                        }" class="btn_left !border-r-0">
+                    <img [ngClass]="{
+                                '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]': isCheck && !owlPrevBtn
+                            }" class="w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
                 </button>
-                <button (click)="this.stakeOrigin.slideNext()" [disabled]="owlNextBtn"
-                    [ngClass]="!owlNextBtn? 'border-[#55758A] ':'border-[#304553] '" class="btn_right border-l  ">
-                    <img [ngClass]="[!owlNextBtn ? '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]':'']"
-                        class="rotate-180 w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
+            
+                <button (click)="isCheck && stakeOrigin.slideNext()" [disabled]="!isCheck || owlNextBtn" [ngClass]="{
+                            'border-[#55758A]': isCheck && !owlNextBtn,
+                            'border-[#304553]': !isCheck || owlNextBtn
+                        }" class="btn_right border-l">
+                    <img [ngClass]="{
+                                '[filter:_brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(7439%)_hue-rotate(33deg)_brightness(107%)_contrast(112%)]': isCheck && !owlNextBtn
+                            }" class="rotate-180 w-[18px] h-[18px]" src="/images/Arrow - Right.svg" alt="right">
                 </button>
             </div>
         </div>
