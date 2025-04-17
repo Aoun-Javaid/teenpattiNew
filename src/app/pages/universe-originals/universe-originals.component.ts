@@ -30,11 +30,11 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   owlPrevBtn: boolean = true;
   owlNextBtn: boolean = false;
   stakeOrigin!: Swiper;
-
+  isSwiperInitialized: boolean = false;
   TableTab: number = 1;
   casinoViewAllState: boolean = false;
   isCheck: boolean = false
-  swiperCheck:any
+  swiperCheck: any
   navList: any = []
   stakeCurrentSlideIndex = 0;
   stakeSlideCount = 0;
@@ -91,6 +91,8 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   }
   ngOnDestroy(): void {
     this.universeProviderGames = []
+    console.log('remove data', this.universeProviderGames);
+    this.isSwiperInitialized = false;
   }
 
   ngOnInit() {
@@ -260,7 +262,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
         this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
         // this.universeProviderGames = this.navProviderList.filter((game: any) => (game.providerTitle.includes(this.providerName) && game.gameId !== null));
         this.universeProviderGames = filterArr
-
+        console.log('this.universeProviderGames', this.universeProviderGames);
       }
     });
   }
@@ -296,9 +298,20 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
 
   private initializeSwiper(config: any): void {
     if (this.stakeOrigin) {
-      this.stakeOrigin.destroy(true, true); // Destroy existing Swiper instance
+      this.stakeOrigin.destroy(true, true);
+      this.isSwiperInitialized = false; 
     }
-    this.stakeOrigin = new Swiper('.stake-swiper', config); // Initialize Swiper with new config
+    setTimeout(() => {
+      try {
+        this.stakeOrigin = new Swiper('.stake-swiper', config);
+        this.isSwiperInitialized = true;
+
+        this.stakeOrigin.update();
+      } catch (error) {
+        console.error('Swiper initialization failed:', error);
+        this.isSwiperInitialized = false;
+      }
+    });
   }
   private getDefaultSwiperConfig(): any {
     return {
