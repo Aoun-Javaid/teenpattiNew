@@ -3,9 +3,9 @@
     <!-- Stake Sports Slider -->
     <div class="top-sports-header mb-2.5">
         <!-- left -->
-        <span class="flex gap-2 items-center" >
+        <span class="flex gap-2 items-center">
             <span>
-                <svg class="svg-icon" fill="currentColor" viewBox="0 0 64 64"  *ngIf="providerName === 'Universe'">
+                <svg class="svg-icon" fill="currentColor" viewBox="0 0 64 64" *ngIf="providerName === 'Universe'">
                     <title></title>
                     <path
                         d="M7.36 42.39c1-12.78 14.728-25.29 17.926-29.976 2.778-4.206 1.719-9.203.83-11.4a.78.78 0 0 1 .893-1h-.004c13.889 2.918 14.588 13.48 14.168 18.206-.42 4.726.42 7.913 3.478 7.224 3.057-.69 2.028-8.443 2.028-8.443s14.039 16.676 8.893 33.073c-2.588 8.574-9.033 12.19-14.449 13.89-.28.14-.56-.14-.56-.55.7-2.638 2.509-4.726 3.058-7.644 1.12-4.796-3.327-9.213-6.624-11.71-2.063-1.538-3.386-3.97-3.386-6.712 0-.127.002-.255.008-.381v.018c0-.28-.42-.42-.55-.28a90.106 90.106 0 0 1-6.652 7.202l-.022.022c-5.136 5.696-7.784 12.09-3.197 19.175.14.28-.14.69-.41.56C11.387 60.596 6.67 51.973 7.36 42.39Z"
@@ -13,12 +13,17 @@
                     </path>
                 </svg>
                 @for (item of navList; track $index) {
-                  <img [src]="item?.icon" alt="" *ngIf="item?.title === providerName" class="max-h-[18px] max-w-[18px] h-auto w-[18px]">
-                 }
-                
+                <img [src]="item?.icon" alt="" *ngIf="item?.title.toLowerCase().split(' ').join('-') === providerName"
+                    class="max-h-[18px]   max-w-[18px] h-auto w-[18px]"
+                    [ngClass]="{'white-icon':item?.title.toLowerCase().split(' ').join('-') === 'universe-originals' || item?.title.toLowerCase().split(' ').join('-') === 'providers' }">
+
+                }
+
+
             </span>
             <!-- <span class="sports-heading">Universe Originals</span> -->
-            <span class="sports-heading !text-[18px]" *ngIf="navList">{{providerName?.split('-').join(' ') | titlecase}}</span>
+            <span class="sports-heading !text-[18px]" *ngIf="navList">{{providerName?.split('-').join(' ') |
+                titlecase}}</span>
         </span>
 
         <!-- Right -->
@@ -50,7 +55,7 @@
       </div> -->
 
         <!-- This content is hidden and dont required -->
-        <div class="view_type" >
+        <div class="view_type">
             @if (isCheck) {
             <button class="sports-heading view_text" (click)="setGridView()">
                 View All
@@ -77,11 +82,19 @@
         <!-- above content is hidden and dont required -->
 
     </div>
-    <div class="stake-swiper" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''"  *ngIf="providerName === 'universe-originals'">
+
+    <!-- loader code  -->
+    <div class="flex justify-center items-center h-40 w-full" *ngIf="!isSwiperInitialized">
+        <div class="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+    <!-- loader code  -->
+
+    <div class="stake-swiper" [ngClass]="casinoViewAllState?'swiper-container-viewAll':''"
+        *ngIf="providerName === 'universe-originals'">
         <div class="swiper-wrapper">
             <div *ngFor="let stake of universeProviderGames" class="swiper-slide">
                 <div class="relative">
-                    <img [src]="stake.gameImage" alt="" class="border-0 rounded-[10px]">
+                    <img [src]="stake.gameImage" alt="" class="border-0 rounded-[10px]" *ngIf="isSwiperInitialized">
                     @if (false) {
                     <div class="maintenance_wrapper">
                         <div class="lock_img_wrapper">
@@ -96,10 +109,13 @@
                     }
                 </div>
 
-                <div class="stake-player-row flex justify-center gap-2 pt-1">
-                    <span [ngClass]="[(stake?.gameStatus == 'ACTIVE' &&  !stake.isMaintenance)  ? 'stake-dot-green' :'stake-dot-red']"></span>
+                <div class="stake-player-row flex justify-center gap-2 pt-1" *ngIf="isSwiperInitialized">
+                    <span
+                        [ngClass]="[(stake?.gameStatus == 'ACTIVE' &&  !stake.isMaintenance)  ? 'stake-dot-green' :'stake-dot-red']"></span>
                     <span *ngIf="stake?.gameStatus==='ACTIVE'" class="count-text"> {{stake?.count}}</span>
-                    <span class="text-[#b1bad3] text-xs font-semibold">{{(stake?.gameStatus == 'ACTIVE' &&  !stake.isMaintenance) ?  'Playing' : (stake?.gameStatus == 'ACTIVE' &&  stake.isMaintenance) ?   'Maintenance' : ''}}</span>
+                    <span class="text-[#b1bad3] text-xs font-semibold">{{(stake?.gameStatus == 'ACTIVE' &&
+                        !stake.isMaintenance) ? 'Playing' : (stake?.gameStatus == 'ACTIVE' && stake.isMaintenance) ?
+                        'Maintenance' : ''}}</span>
 
                 </div>
             </div>
@@ -107,4 +123,3 @@
     </div>
 
 </div>
-
