@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   ElementRef,
@@ -173,7 +174,8 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private router: Router,
     private mainService: MainService,
-    private networkService: NetworkService
+    private networkService: NetworkService,
+    private cdRef: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -248,17 +250,18 @@ export class LobbyComponent implements OnInit, AfterViewInit, OnDestroy {
     //   },
     // });
     const isInitialLoad = localStorage.getItem('isInitialLoad');
+
     if (isInitialLoad == 'true') {
-      // On initial load, use setTimeout
       setTimeout(() => {
         this.setDefaultView();
         this.setDefaultViewProvider();
-        localStorage.setItem('isInitialLoad', 'false'); // Mark subsequent loads
+        localStorage.setItem('isInitialLoad', 'false');
+        this.cdRef.detectChanges(); // Add this
       }, 800);
-    }
-    if (isInitialLoad == 'false') {
+    } else {
       this.setDefaultView();
       this.setDefaultViewProvider();
+      this.cdRef.detectChanges(); // Add this
     }
     // if (this.isInitialLoad == false) {
     //   setTimeout(() => {

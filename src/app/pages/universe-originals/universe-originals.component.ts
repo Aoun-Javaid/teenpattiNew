@@ -1,6 +1,7 @@
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   ElementRef,
@@ -86,7 +87,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   providerName: any;
 
   // swiperInstance: Swiper;
-  constructor(private router: Router, private mainService: MainService, private route: ActivatedRoute) {
+  constructor(private router: Router, private mainService: MainService, private route: ActivatedRoute, private cdRef: ChangeDetectorRef) {
     this.route.paramMap.subscribe(params => {
       this.providerName = params.get('name');
       let navId = localStorage.getItem('navId');
@@ -200,15 +201,16 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
     // }, 100);
 
     const isInitialLoad = localStorage.getItem('isInitialLoad');
-    if (isInitialLoad == 'true') {
-      // On initial load, use setTimeout
+
+    if (isInitialLoad === 'true') {
       setTimeout(() => {
-        this.setDefaultView()
-        localStorage.setItem('isInitialLoad', 'false'); // Mark subsequent loads
+        this.setDefaultView();
+        localStorage.setItem('isInitialLoad', 'false');
+        this.cdRef.detectChanges(); // Explicitly trigger change detection
       }, 100);
-    }
-    if (isInitialLoad == 'false') {
-      this.setDefaultView()
+    } else {
+      this.setDefaultView();
+      this.cdRef.detectChanges(); // Explicitly trigger change detection
     }
 
 
@@ -305,7 +307,6 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
 
         this.stakeOrigin.update();
       } catch (error) {
-        console.error('Swiper initialization failed:', error);
         this.isSwiperInitialized = false;
       }
     });
