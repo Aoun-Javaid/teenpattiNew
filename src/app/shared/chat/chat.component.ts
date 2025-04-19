@@ -20,6 +20,7 @@ import { ChatDetailsModalComponent } from "../../Modals/chat-details-modal/chat-
 export class ChatComponent implements OnInit {
   readonly now = Date.now();
   text: any;
+  charsLeft=160;
   currentRoom:any;
   casinoChat: any = [];
   itemImg = '/languages/english.svg'
@@ -113,12 +114,15 @@ export class ChatComponent implements OnInit {
         setTimeout(() => {
           const className = document.querySelector('.decrease-index') as HTMLElement;
           className.classList.add('!z-[99]')
-          setTimeout(() => {
-            let obj = {
-              show: true,
-            };
-            this.modalsService.setChatDetailsModal(obj);
-          }, 100);
+          if(!this.currentRoom){
+            setTimeout(() => {
+              let obj = {
+                show: true,
+              };
+              this.modalsService.setChatDetailsModal(obj);
+            }, 100);
+          }
+
         }, 700);
 
       }
@@ -141,7 +145,11 @@ export class ChatComponent implements OnInit {
     });
   }
   closeMobSideBar() {
-    this.socketService.sendMessage('leaveRoom', this.currentRoom);
+    if(this.currentRoom){
+      this.socketService.sendMessage('leaveRoom', this.currentRoom);
+      this.currentRoom='';
+    }
+
     this.toggle.setChatMobSidebarState(false);
     this.toggle.setMobileNavState(null)
   }
@@ -154,6 +162,7 @@ export class ChatComponent implements OnInit {
     if (this.text != '' && result.isValid) {
       this.socketService.sendMessage('chatMessage', { message: this.text,room: this.currentRoom });
       this.text = '';
+      this.updateCharsLeft();
     }
   }
   updateIncomingMessage(data: any) {
@@ -277,5 +286,8 @@ export class ChatComponent implements OnInit {
       username: data.username,
       room: data.room
     });
+  }
+  updateCharsLeft(): void {
+    this.charsLeft = 160 - (this.text?.length || 0);
   }
 }
