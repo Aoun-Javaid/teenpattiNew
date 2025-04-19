@@ -80,6 +80,14 @@ export class ChatComponent implements OnInit,AfterViewInit {
       // console.log('Received loadConnectedClients:', data);
       this.connectedUsers = data;
     });
+    this.socketService.onEvent('chatMessage', (data) => {
+      console.log('Received chatMessage:', data);
+      // this.connectedUsers = data;
+    });
+    this.socketService.onEvent('roomCount', (data) => {
+      console.log('Received roomCount:', data);
+      // this.connectedUsers = data;
+    });
 
     this.socketService.onEvent('loadNewMessage', (data) => {
       this.updateIncomingMessage(data);

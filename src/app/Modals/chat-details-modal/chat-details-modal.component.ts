@@ -15,7 +15,7 @@ export class ChatDetailsModalComponent {
 
   isShow: boolean = false
   userName:any='';
-  room:any='';
+  room:any='general';
   subscription: any;
   exposurePassword: boolean = false;
   isLoading = false;
