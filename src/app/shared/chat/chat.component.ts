@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ToggleService } from '../../services/toggle.service';
 import { WebSocketService } from '../../services/web-socket.service';
@@ -8,16 +8,20 @@ import { ChatRulesModalComponent } from '../../Modals/chat-rules-modal/chat-rule
 import { ModalService } from '../../services/modal.service';
 import { ToastrService } from 'ngx-toastr';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { ChatDetailsModalComponent } from "../../Modals/chat-details-modal/chat-details-modal.component";
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [FormsModule, CommonModule, ChatRulesModalComponent],
+  imports: [FormsModule, CommonModule, ChatRulesModalComponent, ChatDetailsModalComponent],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css',
 })
 export class ChatComponent implements OnInit {
+  readonly now = Date.now();
   text: any;
+  charsLeft=160;
+  currentRoom:any;
   casinoChat: any = [];
   itemImg = '/languages/english.svg'
   connectedUsers: any;
@@ -36,7 +40,7 @@ export class ChatComponent implements OnInit {
   isMobileInfo: any;
   langList: boolean = false;
   selectedIndex: number | null = null;
-
+  memoMessage:any;
   languages = [
     { title: 'English', img: '/languages/english.svg' },
     { title: 'Sports', img: '/languages/sport.svg' },
@@ -54,8 +58,9 @@ export class ChatComponent implements OnInit {
     private socketService: WebSocketService,
     private modalsService: ModalService,
     private toaster: ToastrService,
-    private deviceService: DeviceDetectorService
+    private deviceService: DeviceDetectorService,
   ) { }
+
   ngOnInit(): void {
     this.isMobileInfo = this.deviceService.os;
     this.hideSideBar = true;
@@ -70,13 +75,21 @@ export class ChatComponent implements OnInit {
     this.socketService.connect(this.token);
 
     this.socketService.onEvent('loadConnectedClients', (data) => {
-      // console.log('Received loadConnectedClients:', data);
       this.connectedUsers = data;
     });
 
-    this.socketService.onEvent('loadNewMessage', (data) => {
+    this.socketService.onEvent('roomCount', (data) => {
+      this.connectedUsers = data.count;
+    });
+    this.socketService.onEvent('memoMessage', (data:any) => {
+      let obj:any={}
+      obj.memoMessage = data;
+      this.updateIncomingMessage(obj);
+    });
+
+
+    this.socketService.onEvent('chatMessage', (data) => {
       this.updateIncomingMessage(data);
-      // console.log('Received message event:', data);
     });
 
     this.toggle.getProfileMobSidebarState().subscribe((val: boolean) => {
@@ -95,16 +108,30 @@ export class ChatComponent implements OnInit {
       if (val) {
         setTimeout(() => {
           this.mobSidebarState = val;
+
         }, 10);
 
         setTimeout(() => {
           const className = document.querySelector('.decrease-index') as HTMLElement;
           className.classList.add('!z-[99]')
+          if(!this.currentRoom){
+            setTimeout(() => {
+              let obj = {
+                show: true,
+              };
+              this.modalsService.setChatDetailsModal(obj);
+            }, 100);
+          }
+
         }, 700);
+
       }
       if (!val) {
         this.mobSidebarState = val;
-
+        let obj = {
+          show: false,
+        };
+        this.modalsService.setChatDetailsModal(obj);
         this.timeoutId = setTimeout(() => {
           this.hideSideBar = true;
         }, 700);
@@ -118,6 +145,11 @@ export class ChatComponent implements OnInit {
     });
   }
   closeMobSideBar() {
+    if(this.currentRoom){
+      this.socketService.sendMessage('leaveRoom', this.currentRoom);
+      this.currentRoom='';
+    }
+
     this.toggle.setChatMobSidebarState(false);
     this.toggle.setMobileNavState(null)
   }
@@ -128,8 +160,9 @@ export class ChatComponent implements OnInit {
       this.toaster.error(this.resultMessage);
     }
     if (this.text != '' && result.isValid) {
-      this.socketService.sendMessage('newMessage', { content: this.text });
+      this.socketService.sendMessage('chatMessage', { message: this.text,room: this.currentRoom });
       this.text = '';
+      this.updateCharsLeft();
     }
   }
   updateIncomingMessage(data: any) {
@@ -245,5 +278,16 @@ export class ChatComponent implements OnInit {
     if (dropdown && !dropdown.contains(event.target as Node)) {
       this.langList = true;
     }
+  }
+
+   handleDataFromChild(data: any): any {
+    this.currentRoom = data.room;
+    this.socketService.sendMessage('joinRoom', {
+      username: data.username,
+      room: data.room
+    });
+  }
+  updateCharsLeft(): void {
+    this.charsLeft = 160 - (this.text?.length || 0);
   }
 }

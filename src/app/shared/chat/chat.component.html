@@ -55,9 +55,11 @@
 
     <div class="messages-container">
       <div class="messages scrollY ">
-        <div class="msg_box_date"><span>Sunday</span> <span>12:34 PM</span></div>
+        <div class="msg_box_date"> <span>{{ now | date:'EEEE' }}</span>
+          <span>{{ now | date:'hh:mm a' }}</span></div>
+
         @for (item of casinoChat; track $index) {
-        <div class="msg_box mt-[.5rem]">
+        <div class="msg_box mt-[.5rem]" *ngIf="!item.memoMessage">
           <div class="content">
             <div
               class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
@@ -82,374 +84,15 @@
                   </span>
                   <button type="button" tabindex="0"
                     class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">
-                    demo
+                    {{item.username}}
                   </button>
                 </div>
-              </div>: {{item.content}}
+              </div>: {{item.msg}}
             </div>
           </div>
         </div>
+        <div class="msg_box_date msg_box_memo mt-[.5rem]" *ngIf="item.memoMessage"><span>{{item.memoMessage}}</span></div>
         }
-        <!-- <div class="msg_box mt-[.5rem]">
-            <div class="content">
-              <div
-                class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
-                <div class="userNameContainer ">
-                  <div class="user-tags ">
-                    <span class="svelte-smmarv">
-                      <div class="hoverable svelte-bbyuql"><span class="wrap svelte-nc081s"><svg fill="none"
-                            viewBox="0 0 96 96" class="svg-icon " style="font-size: var(--text-size-default);">
-                            <title></title>
-                            <path d="M79.48 19.64c-21.36 2.44-42.32 2.4-63 0L0 43.64 48 96l48-52.36-16.52-24Z"
-                              fill="#BDE9FF">
-                            </path>
-                            <path d="M48 30.68 27.68 55.52h40.64L48 30.68Z" fill="#fff"></path>
-                            <path d="M96 43.64 48 96l20.32-40.48L96 43.64Z" fill="#B0B8FC"></path>
-                            <path d="M0 43.64 48 96 27.68 55.52 0 43.64Z" fill="#fff"></path>
-                            <path d="m16.52 19.64 11.16 35.88L0 43.64l16.52-24Z" fill="#B0B8FC"></path>
-                            <path
-                              d="M79.48 19.64 68.32 55.52 96 43.64l-16.52-24Zm-62.96 0L48 30.68l31.48-11.04H16.52ZM85.932 5.932l-6.731 6.731 6.731 6.732 6.732-6.732-6.732-6.731Z"
-                              fill="#fff"></path>
-                            <path d="M32.6 29.84h10.88v36H32.6v-36Zm19.92 0H63.4v36H52.52v-36Z" fill="#0F212E"></path>
-                          </svg></span> </div>
-                    </span>
-                    <button type="button" tabindex="0"
-                      class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">Jjdjjdjms</button>
-                  </div>
-                </div>: But they already got saddam
-              </div>
-            </div>
-          </div>
-          <div class="msg_box mt-[.5rem]">
-            <div class="content">
-              <div
-                class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
-                <div class="userNameContainer ">
-                  <div class="user-tags ">
-                    <span class="svelte-smmarv">
-                      <div class="hoverable svelte-bbyuql"><span class="wrap svelte-nc081s"><svg fill="none"
-                            viewBox="0 0 96 96" class="svg-icon " style="font-size: var(--text-size-default);">
-                            <title></title>
-                            <path d="M79.48 19.64c-21.36 2.44-42.32 2.4-63 0L0 43.64 48 96l48-52.36-16.52-24Z"
-                              fill="#BDE9FF">
-                            </path>
-                            <path d="M48 30.68 27.68 55.52h40.64L48 30.68Z" fill="#fff"></path>
-                            <path d="M96 43.64 48 96l20.32-40.48L96 43.64Z" fill="#B0B8FC"></path>
-                            <path d="M0 43.64 48 96 27.68 55.52 0 43.64Z" fill="#fff"></path>
-                            <path d="m16.52 19.64 11.16 35.88L0 43.64l16.52-24Z" fill="#B0B8FC"></path>
-                            <path
-                              d="M79.48 19.64 68.32 55.52 96 43.64l-16.52-24Zm-62.96 0L48 30.68l31.48-11.04H16.52ZM85.932 5.932l-6.731 6.731 6.731 6.732 6.732-6.732-6.732-6.731Z"
-                              fill="#fff"></path>
-                            <path d="M32.6 29.84h10.88v36H32.6v-36Zm19.92 0H63.4v36H52.52v-36Z" fill="#0F212E"></path>
-                          </svg></span> </div>
-                    </span>
-                    <button type="button" tabindex="0"
-                      class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">Jjdjjdjms</button>
-                  </div>
-                </div>: But they already got saddam
-              </div>
-            </div>
-          </div>
-          <div class="msg_box mt-[.5rem]">
-            <div class="content">
-              <div
-                class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
-                <div class="userNameContainer ">
-                  <div class="user-tags ">
-                    <span class="svelte-smmarv">
-                      <div class="hoverable svelte-bbyuql"><span class="wrap svelte-nc081s"><svg fill="none"
-                            viewBox="0 0 96 96" class="svg-icon " style="font-size: var(--text-size-default);">
-                            <title></title>
-                            <path d="M79.48 19.64c-21.36 2.44-42.32 2.4-63 0L0 43.64 48 96l48-52.36-16.52-24Z"
-                              fill="#BDE9FF">
-                            </path>
-                            <path d="M48 30.68 27.68 55.52h40.64L48 30.68Z" fill="#fff"></path>
-                            <path d="M96 43.64 48 96l20.32-40.48L96 43.64Z" fill="#B0B8FC"></path>
-                            <path d="M0 43.64 48 96 27.68 55.52 0 43.64Z" fill="#fff"></path>
-                            <path d="m16.52 19.64 11.16 35.88L0 43.64l16.52-24Z" fill="#B0B8FC"></path>
-                            <path
-                              d="M79.48 19.64 68.32 55.52 96 43.64l-16.52-24Zm-62.96 0L48 30.68l31.48-11.04H16.52ZM85.932 5.932l-6.731 6.731 6.731 6.732 6.732-6.732-6.732-6.731Z"
-                              fill="#fff"></path>
-                            <path d="M32.6 29.84h10.88v36H32.6v-36Zm19.92 0H63.4v36H52.52v-36Z" fill="#0F212E"></path>
-                          </svg></span> </div>
-                    </span>
-                    <button type="button" tabindex="0"
-                      class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">Jjdjjdjms</button>
-                  </div>
-                </div>: But they already got saddam
-              </div>
-            </div>
-          </div>
-          <div class="msg_box mt-[.5rem]">
-            <div class="content">
-              <div
-                class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
-                <div class="userNameContainer ">
-                  <div class="user-tags ">
-                    <span class="svelte-smmarv">
-                      <div class="hoverable svelte-bbyuql"><span class="wrap svelte-nc081s"><svg fill="none"
-                            viewBox="0 0 96 96" class="svg-icon " style="font-size: var(--text-size-default);">
-                            <title></title>
-                            <path d="M79.48 19.64c-21.36 2.44-42.32 2.4-63 0L0 43.64 48 96l48-52.36-16.52-24Z"
-                              fill="#BDE9FF">
-                            </path>
-                            <path d="M48 30.68 27.68 55.52h40.64L48 30.68Z" fill="#fff"></path>
-                            <path d="M96 43.64 48 96l20.32-40.48L96 43.64Z" fill="#B0B8FC"></path>
-                            <path d="M0 43.64 48 96 27.68 55.52 0 43.64Z" fill="#fff"></path>
-                            <path d="m16.52 19.64 11.16 35.88L0 43.64l16.52-24Z" fill="#B0B8FC"></path>
-                            <path
-                              d="M79.48 19.64 68.32 55.52 96 43.64l-16.52-24Zm-62.96 0L48 30.68l31.48-11.04H16.52ZM85.932 5.932l-6.731 6.731 6.731 6.732 6.732-6.732-6.732-6.731Z"
-                              fill="#fff"></path>
-                            <path d="M32.6 29.84h10.88v36H32.6v-36Zm19.92 0H63.4v36H52.52v-36Z" fill="#0F212E"></path>
-                          </svg></span> </div>
-                    </span>
-                    <button type="button" tabindex="0"
-                      class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">Jjdjjdjms</button>
-                  </div>
-                </div>: But they already got saddam
-              </div>
-            </div>
-          </div>
-          <div class="msg_box mt-[.5rem]">
-            <div class="content">
-              <div
-                class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
-                <div class="userNameContainer ">
-                  <div class="user-tags ">
-                    <span class="svelte-smmarv">
-                      <div class="hoverable svelte-bbyuql"><span class="wrap svelte-nc081s"><svg fill="none"
-                            viewBox="0 0 96 96" class="svg-icon " style="font-size: var(--text-size-default);">
-                            <title></title>
-                            <path d="M79.48 19.64c-21.36 2.44-42.32 2.4-63 0L0 43.64 48 96l48-52.36-16.52-24Z"
-                              fill="#BDE9FF">
-                            </path>
-                            <path d="M48 30.68 27.68 55.52h40.64L48 30.68Z" fill="#fff"></path>
-                            <path d="M96 43.64 48 96l20.32-40.48L96 43.64Z" fill="#B0B8FC"></path>
-                            <path d="M0 43.64 48 96 27.68 55.52 0 43.64Z" fill="#fff"></path>
-                            <path d="m16.52 19.64 11.16 35.88L0 43.64l16.52-24Z" fill="#B0B8FC"></path>
-                            <path
-                              d="M79.48 19.64 68.32 55.52 96 43.64l-16.52-24Zm-62.96 0L48 30.68l31.48-11.04H16.52ZM85.932 5.932l-6.731 6.731 6.731 6.732 6.732-6.732-6.732-6.731Z"
-                              fill="#fff"></path>
-                            <path d="M32.6 29.84h10.88v36H32.6v-36Zm19.92 0H63.4v36H52.52v-36Z" fill="#0F212E"></path>
-                          </svg></span> </div>
-                    </span>
-                    <button type="button" tabindex="0"
-                      class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">Jjdjjdjms</button>
-                  </div>
-                </div>: But they already got saddam
-              </div>
-            </div>
-          </div>
-          <div class="msg_box mt-[.5rem]">
-            <div class="content">
-              <div
-                class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
-                <div class="userNameContainer ">
-                  <div class="user-tags ">
-                    <span class="svelte-smmarv">
-                      <div class="hoverable svelte-bbyuql"><span class="wrap svelte-nc081s"><svg fill="none"
-                            viewBox="0 0 96 96" class="svg-icon " style="font-size: var(--text-size-default);">
-                            <title></title>
-                            <path d="M79.48 19.64c-21.36 2.44-42.32 2.4-63 0L0 43.64 48 96l48-52.36-16.52-24Z"
-                              fill="#BDE9FF">
-                            </path>
-                            <path d="M48 30.68 27.68 55.52h40.64L48 30.68Z" fill="#fff"></path>
-                            <path d="M96 43.64 48 96l20.32-40.48L96 43.64Z" fill="#B0B8FC"></path>
-                            <path d="M0 43.64 48 96 27.68 55.52 0 43.64Z" fill="#fff"></path>
-                            <path d="m16.52 19.64 11.16 35.88L0 43.64l16.52-24Z" fill="#B0B8FC"></path>
-                            <path
-                              d="M79.48 19.64 68.32 55.52 96 43.64l-16.52-24Zm-62.96 0L48 30.68l31.48-11.04H16.52ZM85.932 5.932l-6.731 6.731 6.731 6.732 6.732-6.732-6.732-6.731Z"
-                              fill="#fff"></path>
-                            <path d="M32.6 29.84h10.88v36H32.6v-36Zm19.92 0H63.4v36H52.52v-36Z" fill="#0F212E"></path>
-                          </svg></span> </div>
-                    </span>
-                    <button type="button" tabindex="0"
-                      class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">Jjdjjdjms</button>
-                  </div>
-                </div>: But they already got saddam
-              </div>
-            </div>
-          </div>
-          <div class="msg_box mt-[.5rem]">
-            <div class="content">
-              <div
-                class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
-                <div class="userNameContainer ">
-                  <div class="user-tags ">
-                    <span class="svelte-smmarv">
-                      <div class="hoverable svelte-bbyuql"><span class="wrap svelte-nc081s"><svg fill="none"
-                            viewBox="0 0 96 96" class="svg-icon " style="font-size: var(--text-size-default);">
-                            <title></title>
-                            <path d="M79.48 19.64c-21.36 2.44-42.32 2.4-63 0L0 43.64 48 96l48-52.36-16.52-24Z"
-                              fill="#BDE9FF">
-                            </path>
-                            <path d="M48 30.68 27.68 55.52h40.64L48 30.68Z" fill="#fff"></path>
-                            <path d="M96 43.64 48 96l20.32-40.48L96 43.64Z" fill="#B0B8FC"></path>
-                            <path d="M0 43.64 48 96 27.68 55.52 0 43.64Z" fill="#fff"></path>
-                            <path d="m16.52 19.64 11.16 35.88L0 43.64l16.52-24Z" fill="#B0B8FC"></path>
-                            <path
-                              d="M79.48 19.64 68.32 55.52 96 43.64l-16.52-24Zm-62.96 0L48 30.68l31.48-11.04H16.52ZM85.932 5.932l-6.731 6.731 6.731 6.732 6.732-6.732-6.732-6.731Z"
-                              fill="#fff"></path>
-                            <path d="M32.6 29.84h10.88v36H32.6v-36Zm19.92 0H63.4v36H52.52v-36Z" fill="#0F212E"></path>
-                          </svg></span> </div>
-                    </span>
-                    <button type="button" tabindex="0"
-                      class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">Jjdjjdjms</button>
-                  </div>
-                </div>: But they already got saddam
-              </div>
-            </div>
-          </div>
-          <div class="msg_box mt-[.5rem]">
-            <div class="content">
-              <div
-                class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
-                <div class="userNameContainer ">
-                  <div class="user-tags ">
-                    <span class="svelte-smmarv">
-                      <div class="hoverable svelte-bbyuql"><span class="wrap svelte-nc081s"><svg fill="none"
-                            viewBox="0 0 96 96" class="svg-icon " style="font-size: var(--text-size-default);">
-                            <title></title>
-                            <path d="M79.48 19.64c-21.36 2.44-42.32 2.4-63 0L0 43.64 48 96l48-52.36-16.52-24Z"
-                              fill="#BDE9FF">
-                            </path>
-                            <path d="M48 30.68 27.68 55.52h40.64L48 30.68Z" fill="#fff"></path>
-                            <path d="M96 43.64 48 96l20.32-40.48L96 43.64Z" fill="#B0B8FC"></path>
-                            <path d="M0 43.64 48 96 27.68 55.52 0 43.64Z" fill="#fff"></path>
-                            <path d="m16.52 19.64 11.16 35.88L0 43.64l16.52-24Z" fill="#B0B8FC"></path>
-                            <path
-                              d="M79.48 19.64 68.32 55.52 96 43.64l-16.52-24Zm-62.96 0L48 30.68l31.48-11.04H16.52ZM85.932 5.932l-6.731 6.731 6.731 6.732 6.732-6.732-6.732-6.731Z"
-                              fill="#fff"></path>
-                            <path d="M32.6 29.84h10.88v36H32.6v-36Zm19.92 0H63.4v36H52.52v-36Z" fill="#0F212E"></path>
-                          </svg></span> </div>
-                    </span>
-                    <button type="button" tabindex="0"
-                      class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">Jjdjjdjms</button>
-                  </div>
-                </div>: But they already got saddam
-              </div>
-            </div>
-          </div>
-          <div class="msg_box mt-[.5rem]">
-            <div class="content">
-              <div
-                class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
-                <div class="userNameContainer ">
-                  <div class="user-tags ">
-                    <span class="svelte-smmarv">
-                      <div class="hoverable svelte-bbyuql"><span class="wrap svelte-nc081s"><svg fill="none"
-                            viewBox="0 0 96 96" class="svg-icon " style="font-size: var(--text-size-default);">
-                            <title></title>
-                            <path d="M79.48 19.64c-21.36 2.44-42.32 2.4-63 0L0 43.64 48 96l48-52.36-16.52-24Z"
-                              fill="#BDE9FF">
-                            </path>
-                            <path d="M48 30.68 27.68 55.52h40.64L48 30.68Z" fill="#fff"></path>
-                            <path d="M96 43.64 48 96l20.32-40.48L96 43.64Z" fill="#B0B8FC"></path>
-                            <path d="M0 43.64 48 96 27.68 55.52 0 43.64Z" fill="#fff"></path>
-                            <path d="m16.52 19.64 11.16 35.88L0 43.64l16.52-24Z" fill="#B0B8FC"></path>
-                            <path
-                              d="M79.48 19.64 68.32 55.52 96 43.64l-16.52-24Zm-62.96 0L48 30.68l31.48-11.04H16.52ZM85.932 5.932l-6.731 6.731 6.731 6.732 6.732-6.732-6.732-6.731Z"
-                              fill="#fff"></path>
-                            <path d="M32.6 29.84h10.88v36H32.6v-36Zm19.92 0H63.4v36H52.52v-36Z" fill="#0F212E"></path>
-                          </svg></span> </div>
-                    </span>
-                    <button type="button" tabindex="0"
-                      class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">Jjdjjdjms</button>
-                  </div>
-                </div>: But they already got saddam
-              </div>
-            </div>
-          </div>
-          <div class="msg_box mt-[.5rem]">
-            <div class="content">
-              <div
-                class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
-                <div class="userNameContainer ">
-                  <div class="user-tags ">
-                    <span class="svelte-smmarv">
-                      <div class="hoverable svelte-bbyuql"><span class="wrap svelte-nc081s"><svg fill="none"
-                            viewBox="0 0 96 96" class="svg-icon " style="font-size: var(--text-size-default);">
-                            <title></title>
-                            <path d="M79.48 19.64c-21.36 2.44-42.32 2.4-63 0L0 43.64 48 96l48-52.36-16.52-24Z"
-                              fill="#BDE9FF">
-                            </path>
-                            <path d="M48 30.68 27.68 55.52h40.64L48 30.68Z" fill="#fff"></path>
-                            <path d="M96 43.64 48 96l20.32-40.48L96 43.64Z" fill="#B0B8FC"></path>
-                            <path d="M0 43.64 48 96 27.68 55.52 0 43.64Z" fill="#fff"></path>
-                            <path d="m16.52 19.64 11.16 35.88L0 43.64l16.52-24Z" fill="#B0B8FC"></path>
-                            <path
-                              d="M79.48 19.64 68.32 55.52 96 43.64l-16.52-24Zm-62.96 0L48 30.68l31.48-11.04H16.52ZM85.932 5.932l-6.731 6.731 6.731 6.732 6.732-6.732-6.732-6.731Z"
-                              fill="#fff"></path>
-                            <path d="M32.6 29.84h10.88v36H32.6v-36Zm19.92 0H63.4v36H52.52v-36Z" fill="#0F212E"></path>
-                          </svg></span> </div>
-                    </span>
-                    <button type="button" tabindex="0"
-                      class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">Jjdjjdjms</button>
-                  </div>
-                </div>: But they already got saddam
-              </div>
-            </div>
-          </div>
-          <div class="msg_box mt-[.5rem]">
-            <div class="content">
-              <div
-                class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
-                <div class="userNameContainer ">
-                  <div class="user-tags ">
-                    <span class="svelte-smmarv">
-                      <div class="hoverable svelte-bbyuql"><span class="wrap svelte-nc081s"><svg fill="none"
-                            viewBox="0 0 96 96" class="svg-icon " style="font-size: var(--text-size-default);">
-                            <title></title>
-                            <path d="M79.48 19.64c-21.36 2.44-42.32 2.4-63 0L0 43.64 48 96l48-52.36-16.52-24Z"
-                              fill="#BDE9FF">
-                            </path>
-                            <path d="M48 30.68 27.68 55.52h40.64L48 30.68Z" fill="#fff"></path>
-                            <path d="M96 43.64 48 96l20.32-40.48L96 43.64Z" fill="#B0B8FC"></path>
-                            <path d="M0 43.64 48 96 27.68 55.52 0 43.64Z" fill="#fff"></path>
-                            <path d="m16.52 19.64 11.16 35.88L0 43.64l16.52-24Z" fill="#B0B8FC"></path>
-                            <path
-                              d="M79.48 19.64 68.32 55.52 96 43.64l-16.52-24Zm-62.96 0L48 30.68l31.48-11.04H16.52ZM85.932 5.932l-6.731 6.731 6.731 6.732 6.732-6.732-6.732-6.731Z"
-                              fill="#fff"></path>
-                            <path d="M32.6 29.84h10.88v36H32.6v-36Zm19.92 0H63.4v36H52.52v-36Z" fill="#0F212E"></path>
-                          </svg></span> </div>
-                    </span>
-                    <button type="button" tabindex="0"
-                      class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">Jjdjjdjms</button>
-                  </div>
-                </div>: But they already got saddam
-              </div>
-            </div>
-          </div>
-          <div class="msg_box mt-[.5rem]">
-            <div class="content">
-              <div
-                class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
-                <div class="userNameContainer ">
-                  <div class="user-tags ">
-                    <span class="svelte-smmarv">
-                      <div class="hoverable svelte-bbyuql"><span class="wrap svelte-nc081s"><svg fill="none"
-                            viewBox="0 0 96 96" class="svg-icon " style="font-size: var(--text-size-default);">
-                            <title></title>
-                            <path d="M79.48 19.64c-21.36 2.44-42.32 2.4-63 0L0 43.64 48 96l48-52.36-16.52-24Z"
-                              fill="#BDE9FF">
-                            </path>
-                            <path d="M48 30.68 27.68 55.52h40.64L48 30.68Z" fill="#fff"></path>
-                            <path d="M96 43.64 48 96l20.32-40.48L96 43.64Z" fill="#B0B8FC"></path>
-                            <path d="M0 43.64 48 96 27.68 55.52 0 43.64Z" fill="#fff"></path>
-                            <path d="m16.52 19.64 11.16 35.88L0 43.64l16.52-24Z" fill="#B0B8FC"></path>
-                            <path
-                              d="M79.48 19.64 68.32 55.52 96 43.64l-16.52-24Zm-62.96 0L48 30.68l31.48-11.04H16.52ZM85.932 5.932l-6.731 6.731 6.731 6.732 6.732-6.732-6.732-6.731Z"
-                              fill="#fff"></path>
-                            <path d="M32.6 29.84h10.88v36H32.6v-36Zm19.92 0H63.4v36H52.52v-36Z" fill="#0F212E"></path>
-                          </svg></span> </div>
-                    </span>
-                    <button type="button" tabindex="0"
-                      class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">dsfass</button>
-                  </div>
-                </div>: honestly thats good, real life comes first, gambling is a hobby :) everything good with the family?
-              </div>
-            </div>
-          </div> -->
         <div class="msg_box mt-[.5rem]" *ngIf="casinoChat.length>12" id="lastchildMsg">
 
         </div>
@@ -462,9 +105,12 @@
         <label class="stacked full-width svelte-1wzq4lo">
           <div class="text-area-wrap svelte-9e21kq">
             <pre aria-hidden="true" class="svelte-9e21kq" style="min-height: 2.8em; max-height: 6.4em;">
-      </pre> <textarea (focus)="ChatFocusScroll()" id="message" [(ngModel)]="text"
+      </pre>
+      <textarea (focus)="ChatFocusScroll()" id="message" [(ngModel)]="text" maxlength="160"
               class="scrollY with-button svelte-9e21kq" (keyup.enter)="sendMessage()"
+              (input)="updateCharsLeft()"
               placeholder="Type your message"></textarea>
+
 
           </div>
         </label>
@@ -481,7 +127,7 @@
       </span>
       <div class="actions svelte-49slp7">
         <span
-          class="weight-semibold line-height-default align-left size-sm text-size-sm variant-subtle with-icon-space svelte-17v69ua">160</span>
+          class="weight-semibold line-height-default align-left size-sm text-size-sm variant-subtle with-icon-space svelte-17v69ua">{{charsLeft}}</span>
         <button type="button" tabindex="0" (click)="openChatRulesModal()"
           class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-grey-400 text-white betterhover:hover:bg-grey-300 betterhover:hover:text-white focus-visible:outline-white text-sm leading-none shadow-md py-[0.8125rem] px-[1rem]"
           data-button-root="">
@@ -508,3 +154,5 @@
 @if(!browser && !profileState && mobSidebarState){
 <app-chat-rules-modal></app-chat-rules-modal>
 }
+
+<app-chat-details-modal (dataSent)="handleDataFromChild($event)"></app-chat-details-modal>

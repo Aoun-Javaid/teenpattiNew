@@ -37,7 +37,7 @@ declare var $: any;
 export class HomeComponent implements OnInit, AfterViewInit {
   owlPrevBtn: boolean = true;
   owlNextBtn: boolean = false;
-  forBlink:boolean = false
+  forBlink: boolean = false
   tabIndex = 0
   isMarketOpen = true;
   isMarketOpen2 = true;
@@ -69,7 +69,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // swiperInstance: Swiper;
   constructor(private router: Router,
     private activeRoute: ActivatedRoute,
-    private mainService: MainService) { }
+    private mainService: MainService) {
+
+  }
 
   ngOnInit() {
     this.mainService.getBannersList().subscribe((res: any) => {
@@ -161,7 +163,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     //   });
     // }, 400);
 
-    this.forBlink = true
+    setTimeout(() => {
+      this.forBlink = true
+    }, 0);
 
   }
 
@@ -182,10 +186,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
+  setEventId(item: any) {
+    localStorage.setItem('navId', item._id)
+  }
 
 
   scrollTabToCenter(index: number) {
-    setTimeout(() => { 
+    setTimeout(() => {
       const container = this.tabsContainer.nativeElement;
       const tabs = container.querySelectorAll('.tab-item');
 

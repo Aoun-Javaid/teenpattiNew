@@ -74,11 +74,11 @@
                   fill-rule="evenodd">
                 </path>
               </svg>
-  
+
               <span>Lobby</span>
             </a>
-  
-  
+
+
             <a routerLink="/home/universe-originals/UNIVERSE" routerLinkActive="active" class="tab-item">
               <svg class="svg-icon " fill="currentColor" viewBox="0 0 64 64">
                 <title></title>
@@ -86,11 +86,11 @@
                   d="M7.36 42.39c1-12.78 14.728-25.29 17.926-29.976 2.778-4.206 1.719-9.203.83-11.4a.78.78 0 0 1 .893-1h-.004c13.889 2.918 14.588 13.48 14.168 18.206-.42 4.726.42 7.913 3.478 7.224 3.057-.69 2.028-8.443 2.028-8.443s14.039 16.676 8.893 33.073c-2.588 8.574-9.033 12.19-14.449 13.89-.28.14-.56-.14-.56-.55.7-2.638 2.509-4.726 3.058-7.644 1.12-4.796-3.327-9.213-6.624-11.71-2.063-1.538-3.386-3.97-3.386-6.712 0-.127.002-.255.008-.381v.018c0-.28-.42-.42-.55-.28a90.106 90.106 0 0 1-6.652 7.202l-.022.022c-5.136 5.696-7.784 12.09-3.197 19.175.14.28-.14.69-.41.56C11.387 60.596 6.67 51.973 7.36 42.39Z">
                 </path>
               </svg>
-  
+
               <span>Universe Originals</span>
             </a>
-  
-  
+
+
             <a routerLink="/home/providers" routerLinkActive="active" class="tab-item">
               <svg class="svg-icon " fill="currentColor" viewBox="0 0 96 96">
                 <title></title>
@@ -98,7 +98,7 @@
                   d="M62.8 7.2h-1.2L48 12 34.401 7.2c-2.4-.8-5.199.801-5.6 3.6v10c0 2.798 2.4 4.8 4.8 4.8h1.2l13.2-6 13.598 6c2.8.8 5.2-.802 6-3.6V12c0-2.799-2.4-4.8-4.8-4.8ZM41.199 82.8l-18-60c-1.2-2.4-3.6-3.6-6.399-2.799l-6 2.001c-2.001.4-3.201 2.4-3.201 4.401l-3.6 57.6c0 2.8 2.001 4.8 4.401 5.2h27.999c2.799 0 4.8-2.002 4.8-4.8.399-.4 0-1.204 0-1.603Zm47.202-56.4c0-2-1.2-3.6-3.2-4.4l-6-2.4c-2.4-.802-5.2.398-6 2.798l-18 60c-.802 2.4.8 5.2 3.2 6 .4 0 .801.4 1.6.4h27.6c2.798 0 4.8-2.002 4.8-4.8l-4-57.598Z">
                 </path>
               </svg>
-  
+
               <span>Providers</span>
             </a> -->
 
@@ -106,8 +106,8 @@
 
 
           <a class="tab-item" *ngFor="let item of navList, let ii = index" [ngClass]="{'!ml-0': ii === 0, '[@media(max-width:1024px)]:hover:!bg-transparent':ii !== tabIndex }"
-            [routerLink]="getRouterLink(item.title)" routerLinkActive="active-tab"
-            [routerLinkActiveOptions]="{exact: item.title === 'Lobby'}" (click)="scrollTabToCenter(ii)">
+          [routerLink]="getRouterLink(item.title)"  routerLinkActive="active-tab"
+            [routerLinkActiveOptions]="{exact: item.title === 'Lobby'}" (click)="scrollTabToCenter(ii);setEventId(item)">
 
             <img [src]="item.icon" alt="" class="max-h-[14px] max-w-[14px]"
               [ngClass]="{'filter-white':item.title === 'Lobby' || item.title === 'Universe Originals' || item.title === 'Providers'}">

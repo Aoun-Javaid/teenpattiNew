@@ -58,7 +58,7 @@ export class BetCoinComponent implements OnInit {
     this.getStackData();
     this.toggleService.getStakeChanged().subscribe((res: any) => {
       if (res) {
-        console.log('socins')
+        // console.log('socins')
         this.getStackData();
         this.toggleService.setStakeChanged(false);
       }
