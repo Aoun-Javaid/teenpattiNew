@@ -355,6 +355,15 @@
   }
 }
 
+.inner-circle {
+  width: calc(100% - 27%);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 57%;
+}
+
 .result-box {
   height: 25px;
   width: 18px;
