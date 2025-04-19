@@ -312,3 +312,13 @@ div.scale-up.svelte-tgp09d {
 .active {
   color: #1475e1 !important;
 }
+.msg_box_memo{
+  font-size: .75rem;
+  justify-content: center;
+/* margin: 5px; */
+}
+.msg_box_memo > span{
+  background: #213743;
+    padding: 3px 10px;
+    border-radius: 13px;
+}

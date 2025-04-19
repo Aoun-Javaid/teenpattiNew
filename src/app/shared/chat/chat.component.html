@@ -55,9 +55,11 @@
 
     <div class="messages-container">
       <div class="messages scrollY ">
-        <div class="msg_box_date"><span>Sunday</span> <span>12:34 PM</span></div>
+        <div class="msg_box_date"> <span>{{ now | date:'EEEE' }}</span>
+          <span>{{ now | date:'hh:mm a' }}</span></div>
+
         @for (item of casinoChat; track $index) {
-        <div class="msg_box mt-[.5rem]">
+        <div class="msg_box mt-[.5rem]" *ngIf="!item.memoMessage">
           <div class="content">
             <div
               class="weight-normal line-height-default align-left size-default text-size-default variant-highlighted w-full text-white">
@@ -82,13 +84,14 @@
                   </span>
                   <button type="button" tabindex="0"
                     class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-grey-200 betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:text-white focus-visible:outline-none text-sm leading-normal">
-                    demo
+                    {{item.username}}
                   </button>
                 </div>
-              </div>: {{item.content}}
+              </div>: {{item.msg}}
             </div>
           </div>
         </div>
+        <div class="msg_box_date msg_box_memo mt-[.5rem]" *ngIf="item.memoMessage"><span>{{item.memoMessage}}</span></div>
         }
         <div class="msg_box mt-[.5rem]" *ngIf="casinoChat.length>12" id="lastchildMsg">
 

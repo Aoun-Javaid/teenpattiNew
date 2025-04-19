@@ -17,8 +17,8 @@ export class WebSocketService {
   connect(token: string): void {
     this.socket = io(BASE_URL_WS, {
         transports: ['websocket'],
-        path: '/csp-chat/',  // Specify the correct path for WebSocket namespace
-        query: { token },  // Pass token and project ID
+        path: '/csp-chat/',
+        query: { token },  
     });
 
     this.socket.on('connect', () => {

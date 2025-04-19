@@ -17,8 +17,10 @@ import { ChatDetailsModalComponent } from "../../Modals/chat-details-modal/chat-
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css',
 })
-export class ChatComponent implements OnInit,AfterViewInit {
+export class ChatComponent implements OnInit {
+  readonly now = Date.now();
   text: any;
+  currentRoom:any;
   casinoChat: any = [];
   itemImg = '/languages/english.svg'
   connectedUsers: any;
@@ -37,7 +39,7 @@ export class ChatComponent implements OnInit,AfterViewInit {
   isMobileInfo: any;
   langList: boolean = false;
   selectedIndex: number | null = null;
-
+  memoMessage:any;
   languages = [
     { title: 'English', img: '/languages/english.svg' },
     { title: 'Sports', img: '/languages/sport.svg' },
@@ -57,12 +59,7 @@ export class ChatComponent implements OnInit,AfterViewInit {
     private toaster: ToastrService,
     private deviceService: DeviceDetectorService,
   ) { }
-  ngAfterViewInit(): void {
-    // let obj = {
-    //   show: true,
-    // };
-    // this.modalsService.setChatDetailsModal(obj);
-  }
+
   ngOnInit(): void {
     this.isMobileInfo = this.deviceService.os;
     this.hideSideBar = true;
@@ -77,21 +74,21 @@ export class ChatComponent implements OnInit,AfterViewInit {
     this.socketService.connect(this.token);
 
     this.socketService.onEvent('loadConnectedClients', (data) => {
-      // console.log('Received loadConnectedClients:', data);
       this.connectedUsers = data;
     });
-    this.socketService.onEvent('chatMessage', (data) => {
-      console.log('Received chatMessage:', data);
-      // this.connectedUsers = data;
-    });
+
     this.socketService.onEvent('roomCount', (data) => {
-      console.log('Received roomCount:', data);
-      // this.connectedUsers = data;
+      this.connectedUsers = data.count;
+    });
+    this.socketService.onEvent('memoMessage', (data:any) => {
+      let obj:any={}
+      obj.memoMessage = data;
+      this.updateIncomingMessage(obj);
     });
 
-    this.socketService.onEvent('loadNewMessage', (data) => {
+
+    this.socketService.onEvent('chatMessage', (data) => {
       this.updateIncomingMessage(data);
-      // console.log('Received message event:', data);
     });
 
     this.toggle.getProfileMobSidebarState().subscribe((val: boolean) => {
@@ -144,6 +141,7 @@ export class ChatComponent implements OnInit,AfterViewInit {
     });
   }
   closeMobSideBar() {
+    this.socketService.sendMessage('leaveRoom', this.currentRoom);
     this.toggle.setChatMobSidebarState(false);
     this.toggle.setMobileNavState(null)
   }
@@ -154,7 +152,7 @@ export class ChatComponent implements OnInit,AfterViewInit {
       this.toaster.error(this.resultMessage);
     }
     if (this.text != '' && result.isValid) {
-      this.socketService.sendMessage('newMessage', { content: this.text });
+      this.socketService.sendMessage('chatMessage', { message: this.text,room: this.currentRoom });
       this.text = '';
     }
   }
@@ -272,7 +270,12 @@ export class ChatComponent implements OnInit,AfterViewInit {
       this.langList = true;
     }
   }
-  handleDataFromChild(data:any){
-    console.log('Data received from child:', data);
+
+   handleDataFromChild(data: any): any {
+    this.currentRoom = data.room;
+    this.socketService.sendMessage('joinRoom', {
+      username: data.username,
+      room: data.room
+    });
   }
 }
