@@ -1,0 +1,157 @@
+.popup-overlay {
+  position: fixed;
+  inset: 0px;
+  display: flex;
+  z-index: 1560;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  pointer-events: auto;
+  font-size: 12px;
+  font-family: 'Proxima Nova', sans-serif;
+}
+
+.popup-content {
+  position: relative;
+  margin: auto;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px, rgb(0, 20, 20) 0px 0px 20px 6px;
+  pointer-events: auto;
+  width: 95%;
+  max-width: 500px;
+  border-radius: .5rem;
+  font-family: 'Proxima Nova', sans-serif;
+}
+
+.modal-main-content-wrapper {
+  @apply bg-[#1a2c38] rounded-[.5rem];
+}
+
+.modal-header-container {
+  @apply p-[15px] flex items-center justify-between w-full;;
+}
+
+.modal-title {
+  @apply text-[16px] text-[#b1bad3] font-black;
+  font-weight: 600;
+}
+
+.common-button {
+  background-image: linear-gradient(180deg, #fff, #eee 89%);
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 0 0 #ffffff80;
+  color: #1e1e1e;
+  font-size: 12px;
+  font-weight: 800;
+  font-family: 'Proxima Nova', sans-serif;
+  @apply px-2 leading-[26px] py-[6px];
+}
+
+.common-button:hover {
+  background-image: linear-gradient(0deg, #fff, #ececec 89%);
+  box-shadow: inset 0 0 0 0 #ffffff80;
+  text-decoration: none;
+}
+
+.content-container {
+  padding-right: 1rem;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    gap: 1rem;
+}
+.list-decimal{
+  padding-right: 1rem;
+    padding-left: 1rem;
+}
+li::marker{
+  color: #b1bad3;
+}
+ol.list-decimal > li > span{
+  font-size: .875rem;
+  font-family: 'Proxima Nova', sans-serif;
+  color: #b1bad3;
+  line-height: 1.5;
+  text-align: left;
+  font-weight: 400;
+}
+ol.list-decimal>*+* {
+  margin-top: .5rem
+}
+.current-title {
+  @apply col-span-3 text-[12px] text-[#1e1e1e] font-semibold;
+}
+
+.point-log-container {
+  @apply col-span-9 flex items-center justify-between;
+}
+
+.point {
+  @apply text-[16px] text-[#1e1e1e] font-black;
+}
+
+.current-content-container {
+  @apply grid grid-cols-12 gap-3 items-center mb-[10px];
+}
+
+.new-title{
+    @apply col-span-4 text-[12px] text-[#1e1e1e] font-semibold
+}
+
+.input{
+    @apply w-full outline-none rounded p-[5px] text-[12px] text-[#1e1e1e] font-black shadow-[rgba(0,0,0,0.5)_0px_1px_0px_inset]
+}
+
+.submit-container{
+    @apply flex items-center justify-center p-[15px]
+}
+
+.submit-btn{
+    @apply rounded px-2 text-[13px] h-[25px] font-black w-[140px] flex items-center justify-center bg-[linear-gradient(rgb(53,53,53),rgb(17,17,17))] text-[rgb(236,173,23)]
+}
+
+.crossBtn{
+  font-size: 1rem;
+  font-weight: 600;
+  color: #b1bad3;
+  cursor: pointer;
+}
+.content {
+  padding-right: 1rem;
+  padding-left:  1rem;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+  gap:  1rem;
+}
+.title-wrap{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Proxima Nova', sans-serif;
+}
+.title{
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+     font-family: 'Proxima Nova', sans-serif;
+
+}
+.userName{
+  color: white;
+    background: #0f212e;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+    border: 2px solid #2f4553;
+    border-radius: 0.25rem;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+select{
+  font-weight: 600;
+}
+.userName:focus-visible {
+  outline: none;
+}

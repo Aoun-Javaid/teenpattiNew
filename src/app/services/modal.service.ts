@@ -8,6 +8,7 @@ export class ModalService {
   betsDetailsModal = new Subject<any>();
   chatRulesModal = new Subject<any>();
   casinoResultModal = new Subject<any>();
+  chatDetailsModal= new Subject<any>();
 
   constructor() { }
 
@@ -26,6 +27,15 @@ export class ModalService {
   setChatRulesModal(val: any) {
     this.chatRulesModal.next(val);
   }
+
+  getChatDetailsModal() {
+    return this.chatDetailsModal;
+  }
+
+  setChatDetailsModal(val: any) {
+    this.chatDetailsModal.next(val);
+  }
+
 
   getCasinoResulttModal() {
     return this.casinoResultModal;
