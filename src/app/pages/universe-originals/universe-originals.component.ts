@@ -98,7 +98,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
   }
   ngOnDestroy(): void {
     this.universeProviderGames = []
-    console.log('remove data', this.universeProviderGames);
+    // console.log('remove data', this.universeProviderGames);
     this.isSwiperInitialized = false;
   }
 

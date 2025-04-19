@@ -119,7 +119,7 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.networkService
       .getAllRecordsByPost(CONFIG.getAutoCashoutMultiplier, {})
       .subscribe((data: any) => {
-        console.log('', data);
+        // console.log('', data);
         if (data.data) {
           data.data.forEach((element: any) => {
             this.autoCashOut[element.cashOutSelection].value =
