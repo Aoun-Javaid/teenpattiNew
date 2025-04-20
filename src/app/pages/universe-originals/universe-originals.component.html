@@ -14,7 +14,7 @@
                 </svg>
                 @for (item of navList; track $index) {
                 <img [src]="item?.icon" alt="" *ngIf="item?.title.toLowerCase().split(' ').join('-') === providerName"
-                    class="max-h-[18px]   max-w-[18px] h-auto w-[18px]"
+                    class="max-h-[16px]   max-w-[16px] h-auto w-[16px]"
                     [ngClass]="{'white-icon':item?.title.toLowerCase().split(' ').join('-') === 'universe-originals' || item?.title.toLowerCase().split(' ').join('-') === 'providers' }">
 
                 }
