@@ -117,13 +117,13 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
 
 
 
-    // this.mainService.getNavigationList().subscribe((res: any) => {
-    //   if (res) {
-    //     this.navList = res.sort((a: any, b: any) => a.sequence - b.sequence);;
-    //     // universeId:
-    //     this.getUniverseOriginals('67728edcff8aeae796164df3');
-    //   }
-    // });
+    this.mainService.getNavigationList().subscribe((res: any) => {
+      if (res) {
+        this.navList = res.sort((a: any, b: any) => a.sequence - b.sequence);;
+        // universeId:
+        // this.getUniverseOriginals('67728edcff8aeae796164df3');
+      }
+    });
 
   }
 
