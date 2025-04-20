@@ -93,6 +93,7 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
       let navId = localStorage.getItem('navId');
       // console.log('navId data', navId);
       this.getprovidersNavigations(navId);
+      console.log('providerName', this.providerName);
     });
 
   }
@@ -254,16 +255,16 @@ export class UniverseOriginalsComponent implements OnInit, AfterViewInit, OnDest
 
     // idhr provider navigation me se id ki base pr data lena hai...
 
-    // this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
-    //   if (res) {
-    //     const filterIndex = res
-    //     const filterArr = filterIndex.filter((item: any, index: number) => item.gameName !== null);
-    //     this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
-    //     // this.universeProviderGames = this.navProviderList.filter((game: any) => (game.providerTitle.includes(this.providerName) && game.gameId !== null));
-    //     this.universeProviderGames = filterArr
-    //     console.log('this.universeProviderGames', this.universeProviderGames);
-    //   }
-    // });
+    this.mainService.getProvidersNavigationsList().subscribe((res: any) => {
+      if (res) {
+        const filterIndex = res
+        const filterArr = filterIndex.filter((item: any, index: number) => item.gameName !== null);
+        this.navProviderList = res.sort((a: any, b: any) => a.gameSequence - b.gameSequence);
+        // this.universeProviderGames = this.navProviderList.filter((game: any) => (game.providerTitle.includes(this.providerName) && game.gameId !== null));
+        this.universeProviderGames = filterArr
+        console.log('this.universeProviderGames', this.universeProviderGames);
+      }
+    });
   }
 
   updateNavigationButtons() {
