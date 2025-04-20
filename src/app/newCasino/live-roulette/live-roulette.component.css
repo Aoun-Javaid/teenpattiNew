@@ -2154,10 +2154,22 @@
 
 .circle-result {
   transform: scale(0.78);
-  left: -1.4rem;
+  left: 1rem;
   top: 3.5rem;
+}
 
-  @apply min-[1512px]:scale-90 min-[1512px]:left-4 min-[1512px]:top-10;
+@media (max-width: 1360px) {
+  .circle-result {
+    transform: scale(0.78);
+    left: -1.4rem;
+    top: 3.5rem;
+  }
+}
+
+@media (min-width: 1512px) {
+  .circle-result {
+    @apply scale-90 left-4 top-10;
+  }
 }
 
 .v-shape {
