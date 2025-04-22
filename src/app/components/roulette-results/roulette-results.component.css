@@ -51,10 +51,11 @@
 }
 
 .svg-roulette {
-  min-width: 370px;
+  min-width: 354px;
   position: absolute;
-  bottom: -10px;
-  left: -15px;
+  bottom: -151px;
+  left: -1px;
+  width: 180px;
 }
 
 .svg-bg {
@@ -276,6 +277,14 @@
 }
 
 @media (max-width: 1360px) {
+  .svg-roulette {
+    min-width: 334px;
+    position: absolute;
+    bottom: -142px;
+    left: -2px;
+    width: 180px;
+  }
+
   .svg-bg {
     @apply w-[319px] h-20;
   }
@@ -475,6 +484,14 @@
 }
 
 @media (min-width: 1512px) {
+  .svg-roulette {
+    min-width: 395px;
+    position: absolute;
+    bottom: -168px;
+    left: 1px;
+    width: 180px;
+  }
+
   .svg-bg {
     position: absolute;
     width: 376px;
