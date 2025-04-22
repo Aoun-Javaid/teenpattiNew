@@ -9,7 +9,7 @@
             class="inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-transparent text-white betterhover:hover:bg-transparent betterhover:hover:text-white focus-visible:outline-none text-sm leading-none [&amp;_svg]:text-grey-200 [&amp;:hover>svg]:text-white"
             spacing="normal" aria-label="Open Dropdown">
             <img [src]="itemImg" [alt]="itemImg" class="max-h-[14px] max-w-[14px]">
-            <span>{{itemTitle}}</span>
+            <span>{{currentRoom}}</span>
             <svg [ngClass]="{'!rotate-180': langList}" fill="currentColor" viewBox="0 0 64 64"
               class="svg-icon transition-transform duration-500 ease-in-out" style="transform: rotate(0deg);">
               <title></title>
@@ -28,7 +28,7 @@
             @for (item of languages; track $index) {
             <li (click)="setActive($index, item.title, item.img)" class="p-3 flex gap-1 items-center">
               <img [src]="item.img" alt="" class="max-h-[14px] max-w-[14px]">
-              <span [class.active]="itemTitle === item.title">{{item.title}}</span>
+              <span [class.active]="currentRoom === item.title">{{item.title}}</span>
             </li>
             }
           </ul>
@@ -155,4 +155,4 @@
 <app-chat-rules-modal></app-chat-rules-modal>
 }
 
-<app-chat-details-modal (dataSent)="handleDataFromChild($event)"></app-chat-details-modal>
+<!-- <app-chat-details-modal (dataSent)="handleDataFromChild($event)"></app-chat-details-modal> -->

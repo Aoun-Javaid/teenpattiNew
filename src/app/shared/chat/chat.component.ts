@@ -21,11 +21,10 @@ export class ChatComponent implements OnInit {
   readonly now = Date.now();
   text: any;
   charsLeft=160;
-  currentRoom:any;
   casinoChat: any = [];
   itemImg = '/languages/english.svg'
   connectedUsers: any;
-  itemTitle = 'English';
+  currentRoom = 'English';
   token: any;
   mobSidebarState: boolean = false;
   hideSideBar: boolean = false;
@@ -122,7 +121,7 @@ export class ChatComponent implements OnInit {
               this.modalsService.setChatDetailsModal(obj);
             }, 100);
           }
-
+          this.connectSocket();
         }, 700);
 
       }
@@ -142,6 +141,12 @@ export class ChatComponent implements OnInit {
       } else {
         this.hideSideBar = false;
       }
+    });
+  }
+  connectSocket(){
+    this.socketService.sendMessage('joinRoom', {
+      username: 'anonymous',
+      room: this.currentRoom
     });
   }
   closeMobSideBar() {
@@ -267,7 +272,16 @@ export class ChatComponent implements OnInit {
 
   setActive(index: number, title: any, itemImg: any) {
     this.itemImg = itemImg
-    this.itemTitle = title;
+
+    if(this.currentRoom && this.currentRoom=='English'){
+      this.socketService.sendMessage('leaveRoom', this.currentRoom);
+    }
+    this.currentRoom = title;
+    this.socketService.sendMessage('joinRoom', {
+      username: 'anonymous',
+      room: this.currentRoom
+    });
+
     this.selectedIndex = index;
     this.langList = false;
   }
@@ -283,7 +297,7 @@ export class ChatComponent implements OnInit {
    handleDataFromChild(data: any): any {
     this.currentRoom = data.room;
     this.socketService.sendMessage('joinRoom', {
-      username: data.username,
+      username: 'anonymous',
       room: data.room
     });
   }
