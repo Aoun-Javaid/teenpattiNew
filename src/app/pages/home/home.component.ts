@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   ElementRef,
@@ -69,6 +70,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // swiperInstance: Swiper;
   constructor(private router: Router,
     private activeRoute: ActivatedRoute,
+    private cdr: ChangeDetectorRef,
     private mainService: MainService) {
 
   }
@@ -163,9 +165,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
     //   });
     // }, 400);
 
-    setTimeout(() => {
+   
+
+    Promise.resolve().then(() => {
       this.forBlink = true
-    }, 0);
+      this.cdr.detectChanges();
+    });
 
   }
 
