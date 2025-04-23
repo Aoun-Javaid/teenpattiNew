@@ -40,6 +40,7 @@ export class ChatComponent implements OnInit {
   langList: boolean = false;
   selectedIndex: number | null = null;
   memoMessage:any;
+  userInfo:any;
   languages = [
     { title: 'English', img: '/languages/english.svg' },
     { title: 'Sports', img: '/languages/sport.svg' },
@@ -61,6 +62,7 @@ export class ChatComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.userInfo = JSON.parse(localStorage.getItem('userDetail') as string)
     this.isMobileInfo = this.deviceService.os;
     this.hideSideBar = true;
     this.getMobSidebarState();
@@ -144,8 +146,9 @@ export class ChatComponent implements OnInit {
     });
   }
   connectSocket(){
+    let username = this.userInfo?.userName ? this.userInfo?.userName:'anonymous'
     this.socketService.sendMessage('joinRoom', {
-      username: 'anonymous',
+      username: username,
       room: this.currentRoom
     });
   }
@@ -277,10 +280,8 @@ export class ChatComponent implements OnInit {
       this.socketService.sendMessage('leaveRoom', this.currentRoom);
     }
     this.currentRoom = title;
-    this.socketService.sendMessage('joinRoom', {
-      username: 'anonymous',
-      room: this.currentRoom
-    });
+
+    this.connectSocket();
 
     this.selectedIndex = index;
     this.langList = false;
