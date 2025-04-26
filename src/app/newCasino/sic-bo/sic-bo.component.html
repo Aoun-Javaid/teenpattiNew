@@ -1307,7 +1307,7 @@
     </div>
     <div class="sicBo__controls-bEHBgU">
       <div class="controlsPanel-mDHDjp controlsPanel_state_waiting-L0UDJt">
-        <div class="btn-wrapper">
+        <div class="btn-wrapper" [ngClass]="{'opacity-0':btnAnimation === true}">
           <button class="secbo-btn">
             <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -1330,6 +1330,7 @@
               ? 'absolute bottom-[-30px] z-30 justify-between  py-4 !pb-0 '
               : '!py-0 !pb-0'
           ">
+          
 
           <div class="flex flex-col gap-2" [ngClass]="{ 'btn-animation':btnAnimation, 'btn-animation-back':!btnAnimation}">
             <div class="relative [@media(min-width:390px)_and_(max-width:412px)]:w-[51px] [@media(min-width:390px)_and_(max-width:412px)]:h-[51px] [@media(min-width:414px)_and_(max-width:430px)]:w-[54px] [@media(min-width:414px)_and_(max-width:430px)]:h-[54px] [@media(min-width:430px)_and_(max-width:767px)]:w-[57px] [@media(min-width:430px)_and_(max-width:767px)]:h-[57px]  h-[48px] w-[48px]  md:w-[75px] md:h-[75px] [@media(min-width:820px)]:w-[87px] [@media(min-width:820px)]:h-[87px] lg:!h-[99px] lg:!w-[99px]">
@@ -1573,7 +1574,7 @@
                 </div>
               </div>
 
-              <button class="mt-5 secbo-btn" (click)="closeBetCoin($event)" *ngIf="openCoinBarState">
+              <button class="mt-[14px] secbo-btn" (click)="closeBetCoin($event)" *ngIf="openCoinBarState">
                 <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg">
                   <path d="M4 4l16 16m0-16L4 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
