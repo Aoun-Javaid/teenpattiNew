@@ -7,7 +7,7 @@
     </div>
     <div class="[@media(max-width:768px)]:hidden gradient-_9dd5n gradient_desktop-UoLq1h"></div>
     <div class="table-area w-full h-screen">
-        <div class="table-wrapper md:pb-[3.5rem] xl:!pb-0 xl:!mb-0 xl:items-center">
+        <div #tableWrapper class="table-wrapper md:pb-[3.5rem] xl:!pb-0 xl:!mb-0 xl:items-center">
             <div class="parent relative">
                 <div class="text zero-box">0</div>
                 <div class="text count-cell cell div1">1</div>
@@ -122,7 +122,7 @@
         <div class="sicBo__controls-bEHBgU xl:hidden">
             <div class="controlsPanel-mDHDjp controlsPanel_state_waiting-L0UDJt">
                 <div class="btn-wrapper">
-                    <button class="secbo-btn">
+                    <button (click)="scaleMarket()" class="secbo-btn">
                         <svg class="svgIcon-JpUo7O svgIcon_default-OFLILg" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path d="M9 8a3 3 0 116 0v8a3 3 0 11-6 0V8z" fill="currentColor"></path>
