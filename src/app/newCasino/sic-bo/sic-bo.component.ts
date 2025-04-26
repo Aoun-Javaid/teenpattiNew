@@ -85,12 +85,12 @@ export class SicBoComponent implements OnInit, AfterViewInit {
     }
     else if (this.screenWith >= 414 && this.screenWith < 430) {
       this.btnYValue = '-100vh + 700px'
-      this.move_center_back_1 = '186px'
-      this.move_center_back_2 = '124px'
-      this.move_center_back_3 = '62px'
-      this.move_center_back_5 = '-62x'
-      this.move_center_back_6 = '-124px'
-      this.btnAnimationValue = '186px'
+      this.move_center_back_1 = '177px'
+      this.move_center_back_2 = '118px'
+      this.move_center_back_3 = '59px'
+      this.move_center_back_5 = '-59px'
+      this.move_center_back_6 = '-118px'
+      this.btnAnimationValue = '177px'
     }
 
 
