@@ -2,9 +2,11 @@ import { CommonModule } from '@angular/common';
 import {
   Component,
   computed,
+  ElementRef,
   HostListener,
   OnInit,
   signal,
+  ViewChild,
 } from '@angular/core';
 import { CONFIG, STACK_VALUE } from '../../../../config';
 import { ToggleService } from '../../services/toggle.service';
@@ -30,6 +32,7 @@ import { RouletteResultsComponent } from '../../components/roulette-results/roul
   styleUrl: './live-roulette.component.css',
 })
 export class LiveRouletteComponent {
+  @ViewChild('tableWrapper') tableWrapper!: ElementRef<HTMLDivElement>;
   RoundWinner: any;
   btnAnimation: any;
   coinAnimateState = false;
@@ -52,6 +55,7 @@ export class LiveRouletteComponent {
   btnAnimationValue: any = '168px';
   game: any;
   resultMode: boolean = false;
+  markTransform: boolean = false;
 
   constructor(
     private toggleService: ToggleService,
@@ -258,5 +262,42 @@ export class LiveRouletteComponent {
 
   private resetAnimation() {
     setTimeout(() => this.animationClass.set(''), 300);
+  }
+
+  scaleMarket() {
+    this.markTransform = !this.markTransform;
+    const width = window.innerWidth;
+    if (this.tableWrapper) {
+      if (width <= 360 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(0.67)';
+      } else if (width > 360 && width <= 375 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(0.52)';
+      } else if (width > 375 && width <= 390 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(0.84)';
+      } else if (width > 390 && width <= 393 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(0.92)';
+      } else if (width > 393 && width <= 414 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(0.95)';
+      } else if (width > 414 && width <= 540 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(0.98)';
+      } else if (width > 540 && width <= 673 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(1)';
+      } else if (width > 673 && width <= 768 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(0.8)';
+      } else if (width > 768 && width <= 820 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(1)';
+      } else if (width > 820 && width <= 912 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(1.14)';
+      } else if (width > 912 && width <= 1152 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(1.12)';
+      } else if (width > 1152 && width <= 1280 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(1.3)';
+      } else if (width >= 540 && width <= 550 && this.markTransform) {
+        this.tableWrapper.nativeElement.style.transform = 'scale(0.66)';
+      } else {
+        this.tableWrapper.nativeElement.style.transform = '';
+      }
+      console.log(this.markTransform, 'Transform applied!');
+    }
   }
 }
