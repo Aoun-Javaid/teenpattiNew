@@ -278,7 +278,7 @@ export class LiveRouletteComponent {
         this.tableWrapper.nativeElement.style.transform = 'scale(0.92)';
       } else if (width > 393 && width <= 414 && this.markTransform) {
         this.tableWrapper.nativeElement.style.transform = 'scale(0.95)';
-      } else if (width > 414 && width <= 540 && this.markTransform) {
+      } else if (width > 414 && width <= 539 && this.markTransform) {
         this.tableWrapper.nativeElement.style.transform = 'scale(0.98)';
       } else if (width > 540 && width <= 673 && this.markTransform) {
         this.tableWrapper.nativeElement.style.transform = 'scale(1)';
